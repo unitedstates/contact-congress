@@ -1,0 +1,120 @@
+bioguide: B001230
+contact_form:
+  method: POST
+  action: http://www.baldwin.senate.gov/contact
+  steps:
+    - visit: http://www.baldwin.senate.gov/contact
+    - select:
+      - name: subject
+        selector: "#subject"
+        value: TOPIC
+        required: Yes
+        options:
+          - Aging and Retirement
+          - Agriculture
+          - Armed Services and Defense
+          - "Arts & Humanities"
+          - Banking
+          - Budget
+          - Congress and Elections
+          - Economy and Jobs
+          - Education
+          - Energy
+          - Environment
+          - Federal Employees
+          - Foreign Relations
+          - Government Contracting
+          - Gun Safety
+          - Healthcare
+          - Homeland Security
+          - Housing
+          - Immigration
+          - Judiciary
+          - Labor
+          - LGBT Issues
+          - Native Americans
+          - Natural Resources
+          - Patents/Intellectual Property
+          - Pensions
+          - Postal Service
+          - Science and Technology
+          - Small Business
+          - Social Security
+          - Sports
+          - Taxes
+          - Telecommunication
+          - Trade
+          - Transportation
+          - Veterans
+          - Womens Issues
+    - find:  # waits for dom element to appear before proceeding
+      - selector: "#continue-form fieldset"
+    - fill_in:
+      - name: fname
+        selector: "#fname"
+        value: NAME_FIRST
+        required: Yes
+      - name: lname
+        selector: "#lname"
+        value: NAME_LAST
+        required: Yes
+      - name: mailing_streetAddress1
+        selector: "#mailing_streetAddress1"
+        value: ADDRESS_STREET
+        required: Yes
+      - name: mailing_streetAddress2
+        selector: "#mailing_streetAddress2"
+        value: ADDRESS_STREET_2
+        required: Yes
+      - name: mailing_city
+        selector: "#mailing_city"
+        value: ADDRESS_CITY
+        required: Yes
+      - name: mailing_zipCode
+        selector: "#mailing_zipCode"
+        value: ZIP5
+        required: Yes
+      - name: home_phone_number
+        selector: "#home_phone_number"
+        value: PHONE
+      - name: work_phone_number
+        selector: "#work_phone_number"
+        value: PHONE_WORK
+      - name: email
+        selector: "#email"
+        value: EMAIL
+        required: Yes
+      - name: verify_email
+        selector: "#verify_email"
+        value: EMAIL
+        required: Yes
+      - name: message
+        selector: "#message"
+        value: MESSAGE
+        required: Yes
+    - select:
+      - name: salutation
+        selector: "#salutation"
+        value: NAME_PREFIX
+        options:
+          - Mr.
+          - Ms.
+          - Mrs.
+          - Mr. and Mrs.
+          - Dr.
+      - name: state
+        selector: "#state"
+        value: ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options: US_STATES
+    - check:
+      - name: response
+        selector: "#response_y"
+    - click_on:
+      - value: Send
+        selector: "#side-search-btn"
+  success:
+    headers:
+      status: 200
+    body:
+      # contains: Thank you

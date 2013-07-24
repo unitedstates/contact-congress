@@ -1,0 +1,110 @@
+bioguide: B000575
+contact_form:
+  method: POST
+  action: ""
+  steps:
+    - visit: http://www.blunt.senate.gov/public/index.cfm/contact-form?p=contact-roy
+    - fill_in:
+      - name: field_4f83841c-3472-434f-9981-a5c91d68b253
+        selector: "#field_4f83841c-3472-434f-9981-a5c91d68b253"
+        value: NAME_PREFIX
+      - name: field_d9d438fc-cf81-44b8-915b-5bff36c9c025
+        selector: "#field_d9d438fc-cf81-44b8-915b-5bff36c9c025"
+        value: NAME_FIRST
+        required: Yes
+      - name: field_83e1f87a-3924-48b3-ae00-115adc633ae9
+        selector: "#field_83e1f87a-3924-48b3-ae00-115adc633ae9"
+        value: NAME_LAST
+        required: Yes
+      - name: field_51d627cb-d6ca-44c8-bc60-6ee5ebb42bc8
+        selector: "#field_51d627cb-d6ca-44c8-bc60-6ee5ebb42bc8"
+        value: ADDRESS_STREET
+        required: Yes
+      - name: field_2182c802-8c04-470b-965a-2b3524fd44fa
+        selector: "#field_2182c802-8c04-470b-965a-2b3524fd44fa"
+        value: ADDRESS_STREET_2
+      - name: field_46305235-87d9-4708-a3d5-8fc54a49fe78
+        selector: "#field_46305235-87d9-4708-a3d5-8fc54a49fe78"
+        value: ADDRESS_CITY
+        required: Yes
+      - name: field_383cf00f-8254-4d45-bc7e-d3c3b3a2f6b8
+        selector: "#field_383cf00f-8254-4d45-bc7e-d3c3b3a2f6b8"
+        value: ADDRESS_ZIP5
+        required: Yes
+      - name: field_6f798c07-d038-46ce-be19-8d706a3e6b88
+        selector: "#field_6f798c07-d038-46ce-be19-8d706a3e6b88"
+        value: PHONE
+      - name: field_8c4a91ac-459d-41dd-b577-43769d4f5798
+        selector: "#field_8c4a91ac-459d-41dd-b577-43769d4f5798"
+        value: EMAIL
+        required: Yes
+      - name: field_1fcd0a32-c2b6-40e7-9d3f-18de98bf7997
+        selector: "#field_1fcd0a32-c2b6-40e7-9d3f-18de98bf7997"
+        value: MESSAGE
+        required: Yes
+    - select:
+      - name: field_30614977-cee4-4a77-ba62-10169d06445b
+        selector: "#field_30614977-cee4-4a77-ba62-10169d06445b"
+        value: ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_ff576494-50ce-42fc-aff0-a14f510dc4d8
+        selector: "#field_ff576494-50ce-42fc-aff0-a14f510dc4d8"
+        value: TOPIC
+        required: Yes
+        options:
+          - Abortion
+          - Agriculture
+          - Animal Rights
+          - Budget/Spending
+          - Business
+          - Civil Rights
+          - Commerce
+          - Congratulations/Birthdays
+          - Crime/Drugs
+          - Debt Ceiling
+          - Defense
+          - Education
+          - Elections
+          - Energy
+          - Environment
+          - Family Values
+          - Foreign Relations
+          - Health
+          - Homeland Security
+          - Housing
+          - Immigration
+          - Intelligence
+          - Jobs
+          - Judiciary
+          - Labor
+          - Medicare
+          - Parks and Public Lands
+          - Pension/Retirement
+          - Postal
+          - Regulatory Reform
+          - Religion
+          - Science/Technology
+          - Second Amendment
+          - Senate Procedure
+          - Small Business
+          - Social Security
+          - Taxes
+          - Telecommunications
+          - Tobacco
+          - Trade
+          - Transportation
+          - Unemployment
+          - Veterans
+          - Water/Rivers
+          - Welfare
+          - Other
+    - click_on:
+      value: Submit
+      selector: "form.uniForm input[type='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      # contains: Thank you
+      # matches: "thank you, [a-z\. ]+ for contacting"

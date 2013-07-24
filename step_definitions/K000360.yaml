@@ -1,0 +1,148 @@
+bioguide: K000360
+contact_form:
+  method:
+  action:
+  steps:
+    - visit: http://www.kirk.senate.gov/?p=comment_on_legislation
+    - fill_out:
+      - name: firstName
+        selector: "#firstName"
+        value: NAME_FIRST
+        maxlength: 100
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: NAME_LAST
+        maxlength: 100
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: ADDRESS_STREET
+        maxlength: 200
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: ADDRESS_STREET_2
+        maxlength: 200
+      - name: city
+        selector: "#city"
+        value: ADDRESS_CITY
+        maxlength: 50
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: ADDRESS_ZIP5
+        maxlength: 10
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: PHONE
+        maxlength: 100
+        required: Yes
+      - name: email
+        selector: "#email"
+        value: EMAIL
+        maxlength: 100
+        required: Yes
+      - name: vemail
+        selector: "#vemail"
+        value: EMAIL
+        maxlength: 100
+        required: Yes
+      - name: messageSubject
+        selector: "#messageSubject"
+        value: SUBJECT
+        maxlength: 75
+        required: Yes
+      - name: message
+        selector: "#message"
+        value: MESSAGE
+        required: Yes
+    - select:
+      - name: Prefix
+        selector: "form#thisForm select[name='Prefix']"
+        value: NAME_PREFIX
+        required: Yes
+        options:
+          - Mr.
+          - Ms.
+          - Mrs.
+          - Mr. and Mrs.
+          - Miss
+          - Dr.
+          - Dr. and Mrs.
+          - Dr. and Mr.
+          - Admiral
+          - Captain
+          - Chief Master Sergeant
+          - Colonel
+          - Commander
+          - Corporal
+          - Father
+          - Lieutenant
+          - Lieutenant Colonel
+          - Master Sergeant
+          - Reverend
+          - Sergeant
+          - Second Lieutenant
+          - ergeant Major  # Yes, really.
+          - Sister
+          - Technical Sergeant
+      - name: State
+        selector: "form#thisForm select[name='State']"
+        value: ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: Subject
+        selector: "form#thisForm select[name='Subject']"
+        value: TOPIC
+        required: Yes
+        options:
+          - Agriculture
+          - Animal Rights
+          - Banking
+          - Budget
+          - Business/Economy
+          - Campaign Finance/Elections
+          - Children/Adoption
+          - Civil Rights
+          - Commerce
+          - Crime/Drugs
+          - Defense/Military
+          - eNewsletter Response
+          - Education
+          - Energy
+          - Environment
+          - Flag Request
+          - Foreign Affairs
+          - Guns
+          - Healthcare
+          - Homeland Security
+          - Housing
+          - Human Rights
+          - Immigration
+          - Internet/Communications
+          - Jobs
+          - Labor
+          - Law Enforcement
+          - Medicare/Medicaid
+          - Other
+          - Postal Issues
+          - Science
+          - Social Security
+          - Taxes
+          - Tours
+          - Trade
+          - Transportation
+          - Unemployment
+          - Veteran's Affairs
+          - Women's Issues
+    - click_on:
+      - value: Submit
+        selector: "form#thisForm input[type='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      # contains: Thank you
+      # matches: "thank you, [a-z\. ]+ for contacting"
