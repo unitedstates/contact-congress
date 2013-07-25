@@ -7,7 +7,7 @@ contact_form:
     - select:
       - name: subject
         selector: "#subject"
-        value: TOPIC
+        value: $TOPIC
         required: Yes
         options:
           - Aging and Retirement
@@ -52,50 +52,50 @@ contact_form:
     - fill_in:
       - name: fname
         selector: "#fname"
-        value: NAME_FIRST
+        value: $NAME_FIRST
         required: Yes
       - name: lname
         selector: "#lname"
-        value: NAME_LAST
+        value: $NAME_LAST
         required: Yes
       - name: mailing_streetAddress1
         selector: "#mailing_streetAddress1"
-        value: ADDRESS_STREET
+        value: $ADDRESS_STREET
         required: Yes
       - name: mailing_streetAddress2
         selector: "#mailing_streetAddress2"
-        value: ADDRESS_STREET_2
+        value: $ADDRESS_STREET_2
         required: Yes
       - name: mailing_city
         selector: "#mailing_city"
-        value: ADDRESS_CITY
+        value: $ADDRESS_CITY
         required: Yes
       - name: mailing_zipCode
         selector: "#mailing_zipCode"
-        value: ZIP5
+        value: $ADDRESS_ZIP5
         required: Yes
       - name: home_phone_number
         selector: "#home_phone_number"
-        value: PHONE
+        value: $PHONE
       - name: work_phone_number
         selector: "#work_phone_number"
-        value: PHONE_WORK
+        value: $PHONE_WORK
       - name: email
         selector: "#email"
-        value: EMAIL
+        value: $EMAIL
         required: Yes
       - name: verify_email
         selector: "#verify_email"
-        value: EMAIL
+        value: $EMAIL
         required: Yes
       - name: message
         selector: "#message"
-        value: MESSAGE
+        value: $MESSAGE
         required: Yes
     - select:
       - name: salutation
         selector: "#salutation"
-        value: NAME_PREFIX
+        value: $NAME_PREFIX
         options:
           - Mr.
           - Ms.
@@ -104,12 +104,13 @@ contact_form:
           - Dr.
       - name: state
         selector: "#state"
-        value: ADDRESS_STATE_POSTAL_ABBREV
+        value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
         options: US_STATES
     - check:
       - name: response
         selector: "#response_y"
+        value: "Y"
     - click_on:
       - value: Send
         selector: "#side-search-btn"
@@ -117,4 +118,4 @@ contact_form:
     headers:
       status: 200
     body:
-      # contains: Thank you
+      contains: Thank you

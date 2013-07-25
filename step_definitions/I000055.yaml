@@ -1,4 +1,4 @@
-bioguide: http://www.isakson.senate.gov/public/index.cfm/email-me
+bioguide: I000555
 contact_form:
   method: POST
   action: ""
@@ -7,54 +7,55 @@ contact_form:
     - fill_in:
       - name: field_ab86600e-030c-4da2-8f14-396a3e48191c
         selector: "#field_ab86600e-030c-4da2-8f14-396a3e48191c"
-        value: NAME_PREFIX
+        value: $NAME_PREFIX
       - name: field_22a9d1cc-bfe4-45f4-aa29-1f4d2585d826
         selector: "#field_22a9d1cc-bfe4-45f4-aa29-1f4d2585d826"
-        value: NAME_FIRST
+        value: $NAME_FIRST
         required: Yes
       - name: field_104d6112-f94a-4d44-9c2c-2888262b2c48
         selector: "#field_104d6112-f94a-4d44-9c2c-2888262b2c48"
-        value: NAME_LAST
+        value: $NAME_LAST
         required: Yes
       - name: field_b3baf8d6-afb0-4679-952f-404a128f4244
         selector: "#field_b3baf8d6-afb0-4679-952f-404a128f4244"
-        value: ADDRESS_STREET
+        value: $ADDRESS_STREET
         required: Yes
       - name: field_c5be6ebd-de31-4209-913d-10617dc5a8ca
         selector: "#field_c5be6ebd-de31-4209-913d-10617dc5a8ca"
-        value: ADDRESS_STREET_2
+        value: $ADDRESS_STREET_2
       - name: field_cab416e9-62e2-4927-8f65-06abd04adfce
         selector: "#field_cab416e9-62e2-4927-8f65-06abd04adfce"
-        value: ADDRESS_CITY
+        value: $ADDRESS_CITY
         required: Yes
       - name: field_f7e42a27-651e-4a5b-83f9-d44122a86aaf
         selector: "#field_f7e42a27-651e-4a5b-83f9-d44122a86aaf"
-        value: ADDRESS_ZIP5
+        value: $ADDRESS_ZIP5
         required: Yes
       - name: field_3d5deefb-35d1-45f5-9663-ca9e70d45d5f
         selector: "#field_3d5deefb-35d1-45f5-9663-ca9e70d45d5f"
-        value: PHONE
+        value: $PHONE
       - name: field_e3e7cb2b-2628-4eae-91e3-8658c92580f5
         selector: "#field_e3e7cb2b-2628-4eae-91e3-8658c92580f5"
-        value: EMAIL
+        value: $EMAIL
         required: Yes
+        # disallow_plus: Yes
       - name: field_6dce4fee-bdb8-4dad-9496-d121f71a4bd9
         selector: "#field_6dce4fee-bdb8-4dad-9496-d121f71a4bd9"
-        value: SUBJECT
+        value: $SUBJECT
         required: Yes
       - name: field_4bbb4940-5fa9-43e1-9f05-0a9eb169c378
         selector: "#field_4bbb4940-5fa9-43e1-9f05-0a9eb169c378"
-        value: MESSAGE
+        value: $MESSAGE
         maxlength: 10000
     - select:
       - name: field_69395e1d-910c-43ca-bd6c-43c2ec98a586
         selector: "#field_69395e1d-910c-43ca-bd6c-43c2ec98a586"
-        value: ADDRESS_STATE_POSTAL_ABBREV
+        value: $ADDRESS_STATE_POSTAL_ABBREV
         reqired: Yes
         options: US_STATES_AND_TERRITORIES
       - name: field_158b2b90-6381-4626-beeb-7b43c917be66
         selector: "#field_158b2b90-6381-4626-beeb-7b43c917be66"
-        value: TOPIC
+        value: $TOPIC
         required: Yes
         options:
           GOV: Other

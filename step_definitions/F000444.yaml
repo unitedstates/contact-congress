@@ -7,48 +7,48 @@ contact_form:
     - fill_in:
       - name: field_6f2ba101-f309-4d6d-94df-6e3a1c86ad7d
         selector: "#field_6f2ba101-f309-4d6d-94df-6e3a1c86ad7d"
-        value: NAME_FIRST
+        value: $NAME_FIRST
         required: Yes
       - name: field_a25e1505-6d87-455e-9f4a-524c8394129a
         selector: "#field_a25e1505-6d87-455e-9f4a-524c8394129a"
-        value: NAME_LAST
+        value: $NAME_LAST
         required: Yes
       - name: field_c7a1518e-cd55-43d5-a88f-2e64293bee0c
         selector: "#field_c7a1518e-cd55-43d5-a88f-2e64293bee0c"
-        value: ADDRESS_STREET
+        value: $ADDRESS_STREET
         required: Yes
       - name: field_50badb9d-9ca8-4474-ba7d-4a1ebf3bdd38
         selector: "#field_50badb9d-9ca8-4474-ba7d-4a1ebf3bdd38"
-        value: ADDRESS_STREET_2
+        value: $ADDRESS_STREET_2
         required: Yes
       - name: field_7ecda6cf-a296-474b-a788-3791f6aca3aa
         selector: "#field_7ecda6cf-a296-474b-a788-3791f6aca3aa"
-        value: ADDRESS_CITY
+        value: $ADDRESS_CITY
         required: Yes
       - name: field_6a483fd1-64eb-47c4-842f-35e8e9fa3b71
         selector: "#field_6a483fd1-64eb-47c4-842f-35e8e9fa3b71"
-        value: ADDRESS_ZIP5
+        value: $ADDRESS_ZIP5
         required: Yes
       - name: field_5eddfd5f-d667-43c1-9db0-ae36e2814cc3
         selector: "#field_5eddfd5f-d667-43c1-9db0-ae36e2814cc3"
-        value: PHONE
+        value: $PHONE
         required: Yes
       - name: field_7e770959-172a-4c9d-8720-67a027916b7d
         selector: "#field_7e770959-172a-4c9d-8720-67a027916b7d"
-        value: EMAIL
+        value: $EMAIL
         required: Yes
       - name: field_73afa19a-4375-49c3-b145-a618657c8ee8
         selector: "#field_73afa19a-4375-49c3-b145-a618657c8ee8"
-        value: SUBJECT
+        value: $SUBJECT
         required: Yes
       - name: field_11c08db8-4bd8-4cb6-bcc5-bcc5f4eb85b4
         selector: "#field_11c08db8-4bd8-4cb6-bcc5-bcc5f4eb85b4"
-        value: MESSAGE
+        value: $MESSAGE
         required: Yes
     - select:
       - name: field_fad36bbe-38f4-44c4-a418-1a7149fe811b
         selector: "#field_fad36bbe-38f4-44c4-a418-1a7149fe811b"
-        value: NAME_PREFIX
+        value: $NAME_PREFIX
         required: Yes
         options:
           - Mr.
@@ -65,12 +65,12 @@ contact_form:
           - Senator
       - name: field_b2e8657c-e546-42d7-97a6-baff33e85780
         selector: "#field_b2e8657c-e546-42d7-97a6-baff33e85780"
-        value: ADDRESS_STATE_POSTAL_ABBREV
+        value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
         options: US_STATES_AND_TERRITORIES
       - name: field_bf07744f-fc8c-45c9-b660-5be4f2aa0b7e
         selector: "#field_bf07744f-fc8c-45c9-b660-5be4f2aa0b7e"
-        value: TOPIC
+        value: $TOPIC
         required: Yes
         options:
           - Animal Rights
