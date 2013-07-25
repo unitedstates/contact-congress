@@ -16,8 +16,10 @@ If you'd like to help:
 * [Fork this repository](https://github.com/unitedstates/congress-contact/fork).
 * Go visit that Senator's website, and fill out a new YAML file describing how to submit the form.
 * Save this file in `/members` as `[bioguide].yaml`, where `[bioguide]` is that member's *Bioguide ID*.
-* If you don't know their Bioguide ID: you can find it by visiting [bioguide.congress.gov](http://bioguide.congress.gov) and looking at the end of the URL for a given member. For example, Sen. Chiesa's profile at `http://bioguide.congress.gov/scripts/biodisplay.pl?index=C001100` means his Bioguide ID is `C001100`.
+* If you don't know their Bioguide ID: you can find it by visiting [bioguide.congress.gov](http://bioguide.congress.gov) and looking at the end of the URL for a given member. For example, Sen. Chiesa's profile at `http://bioguide.congress.gov/scripts/biodisplay.pl?index=C001100` means his Bioguide ID is `C001100`, and so his file would be placed at `/members/C001100.yaml`.
 * When you're done, [submit a pull request](https://github.com/unitedstates/congress-contact/compare/) with the new file.
+
+Suggestions on making this process easier are quite welcome.
 
 ### FAQ
 
@@ -26,9 +28,8 @@ If you'd like to help:
 Several reasons:
 
 * The Senate is a smaller target (100 members) than the House (441 members).
-* Senate contact form URLs are officially and [centrally maintained](https://www.senate.gov/general/contact_information/senators_cfm.xml) in XML.
+* Senate contact form URLs are officially and centrally [maintained in XML](https://www.senate.gov/general/contact_information/senators_cfm.xml).
 * Senate systems are less aggressive about rejecting letters by constituents thought not to be in their district.
-* Senate membership itself has far less turnover, so long term data entropy is lower.
 
 Once the Senate data is good, we'll look at moving on to the House.
 
@@ -42,7 +43,7 @@ But what you **won't** have to do is keep up with Congress' constantly shifting 
 
 You can find detailed, reliable data about every current and historical member of Congress at the [unitedstates/congress-legislators](https://github.com/unitedstates/congress-legislators) project.
 
-The data in that project, also stored as YAML, is easily connect-able to this project via the `bioguide` ID field.
+The data in that project, also stored as YAML, is easily connect-able to this project via each member's Bioguide ID.
 
 ### Who's doing this
 
