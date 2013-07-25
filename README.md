@@ -1,29 +1,49 @@
-congress-contact
-================
+## Contacting Congress
 
-What would it take to enable people and organizations who wish to enable the sending electronic written messages to Congress via the Web?
+This project contains information on how to automatically and successfully submit the contact forms of members of Congress.
 
-### Data Collection
+This is what you need to power any system which aims to collect and submit electronic text from US citizens to their elected members of Congress.
 
-1. **Contact form URLs.** There is no standard contact form URL for House or Senate MOCs.
-  * The [congress-legislators](https://github.com/unitedstates/congress-legislators) project contains this field, but it is only actively kept up to date for the Senate. The Senate, God bless them, [publishes this URL for every member in an XML document](https://www.senate.gov/general/contact_information/senators_cfm.xml).
-  * In rare cases, there may be a public email for a MOC. Right now, newly appointed Sen. Chiesa has an email of `mailto:Senator_Chiesa@Chiesa.Senate.gov` listed in the above XML.
-  * The House explicitly discusses the issue of public MOC emails and contact forms on [House.gov](http://www.house.gov/representatives/find/). The answer is: there's no central listing, up to each member.
+**Current Status**
 
-2. **How these forms are structured.** There is no standard form structure for House or Senate MOCs.
-  * It is likely the forms fall into different categories based on the MOC's underlying website vendor.
-  * Some forms require the submission of CAPTCHAs.
-  * It's possible the forms could be described in a declarative, crowdsourced format.
+We're going through every member of the Senate and codifying their contact form structure into YAML files that follow a simple schema. The `/members` directory already contains a few examples, such as [this description](https://github.com/unitedstates/congress-contact/blob/master/members/B000575.yaml) of how to submit [Roy Blunt's contact form](http://www.blunt.senate.gov/public/index.cfm/contact-form?p=contact-roy).
 
-3. **Ongoing maintenance.** The data collected for 1 and 2 should be expected to change at any time.
-  * There need to be enough invested parties that there are eyes and hands to quickly resolve changes.
-  * When a new Congress takes office in January of odd-numbered years, expect a high amount of entropy.
+### Contributing
 
+If you'd like to help:
 
-### Sending Messages
+* [File a ticket](https://github.com/unitedstates/congress-contact/issues/new) naming the Senator you're claiming.
+* [Fork this repository](https://github.com/unitedstates/congress-contact/fork).
+* Go visit that Senator's website, and fill out a new YAML file describing how to submit the form.
+* Save this file in `/members` as `[bioguide].yaml`, where `[bioguide]` is that member's *Bioguide ID*.
+* If you don't know their Bioguide ID: you can find it by visiting [bioguide.congress.gov](http://bioguide.congress.gov) and looking at the end of the URL for a given member. For example, Sen. Chiesa's profile at `http://bioguide.congress.gov/scripts/biodisplay.pl?index=C001100` means his Bioguide ID is `C001100`.
+* When you're done, [submit a pull request](https://github.com/unitedstates/congress-contact/compare/) with the new file.
 
-It's **not** proposed that this produce one central hosted service useful to any actor. Everyone's needs would be too different, and likely need to connect to existing databases, etc.
+### FAQ
 
-So any outcome here would be code generally useful to anyone wishing to integrate the collected data into their systems.
+**Why just the Senate?**
 
-This could mean anything from a stand-alone application whose interface is an HTTP API, to one or more language-specific "wrappers" that make it easy to work with the data (simulate form submission, etc.).
+Several reasons:
+
+* The Senate is a smaller target (100 members) than the House (441 members).
+* Senate contact form URLs are officially and [centrally maintained](https://www.senate.gov/general/contact_information/senators_cfm.xml) in XML.
+* Senate systems are less aggressive about rejecting letters by constituents thought not to be in their district.
+* Senate membership itself has far less turnover, so long term data entropy is lower.
+
+Once the Senate data is good, we'll look at moving on to the House.
+
+**So I can drop my contract with `[vendor name here]`??**
+
+This is just data. Even once we have data for everyone, you'll still need to build a system that **integrates** this data. There's nothing here for tracking and storing errors and mistakes, strategies for re-trying, or storing any sort of user data or success statistics.
+
+But what you **won't** have to do is keep up with Congress' constantly shifting websites. That's what this project does.
+
+**Submitting the contact form isn't enough. How do I get other data about members of Congress?**
+
+You can find detailed, reliable data about every current and historical member of Congress at the [unitedstates/congress-legislators](https://github.com/unitedstates/congress-legislators) project.
+
+The data in that project, also stored as YAML, is easily connect-able to this project via the `bioguide` ID field.
+
+### Who's doing this
+
+* The Sunlight Foundation is in the process of collecting this data and integrating it into [OpenCongress.org](http://www.opencongress.org).
