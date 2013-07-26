@@ -14,7 +14,7 @@ If you'd like to help:
 
 * [File a ticket](https://github.com/unitedstates/congress-contact/issues/new) naming the Senator you're claiming.
 * [Fork this repository](https://github.com/unitedstates/congress-contact/fork).
-* [Check out the schema](tree/master/documentation/schema.md) we're using to represent the steps involved in filling out a member's web form.
+* [Check out the schema](documentation/schema.md) we're using to represent the steps involved in filling out a member's web form.
 * Go visit that Senator's website, and fill out a new YAML file describing how to submit the form.
 * Save this file in `/members` as `[bioguide].yaml`, where `[bioguide]` is that member's *Bioguide ID*.
 * If you don't know their Bioguide ID: you can find it by visiting [bioguide.congress.gov](http://bioguide.congress.gov) and looking at the end of the URL for a given member. For example, Sen. Chiesa's profile at `http://bioguide.congress.gov/scripts/biodisplay.pl?index=C001100` means his Bioguide ID is `C001100`, and so his file would be placed at `/members/C001100.yaml`.
