@@ -8,7 +8,7 @@ You can [jump to the example](#example) if you just want a quick reference.
 
 ---
 
-## Top-level entities
+## Top-level attributes
 
 The top level of a member's contact schema includes only two fields: `bioguide` and `contact_form`.
 `bioguide` is the legislator's assigned [Bioguide ID](http://bioguide.congress.gov) which can be used to connect this data to other data sources in the [United States project](https://github.com/unitedstates).
@@ -38,7 +38,7 @@ a subset of [Capybara methods](http://rubydoc.info/github/jnicklas/capybara/mast
 - [`uncheck`](#checkuncheckchoose) The opposite of `check`.
 - [`choose`](#checkuncheckchoose) Ticking a specific item in a set of radio 
     buttons.
-- [`click_on`](#select) Clicking a link or `button`, most likely to submit a 
+- [`click_on`](#click_on) Clicking a link or `button`, most likely to submit a 
     `form`.
 
 **success**
