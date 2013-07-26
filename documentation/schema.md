@@ -22,7 +22,7 @@ The HTTP method used to submit the form in all caps, most likely `GET` or `POST`
 
 **action**
 
-The URL the form should submit to. '' can be used to represent the URL the form is located at, but otherwise, this should be an absolute URL like `http://github.com/unitedstates/congress-contact`, rather than `/unitedstates/congress-contact`, even if that is what appears in the form.
+The URL the form should submit to. An empty string ('') can be used to represent the URL the form is located at, but otherwise, this should be an absolute URL like `http://github.com/unitedstates/congress-contact`, rather than `/unitedstates/congress-contact`, even if that is what appears in the form.
 
 **steps**
 
