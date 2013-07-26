@@ -11,7 +11,7 @@ You can [jump to the example](#example) if you just want a quick reference.
 ## Top-level attributes
 
 The top level of a member's contact schema includes only two fields: `bioguide` and `contact_form`.
-`bioguide` is the legislator's assigned [Bioguide ID](http://bioguide.congress.gov) which can be used to connect this data to other data sources in the [United States project](https://github.com/unitedstates).
+`bioguide` is the legislator's assigned [Bioguide ID](http://bioguide.congress.gov) which can be used to connect this data to other data sources in the [unitedstates project](https://github.com/unitedstates).
 `contact_form` is a nested hash of the pertinent details of successfully filling out and validating receipt of the member's contact form.
 
 ## Contact form fields
@@ -96,11 +96,11 @@ The attributes of these steps are the same as those of `fill_in`, and should be 
 
 ### select
 
-Like the other input-related steps, `select`s can list either one or many hashes. Attributes are the same as `fill_in` with the addition of `options`, a list of the possible options which can be selected. In cases where the options are common across several members' forms, a *constant* may be used as a placeholder. Available constants are listed in [constants.yaml](../support/constants.yaml) in this repository. Currently the only available constants are a list of the postal codes of the 50 US states plust DC, and the full list of states and territories. The constants encountered in options lists comprise the keys in `constants.yaml` so the resulting constants hash can be indexed directly with them.
+Like the other input-related steps, `select`s can list either one or many hashes. Attributes are the same as `fill_in` with the addition of `options`, a list of the possible options which can be selected. In cases where the options are common across several members' forms, a *constant* may be used as a placeholder. Available constants are listed in [constants.yaml](../support/constants.yaml) in this repository. Currently the only available constants are a list of the postal codes of the 50 US states plus DC, and the full list of states and territories. The constants encountered in options lists comprise the keys in `constants.yaml` so the resulting constants hash can be indexed directly with them.
 
 ### click_on 
 
-A click_on step terminates the preceding list of input-related steps, by submitting the web form. It is a list containing a hash with only two possible keys: `selector` and `value`. `selector` is the css selector for finding the button or link to click, and `value` is the HTML value attribute if present, both to disambiguate and for the benefit of clients which may be POSTing directly instead of using a headless browser, though this is not recommended. `selector` is the only attribute you must provide/should expect to be guaranteed.
+A click_on step terminates the preceding list of input-related steps, by submitting the web form. It is a list containing a hash with only two possible keys: `selector` and `value`. `selector` is the CSS selector for finding the button or link to click, and `value` is the HTML value attribute if present, both to disambiguate and for the benefit of clients which may be POSTing directly instead of using a headless browser, though this is not recommended. `selector` is the only attribute you must provide/should expect to be guaranteed.
 
 ---
 
