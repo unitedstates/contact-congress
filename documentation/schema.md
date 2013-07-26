@@ -84,6 +84,10 @@ The value of a fill_in step can be a single field, or a list of hashes defining 
 - `required` (ironically, optional): This field will be present if a field *must* 
     be filled out with a value in order for the form to be valid.
 
+**A note on CAPTCHAs**
+
+Contact forms may present a captcha challenge, which of course is difficult to deal with in an automated fashion. CAPTCHAs should be handled as `fill_in` fields with the variable `$CAPTCHA_SOLUTION` as the value. These fields should also describe a `captcha_selector` key for retrieving the captcha image and returning it to a solver of the implementer's choosing.
+
 ### check/uncheck/choose
 
 These steps can also either list one or many hashes. It should be expected that a single form can be filled out with many steps until a `click_on` step is encountered, at which time the form should be submitted.
