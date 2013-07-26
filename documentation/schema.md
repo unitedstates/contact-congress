@@ -4,7 +4,7 @@ This document describes how we're currently translating the process of filling o
 
 This is a working document in that the schema is evloving. While we've based this format heavily on the [Capybara](http://jnicklas.github.io/capybara/) testing framework for ruby, we haven't gotten into the full swing of using the format yet, so things are subject to change **(and open to suggestions!)**
 
-You can [jump to the example](#Example) if you just want a quick reference.
+You can [jump to the example](#example) if you just want a quick reference.
 
 ---
 
