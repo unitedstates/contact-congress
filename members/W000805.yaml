@@ -1,0 +1,143 @@
+bioguide: W000805
+contact_form:
+  method: POST
+  action: ""
+  steps:
+    - visit: http://www.warner.senate.gov/public//index.cfm?p=ContactPage
+    - fill_in:
+      - name:
+        selector:
+        value: $FIRST_NAME
+        required: Yes
+      - name:
+        selector:
+        value: $LAST_NAME
+        required: Yes
+      - name:
+        selector:
+        value: $ADDRESS_STREET
+        required: Yes
+      - name:
+        selector:
+        value: $ADDRESS_STREET_2
+        required: Yes
+      - name:
+        selector:
+        value: $ADDRESS_CITY
+        required: Yes
+      - name:
+        selector:
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name:
+        selector:
+        value: $PHONE
+        required: Yes
+      - name:
+        selector:
+        value: $EMAIL
+        required: Yes
+      - name:
+        selector:
+        value: $SUBJECT
+        required: Yes
+      - name:
+        selector:
+        value: $MESSAGE
+        required: Yes
+    - select:
+      - name:
+        selector:
+        value: $PREFIX
+        required: Yes
+        options:
+          - Mr.
+          - Mrs.
+          - Ms.
+          - Mr. and Mrs.
+          - Dr.
+          - Dr. and Mrs.
+          - Dr. and Mr.
+          - Reverend
+          - Pastor
+          - Sister
+          - RABBI
+          - Imam
+          - OTHMIL
+          - ADMIRAL
+          - COMMANDER
+          - COLONEL
+          - CAPT
+          - GENERAL
+          - LIEUTENANT
+          - LTCOL
+          - LIEUTENANTCOMMANDER
+          - MAJOR
+          - PRIVATE
+          - SERGEANT
+          - SSGT
+      - name:
+        selector:
+        value: $ADDRESS_STATE
+        required: Yes
+        options: US_STATES_AND_MPCS
+      - name:
+        selector:
+        value: $TOPIC
+        required: Yes
+        options:
+          fr.afghan: "Afghanistan"
+          Agr: Agriculture
+          Anim: Animal Welfare
+          Arts: Arts and Humanities
+          FINC: Banking and Financial Services
+          bud: Budget
+          campfinc: Campaign Finance
+          civrgt: Civil Rights
+          fed.wkr: "Civil Service"
+          Clim: Climate Change
+          Def: Defense
+          Bud: Deficit
+          Drugs: Drugs
+          Edu: Education K-12
+          Edu.Hi: "Education - Higher Ed"
+          EDU.LOAN: "Education - Student Loans"
+          Ene: Energy
+          Env: Environment
+          fr: Foreign Affairs
+          gun: Gun Ownership
+          hc.ref: "Healthcare Reform"
+          hc: Health and Wellness
+          hi.tech: "High Technology"
+          Hous: Housing
+          Imm: Immigration
+          ip: Intellectual Property
+          intern: Internships
+          fr.Iraq: "Iraq"
+          emp: Job Creation
+          Lab: Labor
+          mcar.caid: "Medicare/Medicaid"
+          NASA: NASA
+          Nom: Nominations
+          pstl: Postal
+          rephe: Reproductive Health
+          biz.sm: "Small Business"
+          ssec: Social Security
+          JUD: Supreme Court
+          Tax: Taxes
+          comm.telc: "Tellecommunications"
+          ELECT: Term Limits
+          Tour: Tickets and Tours
+          fr.trd: "Trade"
+          Tra: Transportation
+          VET.TRI: "Tricare"
+          Vet: Veterans
+          VOTE: Voting Rights
+    - click_on:
+      - value: Submit
+        selector: "form.uniForm input[type=submit]"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you
