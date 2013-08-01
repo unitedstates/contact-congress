@@ -4,7 +4,7 @@ Collecting contact information for all Senators and Representatives is a huge ta
 
 ## What we're doing
 
-We're in the midst of gathering specific contact form steps for every legislator in congress. The goal is to enable others to build reliable software to streamline the process of contacting several representatives at once, which will enable better data quality in contact submissions over a brute-force approach to form solving.
+We're in the midst of gathering specific contact form steps for every legislator in Congress. The goal is to enable others to build reliable software to streamline the process of contacting several representatives at once, which will enable better data quality in contact submissions over a brute-force approach to form solving.
 
 ## How we're doing it
 
