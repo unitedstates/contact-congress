@@ -10,7 +10,7 @@ We're in the midst of gathering specific contact form steps for every legislator
 
 We're documenting the specific steps involved in successfully filling out a member's contact form--what page(s) to visit, the names and css selectors of the fields, and how they're filled out. If the form uses a captcha, we're taking note of what type it is, and the selector for the challenge.
 
-To codify all of this, we're using a [YAML](http://www.yaml.org) data structure that looks a little bit like [Capybara](http://jnicklas.github.io/capybara/), a Ruby testing framework. It's no important to know Capybara or Ruby to contribute, however. Just look at our [spec documentation](../documentation/schema.md) and [some examples](../members) and you'll start to get the hang of it. If you're unfamiliar with YAML, there's a quick primer below.
+To codify all of this, we're using a [YAML](http://www.yaml.org) data structure that looks a little bit like [Capybara](http://jnicklas.github.io/capybara/), a Ruby testing framework. It's not important to know Capybara or Ruby to contribute, however. Just look at our [spec documentation](../documentation/schema.md) and [some examples](../members) and you'll start to get the hang of it. If you're unfamiliar with YAML, there's a quick primer below.
 
 ## What you can do
 
