@@ -50,21 +50,21 @@ We're using YAML as a serialization format, because it's easy to read and pretty
   
   A hash is a collection of key-value pairs with the ability to nest to an arbitrary depth. This means that the value of a key can be another hash, but it can also be any other data type. In YAML, hashes are defined with a key followed by a colon, space, and then a value. It's important to note that all keys must be unique within the same nesting level. An example of a hash could look like this:
 
-  ```yaml
-  bioguide: L000551
-  ```
+```yaml
+bioguide: L000551
+```
   
   Here, the 'key' is `bioguide`, and the value is `L000551`.
   
   A nested hash could then look like this:
   
-  ```yaml
-  success:
+```yaml
+success:
     headers:
       status: 200
     body:
       contains: Thank you
-  ```
+```
   
   In the structure we've defined here, the key `success` has a value that is another hash, with two keys, `headers` and `body`. Their values are hashes as well, each with a single key, `status` and `contains`, respectively. The value of `status` is the number `200`, and the value of `contains` is a string, `Thank you`
 
@@ -72,21 +72,21 @@ We're using YAML as a serialization format, because it's easy to read and pretty
 
   An array is a collection similar to a hash, only consisting of just values. You can think of it as an ordered list, which here is useful for denoting steps, since the steps don't have unique keys. In YAML, an array is expressed like this:
   
-  ```yaml
+```yaml
   - First item
   - Second item
   - Third item
-  ```
+```
   
   This results in an array of three strings. Each hyphen followed by a space on a new line creates a new item. You could also use hashes as the values of an array:
   
-  ```yaml
+```yaml
   - visit: http://google.com
   - fill_in:
     - input: my_name
   - click_on:
     - button: I'm feeling lucky
-  ```
+```
   
   Here we have an array of three values. The first is a hash with the key `visit` and value `http://google.com`. The second is a hash with the key `fill_in` and a list as a value, denoted by the indented hyphen. The nested list contains a single value, which is a hash, and the same is true of the next item. This is how we define things like lists of individual form fields to perform a certain action on, or a collection of possible options that could be chosen from a select box.
   
