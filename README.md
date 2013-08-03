@@ -10,7 +10,9 @@ We're going through every member of the Senate and codifying their contact form 
 
 ### Contributing
 
-If you'd like to help:
+Read our [contribution guide](https://github.com/unitedstates/contact-congress/blob/master/documentation/how_to_contribute.md) for a fuller description.
+
+But more briefly, if you'd like to help:
 
 * [File a ticket](https://github.com/unitedstates/congress-contact/issues/new) naming the Senator you're claiming.
 * [Fork this repository](https://github.com/unitedstates/congress-contact/fork).
