@@ -1,0 +1,29 @@
+bioguide:
+contact_form:
+  method:
+  action:
+  steps:
+    - visit:
+    - fill_in:
+      - name:
+        selector:
+        value:
+        required: Yes
+    - select:
+      - name:
+        selector:
+        value:
+        required:
+        options:
+    - check:
+      - name:
+        selector:
+        value:
+    - click_on:
+      - value:
+        selector:
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank You
