@@ -1,0 +1,139 @@
+bioguide: C001098
+contact_form:
+  method: POST
+  action: http://www.cruz.senate.gov/webformActionVoiceV2.cfm
+  steps:
+    - visit: http://www.cruz.senate.gov/contact.cfm
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: $NAME_FIRST
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: $NAME_LAST
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: $ADDRESS_STREET_2
+      - name: city
+        selector: "#city"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: $ADDRESS_ZIP
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: $PHONE
+        required: Yes
+      - name: email
+        selector: "#email"
+        value: $EMAIL
+        required: Yes
+      - name: messageSubject
+        selector: "#messageSubject"
+        value: $SUBJECT
+        required: Yes
+      - name: MessageBody
+        selector: "#thisForm textarea[name='MessageBody']"
+        value: $MESSAGE
+        required: Yes
+    - select:
+      - name: Prefix
+        selector: "#thisForm select[name='Prefix']"
+        value: $PREFIX
+        required: Yes
+        options:
+          - Mr.
+          - Mrs.
+          - Ms.
+          - Mr. and Mrs.
+          - Dr.
+          - Dr. and Mrs.
+          - Reverend
+          - Sister
+          - Pastor
+          - The Honorable
+          - Representative
+          - Senator
+      - name: State
+        selector: "#thisForm select[name='State']"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options: US_STATES_AND_MPCS
+      - name: Subject
+        selector: "#thisForm select[name='Subject']"
+        value: $TOPIC
+        required: Yes
+        options:
+          - Abortion
+          - Adoption
+          - Aging
+          - Agriculture
+          - Animal Welfare
+          - Appropriations
+          - Banking
+          - Campaign Finance
+          - Children
+          - Civil Rights
+          - Commerce
+          - Communications
+          - Congratulations
+          - Congressional Issues
+          - Crime
+          - Defense
+          - Drugs
+          - Ecomony
+          - Education Higher
+          - Education K through 12
+          - Elections
+          - Energy
+          - Environment
+          - Family
+          - Food Stamps
+          - Foreign Affairs
+          - Gun Control
+          - Health
+          - Homeland Security
+          - Housing
+          - Immigration
+          - Inauguration
+          - Insurance Health
+          - Insurance Other
+          - Interior
+          - Iran
+          - Iraq
+          - Judiciary
+          - Labor
+          - Medicaid
+          - Medicare
+          - Military
+          - NASA
+          - Nutrition
+          - Other
+          - Patents
+          - Pensions
+          - Securities
+          - Small Business
+          - Social Security
+          - Taxes
+          - Tobacco
+          - Trade
+          - Transportation
+          - Veterans
+          - Welfare
+          - Women's Issues
+    - click_on:
+      - value: Submit
+        selector: "#thisForm input[type='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank You
