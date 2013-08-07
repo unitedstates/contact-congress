@@ -2,9 +2,13 @@
 
 Collecting contact information for all Senators and Representatives is a huge task, thanks so much for helping! This introduction should help you understand the project, and start you out toward contributing.
 
-## What we're doing
+## Why we're doing this
 
-We're in the midst of gathering specific contact form steps for every legislator in Congress. The goal is to enable others to build reliable software to streamline the process of contacting several representatives at once, which will enable better data quality in contact submissions over a brute-force approach to form solving.
+It is not simple or cheap to send emails to members of Congress. Since members don't have an email address, the only way to contact them electronically is to fill out their contact form.
+
+For a public campaign to send any real amount of emails to members of Congress, they need to either reverse engineer all 540-some contact forms, or to pay a campaign vendor a hefty sum of money for the service.
+
+We're building a public domain dataset that describes how to reverse engineer each member's contact form. By creating this data publicly, and distributing its maintenance among interested organizations and the public, it will be much more feasible to operate public campaigns that email members of Congress, without having to pay a vendor or embark on a gargantuan technical investment.
 
 ## How we're doing it
 
