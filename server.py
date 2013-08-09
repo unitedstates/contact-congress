@@ -9,6 +9,10 @@ app.config.from_object('config.ConfigProduction')
 call_methods = ['GET', 'POST'] 
 # could change to just post, when done testing
 
+# TODO - parse congressional data from sunlight labs api
+
+
+
 def site_url(path):
     return app.config['APPLICATION_ROOT'] + path
 
@@ -16,13 +20,14 @@ def site_url(path):
 def create_call():
     citizen_number = request.values.get('citizenNumber', None)
     congress_number = request.values.get('congressNumber', None)
+    
     if app.debug:
         print('running in dev mode. this call will NOT actually be made.')
     # initiate the call
     call = app.config['TW_CLIENT'].calls.create(
         to=citizen_number, 
         from_=app.config['TW_NUMBER'],
-        url=site_url("/calls/connection?congressNumber={}".format(congress_number)))
+        url=site_url("/connection?congressNumber={}".format(congress_number)))
     
     result = jsonify(message=call.status, debugMode=app.debug)
     result.status_code = 200 if call.status != 'failed' else 500
@@ -30,6 +35,9 @@ def create_call():
 
 @app.route('/connection', methods=call_methods)
 def connection():
+    # TODO - take congress id as param - lookup number from 
+    # TODO - lookup zipcode 
+    
     congress_number = request.values.get('congressNumber', None)
     resp = twilio.twiml.Response()
     if congress_number:

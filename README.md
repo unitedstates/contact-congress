@@ -4,7 +4,8 @@ Call Congress
 A simple flask server that connects calls between citizens and their congress person using the Twilio API.
 
 To install locally and run in debug mode use:
-    
+
+    # create ENV variables for TWILIO_DEV_ACCOUNT_SID, TWILIO_DEV_AUTH_TOKEN
     virtualenv venv
     source venv/bin/activate
     pip install -r requirements.txt
