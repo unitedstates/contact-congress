@@ -1,0 +1,114 @@
+bioguide: C000127
+contact_form:
+  method: POST
+  action: http://www.cantwell.senate.gov/public/index.cfm/email-maria
+  steps:
+    - visit: http://www.cantwell.senate.gov/public/index.cfm/email-maria
+    - fill_in:
+      - name: field_da0e97c6-19d2-4b50-b2f6-8cb003e27913
+        selector: "#field_da0e97c6-19d2-4b50-b2f6-8cb003e27913"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_87de2e22-62ae-4520-8b11-964e4d9a438b
+        selector: "#field_87de2e22-62ae-4520-8b11-964e4d9a438b"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_446db533-7685-4b67-bc58-a07786b68350
+        selector: "#field_446db533-7685-4b67-bc58-a07786b68350"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_3723b57c-d046-43d2-a885-daaea4a6b81b
+        selector: "#field_3723b57c-d046-43d2-a885-daaea4a6b81b"
+        value: "$ADDRESS_STREET_2"
+      - name: field_6f684076-6b0b-4e2f-9b0a-556a9bf086f3
+        selector: "#field_6f684076-6b0b-4e2f-9b0a-556a9bf086f3"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_f78762b8-0fa6-4358-a981-ffcbd410b35f
+        selector: "#field_f78762b8-0fa6-4358-a981-ffcbd410b35f"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_ddbb058b-30e2-4dde-b801-e1d7f1f3d45e
+        selector: "#field_ddbb058b-30e2-4dde-b801-e1d7f1f3d45e"
+        value: "$PHONE"
+        required: Yes
+      - name: field_0a235fd8-208a-4e9f-89a1-8365f3da6ebd
+        selector: "#field_0a235fd8-208a-4e9f-89a1-8365f3da6ebd"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_8b3c545e-254e-4902-b51b-d26db60bf711
+        selector: "#field_8b3c545e-254e-4902-b51b-d26db60bf711"
+        value: "$MESSAGE"
+        required: Yes
+      - name: field_113f8513-8ef5-4595-938c-0576c6ee6112
+        selector: "#field_113f8513-8ef5-4595-938c-0576c6ee6112"
+        value: ""
+      - name: field_1826646f-67b8-463e-b9d5-22dfff5fbbdc
+        selector: "#field_1826646f-67b8-463e-b9d5-22dfff5fbbdc"
+        value: ""
+    - select:
+      - name: field_b537a993-bf4a-42c3-bc9f-0e91c0d064f6
+        selector: "#field_b537a993-bf4a-42c3-bc9f-0e91c0d064f6"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Mr. and Mrs."
+          - "Mr. and Mr."
+          - "Mrs. and Mrs."
+          - "Ms."
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Dr. and Mr."
+          - "Reverend"
+          - "Sister"
+          - "Pastor"
+          - "The Honorable"
+          - "Representative"
+          - "Senator"
+      - name: field_2614f508-c6c7-43d9-aaa0-5092a48f926c
+        selector: "#field_2614f508-c6c7-43d9-aaa0-5092a48f926c"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_6544a2ff-bc89-4c03-b786-c7927f5bc6f7
+        selector: "#field_6544a2ff-bc89-4c03-b786-c7927f5bc6f7"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Agriculture": "AGR.GEN"
+          "Border Security": "BOR.SEC"
+          "Budget": "BGT.GEN"
+          "Civil Liberties": "CIVLIB"
+          "Defense": "DEF"
+          "Economy and Jobs": "JOBS"
+          "Education": "ED"
+          "Energy": "ENE.GEN"
+          "Environment": "ENV.GEN"
+          "First Responders": "FEMA"
+          "Foreign Affairs": "FOR.GEN"
+          "Govt. Reform and Oversight": "FDG.GEN"
+          "Gun Violence": "GUN CONTROL"
+          "Health Care": "HLT.GEN"
+          "Housing": "HOU.GEN"
+          "Immigration": "IMM.GEN"
+          "Indian Affairs": "INDIAN"
+          "Law Enforcement": "LAW.ENFORCE"
+          "Miscellaneous": "KM1"
+          "National Security": "NAT.SEC"
+          "Seniors and Social Security": "SS.GEN"
+          "Small Business": "SM BUS"
+          "Taxes": "TAX.GEN"
+          "Technology": "TECH"
+          "Transportation": "TRN.GEN"
+          "Veterans": "VET.GEN"
+    - check:
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for sharing your thoughts with us"

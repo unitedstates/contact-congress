@@ -1,0 +1,206 @@
+bioguide: B000944
+contact_form:
+  method: POST
+  action: http://www.brown.senate.gov/contact
+  steps:
+    - visit: http://www.brown.senate.gov/contact
+    - fill_in:
+      - name: fname
+        selector: "#fname"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lname
+        selector: "#lname"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: mailing_streetAddress1
+        selector: "#mailing_streetAddress1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: mailing_streetAddress2
+        selector: "#mailing_streetAddress2"
+        value: "$ADDRESS_STREET_2"
+      - name: mailing_city
+        selector: "#mailing_city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: mailing_zipCode
+        selector: "#mailing_zipCode"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone_number
+        selector: "#phone_number"
+        value: "$PHONE"
+      - name: email
+        selector: "#email_address"
+        value: "$EMAIL"
+        required: Yes
+      - name: verify_email
+        selector: "#verify_email"
+        value: "$EMAIL"
+        required: Yes
+      - name: comments
+        selector: "#comments"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: salutation
+        selector: "#salutation"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Miss"
+          - "Mr. and Mrs."
+          - "Dr."
+          - "Prof."
+          - "Hon."
+          - "Fr."
+          - "Pastor"
+          - "Sister"
+          - "Rabbi"
+          - "Reverend"
+          - "Chaplain"
+          - "Private"
+          - "Private First Class"
+          - "Private E-2"
+          - "Specialist"
+          - "Specialist 4"
+          - "Specialist 5"
+          - "Specialist 6"
+          - "Specialist 7"
+          - "Lance Corporal"
+          - "Corporal"
+          - "Segeant"
+          - "Platoon Sergeant"
+          - "Staff Sergeant"
+          - "Gunnery Sergeant"
+          - "Sergeant First Class"
+          - "Master Sergeant"
+          - "First Sergeant"
+          - "Master Gunnery Sergeant"
+          - "Sergeant Major"
+          - "Sergeant Major of the Army"
+          - "Sergeant Major of the Marine Corps"
+          - "Command Sergeant Major"
+          - "Warrant Officer"
+          - "Chief Warrant Officer"
+          - "Chief Warrant Officer Two"
+          - "Chief Warrant Officer Three"
+          - "Chief Warrant Officer Four"
+          - "Chief Warrant Officer Five"
+          - "Ensign"
+          - "Lieutenant"
+          - "Lieutenant Junior Grade"
+          - "Second Lieutenant"
+          - "First Lieutenant"
+          - "Lieutenant Commander"
+          - "Commander"
+          - "Captain"
+          - "Major"
+          - "Lieutenant Colonel"
+          - "Colonel"
+          - "Brigadier General"
+          - "Major General"
+          - "Lieutenant General"
+          - "General"
+          - "Rear Admiral"
+          - "Rear Admiral (Upper Half)"
+          - "Rear Admiral (Lower Half)"
+          - "Vice Admiral"
+          - "Admiral"
+          - "Seaman"
+          - "Petty Officer"
+          - "Petty Officer First Class"
+          - "Petty Officer Second Class"
+          - "Petty Officer Third Class"
+          - "Chief Petty Officer"
+          - "Senior Chief Petty Officer"
+          - "Master Chief Petty Officer"
+          - "Master Chief Petty Officer of the Navy"
+          - "Master Chief Petty Officer of the Command"
+          - "Fleet Command Master Chief Petty Officer"
+          - "Force Command Master Chief Petty Officer"
+          - "Master Chief Petty Officer of the Fleet"
+          - "Force Master Chief Petty Officer"
+          - "Master Chief Petty Officer of the Coast Guard"
+          - "Airman"
+          - "Airman First Class"
+          - "Senior Airman"
+          - "Technical Sergeant"
+          - "Senior Master Sergeant"
+          - "Command Chief Master Sergeant"
+          - "Command Master Chief"
+          - "Chief Master Sergeant"
+          - "Fireman"
+          - "Dentalman"
+          - "Hospitalman"
+          - "Constructionman"
+          - "LCDR"
+      - name: mailing_state
+        selector: "#mailing_state"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: county
+        selector: "#county"
+        value: $COUNTY
+        options: DEPENDENT
+      - name: topic
+        selector: "#topic"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Arts & Humanities": "Arts and Humanities"
+          "Animal Welfare": "Animal Welfare"
+          "Agriculture": "Agriculture"
+          "Auto Industry": "Auto Industry"
+          "Civil Rights": "Civil Rights"
+          "Consumer Protection": "Consumer Protection"
+          "Defense & Military": "Defense and Military"
+          "Economic Recovery": "Economic Recovery"
+          "Education": "Education"
+          "Election & Campaign Finance Reform": "Election and Campaign Finance Reform"
+          "Energy": "Energy"
+          "Environment": "Environment"
+          "Federal Budget": "Federal Budget"
+          "Financial Regulation & Banking": "Financial Regulation and Banking"
+          "Foreign Policy": "Foreign Policy"
+          "Gun Control": "Gun Control"
+          "Healthcare Policy": "Healthcare Policy"
+          "Homeland Security": "Homeland Security"
+          "Housing": "Housing"
+          "Immigration": "Immigration"
+          "Internship Information": "Internship Information"
+          "Internship": "Internship"
+          "Jobs/Employment": "Jobs/Employment"
+          "Judiciary & Government Oversight": "Judiciary and Government Oversight"
+          "Labor": "Labor"
+          "Law Enforcement": "Law Enforcement"
+          "Manufacturing": "Manufacturing"
+          "Pensions": "Pensions"
+          "Postal Services": "Postal Services"
+          "Reproductive Rights": "Reproductive Rights"
+          "Request for Help with Federal Agency": "Request for Help with Federal Agency"
+          "Request for Help": "Request for Help"
+          "Science & NASA": "Science NASA"
+          "Service Academy Nominations (Military Academy)": "Service Academy Nominations (Military Academy)"
+          "Service Academies": "Service Academies"
+          "Social Security": "Social Security"
+          "Social Services": "Social Services"
+          "Taxes": "Taxes"
+          "Telecommunications": "Telecommunications"
+          "Trade": "Trade"
+          "Transportation": "Transportation"
+          "Veterans Policy": "Veterans Policy"
+          "Welfare & Poverty": "Welfare and Poverty"
+    - click_on:
+      - value: Submit
+        selector: "#side-search-btn"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been received by my office"
