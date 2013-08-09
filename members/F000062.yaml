@@ -1,0 +1,73 @@
+bioguide: F000062
+contact_form:
+  method: POST
+  action: https://www.feinstein.senate.gov/public/index.cfm/e-mail-me
+  steps:
+    - visit: https://www.feinstein.senate.gov/public/index.cfm/e-mail-me
+    - fill_in:
+      - name: field_0c5a1392-6512-4fa5-a213-eb7e1cbaf1ad
+        selector: "#field_0c5a1392-6512-4fa5-a213-eb7e1cbaf1ad"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_ac791fc0-5e57-4f5e-88d4-6ef9e730f470
+        selector: "#field_ac791fc0-5e57-4f5e-88d4-6ef9e730f470"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_844e2e93-7496-4372-bb04-d0cf157684f0
+        selector: "#field_844e2e93-7496-4372-bb04-d0cf157684f0"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_289b92dd-13e8-40e7-b141-1a02c6acdcea
+        selector: "#field_289b92dd-13e8-40e7-b141-1a02c6acdcea"
+        value: "$ADDRESS_STREET_2"
+      - name: field_c44b713c-04ad-411a-9744-6e7f2ff71898
+        selector: "#field_c44b713c-04ad-411a-9744-6e7f2ff71898"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_64d2124b-a227-4f90-ad83-65dbc8175a69
+        selector: "#field_64d2124b-a227-4f90-ad83-65dbc8175a69"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_d065bdd9-7c1e-4d99-a50e-6a1adae8803b
+        selector: "#field_d065bdd9-7c1e-4d99-a50e-6a1adae8803b"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_130638f0-2eec-4c6b-83be-11e83bb5ced3
+        selector: "#field_130638f0-2eec-4c6b-83be-11e83bb5ced3"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_9444dbc2-bbe1-469d-9b8f-ab10eb838284
+        selector: "#field_9444dbc2-bbe1-469d-9b8f-ab10eb838284"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Miss"
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+          - "Dr."
+          - "Mr. and Mr."
+          - "Mrs. and Mrs."
+      - name: field_1c62db7f-a03b-4bc1-ae3f-816c2ec96b89
+        selector: "#field_1c62db7f-a03b-4bc1-ae3f-816c2ec96b89"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+    - check:
+      - name: field_9646e227-e72f-46de-8968-fa935dbe442d
+        selector: "#field_9646e227-e72f-46de-8968-fa935dbe442d_1"
+        value: Yes
+    - uncheck:
+      - name: field_d9957c6c-c947-4802-92d4-f0ac28dd4b72
+        selector: "#field_d9957c6c-c947-4802-92d4-f0ac28dd4b72_1"
+        value: "NEWSLETTER"
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your comments"

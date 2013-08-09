@@ -1,0 +1,87 @@
+bioguide: C000141
+contact_form:
+  method: POST
+  action: http://www.cardin.senate.gov/contact/
+  steps:
+    - visit: http://www.cardin.senate.gov/contact/
+    - fill_in:
+      - name: salutation
+        selector: "#salutation"
+        value: "$NAME_PREFIX"
+        required: Yes
+      - name: fname
+        selector: "#fname"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lname
+        selector: "#lname"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: mailing_streetaddress1
+        selector: "#mailing_streetaddress1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: mailing_streetaddress2
+        selector: "#mailing_streetaddress2"
+        value: "$ADDRESS_STREET_2"
+      - name: mailing_city
+        selector: "#mailing_city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: mailing_zipcode
+        selector: "#mailing_zipcode"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone_number
+        selector: "#phone_number"
+        value: "$PHONE"
+        required: Yes
+      - name: email_address
+        selector: "#email_address"
+        value: "$EMAIL"
+        required: Yes
+      - name: verify_email
+        selector: "#verify_email"
+        value: "$EMAIL"
+        required: Yes
+      - name: comments
+        selector: "#comments"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: subject
+        selector: "#subject"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Agriculture": "mailtopicag"
+          "Animal Rights": "mailtopican"
+          "Banking and Finance": "mailtopbank"
+          "Budget and Economy": "mailtopicbud"
+          "Business": "mailtopicbs"
+          "Civil Rights": "mailtopiccr"
+          "Defense and Military": "mailtopicdef"
+          "Education": "mailtopiced"
+          "Energy": "mailtopicen"
+          "Environmental Issues": "mailtopicenviro"
+          "Foreign Affairs": "mailtopicforeign"
+          "Gun Control": "mailtopicgun"
+          "Health Care": "mailtopichealth"
+          "Housing": "mailtopichouse"
+          "Judiciary Issues": "mailtopicjudge"
+          "Pensions and Retirement": "mailtopicpension"
+          "Science and Technology": "mailtopicsci"
+          "Telecommunications": "mailtotelecom"
+          "Transportation": "mailtopictran"
+          "Veterans Issues": "mailtopicvet"
+          "Welfare": "mailtopicwelfare"
+          "Other": "mailtopicother"
+    - check:
+    - click_on:
+      - value: Submit
+        selector: "#side-search-btn"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been received by my office"

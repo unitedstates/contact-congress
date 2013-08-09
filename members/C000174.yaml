@@ -1,0 +1,107 @@
+bioguide: C000174
+contact_form:
+  method: POST
+  action: http://www.carper.senate.gov/public/index.cfm/email-senator-carper
+  steps:
+    - visit: http://www.carper.senate.gov/public/index.cfm/email-senator-carper
+    - fill_in:
+      - name: field_e9631d45-016e-495f-9fa4-8cd94db04f33
+        selector: "#field_e9631d45-016e-495f-9fa4-8cd94db04f33"
+        value: "$NAME_PREFIX"
+        required: Yes
+      - name: field_9b220bdf-2254-4fd5-aaac-261352486679
+        selector: "#field_9b220bdf-2254-4fd5-aaac-261352486679"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_f8bb9fb5-9c4f-47dc-bf4e-ec83dba5c7f1
+        selector: "#field_f8bb9fb5-9c4f-47dc-bf4e-ec83dba5c7f1"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_e4ab5648-7530-4794-a6f0-b642d8d8e7e8
+        selector: "#field_e4ab5648-7530-4794-a6f0-b642d8d8e7e8"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_d0e99421-c120-444e-9308-5539dab567fb
+        selector: "#field_d0e99421-c120-444e-9308-5539dab567fb"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_bda8a7f1-6e6b-4e3f-bf31-52ed9b04ad72
+        selector: "#field_bda8a7f1-6e6b-4e3f-bf31-52ed9b04ad72"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_dccd8945-e5c8-4a06-a0c6-ede1b92a97f5
+        selector: "#field_dccd8945-e5c8-4a06-a0c6-ede1b92a97f5"
+        value: "$PHONE"
+      - name: field_de485565-dede-4143-8002-d6809187e021
+        selector: "#field_de485565-dede-4143-8002-d6809187e021"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_0aee09a6-7f4c-4afb-90a1-9ba03526fca0
+        selector: "#field_0aee09a6-7f4c-4afb-90a1-9ba03526fca0"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_366474b1-0115-48e2-ba24-8983cfbcc12c
+        selector: "#field_366474b1-0115-48e2-ba24-8983cfbcc12c"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_576a1858-5b78-4883-b30a-9e699d99bae0
+        selector: "#field_576a1858-5b78-4883-b30a-9e699d99bae0"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Autographed Photograph Request": "Autograph Photo Request"
+          "Thank You": "Thank You"
+          "---------------------------------------------------------------------------------": "Other"
+          "Agriculture": "Agriculture"
+          "Amtrak": "Amtrak"
+          "Animal Rights": "Animal Rights"
+          "Arts and Humanities": "Arts and Humanities"
+          "Banking": "Banking"
+          "Budget": "Budget"
+          "Campaign Finance": "Campaign Finance"
+          "Civil Rights": "Civil Rights"
+          "Consumer Safety": "Consumer Safety"
+          "Crime": "Crime"
+          "Defense": "Defense"
+          "Economy": "Economy"
+          "Education": "Education"
+          "Energy and Gas Prices": "Energy/Gas Prices"
+          "Environment": "Environment"
+          "Foreign Relations": "Foreign Relations"
+          "Federal and State Grants": "Grants~ Federal/State"
+          "Guns and Firearms": "Guns/Firearms"
+          "Hospitals and Health Care": "Health Care General/Hospitals"
+          "Support for Health Care Reform": "Health Care Reform - Support"
+          "Opposition to Health Care Reform": "Health Care Reform - Oppose"
+          "Homeland Security": "Homeland Security"
+          "Housing": "Housing"
+          "Immigration": "Immigration"
+          "Iraq": "Iraq"
+          "Judicial Nominations": "Judicial Nominations"
+          "Labor": "Labor"
+          "Medicare, Medicaid and Prescription Drugs": "Medicare/Medicaid/Prescription Drugs"
+          "Postal Issues": "Postal Issues"
+          "Prime Hook": "Prime Hook"
+          "Reproductive Choice": "Reproductive Choice"
+          "Science and Technology": "Science & Technology"
+          "Senior Citizens": "Seniors"
+          "Social Security": "Social Security"
+          "Tax Reform": "Tax Reform"
+          "Domestic Trade": "Trade - Domestic"
+          "Foreign Trade": "Trade - Foreign"
+          "Transportation": "Transportation"
+          "Telecommunications": "TV/Radio/Internet/Telecommunications"
+          "Veterans": "Veteran's Issues"
+          "Welfare": "Welfare"
+          "Website Questions and Concerns": "Web site Questions/Concerns"
+    - check:
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "so much for contacting me"

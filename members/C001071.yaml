@@ -1,0 +1,138 @@
+bioguide: C001071
+contact_form:
+  method: POST
+  action: http://www.corker.senate.gov/public/index.cfm?p=ContactMe
+  steps:
+    - visit: http://www.corker.senate.gov/public/index.cfm?p=ContactMe
+    - fill_in:
+      - name: field_c8fa410e-b7db-470e-a0c3-42f2c09c90af
+        selector: "#field_c8fa410e-b7db-470e-a0c3-42f2c09c90af"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_3b34fa45-f073-42d7-835e-76062c0e4a90
+        selector: "#field_3b34fa45-f073-42d7-835e-76062c0e4a90"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_9e117f89-c270-468c-adcb-4a5f5720f1d4
+        selector: "#field_9e117f89-c270-468c-adcb-4a5f5720f1d4"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_29d2a69c-65cd-4463-ad0b-15593ebfd806
+        selector: "#field_29d2a69c-65cd-4463-ad0b-15593ebfd806"
+        value: "$ADDRESS_STREET_2"
+      - name: field_b90b2e13-0ab2-4ecf-9cd6-0e3bec79dfe9
+        selector: "#field_b90b2e13-0ab2-4ecf-9cd6-0e3bec79dfe9"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_30d2eaad-cc57-4b7a-850c-34b902400ba5
+        selector: "#field_30d2eaad-cc57-4b7a-850c-34b902400ba5"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_f7804074-553e-4290-ad3f-8a58ebd842b2
+        selector: "#field_f7804074-553e-4290-ad3f-8a58ebd842b2"
+        value: "$PHONE"
+        required: Yes
+      - name: field_4d12afa8-5707-4d30-90ac-c145ed61c761
+        selector: "#field_4d12afa8-5707-4d30-90ac-c145ed61c761"
+        value: "$PHONE"
+      - name: field_19446150-cb65-453c-b5d0-f461c2b9c62f
+        selector: "#field_19446150-cb65-453c-b5d0-f461c2b9c62f"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_2e25fe62-8e53-4a19-ad7e-a4443d298b3f
+        selector: "#field_2e25fe62-8e53-4a19-ad7e-a4443d298b3f"
+        value: "$SUBJECT"
+        required: Yes
+      - name: field_e20922be-668a-46a0-ad93-2f4e33c72483
+        selector: "#field_e20922be-668a-46a0-ad93-2f4e33c72483"
+        value: "$MESSAGE"
+        required: Yes
+      - name: field_dbe73130-2c88-447b-bb88-8a097e611511
+        selector: "#field_dbe73130-2c88-447b-bb88-8a097e611511"
+        value: ""
+    - select:
+      - name: field_003defa2-ec48-471d-a425-e5ce7b354509
+        selector: "#field_003defa2-ec48-471d-a425-e5ce7b354509"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          "Mr. ": "Mr."
+          "Mrs. ": "Mrs."
+          "Miss ": "Miss"
+          "Ms. ": "Ms."
+          "Dr. ": "Dr."
+          "Mr. and Mrs. ": "Mr. and Mrs."
+          "Dr. and Mrs. ": "Dr. and Mrs."
+          "Dr. and Mr.": "Dr. and Mr."
+          "Dr. and Dr.": "Dr. and Dr."
+          "Father": "Father"
+          "Pastor": "Pastor"
+          "Rabbi": "Rabbi"
+          "Reverend": "The Reverend"
+          "----Military Ranks----": "Sister"
+          "General": "General"
+          "Admiral": "Admiral"
+          "Lt General": "Lt General"
+          "Vice Admiral": "Vice Admiral"
+          "Maj General": "Maj General"
+          "Rear Admiral": "Rear Admiral"
+          "Brig General": "Brig General"
+          "Colonel": "Colonel"
+          "Captain,Captain": "Captain"
+          "Lt Colonel": "Lt Colonel"
+          "Commander": "Commander"
+          "Major": "Major"
+          "Lt Commander": "Lt Commander"
+          "Lieutenant": "Lieutenant"
+          "1st Lieutenant": "1st Lieutenant"
+          "Lieutenant JG": "Lieutenant JG"
+          "2nd Lieutenant": "2nd Lieutenant"
+          "Ensign": "Ensign"
+          "Warrant Officer": "Warrant Officer"
+          "Cmd Sgt Major": "Cmd Sgt Major"
+          "Force/Fleet Cmd Master Sgt": "Force/Fleet Cmd Master Sgt"
+          "Cmd Chief Master Sgt": "Cmd Chief Master Sgt"
+          "Sgt Major": "Sgt Major"
+          "Chief Master Sergeant": "Chief Master SGT"
+          "Master Gunnery Sergeant": "Master Gunnery SGT"
+          "Master CPO": "Master CPO"
+          "Master Sergeant": "Master Sergeant"
+          "1st Sergeant": "1st Sergeant"
+          "Sr Master Sergeant": "Sr Master Sergeant"
+          "Sr CPO": "Sr CPO"
+          "Sergeant 1st Class": "Sergeant 1st Class"
+          "Gunnery Sergeant": "Gunnery Sergeant"
+          "CPO": "CPO"
+          "Staff Sergeant": "Staff Sergeant"
+          "Technical Sgt": "Technical Sgt"
+          "PO 1st Class": "PO 1st Class"
+          "Sergeant": "Sergeant"
+          "PO 2nd Class": "PO 2nd Class"
+          "Corporal": "Corporal"
+          "PO 3rd Class": "PO 3rd Class"
+          "Specialist": "Specialist"
+          "Sr Airman": "Sr Airman"
+          "Private 1st Class,Private 1st Class": "Private 1st Class"
+          "Airman 1st Class": "Airman 1st Class"
+          "Lance Corporal": "Lance Corporal"
+          "Seaman": "Seaman"
+          "Private,Private": "Private"
+          "Airman": "Airman"
+          "Seaman Apprentice": "Seaman Apprentice"
+          "Private (Recruit)": "Private (Recruit)"
+          "Airman Basic": "Airman Basic"
+          "Seaman Recruit": "Seaman Recruit"
+      - name: field_f466e548-9a0a-4cad-a977-50ebef8b82de
+        selector: "#field_f466e548-9a0a-4cad-a977-50ebef8b82de"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+    - check:
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting our office"
