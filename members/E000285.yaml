@@ -1,0 +1,68 @@
+bioguide: E000285
+contact_form:
+  method: POST
+  action: http://www.enzi.senate.gov/public/index.cfm/contact?p=e-mail-senator-enzi
+  steps:
+    - visit: http://www.enzi.senate.gov/public/index.cfm/contact?p=e-mail-senator-enzi
+    - fill_in:
+      - name: field_d050d408-36b0-47b7-9597-a53aa3ed3d46
+        selector: "#field_d050d408-36b0-47b7-9597-a53aa3ed3d46"
+        value: "$NAME_PREFIX"
+        required: Yes
+      - name: field_eb1f4140-cfba-43cf-9645-c4f71a8e1edf
+        selector: "#field_eb1f4140-cfba-43cf-9645-c4f71a8e1edf"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_b15463d0-ef1a-4464-96b1-033a6d2b5bef
+        selector: "#field_b15463d0-ef1a-4464-96b1-033a6d2b5bef"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_3a476dab-c401-4252-8654-8acf4c302938
+        selector: "#field_3a476dab-c401-4252-8654-8acf4c302938"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_0292b094-2d45-4e76-a609-8815005aeaa0
+        selector: "#field_0292b094-2d45-4e76-a609-8815005aeaa0"
+        value: "$ADDRESS_STREET_2"
+      - name: field_0b8650f3-58f6-449f-b7ea-2f4dd04b401f
+        selector: "#field_0b8650f3-58f6-449f-b7ea-2f4dd04b401f"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_5f75a268-d720-4d7c-88dd-54ed39e7ef35
+        selector: "#field_5f75a268-d720-4d7c-88dd-54ed39e7ef35"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_ee909b3f-3a8d-40bc-b2fa-f7d81b40a339
+        selector: "#field_ee909b3f-3a8d-40bc-b2fa-f7d81b40a339"
+        value: "$PHONE"
+      - name: field_59fdf93d-19f8-455c-9746-44594298c407
+        selector: "#field_59fdf93d-19f8-455c-9746-44594298c407"
+        value: "$PHONE"
+      - name: field_a01948be-597b-47c7-a558-80ee358505f3
+        selector: "#field_a01948be-597b-47c7-a558-80ee358505f3"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_e8e82e9b-f02e-44a6-84cb-bb70f34c9310
+        selector: "#field_e8e82e9b-f02e-44a6-84cb-bb70f34c9310"
+        value: "$MESSAGE"
+        required: Yes
+      - name: field_f08ccf4b-aa28-4d02-99c8-6b470081fe8d
+        selector: "#field_f08ccf4b-aa28-4d02-99c8-6b470081fe8d"
+        value: ""
+      - name: field_f6958bc0-eb9a-41ae-ad61-57221e74199f
+        selector: "#field_f6958bc0-eb9a-41ae-ad61-57221e74199f"
+        value: ""
+    - select:
+      - name: field_c3af9f31-7edb-4073-8790-be7af00e85e1
+        selector: "#field_c3af9f31-7edb-4073-8790-be7af00e85e1"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been submitted"
