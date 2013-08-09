@@ -1,0 +1,123 @@
+bioguide: C001056
+contact_form:
+  method: POST
+  action: http://www.cornyn.senate.gov/public/index.cfm?p=ContactForm
+  steps:
+    - visit: http://www.cornyn.senate.gov/public/index.cfm?p=ContactForm
+    - fill_in:
+      - name: FirstName
+        selector: "#FirstName"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: LastName
+        selector: "#LastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: "$ADDRESS_STREET_2"
+      - name: City
+        selector: "#City"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: ZipCode
+        selector: "#ZipCode"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: PhoneNumber
+        selector: "#PhoneNumber"
+        value: "$PHONE"
+      - name: EmailAddress
+        selector: "#EmailAddress"
+        value: "$EMAIL"
+        required: Yes
+      - name: Message
+        selector: "#Message"
+        value: "$MESSAGE"
+        required: Yes
+      - name: PrefixOther
+        selector: "#PrefixOther"
+        value: ""
+      - name: Suffix
+        selector: "#Suffix"
+        value: ""
+      - name: Rank
+        selector: "#Rank"
+        value: ""
+      - name: Branch
+        selector: "#Branch"
+        value: ""
+    - select:
+      - name: Prefix
+        selector: "#Prefix"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+          - "Dr."
+          - "Dr. and Mr."
+          - "Dr. and Mrs."
+          - "Reverend"
+          - "Sister"
+          - "Pastor"
+      - name: State
+        selector: "#State"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: Topic
+        selector: "#Topic"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Help With Federal Agencies"
+          - "Abortion"
+          - "Agriculture"
+          - "Arts and Humanities"
+          - "Banking"
+          - "Budget"
+          - "Communications"
+          - "Crime/Law Enforcement"
+          - "Defense"
+          - "Education"
+          - "Election Reform"
+          - "Energy"
+          - "Environment"
+          - "Finance"
+          - "Firearms"
+          - "Foreign Affairs"
+          - "Government Operations/Affairs"
+          - "Healthcare"
+          - "Homeland Security"
+          - "Housing"
+          - "Immigration"
+          - "Interior"
+          - "Judiciary"
+          - "Labor"
+          - "Medicare"
+          - "Picture Request"
+          - "Religion"
+          - "Small Business"
+          - "Social Security"
+          - "Taxes/Economy"
+          - "Texas Tuesday Coffee"
+          - "Tour Request"
+          - "Trade"
+          - "Transportation"
+          - "Veterans"
+          - "Welfare"
+    - click_on:
+      - value: Submit
+        selector: ".primaryAction"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting Senator John Cornyn's office"
