@@ -1,0 +1,60 @@
+bioguide: S000770
+contact_form:
+  method: POST
+  action: http://www.stabenow.senate.gov/?p=contact
+  steps:
+    - visit: http://www.stabenow.senate.gov/?p=contact
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: "$ADDRESS_STREET_2"
+      - name: city
+        selector: "#city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone
+        selector: "#phone:nth-child(3)"
+        value: "$PHONE"
+        required: Yes
+      - name: email
+        selector: "#email"
+        value: "$EMAIL"
+        required: Yes
+      - name: messageSubject
+        selector: "#messageSubject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: MessageBody
+        selector: ".input-textarea"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: State
+        selector: ".input-select"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+    - click_on:
+      - value: Submit
+        selector: "#sf-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been sent"

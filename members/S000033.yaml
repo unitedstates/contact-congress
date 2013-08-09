@@ -1,0 +1,123 @@
+bioguide: S000033
+contact_form:
+  method: POST
+  action: http://www.sanders.senate.gov/contact/contact.cfm
+  steps:
+    - visit: http://www.sanders.senate.gov/contact/contact.cfm
+    - fill_in:
+      - name: fname
+        selector: "#fname"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lname
+        selector: "#lname"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: address
+        selector: "#address"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: address2
+        selector: "#address2"
+        value: "$ADDRESS_STREET_2"
+      - name: city
+        selector: "#city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: zipcode
+        selector: "#zipcode"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: "$PHONE"
+        required: Yes
+      - name: email
+        selector: "#contact-email"
+        value: "$EMAIL"
+        required: Yes
+      - name: verify_email
+        selector: "#verify-email"
+        value: "$EMAIL"
+        required: Yes
+      - name: subject
+        selector: "#subject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: comments
+        selector: "#comments"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: salutation
+        selector: "#salutation"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "null"
+          - "Dr."
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Prof."
+      - name: state
+        selector: "#state"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: topic
+        selector: "#topic"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Select an Issue": "null"
+          "Agriculture": "AGR"
+          "Animal Rights": "ANI"
+          "Appropriations": "APP"
+          "Arts and Humanities": "Art"
+          "Banking & Financial Services": "BNK"
+          "Budget": "BGT"
+          "Business and Commerce": "BUS"
+          "Campaign/Election Reform": "CAM"
+          "Casework": "CASE"
+          "Census": "CEN"
+          "Consumer Protection": "CON"
+          "Defense and Military": "DEF"
+          "Economic Development": "ECO"
+          "Education": "EDU"
+          "Energy": "ENE"
+          "Environment": "ENV"
+          "Ethics Reform": "ETH"
+          "Foreign Relations": "FOR"
+          "Grant Letters": "GRANT"
+          "Guns": "GUNS"
+          "Healthcare": "HEA"
+          "Homeland Security": "HSC"
+          "Housing and Urban Affairs": "HOU"
+          "Immigration": "IMM"
+          "Insurance Problems": "INS"
+          "Interior": "INT"
+          "Intelligence": "INTEL"
+          "Judiciary": "JUD"
+          "Labor": "LAB"
+          "Nutrition": "NUT"
+          "Other": "OTH"
+          "Postal Service": "POS"
+          "Science and Innovation": "SCI"
+          "Seniors": "SEN"
+          "Social Issues": "SOC"
+          "Taxes": "TAX"
+          "Technology and Telecom": "TEC"
+          "Tour Requests": "TOURS"
+          "Trade": "TRD"
+          "Transportation": "TRN"
+          "Veterans": "VET"
+          "Women and Children": "WOM"
+    - click_on:
+      - value: Submit
+        selector: ".submit-button"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "your message has been received"

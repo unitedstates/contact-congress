@@ -1,0 +1,125 @@
+bioguide: K000367
+contact_form:
+  method: POST
+  action: http://www.klobuchar.senate.gov/public/email-amy
+  steps:
+    - visit: http://www.klobuchar.senate.gov/public/email-amy
+    - fill_in:
+      - name: field_c52e1162-f258-4e3f-9f22-a054da714390
+        selector: "#field_c52e1162-f258-4e3f-9f22-a054da714390"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_dd82b60d-4635-4434-93ff-892b72b9d52b
+        selector: "#field_dd82b60d-4635-4434-93ff-892b72b9d52b"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_9cc52f34-5547-46d2-845b-0ce277324714
+        selector: "#field_9cc52f34-5547-46d2-845b-0ce277324714"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_bcc3fe7a-ef27-4d25-9e7c-14d77c27114c
+        selector: "#field_bcc3fe7a-ef27-4d25-9e7c-14d77c27114c"
+        value: "$ADDRESS_STREET_2"
+      - name: field_a96c76ca-3b30-4134-a9ba-c5695aeaa16f
+        selector: "#field_a96c76ca-3b30-4134-a9ba-c5695aeaa16f"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_6fd17215-4484-496c-8859-92698c465f01
+        selector: "#field_6fd17215-4484-496c-8859-92698c465f01"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_1b20e163-ea77-43ad-a84f-87dce4f1b900
+        selector: "#field_1b20e163-ea77-43ad-a84f-87dce4f1b900"
+        value: "$PHONE"
+      - name: field_d274bb10-a659-4991-9f83-8d2928f6cb3c
+        selector: "#field_d274bb10-a659-4991-9f83-8d2928f6cb3c"
+        value: "$PHONE"
+      - name: field_352a82b8-7386-4c46-96ff-e96e2a164c11
+        selector: "#field_352a82b8-7386-4c46-96ff-e96e2a164c11"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_675a9f22-38ae-4ef6-97d8-09fc5f57b19e
+        selector: "#field_675a9f22-38ae-4ef6-97d8-09fc5f57b19e"
+        value: "$SUBJECT"
+        required: Yes
+      - name: field_1a032e33-7721-4ce2-ad9b-2ecafe076d8c
+        selector: "#field_1a032e33-7721-4ce2-ad9b-2ecafe076d8c"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_e0feb2bd-6735-4e39-bd94-63cd417a73ef
+        selector: "#field_e0feb2bd-6735-4e39-bd94-63cd417a73ef"
+        value: "$NAME_PREFIX"
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+          - "Dr."
+          - "Dr. and Dr."
+          - "Dr. and Mrs."
+          - "Dr. and Mr."
+          - "Reverend"
+          - "Sister"
+          - "Pastor"
+          - "The Honorable"
+          - "Representative"
+          - "Senator"
+      - name: field_1a985454-67c9-42fc-bbc2-ce957d2633d6
+        selector: "#field_1a985454-67c9-42fc-bbc2-ce957d2633d6"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_14306be6-1d30-4925-afba-1bc433f550d7
+        selector: "#field_14306be6-1d30-4925-afba-1bc433f550d7"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Abortion"
+          - "Academy Nominations"
+          - "Agriculture"
+          - "Animal Welfare"
+          - "Arts and Humanities"
+          - "Banking"
+          - "Budget"
+          - "Businesses"
+          - "Commerce"
+          - "Communications"
+          - "Crime and Judiciary"
+          - "Civil Rights"
+          - "Defense"
+          - "Economy"
+          - "Education"
+          - "Energy"
+          - "Environment"
+          - "Federal Government Agencies"
+          - "Financial Crisis"
+          - "Foreign Affairs"
+          - "Gas Prices"
+          - "Government Reform"
+          - "Health/Healthcare"
+          - "Housing"
+          - "Immigration/Visas"
+          - "Internships"
+          - "Internal Revenue Service"
+          - "Iraq/Middle East"
+          - "Labor"
+          - "Native Americans"
+          - "Press Request"
+          - "Scheduling Request"
+          - "Small Business"
+          - "Social Security"
+          - "Taxes"
+          - "Trade"
+          - "Transportation"
+          - "Veterans Affairs"
+          - "Welfare"
+          - "Other"
+    - click_on:
+      - value: Submit
+        selector: ".btn-primary"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you"

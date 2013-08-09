@@ -1,0 +1,125 @@
+bioguide: M001170
+contact_form:
+  method: POST
+  action: http://www.mccaskill.senate.gov/?p=contact
+  steps:
+    - visit: http://www.mccaskill.senate.gov/?p=contact
+    - fill_in:
+      - name: prefix
+        selector: "#gen-fieldid-1"
+        value: "$NAME_PREFIX"
+        required: Yes
+      - name: firstName
+        selector: "#gen-fieldid-3"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "#gen-fieldid-5"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: addr1
+        selector: "#gen-fieldid-9"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: addr2
+        selector: "#gen-fieldid-11"
+        value: "$ADDRESS_STREET_2"
+      - name: city
+        selector: "#gen-fieldid-13"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: zip
+        selector: "#gen-fieldid-17"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone_h
+        selector: "#gen-fieldid-19"
+        value: "$PHONE"
+      - name: phone_b
+        selector: "#gen-fieldid-21"
+        value: "$PHONE"
+      - name: email
+        selector: "#gen-fieldid-7"
+        value: "$EMAIL"
+        required: Yes
+      - name: subject
+        selector: "#gen-fieldid-25"
+        value: "$SUBJECT"
+        required: Yes
+      - name: msg
+        selector: "#gen-fieldid-27"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: state
+        selector: "#gen-fieldid-15"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: topics
+        selector: "#gen-fieldid-23"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Select....": "notopic"
+          "Academy Nominations": "Academy Nominations"
+          "Active Duty Military Issues": "Active Duty Military Issues"
+          "Aging": "Aging"
+          "Agriculture": "Agriculture"
+          "Animal Rights": "Animal Rights"
+          "Aviation": "Aviation"
+          "Banking": "Banking"
+          "Budget": "Budget"
+          "Energy": "Energy"
+          "Campaign Finance": "Campaign Finance"
+          "Choice": "Choice"
+          "Civil Rights": "Civil Rights"
+          "Commerce": "Commerce"
+          "Consumer Protection": "Consumer Protection"
+          "Contracting": "Contracting"
+          "Crime": "Crime"
+          "Defense": "Defense"
+          "Disability Assistance": "Disability Assistance"
+          "Disaster Assistance": "Disaster Assistance"
+          "Economy": "Economy"
+          "Education": "Education"
+          "Environment": "Environment"
+          "Employment": "Employment"
+          "Ethics": "Ethics"
+          "Federal Employees": "Federal Employees"
+          "Fiscal Responsibility": "Fiscal Responsibility"
+          "Foreign Affairs": "Foreign Affairs"
+          "Foreclosures": "Foreclosures"
+          "Government Accountability": "Government Accountability"
+          "Healthcare": "Healthcare"
+          "Homeland Security": "Homeland Security"
+          "Housing": "Housing"
+          "Immigration": "Immigration"
+          "Intelligence": "Intelligence"
+          "Justice System": "Justice System"
+          "Labor": "Labor"
+          "Medicare": "Medicare"
+          "Other": "Other"
+          "Passports": "Passports"
+          "Postal": "Postal"
+          "Prescription Drugs": "Prescription Drugs"
+          "Science": "Science"
+          "Small Business": "Small Business"
+          "Social Security": "Social Security"
+          "Stem Cell Research": "Stem Cell Research"
+          "Student Loans": "Student Loans"
+          "Taxes": "Taxes"
+          "Technology": "Technology"
+          "Telecommunications": "Telecommunications"
+          "Trade": "Trade"
+          "Transportation": "Transportation"
+          "Veterans": "Veterans"
+          "Women": "Women"
+    - click_on:
+      - value: Submit
+        selector: ".buttons-bottom input:nth-child(2)"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been sent"

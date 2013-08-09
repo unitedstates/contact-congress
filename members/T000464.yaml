@@ -1,0 +1,146 @@
+bioguide: T000464
+contact_form:
+  method: POST
+  action: http://www.tester.senate.gov/?p=email_senator&clear_cache=1
+  steps:
+    - visit: http://www.tester.senate.gov/?p=email_senator
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: city
+        selector: "#city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: "$PHONE"
+        required: Yes
+      - name: email
+        selector: "#email"
+        value: "$EMAIL"
+        required: Yes
+      - name: vemail
+        selector: "#vemail"
+        value: "$EMAIL"
+        required: Yes
+      - name: messageSubject
+        selector: "#messageSubject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: MessageBody
+        selector: ".textarea"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: Prefix
+        selector: ":nth-child(4) select"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+          - "Miss"
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Dr. and Mr."
+          - "Admiral"
+          - "Captain"
+          - "Chief Master Sergeant"
+          - "Colonel"
+          - "Commander"
+          - "Corporal"
+          - "Father"
+          - "General"
+          - "Lieutenant"
+          - "Lieutenant Colonel"
+          - "Major"
+          - "Master Sergeant"
+          - "Reverend"
+          - "Sergeant"
+          - "Second Lieutenant"
+          - "ergeant Major"
+          - "Sister"
+          - "Technical Sergeant"
+      - name: State
+        selector: ":nth-child(19) select"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: Subject
+        selector: ":nth-child(34) select"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "\n\t\t\t\t\t\t\tAbortion\n\t\t\t\t\t\t": "Abortion"
+          "\n\t\t\t\t\t\t\tAfghanistan\n\t\t\t\t\t\t": "Afghanistan"
+          "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": "Agriculture"
+          "\n\t\t\t\t\t\t\tAnimals\n\t\t\t\t\t\t": "Animals"
+          "\n\t\t\t\t\t\t\tArts and Humanities\n\t\t\t\t\t\t": "Arts and Humanities"
+          "\n\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t": "Budget"
+          "\n\t\t\t\t\t\t\tBusiness\n\t\t\t\t\t\t": "Business"
+          "\n\t\t\t\t\t\t\tChildren/Family\n\t\t\t\t\t\t": "Children/Family"
+          "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": "Civil Rights"
+          "\n\t\t\t\t\t\t\tCommerce\n\t\t\t\t\t\t": "Commerce"
+          "\n\t\t\t\t\t\t\tCommunication\n\t\t\t\t\t\t": "Communication"
+          "\n\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t": "Economy"
+          "\n\t\t\t\t\t\t\tEducation\n\t\t\t\t\t\t": "Education"
+          "\n\t\t\t\t\t\t\tElections\n\t\t\t\t\t\t": "Elections"
+          "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": "Energy"
+          "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": "Environment"
+          "\n\t\t\t\t\t\t\tFamily\n\t\t\t\t\t\t": "Family"
+          "\n\t\t\t\t\t\t\tFinance\n\t\t\t\t\t\t": "Finance"
+          "\n\t\t\t\t\t\t\tForeign Affairs\n\t\t\t\t\t\t": "Foreign Affairs"
+          "\n\t\t\t\t\t\t\tForest Jobs and Recreation Act\n\t\t\t\t\t\t": "Forest Jobs and Recreation Act"
+          "\n\t\t\t\t\t\t\tGuns\n\t\t\t\t\t\t": "Guns"
+          "\n\t\t\t\t\t\t\tHealth\n\t\t\t\t\t\t": "Health"
+          "\n\t\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t\t": "Homeland Security"
+          "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": "Housing"
+          "\n\t\t\t\t\t\t\tIndian Affairs\n\t\t\t\t\t\t": "Indian Affairs"
+          "\n\t\t\t\t\t\t\tInternship\n\t\t\t\t\t\t": "Internship"
+          "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": "Immigration"
+          "\n\t\t\t\t\t\t\tIraq\n\t\t\t\t\t\t": "Iraq"
+          "\n\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t": "Judiciary"
+          "\n\t\t\t\t\t\t\tLabor\n\t\t\t\t\t\t": "Labor"
+          "\n\t\t\t\t\t\t\tLaw and Justice\n\t\t\t\t\t\t": "Law and Justice"
+          "\n\t\t\t\t\t\t\tMedicaid\n\t\t\t\t\t\t": "Medicaid"
+          "\n\t\t\t\t\t\t\tMedicare\n\t\t\t\t\t\t": "Medicare"
+          "\n\t\t\t\t\t\t\tMeeting Request\n\t\t\t\t\t\t": "Meeting Request"
+          "\n\t\t\t\t\t\t\tMilitary Affairs\n\t\t\t\t\t\t": "Military Affairs"
+          "\n\t\t\t\t\t\t\tPage Program\n\t\t\t\t\t\t": "Page Program"
+          "\n\t\t\t\t\t\t\tReligion\n\t\t\t\t\t\t": "Religion"
+          "\n\t\t\t\t\t\t\tScience and Technology\n\t\t\t\t\t\t": "Science and Technology"
+          "\n\t\t\t\t\t\t\tSeniors\n\t\t\t\t\t\t": "Seniors"
+          "\n\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t": "Social Security"
+          "\n\t\t\t\t\t\t\tTANF\n\t\t\t\t\t\t": "TANF"
+          "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": "Taxes"
+          "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": "Trade"
+          "\n\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t": "Transportation"
+          "\n\t\t\t\t\t\t\tTour Request\n\t\t\t\t\t\t": "Tour Request"
+          "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": "Veterans"
+          "\n\t\t\t\t\t\t\tWelfare\n\t\t\t\t\t\t": "Welfare"
+          "\n\t\t\t\t\t\t\tWolves\n\t\t\t\t\t\t": "Wolves"
+          "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
+    - click_on:
+      - value: Submit
+        selector: ".normal-input:nth-child(2)"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been sent"

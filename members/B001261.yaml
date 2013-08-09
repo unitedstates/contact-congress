@@ -1,0 +1,126 @@
+bioguide: B001261
+contact_form:
+  method: POST
+  action: http://www.barrasso.senate.gov/public/index.cfm?FuseAction=ContactUs.ContactForm
+  steps:
+    - visit: http://www.barrasso.senate.gov/public/index.cfm?FuseAction=ContactUs.ContactForm
+    - fill_in:
+      - name: FirstName
+        selector: "#FirstName"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: LastName
+        selector: "#LastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: "$ADDRESS_STREET_2"
+      - name: City
+        selector: "#City"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: ZipCode
+        selector: "#ZipCode"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: HomePhone
+        selector: "#HomePhone"
+        value: "$PHONE"
+      - name: WorkPhone
+        selector: "#WorkPhone"
+        value: "$PHONE"
+      - name: Email
+        selector: "#Email"
+        value: "$EMAIL"
+        required: Yes
+      - name: EmailCheck
+        selector: "#EmailCheck"
+        value: "$EMAIL"
+        required: Yes
+      - name: IssueOther
+        selector: "#IssueOther"
+        value: "$SUBJECT"
+        required: Yes
+      - name: Message
+        selector: "#MyMessage"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: Prefix
+        selector: "tr:nth-child(1) select"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          " Mr. ": "Mr."
+          " Mrs. ": "Mrs."
+          " Ms. ": "Ms."
+          " Mr. and Mrs. ": "Mr. and Mrs."
+          " Dr. ": "Dr."
+          " Dr. and Mr. ": "Dr. and Mr."
+          " Dr. and Mrs. ": "Dr. and Mrs."
+          " Reverend ": "Reverend"
+          " Sister ": "Sister"
+          " Pastor ": "Pastor"
+          " The Honorable ": "The Honorable"
+          " Representative ": "Representative"
+          " Senator ": "Senator"
+      - name: State
+        selector: "td:nth-child(2) .select"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: issue
+        selector: "td:nth-child(1) .select"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Agriculture"
+          - "Animals"
+          - "Assistance with a Federal Agency"
+          - "Banking and Finance"
+          - "Budget"
+          - "Business"
+          - "Campaign Reform/Elections"
+          - "Congratulations Letter Request"
+          - "Congress"
+          - "Constitution"
+          - "Defense"
+          - "Economy"
+          - "Education"
+          - "Employment"
+          - "Energy"
+          - "Environment"
+          - "Federal Debt"
+          - "Flag Request"
+          - "Government"
+          - "Healthcare"
+          - "Human Rights"
+          - "Immigration"
+          - "Inauguration Tickets"
+          - "Indian Affairs"
+          - "Internet/Telecommunications"
+          - "Internship"
+          - "Labor"
+          - "Medicare"
+          - "Other"
+          - "President"
+          - "Public Lands"
+          - "Second Amendment & Gun Rights"
+          - "Social Security"
+          - "Taxes"
+          - "Tour Request"
+          - "Trade"
+          - "Veterans"
+    - click_on:
+      - value: Submit
+        selector: ".buttonContact:nth-child(2)"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting my office"
