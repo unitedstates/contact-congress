@@ -113,7 +113,7 @@ $(function () {
             user_phone_number: user_phone_number}
     }).done(function(data){
       console.log(data);
-    }).error(function(data){
+    }).fail(function(data){
       console.log(data);
     });
   }); 
@@ -131,7 +131,7 @@ $(function () {
     }).done(function(data){
       console.log(data);
       $('.call-now').append('<p>Thank you for calling.</p>')
-    }).error(function(data){
+    }).fail(function(data){
       console.log(data);
       $('.call-now').append('<p>Sorry something went wrong. Please try again.</p>')
     });

@@ -191,6 +191,11 @@ def zip_parse():
     Required Params: campaignId
     """
     zipcode = request.values.get('Digits', None)
+    if len(zipcode) != 5:
+        result = jsonify(message='zipcode must have 5 digits')
+        result.status_code = 400
+        return result
+        
     campaignId = request.values.get('campaignId')
     return _connection_handler(params=dict(
         repIds=locate_member_ids(zipcode, campaign=get_campaign(campaignId)), 
