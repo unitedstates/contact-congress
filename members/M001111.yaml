@@ -1,0 +1,126 @@
+bioguide: M001111
+contact_form:
+  method: POST
+  action: ""
+  steps:
+    - visit: http://www.murray.senate.gov/public/index.cfm/contactme
+    - fill_in:
+      - name: field_
+        selector: "#field_"
+        value: $NAME_FIRST
+        required: Yes
+      - name: field_
+        selector: "#field_"
+        value: $NAME_LAST
+        required: Yes
+      - name: field_
+        selector: "#field_"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: field_
+        selector: "#field_
+        value: $ADDRESS_STREET_2
+      - name: field_
+        selector: "#field_"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: field_
+        selector: "#field_"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: field_
+        selector: "#field_"
+        value: $PHONE
+      - name: field_
+        selector: "#field_"
+        value: $EMAIL
+        required: Yes
+      - name: field_
+        selector: "#field_"
+        value: $SUBJECT
+        required: Yes
+      - name: field_
+        selector: "#field_"
+        value: $MESSAGE
+    - select:
+      - name: field_
+        selector: "#field_"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+        - Mr.
+        - Ms.
+  - Mrs.
+        - Mr. and Mrs.
+        - Dr.
+        - Dr. and Mr. 
+        - Dr. and Mrs.
+        - Mr. and Dr.
+        - Mr. and Mr. 
+        - Mrs. and Mrs.
+        - Reverend
+        - Sister
+        - Pastor
+        - The Honorable
+        - Representative
+        - Senator
+      - name: field_
+        selector: "#field_"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_
+        selector: "#field_"
+        value: $TOPIC
+        required: Yes
+        options:
+        - Economic Stimulus/Financial Services
+        - Mortgage Assistance
+        - Need Help with a Federal Agency/Military Personnel
+        - Abortion
+        - Aging
+        - Agriculture
+        - Animal Welfare
+        - Arts
+        - Asbestos
+        - Banking
+        - Budget
+        - Children and Families
+        - Judiciary
+        - Defense
+        - Education
+        - Elections and Congressional Affairs
+        - Energy
+        - Environment and Natural Resources
+        - Fisheries
+        - Foreign Policy
+        - Health Care
+        - Homeland Security/Terrorism
+        - Housing
+        - Immigration
+        - Iraq
+        - Labor and Workforce
+        - Law Enforcement and Firearms
+        - LGBT
+        - Medicaid
+        - Medicare
+        - Postal Affairs
+        - Social Security
+        - Space
+        - Small Business
+        - Taxes
+        - Technology and Telecommunications
+        - Trade
+        - Transportation
+        - Veterans
+        - Welfare
+        - Women
+    - click_on:
+      - value: Submit
+        selector: "form.uniForm input[type='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      # contains: Thank you
+      # matches: "thank you, [a-z\. ]+ for contacting"
