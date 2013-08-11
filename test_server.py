@@ -22,13 +22,14 @@ class FlaskrTestCase(unittest.TestCase):
     def setUp(self):
         server.app.config.from_object('config.ConfigTesting')
         self.app = server.app.test_client()
-        self.campaigns, self.congress = server.load_data()
+        self.campaigns, self.legislators, self.districts = server.load_data()
 
 
     def test_location_lookup(self):
-        member_ids = locate_member_ids('94110')
+        campaign = dict(target_house=True, target_senate=True)
+        member_ids = locate_member_ids('94110', campaign)
         assert(len(member_ids) == 3)
-        assert('Pelosi' in self.congress.ix[member_ids].last_name.tolist())
+        assert('Pelosi' in self.legislators.ix[member_ids].lastname.tolist())
         
         senate_ids = locate_member_ids('94110', 
             dict(target_senate=True, target_house=False))

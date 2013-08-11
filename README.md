@@ -9,14 +9,14 @@ The server handles two cases:
 * A phone call made to the campaign number  
 * A web-initiated call to connect a user's phone number to congress
     * can specify congress person(s) in the api call
-    * can have the user punch in their zip code and look them up
+    * can have the user punch in their zip code and look up their congressional members
 
 ### Incoming phone calls
 Each new campaign's Twilio phone number needs to be [configured](http://twilio.com/user/account/phone-numbers/incoming) to point to:
     
     /incoming_call?campaignId=abc-1234
 
-The user will be prompted to punch in their zip code, the server will locate their members of congress using the [Sunlight Labs locate API](http://sunlightlabs.github.io/congress/legislators.html#methods/legislators-locate), and dial them.
+The user will be prompted to punch in their zip code, the server will locate their members of congress using the [Sunlight Labs locate data](http://sunlightlabs.github.io/congress/index.html#bulk-data/zip-codes-to-congressional-districts), and dial them.
 
 ### Web-initiated connection calls
 These calls are made from a web form where the user enters their phone number to be connected to Congress (will be prompted for zip code):
@@ -92,3 +92,10 @@ To run in production:
     # create ENV variables
     # these will charge real $ and connect real calls
     foreman start
+    
+Updating for changes in congress
+--------------------------------
+Just download the latest data from Sunlight Congress API using:
+ 
+    cd data && make -B
+    git commit data/districts.csv data/legislators.csv

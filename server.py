@@ -1,8 +1,6 @@
 from flask import Flask, request, jsonify, url_for, redirect
 import twilio.twiml
-import requests
 import pandas as pd
-import json
 
 app = Flask(__name__)
 # load the production config, overwritten at bottom with dev config
@@ -14,34 +12,46 @@ call_methods = ['POST']
 # load data - could replace with a database
 def load_data():
     campaigns = pd.io.json.read_json('data/campaigns.json').set_index('id')
-    with open('data/congress.json', 'r') as f:
-        # TODO - get senators as well as house members into file
-        congress = pd.DataFrame(
-            [vote['details'] for vote in json.load(f)['votes']]
-        ).set_index('bioguide_id')
-    return campaigns, congress
-
-campaigns, congress = load_data()
-
-
-def locate_member_ids(zipcode, campaign=None):
-    '''get congressional member ids from sunlight labs location api'''
-    req = requests.get(
-        'https://congress.api.sunlightfoundation.com/legislators/locate', 
-        params=dict(apikey=app.config['SUNLIGHTLABS_KEY'], zip=zipcode))
+    legislators = pd.read_csv('data/legislators.csv').set_index('bioguide_id')
+    legislators = legislators[legislators.in_office == True]
+    # fill in missing chamber data field
+    legislators['chamber'] = ''
+    legislators.ix[legislators.senate_class.isnull(), 'chamber'] = 'house'
+    legislators.ix[legislators.senate_class.notnull(), 'chamber'] = 'senate'
     
-    members = pd.DataFrame(req.json()['results'])
+    districts = pd.read_csv('data/districts.csv', 
+        header=None, 
+        names=['zipcode', 'state', 'district_number'],
+        dtype={'zipcode': str}).sort('zipcode').set_index('zipcode')
+    
+    return campaigns, legislators, districts
 
+
+campaigns, legislators, districts = load_data()
+
+
+def locate_member_ids(zipcode, campaign):
+    '''get congressional member ids from zip codes to districts data'''
+    district = districts.ix[zipcode]
+    member_ids = []
+    
     # filter list by campaign target_house, target_senate
-    targets = ['house', 'senate']
-    if campaign is not None:
-        if not campaign.get('target_house', True):
-            targets.pop(0)
-        if not campaign.get('target_senate', True):
-            targets.pop()
+    if campaign.get('target_senate', True):
+        member_ids.extend(
+            legislators[
+                (legislators.chamber == 'senate') & 
+                (legislators.state == district['state'])
+                ].index.tolist())
         
-    members = members[ members.chamber.isin(targets) ]
-    return members.bioguide_id.tolist()
+    if campaign.get('target_house', True):
+        member_ids.extend(
+            legislators[
+                (legislators.chamber == 'house') &
+                (legislators.state == district['state']) &
+                (legislators.district == str(district['district_number']))
+                ].index.tolist())
+        
+    return member_ids
     
 def get_campaign(cid):
     try:
@@ -126,9 +136,9 @@ def connection():
     else:
         resp.say('Please wait a moment while we connect you with your congress person.')
 
-    for cid, member in congress.ix[params['repIds']].iterrows():
+    for cid, member in legislators.ix[params['repIds']].iterrows():
         resp.say('Now dialing {} {}.'.format(
-            member['first_name'], member['last_name']))
+            member['firstname'], member['lastname']))
         resp.dial(
             member['phone'], 
             timeLimit=app.config['TW_TIME_LIMIT'],
