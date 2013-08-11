@@ -1,5 +1,6 @@
-from flask import Flask, request, jsonify, url_for, redirect
+from flask import Flask, request, jsonify, url_for, render_template
 import twilio.twiml
+from twilio import TwilioRestException
 import pandas as pd
 
 app = Flask(__name__)
@@ -98,18 +99,22 @@ def create_call():
     '''
     # parse the info needed to make the call
     params = parse_params(request)
-    
     # initiate the call
     if app.debug:
         print('running in dev mode. this call will NOT actually be made.')
-    call = app.config['TW_CLIENT'].calls.create(
-        to=params['user_phone_number'], 
-        from_=params['twilio_phone_number'],
-        url=url_for("connection", **params)
-        )
-    
-    result = jsonify(message=call.status, debugMode=app.debug)
-    result.status_code = 200 if call.status != 'failed' else 500
+        
+    try:
+        call = app.config['TW_CLIENT'].calls.create(
+            to=params['user_phone_number'], 
+            from_=params['twilio_number'],
+            url=app.config['APPLICATION_ROOT'] + url_for("connection", **params)
+            # use absolute url (twilio requires an internet visible url for call handling)
+            )
+        result = jsonify(message=call.status, debugMode=app.debug)
+        result.status_code = 200 if call.status != 'failed' else 500
+    except TwilioRestException, err:
+        result = jsonify(message=err.msg.split(':')[1].strip())
+        result.status_code = 400
     return result
 
 @app.route('/connection', methods=call_methods)
@@ -127,7 +132,10 @@ def connection():
     elif isinstance(params['repIds'], basestring):
         # we are expecting a list of rep ids, not just one
         params['repIds'] = [params['repIds']]
-    
+    return _connection_handler(params)
+
+
+def _connection_handler(params):
     resp = twilio.twiml.Response()
     custom_msg_url = get_campaign(params['campaignId']).get(
         'recorded_message_url','')
@@ -184,12 +192,16 @@ def zip_parse():
     """
     zipcode = request.values.get('Digits', None)
     campaignId = request.values.get('campaignId')
-    redirect(url_for('connection', 
+    return _connection_handler(params=dict(
         repIds=locate_member_ids(zipcode, campaign=get_campaign(campaignId)), 
-        campaignId=campaignId,
-        _method='POST'))
+        campaignId=campaignId
+        ))
 
-
+@app.route('/demo')
+def demo():
+    return render_template('demo.html')
+    
+    
 if __name__ == "__main__":
     # load the debugger config
     app.config.from_object('config.Config')
