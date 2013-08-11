@@ -7,6 +7,8 @@ class Config(object):
     TW_CLIENT = twilio.rest.TwilioRestClient(
         os.environ.get('TWILIO_DEV_ACCOUNT_SID'), 
         os.environ.get('TWILIO_DEV_AUTH_TOKEN'))
+        
+    SUNLIGHTLABS_KEY = os.environ.get('SUNLIGHTLABS_KEY')
     TW_NUMBER = '5005550006' # development number
     
     # limit on the length of the call
@@ -21,4 +23,7 @@ class ConfigProduction(Config):
         os.environ.get('TWILIO_ACCOUNT_SID'), 
         os.environ.get('TWILIO_AUTH_TOKEN'))
     TW_NUMBER = os.environ.get('TWILIO_NUMBER')
-    
+
+class ConfigTesting(Config):
+    TESTING = True
+    APPLICATION_ROOT = ''
