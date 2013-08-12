@@ -1,0 +1,148 @@
+bioguide: D000563
+contact_form:
+  method: POST
+  action: http://www.durbin.senate.gov/public/index.cfm/contact
+  steps:
+    - visit: http://www.durbin.senate.gov/public/index.cfm/contact
+    - fill_in:
+      - name: field_c665e606-f6be-4edb-a3eb-430518253fb1
+        selector: "#field_c665e606-f6be-4edb-a3eb-430518253fb1"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_33204e97-654b-4845-8365-9c0f772da73c
+        selector: "#field_33204e97-654b-4845-8365-9c0f772da73c"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_94e0df65-340f-4e9e-bb41-d4deb3fc8b0a
+        selector: "#field_94e0df65-340f-4e9e-bb41-d4deb3fc8b0a"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_a1dfef9b-56a9-4549-a3ca-3da3712e4096
+        selector: "#field_a1dfef9b-56a9-4549-a3ca-3da3712e4096"
+        value: "$ADDRESS_STREET_2"
+      - name: field_d96b4297-0daf-4130-95a9-ba662bee2d86
+        selector: "#field_d96b4297-0daf-4130-95a9-ba662bee2d86"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_e896bef6-e0a1-4e7c-9d5e-d776a721fecb
+        selector: "#field_e896bef6-e0a1-4e7c-9d5e-d776a721fecb"
+        value: "60290"
+        required: Yes
+      - name: field_8f00acb6-41e5-4c2f-aabe-d8bdb8503393
+        selector: "#field_8f00acb6-41e5-4c2f-aabe-d8bdb8503393"
+        value: "$PHONE"
+      - name: field_67adf5a7-e107-4a6c-a79b-c6c1fdfaa970
+        selector: "#field_67adf5a7-e107-4a6c-a79b-c6c1fdfaa970"
+        value: "$PHONE"
+      - name: field_7701ed87-ac1a-4fae-9362-b0d353039aa3
+        selector: "#field_7701ed87-ac1a-4fae-9362-b0d353039aa3"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_0662ba25-2f2a-4eb5-aaa8-7d930ef4f81a
+        selector: "#field_0662ba25-2f2a-4eb5-aaa8-7d930ef4f81a"
+        value: "$SUBJECT"
+        required: Yes
+      - name: field_ccfdbe3a-7b46-4b3f-b920-20416836d599
+        selector: "#field_ccfdbe3a-7b46-4b3f-b920-20416836d599"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_64884fcf-9040-4d16-8feb-2535f7504254
+        selector: "#field_64884fcf-9040-4d16-8feb-2535f7504254"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Mr. & Mrs."
+          - "Ms."
+          - "Miss"
+          - "Dr."
+          - "Dr. & Mrs."
+          - "Dr. & Mr."
+          - "Professor"
+          - "Sr."
+          - "Fr."
+          - "Br."
+          - "Rev."
+          - "Rev. & Mrs."
+          - "Rev. & Mr."
+          - "Imam"
+          - "Admiral"
+          - "Captain"
+          - "Colonel"
+          - "Commander"
+          - "Corporal"
+          - "First Lieutenant"
+          - "Lieutenant"
+          - "General"
+          - "The Honorable"
+          - "Major"
+          - "Major General"
+          - "Private"
+          - "PFC"
+          - "Rabbi"
+          - "Sergeant"
+          - "Sergeant Major"
+          - "Chief Petty Officer"
+          - "Senior Chief Petty Officer"
+          - "Master Chief Petty Officer"
+          - "Specialist"
+      - name: field_52e9039a-cdcb-4ccb-8ae9-d45d65f15a99
+        selector: "#field_52e9039a-cdcb-4ccb-8ae9-d45d65f15a99"
+        value: Illinois
+        required: Yes
+        options:
+          - Illinois
+      - name: field_a48143db-8960-4136-aa59-a276cae4f2fe
+        selector: "#field_a48143db-8960-4136-aa59-a276cae4f2fe"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Abortion"
+          - "Agriculture"
+          - "Animal Rights"
+          - "BankingCredit"
+          - "BudgetFederal"
+          - "BusinessCommerce"
+          - "Campaign FinanceElections"
+          - "Children Issues"
+          - "Civil Rights and Liberties"
+          - "CrimeDrugs"
+          - "DefenseMilitary"
+          - "Dietary Supplements"
+          - "Economy"
+          - "Education"
+          - "Energy"
+          - "Environment"
+          - "Foreign Policy"
+          - "Guns"
+          - "Health"
+          - "Help with Federal Agency"
+          - "Homeland Security"
+          - "Housing"
+          - "Immigration"
+          - "Iraq"
+          - "Judicial Nominations"
+          - "LaborEmployment"
+          - "MediaTelecommunications"
+          - "Medicare"
+          - "Middle East"
+          - "Postal Service"
+          - "Social SecuritySeniors"
+          - "Taxes"
+          - "Trade"
+          - "Transportation"
+          - "Veterans"
+          - "War"
+          - "Welfare"
+          - "Womens Issues"
+          - "Other"
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting Senator"

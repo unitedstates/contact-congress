@@ -1,0 +1,88 @@
+bioguide: W000437
+contact_form:
+  method: POST
+  action: http://www.wicker.senate.gov/public/index.cfm/contact
+  steps:
+    - visit: http://www.wicker.senate.gov/public/index.cfm/contact
+    - fill_in:
+      - name: field_3daaa206-cb3d-4b2c-9733-ef66d9d6b255
+        selector: "#field_3daaa206-cb3d-4b2c-9733-ef66d9d6b255"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_f848bfd8-dad0-4072-ae21-1051063c7e68
+        selector: "#field_f848bfd8-dad0-4072-ae21-1051063c7e68"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_232f54d2-55a1-4f95-9b02-b4df7fb2ab46
+        selector: "#field_232f54d2-55a1-4f95-9b02-b4df7fb2ab46"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_cc548bc3-2fc5-42dd-b604-e625ab2c1390
+        selector: "#field_cc548bc3-2fc5-42dd-b604-e625ab2c1390"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_ddabcffc-ce15-4571-80de-556f4e4e5e92
+        selector: "#field_ddabcffc-ce15-4571-80de-556f4e4e5e92"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_5ea11758-7780-4a74-9add-43f6a0327982
+        selector: "#field_5ea11758-7780-4a74-9add-43f6a0327982"
+        value: "$PHONE"
+        required: Yes
+      - name: field_ca1b9d75-d246-4104-bd2f-754b854dd79e
+        selector: "#field_ca1b9d75-d246-4104-bd2f-754b854dd79e"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_5ef876cf-9476-427b-a01b-25aafd0e013d
+        selector: "#field_5ef876cf-9476-427b-a01b-25aafd0e013d"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_96a937c7-25e8-4b18-8ea7-63a138e06211
+        selector: "#field_96a937c7-25e8-4b18-8ea7-63a138e06211"
+        value: "$NAME_PREFIX"
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+          - "Dr."
+          - "Dr. and Mr."
+          - "Dr. and Mrs."
+          - "Reverend"
+          - "Sister"
+      - name: field_49733098-c61f-426d-ae81-30e6b41c6d19
+        selector: "#field_49733098-c61f-426d-ae81-30e6b41c6d19"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_9cba10ed-c94f-4770-a165-38166625c0a8
+        selector: "#field_9cba10ed-c94f-4770-a165-38166625c0a8"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Abortion"
+          - "Agriculture"
+          - "Defense & Veteran Affairs"
+          - "Economy"
+          - "Education"
+          - "Energy"
+          - "Environment & Animal Welfare"
+          - "Foreign Affairs"
+          - "Healthcare"
+          - "Homeland Security & Immigration"
+          - "Judicial-Crime-Civil Rights"
+          - "Labor"
+          - "Miscellaneous"
+          - "Religious Freedom & Family Values"
+          - "Second Amendment"
+          - "Social Security & Pensions"
+          - "Taxes & Financial Services"
+    - click_on:
+      - value: Submit
+        selector: ".btn-primary"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting me"

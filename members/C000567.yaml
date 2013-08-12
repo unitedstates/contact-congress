@@ -1,0 +1,105 @@
+bioguide: C000567
+contact_form:
+  method: POST
+  action: http://www.cochran.senate.gov/public/index.cfm/email-me
+  steps:
+    - visit: http://www.cochran.senate.gov/public/index.cfm/email-me
+    - fill_in:
+      - name: field_7cb9abdf-19c6-4b94-b388-99d40dae6175
+        selector: "#field_7cb9abdf-19c6-4b94-b388-99d40dae6175"
+        value: "$NAME_PREFIX"
+        required: Yes
+      - name: field_f2d00d51-9eba-4957-8571-46a94807d224
+        selector: "#field_f2d00d51-9eba-4957-8571-46a94807d224"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_cd28319f-a44e-4316-a091-af77c6c91e5a
+        selector: "#field_cd28319f-a44e-4316-a091-af77c6c91e5a"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_98547ce9-a2eb-4cf4-af40-dee6dca9dbfa
+        selector: "#field_98547ce9-a2eb-4cf4-af40-dee6dca9dbfa"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_96973811-7366-493a-b39a-d5d8a85b8aa3
+        selector: "#field_96973811-7366-493a-b39a-d5d8a85b8aa3"
+        value: "$ADDRESS_STREET_2"
+      - name: field_87e7fb66-d019-41dc-a83d-3d71c44cb7c7
+        selector: "#field_87e7fb66-d019-41dc-a83d-3d71c44cb7c7"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_f3cef5a3-3d72-4927-a5af-ef00fe961527
+        selector: "#field_f3cef5a3-3d72-4927-a5af-ef00fe961527"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+      - name: field_b673ec32-82a7-49b3-9642-50c2262a551b
+        selector: "#field_b673ec32-82a7-49b3-9642-50c2262a551b"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_6a04e7c2-3bb6-49e2-b837-c43a1e62ab4a
+        selector: "#field_6a04e7c2-3bb6-49e2-b837-c43a1e62ab4a"
+        value: "$PHONE"
+        required: Yes
+      - name: field_8c0687eb-c8e9-4905-8dff-9f523dabbc7d
+        selector: "#field_8c0687eb-c8e9-4905-8dff-9f523dabbc7d"
+        value: "$PHONE"
+      - name: field_f336956b-1ef2-47f7-bb9d-b2089d171146
+        selector: "#field_f336956b-1ef2-47f7-bb9d-b2089d171146"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_e5808243-acda-4192-9989-ac0598f3b322
+        selector: "#field_e5808243-acda-4192-9989-ac0598f3b322"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_3d88b068-3fe2-4b49-a7e1-bdadaf10850d
+        selector: "#field_3d88b068-3fe2-4b49-a7e1-bdadaf10850d"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Abortion/Family Planning"
+          - "Agriculture"
+          - "Arts/Humanities"
+          - "Assistance with a Federal Agency"
+          - "Banking/Financial Services"
+          - "Budget"
+          - "Congratulatory/Commemorative"
+          - "Congress"
+          - "Defense/National Security"
+          - "Economy"
+          - "Education"
+          - "Energy"
+          - "Environment/Natural Resources"
+          - "FEMA/Disaster Relief"
+          - "Foreign Policy"
+          - "Government Regulation"
+          - "Guns/Second Amendment Rights"
+          - "Healthcare"
+          - "Homeland Security"
+          - "Housing/Community Development"
+          - "Immigration/Border Security"
+          - "Indian Affairs"
+          - "Jobs/Economic Development"
+          - "Judiciary"
+          - "Labor/Employment/Pensions"
+          - "Law Enforcement/Public Safety"
+          - "Medicare/Medicaid"
+          - "NASA/Science/Technology"
+          - "Postal Service"
+          - "Religious Freedoms"
+          - "Social Security"
+          - "Taxation"
+          - "Telecommunications"
+          - "Trade"
+          - "Transportation"
+          - "Veterans Affairs"
+          - "Welfare"
+          - "Other"
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for taking the time to contact"

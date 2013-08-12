@@ -1,0 +1,119 @@
+bioguide: A000360
+contact_form:
+  method: POST
+  action: http://www.alexander.senate.gov/public/index.cfm?p=Email
+  steps:
+    - visit: http://www.alexander.senate.gov/public/index.cfm?p=Email
+    - fill_in:
+      - name: field_0d9fdd23-1eb7-46e0-a061-05457b67ca76
+        selector: "#field_0d9fdd23-1eb7-46e0-a061-05457b67ca76"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_7fbed671-41c6-4fee-a8ff-88f3bc983a2d
+        selector: "#field_7fbed671-41c6-4fee-a8ff-88f3bc983a2d"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_99425453-a256-4c53-9e4d-6c3bb37d4108
+        selector: "#field_99425453-a256-4c53-9e4d-6c3bb37d4108"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_5931f2b2-5b88-46b0-a7cf-5be3fd07974b
+        selector: "#field_5931f2b2-5b88-46b0-a7cf-5be3fd07974b"
+        value: "$ADDRESS_STREET_2"
+      - name: field_a8dc4be1-b6d0-45b2-8e8c-fce92a58faa3
+        selector: "#field_a8dc4be1-b6d0-45b2-8e8c-fce92a58faa3"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_420f4180-d327-4c63-aac5-efd047b1b463
+        selector: "#field_420f4180-d327-4c63-aac5-efd047b1b463"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_ef1f1e71-8ece-4f2b-a2d9-c790e0665be3
+        selector: "#field_ef1f1e71-8ece-4f2b-a2d9-c790e0665be3"
+        value: "$PHONE"
+      - name: field_d75596f4-bd81-4fc9-81fa-7988ef9e90b2
+        selector: "#field_d75596f4-bd81-4fc9-81fa-7988ef9e90b2"
+        value: "$PHONE"
+      - name: field_dfd4aea8-8a57-43d6-a4dc-f2a2971d44b3
+        selector: "#field_dfd4aea8-8a57-43d6-a4dc-f2a2971d44b3"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_8f2ab492-6dcd-4dd7-a35f-56574f6f6531
+        selector: "#field_8f2ab492-6dcd-4dd7-a35f-56574f6f6531"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_74cbc1c2-c443-490a-b444-6106d1bf996b
+        selector: "#field_74cbc1c2-c443-490a-b444-6106d1bf996b"
+        value: "$NAME_PREFIX"
+        options:
+          - "Chaplain"
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Dr. and Mr."
+          - "Father"
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Miss"
+          - "Mr. and Mrs."
+          - "Pastor"
+          - "Pastor and Mrs."
+          - "Pastor and Mr."
+          - "Rabbi"
+          - "Rabbi and Mrs."
+          - "Rabbi and Mr."
+          - "Reverend"
+          - "Reverend and Mrs."
+          - "Reverend and Mr."
+          - "Sister"
+          - "The Honorable"
+          - "The Honorable and Mrs."
+          - "The Honorable and Mr."
+      - name: field_33ed7683-4ea7-4ecb-a7bf-af5345498ab9
+        selector: "#field_33ed7683-4ea7-4ecb-a7bf-af5345498ab9"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_50b8687d-ef75-4803-aa8f-d3c9ca3dc003
+        selector: "#field_50b8687d-ef75-4803-aa8f-d3c9ca3dc003"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Abortion"
+          - "Agriculture"
+          - "Animal_Rights"
+          - "Banking"
+          - "Budget"
+          - "Casework"
+          - "Civil_Rights"
+          - "Defense"
+          - "Economy"
+          - "Education"
+          - "Energy"
+          - "Environment"
+          - "Foreign_Affairs"
+          - "Guns_Firearms"
+          - "Health_Care"
+          - "Homeland_Security"
+          - "Immigration"
+          - "Information_Technology"
+          - "Labor"
+          - "National_Parks"
+          - "Postal_Service"
+          - "Small_Business"
+          - "Social_Security"
+          - "Taxes"
+          - "Trade"
+          - "Transportation"
+          - "Veterans"
+          - "Welfare"
+          - "Special_Requests"
+    - click_on:
+      - value: Submit
+        selector: ".primaryAction"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting"

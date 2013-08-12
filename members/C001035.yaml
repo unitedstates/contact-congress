@@ -1,0 +1,83 @@
+bioguide: C001035
+contact_form:
+  method: POST
+  action: http://www.collins.senate.gov/public/index.cfm/email
+  steps:
+    - visit: http://www.collins.senate.gov/public/index.cfm/email
+    - fill_in:
+      - name: field_2ed1447f-9467-412b-a523-3091085f7843
+        selector: "#field_2ed1447f-9467-412b-a523-3091085f7843"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_4639e7c2-2f0f-4c79-bb13-dba4ad0ef667
+        selector: "#field_4639e7c2-2f0f-4c79-bb13-dba4ad0ef667"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_994d1f0e-6824-4dc3-9762-77882c1d79e8
+        selector: "#field_994d1f0e-6824-4dc3-9762-77882c1d79e8"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_005d93b0-529c-4969-ad2e-42838187d3a8
+        selector: "#field_005d93b0-529c-4969-ad2e-42838187d3a8"
+        value: "$ADDRESS_STREET_2"
+      - name: field_e2f4b573-5775-43ba-bd42-abb2e522896c
+        selector: "#field_e2f4b573-5775-43ba-bd42-abb2e522896c"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_55aa34dc-0cf0-4a0f-b0ae-fef99fece739
+        selector: "#field_55aa34dc-0cf0-4a0f-b0ae-fef99fece739"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_0090711b-e091-4e9c-8bd3-1cbd194203f5
+        selector: "#field_0090711b-e091-4e9c-8bd3-1cbd194203f5"
+        value: "$PHONE"
+      - name: field_ea706c1a-a603-45de-9176-b3e0b97fc67a
+        selector: "#field_ea706c1a-a603-45de-9176-b3e0b97fc67a"
+        value: "$PHONE"
+      - name: field_e735c0ee-32ab-4e2e-904a-d293c7830065
+        selector: "#field_e735c0ee-32ab-4e2e-904a-d293c7830065"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_4390dd78-cb0e-4eca-9543-55f2c71aecbc
+        selector: "#field_4390dd78-cb0e-4eca-9543-55f2c71aecbc"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_75844ae5-39b1-4018-8db6-0a44e71595de
+        selector: "#field_75844ae5-39b1-4018-8db6-0a44e71595de"
+        value: "$NAME_PREFIX"
+        options:
+          - "Mr."
+          - "Ms."
+          - "Mrs."
+          - "Miss"
+          - "Dr."
+          - "Rev."
+      - name: field_e588617d-758a-4f9d-afec-46d94e40abe3
+        selector: "#field_e588617d-758a-4f9d-afec-46d94e40abe3"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_a541b49c-f54f-4d18-82de-1d0f1120375a
+        selector: "#field_a541b49c-f54f-4d18-82de-1d0f1120375a"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Agriculture"
+          - "Business/Economy/Labor"
+          - "Education"
+          - "Energy/Environment"
+          - "Foreign Affairs"
+          - "Health Care"
+          - "Homeland Security/Immigration"
+          - "Judiciary"
+          - "Military/Veterans Affairs"
+          - "Other"
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting Senator Collins on this issue"
