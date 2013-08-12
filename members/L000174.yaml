@@ -1,0 +1,25 @@
+bioguide: L000174
+contact_form:
+  method: 
+  action:
+  steps:
+    - visit: https://www.leahy.senate.gov/contact/
+    - fill_in:
+      - name: 
+        selector: "#"
+        value:
+        required: Yes
+    - select:
+      - name:
+        selector: "#"
+        value:
+        required:
+        options:
+    - click_on:
+      - value:
+        selector:
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank You
