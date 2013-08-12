@@ -1,0 +1,220 @@
+bioguide: W000817
+contact_form:
+  method: POST
+  action: http://www.warren.senate.gov/?p=email_senator#thisForm
+  steps:
+    - visit: http://www.warren.senate.gov/?p=email_senator#thisForm
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        vlaue: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: "$ADDRESS_STREET_2"
+	required: No
+      - name: city
+        selector: "#city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: "$PHONE"
+        required: Yes
+      - name: email
+        selector: "#email"
+        value: "$EMAIL"
+        required: Yes
+      - name: vemail
+        selector: "#vemail"
+        value: "$EMAIL"
+        required: Yes
+      - name: messageSubject
+      	selector: "#messageSubject"
+	value: "$SUBJECT"
+	required: Yes
+      - name: messageBody
+        selector: ".textarea"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: Prefix
+        selector: "#field_eec119b6-f19d-4f37-8035-f4a46c2d7c2f"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+	  - "Miss"
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Dr. and Mr."
+          - "Admiral"
+          - "Captain"
+          - "Chief Master Sergeant"
+          - "Colonel"
+          - "Commander"
+          - "Corporal"
+          - "Father"
+          - "Lieutenant"
+          - "Lieutenant Colonel"
+          - "Master Sergeant"
+          - "Reverend"
+          - "Sergeant"
+          - "Second Lieutenant"
+          - "ergeant Major" #NOT a typo -- at least not by contributor.  This is a typo on the senator's website.
+          - "Sister"
+	  - "Technical Sergeant"
+      - name: State
+      	selector: "#State"
+	value: "$ADDRESS_STATE_POSTAL_ABBREV"
+	required: Yes
+	options:
+	- AA
+	- AE
+	- AP
+	- AL
+	- AK
+	- AZ
+	- AR
+	- CA
+	- CO
+	- CT
+	- DE
+	- DC
+	- FL
+	- GA
+	- HI
+	- ID
+	- MT #also not a typo by contributor -- it really is this way on the form!
+	- IN
+	- IA
+	- KS
+	- KY
+	- LA
+	- ME
+	- MD
+	- MA
+	- MI
+	- MN
+	- MS
+	- MO
+	- MT
+	- NE
+	- NV
+	- NH
+	- NJ
+	- NM
+	- NY
+	- NC
+	- ND
+	- OH
+	- OK
+	- OR
+	- PA
+	- RI
+	- SC
+	- SD
+	- TN
+	- TX
+	- UT
+	- VT
+	- VA
+	- WA
+	- WV
+	- WI
+	- WY
+      - name: Subject
+        value: "$TOPIC"
+        required: Yes
+        options:
+		- Abortion
+		- Adoption/Foster Care
+		- Aging
+		- Agriculture
+		- Animal Welfare
+		- Antitrust/Competition
+		- Appropriations
+		- Arts and Culture
+		- Banking
+		- Budget
+		- Campaign Finance
+		- Child Care/Child Welfare
+		- Civil Rights
+		- Commerce
+		- Consumer Protection
+		- Crime and Justice
+		- Defense and Military
+		- Disability
+		- Domestic Violence
+		- Drugs (Illegal)
+		- Economy
+		- "Education - Early Childhood"
+		- "Education - Elementary and Secondary"
+		- "Education - Post-Secondary"
+		- Energy
+		- Environment
+		- Flag Requests
+		- Food Safety
+		- Foreign Affairs
+		- Grants
+		- Guns
+		- Health
+		- Historical Preservation
+		- Homeland Security
+		- Housing
+		- Immigration
+		- Intellectual Property
+		- Job Training
+		- Judicial Nominations
+		- Judiciary
+		- Labor and Unions
+		- Medicaid/Medicare
+		- Meeting Request
+		- Municipal and State Government
+		- Native Americans
+		- Natural Disasters
+		- Pensions and Retirement
+		- Postal Issues
+		- Science/Technology/Space
+		- Small Business
+		- Social Security
+		- Start-Ups and Entrepreneurs
+		- TANF and Low-Income Benefits
+		- Taxes
+		- Telecommunications
+		- Tour Request
+		- Trade
+		- Transportation and Infrastructure
+		- Unemployment Insurance
+		- Veterans
+		- "Women's Issues"
+      - name: field_4815620b-0631-45d2-b52e-a9420a813de5
+        selector: "#field_4815620b-0631-45d2-b52e-a9420a813de5"
+        value: Yes
+        required: Yes
+        options:
+          - "Yes"
+          - "No"
+    - click_on:
+      - value: Submit
+        selector: ".normal-input input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting our office"

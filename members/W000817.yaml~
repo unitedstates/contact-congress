@@ -1,0 +1,186 @@
+bioguide: W000817
+contact_form:
+  method: POST
+  action: http://www.warner.senate.gov/public//index.cfm?p=ContactPage#form_f9db6196-2dc7-4cda-8add-f8435a71318a
+  steps:
+    - visit: http://www.warner.senate.gov/public//index.cfm?p=ContactPage#form_f9db6196-2dc7-4cda-8add-f8435a71318a
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        vlaue: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: "$ADDRESS_STREET_2"
+      - name: city
+        selector: "#city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: State
+      	selector: "#State"
+	value: "$ADDRESS_STATE"
+	required: Yes
+	options:
+	- AA
+	- AE
+	- AP
+	- AL
+	- AK
+	- AZ
+	- AR
+	- CA
+	- CO
+	- CT
+	- DE
+	- DC
+	- FL
+	- GA
+	- HI
+	- ID
+	- MT #also not a typo by contributor -- it really is this way on the form!
+	- IN
+	- IA
+	- KS
+	- KY
+	- LA
+	- ME
+	- MD
+	- MA
+	- MI
+	- MN
+	- MS
+	- MO
+	- MT
+	- NE
+	- NV
+	
+      - name: zip
+        selector: "#zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_050c394f-5f4c-40fd-92c0-5dd66961745d
+        selector: "#field_050c394f-5f4c-40fd-92c0-5dd66961745d"
+        value: "$PHONE"
+        required: Yes
+      - name: field_9c7d925d-cfd3-40bc-9cf6-961fc04333d6
+        selector: "#field_9c7d925d-cfd3-40bc-9cf6-961fc04333d6"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_7a0144ec-734e-4c09-8992-734ac3e6e337
+        selector: "#field_7a0144ec-734e-4c09-8992-734ac3e6e337"
+        value: "$SUBJECT"
+        required: Yes
+      - name: field_6fa5f44f-28ca-45fd-9142-3c29c257b186
+        selector: "#field_6fa5f44f-28ca-45fd-9142-3c29c257b186"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: Prefix
+        selector: "#field_eec119b6-f19d-4f37-8035-f4a46c2d7c2f"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+	  - "Miss"
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Dr. and Mr."
+          - "Admiral"
+          - "Captain"
+          - "Chief Master Sergeant"
+          - "Colonel"
+          - "Commander"
+          - "Corporal"
+          - "Father"
+          - "Lieutenant"
+          - "Lieutenant Colonel"
+          - "Master Sergeant"
+          - "Reverend"
+          - "Sergeant"
+          - "Second Lieutenant"
+          - "ergeant Major" #NOT a typo -- at least not by contributor.  This is a typo on the senator's website.
+          - "Sister"
+	  - "Technical Sergeant"
+      - name: field_d9dda459-112b-45bc-8edd-31d2beb13f70
+        selector: "#field_d9dda459-112b-45bc-8edd-31d2beb13f70"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_abec110b-7e92-4b85-b94a-5ccc8a7a046d
+        selector: "#field_abec110b-7e92-4b85-b94a-5ccc8a7a046d"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Afghanistan": "fr.afghan"
+          "Agriculture": "Agr"
+          "Animal Welfare": "Anim"
+          "Arts and Humanities": "Arts"
+          "Banking and Financial Services": "FINC"
+          "Budget": "bud"
+          "Campaign Finance": "campfinc"
+          "Civil Rights": "civrgt"
+          "Civil Service": "fed.wkr"
+          "Climate Change": "Clim"
+          "Defense": "Def"
+          "Deficit Reduction": "Bud"
+          "Drugs": "Drugs"
+          "Education K-12": "Edu"
+          "Education - Higher Ed": "Edu.Hi"
+          "Education - Student Loans": "EDU.LOAN"
+          "Energy": "Ene"
+          "Environment": "Env"
+          "Foreign Affairs": "fr"
+          "Gun Ownership": "gun"
+          "Healthcare Reform": "hc.ref"
+          "Health and Wellness": "hc"
+          "High Technology": "hi.tech"
+          "Housing": "Hous"
+          "Immigration": "Imm"
+          "Intellectual Property": "ip"
+          "Internships": "intern"
+          "Iraq": "fr.Iraq"
+          "Job Creation": "emp"
+          "Labor": "Lab"
+          "Medicare/Medicaid": "mcar.caid"
+          "NASA": "NASA"
+          "Nominations": "Nom"
+          "Postal": "pstl"
+          "Reproductive Health": "rephe"
+          "Small Business": "biz.sm"
+          "Social Security": "ssec"
+          "Supreme Court": "JUD"
+          "Taxes": "Tax"
+          "Telecommunications": "comm.telc"
+          "Term Limits": "ELECT"
+          "Tickets and Tours": "Tour"
+          "Trade": "fr.trd"
+          "Transportation": "Tra"
+          "Tricare": "VET.TRI"
+          "Veterans": "Vet"
+          "Voting Rights": "VOTE"
+      - name: field_4815620b-0631-45d2-b52e-a9420a813de5
+        selector: "#field_4815620b-0631-45d2-b52e-a9420a813de5"
+        value: Yes
+        required: Yes
+        options:
+          - "Yes"
+          - "No"
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting our office"
