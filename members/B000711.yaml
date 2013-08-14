@@ -1,0 +1,149 @@
+bioguide: B000711
+contact_form:
+  method: POST
+  action: "policycomments.cfm?0"
+  steps:
+    - visit: http://www.boxer.senate.gov/en/contact/policycomments.cfm
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: $NAME_FIRST
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: $NAME_LAST
+        required: Yes
+      - name: suffix
+        selector: "#suffix"
+#        value: $NAME_SUFFIX
+      - name: Address1
+        selector: "#Address1"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: $ADDRESS_STREET_2
+      - name: city
+        selector: "#city"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: $ADDRESS_ZIP_PLUS_4
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: $PHONE
+      - name: homePhone
+      - name: 
+        selector: "#"
+        value: $EMAIL
+        required: Yes
+      - name: 
+        selector: "#"
+        value: $SUBJECT
+        required: Yes
+      - name: 
+        selector: "#"
+        value: $MESSAGE
+    - select:
+      - name: Prefix
+        selector: "#Prefix"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+        - " Mr. "
+        - " Mrs. "
+        - " Miss "
+        - " Ms. "
+        - " Dr. "
+        - " Mr. and Mrs. "
+        - " Dr. and Mrs. "
+        - "Dr. and Mr."
+        - "Dr. and Dr."
+        - " Mr. and Mr. "
+        - " Ms. and Ms. "
+        - "Brother"
+        - "Father"
+        - "Imam"
+        - "Pastor"
+        - "Rabbi"
+        - "Reverend"
+        - "Sister"
+        - "General"
+        - "Admiral"
+        - "Lt General"
+        - "Vice Admiral"
+        - "Maj General"
+        - "Rear Admiral"
+					<OPTION VALUE="Brig General">Brig General</OPTION>
+					
+					<OPTION VALUE="Colonel">Colonel</OPTION>
+					<OPTION VALUE="Captain">Captain</OPTION>
+					<OPTION VALUE="Lt Colonel">Lt Colonel</OPTION>
+					<OPTION VALUE="Commander">Commander</OPTION>
+					<OPTION VALUE="Major">Major</OPTION>
+					<OPTION VALUE="Lt Commander">Lt Commander</OPTION>
+					<OPTION VALUE="Captain">Captain</OPTION>
+					<OPTION VALUE="Lieutenant">Lieutenant</OPTION>
+					<OPTION VALUE="1st Lieutenant">1st Lieutenant</OPTION>
+					<OPTION VALUE="Lieutenant JG">Lieutenant JG</OPTION>
+					<OPTION VALUE="2nd Lieutenant">2nd Lieutenant</OPTION>
+					<OPTION VALUE="Ensign">Ensign</OPTION>
+					<OPTION VALUE="Warrant Officer">Warrant Officer</OPTION>
+					<OPTION VALUE="Cmd Sgt Major">Cmd Sgt Major</OPTION>
+					<OPTION VALUE="Force/Fleet Cmd Master Sgt">Force/Fleet Cmd Master Sgt</OPTION>
+					<OPTION VALUE="Cmd Chief Master Sgt">Cmd Chief Master Sgt</OPTION>
+					<OPTION VALUE="Sgt Major">Sgt Major</OPTION>
+					<OPTION VALUE="Chief Master SGT">Chief Master Sergeant</OPTION>
+					<OPTION VALUE="Master Gunnery SGT">Master Gunnery Sergeant</OPTION>
+					<OPTION VALUE="Master CPO">Master CPO</OPTION>
+					<OPTION VALUE="Master Sergeant">Master Sergeant</OPTION>
+					<OPTION VALUE="1st Sergeant">1st Sergeant</OPTION>
+					<OPTION VALUE="Sr Master Sergeant">Sr Master Sergeant</OPTION>
+					<OPTION VALUE="Sr CPO">Sr CPO</OPTION>
+					<OPTION VALUE="Sergeant 1st Class">Sergeant 1st Class</OPTION>
+					<OPTION VALUE="Gunnery Sergeant">Gunnery Sergeant</OPTION>
+					<OPTION VALUE="CPO">CPO</OPTION>
+					<OPTION VALUE="Staff Sergeant">Staff Sergeant</OPTION>
+					<OPTION VALUE="Technical Sgt">Technical Sgt</OPTION>
+					<OPTION VALUE="PO 1st Class">PO 1st Class</OPTION>
+					<OPTION VALUE="Sergeant">Sergeant</OPTION>
+					<OPTION VALUE="PO 2nd Class">PO 2nd Class</OPTION>
+					<OPTION VALUE="Corporal">Corporal</OPTION>
+					<OPTION VALUE="PO 3rd Class">PO 3rd Class</OPTION>
+					<OPTION VALUE="Specialist">Specialist</OPTION>
+					<OPTION VALUE="Sr Airman">Sr Airman</OPTION>
+					<OPTION VALUE="Private 1st Class">Private 1st Class</OPTION>
+					<OPTION VALUE="Airman 1st Class">Airman 1st Class</OPTION>
+					<OPTION VALUE="Lance Corporal">Lance Corporal</OPTION>
+					<OPTION VALUE="Seaman">Seaman</OPTION>
+					<OPTION VALUE="Private">Private</OPTION>
+					<OPTION VALUE="Airman">Airman</OPTION>
+					<OPTION VALUE="Private 1st Class">Private 1st Class</OPTION>
+					<OPTION VALUE="Seaman Apprentice">Seaman Apprentice</OPTION>
+					<OPTION VALUE="Private (Recruit)">Private (Recruit)</OPTION>
+					<OPTION VALUE="Airman Basic">Airman Basic</OPTION>
+					<OPTION VALUE="Private">Private</OPTION>
+					<OPTION VALUE="Seaman Recruit">Seaman Recruit</OPTION>
+
+      - name: 
+        selector: "#"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options: US_STATES_AND_MPCS
+      - name: 
+        selector: "#"
+        value: $TOPIC
+        required: Yes
+        options:
+        - 
+    - click_on:
+      - value: Submit
+        selector: ""
+  success:
+    headers:
+      status: 200
+    body:
+      # contains: Thank you
+      # matches: "thank you, [a-z\. ]+ for contacting"
