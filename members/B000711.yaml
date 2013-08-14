@@ -35,16 +35,21 @@ contact_form:
         selector: "#phone"
         value: $PHONE
       - name: homePhone
-      - name: 
-        selector: "#"
+        selector: "#homePhone"
+#       value: $PHONE_HOME
+      - name: workPhone
+        selector: "#workPhone"
+#       value: $PHONE_WORK
+      - name: email
+        selector: "#email"
         value: $EMAIL
         required: Yes
-      - name: 
-        selector: "#"
+      - name: messageSubject
+        selector: "#messageSubject"
         value: $SUBJECT
         required: Yes
-      - name: 
-        selector: "#"
+      - name: MessageBody
+        selector: "#MessageBody"
         value: $MESSAGE
     - select:
       - name: Prefix
@@ -52,17 +57,17 @@ contact_form:
         value: $NAME_PREFIX
         required: Yes
         options:
-        - " Mr. "
-        - " Mrs. "
-        - " Miss "
-        - " Ms. "
-        - " Dr. "
-        - " Mr. and Mrs. "
-        - " Dr. and Mrs. "
+        - "Mr."
+        - "Mrs."
+        - "Miss"
+        - "Ms."
+        - "Dr."
+        - "Mr. and Mrs."
+        - "Dr. and Mrs."
         - "Dr. and Mr."
         - "Dr. and Dr."
-        - " Mr. and Mr. "
-        - " Ms. and Ms. "
+        - "Mr. and Mr."
+        - "Ms. and Ms."
         - "Brother"
         - "Father"
         - "Imam"
@@ -76,71 +81,116 @@ contact_form:
         - "Vice Admiral"
         - "Maj General"
         - "Rear Admiral"
-					<OPTION VALUE="Brig General">Brig General</OPTION>
-					
-					<OPTION VALUE="Colonel">Colonel</OPTION>
-					<OPTION VALUE="Captain">Captain</OPTION>
-					<OPTION VALUE="Lt Colonel">Lt Colonel</OPTION>
-					<OPTION VALUE="Commander">Commander</OPTION>
-					<OPTION VALUE="Major">Major</OPTION>
-					<OPTION VALUE="Lt Commander">Lt Commander</OPTION>
-					<OPTION VALUE="Captain">Captain</OPTION>
-					<OPTION VALUE="Lieutenant">Lieutenant</OPTION>
-					<OPTION VALUE="1st Lieutenant">1st Lieutenant</OPTION>
-					<OPTION VALUE="Lieutenant JG">Lieutenant JG</OPTION>
-					<OPTION VALUE="2nd Lieutenant">2nd Lieutenant</OPTION>
-					<OPTION VALUE="Ensign">Ensign</OPTION>
-					<OPTION VALUE="Warrant Officer">Warrant Officer</OPTION>
-					<OPTION VALUE="Cmd Sgt Major">Cmd Sgt Major</OPTION>
-					<OPTION VALUE="Force/Fleet Cmd Master Sgt">Force/Fleet Cmd Master Sgt</OPTION>
-					<OPTION VALUE="Cmd Chief Master Sgt">Cmd Chief Master Sgt</OPTION>
-					<OPTION VALUE="Sgt Major">Sgt Major</OPTION>
-					<OPTION VALUE="Chief Master SGT">Chief Master Sergeant</OPTION>
-					<OPTION VALUE="Master Gunnery SGT">Master Gunnery Sergeant</OPTION>
-					<OPTION VALUE="Master CPO">Master CPO</OPTION>
-					<OPTION VALUE="Master Sergeant">Master Sergeant</OPTION>
-					<OPTION VALUE="1st Sergeant">1st Sergeant</OPTION>
-					<OPTION VALUE="Sr Master Sergeant">Sr Master Sergeant</OPTION>
-					<OPTION VALUE="Sr CPO">Sr CPO</OPTION>
-					<OPTION VALUE="Sergeant 1st Class">Sergeant 1st Class</OPTION>
-					<OPTION VALUE="Gunnery Sergeant">Gunnery Sergeant</OPTION>
-					<OPTION VALUE="CPO">CPO</OPTION>
-					<OPTION VALUE="Staff Sergeant">Staff Sergeant</OPTION>
-					<OPTION VALUE="Technical Sgt">Technical Sgt</OPTION>
-					<OPTION VALUE="PO 1st Class">PO 1st Class</OPTION>
-					<OPTION VALUE="Sergeant">Sergeant</OPTION>
-					<OPTION VALUE="PO 2nd Class">PO 2nd Class</OPTION>
-					<OPTION VALUE="Corporal">Corporal</OPTION>
-					<OPTION VALUE="PO 3rd Class">PO 3rd Class</OPTION>
-					<OPTION VALUE="Specialist">Specialist</OPTION>
-					<OPTION VALUE="Sr Airman">Sr Airman</OPTION>
-					<OPTION VALUE="Private 1st Class">Private 1st Class</OPTION>
-					<OPTION VALUE="Airman 1st Class">Airman 1st Class</OPTION>
-					<OPTION VALUE="Lance Corporal">Lance Corporal</OPTION>
-					<OPTION VALUE="Seaman">Seaman</OPTION>
-					<OPTION VALUE="Private">Private</OPTION>
-					<OPTION VALUE="Airman">Airman</OPTION>
-					<OPTION VALUE="Private 1st Class">Private 1st Class</OPTION>
-					<OPTION VALUE="Seaman Apprentice">Seaman Apprentice</OPTION>
-					<OPTION VALUE="Private (Recruit)">Private (Recruit)</OPTION>
-					<OPTION VALUE="Airman Basic">Airman Basic</OPTION>
-					<OPTION VALUE="Private">Private</OPTION>
-					<OPTION VALUE="Seaman Recruit">Seaman Recruit</OPTION>
-
-      - name: 
-        selector: "#"
+        - "Brig General"
+        - "Colonel"
+        - "Captain"
+        - "Lt Colonel"
+        - "Commander"
+        - "Major"
+        - "Lt Commander"
+        - "Captain"
+        - "Lieutenant"
+        - "1st Lieutenant"
+        - "Lieutenant JG"
+        - "2nd Lieutenant"
+        - "Ensign"
+        - "Warrant Officer"
+        - "Cmd Sgt Major"
+        - "Force/Fleet Cmd Master Sgt"
+        - "Cmd Chief Master Sgt"
+        - "Sgt Major"
+        - "Chief Master SGT"
+        - "Master Gunnery SGT"
+        - "Master CPO"
+        - "Master Sergeant"
+        - "1st Sergeant"
+        - "Sr Master Sergeant"
+        - "Sr CPO"
+        - "Sergeant 1st Class"
+        - "Gunnery Sergeant"
+        - "CPO"
+        - "Staff Sergeant"
+        - "Technical Sgt"
+        - "PO 1st Class"
+        - "Sergeant"
+        - "PO 2nd Class"
+        - "Corporal"
+        - "PO 3rd Class"
+        - "Specialist"
+        - "Sr Airman"
+        - "Private 1st Class"
+        - "Airman 1st Class"
+        - "Lance Corporal"
+        - "Seaman"
+        - "Private"
+        - "Airman"
+        - "Private 1st Class"
+        - "Seaman Apprentice"
+        - "Private (Recruit)"
+        - "Airman Basic"
+        - "Private"
+        - "Seaman Recruit"
+      - name: State
+        selector: "#State"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
         options: US_STATES_AND_MPCS
-      - name: 
-        selector: "#"
+      - name: Subject
+        selector: "#Subject"
         value: $TOPIC
         required: Yes
         options:
-        - 
+          "Affordable Care Act" : "HT_ACA"
+          "Climate Change" : "HT_ClimateChange"
+          "Federal Budget" : "HT_FederalBudget"
+          "Minimum Wage" : "HT_MinimumWage"
+          "Abortion" : "Abortion"
+          "Afghanistan" : "AFGHANISTAN"
+          "Agriculture" : "AGRICULTURE"
+          "Animal Welfare" : "ANIMAL WELFARE"
+          "Banking & Finance" : "BANKING FINANCE"
+          "Business" : "BUSINESS"
+          "Children" : "CHILDREN"
+          "Civil Rights" : "CIVIL RIGHTS"
+          "Crime" : "CRIME"
+          "Defense" : "DEFENSE"
+          "Disability Issues" : "DISABILITY ISSUES"
+          "Economy" : "ECONOMY"
+          "Education" : "EDUCATION"
+          "Energy" : "ENERGY"
+          "Environment" : "ENVIRONMENT"
+          "Federal Budget" : "FEDERAL BUDGET"
+          "Foreign Policy" : "FOREIGN AFFAIRS"
+          "Gas Prices" : "ENERGY"
+          "Health" : "HEALTH"
+          "Homeland Security" : "HOMELAND SECURITY"
+          "Housing" : "HOUSING"
+          "Immigration" : "IMMIGRATION"
+          "Iraq" : "IRAQ"
+          "Judicial Nominations" : "JUDICIARY"
+          "Labor" : "LABOR"
+          "Medicare/Medicaid" : "MEDICARE MEDICAID"
+          "Middle East" : "FOREIGN AFFAIRS"
+          "Native Americans" : "NATIVE AMERICANS"
+          "Natural Disasters" : "NATURAL DISASTERS"
+          "Prescription Drugs" : "PRESCRIPTION DRUGS"
+          "Political Parties and Elections" : "POLITICS"
+          "Science" : "SCIENCE"
+          "Seniors" : "SENIORS"
+          "Sensible Gun Laws" : "CRIME"
+          "Social Security" : "SOCIAL SECURITY"
+          "Space" : "SPACE"
+          "Taxation" : "TAXES"
+          "Technology" : "TECHNOLOGY"
+          "Telecommunications/Broadcast" : "TELECOMMUNICATIONS"
+          "Trade" : "TRADE"
+          "Transportation" : "TRANSPORTATION"
+          "Veterans" : "VETERANS"
+          "Welfare" : "WELFARE"
+          "Women's Issues" : "WOMEN"
     - click_on:
       - value: Submit
-        selector: ""
+        selector: "#Submit"
   success:
     headers:
       status: 200
