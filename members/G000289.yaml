@@ -1,0 +1,71 @@
+bioguide: G000289
+contact_form:
+  method: POST
+  action: http://goodlatte.house.gov/contacts
+  steps:
+    - visit: http://goodlatte.house.gov/contacts/new
+    - select:
+      - name: "contact[salutation]"
+        selector: "#contact_salutation"
+        required: Yes
+        value: "$NAME_PREFIX"
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Dr."
+          - "Rev."
+          - "Other"
+    - fill_in:
+      - name: "contact[first_name]"
+      - selector: "#contact_first_name"
+      - required: Yes
+      - value: $NAME_FIRST
+    - fill_in:
+      - name: "contact[last_name]"
+      - selector: "#contact_last_name"
+      - required: Yes
+      - value: $NAME_LAST
+    - fill_in:
+      - name: "contact[address]"
+      - selector: "#contact_address"
+      - required: Yes
+      - value: $ADDRESS_STREET
+    - fill_in:
+      - name: "contact[city]"
+      - selector: "#contact_city"
+      - required: Yes
+      - value: $ADDRESS_CITY
+    - fill_in:
+      - name: "contact[postal_code]"
+      - selector: "#contact_postal_code"
+      - required: Yes
+      - value: $ADDRESS_ZIP5
+    - fill_in:
+      - name: "contact[primary_phone]"
+      - selector: "#contact_primary_phone"
+      - required: Yes
+      - value: $PHONE
+    - fill_in:
+      - name: "contact[email]"
+      - selector: "#contact_email"
+      - required: Yes
+      - value: $EMAIL
+    - fill_in:
+      - name: "contact[subject]"
+      - selector: "#contact_subject"
+      - required: Yes
+      - value: $SUBJECT
+    - fill_in:
+      - name: "contact[message]"
+      - selector: "#contact_message"
+      - required: Yes
+      - value: $MESSAGE
+    - click_on:
+      - value: Submit
+        selector: "#contact_submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you. Your Email has been successfully sent."
