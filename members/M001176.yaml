@@ -5,64 +5,109 @@ contact_form:
   steps:
     - visit: http://www.merkley.senate.gov/contact/
     - fill_in:
-      - name: 
-        selector: "#"
+      - name: first_name
+        selector: "#first_name"
         value: $NAME_FIRST
         required: Yes
-      - name: 
-        selector: "#"
+      - name: last_name
+        selector: "#last_name"
         value: $NAME_LAST
         required: Yes
-      - name:
-        selector: "#"
+      - name: mailing_streetAddress1
+        selector: "#mailing_streetAddress1"
         value: $ADDRESS_STREET
         required: Yes
-      - name:
-        selector: "#"
+      - name: mailing_streetAddress2
+        selector: "#mailing_streetAddress2"
         value: $ADDRESS_STREET_2
-      - name:
-        selector: "#"
+      - name: mailing_city
+        selector: "#mailing_city"
         value: $ADDRESS_CITY
         required: Yes
-      - name: 
-        selector: "#"
-        value: $ADDRESS_ZIP?
+      - name: mailing_zipCode
+        selector: "#mailing_zipCode"
+        value: $ADDRESS_ZIP_PLUS_4
         required: Yes
-      - name: 
-        selector: "#"
+      - name: home_phone_number
+        selector: "#home_phone_number"
         value: $PHONE
-      - name: 
-        selector: "#"
+        required: Yes
+      - name: work_phone_number
+        selector: "#work_phone_number"
+#       value: $PHONE_WORK
+      - name: email_address
+        selector: "#email_address"
         value: $EMAIL
         required: Yes
-      - name: 
-        selector: "#"
-        value: $SUBJECT
+      - name: verify_email
+        selector: "#verify_email"
+        value: $EMAIL
         required: Yes
-      - name: 
-        selector: "#"
+      - name: comments
+        selector: "#comment"
         value: $MESSAGE
     - select:
-      - name: 
-        selector: "#"
+      - name: salutation
+        selector: "#salutation"
         value: $NAME_PREFIX
         required: Yes
         options:
-        - 
-      - name: 
-        selector: "#"
+        - "Ms."
+        - "Mrs."
+        - "Mr."
+        - "Dr."
+      - name: state
+        selector: "#state"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
-        options: US_STATES_AND_MPCS
-      - name: 
-        selector: "#"
+        options: US_STATES
+      - name: subject
+        selector: "#subject"
         value: $TOPIC
         required: Yes
         options:
-        - 
+          "Abortion/Reproductive Rights" : "CHOICE"
+          "Afghanistan / Iraq" : "DEF.WAR"
+          "Agriculture" : "AG"
+          "Animal Rights" : "ENV.W"
+          "Arts and Humanities" : "ART"
+          "Banking" : "BANK.N"
+          "Budget" : "BUD"
+          "Campaign Finance Reform" : "ELEC.CF"
+          "Children and Families" : "CHILD"
+          "Civil Rights" : "CR"
+          "Crime and Drugs" : "SAFE"
+          "Defense" : "DEF"
+          "Education" : "ED"
+          "Elections and Congressional Affairs" : "ELEC"
+          "Energy" : "ENG.G"
+          "Environment and Public Works" : "ENV.PL"
+          "Foreign Affairs" : "FA"
+          "Guns" : "GUNS"
+          "Health Care" : "HC"
+          "Help With a Government Agency / Casework" : "CASE"
+          "Housing" : "HSG"
+          "Immigration" : "IMM"
+          "Indian Affairs" : "TRB"
+          "Insurance Health" : "INSUR-HEA"
+          "Interior/Forestry" : "FOR.G"
+          "Jobs and the Economy" : "ECON"
+          "Judiciary" : "JUD"
+          "Labor" : "LB"
+          "LIHEAP" : "LIHEAP"
+          "LGBT">LGBT Issues</option>
+          "HC.MED">Medicare/Medicaid</option>
+          "MIL.HEA">Military, Retiree Health Care</option>
+          "COM.SM">Small Business</option>
+          "SS">Social Security</option>
+          "TAX">Taxes</option>
+          "COM.TR">Trade</option>
+          "TRSP">Transportation</option>
+          "VET">Veterans</option>
+          "OTHER">Other</option>
     - click_on:
       - value: Submit
-        selector: ""
+        selector: "submit"
   success:
     headers:
       status: 200
