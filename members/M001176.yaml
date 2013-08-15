@@ -1,0 +1,115 @@
+bioguide: M001176
+contact_form:
+  method: POST
+  action: "http://www.merkley.senate.gov/contact/index.cfm"
+  steps:
+    - visit: http://www.merkley.senate.gov/contact/
+    - fill_in:
+      - name: first_name
+        selector: "#first_name"
+        value: $NAME_FIRST
+        required: Yes
+      - name: last_name
+        selector: "#last_name"
+        value: $NAME_LAST
+        required: Yes
+      - name: mailing_streetAddress1
+        selector: "#mailing_streetAddress1"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: mailing_streetAddress2
+        selector: "#mailing_streetAddress2"
+        value: $ADDRESS_STREET_2
+      - name: mailing_city
+        selector: "#mailing_city"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: mailing_zipCode
+        selector: "#mailing_zipCode"
+        value: $ADDRESS_ZIP_PLUS_4
+        required: Yes
+      - name: home_phone_number
+        selector: "#home_phone_number"
+        value: $PHONE
+        required: Yes
+      - name: work_phone_number
+        selector: "#work_phone_number"
+#       value: $PHONE_WORK
+      - name: email_address
+        selector: "#email_address"
+        value: $EMAIL
+        required: Yes
+      - name: verify_email
+        selector: "#verify_email"
+        value: $EMAIL
+        required: Yes
+      - name: comments
+        selector: "#comment"
+        value: $MESSAGE
+    - select:
+      - name: salutation
+        selector: "#salutation"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+        - "Ms."
+        - "Mrs."
+        - "Mr."
+        - "Dr."
+      - name: state
+        selector: "#state"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options: US_STATES
+      - name: subject
+        selector: "#subject"
+        value: $TOPIC
+        required: Yes
+        options:
+          "Abortion/Reproductive Rights" : "CHOICE"
+          "Afghanistan / Iraq" : "DEF.WAR"
+          "Agriculture" : "AG"
+          "Animal Rights" : "ENV.W"
+          "Arts and Humanities" : "ART"
+          "Banking" : "BANK.N"
+          "Budget" : "BUD"
+          "Campaign Finance Reform" : "ELEC.CF"
+          "Children and Families" : "CHILD"
+          "Civil Rights" : "CR"
+          "Crime and Drugs" : "SAFE"
+          "Defense" : "DEF"
+          "Education" : "ED"
+          "Elections and Congressional Affairs" : "ELEC"
+          "Energy" : "ENG.G"
+          "Environment and Public Works" : "ENV.PL"
+          "Foreign Affairs" : "FA"
+          "Guns" : "GUNS"
+          "Health Care" : "HC"
+          "Help With a Government Agency / Casework" : "CASE"
+          "Housing" : "HSG"
+          "Immigration" : "IMM"
+          "Indian Affairs" : "TRB"
+          "Insurance Health" : "INSUR-HEA"
+          "Interior/Forestry" : "FOR.G"
+          "Jobs and the Economy" : "ECON"
+          "Judiciary" : "JUD"
+          "Labor" : "LB"
+          "LIHEAP" : "LIHEAP"
+          "LGBT Issues" : "LGBT"
+          "Medicare/Medicaid" : "HC.MED"
+          "Military, Retiree Health Care" : "MIL.HEA"
+          "Small Business" : "COM.SM"
+          "Social Security" : "SS"
+          "Taxes" : "TAX"
+          "Trade" : "COM.TR"
+          "Transportation" : "TRSP"
+          "Veterans" : "VET"
+          "Other" : "OTHER"
+    - click_on:
+      - value: Submit
+        selector: "submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thanks for taking the time to contact Senator Jeff Merkley!
