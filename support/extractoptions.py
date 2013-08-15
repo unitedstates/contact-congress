@@ -3,8 +3,6 @@
 import os
 import re
 
-os.makedirs('.\output', exist_ok=True)
-
 YAMLselections = []
 
 #compile regular expressions
