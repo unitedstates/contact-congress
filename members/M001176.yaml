@@ -95,16 +95,16 @@ contact_form:
           "Judiciary" : "JUD"
           "Labor" : "LB"
           "LIHEAP" : "LIHEAP"
-          "LGBT">LGBT Issues</option>
-          "HC.MED">Medicare/Medicaid</option>
-          "MIL.HEA">Military, Retiree Health Care</option>
-          "COM.SM">Small Business</option>
-          "SS">Social Security</option>
-          "TAX">Taxes</option>
-          "COM.TR">Trade</option>
-          "TRSP">Transportation</option>
-          "VET">Veterans</option>
-          "OTHER">Other</option>
+          "LGBT Issues" : "LGBT"
+          "Medicare/Medicaid" : "HC.MED"
+          "Military, Retiree Health Care" : "MIL.HEA"
+          "Small Business" : "COM.SM"
+          "Social Security" : "SS"
+          "Taxes" : "TAX"
+          "Trade" : "COM.TR"
+          "Transportation" : "TRSP"
+          "Veterans" : "VET"
+          "Other" : "OTHER"
     - click_on:
       - value: Submit
         selector: "submit"
@@ -112,5 +112,4 @@ contact_form:
     headers:
       status: 200
     body:
-      # contains: Thank you
-      # matches: "thank you, [a-z\. ]+ for contacting"
+      contains: Thanks for taking the time to contact Senator Jeff Merkley!
