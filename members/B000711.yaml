@@ -1,0 +1,198 @@
+bioguide: B000711
+contact_form:
+  method: POST
+  action: "http://www.boxer.senate.gov/en/contact/policycomments.cfm?0"
+  steps:
+    - visit: http://www.boxer.senate.gov/en/contact/policycomments.cfm
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: $NAME_FIRST
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: $NAME_LAST
+        required: Yes
+      - name: suffix
+        selector: "#suffix"
+#        value: $NAME_SUFFIX
+      - name: Address1
+        selector: "#Address1"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: $ADDRESS_STREET_2
+      - name: city
+        selector: "#city"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: $ADDRESS_ZIP_PLUS_4
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: $PHONE
+      - name: homePhone
+        selector: "#homePhone"
+#       value: $PHONE_HOME
+      - name: workPhone
+        selector: "#workPhone"
+#       value: $PHONE_WORK
+      - name: email
+        selector: "#email"
+        value: $EMAIL
+        required: Yes
+      - name: messageSubject
+        selector: "#messageSubject"
+        value: $SUBJECT
+        required: Yes
+      - name: MessageBody
+        selector: "#MessageBody"
+        value: $MESSAGE
+    - select:
+      - name: Prefix
+        selector: "#Prefix"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+        - "Mr."
+        - "Mrs."
+        - "Miss"
+        - "Ms."
+        - "Dr."
+        - "Mr. and Mrs."
+        - "Dr. and Mrs."
+        - "Dr. and Mr."
+        - "Dr. and Dr."
+        - "Mr. and Mr."
+        - "Ms. and Ms."
+        - "Brother"
+        - "Father"
+        - "Imam"
+        - "Pastor"
+        - "Rabbi"
+        - "Reverend"
+        - "Sister"
+        - "General"
+        - "Admiral"
+        - "Lt General"
+        - "Vice Admiral"
+        - "Maj General"
+        - "Rear Admiral"
+        - "Brig General"
+        - "Colonel"
+        - "Captain"
+        - "Lt Colonel"
+        - "Commander"
+        - "Major"
+        - "Lt Commander"
+        - "Captain"
+        - "Lieutenant"
+        - "1st Lieutenant"
+        - "Lieutenant JG"
+        - "2nd Lieutenant"
+        - "Ensign"
+        - "Warrant Officer"
+        - "Cmd Sgt Major"
+        - "Force/Fleet Cmd Master Sgt"
+        - "Cmd Chief Master Sgt"
+        - "Sgt Major"
+        - "Chief Master SGT"
+        - "Master Gunnery SGT"
+        - "Master CPO"
+        - "Master Sergeant"
+        - "1st Sergeant"
+        - "Sr Master Sergeant"
+        - "Sr CPO"
+        - "Sergeant 1st Class"
+        - "Gunnery Sergeant"
+        - "CPO"
+        - "Staff Sergeant"
+        - "Technical Sgt"
+        - "PO 1st Class"
+        - "Sergeant"
+        - "PO 2nd Class"
+        - "Corporal"
+        - "PO 3rd Class"
+        - "Specialist"
+        - "Sr Airman"
+        - "Private 1st Class"
+        - "Airman 1st Class"
+        - "Lance Corporal"
+        - "Seaman"
+        - "Private"
+        - "Airman"
+        - "Private 1st Class"
+        - "Seaman Apprentice"
+        - "Private (Recruit)"
+        - "Airman Basic"
+        - "Private"
+        - "Seaman Recruit"
+      - name: State
+        selector: "#State"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options: US_STATES_AND_MPCS
+      - name: Subject
+        selector: "#Subject"
+        value: $TOPIC
+        required: Yes
+        options:
+          "Affordable Care Act" : "HT_ACA"
+          "Climate Change" : "HT_ClimateChange"
+          "Federal Budget" : "HT_FederalBudget"
+          "Minimum Wage" : "HT_MinimumWage"
+          "Abortion" : "Abortion"
+          "Afghanistan" : "AFGHANISTAN"
+          "Agriculture" : "AGRICULTURE"
+          "Animal Welfare" : "ANIMAL WELFARE"
+          "Banking & Finance" : "BANKING FINANCE"
+          "Business" : "BUSINESS"
+          "Children" : "CHILDREN"
+          "Civil Rights" : "CIVIL RIGHTS"
+          "Crime" : "CRIME"
+          "Defense" : "DEFENSE"
+          "Disability Issues" : "DISABILITY ISSUES"
+          "Economy" : "ECONOMY"
+          "Education" : "EDUCATION"
+          "Energy" : "ENERGY"
+          "Environment" : "ENVIRONMENT"
+          "Federal Budget" : "FEDERAL BUDGET"
+          "Foreign Policy" : "FOREIGN AFFAIRS"
+          "Gas Prices" : "ENERGY"
+          "Health" : "HEALTH"
+          "Homeland Security" : "HOMELAND SECURITY"
+          "Housing" : "HOUSING"
+          "Immigration" : "IMMIGRATION"
+          "Iraq" : "IRAQ"
+          "Judicial Nominations" : "JUDICIARY"
+          "Labor" : "LABOR"
+          "Medicare/Medicaid" : "MEDICARE MEDICAID"
+          "Middle East" : "FOREIGN AFFAIRS"
+          "Native Americans" : "NATIVE AMERICANS"
+          "Natural Disasters" : "NATURAL DISASTERS"
+          "Prescription Drugs" : "PRESCRIPTION DRUGS"
+          "Political Parties and Elections" : "POLITICS"
+          "Science" : "SCIENCE"
+          "Seniors" : "SENIORS"
+          "Sensible Gun Laws" : "CRIME"
+          "Social Security" : "SOCIAL SECURITY"
+          "Space" : "SPACE"
+          "Taxation" : "TAXES"
+          "Technology" : "TECHNOLOGY"
+          "Telecommunications/Broadcast" : "TELECOMMUNICATIONS"
+          "Trade" : "TRADE"
+          "Transportation" : "TRANSPORTATION"
+          "Veterans" : "VETERANS"
+          "Welfare" : "WELFARE"
+          "Women's Issues" : "WOMEN"
+    - click_on:
+      - value: Submit
+        selector: "#Submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting Senator Boxer.

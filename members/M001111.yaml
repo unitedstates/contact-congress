@@ -1,7 +1,7 @@
 bioguide: M001111
 contact_form:
   method: POST
-  action: ""
+  action: "http://www.murray.senate.gov/public/index.cfm/contactme"
   steps:
     - visit: http://www.murray.senate.gov/public/index.cfm/contactme
     - fill_in:
@@ -48,22 +48,22 @@ contact_form:
         value: $NAME_PREFIX
         required: Yes
         options:
-        - Mr.
-        - Ms.
-        - Mrs.
-        - Mr. and Mrs.
-        - Dr.
-        - Dr. and Mr. 
-        - Dr. and Mrs.
-        - Mr. and Dr.
-        - Mr. and Mr. 
-        - Mrs. and Mrs.
-        - Reverend
-        - Sister
-        - Pastor
-        - The Honorable
-        - Representative
-        - Senator
+        - "Mr."
+        - "Ms."
+        - "Mrs."
+        - "Mr. and Mrs."
+        - "Dr."
+        - "Dr. and Mr. "
+        - "Dr. and Mrs."
+        - "Mr. and Dr."
+        - "Mr. and Mr. "
+        - "Mrs. and Mrs."
+        - "Reverend"
+        - "Sister"
+        - "Pastor"
+        - "The Honorable"
+        - "Representative"
+        - "Senator"
       - name: field_666b0565-90bc-4fba-99bb-1d4ec09fcc6e
         selector: "#field_666b0565-90bc-4fba-99bb-1d4ec09fcc6e"
         value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -74,47 +74,47 @@ contact_form:
         value: $TOPIC
         required: Yes
         options:
-        - Economic Stimulus/Financial Services
-        - Mortgage Assistance
-        - Need Help with a Federal Agency/Military Personnel
-        - Abortion
-        - Aging
-        - Agriculture
-        - Animal Welfare
-        - Arts
-        - Asbestos
-        - Banking
-        - Budget
-        - Children and Families
-        - Judiciary
-        - Defense
-        - Education
-        - Elections and Congressional Affairs
-        - Energy
-        - Environment and Natural Resources
-        - Fisheries
-        - Foreign Policy
-        - Health Care
-        - Homeland Security/Terrorism
-        - Housing
-        - Immigration
-        - Iraq
-        - Labor and Workforce
-        - Law Enforcement and Firearms
-        - LGBT
-        - Medicaid
-        - Medicare
-        - Postal Affairs
-        - Social Security
-        - Space
-        - Small Business
-        - Taxes
-        - Technology and Telecommunications
-        - Trade
-        - Transportation
-        - Veterans
-        - Welfare
-        - Women
+          "Economic Stimulus/Financial Services" : "FIN"
+          "Mortgage Assistance" : "MORTGAGE HELP"
+          "Need Help with a Federal Agency/Military Personnel" : "CASE"
+          "Abortion" : "ABO"
+          "Aging" : "AGI"
+          "Agriculture" : "AGRI"
+          "Animal Welfare" : "ANWE"
+          "Arts" : "ARTS"
+          "Asbestos" : "ASBESTOS"
+          "Banking" : "BANK"
+          "Budget" : "BUD"
+          "Children and Families" : "CHLDFAM"
+          "Judiciary" : "JUD"
+          "Defense" : "DEF"
+          "Education" : "EDU"
+          "Elections and Congressional Affairs" : "ELCON"
+          "Energy" : "ENER"
+          "Environment and Natural Resources" : "ENV"
+          "Fisheries" : "FISH"
+          "Foreign Policy" : "FOR"
+          "Health Care" : "HECA"
+          "Homeland Security/Terrorism" : "HOMELAND"
+          "Housing" : "HOU"
+          "Immigration" : "IMM"
+          "Iraq" : "IRAQ"
+          "Labor and Workforce" : "LABOR"
+          "Law Enforcement and Firearms" : "LEG"
+          "LGBT" : "GAYRTS"
+          "Medicaid" : "MEDICAID"
+          "Medicare" : "MEDICARE"
+          "Postal Affairs" : "POSTAL"
+          "Social Security" : "SOCSEC"
+          "Space" : "SPASCI"
+          "Small Business" : "SMBUS"
+          "Taxes" : "TAX"
+          "Technology and Telecommunications" : "TNT"
+          "Trade" : "TRADE"
+          "Transportation" : "TRANS"
+          "Veterans" : "VETS"
+          "Welfare" : "WELF"
+          "Women" : "WOMENS"
     - click_on:
       - value: Submit
         selector: "form.uniForm input[type='submit']"
@@ -122,5 +122,4 @@ contact_form:
     headers:
       status: 200
     body:
-      # contains: Thank you
-      # matches: "thank you, [a-z\. ]+ for contacting"
+      contains: Thank you for your message!
