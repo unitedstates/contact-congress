@@ -5,64 +5,253 @@ contact_form:
   steps:
     - visit: http://www.schatz.senate.gov/contact.cfm
     - fill_in:
-      - name: 
-        selector: "#"
+      - name: firstName
+        selector: "#firstName"
         value: $NAME_FIRST
         required: Yes
-      - name: 
-        selector: "#"
+      - name: lastName
+        selector: "#lastName"
         value: $NAME_LAST
         required: Yes
-      - name:
-        selector: "#"
+      - name: Address1
+        selector: "#Address1"
         value: $ADDRESS_STREET
         required: Yes
-      - name:
-        selector: "#"
+      - name: Address2
+        selector: "#Address2"
         value: $ADDRESS_STREET_2
-      - name:
-        selector: "#"
+      - name: city
+        selector: "#city"
         value: $ADDRESS_CITY
         required: Yes
-      - name: 
-        selector: "#"
-        value: $ADDRESS_ZIP?
+      - name: zip
+        selector: "#zip"
+        value: $ADDRESS_ZIP_PLUS_4
         required: Yes
-      - name: 
-        selector: "#"
+      - name: phone
+        selector: "#phone"
         value: $PHONE
-      - name: 
-        selector: "#"
+        required: Yes
+      - name: email
+        selector: "#email"
         value: $EMAIL
         required: Yes
-      - name: 
-        selector: "#"
+      - name: messageSubject
+        selector: "#messageSubject"
         value: $SUBJECT
         required: Yes
-      - name: 
-        selector: "#"
+      - name: MessageBody
+        selector: "#MessageBody"
         value: $MESSAGE
     - select:
-      - name: 
-        selector: "#"
+      - name: Prefix
+        selector: "#Prefix"
         value: $NAME_PREFIX
         required: Yes
         options:
-        - 
-      - name: 
-        selector: "#"
+        - "Mr."
+        - "Mrs."
+        - "Ms."
+        - "Mr. and Mrs."
+        - "Dr."
+        - "Dr. and Mrs."
+        - "Reverend"
+        - "Sister"
+        - "Pastor"
+        - "The Honorable"
+        - "Representative"
+        - "Senator"
+      - name: State
+        selector: "#State"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
         options: US_STATES_AND_MPCS
-      - name: 
-        selector: "#"
+      - name: Subject
+        selector: "#Subject"
         value: $TOPIC
         required: Yes
         options:
-        - 
+        - "Agriculture"
+        - "Animal Welfare"
+        - "Arts~ Humanities"
+        - "Asians~ Pacific Islanders"
+        - "Banking"
+        - "Budget"
+        - "Campaign Finance"
+        - "Census"
+        - "Children/Family/Adoption"
+        - "Civil Rights"
+        - "Consumer Affairs"
+        - "Defense"
+        - "Education"
+        - "Elections"
+        - "Energy"
+						<OPTION VALUE="Environment">
+							Environment
+						</OPTION>
+					
+						<OPTION VALUE="Federal Workforce">
+							Federal Workforce
+						</OPTION>
+					
+						<OPTION VALUE="Flag Requests">
+							Flag Requests
+						</OPTION>
+					
+						<OPTION VALUE="Foreclosures">
+							Foreclosures
+						</OPTION>
+					
+						<OPTION VALUE="Foreign Relations">
+							Foreign Relations
+						</OPTION>
+					
+						<OPTION VALUE="Governmental Affairs">
+							Governmental Affairs
+						</OPTION>
+					
+						<OPTION VALUE="Grants">
+							Grants
+						</OPTION>
+					
+						<OPTION VALUE="Gun Control">
+							Gun Control
+						</OPTION>
+					
+						<OPTION VALUE="Health">
+							Health
+						</OPTION>
+					
+						<OPTION VALUE="Help with a Federal Agency">
+							Help with a Federal Agency
+						</OPTION>
+					
+						<OPTION VALUE="Homeland Security">
+							Homeland Security
+						</OPTION>
+					
+						<OPTION VALUE="Housing">
+							Housing
+						</OPTION>
+					
+						<OPTION VALUE="Immigration">
+							Immigration
+						</OPTION>
+					
+						<OPTION VALUE="Insurance">
+							Insurance
+						</OPTION>
+					
+						<OPTION VALUE="Internships">
+							Internships
+						</OPTION>
+					
+						<OPTION VALUE="Judiciary">
+							Judiciary
+						</OPTION>
+					
+						<OPTION VALUE="Labor">
+							Labor
+						</OPTION>
+					
+						<OPTION VALUE="Medicare/Medicaid">
+							Medicare/Medicaid
+						</OPTION>
+					
+						<OPTION VALUE="Meeting Request	MEET">
+							Meeting Request	MEET
+						</OPTION>
+					
+						<OPTION VALUE="Messages and Proclamations">
+							Messages and Proclamations
+						</OPTION>
+					
+						<OPTION VALUE="Military Academy Nomination">
+							Military Academy Nomination
+						</OPTION>
+					
+						<OPTION VALUE="Native Americans~ Indigenous Peoples">
+							Native Americans, Indigenous Peoples
+						</OPTION>
+					
+						<OPTION VALUE="Native Hawaiians">
+							Native Hawaiians
+						</OPTION>
+					
+						<OPTION VALUE="New Parks">
+							New Parks
+						</OPTION>
+					
+						<OPTION VALUE="Oceans">
+							Oceans
+						</OPTION>
+					
+						<OPTION VALUE="Postal Service">
+							Postal Service
+						</OPTION>
+					
+						<OPTION VALUE="Public Works/Infrastructure/Army Corps">
+							Public Works/Infrastructure/Army Corps
+						</OPTION>
+					
+						<OPTION VALUE="Science and Space">
+							Science and Space
+						</OPTION>
+					
+						<OPTION VALUE="Seniors">
+							Seniors
+						</OPTION>
+					
+						<OPTION VALUE="Small Business">
+							Small Business
+						</OPTION>
+					
+						<OPTION VALUE="Social Issues">
+							Social Issues
+						</OPTION>
+					
+						<OPTION VALUE="Social Security">
+							Social Security
+						</OPTION>
+					
+						<OPTION VALUE="Tax">
+							Tax
+						</OPTION>
+					
+						<OPTION VALUE="Telecommunication/Internet">
+							Telecommunication/Internet
+						</OPTION>
+					
+						<OPTION VALUE="Tourism">
+							Tourism
+						</OPTION>
+					
+						<OPTION VALUE="Tours and Tickets">
+							Tours and Tickets
+						</OPTION>
+					
+						<OPTION VALUE="Trade">
+							Trade
+						</OPTION>
+					
+						<OPTION VALUE="Transportation">
+							Transportation
+						</OPTION>
+					
+						<OPTION VALUE="Veterans">
+							Veterans
+						</OPTION>
+					
+						<OPTION VALUE="Welfare">
+							Welfare
+						</OPTION>
+					
+						<OPTION VALUE="Women's Issues">
+							Women's Issues
+						</OPTION>
     - click_on:
       - value: Submit
-        selector: ""
+        selector: "#"
   success:
     headers:
       status: 200
