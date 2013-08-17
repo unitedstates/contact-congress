@@ -1,0 +1,137 @@
+bioguide: S001194
+contact_form:
+  method: POST
+  action: "http://www.schatz.senate.gov/webformActionIQV2.cfm"
+  steps:
+    - visit: http://www.schatz.senate.gov/contact.cfm
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: $NAME_FIRST
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: $NAME_LAST
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: $ADDRESS_STREET_2
+      - name: city
+        selector: "#city"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: $ADDRESS_ZIP_PLUS_4
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: $PHONE
+        required: Yes
+      - name: email
+        selector: "#email"
+        value: $EMAIL
+        required: Yes
+      - name: messageSubject
+        selector: "#messageSubject"
+        value: $SUBJECT
+        required: Yes
+      - name: MessageBody
+        selector: "#MessageBody"
+        value: $MESSAGE
+    - select:
+      - name: Prefix
+        selector: "#Prefix"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+        - "Mr."
+        - "Mrs."
+        - "Ms."
+        - "Mr. and Mrs."
+        - "Dr."
+        - "Dr. and Mrs."
+        - "Reverend"
+        - "Sister"
+        - "Pastor"
+        - "The Honorable"
+        - "Representative"
+        - "Senator"
+      - name: State
+        selector: "#State"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options: US_STATES_AND_MPCS
+      - name: Subject
+        selector: "#Subject"
+        value: $TOPIC
+        required: Yes
+        options:
+        - "Agriculture"
+        - "Animal Welfare"
+        - "Arts~ Humanities"
+        - "Asians~ Pacific Islanders"
+        - "Banking"
+        - "Budget"
+        - "Campaign Finance"
+        - "Census"
+        - "Children/Family/Adoption"
+        - "Civil Rights"
+        - "Consumer Affairs"
+        - "Defense"
+        - "Education"
+        - "Elections"
+        - "Energy"
+        - "Environment"			
+        - "Federal Workforce"		
+        - "Flag Requests"		
+        - "Foreclosures"		
+        - "Foreign Relations"		
+        - "Governmental Affairs"	
+        - "Grants"			
+        - "Gun Control"			
+        - "Health"			
+        - "Help with a Federal Agency"	
+        - "Homeland Security"		
+        - "Housing"			
+        - "Immigration"			
+        - "Insurance"			
+        - "Internships"			
+        - "Judiciary"			
+        - "Labor"			
+        - "Medicare/Medicaid"		
+        - "Meeting Request	MEET"	
+        - "Messages and Proclamations"	
+        - "Military Academy Nomination"	
+        - "Native Americans~ Indigenous Peoples">
+        - "Native Hawaiians"		
+        - "New Parks"			
+        - "Oceans"			
+        - "Postal Service"		
+        - "Public Works/Infrastructure/Army Corps"
+        - "Science and Space"		
+        - "Seniors"			
+        - "Small Business"		
+        - "Social Issues"		
+        - "Social Security"		
+        - "Tax"				
+        - "Telecommunication/Internet"	
+        - "Tourism"			
+        - "Tours and Tickets"		
+        - "Trade"			
+        - "Transportation"		
+        - "Veterans"			
+        - "Welfare"			
+        - "Women's Issues"
+    - click_on:
+      - value: Submit
+        selector: "#Submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you
