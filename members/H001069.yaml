@@ -1,0 +1,183 @@
+bioguide: H001069
+contact_form:
+	method: POST
+	action: http://www.heitkamp.senate.gov/webformActionIQV2.cfm
+	steps:
+		- visit: http://www.heitkamp.senate.gov/contact.cfm
+		- fill_in:
+			- name: firstName
+			  selector: "$firstName"
+			  value: "$NAME_FIRST"
+			  required: Yes
+			- name: lastName
+			  selector: "#lastName"
+			  value: "$NAME_LAST"
+			  required: Yes
+			- name: Address1
+			  selector: "#Address1"
+			  value: "$ADDRESS_STREET"
+			  required: Yes	  			  
+			- name: Address2
+			  selector: "#Address2"
+			  value: "ADDRESS_STREET2"
+			- name: city
+			  selector: "#city"
+			  value: "$ADDRESS_CITY"
+			  required: Yes
+			- name: zip
+			  selector: "#zip"
+			  value: "$ADDRESS_ZIP5"
+			  required: Yes
+			- name: phone
+			  selector: "#phone"
+			  value: "$PHONE"
+			- name: email
+			  selector: "#email"
+			  value: "$EMAIL"
+			  required: Yes
+			- name: messageSubject
+			  selector: "#messageSubject"
+			  value: "$SUBJECT"
+			  required: Yes
+			- name: messageBody
+			  selector: "#messageBody"
+			  value: "$MESSAGE"
+			  required: Yes
+		-select:
+		 - name: subject
+		   selector: "#subject"
+		   value: "$TOPIC"
+		   required: Yes
+		   options:
+			- "Abortion"
+			- "Aging"
+			- "Agriculture"
+			- "Animal Welfare"
+			- "Appropriations"
+			- "Banking"
+			- "Budget, Government Spending"
+			- "Civil Rights"
+			- "Commerce"
+			- "Communications"
+			- "Congratulations"
+			- "Crime"
+			- "Defense"
+			- "Drugs"
+			- "Economy"
+			- "Education"
+			- "Elections"
+			- "Energy"
+			- "Environment"
+			- "Family"
+			- "Filibuster"
+			- "Food Stamps"
+			- "Foreign Affairs"
+			- "Gun Control"
+			- "Health"
+			- "Homeland Security"
+			- "Housing"
+			- "Immigration"
+			- "IND"
+			- "Judiciary"
+			- "Labor"
+			- "Medicaid"
+			- "Medicare"
+			- "Military"
+			- "Nutrition"
+			- "Other"
+			- "Pensions"
+			- "Postal Service"
+			- "Public Lands and Parks"
+			- "Science and Technology"
+			- "Small Business"
+			- "Social Security"
+			- "Taxes"
+			- "Tobacco"
+			- "Trade"
+			- "Transportation"
+			- "Veterans"
+			- "Welfare"
+			- "Women's Issues"
+		 - name: Prefix
+		   selector: "#Prefix"
+		   value: "$NAME_PREFIX"
+		   required: Yes
+		   options:
+			- "Mr."
+			- "Mrs."
+			- "Ms."
+			- "Mr. and Mrs."
+			- "Dr."
+			- "Dr. and Mrs."
+			- "Reverend"
+			- "Sister"
+			- "Pastor"
+			- "The Honorable"
+			- "Representative"
+			- "Senator"
+		- name: state
+		  selector: "#state"
+		  value: "$STATE"
+			options:
+			- "AA"
+			- "AE"
+			- "AP"
+			- "AL"
+			- "AK"
+			- "AZ"
+			- "AR"
+			- "CA"
+			- "CO"
+			- "CT"
+			- "DE"
+			- "DC"
+			- "FL"
+			- "GA"
+			- "HI"
+			- "ID"
+			- "IL"
+			- "IN"
+			- "IA"
+			- "KS"
+			- "KY"
+			- "LA"
+			- "ME"
+			- "MD"
+			- "MA"
+			- "MI"
+			- "MN"
+			- "MS"
+			- "MO"
+			- "MT"
+			- "NE"
+			- "NV"
+			- "NH"
+			- "NJ"
+			- "NM"
+			- "NY"
+			- "NC"
+			- "ND"
+			- "OH"
+			- "OK"
+			- "OR"
+			- "PA"
+			- "RI"
+			- "SC"
+			- "SD"
+			- "TN"
+			- "TX"
+			- "UT"
+			- "VT"
+			- "VA"
+			- "WA"
+			- "WV"
+			- "WI"
+			- "WY"
+		- click_on:
+			- value: Send
+			  selector: "#submit"
+	success:
+		headers:
+			status: 200
+		body:
+			contains: "Thank you"

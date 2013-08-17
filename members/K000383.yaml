@@ -1,0 +1,129 @@
+bioguide: K000383
+contact_form:
+	method: POST
+	action: http://www.king.senate.gov/contact
+	steps:
+		- visit: http://www.king.senate.gov/contact
+		- fill_in:
+			- name: fname
+			  selector: "$fname"
+			  value: "$NAME_FIRST"
+			  required: Yes
+			- name: lname
+			  selector: "#lname"
+			  value: "$NAME_LAST"
+			  required: Yes
+			- name: mailing_streetAddress1
+			  selector: "#mailing_streetAddress1"
+			  value: "$ADDRESS_STREET"
+			  required: Yes	  			  
+			- name: mailing_streetAddress2
+			  selector: "#mailing_streetAddress2"
+			  value: "ADDRESS_STREET2"
+			- name: mailing_city
+			  selector: "#mailing_city"
+			  value: "$ADDRESS_CITY"
+			  required: Yes
+			- name: mailing_zipCode
+			  selector: "#mailing_zipCode"
+			  value: "$ADDRESS_ZIP5"
+			  required: Yes
+			- name: home_phone_number
+			  selector: "#home_phone_number"
+			  value: "$PHONE"
+			- name: work_phone_number
+			  selector: "#work_phone_number"
+			  value: "$PHONE"
+			- name: email_address
+			  selector: "#email"
+			  value: "$EMAIL"
+			  required: Yes
+			- name: verify_email
+			  selector: "#verify_email"
+			  value: "$EMAIL"
+			  required: Yes
+			- name: comments
+			  selector: "#comments"
+			  value: "$MESSAGE"
+			  required: Yes
+			- name: subject
+			  selector: "#subject"
+			  value: "$SUBJECT"
+			  required: Yes
+		-select:
+		 - name: topic
+		   selector: "#topic"
+		   value: "$TOPIC"
+		   required: Yes
+		   options:
+				- "Agriculture"
+				- "Banking & Financial Services"
+				- "Budget & Appropriations"
+				- "Civil Liberties"
+				- "Civil Rights"
+				- "Defense & Intelligence"
+				- "Education"
+				- "Elections & Campaign Finance"
+				- "Energy"
+				- "Environment & Forestry"
+				- "Family & Children's Issues"
+				- "Fisheries"
+				- "Foreign Policy & International Relations"
+				- "Government Reform"
+				- "Grant Assistance"
+				- "Gun Control"
+				- "Healthcare & Health Insurance"
+				- "Homeland Security & FEMA"
+				- "Housing and Urban Affairs"
+				- "Immigration"
+				- "Indian Affairs"
+				- "Judiciary & Criminal Law Enforcement"
+				- "Labor"
+				- "Medicare & Medicaid"
+				- "National Parks & Federal Lands"
+				- "Nutrition/SNAP"
+				- "Other"
+				- "Patents & Copyrights"
+				- "Pensions & Other Senior Issues"
+				- "Postal Service"
+				- "Reproductive Rights"
+				- "Science, Technology, & Telecom"
+				- "Small Business"
+				- "Social Security"
+				- "Taxes"
+				- "Trade"
+				- "Transportation"
+				- "Veterans"
+				- "Website Feedback"
+				- "Welfare"
+		 - name: salutation
+		   selector: "#salutation"
+		   value: "$NAME_PREFIX"
+		   required: Yes
+		   options:
+		   	- "Mr."
+		   	- "Ms."
+		   	- "Mrs."
+		   	- "Miss"
+		   	- "Mr. and Mrs."
+		   	- "Dr."
+		   	- "Prof."
+		   	- "Senator"
+		   	- "Gov."
+		   	- "Congressman"
+		   	- "Hon."
+		   	- "Sister"
+		   	- "Rabbi"
+		   	- "Reverend"
+		- name: state
+		  selector: "#state"
+		  value: "$ADDRESS_STATE_POSTAL_ABBREV"
+			options: US_STATES
+		- click_on:
+			- value: Send
+			  selector: "#side-search-btn"
+	success:
+		headers:
+			status: 200
+		body:
+			contains: "Thank You"
