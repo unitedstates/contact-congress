@@ -86,175 +86,52 @@ contact_form:
         - "Education"
         - "Elections"
         - "Energy"
-						<OPTION VALUE="Environment">
-							Environment
-						</OPTION>
-					
-						<OPTION VALUE="Federal Workforce">
-							Federal Workforce
-						</OPTION>
-					
-						<OPTION VALUE="Flag Requests">
-							Flag Requests
-						</OPTION>
-					
-						<OPTION VALUE="Foreclosures">
-							Foreclosures
-						</OPTION>
-					
-						<OPTION VALUE="Foreign Relations">
-							Foreign Relations
-						</OPTION>
-					
-						<OPTION VALUE="Governmental Affairs">
-							Governmental Affairs
-						</OPTION>
-					
-						<OPTION VALUE="Grants">
-							Grants
-						</OPTION>
-					
-						<OPTION VALUE="Gun Control">
-							Gun Control
-						</OPTION>
-					
-						<OPTION VALUE="Health">
-							Health
-						</OPTION>
-					
-						<OPTION VALUE="Help with a Federal Agency">
-							Help with a Federal Agency
-						</OPTION>
-					
-						<OPTION VALUE="Homeland Security">
-							Homeland Security
-						</OPTION>
-					
-						<OPTION VALUE="Housing">
-							Housing
-						</OPTION>
-					
-						<OPTION VALUE="Immigration">
-							Immigration
-						</OPTION>
-					
-						<OPTION VALUE="Insurance">
-							Insurance
-						</OPTION>
-					
-						<OPTION VALUE="Internships">
-							Internships
-						</OPTION>
-					
-						<OPTION VALUE="Judiciary">
-							Judiciary
-						</OPTION>
-					
-						<OPTION VALUE="Labor">
-							Labor
-						</OPTION>
-					
-						<OPTION VALUE="Medicare/Medicaid">
-							Medicare/Medicaid
-						</OPTION>
-					
-						<OPTION VALUE="Meeting Request	MEET">
-							Meeting Request	MEET
-						</OPTION>
-					
-						<OPTION VALUE="Messages and Proclamations">
-							Messages and Proclamations
-						</OPTION>
-					
-						<OPTION VALUE="Military Academy Nomination">
-							Military Academy Nomination
-						</OPTION>
-					
-						<OPTION VALUE="Native Americans~ Indigenous Peoples">
-							Native Americans, Indigenous Peoples
-						</OPTION>
-					
-						<OPTION VALUE="Native Hawaiians">
-							Native Hawaiians
-						</OPTION>
-					
-						<OPTION VALUE="New Parks">
-							New Parks
-						</OPTION>
-					
-						<OPTION VALUE="Oceans">
-							Oceans
-						</OPTION>
-					
-						<OPTION VALUE="Postal Service">
-							Postal Service
-						</OPTION>
-					
-						<OPTION VALUE="Public Works/Infrastructure/Army Corps">
-							Public Works/Infrastructure/Army Corps
-						</OPTION>
-					
-						<OPTION VALUE="Science and Space">
-							Science and Space
-						</OPTION>
-					
-						<OPTION VALUE="Seniors">
-							Seniors
-						</OPTION>
-					
-						<OPTION VALUE="Small Business">
-							Small Business
-						</OPTION>
-					
-						<OPTION VALUE="Social Issues">
-							Social Issues
-						</OPTION>
-					
-						<OPTION VALUE="Social Security">
-							Social Security
-						</OPTION>
-					
-						<OPTION VALUE="Tax">
-							Tax
-						</OPTION>
-					
-						<OPTION VALUE="Telecommunication/Internet">
-							Telecommunication/Internet
-						</OPTION>
-					
-						<OPTION VALUE="Tourism">
-							Tourism
-						</OPTION>
-					
-						<OPTION VALUE="Tours and Tickets">
-							Tours and Tickets
-						</OPTION>
-					
-						<OPTION VALUE="Trade">
-							Trade
-						</OPTION>
-					
-						<OPTION VALUE="Transportation">
-							Transportation
-						</OPTION>
-					
-						<OPTION VALUE="Veterans">
-							Veterans
-						</OPTION>
-					
-						<OPTION VALUE="Welfare">
-							Welfare
-						</OPTION>
-					
-						<OPTION VALUE="Women's Issues">
-							Women's Issues
-						</OPTION>
+        - "Environment"			
+        - "Federal Workforce"		
+        - "Flag Requests"		
+        - "Foreclosures"		
+        - "Foreign Relations"		
+        - "Governmental Affairs"	
+        - "Grants"			
+        - "Gun Control"			
+        - "Health"			
+        - "Help with a Federal Agency"	
+        - "Homeland Security"		
+        - "Housing"			
+        - "Immigration"			
+        - "Insurance"			
+        - "Internships"			
+        - "Judiciary"			
+        - "Labor"			
+        - "Medicare/Medicaid"		
+        - "Meeting Request	MEET"	
+        - "Messages and Proclamations"	
+        - "Military Academy Nomination"	
+        - "Native Americans~ Indigenous Peoples">
+        - "Native Hawaiians"		
+        - "New Parks"			
+        - "Oceans"			
+        - "Postal Service"		
+        - "Public Works/Infrastructure/Army Corps"
+        - "Science and Space"		
+        - "Seniors"			
+        - "Small Business"		
+        - "Social Issues"		
+        - "Social Security"		
+        - "Tax"				
+        - "Telecommunication/Internet"	
+        - "Tourism"			
+        - "Tours and Tickets"		
+        - "Trade"			
+        - "Transportation"		
+        - "Veterans"			
+        - "Welfare"			
+        - "Women's Issues"
     - click_on:
       - value: Submit
-        selector: "#"
+        selector: "#Submit"
   success:
     headers:
       status: 200
     body:
-      # contains: Thank you
-      # matches: "thank you, [a-z\. ]+ for contacting"
+      contains: Thank you
