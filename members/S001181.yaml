@@ -1,68 +1,451 @@
 bioguide: 
 contact_form: S001181
   method: POST
-  action: ""
+  action: "http://www.shaheen.senate.gov/contact/index.cfm"
   steps:
     - visit: http://www.shaheen.senate.gov/contact/
     - fill_in:
-      - name: 
-        selector: "#"
+      - name: first_name
+        selector: "#first_name"
         value: $NAME_FIRST
         required: Yes
-      - name: 
-        selector: "#"
+      - name: last_name
+        selector: "#last_name"
         value: $NAME_LAST
         required: Yes
-      - name:
-        selector: "#"
+      - name: street_address
+        selector: "#street_address"
         value: $ADDRESS_STREET
         required: Yes
-      - name:
-        selector: "#"
+      - name: street_address_2
+        selector: "#street_address_2"
         value: $ADDRESS_STREET_2
-      - name:
-        selector: "#"
+      - name: city
+        selector: "#city"
         value: $ADDRESS_CITY
         required: Yes
-      - name: 
+      - name: zip
         selector: "#"
-        value: $ADDRESS_ZIP?
+        value: $ADDRESS_ZIP_PLUS_4
         required: Yes
-      - name: 
-        selector: "#"
+      - name: home_phone
+        selector: "#home_phone"
         value: $PHONE
-      - name: 
-        selector: "#"
+        required: Yes
+      - name: work_phone
+        selector: "#work_phone"
+        value: $PHONE_WORK
+      - name: email
+        selector: "#email"
         value: $EMAIL
         required: Yes
-      - name: 
-        selector: "#"
-        value: $SUBJECT
+      - name: verify_email
+        selector: "#verify_email"
+        value: $EMAIL
         required: Yes
-      - name: 
-        selector: "#"
+      - name: comments 
+        selector: "#comments"
         value: $MESSAGE
     - select:
-      - name: 
-        selector: "#"
+      - name: salutation
+        selector: "#salutation"
         value: $NAME_PREFIX
         required: Yes
         options:
-        - 
-      - name: 
-        selector: "#"
+        -    				<option label="Mr." value="Mr.">Mr.</option>
+			
+   				<option label="Mrs." value="Mrs.">Mrs.</option>
+			
+   				<option label="Ms." value="Ms.">Ms.</option>
+			
+   				<option label="Miss" value="Miss">Miss</option>
+			
+   				<option label="Mr. and Mrs." value="Mr. and Mrs.">Mr. and Mrs.</option>
+			
+   				<option label="Dr." value="Dr.">Dr.</option>
+			
+   				<option label="Prof." value="Prof.">Prof.</option>
+			
+   				<option label="Senator" value="Senator">Senator</option>
+			
+   				<option label="Gov." value="Gov.">Gov.</option>
+			
+   				<option label="Congressman" value="Congressman">Congressman</option>
+			
+   				<option label="Hon." value="Hon.">Hon.</option>
+			
+   				<option label="Fr." value="Fr.">Fr.</option>
+			
+   				<option label="Sister" value="Sister">Sister</option>
+			
+   				<option label="Rabbi" value="Rabbi">Rabbi</option>
+			
+   				<option label="Reverend" value="Reverend">Reverend</option>
+			
+   				<option label="Fleet Admiral" value="Fleet Admiral">Fleet Admiral</option>
+			
+   				<option label="Admiral" value="Admiral">Admiral</option>
+			
+   				<option label="Vice Admiral" value="Vice Admiral">Vice Admiral</option>
+			
+   				<option label="Rear Admiral (upper half)" value="Rear Admiral (upper half)">Rear Admiral (upper half)</option>
+			
+   				<option label="Rear Admiral (lower half)" value="Rear Admiral (lower half)">Rear Admiral (lower half)</option>
+			
+   				<option label="Captain" value="Captain">Captain</option>
+			
+   				<option label="Commander" value="Commander">Commander</option>
+			
+   				<option label="Lieutenant Commander" value="Lieutenant Commander">Lieutenant Commander</option>
+			
+   				<option label="Lieutenant" value="Lieutenant">Lieutenant</option>
+			
+   				<option label="Lieutenant, Junior Grade" value="Lieutenant, Junior Grade">Lieutenant, Junior Grade</option>
+			
+   				<option label="Ensign" value="Ensign">Ensign</option>
+			
+   				<option label="Master Chief Petty Officer of the Navy" value="Master Chief Petty Officer of the Navy">Master Chief Petty Officer of the Navy</option>
+			
+   				<option label="Master Chief Petty Officer" value="Master Chief Petty Officer">Master Chief Petty Officer</option>
+			
+   				<option label="Senior Chief Petty Officer" value="Senior Chief Petty Officer">Senior Chief Petty Officer</option>
+			
+   				<option label="Chief Petty Officer" value="Chief Petty Officer">Chief Petty Officer</option>
+			
+   				<option label="Petty Officer First Class" value="Petty Officer First Class">Petty Officer First Class</option>
+			
+   				<option label="Petty Officer Second Class" value="Petty Officer Second Class">Petty Officer Second Class</option>
+			
+   				<option label="Petty Officer Third Class" value="Petty Officer Third Class">Petty Officer Third Class</option>
+			
+   				<option label="Seaman" value="Seaman">Seaman</option>
+			
+   				<option label="Seaman Apprentice" value="Seaman Apprentice">Seaman Apprentice</option>
+			
+   				<option label="Seaman Recruit" value="Seaman Recruit">Seaman Recruit</option>
+			
+   				<option label="Chief Warrant Officer" value="Chief Warrant Officer">Chief Warrant Officer</option>
+			
+   				<option label="Warrant Officer" value="Warrant Officer">Warrant Officer</option>
+			
+   				<option label="Sgt Major Of The Corps" value="Sgt Major Of The Corps">Sgt Major Of The Corps</option>
+			
+   				<option label="Sergeant Major" value="Sergeant Major">Sergeant Major</option>
+			
+   				<option label="Master Gunnery Sgt" value="Master Gunnery Sgt">Master Gunnery Sgt</option>
+			
+   				<option label="First Sergeant" value="First Sergeant">First Sergeant</option>
+			
+   				<option label="Master Sergeant" value="Master Sergeant">Master Sergeant</option>
+			
+   				<option label="Gunnery Sergeant" value="Gunnery Sergeant">Gunnery Sergeant</option>
+			
+   				<option label="Specialist" value="Specialist">Specialist</option>
+			
+   				<option label="Staff Sergeant" value="Staff Sergeant">Staff Sergeant</option>
+			
+   				<option label="Sergeant" value="Sergeant">Sergeant</option>
+			
+   				<option label="Corporal" value="Corporal">Corporal</option>
+			
+   				<option label="Lance Corporal" value="Lance Corporal">Lance Corporal</option>
+			
+   				<option label="Private First Class" value="Private First Class">Private First Class</option>
+			
+   				<option label="Private" value="Private">Private</option>
+			
+   				<option label="General of the Air Force" value="General of the Air Force">General of the Air Force</option>
+			
+   				<option label="General" value="General">General</option>
+			
+   				<option label="Lieutenant General" value="Lieutenant General">Lieutenant General</option>
+			
+   				<option label="Major General" value="Major General">Major General</option>
+			
+   				<option label="Brigadier General" value="Brigadier General">Brigadier General</option>
+			
+   				<option label="Colonel" value="Colonel">Colonel</option>
+			
+   				<option label="Lieutenant Colonel" value="Lieutenant Colonel">Lieutenant Colonel</option>
+			
+   				<option label="Major" value="Major">Major</option>
+			
+   				<option label="First Lieutenant" value="First Lieutenant">First Lieutenant</option>
+			
+   				<option label="Second Lieutenant" value="Second Lieutenant">Second Lieutenant</option>
+			
+   				<option label="Chief Master Sergeant of the Air Force" value="Chief Master Sergeant of the Air Force">Chief Master Sergeant of the Air Force</option>
+			
+   				<option label="Command  Chief Master Sergeant" value="Command  Chief Master Sergeant">Command  Chief Master Sergeant</option>
+			
+   				<option label="Chief Master Sergeant" value="Chief Master Sergeant">Chief Master Sergeant</option>
+			
+   				<option label="Senior Master Sergeant" value="Senior Master Sergeant">Senior Master Sergeant</option>
+			
+   				<option label="Technical Sergeant" value="Technical Sergeant">Technical Sergeant</option>
+			
+   				<option label="Staff Sergeant" value="Staff Sergeant">Staff Sergeant</option>
+			
+   				<option label="Senior Airman" value="Senior Airman">Senior Airman</option>
+			
+   				<option label="Airman First Class" value="Airman First Class">Airman First Class</option>
+			
+   				<option label="Airman" value="Airman">Airman</option>
+			
+   				<option label="Attorney" value="Attorney">Attorney</option>
+
+      - name: state
+        selector: "#state"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
-        options: US_STATES_AND_MPCS
-      - name: 
-        selector: "#"
+        options: US_STATES
+      - name: topic
+        selector: "#topic"
         value: $TOPIC
         required: Yes
         options:
-        - 
+        -               
+                <option label="Abortion" value="ABOR">Abortion</option>
+              
+            
+              
+                <option label="Afghanistan" value="AFG">Afghanistan</option>
+              
+            
+              
+                <option label="Aging / Seniors" value="SEN">Aging / Seniors</option>
+              
+            
+              
+                <option label="Agriculture" value="AGR">Agriculture</option>
+              
+            
+              
+                <option label="Animal Rights" value="ANIM">Animal Rights</option>
+              
+            
+              
+                <option label="Appropriations" value="APP">Appropriations</option>
+              
+            
+              
+                <option label="Arts and Humanities" value="ARTS">Arts and Humanities</option>
+              
+            
+              
+                <option label="Banking" value="BANK">Banking</option>
+              
+            
+              
+                <option label="Budget" value="BUD">Budget</option>
+              
+            
+              
+                <option label="Campaign Finance Reform" value="CAMP">Campaign Finance Reform</option>
+              
+            
+              
+                <option label="Child Abuse" value="ABUSE">Child Abuse</option>
+              
+            
+              
+                <option label="Children / Family / Adoption" value="CHILD">Children / Family / Adoption</option>
+              
+            
+              
+                <option label="Civil Rights" value="CIV">Civil Rights</option>
+              
+            
+              
+                <option label="Civil Service / Postal" value="POST">Civil Service / Postal</option>
+              
+            
+              
+                <option label="Social Issues" value="SOC">Social Issues</option>
+              
+            
+              
+                <option label="Commerce" value="COM">Commerce</option>
+              
+            
+              
+                <option label="Congressional Issues" value="CON">Congressional Issues</option>
+              
+            
+              
+                <option label="Crimes / Drugs / Guns" value="CRIME">Crimes / Drugs / Guns</option>
+              
+            
+              
+                <option label="Debt / Deficit" value="DEBT">Debt / Deficit</option>
+              
+            
+              
+                <option label="Defense" value="DEF">Defense</option>
+              
+            
+              
+                <option label="Economy" value="ECON">Economy</option>
+              
+            
+              
+                <option label="Education" value="EDU">Education</option>
+              
+            
+              
+                <option label="Elections / Election Reform" value="ELECT">Elections / Election Reform</option>
+              
+            
+              
+                <option label="Energy" value="ENE">Energy</option>
+              
+            
+              
+                <option label="Environment / Public Works" value="ENV">Environment / Public Works</option>
+              
+            
+              
+                <option label="Firearms" value="FIREARMS">Firearms</option>
+              
+            
+              
+                <option label="Foreign Relations" value="FR">Foreign Relations</option>
+              
+            
+              
+                <option label="Governmental Reform" value="GOV">Governmental Reform</option>
+              
+            
+              
+                <option label="Healthcare" value="HEA">Healthcare</option>
+              
+            
+              
+                <option label="Homeland Security" value="HOM">Homeland Security</option>
+              
+            
+              
+                <option label="Housing" value="HOUS">Housing</option>
+              
+            
+              
+                <option label="Immigration" value="IMM">Immigration</option>
+              
+            
+              
+                <option label="Indian Affairs" value="IND">Indian Affairs</option>
+              
+            
+              
+                <option label="Insurance - Other" value="INSUR-OTHER">Insurance - Other</option>
+              
+            
+              
+                <option label="Interior / Forestry" value="INTERI">Interior / Forestry</option>
+              
+            
+              
+                <option label="Iraq" value="IRAQ">Iraq</option>
+              
+            
+              
+                <option label="Jobs" value="JOBS">Jobs</option>
+              
+            
+              
+                <option label="Judiciary" value="JUD">Judiciary</option>
+              
+            
+              
+                <option label="Labor" value="LAB">Labor</option>
+              
+            
+              
+                <option label="LGBT" value="LGBT">LGBT</option>
+              
+            
+              
+                <option label="LIHEAP" value="LIHEAP">LIHEAP</option>
+              
+            
+              
+                <option label="Medicare / Medicaid" value="MED">Medicare / Medicaid</option>
+              
+            
+              
+                <option label="Military / Retiree Health Care" value="MIL.HEA">Military / Retiree Health Care</option>
+              
+            
+              
+                <option label="NASA" value="NASA">NASA</option>
+              
+            
+              
+                <option label="Nutrition" value="NUT">Nutrition</option>
+              
+            
+              
+                <option label="Patents" value="PAT">Patents</option>
+              
+            
+              
+                <option label="Pensions" value="PENS">Pensions</option>
+              
+            
+              
+                <option label="Science and Technology" value="SCI">Science and Technology</option>
+              
+            
+              
+                <option label="Securities" value="SEC">Securities</option>
+              
+            
+              
+                <option label="Small Business" value="BUS">Small Business</option>
+              
+            
+              
+                <option label="Social Issues" value="SOC">Social Issues</option>
+              
+            
+              
+                <option label="Social Security" value="SSEC">Social Security</option>
+              
+            
+              
+                <option label="Taxes" value="TAX">Taxes</option>
+              
+            
+              
+                <option label="Telecommunications / Communications" value="TEL">Telecommunications / Communications</option>
+              
+            
+              
+                <option label="Tobacco" value="TOB">Tobacco</option>
+              
+            
+              
+                <option label="Trade" value="TRADE">Trade</option>
+              
+            
+              
+                <option label="Transportation" value="TRA">Transportation</option>
+              
+            
+              
+                <option label="Veterans" value="VET">Veterans</option>
+              
+            
+              
+                <option label="Welfare / Food Stamps" value="WEL">Welfare / Food Stamps</option>
+
+    - check:
+      - name: newsletter
+        selector: "#newsletter"
+        value: unchecked
     - click_on:
       - value: Submit
-        selector: ""
+        selector: "submit"
   success:
     headers:
       status: 200
