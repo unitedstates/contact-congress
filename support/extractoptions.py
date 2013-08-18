@@ -1,4 +1,3 @@
-#regular expression:  (?:<option value\s*=\s*)([\'\"].*?[\'\"])
 
 import os
 import re
@@ -7,7 +6,7 @@ YAMLselections = []
 
 #compile regular expressions
 select = re.compile(r'<select.*?</select>', re.DOTALL)
-selectoptions = re.compile(r'(?:<option value\s*=\s*)([\'\"].*?[\'\"])')
+selectoptions = re.compile(r'(?:<option.*?value\s*=\s*)([\'\"].*?[\'\"])')
 
 for root,dirs,files in os.walk('.\input'):
     for file in files:

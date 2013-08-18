@@ -16,45 +16,45 @@ contact_form:
 	- fill in:
 	  - name: firstName
 		selector: "#gen-fieldid-9"
-		value: "$NAME_FIRST"
+		value: $NAME_FIRST
 		required: Yes
 	  - name: lastName
 		selector: "#gen-fieldid-11"
-		value: "$NAME_LAST"
+		value: $NAME_LAST
 		required: Yes
 	  - name: Address1
 		selector: "#gen-fieldid-13"
-		value: "$ADDRESS_STREET"
+		value: $ADDRESS_STREET
 		required: Yes
 	  - name: Address2
 		selector: "#gen-fieldid-15"
-		value: "$ADDRESS_STREET_2"
+		value: $ADDRESS_STREET_2
 	  - name: city
 		selector: "#gen-fieldid-17"
-		value: "$ADDRESS_CITY"
+		value: $ADDRESS_CITY
 		required: Yes
 	  - name: zip
 		selector: "#gen-fieldid-21"
-		value: "$ADDRESS_ZIP5"
+		value: $ADDRESS_ZIP5
 		required: Yes
 	  - name: phone
 		selector: "#gen-fieldid-23"
-		value: "$PHONE"  # 2 other phone fields (work/home) but they're not required
+		value: $PHONE  # 2 other phone fields (work/home) but they're not required
 	  - name: email
 		selector: "#gen-fieldid-29"
-		value: "$EMAIL"
+		value: $EMAIL
 		required: Yes
 	  - name: Subject
 		selector: "#gen-fieldid-33"
-		value: "$SUBJECT"
+		value: $SUBJECT
 		required: Yes
 	  - name: MessageBody
 		selector: "#gen-fieldid-37"
-		value: "$MESSAGE"
+		value: $MESSAGE
 	- select:
 	  - name: prefix
 		selector: "#gen-fieldid-7"
-		value: "$NAME_PREFIX"
+		value: $NAME_PREFIX
 		required: Yes
 		options:
 		  - "Mr."
@@ -73,7 +73,7 @@ contact_form:
 		  - "Senator"
 	  - name: state
 		selector: "#gen-fieldid-19"
-		value: "$ADDRESS_STATE_POSTAL_ABBREV"
+		value: $ADDRESS_STATE_POSTAL_ABBREV
 		required: Yes
 		options:
 		  - "AA"
@@ -132,7 +132,7 @@ contact_form:
 		  - "WY"
 	  - name: issue
 		selector: "#gen-fieldid-31"
-		value: "$TOPIC"
+		value: $TOPIC
 		required: Yes
 		options:
 		  - "Casework"
