@@ -3,198 +3,198 @@ contact_form:
   method: POST
   action: http://www.hagan.senate.gov/contact/
   steps:
-	- visit: http://www.hagan.senate.gov/contact/
-	- choose:  
-	  - name: RESPOND 
-		selector: "input.input-radio[name=RESPOND]"
-		value: "yes" # whether the sender wants a response, should this be checked?
-		required: Yes
-	  - name: newsletteraction
-		selector: "input.input-radio[name=newsletteraction]"
-		value: "unsubscribe"
-		required: Yes
-	- fill in:
-	  - name: firstName
-		selector: "#gen-fieldid-9"
-		value: $NAME_FIRST
-		required: Yes
-	  - name: lastName
-		selector: "#gen-fieldid-11"
-		value: $NAME_LAST
-		required: Yes
-	  - name: Address1
-		selector: "#gen-fieldid-13"
-		value: $ADDRESS_STREET
-		required: Yes
-	  - name: Address2
-		selector: "#gen-fieldid-15"
-		value: $ADDRESS_STREET_2
-	  - name: city
-		selector: "#gen-fieldid-17"
-		value: $ADDRESS_CITY
-		required: Yes
-	  - name: zip
-		selector: "#gen-fieldid-21"
-		value: $ADDRESS_ZIP5
-		required: Yes
-	  - name: phone
-		selector: "#gen-fieldid-23"
-		value: $PHONE  # 2 other phone fields (work/home) but they're not required
-	  - name: email
-		selector: "#gen-fieldid-29"
-		value: $EMAIL
-		required: Yes
-	  - name: Subject
-		selector: "#gen-fieldid-33"
-		value: $SUBJECT
-		required: Yes
-	  - name: MessageBody
-		selector: "#gen-fieldid-37"
-		value: $MESSAGE
-	- select:
-	  - name: prefix
-		selector: "#gen-fieldid-7"
-		value: $NAME_PREFIX
-		required: Yes
-		options:
-		  - "Mr."
-		  - "Mrs."
-		  - "Ms."
-		  - "Mr. and Mrs."
-		  - "Dr."
-		  - "Dr. and Dr."
-		  - "Dr. and Mr."
-		  - "Dr. and Mrs."
-		  - "Reverend"
-		  - "Sister"
-		  - "Pastor"
-		  - "The Honorable"
-		  - "Representative"
-		  - "Senator"
-	  - name: state
-		selector: "#gen-fieldid-19"
-		value: $ADDRESS_STATE_POSTAL_ABBREV
-		required: Yes
-		options:
-		  - "AA"
-		  - "AE"
-		  - "AP"
-		  - "AL"
-		  - "AK"
-		  - "AZ"
-		  - "AR"
-		  - "CA"
-		  - "CO"
-		  - "CT"
-		  - "DE"
-		  - "DC"
-		  - "FL"
-		  - "GA"
-		  - "HI"
-		  - "ID"
-		  - "IL"
-		  - "IN"
-		  - "IA"
-		  - "KS"
-		  - "KY"
-		  - "LA"
-		  - "ME"
-		  - "MD"
-		  - "MA"
-		  - "MI"
-		  - "MN"
-		  - "MS"
-		  - "MO"
-		  - "MT"
-		  - "NE"
-		  - "NV"
-		  - "NH"
-		  - "NJ"
-		  - "NM"
-		  - "NY"
-		  - "NC"
-		  - "ND"
-		  - "OH"
-		  - "OK"
-		  - "OR"
-		  - "PA"
-		  - "RI"
-		  - "SC"
-		  - "SD"
-		  - "TN"
-		  - "TX"
-		  - "UT"
-		  - "VT"
-		  - "VA"
-		  - "WA"
-		  - "WV"
-		  - "WI"
-		  - "WY"
-	  - name: issue
-		selector: "#gen-fieldid-31"
-		value: $TOPIC
-		required: Yes
-		options:
-		  - "Casework"
-		  - "Anniversary/Birthday"
-		  - "Commemorative/Congratulatory"
-		  - "Flag Requests"
-		  - "Internships"
-		  - "Page Program"
-		  - "Tickets and Tours"
-		  - "Abortion"
-		  - "Afghanistan"
-		  - "Agriculture"
-		  - "Animal Rights"
-		  - "Appropriations"
-		  - "Arts"
-		  - "Banking"
-		  - "Campaign Finance"
-		  - "Children'
-		  - "Civil Rights"
-		  - "Commerce"
-		  - "Defense"
-		  - "Deficit"
-		  - "Drugs/Crime"
-		  - "Education - Higher"
-		  - "Education - K through 12"
-		  - "Energy"
-		  - "Environment/Public Works"
-		  - "Foreign Affairs"
-		  - "Health"
-		  - "Health Insurance"
-		  - "Homeland Security"
-		  - "Housing"
-		  - "Immigration"
-		  - "Indian Affairs"
-		  - "Interior/Forestry"
-		  - "Iraq"
-		  - "Jobs"
-		  - "Judiciary"
-		  - "Labor"
-		  - "Medicare/Medicaid"
-		  - "Military Issues"
-		  - "NASA"
-		  - "Nutrition"
-		  - "Patents"
-		  - "Pensions"
-		  - "Postal Service"
-		  - "Public Broadcasting"
-		  - "Second Amendment"
-		  - "Small Business"
-		  - "Social Security"
-		  - "Taxes"
-		  - "Terrorism"
-		  - "Tobacco"
-		  - "Trade"
-		  - "Transportation"
-		  - "Veterans"
-		  - "Welfare/Food Stamps"
-	- click_on:
-	  - value: "Submit"
-		selector: "input[type=submit]"
+    - visit: http://www.hagan.senate.gov/contact/
+    - choose:  
+      - name: RESPOND 
+        selector: "input.input-radio[name=RESPOND]"
+        value: "yes" # whether the sender wants a response, should this be checked?
+        required: Yes
+      - name: newsletteraction
+        selector: "input.input-radio[name=newsletteraction]"
+        value: "unsubscribe"
+        required: Yes
+    - fill in:
+      - name: firstName
+        selector: "#gen-fieldid-9"
+        value: $NAME_FIRST
+        required: Yes
+      - name: lastName
+        selector: "#gen-fieldid-11"
+        value: $NAME_LAST
+        required: Yes
+      - name: Address1
+        selector: "#gen-fieldid-13"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: Address2
+        selector: "#gen-fieldid-15"
+        value: $ADDRESS_STREET_2
+      - name: city
+        selector: "#gen-fieldid-17"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: zip
+        selector: "#gen-fieldid-21"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: phone
+        selector: "#gen-fieldid-23"
+        value: $PHONE  # 2 other phone fields (work/home) but they're not required
+      - name: email
+        selector: "#gen-fieldid-29"
+        value: $EMAIL
+        required: Yes
+      - name: Subject
+        selector: "#gen-fieldid-33"
+        value: $SUBJECT
+        required: Yes
+      - name: MessageBody
+        selector: "#gen-fieldid-37"
+        value: $MESSAGE
+    - select:
+      - name: prefix
+        selector: "#gen-fieldid-7"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+          - "Dr."
+          - "Dr. and Dr."
+          - "Dr. and Mr."
+          - "Dr. and Mrs."
+          - "Reverend"
+          - "Sister"
+          - "Pastor"
+          - "The Honorable"
+          - "Representative"
+          - "Senator"
+      - name: state
+        selector: "#gen-fieldid-19"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options:
+          - "AA"
+          - "AE"
+          - "AP"
+          - "AL"
+          - "AK"
+          - "AZ"
+          - "AR"
+          - "CA"
+          - "CO"
+          - "CT"
+          - "DE"
+          - "DC"
+          - "FL"
+          - "GA"
+          - "HI"
+          - "ID"
+          - "IL"
+          - "IN"
+          - "IA"
+          - "KS"
+          - "KY"
+          - "LA"
+          - "ME"
+          - "MD"
+          - "MA"
+          - "MI"
+          - "MN"
+          - "MS"
+          - "MO"
+          - "MT"
+          - "NE"
+          - "NV"
+          - "NH"
+          - "NJ"
+          - "NM"
+          - "NY"
+          - "NC"
+          - "ND"
+          - "OH"
+          - "OK"
+          - "OR"
+          - "PA"
+          - "RI"
+          - "SC"
+          - "SD"
+          - "TN"
+          - "TX"
+          - "UT"
+          - "VT"
+          - "VA"
+          - "WA"
+          - "WV"
+          - "WI"
+          - "WY"
+      - name: issue
+        selector: "#gen-fieldid-31"
+        value: $TOPIC
+        required: Yes
+        options:
+          - "Casework"
+          - "Anniversary/Birthday"
+          - "Commemorative/Congratulatory"
+          - "Flag Requests"
+          - "Internships"
+          - "Page Program"
+          - "Tickets and Tours"
+          - "Abortion"
+          - "Afghanistan"
+          - "Agriculture"
+          - "Animal Rights"
+          - "Appropriations"
+          - "Arts"
+          - "Banking"
+          - "Campaign Finance"
+          - "Children'
+          - "Civil Rights"
+          - "Commerce"
+          - "Defense"
+          - "Deficit"
+          - "Drugs/Crime"
+          - "Education - Higher"
+          - "Education - K through 12"
+          - "Energy"
+          - "Environment/Public Works"
+          - "Foreign Affairs"
+          - "Health"
+          - "Health Insurance"
+          - "Homeland Security"
+          - "Housing"
+          - "Immigration"
+          - "Indian Affairs"
+          - "Interior/Forestry"
+          - "Iraq"
+          - "Jobs"
+          - "Judiciary"
+          - "Labor"
+          - "Medicare/Medicaid"
+          - "Military Issues"
+          - "NASA"
+          - "Nutrition"
+          - "Patents"
+          - "Pensions"
+          - "Postal Service"
+          - "Public Broadcasting"
+          - "Second Amendment"
+          - "Small Business"
+          - "Social Security"
+          - "Taxes"
+          - "Terrorism"
+          - "Tobacco"
+          - "Trade"
+          - "Transportation"
+          - "Veterans"
+          - "Welfare/Food Stamps"
+    - click_on:
+      - value: "Submit"
+        selector: "input[type=submit]"
   success:
-	headers:
-	  status: 200
-	body:
-	  contains: "Thank you for your message!"
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your message!"
