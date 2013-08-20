@@ -1,0 +1,138 @@
+bioguide: L000550
+contact_form:
+  method: POST
+  action: http://www.landrieu.senate.gov/?p=contact&clear_cache=1
+  steps:
+    - visit: http://www.landrieu.senate.gov/?p=contact
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: "$ADDRESS_STREET_2"
+      - name: city
+        selector: "#city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: "$PHONE"
+        required: Yes
+      - name: email
+        selector: "#email"
+        value: "$EMAIL"
+        required: Yes
+      - name: vemail
+        selector: "#vemail"
+        value: "$EMAIL"
+        required: Yes
+      - name: messageSubject
+        selector: "#messageSubject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: MessageBody
+        selector: ".textarea"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: Prefix
+        selector: ":nth-child(4) select"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+          - "Miss"
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Dr. and Mr."
+          - "Admiral"
+          - "Captain"
+          - "Chief Master Sergeant"
+          - "Colonel"
+          - "Commander"
+          - "Corporal"
+          - "Father"
+          - "Lieutenant"
+          - "Lieutenant Colonel"
+          - "Master Sergeant"
+          - "Reverend"
+          - "Sergeant"
+          - "Second Lieutenant"
+          - "ergeant Major"
+          - "Sister"
+          - "Technical Sergeant"
+      - name: State
+        selector: ":nth-child(22) select"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: Subject
+        selector: ":nth-child(37) select"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "\n\t\t\t\t\t\t\t--- Hot Topics ---\n\t\t\t\t\t\t": "--- Hot Topics ---"
+          "\n\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t": "Economy"
+          "\n\t\t\t\t\t\t\tFlood Insurance\n\t\t\t\t\t\t": "Flood Insurance"
+          "\n\t\t\t\t\t\t\tGun Issues\n\t\t\t\t\t\t": "Gun Issues"
+          "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": "Immigration"
+          "\n\t\t\t\t\t\t\tMarriage Equality\n\t\t\t\t\t\t": "Marriage Equality"
+          "\n\t\t\t\t\t\t\t--- Topics ---\n\t\t\t\t\t\t": "--- Topics ---"
+          "\n\t\t\t\t\t\t\tAbortion\n\t\t\t\t\t\t": "Abortion"
+          "\n\t\t\t\t\t\t\tAdoption\n\t\t\t\t\t\t": "Adoption"
+          "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": "Agriculture"
+          "\n\t\t\t\t\t\t\tAnimal Welfare\n\t\t\t\t\t\t": "Animal Welfare"
+          "\n\t\t\t\t\t\t\tBanking\n\t\t\t\t\t\t": "Banking"
+          "\n\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t": "Budget"
+          "\n\t\t\t\t\t\t\tBusiness and Economic Development\n\t\t\t\t\t\t": "Business and Economic Development"
+          "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": "Civil Rights"
+          "\n\t\t\t\t\t\t\tCoastal Restoration\n\t\t\t\t\t\t": "Coastal Restoration"
+          "\n\t\t\t\t\t\t\tCorps of Engineers\n\t\t\t\t\t\t": "Corps of Engineers"
+          "\n\t\t\t\t\t\t\tDefense and Military\n\t\t\t\t\t\t": "Defense and Military"
+          "\n\t\t\t\t\t\t\tEducation\n\t\t\t\t\t\t": "Education"
+          "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": "Energy"
+          "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": "Environment"
+          "\n\t\t\t\t\t\t\tForeign Affairs\n\t\t\t\t\t\t": "Foreign Affairs"
+          "\n\t\t\t\t\t\t\tHealthcare\n\t\t\t\t\t\t": "Healthcare"
+          "\n\t\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t\t": "Homeland Security"
+          "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": "Housing"
+          "\n\t\t\t\t\t\t\tHurricane/Disaster Recovery\n\t\t\t\t\t\t": "Hurricane/Disaster Recovery"
+          "\n\t\t\t\t\t\t\tHurricane Isaac\n\t\t\t\t\t\t": "Hurricane Isaac"
+          "\n\t\t\t\t\t\t\tInternships/Page Program\n\t\t\t\t\t\t": "Internships/Page Program"
+          "\n\t\t\t\t\t\t\tJudicial Issues\n\t\t\t\t\t\t": "Judicial Issues"
+          "\n\t\t\t\t\t\t\tLabor\n\t\t\t\t\t\t": "Labor"
+          "\n\t\t\t\t\t\t\tMedicare/Medicaid\n\t\t\t\t\t\t": "Medicare/Medicaid"
+          "\n\t\t\t\t\t\t\tPublic Welfare\n\t\t\t\t\t\t": "Public Welfare"
+          "\n\t\t\t\t\t\t\tScience and Technology\n\t\t\t\t\t\t": "Science and Technology"
+          "\n\t\t\t\t\t\t\tSeniors\n\t\t\t\t\t\t": "Seniors"
+          "\n\t\t\t\t\t\t\tTax\n\t\t\t\t\t\t": "Tax"
+          "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": "Trade"
+          "\n\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t": "Transportation"
+          "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": "Veterans"
+          "\n\t\t\t\t\t\t\tWar in Afghanistan\n\t\t\t\t\t\t": "War in Afghanistan"
+          "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
+    - click_on:
+      - value: Submit
+        selector: ".normal-input:nth-child(2)"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been sent"
