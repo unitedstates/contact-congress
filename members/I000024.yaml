@@ -4,7 +4,7 @@ contact_form:
   action: http://www.inhofe.senate.gov/contact
   steps:
     - visit: http://www.inhofe.senate.gov/contact
-    - select: 
+    - select:
       - name: subject
         selector: "#subject"
         value: "$TOPIC"
@@ -34,7 +34,7 @@ contact_form:
           - "Other"
     - find:
       - selector: "#continue-form"
-    - fill in:
+    - fill_in:
       - name: fname
         selector: "#fname"
         value: $NAME_FIRST
@@ -60,7 +60,7 @@ contact_form:
         required: Yes
       - name: home_phone_number
         selector: "#home_phone_number"
-        value: $PHONE #also a work phone number
+        value: $PHONE
       - name: email_address
         selector: "#email"
         value: $EMAIL
@@ -72,7 +72,7 @@ contact_form:
       - name: message
         selector: "#message"
         value: $MESSAGE
-        required: 
+        required: Yes
     - check:
       - name: response
         selector: "#response_y"
@@ -82,6 +82,7 @@ contact_form:
         selector: "#salutation"
         value: "$NAME_PREFIX"
         required: Yes
+        options:
           - "Mr."
           - "Ms."
           - "Mrs."
