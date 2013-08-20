@@ -1,0 +1,134 @@
+bioguide: M000355
+contact_form:
+  method: POST
+  action: http://www.mcconnell.senate.gov/public/index.cfm?p=ContactForm
+  steps:
+    - visit: http://www.mcconnell.senate.gov/public/index.cfm?p=ContactForm
+    - fill_in:
+      - name: field_061fc3b2-e4c0-4511-bd3d-962fffa4f9af
+        selector: "#field_061fc3b2-e4c0-4511-bd3d-962fffa4f9af"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_31b3535f-6ad8-4c3c-8876-653de5182aca
+        selector: "#field_31b3535f-6ad8-4c3c-8876-653de5182aca"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_0156df60-bcbf-4657-a7f4-b7f954953b24
+        selector: "#field_0156df60-bcbf-4657-a7f4-b7f954953b24"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_ba6f9bc3-b10d-4439-bd8b-5dc4b5ee44d6
+        selector: "#field_ba6f9bc3-b10d-4439-bd8b-5dc4b5ee44d6"
+        value: "$ADDRESS_STREET_2"
+      - name: field_42b6058f-7c90-404d-a138-fad56cebc49d
+        selector: "#field_42b6058f-7c90-404d-a138-fad56cebc49d"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_cf98cdf4-a74d-40e4-94a7-668efcd3f14f
+        selector: "#field_cf98cdf4-a74d-40e4-94a7-668efcd3f14f"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_9be2dfe0-b37e-4343-ad44-af07da58cd87
+        selector: "#field_9be2dfe0-b37e-4343-ad44-af07da58cd87"
+        value: "$PHONE"
+        required: Yes
+      - name: field_9335a6bd-0a8e-47a8-837c-c7b08fa9a031
+        selector: "#field_9335a6bd-0a8e-47a8-837c-c7b08fa9a031"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_3809220e-ee1b-4771-81e2-48b31fa91f9d
+        selector: "#field_3809220e-ee1b-4771-81e2-48b31fa91f9d"
+        value: "$SUBJECT"
+        required: Yes
+      - name: field_1f71bc5e-19c7-4def-af1d-c2ddcd1e374c
+        selector: "#field_1f71bc5e-19c7-4def-af1d-c2ddcd1e374c"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_eb9dce9e-eb6b-405c-92fe-e4c60cc85593
+        selector: "#field_eb9dce9e-eb6b-405c-92fe-e4c60cc85593"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          " Mr. ": "Mr."
+          " Mrs. ": "Mrs."
+          " Ms. ": "Ms."
+          "Miss": "Miss"
+          " Mr. and Mrs. ": "Mr. and Mrs."
+          " Dr. ": "Dr."
+          " Dr. and Mrs. ": "Dr. and Mrs."
+          "Dr. and Mr.": "Dr. and Mr."
+          " Reverend ": "Reverend"
+          "Rev. and Mrs.": "Rev. and Mrs."
+          "Rev. and Mr.": "Rev. and Mr."
+          " Sister ": "Sister"
+          " Pastor ": "Pastor"
+          " The Honorable ": "The Honorable"
+          " Representative ": "Representative"
+          " Senator ": "Senator"
+          "Admiral": "Admiral"
+          "Captain": "Captain"
+          "Colonel": "Colonel"
+          "Commander": "Commander"
+          "Corporal": "Corporal"
+          "Father": "Father"
+          "First Lieutenant": "First Lieutenant"
+          "General": "General"
+          "Major": "Major"
+          "Major General": "Major General"
+          "PFC": "PFC"
+          "Rabbi": "Rabbi"
+          "Sergeant": "Sergeant"
+          "Sergeant Major": "Sergeant Major"
+      - name: field_6df0d94c-2f47-4979-9f81-032442cd771a
+        selector: "#field_6df0d94c-2f47-4979-9f81-032442cd771a"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_b514da7b-918f-4089-bdff-8f56201eb856
+        selector: "#field_b514da7b-918f-4089-bdff-8f56201eb856"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "PHONE CALL"
+          - "AGRICULTURE"
+          - "ANIMAL WELFARE"
+          - "ARMED SERVICES"
+          - "BANKING"
+          - "BUDGET"
+          - "COMMERCE"
+          - "CONGRATS LETTER REQUEST"
+          - "CONSTITUTIONAL AMENDMENT"
+          - "CRIME"
+          - "EDUCATION"
+          - "ENERGY"
+          - "ENVIRONMENT"
+          - "FINANCE"
+          - "FLAG REQUESTS"
+          - "FOODSTAMP"
+          - "FOREIGN AFFAIRS"
+          - "GRANTS"
+          - "HEALTH"
+          - "IMMIGRATION"
+          - "INTELLIGENCE"
+          - "INTERNET/RADIO/TV"
+          - "INTERNSHIP"
+          - "JUDICIAL"
+          - "LABOR"
+          - "MEDICARE"
+          - "OTHER"
+          - "SOCIAL SECURITY"
+          - "TAX"
+          - "TELECOMMUNICATIONS"
+          - "TOBACCO"
+          - "TOURS"
+          - "TRANSPORTATION"
+          - "VETERANS"
+    - click_on:
+      - value: Submit
+        selector: ".primaryAction"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for sharing your thoughts with me"
