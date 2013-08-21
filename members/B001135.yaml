@@ -1,0 +1,124 @@
+bioguide: B001135
+contact_form:
+  method: POST
+  action: index.cfm?FuseAction=Contact.ContactForm&CFID=81278300&CFTOKEN=85568124
+  steps:
+    - visit: http://www.burr.senate.gov/public/index.cfm?FuseAction=Contact.ContactForm
+    - fill_in:
+      - name: NameFirst
+        selector: ".inputText:nth-child(3) input"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: NameLast
+        selector: ".inputText:nth-child(4) input"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address01
+        selector: ":nth-child(5) input"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Address02
+        selector: ":nth-child(6) input"
+        value: "$ADDRESS_STREET_2"
+      - name: City
+        selector: ":nth-child(7) input"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: ZipCode
+        selector: ":nth-child(9) input"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: PhoneNumber
+        selector: ":nth-child(10) input"
+        value: "$PHONE"
+        required: Yes
+      - name: EmailAddress
+        selector: ":nth-child(11) input"
+        value: "$EMAIL"
+        required: Yes
+      - name: Message
+        selector: "textarea"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: Prefix
+        selector: "#copyMargins :nth-child(2) select"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          " Mr. ": "Mr."
+          " Mrs. ": "Mrs."
+          " Ms. ": "Ms."
+          " Miss ": "Miss"
+          " Mr. and Mrs. ": "Mr. and Mrs."
+          " Dr. ": "Dr."
+          " Dr. and Mr. ": "Dr. and Mr."
+          " Dr. and Mrs. ": "Dr. and Mrs."
+          " Rabbi ": "Rabbi"
+          " Reverend ": "Reverend"
+          " Pastor ": "Pastor"
+          " Representative ": "Representative"
+      - name: State
+        selector: ":nth-child(8) select"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: Issues
+        selector: ":nth-child(12) select"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "General"
+          - "Abortion"
+          - "Aging and Seniors"
+          - "Agriculture"
+          - "Animal Rights"
+          - "Banking"
+          - "Budget"
+          - "Campaign Finance"
+          - "Capitol Tours "
+          - "Caring for Camp Lejeune Veterans and Families Exposed to Contaminated Water"
+          - "Children, Family, Adoption"
+          - "Civil Rights"
+          - "Combating Global Terrorism"
+          - "Commerce"
+          - "Consumer Affairs"
+          - "Crime and Drugs"
+          - "Debt "
+          - "Defense"
+          - "Economy"
+          - "Education"
+          - "Elections"
+          - "Energy"
+          - "Environment"
+          - "Fiscal Cliff, Sequestration"
+          - "Foreign Affairs"
+          - "Government Affairs"
+          - "Health Care - Medicare/Medicaid"
+          - "Health Care - Other"
+          - "Homeland Security"
+          - "Immigration"
+          - "Jobs/Unemployment"
+          - "Judiciary, Judicial Nominations"
+          - "Labor"
+          - "Science, Technology, or NASA"
+          - "Second Amendment"
+          - "Small Business"
+          - "Social Security"
+          - "Supreme Court"
+          - "Taxes"
+          - "Tele-communications"
+          - "Trade"
+          - "Transportation"
+          - "U.S. Constitution"
+          - "Veterans Legislation "
+          - "Welfare"
+          - "White House Tours"
+    - click_on:
+      - value: Submit
+        selector: "input:nth-child(17)"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "We received your request"
