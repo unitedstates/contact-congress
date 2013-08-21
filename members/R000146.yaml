@@ -1,0 +1,111 @@
+bioguide: R000146
+contact_form:
+  method: POST
+  action: thankyou.cfm
+  steps:
+    - visit: http://www.reid.senate.gov/contact/index.cfm
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: "$ADDRESS_STREET_2"
+      - name: city
+        selector: "#city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: homePhone
+        selector: "#homePhone"
+        value: "$PHONE"
+      - name: workPhone
+        selector: "#workPhone"
+        value: "$PHONE"
+      - name: email
+        selector: "#email"
+        value: "$EMAIL"
+        required: Yes
+      - name: MessageBody
+        selector: ".textarea"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: Prefix
+        selector: "#thisForm select[name='Prefix']"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          " Mr. ": "Mr."
+          " Mrs. ": "Mrs."
+          " Ms. ": "Ms."
+          " Mr. and Mrs. ": "Mr. and Mrs."
+          " Dr. ": "Dr."
+          " Dr. and Mrs. ": "Dr. and Mrs."
+          " Dr. and Mr. ": "Dr. and Mr."
+          " Reverend ": "Reverend"
+          " Pastor ": "Pastor"
+      - name: State
+        selector: "#thisForm select[name='State']"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: Subject
+        selector: "#thisForm select[name='Subject']"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Abortion": "2"
+          "Afghanistan": "3"
+          "Agriculture": "4"
+          "Banking": "5"
+          "Budget": "6"
+          "Business": "7"
+          "Communications": "8"
+          "Congressional Affairs": "9"
+          "Crime": "10"
+          "Defense": "11"
+          "Education": "12"
+          "Energy": "13"
+          "Environment": "14"
+          "Foreign Affairs": "15"
+          "Gaming": "16"
+          "Gas Prices": "17"
+          "Government": "18"
+          "Guns": "19"
+          "Health": "20"
+          "Homeland Security": "21"
+          "Housing": "22"
+          "Immigration": "23"
+          "Interior": "24"
+          "Iraq": "25"
+          "Judicial Nominations": "26"
+          "Judiciary": "27"
+          "Labor": "28"
+          "Science/NASA": "29"
+          "Social Security": "30"
+          "Taxes": "31"
+          "Transportation": "32"
+          "Veterans": "33"
+          "Website Problems": "34"
+          "Yucca Mountain": "35"
+    - click_on:
+      - value: Submit
+        selector: "#thisForm td:nth-child(1) input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for taking the time to share your thoughts with me"
