@@ -1,0 +1,115 @@
+bioguide: H001041
+contact_form:
+  method: POST
+  action: http://www.heller.senate.gov/public/index.cfm/contact-form
+  steps:
+    - visit: http://www.heller.senate.gov/public/index.cfm/contact-form
+    - fill_in:
+      - name: field_914f1282-4dc5-4986-a19f-98490ba26802
+        selector: "#field_914f1282-4dc5-4986-a19f-98490ba26802"
+        value: "$NAME_PREFIX"
+        required: Yes
+      - name: field_1dcd64f4-e34a-4321-8af2-b3b700d921c4
+        selector: "#field_1dcd64f4-e34a-4321-8af2-b3b700d921c4"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_5b6b155c-17b8-4ceb-80dd-7ddcc92dbcb9
+        selector: "#field_5b6b155c-17b8-4ceb-80dd-7ddcc92dbcb9"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_497f41d9-bbee-4388-8b96-e7054de40441
+        selector: "#field_497f41d9-bbee-4388-8b96-e7054de40441"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_4642cced-36d2-44a8-a62c-a457b30fca1c
+        selector: "#field_4642cced-36d2-44a8-a62c-a457b30fca1c"
+        value: "$ADDRESS_STREET_2"
+      - name: field_410e1d9d-b5e2-4229-821a-ac6c891cc5e6
+        selector: "#field_410e1d9d-b5e2-4229-821a-ac6c891cc5e6"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_8f8978f7-8148-4546-a4e9-e1963386e0d8
+        selector: "#field_8f8978f7-8148-4546-a4e9-e1963386e0d8"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_78b60da9-2eb3-402a-a2e3-4f7f39b3f556
+        selector: "#field_78b60da9-2eb3-402a-a2e3-4f7f39b3f556"
+        value: "$PHONE"
+        required: Yes
+      - name: field_504a6bf0-239d-4981-be6e-1f4987b68c94
+        selector: "#field_504a6bf0-239d-4981-be6e-1f4987b68c94"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_e954a14b-8b14-444b-914e-c1fd3d638258
+        selector: "#field_e954a14b-8b14-444b-914e-c1fd3d638258"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_51425bd8-665d-4a9c-8e50-3ee8323dabfd
+        selector: "#field_51425bd8-665d-4a9c-8e50-3ee8323dabfd"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_7d523b66-8097-43d9-875c-e6715b09918f
+        selector: "#field_7d523b66-8097-43d9-875c-e6715b09918f"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Abortion"
+          - "Agriculture"
+          - "Animal Rights"
+          - "Budget/Spending"
+          - "Business"
+          - "Civil Rights"
+          - "Commerce"
+          - "Congratulations/Birthdays"
+          - "Crime/Drugs"
+          - "Defense"
+          - "Education"
+          - "Elections"
+          - "Energy"
+          - "Environment"
+          - "Family Values"
+          - "Foreign Relations"
+          - "Government Reform"
+          - "Health"
+          - "Homeland Security"
+          - "Housing"
+          - "Immigration"
+          - "Intelligence"
+          - "Jobs"
+          - "Judiciary"
+          - "Labor"
+          - "Parks and Public Lands"
+          - "Pension/Retirement"
+          - "Postal"
+          - "Regulatory Reform"
+          - "Religion"
+          - "Science/Technology"
+          - "Second Amendment Rights"
+          - "Senate Procedure"
+          - "Small Business"
+          - "Social Security"
+          - "Taxes"
+          - "Telecommunications"
+          - "Tobacco"
+          - "Trade"
+          - "Transportation"
+          - "Unemployment"
+          - "VA Backlog"
+          - "Veterans"
+          - "Water/Rivers"
+          - "Welfare"
+          - "Other"
+    - uncheck:
+      - name: _FTSubscribe
+        selector: "#_FTSubscribe"
+        value: 1
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for taking the time to contact me"
