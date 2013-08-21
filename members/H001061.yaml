@@ -1,0 +1,129 @@
+bioguide: H001061
+contact_form:
+  method: POST
+  action: http://www.hoeven.senate.gov/public/index.cfm/email-the-senator
+  steps:
+    - visit: http://www.hoeven.senate.gov/public/index.cfm/email-the-senator
+    - fill_in:
+      - name: field_edbee5a8-1500-4783-a711-f1e737df406f
+        selector: "#field_edbee5a8-1500-4783-a711-f1e737df406f"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_e3ad017a-566e-4911-81a5-a8611192b357
+        selector: "#field_e3ad017a-566e-4911-81a5-a8611192b357"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_10554e6c-6b6f-427a-a865-d714bd2fe5a1
+        selector: "#field_10554e6c-6b6f-427a-a865-d714bd2fe5a1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_4c3af2ea-a686-49b4-a847-859af8e7d23a
+        selector: "#field_4c3af2ea-a686-49b4-a847-859af8e7d23a"
+        value: "$ADDRESS_STREET_2"
+      - name: field_b7efe8e9-c929-4b92-8328-7b7f6f8c7274
+        selector: "#field_b7efe8e9-c929-4b92-8328-7b7f6f8c7274"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_a80a2a87-2f31-4c21-8beb-afbf12327276
+        selector: "#field_a80a2a87-2f31-4c21-8beb-afbf12327276"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_62cac646-c6c0-4b48-8637-86b77d2c9700
+        selector: "#field_62cac646-c6c0-4b48-8637-86b77d2c9700"
+        value: "$PHONE"
+        required: Yes
+      - name: field_4a2966d5-e9ea-4195-b486-b5d3d04d185a
+        selector: "#field_4a2966d5-e9ea-4195-b486-b5d3d04d185a"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_55b09216-2b91-470f-af68-ae9d197787b0
+        selector: "#field_55b09216-2b91-470f-af68-ae9d197787b0"
+        value: "$MESSAGE"
+        required: Yes
+      - name: field_ed70bcd8-a02b-41f9-bdcc-4d2895095b10
+        selector: "#field_ed70bcd8-a02b-41f9-bdcc-4d2895095b10"
+        value: ""
+    - select:
+      - name: field_89f02d5d-f5d9-46e9-880e-bb15e9254713
+        selector: "#field_89f02d5d-f5d9-46e9-880e-bb15e9254713"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          " Mr. ": "Mr."
+          " Mrs. ": "Mrs."
+          " Ms. ": "Ms."
+          " Miss ": "Miss "
+          " Mr. and Mrs. ": "Mr. and Mrs."
+          " Dr. ": "Dr."
+          " Dr. and Mrs. ": "Dr. and Mrs."
+          "Dr. and Mr.": "Dr. and Mr."
+          " Reverend ": "Reverend"
+          "Rev. and Mrs.": "Rev. and Mrs."
+          "Rev. and Mr.": "Rev. and Mr."
+          " Sister ": "Sister"
+          " Pastor ": "Pastor"
+          " The Honorable ": "The Honorable"
+          " Representative ": "Representative"
+          " Senator ": "Senator"
+          "Admiral": "Admiral"
+          "Captain": "Captain"
+          "Colonel": "Colonel"
+          "Commander": "Commander"
+          "Corporal": "Corporal"
+          "Father": "Father"
+          "First Lieutenant": "First Lieutenant"
+          "General": "General"
+          "Major": "Major"
+          "Major General": "Major General"
+          "PFC": "PFC"
+          "Rabbi": "Rabbi"
+          "Sergeant": "Sergeant"
+          "Sergeant Major": "Sergeant Major"
+      - name: field_629c9999-8309-4a0b-b0ff-67c167b712b5
+        selector: "#field_629c9999-8309-4a0b-b0ff-67c167b712b5"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_0cf6bfda-3ad1-4f31-9f42-fbf81148e3cf
+        selector: "#field_0cf6bfda-3ad1-4f31-9f42-fbf81148e3cf"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Agriculture"
+          - "Budget"
+          - "Civil Rights"
+          - "Communications"
+          - "Defense"
+          - "Economic Development"
+          - "Commerce"
+          - "Education"
+          - "Energy"
+          - "Environment"
+          - "Flooding Issues"
+          - "Foreign Relations"
+          - "Government Reform"
+          - "Firearms"
+          - "Health"
+          - "Homeland Security"
+          - "Housing"
+          - "Immigration"
+          - "Indian Affairs"
+          - "Insurance"
+          - "Judiciary and Law"
+          - "Medicare"
+          - "Social Issues"
+          - "Social Security"
+          - "Taxes"
+          - "Trade"
+          - "Transportation"
+          - "Veterans Affairs"
+          - "Welfare"
+          - "Other/Multiple Issues"
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for sharing your concerns with me"
