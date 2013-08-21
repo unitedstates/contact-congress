@@ -1,0 +1,115 @@
+bioguide: R000595
+contact_form:
+  method: POST
+  action: http://www.rubio.senate.gov/public/index.cfm/contact
+  steps:
+    - visit: http://www.rubio.senate.gov/public/index.cfm/contact
+    - fill_in:
+      - name: field_f14022b2-ce41-4b48-baaa-3ea936d0dc49
+        selector: "#field_f14022b2-ce41-4b48-baaa-3ea936d0dc49"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_b1cbecaf-fa94-47ce-8e08-413af45c40a3
+        selector: "#field_b1cbecaf-fa94-47ce-8e08-413af45c40a3"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_d9fc9586-2976-4549-af04-9cb756a4ccf6
+        selector: "#field_d9fc9586-2976-4549-af04-9cb756a4ccf6"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_e593f76a-3be3-4e05-8b68-fd4c067eea76
+        selector: "#field_e593f76a-3be3-4e05-8b68-fd4c067eea76"
+        value: "$ADDRESS_STREET_2"
+      - name: field_40d5d76f-f7f7-4d8b-bb9d-57bc5161e745
+        selector: "#field_40d5d76f-f7f7-4d8b-bb9d-57bc5161e745"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_d612f7d3-c97e-40b4-9525-a3fb97965c23
+        selector: "#field_d612f7d3-c97e-40b4-9525-a3fb97965c23"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_34077b89-d0f0-42cf-a62e-26a3cdefeab8
+        selector: "#field_34077b89-d0f0-42cf-a62e-26a3cdefeab8"
+        value: "$PHONE"
+      - name: field_ab8ae0e8-b62d-4418-9580-df08d60934cd
+        selector: "#field_ab8ae0e8-b62d-4418-9580-df08d60934cd"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_7694661f-5de4-433e-8682-3972ebcf2e27
+        selector: "#field_7694661f-5de4-433e-8682-3972ebcf2e27"
+        value: "$SUBJECT"
+        required: Yes
+      - name: field_5d0df2c0-8a69-4230-aab8-b0f872ceb818
+        selector: "#field_5d0df2c0-8a69-4230-aab8-b0f872ceb818"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_8ce97650-0fb4-4175-ae29-ca0848365a3e
+        selector: "#field_8ce97650-0fb4-4175-ae29-ca0848365a3e"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Ms."
+          - "Mrs."
+          - "Mr. and Mrs."
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Mr. and Dr."
+          - "Reverend"
+          - "Sister"
+          - "Pastor"
+          - "The Honorable"
+          - "Representative"
+          - "Senator"
+      - name: field_d8006472-32dd-437c-8e3a-9ec6919a1200
+        selector: "#field_d8006472-32dd-437c-8e3a-9ec6919a1200"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_502cc83d-39f8-415e-8205-061f1b2f23fa
+        selector: "#field_502cc83d-39f8-415e-8205-061f1b2f23fa"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Agriculture": "AGR"
+          "Banking": "BANK"
+          "Budget": "BUD"
+          "Business": "BUS"
+          "Condolences": "COND"
+          "Congratulations - Military, Retirement, etc.": "CONGRATS"
+          "Casework": "CW"
+          "Defense": "DEF"
+          "Economy": "ECON"
+          "Education": "EDU"
+          "Energy": "ENE"
+          "Environmental": "ENV"
+          "General State Office Correspondence": "GENERAL"
+          "Governmental Reform": "GOV"
+          "Health": "HEA"
+          "Homeland Security": "HOM"
+          "Individual Assistance": "IA"
+          "Immigration": "IMM"
+          "International Relations": "INT"
+          "Judiciary": "JUD"
+          "Labor": "LAB"
+          "Legal": "LEG"
+          "Medicare/Medicaid": "MED"
+          "Military Personnel": "MILP"
+          "Other": "OTH"
+          "Social Issues": "SOC"
+          "Social Security": "SSEC"
+          "Taxes": "TAXES"
+          "Telecommunications": "TEL"
+          "Transportation": "TRA"
+          "Trade": "TRADE"
+          "Veterans": "VET"
+          "Welfare": "WEL"
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your message"
