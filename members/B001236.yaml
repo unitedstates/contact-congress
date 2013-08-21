@@ -1,0 +1,70 @@
+bioguide: B001236
+contact_form:
+  method: POST
+  action: http://www.boozman.senate.gov/public/index.cfm/e-mail-me
+  steps:
+    - visit: http://www.boozman.senate.gov/public/index.cfm/e-mail-me
+    - fill_in:
+      - name: field_ab4dfb2a-39f2-4ea3-ad48-98ff4203c4eb
+        selector: "#field_ab4dfb2a-39f2-4ea3-ad48-98ff4203c4eb"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_82a4f7b4-e157-4ad1-8a1e-3186b3660c2e
+        selector: "#field_82a4f7b4-e157-4ad1-8a1e-3186b3660c2e"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_17ecedea-027f-4974-877d-86168d5a1ac6
+        selector: "#field_17ecedea-027f-4974-877d-86168d5a1ac6"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_7ccd12be-ee69-4634-933b-47676be9cade
+        selector: "#field_7ccd12be-ee69-4634-933b-47676be9cade"
+        value: "$ADDRESS_STREET_2"
+      - name: field_0afbf97c-2198-48cc-9a1f-24102686cead
+        selector: "#field_0afbf97c-2198-48cc-9a1f-24102686cead"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_484880fe-da5b-4994-b590-b6ce1b323f1e
+        selector: "#field_484880fe-da5b-4994-b590-b6ce1b323f1e"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_d19c2b48-de96-4320-87be-604f298e8497
+        selector: "#field_d19c2b48-de96-4320-87be-604f298e8497"
+        value: "$PHONE"
+        required: Yes
+      - name: field_1a65e495-5a0f-444d-b7d5-4bc56eb418be
+        selector: "#field_1a65e495-5a0f-444d-b7d5-4bc56eb418be"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_48423449-a5cb-4b5e-8af8-6941ab24e7bc
+        selector: "#field_48423449-a5cb-4b5e-8af8-6941ab24e7bc"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_a8c5319b-dac0-4f7d-8752-783380f5d8fe
+        selector: "#field_a8c5319b-dac0-4f7d-8752-783380f5d8fe"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Ms."
+          - "Miss"
+          - "Mrs."
+          - "Mr. & Mrs."
+          - "Dr."
+          - "Reverend"
+          - "Sister"
+          - "Pastor"
+      - name: field_a0a55b05-fe7b-4a1d-ba45-c5ce1ff522e5
+        selector: "#field_a0a55b05-fe7b-4a1d-ba45-c5ce1ff522e5"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+    - click_on:
+      - value: Submit
+        selector: "#submit_ed3bc819-9b16-4ee9-b32c-0b529718df3f"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting me via my website"
