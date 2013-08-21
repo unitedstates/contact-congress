@@ -1,0 +1,106 @@
+bioguide: C000880
+contact_form:
+  method: POST
+  action: http://www.crapo.senate.gov/webformActionIAV1.cfm
+  steps:
+    - visit: http://www.crapo.senate.gov/contact/email.cfm
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: "$ADDRESS_STREET_2"
+      - name: city
+        selector: "#city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: homePhone
+        selector: "#homePhone"
+        value: "$PHONE"
+      - name: workPhone
+        selector: "#workPhone"
+        value: "$PHONE"
+      - name: email
+        selector: "#email"
+        value: "$EMAIL"
+        required: Yes
+      - name: messageSubject
+        selector: "#messageSubject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: MessageBody
+        selector: ".required[name='MessageBody']"
+        value: "$MESSAGE"
+        required: Yes
+      - name: captcha_code
+        selector: "#captcha_code"
+        captcha_selector: "img.img-polaroid"
+        value: "$CAPTCHA_SOLUTION"
+    - select:
+      - name: Prefix
+        selector: ".required[name='Prefix']"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          " Mr. ": "Mr."
+          " Mrs. ": "Mrs."
+          " Ms. ": "Ms."
+          " Mr. and Mrs. ": "Mr. and Mrs."
+          " MSgt ": "MSgt"
+          " Dr. ": "Dr."
+          " Reverend ": "Reverend"
+          " Sister ": "Sister"
+          " Pastor ": "Pastor"
+          " The Honorable ": "The Honorable"
+          " Representative ": "Representative"
+          " Senator ": "Senator"
+      - name: State
+        selector: ".required[name='State']"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: Subject
+        selector: "#Subject"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Agriculture": "AG"
+          "Banking & Credit": "BN"
+          "Budget & Taxes": "BU"
+          "Business, Commerce & Labor": "CM"
+          "Congress": "CG"
+          "Federal & Postal Employees": "CS"
+          "Education, Science & Technology": "ED"
+          "Energy": "EN"
+          "Environment, Nat. Resources & Wildlife": "EV"
+          "Foreign Affairs": "FA"
+          "Health Care & Social Issues": "HC"
+          "Homeland Security & Immigration": "HS"
+          "Judiciary & Crime": "JU"
+          "Native Americans": "NA"
+          "Medicaid/Medicare & Welfare": "MD"
+          "Seniors & Social Security": "SS"
+          "Telecomm. & Transportation": "TC"
+          "*Other*": "CWM1"
+    - click_on:
+      - value: Submit
+        selector: ".btn-primary"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for submitting your comments via my website"
