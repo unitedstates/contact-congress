@@ -1,0 +1,158 @@
+bioguide: T000461
+contact_form:
+  method: POST
+  action: http://www.toomey.senate.gov/?p=contact&clear_cache=1
+  steps:
+    - visit: http://www.toomey.senate.gov/?p=contact
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: "$ADDRESS_STREET_2"
+      - name: city
+        selector: "#city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: "$PHONE"
+        required: Yes
+      - name: email
+        selector: "#email"
+        value: "$EMAIL"
+        required: Yes
+      - name: vemail
+        selector: "#vemail"
+        value: "$EMAIL"
+        required: Yes
+      - name: messageSubject
+        selector: "#messageSubject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: MessageBody
+        selector: ".textarea"
+        value: "$MESSAGE"
+        required: Yes
+      - name: captcha
+        selector: "#captcha"
+        captcha_selector: "#thisForm img[height=75]"
+        captcha_id_selector: "#thisForm input[name='captcha_check']"
+        value: "$CAPTCHA_SOLUTION"
+    - select:
+      - name: Prefix
+        selector: "#thisForm :nth-child(4) select"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+          - "Miss"
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Dr. and Mr."
+          - "Admiral"
+          - "Captain"
+          - "Chief Master Sergeant"
+          - "Colonel"
+          - "Commander"
+          - "Corporal"
+          - "Father"
+          - "Lieutenant"
+          - "Lieutenant Colonel"
+          - "Master Sergeant"
+          - "Rabbi"
+          - "Reverend"
+          - "Sergeant"
+          - "Second Lieutenant"
+          - "ergeant Major"
+          - "Sister"
+          - "Technical Sergeant"
+      - name: State
+        selector: ":nth-child(22) select"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: Subject
+        selector: ":nth-child(37) select"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": "Agriculture"
+          "\n\t\t\t\t\t\t\tAnimals and Wildlife\n\t\t\t\t\t\t": "Animals and Wildlife"
+          "\n\t\t\t\t\t\t\tArmed Services\n\t\t\t\t\t\t": "Armed Services"
+          "\n\t\t\t\t\t\t\tAviation\n\t\t\t\t\t\t": "Aviation"
+          "\n\t\t\t\t\t\t\tBanking and Financial Services\n\t\t\t\t\t\t": "Banking and Financial Services"
+          "\n\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t": "Budget"
+          "\n\t\t\t\t\t\t\tCampaign Finance\n\t\t\t\t\t\t": "Campaign Finance"
+          "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": "Civil Rights"
+          "\n\t\t\t\t\t\t\tCommerce\n\t\t\t\t\t\t": "Commerce"
+          "\n\t\t\t\t\t\t\tConsumer Protection\n\t\t\t\t\t\t": "Consumer Protection"
+          "\n\t\t\t\t\t\t\tDefense\n\t\t\t\t\t\t": "Defense"
+          "\n\t\t\t\t\t\t\tDisability Issues\n\t\t\t\t\t\t": "Disability Issues"
+          "\n\t\t\t\t\t\t\tDisaster Assistance\n\t\t\t\t\t\t": "Disaster Assistance"
+          "\n\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t": "Economy"
+          "\n\t\t\t\t\t\t\tEducation\n\t\t\t\t\t\t": "Education"
+          "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": "Energy"
+          "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": "Environment"
+          "\n\t\t\t\t\t\t\tEmployment\n\t\t\t\t\t\t": "Employment"
+          "\n\t\t\t\t\t\t\tEthics\n\t\t\t\t\t\t": "Ethics"
+          "\n\t\t\t\t\t\t\tFamily\n\t\t\t\t\t\t": "Family"
+          "\n\t\t\t\t\t\t\tFederal Employees\n\t\t\t\t\t\t": "Federal Employees"
+          "\n\t\t\t\t\t\t\tFiscal Responsibility\n\t\t\t\t\t\t": "Fiscal Responsibility"
+          "\n\t\t\t\t\t\t\tForeign Affairs\n\t\t\t\t\t\t": "Foreign Affairs"
+          "\n\t\t\t\t\t\t\tForeclosures\n\t\t\t\t\t\t": "Foreclosures"
+          "\n\t\t\t\t\t\t\tGun Rights\n\t\t\t\t\t\t": "Gun Rights"
+          "\n\t\t\t\t\t\t\tHealthcare\n\t\t\t\t\t\t": "Healthcare"
+          "\n\t\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t\t": "Homeland Security"
+          "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": "Housing"
+          "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": "Immigration"
+          "\n\t\t\t\t\t\t\tInfrastructure\n\t\t\t\t\t\t": "Infrastructure"
+          "\n\t\t\t\t\t\t\tIntelligence\n\t\t\t\t\t\t": "Intelligence"
+          "\n\t\t\t\t\t\t\tInvestigations and Oversight\n\t\t\t\t\t\t": "Investigations and Oversight"
+          "\n\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t": "Judiciary"
+          "\n\t\t\t\t\t\t\tJustice System\n\t\t\t\t\t\t": "Justice System"
+          "\n\t\t\t\t\t\t\tLabor\n\t\t\t\t\t\t": "Labor"
+          "\n\t\t\t\t\t\t\tMedicare/Medicaid\n\t\t\t\t\t\t": "Medicare/Medicaid"
+          "\n\t\t\t\t\t\t\tNatural Resources\n\t\t\t\t\t\t": "Natural Resources"
+          "\n\t\t\t\t\t\t\tNewsletter\n\t\t\t\t\t\t": "Newsletter"
+          "\n\t\t\t\t\t\t\tPensions\n\t\t\t\t\t\t": "Pensions"
+          "\n\t\t\t\t\t\t\tPostal Service\n\t\t\t\t\t\t": "Postal Service"
+          "\n\t\t\t\t\t\t\tScience\n\t\t\t\t\t\t": "Science"
+          "\n\t\t\t\t\t\t\tSmall Business\n\t\t\t\t\t\t": "Small Business"
+          "\n\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t": "Social Security"
+          "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": "Taxes"
+          "\n\t\t\t\t\t\t\tTechnology\n\t\t\t\t\t\t": "Technology"
+          "\n\t\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t\t": "Telecommunications"
+          "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": "Trade"
+          "\n\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t": "Transportation"
+          "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": "Veterans"
+    - check:
+      - name: ResponseRequired
+        selector: "#ResponseRequired"
+        value: Yes
+        required: Yes
+    - click_on:
+      - value: Submit
+        selector: ":nth-child(53) :nth-child(2)"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been sent"
