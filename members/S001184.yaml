@@ -1,0 +1,103 @@
+bioguide: S001184
+contact_form:
+  method: POST
+  action: http://www.scott.senate.gov/contact/email-me
+  steps:
+    - visit: http://www.scott.senate.gov/contact/email-me
+    - fill_in:
+      - name: prefix
+        selector: "#edit-prefix"
+        value: "$NAME_PREFIX"
+        required: Yes
+      - name: first
+        selector: "#edit-first"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: last
+        selector: "#edit-last"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: addr1
+        selector: "#edit-addr1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: addr2
+        selector: "#edit-addr2"
+        value: "$ADDRESS_STREET_2"
+      - name: city
+        selector: "#edit-city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: state
+        selector: "#edit-state"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+      - name: zip
+        selector: "#edit-zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone
+        selector: "#edit-phone"
+        value: "$PHONE"
+        required: Yes
+      - name: email
+        selector: "#edit-email"
+        value: "$EMAIL"
+        required: Yes
+      - name: message
+        selector: "#edit-message"
+        value: "$MESSAGE"
+        required: Yes
+      - name: middle
+        selector: "#edit-middle"
+        value: ""
+      - name: suffix
+        selector: "#edit-suffix"
+        value: ""
+    - select:
+      - name: issue
+        selector: "#edit-issue"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Aging and Seniors": "SSEC_MEDICARE"
+          "Agriculture": "AGR"
+          "Finance": "FIN"
+          "Budget/Appropriations": "BUD"
+          "Business/Commerce": "ECON"
+          "Civil Rights/Social Issues": "SOC"
+          "Congressional Issues": "GOV"
+          "Defense/Intelligence": "DEF"
+          "Education": "EDU"
+          "Energy": "ENE"
+          "Environment/Fisheries": "ENV"
+          "Foreign Relations": "INT"
+          "Guns": "GUN"
+          "Health Care": "HEA"
+          "Homeland Security": "HOM"
+          "Housing": "HOU"
+          "Immigration": "IMM"
+          "Indian Affairs": "IND"
+          "Judiciary": "JUD"
+          "Labor": "LAB"
+          "Medicaid": "MEDICAID"
+          "Medicare": "MEDICARE"
+          "Natural Resources": "NAT"
+          "Pensions/Social Security": "SSEC"
+          "Postal": "POST"
+          "Science/Space/Technology": "SCI/TECH"
+          "Taxes": "TAX"
+          "Telecommunications": "TEL"
+          "Trade": "TRADE"
+          "Transportation": "TRA"
+          "Veterans": "VET"
+          "Commemorative/Condolence": "GREET"
+          "Other": "OTHER"
+    - click_on:
+      - value: Submit
+        selector: "#edit-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your submission"
