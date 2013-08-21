@@ -1,0 +1,70 @@
+bioguide: G000386
+contact_form:
+  method: POST
+  action: http://www.grassley.senate.gov/contact/contact.cfm
+  steps:
+    - visit: http://www.grassley.senate.gov/contact/contact.cfm
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: streetAddress
+        selector: "#streetAddress"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: address2
+        selector: "p:nth-child(16) input"
+        value: "$ADDRESS_STREET_2"
+      - name: city
+        selector: "#city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: state
+        selector: "#state"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+      - name: zipCode
+        selector: "#zipCode"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: homePhone
+        selector: "p:nth-child(27) input"
+        value: "$PHONE"
+      - name: fromEmail
+        selector: "#fromEmail"
+        value: "$EMAIL"
+        required: Yes
+      - name: messageBody
+        selector: "#messageBody"
+        value: "$MESSAGE"
+        required: Yes
+      - name: formfield1234567894
+        selector: "#fpA239CDA5-BAF3-B18C-8B4F1C42DCE6D0D8"
+        value: ""
+    - select:
+      - name: prefix
+        selector: "select"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Miss"
+          - "Dr."
+          - "Rev."
+          - "Mr. and Mrs."
+          - "Sister"
+    - click_on:
+      - value: Submit
+        selector: "input.button"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "alert("
