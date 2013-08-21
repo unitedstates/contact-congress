@@ -8,66 +8,64 @@ contact_form:
       - name: campaignid
         selector: "div.formcontainer input[name=campaignid]"
         value: $CAMPAIGN_UUID
-	required: Yes
+        required: Yes
       - name: modified
         selector: "div.formcontainer input[name=modified]"
         value: "1"
-	required: Yes
+        required: Yes
       - name: form_url
         selector: "div.formcontainer input[name=form_url]"
-	value: $PERMALINK
-	required: Yes
+        value: $PERMALINK
+        required: Yes
       - name: org_url
         selector: "div.formcontainer input[name=org_url]"
-	value: $ORG_URL
-	required: Yes
+        value: $ORG_URL
+        required: Yes
       - name: org_name
         selector: "div.formcontainer input[name=org_name]"
-	value: $ORG_NAME
-	required: Yes
+        value: $ORG_NAME
+        required: Yes
       - name: fname
         selector: "#fname"
-	value: $NAME_FIRST
-	required: Yes
+        value: $NAME_FIRST
+        required: Yes
       - name: lname
         selector: "#lname"
-	value: $NAME_LAST
-	required: Yes
+        value: $NAME_LAST
+        required: Yes
       - name: address1
         selector: "#address1"
-	value: $ADDRESS_STREET
-	required: Yes
+        value: $ADDRESS_STREET
+        required: Yes
       - name: address2
         selector: "#address2"
-	value: $ADDRESS_STREET_2
+        value: $ADDRESS_STREET_2
       - name: city
         selector: "#city"
-	value: $ADDRESS_CITY
-	required: Yes
+        value: $ADDRESS_CITY
+        required: Yes
       - name: zip
         selector: "div.formcontainer input[name=zip]"
-	value: $ADDRESS_ZIP5
-	required: Yes
+        value: $ADDRESS_ZIP5
+        required: Yes
       - name: email
         selector: "#email"
-	value: $EMAIL
-	required: Yes
-      - name: hphone  #ignoring work phone
+        value: $EMAIL
+        required: Yes
+      - name: hphone
         selector: "#hphone"
-	value: $PHONE
-      #ignoring email update sign up
+        value: $PHONE
       - name: subj
         selector: "#subj"
-	value: $SUBJECT
-      #response requested checked by default
+        value: $SUBJECT
       - name: comment
         selector: "#comment"
-	value: $MESSAGE
-	required: Yes
+        value: $MESSAGE
+        required: Yes
     - select:
       - name: prefix
         selector: "#prefix"
-	value: $NAME_PREFIX
+        value: $NAME_PREFIX
         options:
           - "Mr."
           - "Mrs."
@@ -98,68 +96,14 @@ contact_form:
     - select:
       - name: state
         selector: "#state"
-	value: $ADDRESS_STATE_POSTAL_ABBREV
-	required: Yes
-        options:
-	  - "AA"
-          - "AE"
-          - "AP"
-          - "AL"
-          - "AK"
-          - "AZ"
-          - "AR"
-          - "CA"
-          - "CO"
-          - "CT"
-          - "DE"
-          - "DC"
-          - "FL"
-          - "GA"
-          - "HI"
-          - "ID"
-          - "IL"
-          - "IN"
-          - "IA"
-          - "KS"
-          - "KY"
-          - "LA"
-          - "ME"
-          - "MD"
-          - "MA"
-          - "MI"
-          - "MN"
-          - "MS"
-          - "MO"
-          - "MT"
-          - "NE"
-          - "NV"
-          - "NH"
-          - "NJ"
-          - "NM"
-          - "NY"
-          - "NC"
-          - "ND"
-          - "OH"
-          - "OK"
-          - "OR"
-          - "PA"
-          - "RI"
-          - "SC"
-          - "SD"
-          - "TN"
-          - "TX"
-          - "UT"
-          - "VT"
-          - "VA"
-          - "WA"
-          - "WV"
-          - "WI"
-          - "WY"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options: US_STATES_AND_MPCS
     - select:
       - name: topic
         selector: "#topic"
-	value: $TOPIC
-	required: Yes
+        value: $TOPIC
+        required: Yes
         options:
           "Afghanistan": "Afghanistan"
           "Biofuels": "Biofuels"
@@ -224,6 +168,6 @@ contact_form:
         selector: "div.formcontainer input[type=submit]"
   success:
     headers:
-      status: 200 #redirects after 5 sec, unsure if this is 200
+      status: 200
     body:
       contains: "Thank you for expressing your views"
