@@ -5,67 +5,110 @@ contact_form:
   steps:
     - visit: https://forms.house.gov/mcdermott/webforms/new/contact.shtml
     - fill_in:
-      - name: 
-        selector: "#"
+      - name: required-first
+        selector: "#required-first"
         value: $NAME_FIRST
         required: Yes
-      - name: 
-        selector: "#"
+      - name: required-last
+        selector: "#required-last"
         value: $NAME_LAST
         required: Yes
-      - name:
-        selector: "#"
+      - name: required-address
+        selector: "#required-address"
         value: $ADDRESS_STREET
         required: Yes
-      - name:
-        selector: "#"
-        value: $ADDRESS_STREET_2
-      - name:
-        selector: "#"
+      - name: required-city
+        selector: "#required-city"
         value: $ADDRESS_CITY
         required: Yes
-      - name: 
-        selector: "#"
-        value: $ADDRESS_ZIP?
-        required: Yes
-      - name: 
-        selector: "#"
-        value: $PHONE
-      - name: 
-        selector: "#"
-        value: $EMAIL
-        required: Yes
-      - name: 
-        selector: "#"
-        value: $SUBJECT
-        required: Yes
-      - name: 
-        selector: "#"
-        value: $MESSAGE
-    - select:
-      - name: 
-        selector: "#"
-        value: $NAME_PREFIX
-        required: Yes
-        options:
-        - 
-      - name: 
-        selector: "#"
+      - name: required-state
+        selector: "#required-state"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
-        options: US_STATES_AND_MPCS
-      - name: 
-        selector: "#"
+      - name: zip5
+        selector: "#zip5"
+        value: $ADDRESS_ZIP5
+      - name: zip4
+        selector: "#zip5"
+        value: $ADDRESS_ZIP4
+      - name: required-phone
+        selector: "#required-phone"
+        value: $PHONE
+        required: Yes
+      - name: required-email_address
+        selector: "#required-email_address"
+        value: $EMAIL
+        required: Yes
+      - name: required-message
+        selector: "#required-message"
+        value: $MESSAGE
+        required: Yes
+    - select:
+      - name: required-issue
+        selector: "#required-issue"
         value: $TOPIC
         required: Yes
         options:
-        - 
+          "Afghanistan" : "AFGHANISTAN"
+          "Agriculture" : "AG"
+          "Animals" : "ANIMAL"
+          "ARTS">Arts/Public Television</OPTION>
+          "BANKING">Banking</OPTION>
+          "BUDGET">Budget</OPTION>
+          "CHILDREN">Children's Issues</OPTION>
+          "CIVILRIGHTS">Civil Rights</OPTION>
+          "CONGRESS">Congress</OPTION>
+          "ETHICS">Congressional Ethics</OPTION>
+          "CRIME">Crime</OPTION>
+          "DEFENSE">Defense</OPTION>
+          "EAGLE">Eagle Scout Request</OPTION>
+          "ECONOMY">Economy Issues</OPTION>
+          "EDUCATION">Education Issues</OPTION>
+          "ELECTIONS">Elections</OPTION>
+          "ENERGY">Energy</OPTION>
+          "ENVIRO-GEN">Environment</OPTION>
+          "ENVIRO-TIMBER">Environment - Timber</OPTION>
+          "FDA">Food And Drug Administration</OPTION>
+          "GENERAL">General</OPTION>
+          "GUN">Gun Control</OPTION>
+          "HEALTH">Health</OPTION>
+          "HIV/AIDS">HIV/AIDS</OPTION>
+          "HOMELAND SECURITY">Homeland Security</OPTION>
+          "HOUSING">Housing</OPTION>
+          "HUMANRIGHTS">Human Rights</OPTION>
+          "IMMIGRATION">Immigration</OPTION>
+          "INTERNET">Internet</OPTION>
+          "INSURANCE">Insurance</OPTION>
+          "INTERNATL">International Relations</OPTION>
+          "IRAQ">Iraq</OPTION>
+          "JOB">Job Creation</OPTION>
+          "JUDICIARY">Legal Issues</OPTION>
+          "LABOR">Labor</OPTION>
+          "LESBIAN/GAY">Gay And Lesbian Issues</OPTION>
+          "MEDICAID">Medicaid</OPTION>
+          "MEDICARE">Medicare</OPTION>
+          "MINWAGE">Minimum Wage</OPTION>
+          "GENERAL">Miscellaneous</OPTION>
+          "OSHA">Occupational Safety</OPTION>
+          "POSTAL">Postal Service</OPTION>
+          "RELIGION">Religious Freedom</OPTION>
+          "ABORTION">Reproductive Rights</OPTION>
+          "SCIENCE">Science And Technology</OPTION>
+          "SOCSEC">Social Security</OPTION>
+          "TAX">Taxes</OPTION>
+          "TELECOM">Telecommunications/FCC</OPTION>
+          "TOUR">Tours Requests</OPTION>
+          "TRADE">Trade</OPTION>
+          "TRANS">Transportation</OPTION>
+          "UNEMPLOYMENT">Unemployment</OPTION>
+          "VETS">Veterans</OPTION>
+          "WELFARE">Welfare</OPTION>
+          "WOMEN">Women's Issues</OPTION>
     - click_on:
-      - value: Submit
-        selector: ""
+      - value: submit
+        selector: "submit"
   success:
     headers:
       status: 200
     body:
-      # contains: Thank you
-      # matches: "thank you, [a-z\. ]+ for contacting"
+      contains: Thank you
