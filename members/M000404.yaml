@@ -1,0 +1,114 @@
+bioguide: M000404
+contact_form:
+  method: POST
+  action: "https://forms.house.gov/htbin/formproc/mcdermott/contact.txt&display=/webforms/new/thank_you-contact.shtml"
+  steps:
+    - visit: https://forms.house.gov/mcdermott/webforms/new/contact.shtml
+    - fill_in:
+      - name: required-first
+        selector: "#required-first"
+        value: $NAME_FIRST
+        required: Yes
+      - name: required-last
+        selector: "#required-last"
+        value: $NAME_LAST
+        required: Yes
+      - name: required-address
+        selector: "#required-address"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: required-city
+        selector: "#required-city"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: required-state
+        selector: "#required-state"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+      - name: zip5
+        selector: "#zip5"
+        value: $ADDRESS_ZIP5
+      - name: zip4
+        selector: "#zip5"
+        value: $ADDRESS_ZIP4
+      - name: required-phone
+        selector: "#required-phone"
+        value: $PHONE
+        required: Yes
+      - name: required-email_address
+        selector: "#required-email_address"
+        value: $EMAIL
+        required: Yes
+      - name: required-message
+        selector: "#required-message"
+        value: $MESSAGE
+        required: Yes
+    - select:
+      - name: required-issue
+        selector: "#required-issue"
+        value: $TOPIC
+        required: Yes
+        options:
+          "Afghanistan" : "AFGHANISTAN"
+          "Agriculture" : "AG"
+          "Animals" : "ANIMAL"
+          "Arts/Public Television" : "ARTS"
+          "Banking" : "BANKING"
+          "Budget" : "BUDGET"
+          "Children's Issues" : "CHILDREN"
+          "Civil Rights" : "CIVILRIGHTS"
+          "Congress" : "CONGRESS"
+          "Congressional Ethics" : "ETHICS"
+          "Crime" : "CRIME"
+          "Defense" : "DEFENSE"
+          "Eagle Scout Request" : "EAGLE"
+          "Economy Issues" : "ECONOMY"
+          "Education Issues" : "EDUCATION"
+          "Elections" : "ELECTIONS"
+          "Energy" : "ENERGY"
+          "Environment" : "ENVIRO-GEN"
+          "Environment - Timber" : "ENVIRO-TIMBER"
+          "Food And Drug Administration" : "FDA"
+          "General" : "GENERAL"
+          "Gun Control" : "GUN"
+          "Health" : "HEALTH"
+          "HIV/AIDS" : "HIV/AIDS"
+          "Homeland Security" : "HOMELAND SECURITY"
+          "Housing" : "HOUSING"
+          "Human Rights" : "HUMANRIGHTS"
+          "Immigration" : "IMMIGRATION"
+          "Internet" : "INTERNET"
+          "Insurance" : "INSURANCE"
+          "International Relations" : "INTERNATL"
+          "Iraq" : "IRAQ"
+          "Job Creation" : "JOB"
+          "Legal Issues" : "JUDICIARY"
+          "Labor" : "LABOR"
+          "Gay And Lesbian Issues" : "LESBIAN/GAY"
+          "Medicaid" : "MEDICAID"
+          "Medicare" : "MEDICARE"
+          "Minimum Wage" : "MINWAGE"
+          "Miscellaneous" : "GENERAL"
+          "Occupational Safety" : "OSHA"
+          "Postal Service" : "POSTAL"
+          "Religious Freedom" : "RELIGION"
+          "Reproductive Rights" : "ABORTION"
+          "Science And Technology" : "SCIENCE"
+          "Social Security" : "SOCSEC"
+          "Taxes" : "TAX"
+          "Telecommunications/FCC" : "TELECOM"
+          "Tours Requests" : "TOUR"
+          "Trade" : "TRADE"
+          "Transportation" : "TRANS"
+          "Unemployment" : "UNEMPLOYMENT"
+          "Veterans" : "VETS"
+          "Welfare" : "WELFARE"
+          "Women's Issues" : "WOMEN"
+    - click_on:
+      - value: submit
+        selector: "submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you
