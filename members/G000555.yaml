@@ -1,0 +1,180 @@
+bioguide: G000555
+contact_form:
+  method: POST
+  action: http://www.gillibrand.senate.gov/contact/index.cfm
+  steps:
+    - visit: http://www.gillibrand.senate.gov/contact/
+    - fill_in:
+      - name: fname
+        selector: "#fname"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lname
+        selector: "#last_name"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: mailing_streetAddress1
+        selector: "#mailing_streetAddress1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: mailing_streetAddress2
+        selector: "#mailing_streetAddress2"
+        value: "$ADDRESS_STREET_2"
+      - name: mailing_city
+        selector: "#mailing_city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: mailing_zipcode
+        selector: "#mailing_zipcode"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: home_phone_number
+        selector: "#home_phone_number"
+        value: "$PHONE"
+      - name: work_phone_number
+        selector: "#work_phone_number"
+        value: "$PHONE"
+      - name: email
+        selector: "#email_address"
+        value: "$EMAIL"
+        required: Yes
+      - name: verify_email
+        selector: "#verify_email"
+        value: "$EMAIL"
+        required: Yes
+      - name: comments
+        selector: "textarea"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: salutation
+        selector: "#salutation"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Admiral"
+          - "Airman"
+          - "Airman First Class"
+          - "Brigadier General"
+          - "Captain"
+          - "Chief Master Sergeant"
+          - "Chief Master Sergeant of the Air Force"
+          - "Chief Petty Officer"
+          - "Chief Warrant Officer"
+          - "Colonel"
+          - "Command  Chief Master Sergeant"
+          - "Commander"
+          - "Congressman"
+          - "Congresswoman"
+          - "Corporal"
+          - "Dr."
+          - "Ensign"
+          - "First Lieutenant"
+          - "First Sergeant"
+          - "Fleet Admiral"
+          - "Fr."
+          - "General"
+          - "General of the Air Force"
+          - "Gov."
+          - "Gunnery Sergeant"
+          - "Hon."
+          - "Lance Corporal"
+          - "Lieutenant"
+          - "Lieutenant Colonel"
+          - "Lieutenant Commander"
+          - "Lieutenant General"
+          - "Lieutenant, Junior Grade"
+          - "Major"
+          - "Major General"
+          - "Master Chief Petty Officer"
+          - "Master Chief Petty Officer of the Navy"
+          - "Master Gunnery Sgt"
+          - "Master Sergeant"
+          - "Miss"
+          - "Mr."
+          - "Mr. and Mrs."
+          - "Mrs."
+          - "Ms."
+          - "Petty Officer First Class"
+          - "Petty Officer Second Class"
+          - "Petty Officer Third Class"
+          - "Private"
+          - "Private First Class"
+          - "Prof."
+          - "Rabbi"
+          - "Rear Admiral (lower half)"
+          - "Rear Admiral (upper half)"
+          - "Reverend"
+          - "Seaman"
+          - "Seaman Apprentice"
+          - "Seaman Recruit"
+          - "Second Lieutenant"
+          - "Senator"
+          - "Senior Airman"
+          - "Senior Chief Petty Officer"
+          - "Senior Master Sergeant"
+          - "Sergeant"
+          - "Sergeant Major"
+          - "Sgt Major Of The Corps"
+          - "Sister"
+          - "Staff Sergeant"
+          - "Technical Sergeant"
+          - "Vice Admiral"
+          - "Warrant Officer"
+      - name: state
+        selector: "#state"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+    - choose:
+      - name: subject
+        selector: "#contactForm input[name='subject']"  # This references multiple inputs!
+        value: $TOPIC
+        required: Yes
+        options:
+          - Afghanistan
+          - Immigration Reform
+          - Agriculture
+          - Iraq
+          - Animals Rights
+          - Israel
+          - Civil Rights
+          - Job Creation
+          - Crime and Public Safety
+          - Judiciary
+          - Economy
+          - Labor and Pensions
+          - Education
+          - LGBT Rights
+          - Energy
+          - Medicare/Medicaid
+          - Environment
+          - National Security
+          - Ethics Reform
+          - Poverty
+          - Federal Grant Applications
+          - Financial Services
+          - Social Security
+          - Foreign Relations
+          - Taxes
+          - Gun Violence
+          - Telecommunications
+          - Health Care
+          - tours  # yep, lowercase.
+          - Homeland Security
+          - Veterans
+          - Housing
+          - Womens Issues
+    - uncheck:
+      - name: newsletter
+        value: newsletter
+        selector: "#newsletter"
+        required: Yes
+    - click_on:
+      - value: Submit
+        selector: ".rollover"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting Senator"
