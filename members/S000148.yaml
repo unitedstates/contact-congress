@@ -1,0 +1,103 @@
+bioguide: S000148
+contact_form:
+  method: POST
+  action: webformActiondeplist.cfm
+  steps:
+    - visit: http://www.schumer.senate.gov/Contact/contact_chuck.cfm
+    - fill_in:
+      - name: First
+        selector: "#First"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: Last
+        selector: "#Last"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Addr1
+        selector: "#Addr1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Addr2
+        selector: "#Addr2"
+        value: "$ADDRESS_STREET_2"
+      - name: City
+        selector: "#City"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: Zip
+        selector: "#Zip"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+      - name: Zip
+        selector: "#Zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: Phone
+        selector: "#Phone"
+        value: "$PHONE"
+        required: Yes
+      - name: Email
+        selector: "#Email"
+        value: "$EMAIL"
+        required: Yes
+      - name: MSG
+        selector: "#MSG"
+        value: "$MESSAGE"
+        required: Yes
+      - name: SubjectOther
+        selector: "#SubjectOther"
+        value: ""
+    - select:
+      - name: Prefix
+        selector: "#thisForm select[name='Prefix']"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          " Mr. ": "Mr."
+          " Mrs. ": "Mrs."
+          " Ms. ": "Ms."
+          " Mr. and Mrs. ": "Mr. and Mrs."
+          " Dr. ": "Dr."
+          " Dr. and Mrs. ": "Dr. and Mrs."
+          " Reverend ": "Reverend"
+          " Sister ": "Sister"
+          " Pastor ": "Pastor"
+          " The Honorable ": "The Honorable"
+          " Representative ": "Representative"
+          " Senator ": "Senator"
+      - name: Issue
+        selector: "#Issue"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Agriculture": "AGRIC/AN"
+          "Banking": "BANKING"
+          "Children": "CHILDREN/ADP"
+          "Consumer Affairs": "CONSUMER AFFAIRS"
+          "Defense": "DEF"
+          "Education": "ED"
+          "Energy/Environment": "EN/ENV"
+          "Foreign Relations": "FR"
+          "Health": "HE"
+          "Emergency Response": "EMERSPON"
+          "Housing/Urban Development": "HOUSI/HUD"
+          "Judiciary": "JUD"
+          "Labor": "LABOR"
+          "Social Security": "SS"
+          "Taxes/Budget": "TAX/BUDGET"
+          "Transportation": "TRAN"
+          "Veterans": "VET"
+          "Welfare/Hunger": "WELF/HUN"
+      - name: Msub
+        selector: "#Subject"
+        value: "$TOPIC"
+        required: Yes
+        options: DEPENDENT
+    - click_on:
+      - value: Submit
+        selector: "#thisForm input[type='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you"
