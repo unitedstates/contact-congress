@@ -1,5 +1,5 @@
 bioguide: S001181
-contact_form: 
+contact_form:
   method: POST
   action: "http://www.shaheen.senate.gov/contact/index.cfm"
   steps:
@@ -43,7 +43,7 @@ contact_form:
         selector: "#verify_email"
         value: $EMAIL
         required: Yes
-      - name: comments 
+      - name: comments
         selector: "#comments"
         value: $MESSAGE
     - select:
@@ -192,10 +192,10 @@ contact_form:
         - "Transportation" : "TRA"
         - "Veterans" : "VET"
         - "Welfare / Food Stamps" : "WEL"
-    - check:
+    - uncheck:
       - name: newsletter
         selector: "#newsletter"
-        value: no
+        value: newsletter
     - click_on:
       - value: Submit
         selector: "submit"
