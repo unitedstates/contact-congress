@@ -1,7 +1,7 @@
 bioguide: S001141
 contact_form:
   method: POST
-  action: index.cfm?FuseAction=ConstituentServices.ContactSubmitNew&CFID=63425015&CFTOKEN=50685883
+  action: "index.cfm?FuseAction=ConstituentServices.ContactSubmitNew&CFID=63425015&CFTOKEN=50685883"
   steps:
     - visit: http://www.sessions.senate.gov/public/index.cfm?FuseAction=ConstituentServices.ContactMe
     - fill_in:
@@ -46,6 +46,7 @@ contact_form:
       - name: captcha_validate
         selector: "form[name='ContactForm'] input[name='captcha_validate']"
         captcha_selector: "form[name='ContactForm'] img[alt='Captcha Image']"
+        captcha_id_selector: "form[name='ContactForm'] input[name='captcha_hash']"
         value: "$CAPTCHA_SOLUTION"
     - select:
       - name: prefix
