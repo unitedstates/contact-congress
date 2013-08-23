@@ -1,5 +1,7 @@
 '''
 HOW TO USE:
+  This file extracts the option "value" attributes.
+
   Copy this file to a separate location (so as not to hide random files
     to github)
 
@@ -25,8 +27,8 @@ import re
 YAMLselections = []
 
 #compile regular expressions
-select = re.compile(r'<select.*?</select>', re.DOTALL)
-selectoptions = re.compile(r'(?:<option.*?value\s*=\s*)(\".*?\")')
+select = re.compile(r'<select.*?</select>', re.DOTALL | re.IGNORECASE)
+selectoptions = re.compile(r'(?:<option.*?value\s*=\s*)(\".*?\")', re.IGNORECASE)
 
 for root,dirs,files in os.walk('.\input'):
     for file in files:
