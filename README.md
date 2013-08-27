@@ -51,3 +51,7 @@ The data in that project, also stored as YAML, is easily connect-able to this pr
 ### Who's doing this
 
 * The [Sunlight Foundation](http://sunlightfoundation.com) is in the process of collecting this data and integrating it into [OpenCongress.org](http://www.opencongress.org).
+
+### License
+
+This project is dedicated to the public domain via the [Unlicense](LICENSE).
