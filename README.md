@@ -54,4 +54,4 @@ The data in that project, also stored as YAML, is easily connect-able to this pr
 
 ### License
 
-This project is dedicated to the public domain via the [Unlicense](LICENSE).
+This project is dedicated to the [public domain](LICENSE).
