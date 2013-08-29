@@ -11,13 +11,13 @@ contact_form:
         required: Yes
     - fill_in: # has hidden inputs: ID, CampaignInfo, DeliveryAgent, DeliveryAgentContact, Organization, OrganizationContact, OrganizationDescription
       - name: "ctl00$ctl22$CampaignID"
-        select: "ctl00_ctl22_CampaignID"
+        selector: "#ctl00_ctl22_CampaignID"
         value: $CAMPAIGN_UUID
       - name: "ctl00$ctl22$OrganizationContact"
-        select: "ctl00_ctl22_OrganizationContact"
+        selector: "#ctl00_ctl22_OrganizationContact"
         value: $ORG_URL
       - name: "ctl00$ctl22$Organization"
-        select: "ctl00_ctl22_Organization"
+        selector: "#ctl00_ctl22_Organization"
         value: $ORG_NAME
       - name: "ctl00$ctl22$FirstName"
         selector: "#ctl00_ctl22_FirstName"
