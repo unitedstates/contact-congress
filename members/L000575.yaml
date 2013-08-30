@@ -1,0 +1,117 @@
+bioguide: L000575
+contact_form:
+	method: POST
+	action: "https://lankford.house.gov/htbin/formproc/email-me.txt&display=/contact-me/email-me-thankyou&nobase&fpGetVer=2"
+		- visit: https://lankford.house.gov/contact-me/email-me-zip-authenticated
+		- find: "#contactForm"
+		- fill_in:
+			- name: prefix
+			  selector: "#prefix"
+			  value: $NAME_PREFIX
+			- name: required-first
+			  selector: "#required-first"
+			  value: $NAME_FIRST
+			  required: Yes
+			- name: middle
+			  selector: "#middle"
+			  value: ""
+			- name: required-last
+			  selector: "#required-last"
+			  value: $NAME_LAST
+			  required: Yes
+			- name: suffix
+			  selector: "#suffix"
+			  value: ""
+			- name: required-address
+			  selector: "#required-address"
+			  value: $ADDRESS_STREET
+			  required: Yes
+			- name: address2
+			  selector: "#address2"
+			  value: $ADDRESS_STREET_2
+			- name: required-city
+			  selector: "#required-city"
+			  value: $ADDRESS_CITY
+			  required: Yes
+			- name: required-state
+			  selector: "#required-state"
+			  value: $ADDRESS_STATE_POSTAL_ABBREV
+			  required: Yes
+			- name: required-zip5
+			  selector: "#required-zip5"
+			  value: $ADDRESS_ZIP5
+			  required: Yes
+			- name: zip4
+			  selector: "#zip4"
+			  value: $ADDRESS_ZIP4
+			- name: required-valid-email
+			  selector:"#required-valid-email"
+			  value: $EMAIL
+			  required: Yes
+			- name: phone
+			  selector: "#phone"
+			  value: $PHONE
+			- name: required-subject
+			  selector: "#required-subject"
+			  value: $SUBJECT
+			  required: Yes
+			- name: required-message
+			  selector: "#required-message"
+			  value: $MESSAGE
+			  required: Yes
+			- choose:
+      			- name: speech
+        		  selector: "#contactForm input[name='speech']"
+        		  required: Yes
+        		  options:
+          			- Voice
+          			- VP
+          			- TTD
+          	- select:
+          		- name: required-issue
+          		  selector: "#required-issue"
+          		  value: $TOPIC
+          		  required: Yes
+          		  options:
+          		  	- Agriculture
+					- Animals
+					- Arts and Humanities
+					- Badger Army Ammunition Plant
+					- Banking and Finance
+					- Budget and Economy
+					- Campaign Finance Reform
+					- Congress and Elections
+					- District of Columbia--Tours
+					- Defense and Military
+					- Education
+					- Energy
+					- Environment
+					- Federal Employees
+					- Flag Order
+					- Foreign Relations
+					- Guns
+					- Health
+					- Housing and Urban Development
+					- Immigration
+					- Judiciary
+					- Labor
+					- LGBT
+					- Post Office
+					- Science and Technology
+					- Senior Citizens
+					- Social Security
+					- Social Services
+					- Taxes
+					- Telecommunications
+					- Tour Request
+					- Transportation
+					- Trade
+					- Veterans
+					- Women's Issues
+					- Other Issues
+		- click_on:
+      		- value: "Send Email"
+        	  selector: "#submit"
+     success:
+     	body:
+     		contains: "The following information has been submitted:"
