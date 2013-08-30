@@ -1,9 +1,9 @@
 bioguide: M001143
 contact_form:
-  method: 
-  action:
+  method: POST
+  action: "https://mccollum.house.gov/contact-me/email-me/htbin/formproc/email-me.txt&display=/contact-me/email-me-thankyou&nobase&fpGetVer=2"
   steps:
-    - visit:
+    - visit: https://mccollum.house.gov/contact-me/email-me
     - fill_in:
       - name: prefix
         selector: "#prefix"
@@ -104,5 +104,5 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: "Thank You"
 
