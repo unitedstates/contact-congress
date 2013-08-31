@@ -4,7 +4,7 @@ This document describes how we're currently translating the process of filling o
 
 This is a working document in that the schema is evloving. While we've based this format heavily on the [Capybara](http://jnicklas.github.io/capybara/) testing framework for ruby, we haven't gotten into the full swing of using the format yet, so things are subject to change **([and open to suggestions!](https://github.com/unitedstates/congress-contact/issues))**
 
-You can [jump to the example](#example) if you just want a quick reference.
+You can [jump to the examples](#example) if you just want a quick reference.
 
 ---
 
@@ -104,7 +104,7 @@ A click_on step terminates the preceding list of input-related steps, by submitt
 
 ---
 
-## Example
+## Examples
 
 To put it all together, let's do a google search for our last name as an example:
 
@@ -126,4 +126,10 @@ contact_form:
     body:
       contains: "results ("
 ```
+
+Here is a list of examples that may help you:
+- [Handling Captchas](https://github.com/unitedstates/contact-congress/blob/master/support/recaptcha-noscript.yaml)
+- [Handling non human readable options](https://github.com/unitedstates/contact-congress/blob/master/members/S000033.yaml)
+- [Handling radio buttons](https://github.com/unitedstates/contact-congress/blob/master/members/H001049.yaml) - checkboxes are the same concept except with "- check"
+- [Finding created forms](https://github.com/unitedstates/contact-congress/blob/master/members/I000024.yaml)
       

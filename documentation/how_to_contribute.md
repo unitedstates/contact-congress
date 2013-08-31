@@ -20,7 +20,8 @@ To codify all of this, we're using a [YAML](http://www.yaml.org) data structure 
 
 - First, read up on YAML below if you're not already familiar.
 - Then, glance over the links above to familiarize yourself with what the type of data we're collecting looks like.
-- Finally, pick a legislator whose form still needs codifying (the ones we've already done are in [/members](../members)), [open a ticket](https://github.com/unitedstates/congress-contact/issues/new) with the name and Bioguide ID of your choice (we ask that you help us tackle senators first), and fill out a file similar to the ones in [/members](../members) with the appropriate YAML. The YAML variable placeholders, such as  `$EMAIL` used to label the form values can be found [here](https://github.com/unitedstates/contact-congress/blob/master/support/variables.yaml).
+- Finally, pick a legislator whose form still needs codifying (the ones we've already done are in [/members](../members)), [reply to a ticket](https://github.com/unitedstates/congress-contact/issues/new) with the name and Bioguide ID of your choice, and fill out a file similar to the ones in [/members](../members) with the appropriate YAML. The YAML variable placeholders, such as  `$EMAIL` used to label the form values can be found [here](https://github.com/unitedstates/contact-congress/blob/master/support/variables.yaml).
+- You can also visit the [support folder](https://github.com/unitedstates/contact-congress/blob/master/support/) for additional files that may help you.
 - Once you have your YAML all ready, you can fork this repo, add it to the members folder, and submit a pull request via github.
 
 ## An introduction to YAML
