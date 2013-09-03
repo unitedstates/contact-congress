@@ -1,0 +1,70 @@
+bioguide: 
+contact_form:
+  method: POST
+  action: ""
+  steps:
+    - visit: "https://herrerabeutler.house.gov/contact/contactform.htm?zip5=98661&zip4="
+    - fill_in:
+      - name: 
+        selector: "#"
+        value: $NAME_FIRST
+        required: Yes
+      - name: 
+        selector: "#"
+        value: $NAME_LAST
+        required: Yes
+      - name:
+        selector: "#"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name:
+        selector: "#"
+        value: $ADDRESS_STREET_2
+      - name:
+        selector: "#"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: 
+        selector: "#"
+        value: $ADDRESS_ZIP?
+        required: Yes
+      - name: 
+        selector: "#"
+        value: $PHONE
+      - name: 
+        selector: "#"
+        value: $EMAIL
+        required: Yes
+      - name: 
+        selector: "#"
+        value: $SUBJECT
+        required: Yes
+      - name: 
+        selector: "#"
+        value: $MESSAGE
+    - select:
+      - name: 
+        selector: "#"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+        - 
+      - name: 
+        selector: "#"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options: US_STATES_AND_MPCS
+      - name: 
+        selector: "#"
+        value: $TOPIC
+        required: Yes
+        options:
+        - 
+    - click_on:
+      - value: Submit
+        selector: ""
+  success:
+    headers:
+      status: 200
+    body:
+      # contains: Thank you
