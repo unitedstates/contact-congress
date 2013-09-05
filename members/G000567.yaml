@@ -4,7 +4,8 @@ contact_form:
   action: "https://griffin.house.gov/contact-me/email-me" 
   steps:
     - visit: "https://griffin.house.gov/contact-me/email-me"
-    - find: "#aspnetForm"
+    - find: 
+      - selector: "#aspnetForm"
     - fill_in: # has hidden inputs: ID, CampaignInfo, DeliveryAgent, DeliveryAgentContact, Organization, OrganizationContact, OrganizationDescription
       - name: "ctl00$ctl08$CampaignID"
         selector: "#ctl00_ctl08_CampaignID"
