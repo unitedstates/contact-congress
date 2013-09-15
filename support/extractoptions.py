@@ -52,8 +52,39 @@ for root,dirs,files in os.walk('.\input'):
             try: 
                 data = data + "      " + "- name: " + inputs[i] + "\n"
                 data = data + "        " + "selector: \"#" + selectors[i] + "\"\n"
-                data = data + "        " + "value: \n"
-                data = data + "        " + "required: \n"
+                data = data + "        " + "value: "
+                if inputs[i].find("first") != -1:
+                    data = data + "$NAME_FIRST\n"
+                elif inputs[i].find("last") != -1:
+                    data = data + "$NAME_LAST\n"
+                elif inputs[i].find("zip5") != -1:
+                    data = data + "$ADDRESS_ZIP5\n"
+                elif inputs[i].find("zip4") != -1:
+                    data = data + "$ADDRESS_ZIP4\n"
+                elif inputs[i].find("prefix") != -1:
+                    data = data + "$NAME_PREFIX\n"
+                elif inputs[i].find("address2") != -1:
+                    data = data + "$ADDRESS_STREET_2\n"
+                elif inputs[i].find("address") != -1:
+                    data = data + "$ADDRESS_STREET\n"
+                elif inputs[i].find("city") != -1:
+                    data = data + "$ADDRESS_CITY\n"
+                elif inputs[i].find("email") != -1:
+                    data = data + "$EMAIL\n"
+                elif inputs[i].find("phone") != -1:
+                    data = data + "$PHONE\n"
+                elif inputs[i].find("subject") != -1:
+                    data = data + "$SUBJECT\n"
+                elif inputs[i].find("message") != -1:
+                    data = data + "$MESSAGE\n"
+                else:
+                    data = data + "\n"
+                data = data + "        " + "required: "
+                if inputs[i].find("required") != -1:
+                    data = data + "Yes\n"
+                else:
+                    data = data + "\n"
+                data = data + "      " + "- name: \n" + "        " + "selector: \"#\n" + "        " + "value: \n" + "        " + "required: \n"
             except IndexError:
                 data = data + "\ninputs may not match selectors\n"
         #option search

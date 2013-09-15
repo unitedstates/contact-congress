@@ -1,12 +1,12 @@
-bioguide: C001095
+bioguide: P000596
 contact_form:
   method: POST
-  action: "https://cotton.house.gov/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
-  steps:
-    - visit: https://cotton.house.gov/contact/email-me
-    - fill_in: 
+  action: "https://pierluisi.house.gov/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  steps: 
+    - visit: https://pierluisi.house.gov/contact/email-me
+    - fill_in:
       - name: required-zip5
-        selector: "#required-zip5"
+        selector: "#submit"
         value: $ADDRESS_ZIP5
         required: Yes
       - name: zip4
@@ -48,7 +48,7 @@ contact_form:
         selector: "#required-phone"
         value: $PHONE
         required: Yes
-      - name: required-subject
+      - name: subject
         selector: "#required-subject"
         value: $SUBJECT
         required: Yes
