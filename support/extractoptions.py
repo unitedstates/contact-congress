@@ -84,9 +84,9 @@ for root,dirs,files in os.walk('.\input'):
                     data = data + "Yes\n"
                 else:
                     data = data + "\n"
-                data = data + "      " + "- name: \n" + "        " + "selector: \"#\n" + "        " + "value: \n" + "        " + "required: \n"
             except IndexError:
                 data = data + "\ninputs may not match selectors\n"
+        data = data + "      " + "- name: \n" + "        " + "selector: \"#\n" + "        " + "value: \n" + "        " + "required: \n"
         #option search
         options = re.findall(selectoptions, html)
         text = re.findall(selecttext, html)
