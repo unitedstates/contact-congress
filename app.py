@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from flask import url_for as partial_url_for
+import urlparse
 import twilio.twiml
 from twilio import TwilioRestException
 from utils import load_data, set_trace
@@ -16,7 +17,8 @@ campaigns, legislators, districts = load_data()
 defaults_campaign = campaigns['default']
 
 def url_for(route, **kwds):
-    return app.config['APPLICATION_ROOT'] + partial_url_for(route, **kwds)
+    return urlparse.urljoin(app.config['APPLICATION_ROOT'],
+        partial_url_for(route, **kwds))
 
 def get_campaign(cid):
     return dict(defaults_campaign, **campaigns[cid])
