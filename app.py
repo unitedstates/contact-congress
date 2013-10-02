@@ -114,7 +114,6 @@ def call_user():
             to=params['userPhone'], 
             from_=params['twilio_number'],
             url=url_for("connection", **params)
-            # use absolute url (twilio requires an internet visible url for call handling)
             )
         result = jsonify(message=call.status, debugMode=app.debug)
         result.status_code = 200 if call.status != 'failed' else 500
@@ -178,8 +177,9 @@ def zip_parse():
 @app.route('/call_complete', methods=call_methods)
 def call_complete():
     params, campaign = parse_params(request)
-    member_id = request.get('member_id')
-    status = request.get('DialCallStatus')
+    member_id = request.values.get('member_id')
+    call_status = request.values.get('DialCallStatus')
+    call_length = request.values.get('DialCallDuration')
     
     resp = twilio.twiml.Response()
     play_or_say(resp, campaign['msg_between_thanks'])
@@ -189,7 +189,8 @@ def call_complete():
         zipcode=params['zipcode'], 
         phone_number=params['userPhone'],
         member_id=member_id,
-        status=status)
+        status=call_status,
+        length=call_length)
     return str(resp)
 
 @app.route('/demo')

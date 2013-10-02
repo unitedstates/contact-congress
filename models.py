@@ -20,6 +20,7 @@ class Call(db.Model):
     id = Column(Integer, primary_key=True)
     timestamp = Column(DateTime)
     status = Column(String(25)) # twilio call status
+    length = Column(Integer)  # twilio call time in seconds
     campaign_id = Column(String(10))
     member_id = Column(String(10)) # congress member sunlight identifier
     # user attributes
@@ -28,9 +29,10 @@ class Call(db.Model):
     areacode = Column(Integer) # first 3 digits of phone number
     exchange = Column(Integer) # next 3 digits of phone number
     
-    def __init__(self, campaign_id, member_id, status, zipcode, phone_number):
+    def __init__(self, campaign_id, member_id, zipcode, phone_number, status, length):
         self.timestamp = datetime.now()
         self.status = status
+        self.length = length
         self.campaign_id = campaign_id
         self.member_id = member_id
         phone_number = phone_number.replace('-', '').replace('.', '')
@@ -52,5 +54,6 @@ if __name__ == "__main__":
     # initialize db
     from app import app
     db.app = app
-    db.create_all()    
-    # db.session.commit()
+    
+    db.drop_all()
+    db.create_all()
