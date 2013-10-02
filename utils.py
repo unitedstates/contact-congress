@@ -30,3 +30,34 @@ def play_or_say(resp, msg):
     else:
         resp.say(msg)
     return
+    
+def get_senators(legislators, district):
+    return legislators[
+        (legislators.chamber == 'senate') & 
+        (legislators.state == district['state'])
+        ].index.tolist()
+def get_house_members(legislators, district):
+    return legislators[
+        (legislators.chamber == 'house') &
+        (legislators.state == district['state']) &
+        (legislators.district == str(district['district_number']))
+        ].index.tolist()
+
+def locate_member_ids(zipcode, campaign, districts, legislators):
+    '''get congressional member ids from zip codes to districts data'''
+    district = districts.ix[zipcode]
+    member_ids = []
+    
+    # filter list by campaign target_house, target_senate
+    if campaign.get('target_senate', True) and \
+        campaign.get('target_senate_first', True):
+        member_ids.extend(get_senators(legislators, district))
+        
+    if campaign.get('target_house', True):
+        member_ids.extend(get_house_members(legislators, district))
+
+    if campaign.get('target_senate', True) and \
+        campaign.get('target_senate_first', False):
+        member_ids.extend(get_senators(legislators, district))
+        
+    return member_ids

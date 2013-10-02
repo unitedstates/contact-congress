@@ -3,7 +3,7 @@ import twilio.twiml
 from twilio import TwilioRestException
 from utils import load_data, set_trace
 from models import log_call
-from utils import get_database, play_or_say
+from utils import get_database, play_or_say, locate_member_ids
 
 app = Flask(__name__)
 app.config.from_object('config.ConfigProduction')
@@ -14,32 +14,10 @@ call_methods = ['GET', 'POST']
 campaigns, legislators, districts = load_data()
 
 
-def locate_member_ids(zipcode, campaign):
-    '''get congressional member ids from zip codes to districts data'''
-    district = districts.ix[zipcode]
-    member_ids = []
-    
-    # filter list by campaign target_house, target_senate
-    if campaign.get('target_senate', True):
-        member_ids.extend(
-            legislators[
-                (legislators.chamber == 'senate') & 
-                (legislators.state == district['state'])
-                ].index.tolist())
-        
-    if campaign.get('target_house', True):
-        member_ids.extend(
-            legislators[
-                (legislators.chamber == 'house') &
-                (legislators.state == district['state']) &
-                (legislators.district == str(district['district_number']))
-                ].index.tolist())
-        
-    return member_ids
-    
 def get_campaign(cid):
     return campaigns.ix[cid].to_dict()
-    
+
+
 def parse_params(request):
     params = dict(
         userPhone=request.values.get('userPhone'),
@@ -61,8 +39,8 @@ def parse_params(request):
     
     # get representative's id by zip code
     if (params['zipcode'] is not None) and (params['repIds'] is None):
-        params['repIds'] = locate_member_ids(params['zipcode'], campaign)
-    
+        params['repIds'] = locate_member_ids(
+            params['zipcode'], campaign, districts, legislators)
     return params
 
 
@@ -185,7 +163,9 @@ def zip_parse():
     return make_calls(params=dict(
         campaignId=campaignId,
         zipcode=zipcode,
-        repIds=locate_member_ids(zipcode, campaign=get_campaign(campaignId)), 
+        repIds=locate_member_ids(
+            zipcode, get_campaign(campaignId),
+            districts, legislators), 
         ))
 
 @app.route('/call_complete', methods=call_methods)
