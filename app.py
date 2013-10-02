@@ -146,7 +146,7 @@ def incoming_call():
     server.com/incoming_call?campaignId=12345
     from twilio.com/user/account/phone-numbers/incoming
     """
-    return intro_zip_gather(request.values.get('campaignId'))
+    return intro_zip_gather(request.values.get('campaignId', 'default'))
 
 
 @app.route("/zip_parse", methods=call_methods)

@@ -104,8 +104,12 @@ Production server
 To run in production:
   
     # create ENV variables
-    # these will charge real $ and connect real calls
-    gunicorn app:app
+    # open correct port
+    iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+    # initialize the database
+    python models.py
+    # run server - will charge real $ and connect real calls
+    gunicorn -b 0.0.0.0:80 app:app
     
 Updating for changes in congress
 --------------------------------
