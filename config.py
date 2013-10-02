@@ -19,7 +19,7 @@ class Config(object):
     
 class ConfigProduction(Config):
     DEBUG = False
-    APPLICATION_ROOT = 'https://call.taskforce.is'
+    APPLICATION_ROOT = os.environ.get('APPLICATION_ROOT')
     TW_CLIENT = twilio.rest.TwilioRestClient(
         os.environ.get('TWILIO_ACCOUNT_SID'), 
         os.environ.get('TWILIO_AUTH_TOKEN'))

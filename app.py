@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify, url_for, render_template
+from flask import Flask, request, jsonify, render_template
+from flask import url_for as partial_url_for
 import twilio.twiml
 from twilio import TwilioRestException
 from utils import load_data, set_trace
@@ -13,6 +14,9 @@ call_methods = ['GET', 'POST']
 
 campaigns, legislators, districts = load_data()
 defaults_campaign = campaigns['default']
+
+def url_for(route, **kwds):
+    return app.config['APPLICATION_ROOT'] + partial_url_for(route, **kwds)
 
 def get_campaign(cid):
     return dict(defaults_campaign, **campaigns[cid])
@@ -107,7 +111,7 @@ def call_user():
         call = app.config['TW_CLIENT'].calls.create(
             to=params['userPhone'], 
             from_=params['twilio_number'],
-            url=app.config['APPLICATION_ROOT'] + url_for("connection", **params)
+            url=url_for("connection", **params)
             # use absolute url (twilio requires an internet visible url for call handling)
             )
         result = jsonify(message=call.status, debugMode=app.debug)
@@ -136,7 +140,7 @@ def connection():
     return make_calls(params)
 
 
-@app.route('/incoming_call', methods=['POST'])
+@app.route('/incoming_call', methods=call_methods)
 def incoming_call():
     """
     Handles incoming calls to the twilio numbers. 
@@ -156,7 +160,7 @@ def zip_parse():
     Required Params: campaignId, Digits
     """
     campaign = get_campaign(request.values.get('campaignId'))
-    zipcode = request.values.get('Digits', None)
+    zipcode = request.values.get('Digits', "")
     
     if len(zipcode) != 5:
         resp = twilio.twiml.Response()

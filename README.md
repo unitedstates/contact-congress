@@ -79,6 +79,7 @@ and for production:
 * SUNLIGHTLABS_KEY
 * TWILIO_ACCOUNT_SID
 * TWILIO_AUTH_TOKEN
+* APPLICATION_ROOT (url for application server)
 
 Development mode
 -------------------
