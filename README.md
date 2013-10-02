@@ -16,7 +16,7 @@ Read our [contribution guide](https://github.com/unitedstates/contact-congress/b
 
 But more briefly, if you'd like to help:
 
-* [Reply to an open ticket](https://github.com/unitedstates/congress-contact/issues/new) stating that you are currently working on this issue.
+* [Reply to an open ticket](https://github.com/unitedstates/congress-contact/issues?labels=MoC&page=1&state=open) stating that you are currently working on this issue.
 * [Fork this repository](https://github.com/unitedstates/congress-contact/fork).
 * [Check out the schema](documentation/schema.md) we're using to represent the steps involved in filling out a member's web form.
 * Go visit that representative's website, and fill out a new YAML file describing how to submit the form.
