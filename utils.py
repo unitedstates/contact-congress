@@ -51,7 +51,7 @@ def get_house_members(legislators, districts):
 
 def locate_member_ids(zipcode, campaign, districts, legislators):
     '''get congressional member ids from zip codes to districts data'''
-    district = districts.ix[zipcode]
+    local_districts = districts.ix[[zipcode]] # a dataframe
     member_ids = []
     
     individual_target = campaign.get('target_member_id', None)
@@ -62,12 +62,12 @@ def locate_member_ids(zipcode, campaign, districts, legislators):
     # filter list by campaign target_house, target_senate
     if campaign.get('target_senate') and \
         not campaign.get('target_house_first'):
-        member_ids.extend(get_senators(legislators, district))
+        member_ids.extend(get_senators(legislators, local_districts))
         
     if campaign.get('target_house'):
-        member_ids.extend(get_house_members(legislators, district))
+        member_ids.extend(get_house_members(legislators, local_districts))
 
     if campaign.get('target_senate') and campaign.get('target_house_first'):
-        member_ids.extend(get_senators(legislators, district))
+        member_ids.extend(get_senators(legislators, local_districts))
         
     return member_ids
