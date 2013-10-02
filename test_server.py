@@ -1,5 +1,5 @@
-import server
-from server import locate_member_ids
+from app import app
+from utils import load_data, locate_member_ids, set_trace
 import unittest
 from requests.compat import urlencode
 
@@ -20,19 +20,22 @@ def assert_new_connection(req, params):
 class FlaskrTestCase(unittest.TestCase):
 
     def setUp(self):
-        server.app.config.from_object('config.ConfigTesting')
-        self.app = server.app.test_client()
-        self.campaigns, self.legislators, self.districts = server.load_data()
+        app.config.from_object('config.ConfigTesting')
+        self.app = app.test_client()
+        self.campaigns, self.legislators, self.districts = load_data()
 
 
     def test_location_lookup(self):
         campaign = dict(target_house=True, target_senate=True)
-        member_ids = locate_member_ids('94110', campaign)
+        member_ids = locate_member_ids('94110', campaign, 
+            self.districts, self.legislators)
         assert(len(member_ids) == 3)
         assert('Pelosi' in self.legislators.ix[member_ids].lastname.tolist())
         
         senate_ids = locate_member_ids('94110', 
-            dict(target_senate=True, target_house=False))
+            dict(target_senate=True, target_house=False),
+            self.districts, self.legislators
+            )
         assert(len(senate_ids) == 2)
     
     def test_connection(self):

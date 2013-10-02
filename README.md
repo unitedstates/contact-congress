@@ -44,15 +44,25 @@ Optional Params: *(either or)*
 
 Campaign Configuration
 ----------------------
-Currently stored in ``/data/campaigns.json``, each campaign has the fields:
+Currently stored in ``/data/campaigns.yaml``, each campaign has the following optional fields. Defaults are given by the ``default`` campaign. 
 
 * **id**
 * **number** (Twilio phone number)
 * **target_house** include house members in lookups by location
 * **target_senate** include senators in lookups by location
-* **target_house_first** (optional) allows the campaign to target house members before senate members (default: target senate first)
-* **repIds** (optional) a specific list of sunlight rep. IDs to target
-* **recorded_message_url** url for recorded message to play to introduce call (if blank have default message read by robot)
+* **target_house_first** allows the campaign to target house members before senate members (default: target senate first)
+* **repIds** (optional) list of rep. IDs to target
+
+Messages: Can be urls for recorded message to play or text for the robot to read. Text can be rendered as a mustache template. The following messages are the defaults and will be inherited by new campaigns unless overwritten.
+
+* msg_intro: Hi. Welcome to call congress.
+* msg_ask_zip: Please enter your zip code so we can lookup your Congress person.
+* msg_invalid_zip: "Sorry, that zip code didn't work. Please try again."
+* msg_call_block_intro: "We'll now connect you to {{n_reps}} representatives. Press # for next rep."
+* msg_rep_intro: "We're now connecting you to {{name}}"
+* msg_between_thanks: You're doing great - here's the next call.      
+* msg_final_thanks: Thank you!
+
 
 Account Keys
 ------------
@@ -79,7 +89,7 @@ To install locally and run in debug mode use:
     source venv/bin/activate
     pip install -r requirements.txt
     
-    python server.py
+    python app.py
     # for testing twilio, need internet-visible urls to do call handling
     ngrok -subdomain="1cf55a5a" 5000
     
@@ -95,7 +105,7 @@ To run in production:
   
     # create ENV variables
     # these will charge real $ and connect real calls
-    foreman start
+    gunicorn app:app
     
 Updating for changes in congress
 --------------------------------

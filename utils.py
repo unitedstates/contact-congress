@@ -1,4 +1,6 @@
 import pandas as pd
+import yaml
+import pystache
 from flask.ext.sqlalchemy import SQLAlchemy
 from ipdb import set_trace
 
@@ -19,12 +21,16 @@ def load_data():
         names=['zipcode', 'state', 'district_number'],
         dtype={'zipcode': str}).sort('zipcode').set_index('zipcode')
     
-    campaigns = pd.read_json('data/campaigns.json').set_index('id')
+    # campaigns = pd.read_json('data/campaigns.json').set_index('id')
+    with open('data/campaigns.yaml', 'r') as f:
+        campaigns = {c['id']: c for c in yaml.load(f.read())}
     
     return campaigns, legislators, districts
     
-def play_or_say(resp, msg):
+def play_or_say(resp, msg_template, **kwds):
     # take twilio response and play or say a mesage
+    # can use mustache templates to render keword arguments
+    msg = pystache.render(msg_template, kwds)
     if msg.startswith('http'):
         resp.play(msg)
     else:
@@ -54,15 +60,14 @@ def locate_member_ids(zipcode, campaign, districts, legislators):
         return member_ids
     
     # filter list by campaign target_house, target_senate
-    if campaign.get('target_senate', True) and \
-        not campaign.get('target_house_first', False):
+    if campaign.get('target_senate') and \
+        not campaign.get('target_house_first'):
         member_ids.extend(get_senators(legislators, district))
         
-    if campaign.get('target_house', True):
+    if campaign.get('target_house'):
         member_ids.extend(get_house_members(legislators, district))
 
-    if campaign.get('target_senate', True) and \
-        campaign.get('target_house_first', True):
+    if campaign.get('target_senate') and campaign.get('target_house_first'):
         member_ids.extend(get_senators(legislators, district))
         
     return member_ids
