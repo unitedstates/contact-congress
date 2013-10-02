@@ -10,6 +10,7 @@ class Config(object):
         
     SUNLIGHTLABS_KEY = os.environ.get('SUNLIGHTLABS_KEY')
     TW_NUMBER = '5005550006' # development number
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///dev.db'
     
     # limit on the length of the call
     TW_TIME_LIMIT = 60 * 4 #sec/min * min
@@ -23,7 +24,9 @@ class ConfigProduction(Config):
         os.environ.get('TWILIO_ACCOUNT_SID'), 
         os.environ.get('TWILIO_AUTH_TOKEN'))
     TW_NUMBER = os.environ.get('TWILIO_NUMBER')
-
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')
+    
 class ConfigTesting(Config):
     TESTING = True
     APPLICATION_ROOT = ''
+    

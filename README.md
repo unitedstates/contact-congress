@@ -21,19 +21,19 @@ The user will be prompted to punch in their zip code, the server will locate the
 ### Web-initiated connection calls
 These calls are made from a web form where the user enters their phone number to be connected to Congress (will be prompted for zip code):
 
-    /create?campaignId=abc-123&user_phone_number=1234567890
+    /create?campaignId=abc-123&userPhone=1234567890
 
 or a specific member of congress:
     
-    /create?campaignId=abc-123&user_phone_number=1234567890&repIds=P000197
+    /create?campaignId=abc-123&userPhone=1234567890&repIds=P000197
 
 or to member(s) based on zip code:
 
-    /create?campaignId=abc-123&user_phone_number=1234567890&zipcode=98102
+    /create?campaignId=abc-123&userPhone=1234567890&zipcode=98102
 
 Required Params:
 
-* **user_phone_number**
+* **userPhone**
 * **campaignId**
 
 Optional Params: *(either or)*
