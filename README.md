@@ -50,6 +50,8 @@ Currently stored in ``/data/campaigns.json``, each campaign has the fields:
 * **number** (Twilio phone number)
 * **target_house** include house members in lookups by location
 * **target_senate** include senators in lookups by location
+* **target_house_first** (optional) allows the campaign to target house members before senate members (default: target senate first)
+* **repIds** (optional) a specific list of sunlight rep. IDs to target
 * **recorded_message_url** url for recorded message to play to introduce call (if blank have default message read by robot)
 
 Account Keys

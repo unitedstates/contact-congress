@@ -48,16 +48,21 @@ def locate_member_ids(zipcode, campaign, districts, legislators):
     district = districts.ix[zipcode]
     member_ids = []
     
+    individual_target = campaign.get('target_member_id', None)
+    if individual_target:
+        member_ids = [individual_target]
+        return member_ids
+    
     # filter list by campaign target_house, target_senate
     if campaign.get('target_senate', True) and \
-        campaign.get('target_senate_first', True):
+        not campaign.get('target_house_first', False):
         member_ids.extend(get_senators(legislators, district))
         
     if campaign.get('target_house', True):
         member_ids.extend(get_house_members(legislators, district))
 
     if campaign.get('target_senate', True) and \
-        campaign.get('target_senate_first', False):
+        campaign.get('target_house_first', True):
         member_ids.extend(get_senators(legislators, district))
         
     return member_ids

@@ -36,7 +36,6 @@ def parse_params(request):
 
     # add the campaign parameters to the parameter set
     params.update(campaign)
-    
     # get representative's id by zip code
     if (params['zipcode'] is not None) and (params['repIds'] is None):
         params['repIds'] = locate_member_ids(
