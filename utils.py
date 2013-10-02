@@ -37,16 +37,16 @@ def play_or_say(resp, msg_template, **kwds):
         resp.say(msg)
     return
     
-def get_senators(legislators, district):
+def get_senators(legislators, districts):
     return legislators[
         (legislators.chamber == 'senate') & 
-        (legislators.state == district['state'])
+        (legislators.state == districts['state'].iloc[0])
         ].index.tolist()
-def get_house_members(legislators, district):
+def get_house_members(legislators, districts):
     return legislators[
         (legislators.chamber == 'house') &
-        (legislators.state == district['state']) &
-        (legislators.district == str(district['district_number']))
+        (legislators.state.isin(districts['state'])) &
+        (legislators.district.isin(districts['district_number'].astype(str)))
         ].index.tolist()
 
 def locate_member_ids(zipcode, campaign, districts, legislators):
