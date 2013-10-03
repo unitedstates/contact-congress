@@ -29,4 +29,4 @@ class ConfigProduction(Config):
 class ConfigTesting(Config):
     TESTING = True
     APPLICATION_ROOT = ''
-    
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'

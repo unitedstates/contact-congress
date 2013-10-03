@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template
-from flask import url_for as partial_url_for
+from flask import url_for
 import urlparse
 import twilio.twiml
 from twilio import TwilioRestException
@@ -16,9 +16,9 @@ call_methods = ['GET', 'POST']
 campaigns, legislators, districts = load_data()
 defaults_campaign = campaigns['default']
 
-def url_for(route, **kwds):
+def full_url_for(route, **kwds):
     return urlparse.urljoin(app.config['APPLICATION_ROOT'],
-        partial_url_for(route, **kwds))
+        url_for(route, **kwds))
 
 def get_campaign(cid):
     return dict(defaults_campaign, **campaigns[cid])
@@ -34,10 +34,9 @@ def parse_params(request):
     # lookup campaign by ID
     campaign = get_campaign(params['campaignId'])
     
-    # set twilio phone number based on campaign id
-    params['twilio_number'] = campaign.pop('number')
+    # normally number based on campaign id, unless debugging
     if app.config['DEBUG']:
-        params['twilio_number'] = app.config['TW_NUMBER']
+        campaign['number'] = app.config['TW_NUMBER']
 
     # add repIds to the parameter set
     if campaign.get('repIds', None):
@@ -62,29 +61,38 @@ def zip_gather(resp, campaign):
         play_or_say(g, campaign['msg_ask_zip'])
     return str(resp)
     
+
+def dialing_config(params, campaign):
+    dc = dict(
+        timeLimit=app.config['TW_TIME_LIMIT'],
+        timeout=app.config['TW_TIMEOUT'],
+        action=url_for('call_complete', **params) # on complete
+        )
+    if app.config['DEBUG']:
+        # default is to show the user's number
+        # but in debug mode - show the campaign's twilio #
+        dc['callerId'] = campaign['number']
+    return dc 
     
-def make_calls(params):
+
+def make_calls(params, campaign):
     """
     Connect a user to a sequence of congress members.
     Required params: campaignId, repIds
     Optional params: zipcode,
     """
     resp = twilio.twiml.Response()
-    campaign = get_campaign(params['campaignId'])
-    play_or_say(resp, campaign['msg_call_block_intro'], 
-        n_reps=len(params['repIds']))
+    repIds = params['repIds']
+    n_reps = len(repIds)
+    play_or_say(resp, campaign['msg_call_block_intro'], n_reps=n_reps)
     
-    for mid, member in legislators.ix[params['repIds']].iterrows():
+    for i, (mid, member) in enumerate(legislators.ix[repIds].iterrows()):
         play_or_say(resp, campaign['msg_rep_intro'], 
             name="{} {}".format(member['firstname'], member['lastname']))
         params['member_id'] = mid
-        resp.dial(
-            member['phone'], 
-            timeLimit=app.config['TW_TIME_LIMIT'],
-            timeout=app.config['TW_TIMEOUT'],
-            # callerId= [default is to show the user's number] / alt. twilio #
-            action=url_for('call_complete', **params) # on complete
-            )
+        resp.dial(member['phone'], **dialing_config(params, campaign))
+        if i < n_reps - 1:
+            play_or_say(resp, campaign['msg_between_thanks'])
 
     # thank you for calling message
     play_or_say(resp, campaign['msg_final_thanks'])
@@ -112,8 +120,8 @@ def call_user():
     try:
         call = app.config['TW_CLIENT'].calls.create(
             to=params['userPhone'], 
-            from_=params['twilio_number'],
-            url=url_for("connection", **params)
+            from_=campaign['number'],
+            url=full_url_for("connection", **params)
             )
         result = jsonify(message=call.status, debugMode=app.debug)
         result.status_code = 200 if call.status != 'failed' else 500
@@ -138,7 +146,7 @@ def connection():
     elif isinstance(params['repIds'], basestring):
         # we are expecting a list of rep ids, not just one
         params['repIds'] = [params['repIds']]
-    return make_calls(params)
+    return make_calls(params, campaign)
 
 
 @app.route('/incoming_call', methods=call_methods)
@@ -168,11 +176,13 @@ def zip_parse():
         play_or_say(resp, campaign['msg_invalid_zip'])
         return zip_gather(resp, campaign)    
     
-    return make_calls(params=dict(
-        campaignId=campaign['id'],
-        zipcode=zipcode,
-        repIds=locate_member_ids(zipcode, campaign, districts, legislators), 
-        ))
+    return make_calls(
+        params=dict(
+            campaignId=campaign['id'],
+            zipcode=zipcode,
+            repIds=locate_member_ids(zipcode, campaign, districts, legislators), 
+        ),
+        campaign=campaign)
 
 @app.route('/call_complete', methods=call_methods)
 def call_complete():
@@ -181,9 +191,6 @@ def call_complete():
     call_status = request.values.get('DialCallStatus')
     call_length = request.values.get('DialCallDuration')
     
-    resp = twilio.twiml.Response()
-    play_or_say(resp, campaign['msg_between_thanks'])
-    
     log_call(db, 
         campaign_id=campaign['id'],
         zipcode=params['zipcode'], 
@@ -191,13 +198,14 @@ def call_complete():
         member_id=member_id,
         status=call_status,
         length=call_length)
-    return str(resp)
+
+    return jsonify(status=call_status)
 
 @app.route('/demo')
 def demo():
     return render_template('demo.html')
     
-    
+
 if __name__ == "__main__":
     # load the debugger config
     app.config.from_object('config.Config')

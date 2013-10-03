@@ -50,10 +50,16 @@ def log_call(db, **kwds):
     db.session.commit()
 
 
+def setUp(app):
+    db.app = app
+    db.drop_all()
+    db.create_all()    
+    
+def tearDown(app):
+    db.app = app
+    db.drop_all()
+    
 if __name__ == "__main__":
     # initialize db
     from app import app
-    db.app = app
-    
-    db.drop_all()
-    db.create_all()
+    setUp(app)
