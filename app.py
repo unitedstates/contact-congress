@@ -28,19 +28,22 @@ def parse_params(request):
         userPhone=request.values.get('userPhone'),
         campaignId=request.values.get('campaignId', 'default'),
         zipcode=request.values.get('zipcode', None),
-        repIds=request.values.get('repIds', None),
+        repIds=request.values.getlist('repIds', None),
     )
-            
+    
     # lookup campaign by ID
     campaign = get_campaign(params['campaignId'])
     
     # normally number based on campaign id, unless debugging
     if app.config['DEBUG']:
         campaign['number'] = app.config['TW_NUMBER']
-
-    # add repIds to the parameter set
+    
+    # add repIds to the parameter set, if spec. by the campaign
     if campaign.get('repIds', None):
-        params['repIds'] = campaign['repIds']
+        if isinstance(campaign['repIds'], basestring):
+            params['repIds'] = [campaign['repIds']] 
+        else:
+            params['repIds'] = campaign['repIds']
         
     # get representative's id by zip code
     if (params['zipcode'] is not None) and (params['repIds'] is None):
@@ -52,7 +55,7 @@ def parse_params(request):
 def intro_zip_gather(campaignId):
     resp = twilio.twiml.Response()
     campaign = get_campaign(campaignId)
-    play_or_say(resp, campaign['msg_intro'])
+    resp.play_or_say(campaign['msg_intro'])
     return zip_gather(resp, campaign)
 
 def zip_gather(resp, campaign):
@@ -66,6 +69,7 @@ def dialing_config(params, campaign):
     dc = dict(
         timeLimit=app.config['TW_TIME_LIMIT'],
         timeout=app.config['TW_TIMEOUT'],
+        hangupOnStar=True, # allow the user to hangup and move onto next call
         action=url_for('call_complete', **params) # on complete
         )
     if app.config['DEBUG']:
@@ -75,29 +79,22 @@ def dialing_config(params, campaign):
     return dc 
     
 
-def make_calls(params, campaign):
+def make_calls(params, campaign, resp=None):
     """
     Connect a user to a sequence of congress members.
     Required params: campaignId, repIds
     Optional params: zipcode,
     """
-    resp = twilio.twiml.Response()
-    repIds = params['repIds']
-    n_reps = len(repIds)
-    play_or_say(resp, campaign['msg_call_block_intro'], n_reps=n_reps)
+    if resp is None:
+        resp = twilio.twiml.Response()
     
-    for i, (mid, member) in enumerate(legislators.ix[repIds].iterrows()):
-        play_or_say(resp, campaign['msg_rep_intro'], 
-            name="{} {}".format(member['firstname'], member['lastname']))
-        params['member_id'] = mid
-        resp.dial(member['phone'], **dialing_config(params, campaign))
-        if i < n_reps - 1:
-            play_or_say(resp, campaign['msg_between_thanks'])
-
-    # thank you for calling message
-    play_or_say(resp, campaign['msg_final_thanks'])
+    n_reps = len(params['repIds'])
+    play_or_say(resp, campaign['msg_call_block_intro'], 
+        n_reps=n_reps, many_reps=n_reps > 1)
+    
+    resp.redirect(url_for('make_single_call', call_index=0, **params))
     return str(resp)
-
+    
 
 @app.route('/create', methods=call_methods)
 def call_user():
@@ -141,12 +138,12 @@ def connection():
         repIds (if not present - go to incoming_call flow and asked for zipcode)
     """
     params, campaign = parse_params(request)
-    if params['repIds'] is None:
+    if params['repIds']:
+        resp = twilio.twiml.Response()
+        resp.play_or_say(campaign['msg_intro'])
+        return make_calls(params, campaign, resp=resp)
+    else:
         return intro_zip_gather(params['campaignId'])
-    elif isinstance(params['repIds'], basestring):
-        # we are expecting a list of rep ids, not just one
-        params['repIds'] = [params['repIds']]
-    return make_calls(params, campaign)
 
 
 @app.route('/incoming_call', methods=call_methods)
@@ -184,22 +181,45 @@ def zip_parse():
         ),
         campaign=campaign)
 
+
+@app.route('/make_single_call', methods=call_methods)
+def make_single_call():
+    params, campaign = parse_params(request)
+    i = int(request.values.get('call_index'))
+    params['call_index'] = i
+    
+    resp = twilio.twiml.Response()
+    member = legislators.ix[params['repIds'][i]]
+    play_or_say(resp, campaign['msg_rep_intro'], 
+        name="{} {}".format(member['firstname'], member['lastname']))
+    resp.dial(member['phone'], **dialing_config(params, campaign))
+    return str(resp)
+
+
 @app.route('/call_complete', methods=call_methods)
 def call_complete():
     params, campaign = parse_params(request)
-    member_id = request.values.get('member_id')
-    call_status = request.values.get('DialCallStatus')
-    call_length = request.values.get('DialCallDuration')
+    i = int(request.values.get('call_index'))
     
     log_call(db, 
         campaign_id=campaign['id'],
         zipcode=params['zipcode'], 
         phone_number=params['userPhone'],
-        member_id=member_id,
-        status=call_status,
-        length=call_length)
+        member_id=params['repIds'][i],
+        status=request.values.get('DialCallStatus'),
+        duration=request.values.get('DialCallDuration'))
 
-    return jsonify(status=call_status)
+    resp = twilio.twiml.Response()
+    if i == len(params['repIds']) - 1:
+        # thank you for calling message
+        play_or_say(resp, campaign['msg_final_thanks'])
+    else:
+        # call the next representative
+        params['call_index'] = i + 1 # increment the call counter
+        play_or_say(resp, campaign['msg_between_thanks'])
+        resp.redirect(url_for('make_single_call', **params))
+
+    return str(resp)
 
 @app.route('/demo')
 def demo():

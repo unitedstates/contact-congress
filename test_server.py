@@ -2,10 +2,12 @@ import app as server
 from utils import load_data, locate_member_ids, SQLAlchemy, set_trace
 import models
 import unittest
-from requests.compat import urlencode
+from urlparse import parse_qs
+from requests.compat import urlencode, urlparse
+import lxml
 
 def url_for(action, **params):
-    url = '/' + action
+    url = ('/' if action[0] != '/' else '') + action
     if params:
         url += '?' +  urlencode(params, doseq=True)
     return url
@@ -13,13 +15,8 @@ def url_for(action, **params):
 # hack for testing
 server.url_for = url_for
 
-def assert_new_connection(req, params):
-    assert(req.data.startswith('<?xml'))
-    # should ask for number of digits
-    assert('Gather' in req.data)
-    assert('numDigits="5"' in req.data)
-    # and should redirect to handler
-    assert(url_for('zip_parse', **params) in req.data)
+
+
     
 id_pelosi = 'P000197'
 
@@ -32,6 +29,39 @@ class FlaskrTestCase(unittest.TestCase):
         models.setUp(server.app)
         self.app = server.app.test_client()
         self.campaigns, self.legislators, self.districts = load_data()
+
+        # a default example where just Rep. Nacy Pelosi is called
+        self.example_params = dict(
+            campaignId='default',
+            repIds=[id_pelosi],
+            userPhone='415-000-1111',
+            zipcode='95110')
+
+    def post_tree(self, path, **params):
+        req = self.app.post(url_for(path, **params))
+        tree = lxml.etree.fromstring(req.data)
+        return tree
+
+
+    def parse_url(self, urlstring):
+        url = urlparse(urlstring)
+        return url, dict((k, v if len(v)>1 else v[0])
+            for k, v in parse_qs(url.query).iteritems())
+
+    def assert_is_xml(self, req):
+        assert(req.data.startswith('<?xml'))
+
+    def assert_zip_ask(self, req, params):
+        self.assert_is_xml(req)
+        # should ask for number of digits
+        assert('Gather' in req.data)
+        assert('numDigits="5"' in req.data)
+        # and should redirect to handler
+        assert(url_for('zip_parse', **params) in req.data)
+        
+    def assert_has_rep_intro(self, node, campaign):
+        msg = campaign['msg_rep_intro'].split('{')[0]
+        assert(node.tag == 'Say' and node.text.startswith(msg))
 
     #def tearDown(self):
     #    models.tearDown(self.db)
@@ -56,60 +86,120 @@ class FlaskrTestCase(unittest.TestCase):
             self.districts, self.legislators)
         # the 98112 zipcode contains two districts - thus 2 House members
         assert(len(member_ids) == 4)
+    
+    
 
-    
-    def test_connection(self):
-        '''connect to dial Rep. Pelosi'''
-        params = dict(
-            campaignId='default',
-            repIds=[id_pelosi]
-            )
-        req = self.app.post(url_for('connection', **params))
-        assert(req.data.startswith('<?xml'))
-        assert("202-225-4965</Dial>" in req.data)
-    
-    
-    def test_redirected_connection_call(self):
+    def test_incoming_call(self):
+        '''test incoming call - asks for zipcode'''
+        params = dict(campaignId='default')
+        req = self.app.post(url_for('incoming_call', **params))
+        self.assert_zip_ask(req, params)
+        
+        
+    def test_zip_ask(self):
         '''
         test with no repId parameter
         should redirect to ask for zipcode
         '''
         params = dict(campaignId='default')
-        req = self.app.post(
-            url_for('connection', **params), 
-            follow_redirects=True)
-        assert_new_connection(req, params)
+        req = self.app.post(url_for('connection', **params))
+        self.assert_zip_ask(req, params)
     
-        
-    def test_incoming_call(self):
-        '''test incoming call - asks for zipcode'''
-        params = dict(campaignId='default')
-        req = self.app.post(url_for('incoming_call', **params))
-        assert_new_connection(req, params)
-        
     
-    def test_making_calls(self):
-        params = dict(repIds=[id_pelosi], campaignId='default')
+    def test_making_single_call(self):
         campaign = self.campaigns['default']
-        req = server.make_calls(params, campaign)
-        assert(campaign['msg_call_block_intro'].split('{')[0] in req)
-        assert(req.count(campaign['msg_rep_intro'].split('{')[0]) == 1)
+        params = dict(self.example_params)
         
-    
-    def test_call_complete(self):
-        params = dict(
-            campaignId='default',
-            zipcode='94110',
-            userPhone='415-999-0000',
-            member_id=id_pelosi, 
+        # test with connection, given repIds
+        req = self.app.post(url_for('connection', **params))
+        tree = lxml.etree.fromstring(req.data)
+        # the intro message gets played first
+        assert(campaign['msg_intro'] == tree[0].text)
+        # then there is a redirect to make a single call
+        redirect_url = tree.find('Redirect').text
+        url, qparams = self.parse_url(redirect_url)
+        assert(url.path == '/make_single_call')
+        assert(qparams['call_index'] == '0')
+        assert([qparams['repIds']] == params['repIds'])
+        
+        # if we follow that redirect to make a call
+        req = self.app.post(url.geturl())
+        tree = lxml.etree.fromstring(req.data)
+        # intro the representative
+        self.assert_has_rep_intro(tree[0], campaign)
+        # and make the dial
+        assert(tree[1].tag == 'Dial' and tree[1].text == "202-225-4965")
+        dial_attrs = dict(tree[1].items())
+        assert(dial_attrs['hangupOnStar'] == 'true')
+        redirect_url = dial_attrs['action']
+        url, qparams = self.parse_url(redirect_url)
+        assert(url.path == '/call_complete')
+        assert(qparams['call_index'] == '0')
+        assert([qparams['repIds']] == params['repIds'])
+        
+        # on completion of that call
+        # (assume that it completed successfully and lasted 2min)
+        qparams.update(dict(
             DialCallStatus='Completed',
-            DialCallDuration=120
-            )
-        self.app.post('call_complete', data=params)
+            DialCallDuration=120))
+        req = self.app.post(url_for(url.path, **qparams))
+        tree = lxml.etree.fromstring(req.data)
+        # there was only one rep - so just final thanks
+        assert(len(tree) == 1 and tree[0].tag == 'Say' \
+            and tree[0].text == campaign['msg_final_thanks'])
+        
+        # and ensure that one call got logged to the db
         call = models.Call.query.first()
-        assert(call.areacode==415)
-        assert(call.exchange==999)
+        assert(call.areacode == '415')
+        assert(call.exchange == '000')
+        assert(call.zipcode == self.example_params['zipcode'])
         assert(call.member_id == id_pelosi)
+        assert(call.status == qparams['DialCallStatus'])
+        assert(call.duration == qparams['DialCallDuration'])
+
+
+    def test_preset_reps(self):
+        params = dict(campaignId='call-Ted-Cruz', userPhone='123-456-7890')
+        campaign = server.get_campaign(params['campaignId'])
+        req = self.app.post(url_for('connection', **params))
+        tree = lxml.etree.fromstring(req.data)
+        # main intro msg
+        assert(campaign['msg_intro'] == tree[0].text)
+        # and then redirect to make call based on campaign's repIds
+        url, qparams = self.parse_url(tree.find('Redirect').text)
+        assert(url.path == '/make_single_call')
+        assert([qparams['repIds']] == campaign['repIds'])
+        
+
+    def test_multi_calls(self):
+        params = dict(self.example_params)
+        campaign = server.get_campaign('default')
+        # call both Pelosi and Boxer
+        params['repIds'].append('B000711')
+        # connect
+        tree = self.post_tree('connection', **params)
+        
+        for i, repId in enumerate(params['repIds']):
+            url, qparams = self.parse_url(tree.find('Redirect').text)
+            assert(url.path == '/make_single_call')
+            assert(qparams['call_index'] == str(i))
+            assert(qparams['repIds'] == params['repIds'])
+        
+            # if we follow that redirect to make a call
+            tree = self.post_tree(url.geturl())
+            assert(tree[1].tag == 'Dial')
+            url, qparams = self.parse_url(dict(tree[1].items())['action'])
+            # dial action should go to call_complete 
+            assert(url.path == '/call_complete')
+            assert(qparams['call_index'] == str(i))
+            assert(qparams['repIds'] == params['repIds'])
+        
+            # assume call success
+            tree = self.post_tree(url.path, **dict(
+                DialCallStatus='Success', DialCallDuration=60, **qparams))
+        else:
+            assert(len(tree) == 1 and tree[0].tag == 'Say' \
+                and tree[0].text == campaign['msg_final_thanks'])
 
 if __name__ == '__main__':
     unittest.main()

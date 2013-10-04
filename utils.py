@@ -3,6 +3,7 @@ import yaml
 import pystache
 from flask.ext.sqlalchemy import SQLAlchemy
 from ipdb import set_trace
+import twilio.twiml
 
 def get_database(app):
     return SQLAlchemy(app)
@@ -33,10 +34,12 @@ def play_or_say(resp, msg_template, **kwds):
     msg = pystache.render(msg_template, kwds)
     if msg.startswith('http'):
         resp.play(msg)
-    else:
+    elif msg:
         resp.say(msg)
     return
-    
+
+twilio.twiml.Response.play_or_say = play_or_say
+
 def get_senators(legislators, districts):
     return legislators[
         (legislators.chamber == 'senate') & 
