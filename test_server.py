@@ -15,10 +15,8 @@ def url_for(action, **params):
 # hack for testing
 server.url_for = url_for
 
-
-
-    
 id_pelosi = 'P000197'
+id_boxer = 'B000711'
 
 class FlaskrTestCase(unittest.TestCase):
 
@@ -53,11 +51,11 @@ class FlaskrTestCase(unittest.TestCase):
 
     def assert_zip_ask(self, req, params):
         self.assert_is_xml(req)
-        # should ask for number of digits
-        assert('Gather' in req.data)
-        assert('numDigits="5"' in req.data)
+        gather = lxml.etree.fromstring(req.data).find('Gather')
+        gparams = dict(gather.items())
+        assert(gparams['numDigits'] == "5")
         # and should redirect to handler
-        assert(url_for('zip_parse', **params) in req.data)
+        assert('/zip_parse' in gparams['action'])
         
     def assert_has_rep_intro(self, node, campaign):
         msg = campaign['msg_rep_intro'].split('{')[0]
@@ -104,6 +102,15 @@ class FlaskrTestCase(unittest.TestCase):
         params = dict(campaignId='default')
         req = self.app.post(url_for('connection', **params))
         self.assert_zip_ask(req, params)
+        
+    
+    def test_zip_given(self):
+        campaign = self.campaigns['default']
+        params = dict(zipcode='95110', 
+            campaignId='default', userPhone='1234567890')
+        tree = self.post_tree('connection', **params)
+        assert(campaign['msg_intro'] == tree[0].text)
+        assert(tree.find('Gather') is None)
     
     
     def test_making_single_call(self):
@@ -175,7 +182,7 @@ class FlaskrTestCase(unittest.TestCase):
         params = dict(self.example_params)
         campaign = server.get_campaign('default')
         # call both Pelosi and Boxer
-        params['repIds'].append('B000711')
+        params['repIds'].append(id_boxer)
         # connect
         tree = self.post_tree('connection', **params)
         

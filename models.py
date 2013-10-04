@@ -29,8 +29,8 @@ class Call(db.Model):
     areacode = Column(String(3)) # first 3 digits of phone number
     exchange = Column(String(3)) # next 3 digits of phone number
     
-    def __init__(self, campaign_id, member_id, zipcode, phone_number, 
-        status, duration):
+    def __init__(self, campaign_id, member_id, 
+        zipcode='', phone_number='', status='unknown', duration=0):
         self.timestamp = datetime.now()
         self.status = status
         self.duration = duration
@@ -38,8 +38,9 @@ class Call(db.Model):
         self.member_id = member_id
         phone_number = phone_number.replace('-', '').replace('.', '')
         self.user_id = hash_phone(phone_number)
-        self.areacode = phone_number[:3]
-        self.exchange = phone_number[3:6]
+        if phone_number:
+            self.areacode = phone_number[:3]
+            self.exchange = phone_number[3:6]
         self.zipcode = zipcode
 
     def __repr__(self):
