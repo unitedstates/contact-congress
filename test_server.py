@@ -194,7 +194,8 @@ class FlaskrTestCase(unittest.TestCase):
         
             # if we follow that redirect to make a call
             tree = self.post_tree(url.geturl())
-            assert(tree[1].tag == 'Dial')
+            rep_phone = self.legislators.ix[repId, 'phone']
+            assert(tree[1].tag == 'Dial' and tree[1].text == rep_phone)
             url, qparams = self.parse_url(dict(tree[1].items())['action'])
             # dial action should go to call_complete 
             assert(url.path == '/call_complete')
@@ -204,9 +205,14 @@ class FlaskrTestCase(unittest.TestCase):
             # assume call success
             tree = self.post_tree(url.path, **dict(
                 DialCallStatus='Success', DialCallDuration=60, **qparams))
+                
+            call = models.Call.query.order_by(models.Call.timestamp).all()[-1]
+            assert(call.member_id == repId)
+            
         else:
             assert(len(tree) == 1 and tree[0].tag == 'Say' \
                 and tree[0].text == campaign['msg_final_thanks'])
+            assert(models.Call.query.count() == len(params['repIds']))
 
 if __name__ == '__main__':
     unittest.main()
