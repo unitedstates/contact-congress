@@ -99,9 +99,20 @@ class FlaskrTestCase(unittest.TestCase):
         test with no repId parameter
         should redirect to ask for zipcode
         '''
-        params = dict(campaignId='default')
+        params = dict(campaignId='default', userPhone='415-000-1111')
         req = self.app.post(url_for('connection', **params))
         self.assert_zip_ask(req, params)
+        tree = lxml.etree.fromstring(req.data)
+        url, qparams = self.parse_url(
+            dict(tree.find('Gather').items())['action'])
+        assert(url.path == '/zip_parse')
+        
+        zipcode = '94110'
+        tree = self.post_tree(url.geturl() + "&Digits={}".format(zipcode))
+        assert(tree[0].tag == 'Say') # call block intro
+        url, qparams = self.parse_url(tree[1].text)
+        assert(qparams['userPhone'] == params['userPhone'])
+        assert(qparams['zipcode'] == zipcode)
         
     
     def test_zip_given(self):
@@ -111,7 +122,7 @@ class FlaskrTestCase(unittest.TestCase):
         tree = self.post_tree('connection', **params)
         assert(campaign['msg_intro'] == tree[0].text)
         assert(tree.find('Gather') is None)
-    
+        
     
     def test_making_single_call(self):
         campaign = self.campaigns['default']
