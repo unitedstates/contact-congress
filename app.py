@@ -201,17 +201,10 @@ def make_single_call():
 @app.route('/call_complete', methods=call_methods)
 def call_complete():
     params, campaign = parse_params(request)
-    i = int(request.values.get('call_index'))
-    
-    log_call(db, 
-        campaign_id=campaign['id'],
-        zipcode=params['zipcode'], 
-        phone_number=params['userPhone'],
-        member_id=params['repIds'][i],
-        status=request.values.get('DialCallStatus'),
-        duration=request.values.get('DialCallDuration'))
+    log_call(db, params, campaign, request)
 
     resp = twilio.twiml.Response()
+    i = int(request.values.get('call_index', 0))
     if i == len(params['repIds']) - 1:
         # thank you for calling message
         play_or_say(resp, campaign['msg_final_thanks'])
