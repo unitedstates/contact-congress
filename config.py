@@ -8,6 +8,7 @@ class Config(object):
         os.environ.get('TWILIO_DEV_ACCOUNT_SID'), 
         os.environ.get('TWILIO_DEV_AUTH_TOKEN'))
         
+    TASKFORCE_KEY = os.environ.get('TASKFORCE_KEY')
     SUNLIGHTLABS_KEY = os.environ.get('SUNLIGHTLABS_KEY')
     TW_NUMBER = '5005550006' # development number
     SQLALCHEMY_DATABASE_URI = 'sqlite:///dev.db'

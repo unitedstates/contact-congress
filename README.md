@@ -80,6 +80,7 @@ and for production:
 * TWILIO_ACCOUNT_SID
 * TWILIO_AUTH_TOKEN
 * APPLICATION_ROOT (url for application server)
+* TASKFORCE_KEY (used for querying statistics)
 
 Development mode
 -------------------

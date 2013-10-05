@@ -1,6 +1,8 @@
 from sqlalchemy import (Column, Integer, String, DateTime)
 from flask.ext.sqlalchemy import SQLAlchemy
+from sqlalchemy import func
 from datetime import datetime
+from utils import set_trace
 import hashlib
 import logging
 
@@ -71,6 +73,19 @@ def log_call(db, params, campaign, request):
     except:
         logging.error('Failed to log call: {}'.format(kwds))
 
+
+def aggregate_stats(cid):
+    # TODO - replace with pandas.read_sql as soon as db work is completed
+    zipcodes = db.session.query(Call.zipcode, func.Count(Call.zipcode))\
+        .filter(Call.campaign_id == cid)\
+        .group_by(Call.zipcode).all()
+    reps = db.session.query(Call.member_id, func.Count(Call.member_id))\
+        .filter(Call.campaign_id == cid)\
+        .group_by(Call.member_id).all()
+    return dict(calls=dict(
+        zipcodes=dict(tuple(z) for z in zipcodes),
+        reps=dict(tuple(r) for r in reps)
+        ))
 
 def setUp(app):
     db.app = app

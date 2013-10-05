@@ -4,7 +4,7 @@ import urlparse
 import twilio.twiml
 from twilio import TwilioRestException
 from utils import load_data, set_trace
-from models import log_call
+from models import log_call, aggregate_stats
 from utils import get_database, play_or_say, locate_member_ids
 
 app = Flask(__name__)
@@ -216,6 +216,16 @@ def call_complete():
 @app.route('/demo')
 def demo():
     return render_template('demo.html')
+
+
+@app.route('/stats')
+def stats():
+    campaign = get_campaign(request.values.get('campaignId', 'default'))
+    key = request.values.get('key', '')
+    if key != campaign['secret_key']:
+        return jsonify(error="api key did not match for campaign")
+    else: 
+        return jsonify(aggregate_stats(campaign['id']))
     
 
 if __name__ == "__main__":
