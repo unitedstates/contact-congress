@@ -2,6 +2,7 @@ from sqlalchemy import (Column, Integer, String, DateTime)
 from flask.ext.sqlalchemy import SQLAlchemy
 from datetime import datetime
 import hashlib
+import logging
 
 db = SQLAlchemy()
 
@@ -48,8 +49,11 @@ class Call(db.Model):
             self.areacode, self.exchange, self.member_id)
     
 def log_call(db, **kwds):
-    db.session.add(Call(**kwds))
-    db.session.commit()
+    try: 
+        db.session.add(Call(**kwds))
+        db.session.commit()
+    except:
+        logging.error('Failed to log call: {}'.format(kwds))
 
 
 def setUp(app):
