@@ -168,19 +168,16 @@ def zip_parse():
     """
     params, campaign = parse_params(request)
     zipcode = request.values.get('Digits', "")
+    repIds = locate_member_ids(zipcode, campaign, districts, legislators)
     
-    if len(zipcode) != 5:
+    if len(repIds) == 0:
         resp = twilio.twiml.Response()
         play_or_say(resp, campaign['msg_invalid_zip'])
-        return zip_gather(resp, params, campaign)    
-    
-    return make_calls(
-        params=dict(
-            campaignId=campaign['id'],
-            zipcode=zipcode,
-            repIds=locate_member_ids(zipcode, campaign, districts, legislators),
-        ),
-        campaign=campaign)
+        return zip_gather(resp, params, campaign)
+    else:
+        params['zipcode'] = zipcode
+        params['repIds'] = repIds
+        return make_calls(params, campaign)
 
 
 @app.route('/make_single_call', methods=call_methods)
