@@ -1,10 +1,10 @@
-bioguide: C001095
+bioguide: S001192
 contact_form:
   method: POST
-  action: "https://cotton.house.gov/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "https://stewart.house.gov/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: https://cotton.house.gov/contact/email-me
-    - fill_in: 
+    - visit: "https://stewart.house.gov/contact/email-me"
+    - fill_in:
       - name: required-zip5
         selector: "#required-zip5"
         value: $ADDRESS_ZIP5
@@ -40,6 +40,13 @@ contact_form:
         selector: "#required-city"
         value: $ADDRESS_CITY
         required: Yes
+      - name: required-zip5
+        selector: "#required-zip5"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: zip4
+        selector: "#zip4"
+        value: $ADDRESS_ZIP4
       - name: required-valid-email
         selector: "#required-valid-email"
         value: $EMAIL
@@ -102,13 +109,6 @@ contact_form:
           "Women's Issues": "WOMEN"
           "Welfare": "WEL"
           "Other Issues": "OTHER"
-      - name: required-response
-        selector: "#required-response"
-        value: "Y"
-        required: Yes
-        options:
-          "Yes, please contact me": "Y"
-          "No, I wanted to voice my opinion": "N"
     - click_on:
       - value: "Send Email"
         selector: "#submit"
