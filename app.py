@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template, url_for
-from flask import g as session_info
+from flask import session
 from flask_googleauth import GoogleAuth
 
 import urlparse
@@ -226,7 +226,7 @@ def demo():
 @auth.required
 def stats():
     campaign = get_campaign(request.values.get('campaignId', 'default'))
-    if session_info.user.email in valid_users:
+    if session['openid']['email'] in valid_users.values:
         return jsonify(aggregate_stats(campaign['id']))
     else:
         return jsonify(error="access denied")
