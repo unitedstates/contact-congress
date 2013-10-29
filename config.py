@@ -18,6 +18,8 @@ class Config(object):
     # limit on the amount of time to ring before giving up
     TW_TIMEOUT = 20 #sec
     
+    SECRET_KEY = 'AOUSBDAONPSOMDASIDUBSDOUABER)*#(R&(&@@#))'
+    
 class ConfigProduction(Config):
     DEBUG = False
     APPLICATION_ROOT = os.environ.get('APPLICATION_ROOT')
@@ -26,6 +28,7 @@ class ConfigProduction(Config):
         os.environ.get('TWILIO_AUTH_TOKEN'))
     TW_NUMBER = os.environ.get('TWILIO_NUMBER')
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')
+    SECRET_KEY = os.environ.get('SECRET_KEY')
     
 class ConfigTesting(Config):
     TESTING = True

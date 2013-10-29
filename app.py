@@ -1,15 +1,21 @@
-from flask import Flask, request, jsonify, render_template
-from flask import url_for
+from flask import Flask, request, jsonify, render_template, url_for
+from flask import session
+from flask_googleauth import GoogleAuth
+import random
 import urlparse
 import twilio.twiml
 from twilio import TwilioRestException
 from utils import load_data, set_trace
-from models import log_call, aggregate_stats
+from models import log_call, aggregate_stats, valid_users
 from utils import get_database, play_or_say, locate_member_ids
 
 app = Flask(__name__)
 app.config.from_object('config.ConfigProduction')
+app.secret_key = app.config['SECRET_KEY']
+
 db = get_database(app)
+
+auth = GoogleAuth(app)
 
 call_methods = ['GET', 'POST']
 
@@ -49,6 +55,12 @@ def parse_params(request):
     if (params['zipcode'] is not None) and len(params['repIds']) == 0:
         params['repIds'] = locate_member_ids(
             params['zipcode'], campaign, districts, legislators)
+    
+    if 'random_choice' in campaign:
+        # pick a random choice among a selected set of members
+        params['repIds'].append(random.choice(campaign['random_choice']))
+        
+    
     return params, campaign
 
 
@@ -187,10 +199,14 @@ def make_single_call():
     params['call_index'] = i
     member = legislators.ix[params['repIds'][i]]
     congress_phone = member['phone']
-    
+    full_name = "{} {}".format(member['firstname'], member['lastname'])
     resp = twilio.twiml.Response()
-    play_or_say(resp, campaign['msg_rep_intro'], 
-        name="{} {}".format(member['firstname'], member['lastname']))
+    if 'voted_with_list' in campaign and \
+        (params['repIds'][i] in campaign['voted_with_list']):
+        play_or_say(
+            resp, campaign['msg_repo_intro_voted_with'], name=full_name)
+    else:
+        play_or_say(resp, campaign['msg_rep_intro'], name=full_name)
     resp.dial(congress_phone, **dialing_config(params, campaign))
     return str(resp)
 
@@ -219,14 +235,14 @@ def demo():
 
 
 @app.route('/stats')
+@auth.required
 def stats():
     campaign = get_campaign(request.values.get('campaignId', 'default'))
-    key = request.values.get('key', '')
-    if key != campaign['secret_key']:
-        return jsonify(error="api key did not match for campaign")
-    else: 
+    if session['openid']['email'] in valid_users.values:
         return jsonify(aggregate_stats(campaign['id']))
-    
+    else:
+        return jsonify(error="access denied")
+
 
 if __name__ == "__main__":
     # load the debugger config
