@@ -11,6 +11,8 @@ from utils import get_database, play_or_say, locate_member_ids
 
 app = Flask(__name__)
 app.config.from_object('config.ConfigProduction')
+app.secret_key = app.config['SECRET_KEY']
+
 db = get_database(app)
 
 auth = GoogleAuth(app)
