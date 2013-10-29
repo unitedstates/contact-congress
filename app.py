@@ -1,15 +1,19 @@
-from flask import Flask, request, jsonify, render_template
-from flask import url_for
+from flask import Flask, request, jsonify, render_template, url_for
+from flask import g as session_info
+from flask_googleauth import GoogleAuth
+
 import urlparse
 import twilio.twiml
 from twilio import TwilioRestException
 from utils import load_data, set_trace
-from models import log_call, aggregate_stats
+from models import log_call, aggregate_stats, valid_users
 from utils import get_database, play_or_say, locate_member_ids
 
 app = Flask(__name__)
 app.config.from_object('config.ConfigProduction')
 db = get_database(app)
+
+auth = GoogleAuth(app)
 
 call_methods = ['GET', 'POST']
 
@@ -219,14 +223,14 @@ def demo():
 
 
 @app.route('/stats')
+@auth.required
 def stats():
     campaign = get_campaign(request.values.get('campaignId', 'default'))
-    key = request.values.get('key', '')
-    if key != campaign['secret_key']:
-        return jsonify(error="api key did not match for campaign")
-    else: 
+    if session_info.user.email in valid_users:
         return jsonify(aggregate_stats(campaign['id']))
-    
+    else:
+        return jsonify(error="access denied")
+
 
 if __name__ == "__main__":
     # load the debugger config

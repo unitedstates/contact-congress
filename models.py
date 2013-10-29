@@ -5,6 +5,9 @@ from datetime import datetime
 from utils import set_trace
 import hashlib
 import logging
+import pandas as pd
+
+valid_users = pd.Series(open('data/users.txt').readlines()).str.strip()
 
 db = SQLAlchemy()
 
@@ -95,7 +98,8 @@ def setUp(app):
 def tearDown(app):
     db.app = app
     db.drop_all()
-    
+
+
 if __name__ == "__main__":
     # initialize db
     from app import app
