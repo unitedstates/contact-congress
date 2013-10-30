@@ -1,9 +1,22 @@
-bioguide: M001143
+bioguide: C001095
 contact_form:
   method: POST
-  action: "https://mccollum.house.gov/htbin/formproc/email-me.txt&display=/contact-me/email-me-thankyou&nobase&fpGetVer=2"
+  action: "https://cotton.house.gov/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: https://mccollum.house.gov/contact-me/email-me
+    - visit: https://cotton.house.gov/contact/email-me
+    - fill_in: 
+      - name: required-zip5
+        selector: "#required-zip5"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: zip4
+        selector: "#zip4"
+        value: $ADDRESS_ZIP4
+    - click_on:
+      - value: "Go To Next Step"
+        selector: "#submit"
+    - find:
+      - selector: "#contactForm"
     - fill_in:
       - name: prefix
         selector: "#prefix"
@@ -27,21 +40,14 @@ contact_form:
         selector: "#required-city"
         value: $ADDRESS_CITY
         required: Yes
-      - name: required-state
-        selector: "#required-state"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
-      - name: required-zip5
-        selector: "#required-zip5"
-        value: $ADDRESS_ZIP5
-        required: Yes
       - name: required-valid-email
         selector: "#required-valid-email"
         value: $EMAIL
         required: Yes
-      - name: phone
-        selector: "#phone"
+      - name: required-phone
+        selector: "#required-phone"
         value: $PHONE
+        required: Yes
       - name: required-subject
         selector: "#required-subject"
         value: $SUBJECT
@@ -56,47 +62,53 @@ contact_form:
         value: $TOPIC
         required: Yes
         options:
-          "Agriculture": "AG"
+          "Agriculture": "AGR"
           "Animals": "AN"
           "Arts and Humanities": "ART"
           "Banking and Finance": "BANK"
           "Budget and Economy": "BUD"
           "Campaign Finance Reform": "CFR"
           "Congress and Elections": "CONG"
-          "D.C. - Tours": "TOUR"
+          "District of Columbia--Tours": "TOUR"
           "Defense and Military": "DEF"
-          "Education": "ED"
-          "Energy": "EN"
+          "Economy": "ECON"
+          "Education": "EDU"
+          "Energy": "ENE"
           "Environment": "ENV"
           "Federal Employees": "FED"
           "Foreign Relations": "FR"
+          "Government Reform": "GOV"
           "Guns": "GUN"
-          "Health": "HE"
+          "Health": "HEA"
+          "Homeland Security": "HOM"
           "Housing and Urban Development": "HUD"
-          "Immigration": "IM"
+          "Immigration": "IMM"
+          "International Relations": "INT"
           "Judiciary": "JUD"
           "Labor": "LAB"
           "LGBT": "LGBT"
+          "No Response Necessary": "NRN"
           "Post Office": "POST"
           "Science and Technology": "SCI"
+          "Social Issues": "SOC"
           "Senior Citizens": "SENIORS"
-          "Social Security": "SS"
+          "Social Security": "SSEC"
           "Social Services": "SOC.SERVICES"
           "Taxes": "TAX"
-          "Telecommunications": "COMM"
-          "Transportation": "TRAN"
-          "Trade": "TRD"
+          "Telecommunications": "TEL"
+          "Transportation": "TRA"
+          "Trade": "TRADE"
           "Veterans": "VET"
           "Women's Issues": "WOMEN"
+          "Welfare": "WEL"
           "Other Issues": "OTHER"
-    - select:
-      - name: response
-        selector: "#response"
+      - name: required-response
+        selector: "#required-response"
         value: "Y"
         required: Yes
         options:
-          - "Y"
-          - "N"
+          "Yes, please contact me": "Y"
+          "No, I wanted to voice my opinion": "N"
     - click_on:
       - value: "Send Email"
         selector: "#submit"
@@ -104,5 +116,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank You"
-
+      contains: "Thank"

@@ -1,0 +1,110 @@
+bioguide: A000361
+contact_form:
+  method: POST
+  action: "https://alexander.house.gov/email-me/"
+  steps:
+    - visit: "https://alexander.house.gov/email-me/"
+    - fill_in:
+      - name: zipcode
+        selector: "#zipcode"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: zipfour
+        selector: "#zipfourlabel"
+        value: $ADDRESS_ZIP4
+    - click_on:
+      - value: "Go to Form"
+        selector: "input[type=submit]"
+    - find:
+      - selector: "#custom_form34"
+    - fill_in:
+      - name: firstname
+        selector: "#req_firstname"
+        value: $NAME_FIRST
+        required: Yes
+      - name: lastname
+        selector: "#req_lastname"
+        value: $NAME_LAST
+        required: Yes
+      - name: street
+        selector: "#req_street"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: address2
+        selector: "#address2"
+        value: $ADDRESS_STREET_2
+      - name: city
+        selector: "#req_city"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: emailaddress
+        selector: "#req_email"
+        value: $EMAIL
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: $PHONE
+      - name: message
+        selector: "#req_message"
+        value: $MESSAGE
+        required: Yes
+    - select:
+      - name: prefix
+        selector: "#prefix"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+          "Mr.": "Mr. "
+          "Mrs.": "Mrs."
+          "Ms.": "Ms."
+          "Miss": "Miss"
+          "Dr.": "Dr."
+          "Hon.": "Hon."
+          "Rev.": "Rev."
+          "Rabbi": "Rabbi"
+          "Other": "Other"
+      - name: state
+        selector: "#req_state"
+        value: "LA"
+        required: Yes
+        options: US_STATES
+      - name: issue
+        selector: "#req_issue"
+        value: $TOPIC
+        required: Yes
+        options:
+          "Agriculture": "AGRI"
+          "Budget": "BUD"
+          "Defense": "DEF"
+          "Education": "EDU"
+          "Energy": "ENR"
+          "Environmental": "ENV"
+          "Foreign Affairs": "FAFF"
+          "Government Issues": "GOV"
+          "Health": "HLTH"
+          "Homeland Security": "HOM"
+          "Immigration": "IMM"
+          "Judicial": "JUD"
+          "Labor": "LAB"
+          "Social Security": "SOC"
+          "Taxes": "TAX"
+          "Telecommunications": "TELE"
+          "Transportation": "TRANS"
+          "Trade": "TRD"
+          "Veterans": "VET"
+          "Welfare": "WEL"
+          "Other Issues": "OTH"
+      - name: response
+        selector: "#response"
+        value: "Y"
+        required: Yes
+          "Yes": "Y"
+          "No": "N"
+    - click_on:
+      - value: "Send Email"
+        selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank"

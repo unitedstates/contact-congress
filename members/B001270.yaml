@@ -1,0 +1,106 @@
+bioguide:B001270
+contact_form:
+  method: POST
+  action: "https://bass.house.gov/htbin/formproc_za/zip-auth.txt&amp;form=/contact-me/email-me-zip-authenticated&amp;nobase&amp;fpGetVer=2"
+  steps:
+    - visit: "https://bass.house.gov/contact-me/email-me"
+    - fill_in:
+      - name: required-zip5
+        selector: "#required-zip5"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: zip4
+        selector: "#zip4"
+        value: $ADDRESS_ZIP4
+        required:
+    - click_on:
+      - value: "Go To Next Step"
+        selector: "#submit"
+    - find:
+      - selector: "#contactForm"
+    - check: #unsubscribe
+      - name: Newsletter
+        selector: "#Newsletter"
+        value: "Y"
+        required: Yes
+    - fill_in:
+      - name: prefix
+        selector: "#prefix"
+        value: $NAME_PREFIX
+      - name: required-first
+        selector: "#required-first"
+        value: $NAME_FIRST
+        required: Yes
+      - name: required-last
+        selector: "#required-last"
+        value: $NAME_LAST
+        required: Yes
+      - name: required-address
+        selector: "#required-address"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: address2
+        selector: "#address2"
+        value: $ADDRESS_STREET_2
+      - name: required-city
+        selector: "#required-city"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: required-valid-email
+        selector: "#required-valid-email"
+        value: $EMAIL
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: $PHONE
+      - name: required-subject
+        selector: "#required-subject"
+        value: $SUBJECT
+        required: Yes
+      - name: required-message
+        selector: "#required-message"
+        value: $MESSAGE
+        required: Yes
+    - select:
+      - name: required-issue
+        selector: "#required-issue"
+        value: $TOPIC
+        required: Yes
+        options:
+          "I Need Personal Help": "Case_Work_Select"
+          "Agriculture": "Agriculture_Select"
+          "Animal Rights": "Animal_Rights_Select"
+          "Banking": "Banking_Select"
+          "Budget &amp; Taxes": "Budget_and_Taxes_Select"
+          "Justice &amp; Civil Rights": "Justice_and_Civil_Rights_Select"
+          "Consumer Protections": "Consumer_Protections_Select"
+          "Crime &amp; Law Enforcement": "Crime_and_Law_Enforcement_Select"
+          "Defense &amp; Military": "Defense_and_Military_Select"
+          "Education": "Education_Select"
+          "Energy": "Energy_Select"
+          "Environment": "Environment_Select"
+          "Foreign Relations": "Foreign_Relations_Select"
+          "Government Reform &amp; Elections": "Government_Reform_and_Elections_Select"
+          "Health": "Health_Select"
+          "Homeland Security": "Homeland_Security_Select"
+          "Housing": "Housing_Select"
+          "Human Services": "Human_Services_Select"
+          "Immigration": "Immigration_Select"
+          "Jobs &amp; Economy": "Jobs_and_Economy_Select"
+          "Lesbian &amp; Gay Issues": "Lesbian_and_Gay_Issues_Select"
+          "Science &amp; Technology": "Science_and_Technology_Select"
+          "Seniors": "Seniors_Select"
+          "Small Business": "Small_Business_Select"
+          "Telecommunications": "Telecommunications_Select"
+          "Transportation": "Transportation_Select"
+          "Trade": "Trade_Select"
+          "Veterans": "Veterans_Select"
+          "Women's Issues": "Women_Issues_Select"
+    - click_on:
+      - value: "Send Email"
+        selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank"

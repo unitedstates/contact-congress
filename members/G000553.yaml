@@ -1,9 +1,22 @@
-bioguide: M001143
+bioguide: G000553
 contact_form:
   method: POST
-  action: "https://mccollum.house.gov/htbin/formproc/email-me.txt&display=/contact-me/email-me-thankyou&nobase&fpGetVer=2"
+  action: "https://algreen.house.gov/htbin/formproc_za/zip-auth.txt&amp;form=/contact-me/email-me-zip-authenticated&amp;nobase&amp;fpGetVer=2"
   steps:
-    - visit: https://mccollum.house.gov/contact-me/email-me
+    - visit: https://algreen.house.gov/contact-me/email-me
+    - fill_in:
+      - name: required-zip5
+        selector: "#required-zip5"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: zip4
+        selector: "#zip4"
+        value: $ADDRESS_ZIP4
+    - click_on:
+      - value: "Go To Next Step"
+        selector: "#submit"
+    - find:
+      - selector: "#contactForm"
     - fill_in:
       - name: prefix
         selector: "#prefix"
@@ -27,14 +40,6 @@ contact_form:
         selector: "#required-city"
         value: $ADDRESS_CITY
         required: Yes
-      - name: required-state
-        selector: "#required-state"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
-      - name: required-zip5
-        selector: "#required-zip5"
-        value: $ADDRESS_ZIP5
-        required: Yes
       - name: required-valid-email
         selector: "#required-valid-email"
         value: $EMAIL
@@ -56,47 +61,39 @@ contact_form:
         value: $TOPIC
         required: Yes
         options:
-          "Agriculture": "AG"
-          "Animals": "AN"
+          "Agriculture": "AGRI"
+          "Animals": "ANML"
           "Arts and Humanities": "ART"
           "Banking and Finance": "BANK"
           "Budget and Economy": "BUD"
-          "Campaign Finance Reform": "CFR"
-          "Congress and Elections": "CONG"
-          "D.C. - Tours": "TOUR"
+          "Campaign Finance Reform": "CF"
+          "Congress and Elections": "CMPN"
+          "District of Columbia--Tours": "TOUR"
           "Defense and Military": "DEF"
-          "Education": "ED"
-          "Energy": "EN"
+          "Education": "EDU"
+          "Energy": "ENR"
           "Environment": "ENV"
-          "Federal Employees": "FED"
-          "Foreign Relations": "FR"
-          "Guns": "GUN"
-          "Health": "HE"
-          "Housing and Urban Development": "HUD"
-          "Immigration": "IM"
+          "Federal Employees": "OTH"
+          "Foreign Relations": "FAFF"
+          "Guns": "GUNS"
+          "Health": "HLTH"
+          "Housing and Urban Development": "HOUS"
+          "Immigration": "IMM"
           "Judiciary": "JUD"
-          "Labor": "LAB"
+          "Labor": "LBR"
           "LGBT": "LGBT"
           "Post Office": "POST"
           "Science and Technology": "SCI"
-          "Senior Citizens": "SENIORS"
+          "Senior Citizens": "SNR"
           "Social Security": "SS"
-          "Social Services": "SOC.SERVICES"
+          "Social Services": "OTH"
           "Taxes": "TAX"
-          "Telecommunications": "COMM"
-          "Transportation": "TRAN"
+          "Telecommunications": "TELE"
+          "Transportation": "TRANS"
           "Trade": "TRD"
           "Veterans": "VET"
-          "Women's Issues": "WOMEN"
-          "Other Issues": "OTHER"
-    - select:
-      - name: response
-        selector: "#response"
-        value: "Y"
-        required: Yes
-        options:
-          - "Y"
-          - "N"
+          "Women's Issues": "WOM"
+          "Other Issues": "OTH"
     - click_on:
       - value: "Send Email"
         selector: "#submit"
@@ -104,5 +101,5 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank You"
+      contains: "Thank"
 
