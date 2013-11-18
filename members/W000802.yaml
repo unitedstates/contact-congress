@@ -3,14 +3,14 @@ contact_form:
   method: POST
   action: http://www.whitehouse.senate.gov/contact
   steps:
-    - visit: http://www.whitehouse.senate.gov/contact/
+    - visit: http://www.whitehouse.senate.gov/contact
     - fill_in:
       - name: fname
-        selector: "#contactForm #fname"
+        selector: "#contactfname"
         value: "$NAME_FIRST"
         required: Yes
       - name: lname
-        selector: "#contactForm #lname"
+        selector: "#contactlname"
         value: "$NAME_LAST"
         required: Yes
       - name: mailing_streetAddress1
@@ -139,4 +139,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting me"
+      contains: "Thank you for reaching out to my office."
