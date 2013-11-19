@@ -17,12 +17,6 @@ contact_form:
         selector: "#required-last"
         value: $NAME_LAST
         required: Yes
-      - name: middle
-        selector: "#middle"
-#        value: $NAME_MIDDLE
-      - name: suffix
-        selector: "#suffix"
-#        value: $NAME_SUFFIX
       - name: required-address
         selector: "#required-address"
         value: $ADDRESS_STREET
@@ -31,18 +25,15 @@ contact_form:
         selector: "#required-city"
         value: $ADDRESS_CITY
         required: Yes
-      - name: zip5
+      - name: "zip5"
         selector: "#zip5"
         value: $ADDRESS_ZIP5
       - name: "zip4"
         selector: "#zip4"
-#        value: $ZIP4
+        value: $ADDRESS_ZIP4
       - name: phone
         selector: "#phone"
         value: $PHONE
-      - name: cell
-        selector: "#cell
-        value: $PHONE_MOBILE
       - name: required-email
         selector: "#required-email"
         value: $EMAIL
@@ -56,10 +47,9 @@ contact_form:
         selector: "#required-state"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
-        options: 
-        - "WA"
-      - name: 
-        selector: "#"
+        options: US_STATES_AND_MPCS
+      - name: required-issue
+        selector: "select[name='required-issue']"
         value: $TOPIC
         required: Yes
         options:
@@ -95,8 +85,8 @@ contact_form:
           "Veterans" : "VET"
           "Other" : "OTHER"
     - click_on:
-      - value: submit
-        selector: "submit"
+      - value: Send Email
+        selector: "input[value='Send Email']"
   success:
     headers:
       status: 200
