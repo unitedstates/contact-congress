@@ -62,11 +62,13 @@ This project is dedicated to the [public domain](LICENSE).
 
 These graphics are pulled in near-real-time from <http://opencongress.org>, based on the last letter sent to each member through OpenCongress' contact tools.
 
-The
+You can use them to see at a glance how a particular contact form's formula is doing, and click the image for a failing form to see the error it generated.
+While the errors are specific to the formageddon implementation OpenCongress uses, the first line will likely contain some useful information--the form url was a 404, a selector wasn't found, etc.
 
-*Note that these are lagging indicators and should be checked against the repo's recent activity.*
+_**Note:** These are lagging indicators and should be checked against the repo's recent activity, meaning sometimes a form can be fixed but either
+not yet imported to OpenCongress, or just that no one has tried to contact that member since their form was fixed._
 
-| Bioguide ID | Website | Last Attempt |
+| Bioguide ID | Website | Last Attempt - OpenCongress |
 |-------------|---------|:------------:|
 | [A000055](members/A000055.yaml) | [aderholt.house.gov](http://aderholt.house.gov) | [![A000055 status bug](http://www.opencongress.org/contact_congress/status/A000055.png)](http://www.opencongress.org/contact_congress/status/A000055.text) |
 | [A000210](members/A000210.yaml) | [andrews.house.gov](http://andrews.house.gov) | [![A000210 status bug](http://www.opencongress.org/contact_congress/status/A000210.png)](http://www.opencongress.org/contact_congress/status/A000210.text) |
