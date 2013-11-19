@@ -6,23 +6,23 @@ contact_form:
     - visit: http://www.harkin.senate.gov/contact_opinion.cfm
     - fill_in:
       - name: campaignid
-        selector: "div.formcontainer input[name=campaignid]"
+        selector: "#formcontainer input[name=campaignid]"
         value: $CAMPAIGN_UUID
         required: Yes
       - name: modified
-        selector: "div.formcontainer input[name=modified]"
+        selector: "#formcontainer input[name=modified]"
         value: "1"
         required: Yes
       - name: form_url
-        selector: "div.formcontainer input[name=form_url]"
+        selector: "#formcontainer input[name=form_url]"
         value: $PERMALINK
         required: Yes
       - name: org_url
-        selector: "div.formcontainer input[name=org_url]"
+        selector: "#formcontainer input[name=org_url]"
         value: $ORG_URL
         required: Yes
       - name: org_name
-        selector: "div.formcontainer input[name=org_name]"
+        selector: "#formcontainer input[name=org_name]"
         value: $ORG_NAME
         required: Yes
       - name: fname
@@ -45,7 +45,7 @@ contact_form:
         value: $ADDRESS_CITY
         required: Yes
       - name: zip
-        selector: "div.formcontainer input[name=zip]"
+        selector: "#formcontainer input[name=zip]"
         value: $ADDRESS_ZIP5
         required: Yes
       - name: email
@@ -161,7 +161,7 @@ contact_form:
           "Veterans Issues": "Veterans Issues"
           "Veterans Issues - Legislation Modifying Veterans Policy and Benefits": "VI_Legislation Modifying Veterans Policy and Benefits"
           "Veterans Issues - Assistance in Receiving Veterans Benefits": "VI_Assistance in Receiving Veterans Benefits"
-          "Welfare Reform": Welfare Reform"
+          "Welfare Reform": "Welfare Reform"
           "Other": "Other"
     - click_on:
       - value: "Send Your Message To Tom"
