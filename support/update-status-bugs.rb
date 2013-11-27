@@ -16,7 +16,7 @@ membermd = `ls ../members`.split("\n").map{|m|
   m.sub('.yaml', '')
 }.map{|m|
   domain = URI(YAML.load_file("../members/#{m}.yaml")['contact_form']['steps'].first['visit']).host
-  "| [#{m}](members/#{m}.yaml) | [#{domain}](http://#{domain}) | [![#{m} status bug](http://www.opencongress.org/contact_congress/status/#{m}.png)](http://www.opencongress.org/contact_congress/status/#{m}.text) |"
+  "| [#{m}](members/#{m}.yaml) | [#{domain}](http://#{domain}) | [![#{m} status bug](https://d1l0yomkzx8y5l.cloudfront.net/contact_congress/status/#{m}.png)](http://www.opencongress.org/contact_congress/status/#{m}.text) |"
 }.join("\n")
 membermd = <<EOMD
 \n\n### Member Status Log
