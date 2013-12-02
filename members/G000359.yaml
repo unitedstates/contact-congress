@@ -194,12 +194,12 @@ contact_form:
           - "Airman, Fireman, or Seaman Apprentice"
           - "Airman, Fireman, or Seaman Recruit"
       - name: G01
-        selector: "tr:nth-child(7) .select"
+        selector: "select[name='G01']"
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
         required: Yes
         options: US_STATES_AND_TERRITORIES
       - name: J01
-        selector: "tr:nth-child(14) .select"
+        selector: "select[name='J01']"
         value: "$TOPIC"
         required: Yes
         options:
@@ -238,7 +238,7 @@ contact_form:
           "Veterans Affairs": "VET"
           "Welfare": "WELF"
       - name: J15
-        selector: "tr:nth-child(16) .select"
+        selector: "select[name='J15']"
         value: Yes
         required: Yes
         options:
@@ -246,7 +246,7 @@ contact_form:
           "No, I am just passing my comments along.": "No, I am just passing my comments along."
     - click_on:
       - value: Submit
-        selector: ".buttonContact:nth-child(2)"
+        selector: ".buttonContact[type='submit']"
   success:
     headers:
       status: 200
