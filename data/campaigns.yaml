@@ -16,11 +16,24 @@
   number: 415-444-5555
   repIds: [C001098]
 
-- id: restrict-nsa
+# - id: restrict-nsa
+#   number: 415-419-8672
+#   target_house: true
+#   target_senate: true
+#   target_house_first: true
+#   voted_with_list: ['F000062', 'P000197']
+#   msg_repo_intro_voted_with: '{{name}} supports reasonable legislation to restrict the N.S.A. Let them know what a good decision that is.'
+#   random_choice: ['R000146', 'M000355']
+
+- id: trolling-effects
   number: 415-419-8672
   target_house: true
-  target_senate: true
+  target_senate: false
   target_house_first: true
-  voted_with_list: ['F000062', 'P000197']
-  msg_repo_intro_voted_with: '{{name}} supports reasonable legislation to restrict the N.S.A. Let them know what a good decision that is.'
-  random_choice: ['R000146', 'M000355']  
+  msg_intro: http://tfrce.s3.amazonaws.com/te-call-intro.mp3
+  msg_ask_zip: http://tfrce.s3.amazonaws.com/te-call-askzip.mp3
+  msg_invalid_zip: http://tfrce.s3.amazonaws.com/te-call-zipagain.mp3
+  msg_call_block_intro: http://tfrce.s3.amazonaws.com/te-call-precall.mp3
+  msg_rep_intro: "Connecting you to {{name}}"
+  msg_between_thanks: ""
+  msg_final_thanks: http://tfrce.s3.amazonaws.com/te-call-thanks.mp3
