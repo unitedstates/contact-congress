@@ -1,7 +1,7 @@
 bioguide: P000265
 contact_form:
   method: POST
-  action: "http://petri.house.gov/htbin/formproc_za/zip-auth.txt&amp;form=/contact-me/email-me-zip-authenticated&amp;nobase&amp;fpGetVer=2"
+  action: "http://petri.house.gov/htbin/formproc/email-me.txt&display=/contact-me/email-me-thankyou&nobase&fpGetVer=2"
   steps:
     - visit: http://petri.house.gov/contact-me/email-me
     - fill_in:
@@ -36,7 +36,7 @@ contact_form:
         required: Yes
       - name: address2
         selector: "#address2"
-        value: #ADDRESS_STREET_2
+        value: $ADDRESS_STREET_2
       - name: required-city
         selector: "#required-city"
         value: $ADDRESS_CITY
