@@ -39,7 +39,7 @@ contact_form:
         selector: "input[name=subject]"
         value: $SUBJECT
       - name: required-message
-        selector: "input[title=Message]"
+        selector: "textarea[title=Message]"
         value: $MESSAGE
         required: Yes
     - select:
@@ -47,7 +47,7 @@ contact_form:
         selector: "select[title=Prefix]"
         value: $NAME_PREFIX
         required: Yes
-        options: 
+        options:
           - "Dr."
           - "Mr."
           - "Ms."
