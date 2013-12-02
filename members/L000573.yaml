@@ -4,7 +4,7 @@ contact_form:
   action: https://labradorforms.house.gov/email-me
   steps:
     - visit: https://labradorforms.house.gov/email-me
-    - select: 
+    - select:
       - name: prefix
         selector: "#req_prefix"
         value: $NAME_PREFIX
@@ -18,7 +18,7 @@ contact_form:
           - "Hon." : "Hon."
           - "Rev." : "Rev."
           - "Rabbi" : "Rabbi"
-    - fill_in: 
+    - fill_in:
       - name: firstname
         selector: "#req_firstname"
         value: $NAME_FIRST
@@ -35,7 +35,7 @@ contact_form:
         selector: "#req_city"
         value: $ADDRESS_CITY
         required: Yes
-    - select: 
+    - select:
       - name: state
         selector: "#req_state"
         value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -98,7 +98,7 @@ contact_form:
           - "I would like a response." : "Y"
     - click_on:
       - value: Submit
-        selector: "submitButton"
+        selector: "#submitButton"
   success:
     headers:
       status: 200
