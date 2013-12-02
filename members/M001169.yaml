@@ -1,144 +1,151 @@
 bioguide: M001169
 contact_form:
   method: POST
-  action: webformActionIQV2.cfm
+  action: http://www.murphy.senate.gov/contact
   steps:
-    - visit: http://www.murphy.senate.gov/contact.cfm
-    - fill_in:
-      - name: firstName
-        selector: "#firstName"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: lastName
-        selector: "#lastName"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: Address1
-        selector: "#Address1"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: Address2
-        selector: "#Address2"
-        value: "$ADDRESS_STREET_2"
-      - name: city
-        selector: "#city"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: zip
-        selector: "#zip"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: phone
-        selector: "#phone"
-        value: "$PHONE"
-        required: Yes
-      - name: email
-        selector: "#email"
-        value: "$EMAIL"
-        required: Yes
-      - name: messageSubject
-        selector: "#messageSubject"
-        value: "$SUBJECT"
-        required: Yes
-      - name: MessageBody
-        selector: ".textarea"
-        value: "$MESSAGE"
-        required: Yes
+    - visit: http://www.murphy.senate.gov/contact
     - select:
-      - name: Prefix
-        selector: "#thisForm select[name='Prefix']"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          " Mr. ": "Mr."
-          " Mrs. ": "Mrs."
-          " Ms. ": "Ms."
-          " Mr. and Mrs. ": "Mr. and Mrs."
-          " Dr. ": "Dr."
-          " Dr. and Mrs. ": "Dr. and Mrs."
-          " Reverend ": "Reverend"
-          " Rabbi ": "Rabbi"
-          " Sister ": "Sister"
-          " Pastor ": "Pastor"
-          " The Honorable ": "The Honorable"
-          " Representative ": "Representative"
-          " Senator ": "Senator"
-      - name: State
-        selector: "#thisForm select[name='State']"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: Subject
-        selector: "#thisForm select[name='Subject']"
+      - name: topic
+        selector: "#topic"
         value: "$TOPIC"
         required: Yes
         options:
-          "\n\t\t\t\t\t\t\tAbortion\n\t\t\t\t\t\t": "Abortion"
-          "\n\t\t\t\t\t\t\tAging and Seniors\n\t\t\t\t\t\t": "Aging and Seniors"
-          "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": "Agriculture"
-          "\n\t\t\t\t\t\t\tAnimal Rights\n\t\t\t\t\t\t": "Animal Rights"
-          "\n\t\t\t\t\t\t\tAppropriations\n\t\t\t\t\t\t": "Appropriations"
-          "\n\t\t\t\t\t\t\tArts\n\t\t\t\t\t\t": "Arts"
-          "\n\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t": "Budget"
-          "\n\t\t\t\t\t\t\tCampaign Finance\n\t\t\t\t\t\t": "Campaign Finance"
-          "\n\t\t\t\t\t\t\tCasework\n\t\t\t\t\t\t": "Casework"
-          "\n\t\t\t\t\t\t\tChild Abuse\n\t\t\t\t\t\t": "Child Abuse"
-          "\n\t\t\t\t\t\t\tChildren/Family/Adoption\n\t\t\t\t\t\t": "Children/Family/Adoption"
-          "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": "Civil Rights"
-          "\n\t\t\t\t\t\t\tCommemorative/Congratulatory/Memorative\n\t\t\t\t\t\t": "Commemorative/Congratulatory/Memorative"
-          "\n\t\t\t\t\t\t\tCommerce\n\t\t\t\t\t\t": "Commerce"
-          "\n\t\t\t\t\t\t\tCommunications\n\t\t\t\t\t\t": "Communications"
-          "\n\t\t\t\t\t\t\tCongressional Issues\n\t\t\t\t\t\t": "Congressional Issues"
-          "\n\t\t\t\t\t\t\tCrime\n\t\t\t\t\t\t": "Crime"
-          "\n\t\t\t\t\t\t\tDefense\n\t\t\t\t\t\t": "Defense"
-          "\n\t\t\t\t\t\t\tEducation Higher\n\t\t\t\t\t\t": "Education Higher"
-          "\n\t\t\t\t\t\t\tEducation K through 12\n\t\t\t\t\t\t": "Education K through 12"
-          "\n\t\t\t\t\t\t\tElections\n\t\t\t\t\t\t": "Elections"
-          "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": "Energy"
-          "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": "Environment"
-          "\n\t\t\t\t\t\t\tFinancial Services\n\t\t\t\t\t\t": "Financial Services"
-          "\n\t\t\t\t\t\t\tFlag Requests\n\t\t\t\t\t\t": "Flag Requests"
-          "\n\t\t\t\t\t\t\tForeclosures\n\t\t\t\t\t\t": "Foreclosures"
-          "\n\t\t\t\t\t\t\tForeign Affairs\n\t\t\t\t\t\t": "Foreign Affairs"
-          "\n\t\t\t\t\t\t\tGovernment Reform\n\t\t\t\t\t\t": "Government Reform"
-          "\n\t\t\t\t\t\t\tGun Control\n\t\t\t\t\t\t": "Gun Control"
-          "\n\t\t\t\t\t\t\tHealth\n\t\t\t\t\t\t": "Health"
-          "\n\t\t\t\t\t\t\tHealth-Insurance\n\t\t\t\t\t\t": "Health-Insurance"
-          "\n\t\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t\t": "Homeland Security"
-          "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": "Housing"
-          "\n\t\t\t\t\t\t\tIllegal Drugs\n\t\t\t\t\t\t": "Illegal Drugs"
-          "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": "Immigration"
-          "\n\t\t\t\t\t\t\tIndian Affairs\n\t\t\t\t\t\t": "Indian Affairs"
-          "\n\t\t\t\t\t\t\tInternships\n\t\t\t\t\t\t": "Internships"
-          "\n\t\t\t\t\t\t\tInterior/Forestry\n\t\t\t\t\t\t": "Interior/Forestry"
-          "\n\t\t\t\t\t\t\tInternational Relations\n\t\t\t\t\t\t": "International Relations"
-          "\n\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t": "Judiciary"
-          "\n\t\t\t\t\t\t\tLabor\n\t\t\t\t\t\t": "Labor"
-          "\n\t\t\t\t\t\t\tLIHEAP\n\t\t\t\t\t\t": "LIHEAP"
-          "\n\t\t\t\t\t\t\tLocal Issues\n\t\t\t\t\t\t": "Local Issues"
-          "\n\t\t\t\t\t\t\tMedicare/Medicaid\n\t\t\t\t\t\t": "Medicare/Medicaid"
-          "\n\t\t\t\t\t\t\tMilitary\n\t\t\t\t\t\t": "Military"
-          "\n\t\t\t\t\t\t\tMiscellaneous\n\t\t\t\t\t\t": "Miscellaneous"
-          "\n\t\t\t\t\t\t\tNutrition\n\t\t\t\t\t\t": "Nutrition"
-          "\n\t\t\t\t\t\t\tPatents\n\t\t\t\t\t\t": "Patents"
-          "\n\t\t\t\t\t\t\tPensions\n\t\t\t\t\t\t": "Pensions"
-          "\n\t\t\t\t\t\t\tPrescription Drugs\n\t\t\t\t\t\t": "Prescription Drugs"
-          "\n\t\t\t\t\t\t\tPresidential Greetings\n\t\t\t\t\t\t": "Presidential Greetings"
-          "\n\t\t\t\t\t\t\tScience and Space\n\t\t\t\t\t\t": "Science and Space"
-          "\n\t\t\t\t\t\t\tSmall Business\n\t\t\t\t\t\t": "Small Business"
-          "\n\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t": "Social Security"
-          "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": "Taxes"
-          "\n\t\t\t\t\t\t\tTobacco\n\t\t\t\t\t\t": "Tobacco"
-          "\n\t\t\t\t\t\t\tTours and Tickets\n\t\t\t\t\t\t": "Tours and Tickets"
-          "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": "Trade"
-          "\n\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t": "Transportation"
-          "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": "Veterans"
-          "\n\t\t\t\t\t\t\tWelfare/Food Stamps\n\t\t\t\t\t\t": "Welfare/Food Stamps"
+          - "Academy Nominations"
+          - "Adoption"
+          - "Aging and Seniors"
+          - "Agriculture"
+          - "Animal Rights"
+          - "Appropriations"
+          - "Arts"
+          - "Budget"
+          - "Campaign Finance"
+          - "Casework"
+          - "Children/Family/Adoption"
+          - "Civil Rights"
+          - "Commemorative/Congratulatory/Memorative"
+          - "Commerce"
+          - "Congressional Issues"
+          - "Crime"
+          - "Defense"
+          - "Education Higher"
+          - "Education K through 12"
+          - "Elections"
+          - "Energy"
+          - "Environment"
+          - "Financial Services"
+          - "Flag Requests"
+          - "Foreclosures"
+          - "Foreign Affairs"
+          - "Government Reform"
+          - "Gun Control"
+          - "Health"
+          - "Health Insurance"
+          - "Homeland Security"
+          - "Housing"
+          - "Illegal Drugs"
+          - "Immigration"
+          - "Indian Affairs"
+          - "Intellectual Property/Patents"
+          - "Interior/Forestry"
+          - "Internships"
+          - "Jobs"
+          - "Judiciary"
+          - "Labor"
+          - "LIHEAP"
+          - "Local Issues"
+          - "Medicare/Medicaid"
+          - "Military"
+          - "Miscellaneous"
+          - "Nutrition"
+          - "Pensions"
+          - "Prescription Drugs"
+          - "Presidential Greetings"
+          - "Reproductive Rights"
+          - "Science and Space"
+          - "Small Business"
+          - "Social Security"
+          - "Taxes"
+          - "Telecommunications"
+          - "Tobacco"
+          - "Tours and Tickets"
+          - "Trade"
+          - "Transportation"
+          - "Veterans"
+          - "Welfare/Food Stamps"
+    - find:
+      - selector: "#continue-form"
+    - fill_in:
+      - name: fname
+        selector: "#fname"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lname
+        selector: "#lname"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: mailing_streetAddress1
+        selector: "#mailing_streetAddress1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: mailing_streetAddress2
+        selector: "#mailing_streetAddress2"
+        value: "$ADDRESS_STREET_2"
+      - name: mailing_city
+        selector: "#mailing_city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: mailing_zipCode
+        selector: "#mailing_zipCode"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone_number
+        selector: "#phone_number"
+        value: "$PHONE"
+        required: Yes
+      - name: email_address
+        selector: "#email"
+        value: "$EMAIL"
+        required: Yes
+      - name: verify_email
+        selector: "#verify_email"
+        value: "$EMAIL"
+        required: Yes
+      - name: subject
+        selector: "#subject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: message
+        selector: "#message"
+        value: "$MESSAGE"
+        required: Yes
+      - name: mname
+        selector: "#mname"
+        value: ""
+    - select:
+      - name: salutation
+        selector: "#salutation"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Ms."
+          - "Mrs."
+          - "Miss"
+          - "Dr."
+      - name: mailing_state
+        selector: "#mailing_state"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+    - check:
+      - name: response
+        selector: "#response_y"
+        value: Yes
     - click_on:
       - value: Submit
-        selector: "#thisForm input[type='submit']"
+        selector: "#side-search-btn"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you"
+      contains: "Thanks for taking the time to share your thoughts with me"
