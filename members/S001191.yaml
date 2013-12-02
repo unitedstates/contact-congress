@@ -2,7 +2,7 @@ bioguide: S001191
 contact_form:
   method: POST
   action: "https://sinemaforms.house.gov/forms/writeyourrep/"
-  steps: 
+  steps:
     - visit: https://sinemaforms.house.gov/forms/writeyourrep/
     - choose:
       - name: "ctl00$ctl22$ReplyChoice"
@@ -43,21 +43,21 @@ contact_form:
         selector: "#ctl00_ctl22_Phone"
         value: $PHONE
       - name: "ctl00$ctl22$Email"
-        selector: "ctl00_ctl22_Email"
+        selector: "#ctl00_ctl22_Email"
         value: $EMAIL
-        required: Yes 
+        required: Yes
     - select:
       - name: "ctl00$ctl22$PrefixList"
         selector: "#ctl00_ctl22_PrefixList"
         value: $NAME_PREFIX
         required: Yes
-        options: 
+        options:
           - "Mr."
           - "Mrs."
           - "Dr."
           - "Ms."
       - name: "ctl00$ctl22$State"
-        selector: "ctl00_ctl22_State"
+        selector: "#ctl00_ctl22_State"
         value: $ADDRESS_STREET_POSTAL_ABBREV
         required: Yes
         options: # missing a few territories
