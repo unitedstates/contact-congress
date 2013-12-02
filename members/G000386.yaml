@@ -43,8 +43,9 @@ contact_form:
         selector: "#messageBody"
         value: "$MESSAGE"
         required: Yes
+      # Below input is a honeypot. Id changes but name doesn't seem to.
       - name: formfield1234567894
-        selector: "#fpA239CDA5-BAF3-B18C-8B4F1C42DCE6D0D8"
+        selector: "input[name='formfield1234567894']"
         value: ""
     - select:
       - name: prefix
