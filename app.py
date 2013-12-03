@@ -195,11 +195,12 @@ def zip_parse():
 @app.route('/make_single_call', methods=call_methods)
 def make_single_call():
     params, campaign = parse_params(request)
-    i = int(request.values.get('call_index'))
+    i = int(request.values.get('call_index', 0))
     params['call_index'] = i
     member = legislators.ix[params['repIds'][i]]
     congress_phone = member['phone']
-    full_name = "{} {}".format(member['firstname'], member['lastname'])
+    full_name = unicode("{} {}".format(
+        member['firstname'], member['lastname']), 'utf8')
     resp = twilio.twiml.Response()
     if 'voted_with_list' in campaign and \
         (params['repIds'][i] in campaign['voted_with_list']):

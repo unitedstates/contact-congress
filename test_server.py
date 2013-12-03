@@ -17,6 +17,8 @@ server.url_for = url_for
 
 id_pelosi = 'P000197'
 id_boxer = 'B000711'
+id_cardenas = 'C001097'
+
 
 class FlaskrTestCase(unittest.TestCase):
 
@@ -122,7 +124,7 @@ class FlaskrTestCase(unittest.TestCase):
         tree = self.post_tree('connection', **params)
         assert(campaign['msg_intro'] == tree[0].text)
         assert(tree.find('Gather') is None)
-        
+
     
     def test_making_single_call(self):
         campaign = self.campaigns['default']
@@ -225,5 +227,13 @@ class FlaskrTestCase(unittest.TestCase):
                 and tree[0].text == campaign['msg_final_thanks'])
             assert(models.Call.query.count() == len(params['repIds']))
 
+
+    def test_unicode_name(self):
+        params = dict(self.example_params)        
+        params['repIds'] = [id_cardenas]
+        req = self.app.post(url_for('make_single_call', **params))
+        assert("We're now connecting you to Tony C&#225;rdenas" in req.data)
+        
+        
 if __name__ == '__main__':
     unittest.main()
