@@ -238,8 +238,9 @@ def demo():
 @app.route('/stats')
 @auth.required
 def stats():
+    pwd = request.get('password', None)
     campaign = get_campaign(request.values.get('campaignId', 'default'))
-    if session['openid']['email'] in valid_users.values:
+    if pwd == app.config['SECRET_KEY']:
         return jsonify(aggregate_stats(campaign['id']))
     else:
         return jsonify(error="access denied")
