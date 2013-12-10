@@ -232,7 +232,7 @@ def demo():
 
 @app.route('/stats')
 def stats():
-    pwd = request.get('password', None)
+    pwd = request.values.get('password', None)
     campaign = get_campaign(request.values.get('campaignId', 'default'))
     if pwd == app.config['SECRET_KEY']:
         return jsonify(aggregate_stats(campaign['id']))
