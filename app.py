@@ -1,21 +1,16 @@
 from flask import Flask, request, jsonify, render_template, url_for
-from flask import session
-from flask_googleauth import GoogleAuth
 import random
 import urlparse
 import twilio.twiml
 from twilio import TwilioRestException
 from utils import load_data, set_trace
-from models import log_call, aggregate_stats, valid_users
+from models import log_call, aggregate_stats
 from utils import get_database, play_or_say, locate_member_ids
 
 app = Flask(__name__)
 app.config.from_object('config.ConfigProduction')
-app.secret_key = app.config['SECRET_KEY']
 
 db = get_database(app)
-
-auth = GoogleAuth(app)
 
 call_methods = ['GET', 'POST']
 
@@ -236,7 +231,6 @@ def demo():
 
 
 @app.route('/stats')
-@auth.required
 def stats():
     pwd = request.get('password', None)
     campaign = get_campaign(request.values.get('campaignId', 'default'))
