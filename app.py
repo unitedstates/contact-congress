@@ -83,7 +83,7 @@ def dialing_config(params, campaign):
         # but in debug mode - show the campaign's twilio #
         dc['callerId'] = campaign['number']
     return dc 
-    
+
 
 def make_calls(params, campaign, resp=None):
     """
@@ -101,6 +101,12 @@ def make_calls(params, campaign, resp=None):
     resp.redirect(url_for('make_single_call', call_index=0, **params))
     return str(resp)
     
+
+@app.route('/make_calls', method=call_methods)
+def _make_calls_post_intro():
+    params, campaign = parse_params(request)
+    return make_calls(params, campaign)
+
 
 @app.route('/create', methods=call_methods)
 def call_user():
@@ -148,7 +154,11 @@ def connection():
     if params['repIds']:
         resp = twilio.twiml.Response()
         resp.play_or_say(campaign['msg_intro'])
-        return make_calls(params, campaign, resp=resp)
+        
+        with resp.gather(numDigits=1, method="POST",
+            action=url_for("make_calls", **params)) as g:
+            resp.play_or_say(g, campaign['msg_intro_confirm'])
+        
     else:
         return intro_zip_gather(params, campaign)
 
