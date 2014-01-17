@@ -157,6 +157,18 @@ contact_form:
           "Taxation": "95632"
           "Transportation and Public Works": "96141"
           "Water Resources Development": "95597"
+    - choose:
+      - name: "ctl00$ctl22$ReplyChoice"
+        selector: "#ctl00_ctl22_ReplyChoice_0"
+        value: "Respond" 
+        required: Yes
+    - fill_in:
+      - name: "ctl00_ctl22_Subject"
+        selector: "#ctl00_ctl22_Subject"
+        value: $SUBJECT
+      - name: "ctl00$ctl22$Body"
+        selector: "#ctl00_ctl22_Body"
+        value: $MESSAGE
     - click_on:
       - value: "Submit"
         selector: "input[name=ctl00$ctl22$SubmitButton]"

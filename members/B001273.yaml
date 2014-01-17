@@ -53,9 +53,13 @@ contact_form:
         selector: "#required-subject"
         value: $SUBJECT
         required: Yes
+      - name: required-message
+        selector: "#required-message"
+        value: $MESSAGE
+        required: Yes
     - select:
-      - name: required-subject
-        selector: "#required-subject"
+      - name: required-issue
+        selector: "#required-issue"
         value: $TOPIC
         required: Yes
         options:
