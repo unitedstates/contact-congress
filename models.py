@@ -6,7 +6,7 @@ import hashlib
 import logging
 import pandas as pd
 
-valid_users = pd.Series(open('data/users.txt').readlines()).str.strip()
+#valid_users = pd.Series(open('data/users.txt').readlines()).str.strip()
 
 db = SQLAlchemy()
 
