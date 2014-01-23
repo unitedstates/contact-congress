@@ -2,7 +2,6 @@ import pandas as pd
 import yaml
 import pystache
 from flask.ext.sqlalchemy import SQLAlchemy
-from ipdb import set_trace
 import twilio.twiml
 
 def get_database(app):

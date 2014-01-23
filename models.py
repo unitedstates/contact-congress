@@ -2,7 +2,6 @@ from sqlalchemy import (Column, Integer, String, DateTime)
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 from datetime import datetime
-from utils import set_trace
 import hashlib
 import logging
 import pandas as pd

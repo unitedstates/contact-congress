@@ -1,5 +1,5 @@
 import app as server
-from utils import load_data, locate_member_ids, SQLAlchemy, set_trace
+from utils import load_data, locate_member_ids, SQLAlchemy
 import models
 import unittest
 from urlparse import parse_qs

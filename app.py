@@ -3,7 +3,7 @@ import random
 import urlparse
 import twilio.twiml
 from twilio import TwilioRestException
-from utils import load_data, set_trace
+from utils import load_data
 from models import log_call, aggregate_stats
 from utils import get_database, play_or_say, locate_member_ids
 from flask.ext.jsonpify import jsonify
