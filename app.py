@@ -103,7 +103,7 @@ def make_calls(params, campaign, resp=None):
     return str(resp)
     
 
-@app.route('/make_calls', method=call_methods)
+@app.route('/make_calls', methods=call_methods)
 def _make_calls_post_intro():
     params, campaign = parse_params(request)
     return make_calls(params, campaign)
