@@ -60,7 +60,9 @@ def parse_params(r):
 
 def intro_zip_gather(params, campaign):
     resp = twilio.twiml.Response()
+
     play_or_say(resp, campaign['msg_intro'])
+
     return zip_gather(resp, params, campaign)
 
 
@@ -68,6 +70,7 @@ def zip_gather(resp, params, campaign):
     with resp.gather(numDigits=5, method="POST",
             action=url_for("zip_parse", **params)) as g:
         play_or_say(g, campaign['msg_ask_zip'])
+
     return str(resp)
 
 
@@ -133,6 +136,7 @@ def call_user():
     except TwilioRestException, err:
         result = jsonify(message=err.msg.split(':')[1].strip())
         result.status_code = 200
+
     return result
 
 
@@ -226,20 +230,26 @@ def make_single_call():
 @app.route('/call_complete', methods=call_methods)
 def call_complete():
     params, campaign = parse_params(request)
-    log_call(db, params, campaign, request)
+    # TODO: Actually fix the database server
+    #log_call(db, params, campaign, request)
 
     resp = twilio.twiml.Response()
+
     i = int(request.values.get('call_index', 0))
+
     if i == len(params['repIds']) - 1:
         # thank you for calling message
         play_or_say(resp, campaign['msg_final_thanks'])
     else:
         # call the next representative
         params['call_index'] = i + 1 # increment the call counter
+
         play_or_say(resp, campaign['msg_between_thanks'])
+
         resp.redirect(url_for('make_single_call', **params))
 
     return str(resp)
+
 
 @app.route('/demo')
 def demo():
