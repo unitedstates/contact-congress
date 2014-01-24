@@ -32,6 +32,9 @@ def play_or_say(resp_or_gather, msg_template, **kwds):
     # can use mustache templates to render keword arguments
     msg = pystache.render(msg_template, kwds)
 
+    print 'msg_template: {}'.format(msg_template)
+    print 'msg: {}'.format(msg)
+
     if msg.startswith('http'):
         resp_or_gather.play(msg)
     elif msg:

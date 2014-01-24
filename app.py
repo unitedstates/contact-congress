@@ -95,10 +95,12 @@ def make_calls(params, campaign, resp=None):
         resp = twilio.twiml.Response()
 
     n_reps = len(params['repIds'])
+
     play_or_say(resp, campaign['msg_call_block_intro'],
         n_reps=n_reps, many_reps=n_reps > 1)
 
     resp.redirect(url_for('make_single_call', call_index=0, **params))
+
     return str(resp)
 
 
@@ -152,6 +154,8 @@ def connection():
         play_or_say(resp, campaign['msg_intro'])
 
         action = url_for("make_calls", **params)
+
+        print 'action: {}'.format(action)
 
         with resp.gather(numDigits=1, method="POST", action=action) as g:
             play_or_say(g, campaign['msg_intro_confirm'])
