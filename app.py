@@ -29,12 +29,12 @@ def get_campaign(cid):
 
 
 def parse_params(r):
-    params = dict(
-        userPhone=r.values.get('userPhone'),
-        campaignId=r.values.get('campaignId', 'default'),
-        zipcode=r.values.get('zipcode', None),
-        repIds=r.values.getlist('repIds'),
-    )
+    params = {
+        'userPhone': r.values.get('userPhone'),
+        'campaignId': r.values.get('campaignId', 'default'),
+        'zipcode': r.values.get('zipcode', None),
+        'repIds': r.values.getlist('repIds')
+    }
 
     # lookup campaign by ID
     campaign = get_campaign(params['campaignId'])
@@ -53,7 +53,7 @@ def parse_params(r):
 
     if 'random_choice' in campaign:
         # pick a random choice among a selected set of members
-        params['repIds'].append(random.choice(campaign['random_choice']))
+        params['repIds'] = [random.choice(campaign['random_choice'])]
 
     return params, campaign
 
