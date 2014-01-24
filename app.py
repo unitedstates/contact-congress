@@ -122,9 +122,6 @@ def call_user():
     params, campaign = parse_params(request)
 
     # initiate the call
-    if app.debug:
-        print('running in dev mode. this call will NOT actually be made.')
-
     try:
         call = app.config['TW_CLIENT'].calls.create(
             to=params['userPhone'],
@@ -157,8 +154,6 @@ def connection():
         play_or_say(resp, campaign['msg_intro'])
 
         action = url_for("_make_calls", **params)
-
-        print 'action: {}'.format(action)
 
         with resp.gather(numDigits=1, method="POST", action=action) as g:
             play_or_say(g, campaign['msg_intro_confirm'])

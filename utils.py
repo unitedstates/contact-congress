@@ -1,18 +1,26 @@
-import pandas as pd
 import yaml
+
+import pandas as pd
 import pystache
-from flask.ext.sqlalchemy import SQLAlchemy
 import twilio.twiml
+
+from flask.ext.sqlalchemy import SQLAlchemy
+
 
 def get_database(app):
     return SQLAlchemy(app)
 
-# load data into db
+
 def load_data():
+    """
+    Load data in database
+    """
     legislators = pd.read_csv('data/legislators.csv').set_index('bioguide_id')
     legislators = legislators[legislators.in_office == True]
+
     # fill in missing chamber data field
     legislators['chamber'] = ''
+
     legislators.ix[legislators.senate_class.isnull(), 'chamber'] = 'house'
     legislators.ix[legislators.senate_class.notnull(), 'chamber'] = 'senate'
 
@@ -27,24 +35,24 @@ def load_data():
 
     return campaigns, legislators, districts
 
+
 def play_or_say(resp_or_gather, msg_template, **kwds):
     # take twilio response and play or say a mesage
     # can use mustache templates to render keword arguments
     msg = pystache.render(msg_template, kwds)
-
-    print 'msg_template: {}'.format(msg_template)
-    print 'msg: {}'.format(msg)
 
     if msg.startswith('http'):
         resp_or_gather.play(msg)
     elif msg:
         resp_or_gather.say(msg)
 
+
 def get_senators(legislators, districts):
     return legislators[
         (legislators.chamber == 'senate') &
         (legislators.state == districts['state'].iloc[0])
     ].index.tolist()
+
 
 def get_house_members(legislators, districts):
     return legislators[
@@ -53,8 +61,9 @@ def get_house_members(legislators, districts):
         (legislators.district.isin(districts['district_number'].astype(str)))
     ].index.tolist()
 
+
 def locate_member_ids(zipcode, campaign, districts, legislators):
-    '''get congressional member ids from zip codes to districts data'''
+    """get congressional member ids from zip codes to districts data"""
     local_districts = districts.ix[[zipcode]] # a dataframe
     member_ids = []
 
