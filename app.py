@@ -159,7 +159,8 @@ def connection():
 
         action = url_for("_make_calls", **params)
 
-        with resp.gather(numDigits=1, method="POST", action=action) as g:
+        with resp.gather(numDigits=1, method="POST", timeout=10,
+                         action=action) as g:
             play_or_say(g, campaign['msg_intro_confirm'])
 
             return str(resp)
@@ -178,6 +179,7 @@ def incoming_call():
     from twilio.com/user/account/phone-numbers/incoming
     """
     params, campaign = parse_params(request)
+
     return intro_zip_gather(params, campaign)
 
 
