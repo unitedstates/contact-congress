@@ -62,12 +62,12 @@ def parse_params(request):
 
 def intro_zip_gather(params, campaign):
     resp = twilio.twiml.Response()
-    resp.play_or_say(campaign['msg_intro'])
+    play_or_say(resp, campaign['msg_intro'])
     return zip_gather(resp, params, campaign)
 
 def zip_gather(resp, params, campaign):
     with resp.gather(numDigits=5, method="POST",
-        action=url_for("zip_parse", **params)) as g:
+            action=url_for("zip_parse", **params)) as g:
         play_or_say(g, campaign['msg_ask_zip'])
     return str(resp)
     
@@ -157,12 +157,13 @@ def connection():
 
     if params['repIds']:
         resp = twilio.twiml.Response()
-        resp.play_or_say(campaign['msg_intro'])
+
+        play_or_say(resp, campaign['msg_intro'])
 
         action = url_for("make_calls", **params)
 
         with resp.gather(numDigits=1, method="POST", action=action) as g:
-            resp.play_or_say(g, campaign['msg_intro_confirm'])
+            play_or_say(g, campaign['msg_intro_confirm'])
     else:
         return intro_zip_gather(params, campaign)
 
