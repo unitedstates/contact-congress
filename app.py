@@ -82,17 +82,13 @@ def dialing_config(params):
     return dc
 
 
-@app.route('/make_calls', methods=call_methods)
-def make_calls(params, campaign, resp=None):
+def make_calls(params, campaign):
     """
     Connect a user to a sequence of congress members.
     Required params: campaignId, repIds
     Optional params: zipcode,
     """
-    params, campaign = parse_params(request)
-
-    if resp is None:
-        resp = twilio.twiml.Response()
+    resp = twilio.twiml.Response()
 
     n_reps = len(params['repIds'])
 
@@ -102,6 +98,13 @@ def make_calls(params, campaign, resp=None):
     resp.redirect(url_for('make_single_call', call_index=0, **params))
 
     return str(resp)
+
+
+@app.route('/make_calls', methods=call_methods)
+def _make_calls():
+    params, campaign = parse_params(request)
+
+    return make_calls(params, campaign)
 
 
 @app.route('/create', methods=call_methods)
@@ -153,7 +156,7 @@ def connection():
 
         play_or_say(resp, campaign['msg_intro'])
 
-        action = url_for("make_calls", **params)
+        action = url_for("_make_calls", **params)
 
         print 'action: {}'.format(action)
 
@@ -192,11 +195,13 @@ def zip_parse():
     if len(repIds) == 0:
         resp = twilio.twiml.Response()
         play_or_say(resp, campaign['msg_invalid_zip'])
+
         return zip_gather(resp, params, campaign)
-    else:
-        params['zipcode'] = zipcode
-        params['repIds'] = repIds
-        return make_calls(params, campaign)
+
+    params['zipcode'] = zipcode
+    params['repIds'] = repIds
+
+    return make_calls(params, campaign)
 
 
 @app.route('/make_single_call', methods=call_methods)
