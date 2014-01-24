@@ -160,7 +160,7 @@ def connection():
         with resp.gather(numDigits=1, method="POST", action=action) as g:
             play_or_say(g, campaign['msg_intro_confirm'])
 
-            return jsonify(success=True)
+            return str(resp)
     else:
         return intro_zip_gather(params, campaign)
 
