@@ -27,7 +27,13 @@ def load_data():
     
     return campaigns, legislators, districts
     
-def play_or_say(resp, msg_template, **kwds):
+def play_or_say(self, resp, msg_template, **kwds):
+    from pprint import pprint
+    pprint(self)
+    pprint(resp)
+    pprint(msg_template)
+    pprint(kwds)
+
     # take twilio response and play or say a mesage
     # can use mustache templates to render keword arguments
     msg = pystache.render(msg_template, kwds)
