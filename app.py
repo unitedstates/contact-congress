@@ -37,8 +37,8 @@ def parse_params(request):
     campaign = get_campaign(params['campaignId'])
     
     # normally number based on campaign id, unless debugging
-    if app.config['DEBUG']:
-        campaign['number'] = app.config['TW_NUMBER']
+    #if app.config['DEBUG']:
+    #    campaign['number'] = app.config['TW_NUMBER']
     
     # add repIds to the parameter set, if spec. by the campaign
     if campaign.get('repIds', None):
@@ -79,10 +79,10 @@ def dialing_config(params, campaign):
         hangupOnStar=True, # allow the user to hangup and move onto next call
         action=url_for('call_complete', **params) # on complete
         )
-    if app.config['DEBUG']:
-        # default is to show the user's number
-        # but in debug mode - show the campaign's twilio #
-        dc['callerId'] = campaign['number']
+    #if app.config['DEBUG']:
+    #    # default is to show the user's number
+    #    # but in debug mode - show the campaign's twilio #
+    #    dc['callerId'] = campaign['number']
     return dc 
 
 
@@ -152,14 +152,19 @@ def connection():
         repIds (if not present - go to incoming_call flow and asked for zipcode)
     """
     params, campaign = parse_params(request)
+
+    from pprint import pprint
+
+    pprint(params)
+    pprint(campaign)
+
     if params['repIds']:
         resp = twilio.twiml.Response()
         resp.play_or_say(campaign['msg_intro'])
-        
+
         with resp.gather(numDigits=1, method="POST",
             action=url_for("make_calls", **params)) as g:
             resp.play_or_say(g, campaign['msg_intro_confirm'])
-        
     else:
         return intro_zip_gather(params, campaign)
 
