@@ -18,45 +18,43 @@ call_methods = ['GET', 'POST']
 campaigns, legislators, districts = load_data()
 defaults_campaign = campaigns['default']
 
+
 def full_url_for(route, **kwds):
     return urlparse.urljoin(app.config['APPLICATION_ROOT'],
         url_for(route, **kwds))
 
+
 def get_campaign(cid):
     return dict(defaults_campaign, **campaigns[cid])
 
-def parse_params(request):
+
+def parse_params(r):
     params = dict(
-        userPhone=request.values.get('userPhone'),
-        campaignId=request.values.get('campaignId', 'default'),
-        zipcode=request.values.get('zipcode', None),
-        repIds=request.values.getlist('repIds'),
+        userPhone=r.values.get('userPhone'),
+        campaignId=r.values.get('campaignId', 'default'),
+        zipcode=r.values.get('zipcode', None),
+        repIds=r.values.getlist('repIds'),
     )
-    
+
     # lookup campaign by ID
     campaign = get_campaign(params['campaignId'])
-    
-    # normally number based on campaign id, unless debugging
-    #if app.config['DEBUG']:
-    #    campaign['number'] = app.config['TW_NUMBER']
-    
+
     # add repIds to the parameter set, if spec. by the campaign
     if campaign.get('repIds', None):
         if isinstance(campaign['repIds'], basestring):
-            params['repIds'] = [campaign['repIds']] 
+            params['repIds'] = [campaign['repIds']]
         else:
             params['repIds'] = campaign['repIds']
-        
+
     # get representative's id by zip code
     if (params['zipcode'] is not None) and len(params['repIds']) == 0:
         params['repIds'] = locate_member_ids(
             params['zipcode'], campaign, districts, legislators)
-    
+
     if 'random_choice' in campaign:
         # pick a random choice among a selected set of members
         params['repIds'].append(random.choice(campaign['random_choice']))
-        
-    
+
     return params, campaign
 
 
@@ -65,25 +63,23 @@ def intro_zip_gather(params, campaign):
     play_or_say(resp, campaign['msg_intro'])
     return zip_gather(resp, params, campaign)
 
+
 def zip_gather(resp, params, campaign):
     with resp.gather(numDigits=5, method="POST",
             action=url_for("zip_parse", **params)) as g:
         play_or_say(g, campaign['msg_ask_zip'])
     return str(resp)
-    
 
-def dialing_config(params, campaign):
+
+def dialing_config(params):
     dc = dict(
         timeLimit=app.config['TW_TIME_LIMIT'],
         timeout=app.config['TW_TIMEOUT'],
         hangupOnStar=True, # allow the user to hangup and move onto next call
         action=url_for('call_complete', **params) # on complete
-        )
-    #if app.config['DEBUG']:
-    #    # default is to show the user's number
-    #    # but in debug mode - show the campaign's twilio #
-    #    dc['callerId'] = campaign['number']
-    return dc 
+    )
+
+    return dc
 
 
 @app.route('/make_calls', methods=call_methods)
@@ -97,11 +93,11 @@ def make_calls(params, campaign, resp=None):
 
     if resp is None:
         resp = twilio.twiml.Response()
-    
+
     n_reps = len(params['repIds'])
-    play_or_say(resp, campaign['msg_call_block_intro'], 
+    play_or_say(resp, campaign['msg_call_block_intro'],
         n_reps=n_reps, many_reps=n_reps > 1)
-    
+
     resp.redirect(url_for('make_single_call', call_index=0, **params))
     return str(resp)
 
@@ -119,14 +115,14 @@ def call_user():
     '''
     # parse the info needed to make the call
     params, campaign = parse_params(request)
-    
+
     # initiate the call
     if app.debug:
         print('running in dev mode. this call will NOT actually be made.')
-        
+
     try:
         call = app.config['TW_CLIENT'].calls.create(
-            to=params['userPhone'], 
+            to=params['userPhone'],
             from_=campaign['number'],
             url=full_url_for("connection", **params)
             )
@@ -150,11 +146,6 @@ def connection():
     """
     params, campaign = parse_params(request)
 
-    from pprint import pprint
-
-    pprint(params)
-    pprint(campaign)
-
     if params['repIds']:
         resp = twilio.twiml.Response()
 
@@ -164,6 +155,8 @@ def connection():
 
         with resp.gather(numDigits=1, method="POST", action=action) as g:
             play_or_say(g, campaign['msg_intro_confirm'])
+
+            return jsonify(success=True)
     else:
         return intro_zip_gather(params, campaign)
 
@@ -171,9 +164,9 @@ def connection():
 @app.route('/incoming_call', methods=call_methods)
 def incoming_call():
     """
-    Handles incoming calls to the twilio numbers. 
+    Handles incoming calls to the twilio numbers.
     Required Params: campaignId
-    
+
     Each Twilio phone number needs to be configured to point to:
     server.com/incoming_call?campaignId=12345
     from twilio.com/user/account/phone-numbers/incoming
@@ -191,7 +184,7 @@ def zip_parse():
     params, campaign = parse_params(request)
     zipcode = request.values.get('Digits', "")
     repIds = locate_member_ids(zipcode, campaign, districts, legislators)
-    
+
     if len(repIds) == 0:
         resp = twilio.twiml.Response()
         play_or_say(resp, campaign['msg_invalid_zip'])
@@ -211,14 +204,18 @@ def make_single_call():
     congress_phone = member['phone']
     full_name = unicode("{} {}".format(
         member['firstname'], member['lastname']), 'utf8')
+
     resp = twilio.twiml.Response()
+
     if 'voted_with_list' in campaign and \
         (params['repIds'][i] in campaign['voted_with_list']):
         play_or_say(
             resp, campaign['msg_repo_intro_voted_with'], name=full_name)
     else:
         play_or_say(resp, campaign['msg_rep_intro'], name=full_name)
-    resp.dial(congress_phone, **dialing_config(params, campaign))
+
+    resp.dial(congress_phone, **dialing_config(params))
+
     return str(resp)
 
 
