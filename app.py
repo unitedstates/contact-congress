@@ -129,7 +129,10 @@ def call_user():
         call = app.config['TW_CLIENT'].calls.create(
             to=params['userPhone'],
             from_=campaign['number'],
-            url=full_url_for("connection", **params)
+            url=full_url_for("connection", **params),
+            timeLimit=app.config['TW_TIME_LIMIT'],
+            timeout=app.config['TW_TIMEOUT'],
+            status_callback=full_url_for("call_complete_status", **params),
             )
         result = jsonify(message=call.status, debugMode=app.debug)
         result.status_code = 200 if call.status != 'failed' else 500
@@ -251,6 +254,19 @@ def call_complete():
         resp.redirect(url_for('make_single_call', **params))
 
     return str(resp)
+
+
+@app.route('call_complete_status', methods=call_methods)
+def call_complete_callback():
+    # asynch callback from twilio on call complete
+    params, campaign = parse_params(request)
+    return jsonify(dict(
+        phoneNumber=request.values.get('To', ''),
+        callStatus=request.values.get('CallStatus', 'unknown'),
+        repIds=params['repIds'],
+        campaignId=params['campaignId'],
+        ))
+
 
 
 @app.route('/demo')
