@@ -7,7 +7,7 @@ from flask import Flask, request, render_template, url_for
 from flask.ext.jsonpify import jsonify
 from twilio import TwilioRestException
 
-from models import log_call, aggregate_stats
+from models import aggregate_stats  # , log_call
 from utils import get_database, play_or_say
 from political_data import PoliticalData
 
@@ -24,7 +24,7 @@ defaults_campaign = data.campaigns['default']
 
 def full_url_for(route, **kwds):
     return urlparse.urljoin(app.config['APPLICATION_ROOT'],
-        url_for(route, **kwds))
+                            url_for(route, **kwds))
 
 
 def get_campaign(cid):
@@ -50,7 +50,7 @@ def parse_params(r):
             params['repIds'] = campaign['repIds']
 
     # get representative's id by zip code
-    if (params['zipcode'] is not None) and len(params['repIds']) == 0:
+    if params['zipcode'] and params['repIds']:
         params['repIds'] = data.locate_member_ids(
             params['zipcode'], campaign)
 
@@ -71,21 +71,18 @@ def intro_zip_gather(params, campaign):
 
 def zip_gather(resp, params, campaign):
     with resp.gather(numDigits=5, method="POST",
-            action=url_for("zip_parse", **params)) as g:
+                     action=url_for("zip_parse", **params)) as g:
         play_or_say(g, campaign['msg_ask_zip'])
 
     return str(resp)
 
 
 def dialing_config(params):
-    dc = dict(
+    return dict(
         timeLimit=app.config['TW_TIME_LIMIT'],
         timeout=app.config['TW_TIMEOUT'],
-        hangupOnStar=True, # allow the user to hangup and move onto next call
-        action=url_for('call_complete', **params) # on complete
-    )
-
-    return dc
+        hangupOnStar=True,  # allow the user to hangup and move onto next call
+        action=url_for('call_complete', **params))
 
 
 def make_calls(params, campaign):
@@ -99,7 +96,7 @@ def make_calls(params, campaign):
     n_reps = len(params['repIds'])
 
     play_or_say(resp, campaign['msg_call_block_intro'],
-        n_reps=n_reps, many_reps=n_reps > 1)
+                n_reps=n_reps, many_reps=n_reps > 1)
 
     resp.redirect(url_for('make_single_call', call_index=0, **params))
 
@@ -115,7 +112,7 @@ def _make_calls():
 
 @app.route('/create', methods=call_methods)
 def call_user():
-    '''
+    """
     Makes a phone call to a user.
     Required Params:
         userPhone
@@ -123,7 +120,7 @@ def call_user():
     Optional Params:
         zipcode
         repIds
-    '''
+    """
     # parse the info needed to make the call
     params, campaign = parse_params(request)
 
@@ -132,8 +129,8 @@ def call_user():
         call = app.config['TW_CLIENT'].calls.create(
             to=params['userPhone'],
             from_=campaign['number'],
-            url=full_url_for("connection", **params)
-            )
+            url=full_url_for("connection", **params))
+
         result = jsonify(message=call.status, debugMode=app.debug)
         result.status_code = 200 if call.status != 'failed' else 500
     except TwilioRestException, err:
@@ -151,7 +148,7 @@ def connection():
         campaignId
     Optional Params:
         zipcode
-        repIds (if not present - go to incoming_call flow and asked for zipcode)
+        repIds (if not present go to incoming_call flow and asked for zipcode)
     """
     params, campaign = parse_params(request)
 
@@ -193,10 +190,13 @@ def zip_parse():
     Required Params: campaignId, Digits
     """
     params, campaign = parse_params(request)
-    zipcode = request.values.get('Digits', "")
+    zipcode = request.values.get('Digits', '')
     rep_ids = data.locate_member_ids(zipcode, campaign)
 
-    if len(rep_ids) == 0:
+    if app.debug:
+        print 'DEBUG: zipcode = {}'.format(zipcode)
+
+    if not rep_ids:
         resp = twilio.twiml.Response()
         play_or_say(resp, campaign['msg_invalid_zip'])
 
@@ -222,14 +222,15 @@ def make_single_call():
     resp = twilio.twiml.Response()
 
     if 'voted_with_list' in campaign and \
-        (params['repIds'][i] in campaign['voted_with_list']):
+            params['repIds'][i] in campaign['voted_with_list']:
         play_or_say(
             resp, campaign['msg_repo_intro_voted_with'], name=full_name)
     else:
         play_or_say(resp, campaign['msg_rep_intro'], name=full_name)
 
-    print 'Call #{}, {} ({}) from make_single_call()'.format(
-        i, full_name, congress_phone)
+    if app.debug:
+        print 'DEBUG: Call #{}, {} ({}) from make_single_call()'.format(
+            i, full_name, congress_phone)
 
     resp.dial(congress_phone, **dialing_config(params))
 
@@ -251,7 +252,7 @@ def call_complete():
         play_or_say(resp, campaign['msg_final_thanks'])
     else:
         # call the next representative
-        params['call_index'] = i + 1 # increment the call counter
+        params['call_index'] = i + 1  # increment the call counter
 
         play_or_say(resp, campaign['msg_between_thanks'])
 
@@ -269,6 +270,7 @@ def demo():
 def stats():
     pwd = request.values.get('password', None)
     campaign = get_campaign(request.values.get('campaignId', 'default'))
+
     if pwd == app.config['SECRET_KEY']:
         return jsonify(aggregate_stats(campaign['id']))
     else:
