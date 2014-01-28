@@ -4,21 +4,23 @@ from sqlalchemy import func
 from datetime import datetime
 import hashlib
 import logging
-import pandas as pd
-
-#valid_users = pd.Series(open('data/users.txt').readlines()).str.strip()
 
 db = SQLAlchemy()
+
 
 def hash_phone(number):
     # takes phone number and returns 64 charachter string
     return hashlib.sha256(number).hexdigest()
 
+
 def to_dict(model):
     d = model.__dict__
     d.pop('_sa_instance_state')
     return d
-db.Model.to_dict = to_dict 
+
+
+db.Model.to_dict = to_dict
+
 
 class Call(db.Model):
     __tablename__ = 'calls'
@@ -28,18 +30,18 @@ class Call(db.Model):
     member_id = Column(String(10)) # congress member sunlight identifier
     # user attributes
     user_id = Column(String(64)) # hashed phone number
-    zipcode = Column(String(5)) 
+    zipcode = Column(String(5))
     areacode = Column(String(3)) # first 3 digits of phone number
     exchange = Column(String(3)) # next 3 digits of phone number
     # twilio attributes
     call_id = Column(String(40)) # twilio call ID
     status = Column(String(25)) # twilio call status
     duration = Column(Integer)  # twilio call time in seconds
-    
 
-    
+
+
     def __init__(self, campaign_id, member_id,
-        zipcode=None, phone_number=None, 
+        zipcode=None, phone_number=None,
         call_id=None, status='unknown', duration=0):
         self.timestamp = datetime.now()
         self.status = status
@@ -57,9 +59,10 @@ class Call(db.Model):
     def __repr__(self):
         return '<Call {}-{}-xxxx to {}>'.format(
             self.areacode, self.exchange, self.member_id)
-    
+
+
 def log_call(db, params, campaign, request):
-    try: 
+    try:
         i = int(request.values.get('call_index'))
         kwds = dict(
             campaign_id=campaign['id'],
@@ -77,7 +80,6 @@ def log_call(db, params, campaign, request):
 
 
 def aggregate_stats(cid):
-    # TODO - replace with pandas.read_sql as soon as db work is completed
     zipcodes = db.session.query(Call.zipcode, func.Count(Call.zipcode))\
         .filter(Call.campaign_id == cid)\
         .group_by(Call.zipcode).all()
@@ -89,11 +91,13 @@ def aggregate_stats(cid):
         reps=dict(tuple(r) for r in reps)
         ))
 
+
 def setUp(app):
     db.app = app
     db.drop_all()
-    db.create_all()    
-    
+    db.create_all()
+
+
 def tearDown(app):
     db.app = app
     db.drop_all()
