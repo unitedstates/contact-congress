@@ -5,6 +5,7 @@ import twilio.twiml
 
 from flask import Flask, request, render_template, url_for
 from flask.ext.jsonpify import jsonify
+from raven.contrib.flask import Sentry
 from twilio import TwilioRestException
 
 from models import aggregate_stats  # , log_call
@@ -12,7 +13,10 @@ from utils import get_database, play_or_say
 from political_data import PoliticalData
 
 app = Flask(__name__)
+
 app.config.from_object('config.ConfigProduction')
+
+app = Sentry(app)
 
 db = get_database(app)
 

@@ -30,6 +30,8 @@ class Config(object):
 class ConfigProduction(Config):
     DEBUG = strtobool(os.environ.get('DEBUG', 'false'))
 
+    SENTRY_DSN = os.environ.get('SENTRY_DSN')
+
     APPLICATION_ROOT = os.environ.get('APPLICATION_ROOT')
     TW_CLIENT = twilio.rest.TwilioRestClient(
         os.environ.get('TWILIO_ACCOUNT_SID'),
