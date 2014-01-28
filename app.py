@@ -1,12 +1,15 @@
-from flask import Flask, request, render_template, url_for
 import random
 import urlparse
+
 import twilio.twiml
-from twilio import TwilioRestException
-from utils import load_data
-from models import log_call, aggregate_stats
-from utils import get_database, play_or_say, locate_member_ids
+
+from flask import Flask, request, render_template, url_for
 from flask.ext.jsonpify import jsonify
+from twilio import TwilioRestException
+
+from models import log_call, aggregate_stats
+from utils import get_database, play_or_say
+from political_data import PoliticalData
 
 app = Flask(__name__)
 app.config.from_object('config.ConfigProduction')
@@ -15,8 +18,8 @@ db = get_database(app)
 
 call_methods = ['GET', 'POST']
 
-campaigns, legislators, districts = load_data()
-defaults_campaign = campaigns['default']
+data = PoliticalData()
+defaults_campaign = data.campaigns['default']
 
 
 def full_url_for(route, **kwds):
@@ -25,7 +28,7 @@ def full_url_for(route, **kwds):
 
 
 def get_campaign(cid):
-    return dict(defaults_campaign, **campaigns[cid])
+    return dict(defaults_campaign, **data.campaigns[cid])
 
 
 def parse_params(r):
@@ -48,8 +51,8 @@ def parse_params(r):
 
     # get representative's id by zip code
     if (params['zipcode'] is not None) and len(params['repIds']) == 0:
-        params['repIds'] = locate_member_ids(
-            params['zipcode'], campaign, districts, legislators)
+        params['repIds'] = data.locate_member_ids(
+            params['zipcode'], campaign)
 
     if 'random_choice' in campaign:
         # pick a random choice among a selected set of members
@@ -191,16 +194,16 @@ def zip_parse():
     """
     params, campaign = parse_params(request)
     zipcode = request.values.get('Digits', "")
-    repIds = locate_member_ids(zipcode, campaign, districts, legislators)
+    rep_ids = data.locate_member_ids(zipcode, campaign)
 
-    if len(repIds) == 0:
+    if len(rep_ids) == 0:
         resp = twilio.twiml.Response()
         play_or_say(resp, campaign['msg_invalid_zip'])
 
         return zip_gather(resp, params, campaign)
 
     params['zipcode'] = zipcode
-    params['repIds'] = repIds
+    params['repIds'] = rep_ids
 
     return make_calls(params, campaign)
 
@@ -210,8 +213,9 @@ def make_single_call():
     params, campaign = parse_params(request)
     i = int(request.values.get('call_index', 0))
     params['call_index'] = i
-    member = legislators.ix[params['repIds'][i]]
-    congress_phone = str(member['phone'])
+    member = [l for l in data.legislators
+              if l['bioguide_id'] == params['repIds'][i]][0]
+    congress_phone = member['phone']
     full_name = unicode("{} {}".format(
         member['firstname'], member['lastname']), 'utf8')
 
@@ -224,7 +228,8 @@ def make_single_call():
     else:
         play_or_say(resp, campaign['msg_rep_intro'], name=full_name)
 
-    print 'Dialing {} from make_single_call()'.format(congress_phone)
+    print 'Call #{}, {} ({}) from make_single_call()'.format(
+        i, full_name, congress_phone)
 
     resp.dial(congress_phone, **dialing_config(params))
 
