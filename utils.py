@@ -1,11 +1,4 @@
 import pystache
-import twilio.twiml
-
-from flask.ext.sqlalchemy import SQLAlchemy
-
-
-def get_database(app):
-    return SQLAlchemy(app)
 
 
 def play_or_say(resp_or_gather, msg_template, **kwds):

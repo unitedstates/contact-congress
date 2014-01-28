@@ -5,34 +5,29 @@ import twilio.twiml
 
 from flask import Flask, request, render_template, url_for
 from flask.ext.jsonpify import jsonify
+from flask.ext.sqlalchemy import SQLAlchemy
 from raven.contrib.flask import Sentry
 from twilio import TwilioRestException
 
 from models import aggregate_stats  # , log_call
-from utils import get_database, play_or_say
+from utils import play_or_say
 from political_data import PoliticalData
 
 app = Flask(__name__)
 
 app.config.from_object('config.ConfigProduction')
 
+db = SQLAlchemy(app)
 sentry = Sentry(app)
-
-db = get_database(app)
 
 call_methods = ['GET', 'POST']
 
 data = PoliticalData()
-defaults_campaign = data.campaigns['default']
 
 
 def full_url_for(route, **kwds):
     return urlparse.urljoin(app.config['APPLICATION_ROOT'],
                             url_for(route, **kwds))
-
-
-def get_campaign(cid):
-    return dict(defaults_campaign, **data.campaigns[cid])
 
 
 def parse_params(r):
@@ -44,7 +39,7 @@ def parse_params(r):
     }
 
     # lookup campaign by ID
-    campaign = get_campaign(params['campaignId'])
+    campaign = data.get_campaign(params['campaignId'])
 
     # add repIds to the parameter set, if spec. by the campaign
     if campaign.get('repIds', None):
@@ -288,7 +283,7 @@ def demo():
 @app.route('/stats')
 def stats():
     pwd = request.values.get('password', None)
-    campaign = get_campaign(request.values.get('campaignId', 'default'))
+    campaign = data.get_campaign(request.values.get('campaignId', 'default'))
 
     if pwd == app.config['SECRET_KEY']:
         return jsonify(aggregate_stats(campaign['id']))
