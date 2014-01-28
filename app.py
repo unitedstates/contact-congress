@@ -232,7 +232,7 @@ def make_single_call():
         play_or_say(resp, campaign['msg_rep_intro'], name=full_name)
 
     if app.debug:
-        print 'DEBUG: Call #{}, {} ({}) from make_single_call()'.format(
+        print u'DEBUG: Call #{}, {} ({}) from make_single_call()'.format(
             i, full_name, congress_phone)
 
     resp.dial(congress_phone, **dialing_config(params))
