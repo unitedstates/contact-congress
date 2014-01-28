@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 app.config.from_object('config.ConfigProduction')
 
-app = Sentry(app)
+sentry = Sentry(app)
 
 db = get_database(app)
 
