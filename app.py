@@ -211,7 +211,7 @@ def make_single_call():
     i = int(request.values.get('call_index', 0))
     params['call_index'] = i
     member = legislators.ix[params['repIds'][i]]
-    congress_phone = member['phone']
+    congress_phone = str(member['phone'])
     full_name = unicode("{} {}".format(
         member['firstname'], member['lastname']), 'utf8')
 
@@ -223,6 +223,8 @@ def make_single_call():
             resp, campaign['msg_repo_intro_voted_with'], name=full_name)
     else:
         play_or_say(resp, campaign['msg_rep_intro'], name=full_name)
+
+    print 'Dialing {} from make_single_call()'.format(congress_phone)
 
     resp.dial(congress_phone, **dialing_config(params))
 
