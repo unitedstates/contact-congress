@@ -264,7 +264,7 @@ def call_complete():
     return str(resp)
 
 
-@app.route('call_complete_status', methods=call_methods)
+@app.route('/call_complete_status', methods=call_methods)
 def call_complete_callback():
     # asynch callback from twilio on call complete
     params, campaign = parse_params(request)
