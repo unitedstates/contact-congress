@@ -9,7 +9,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from raven.contrib.flask import Sentry
 from twilio import TwilioRestException
 
-from models import aggregate_stats  # , log_call
+from models import aggregate_stats, log_call
 from utils import play_or_say
 from political_data import PoliticalData
 
@@ -242,8 +242,8 @@ def make_single_call():
 @app.route('/call_complete', methods=call_methods)
 def call_complete():
     params, campaign = parse_params(request)
-    # TODO: Actually fix the database server
-    #log_call(db, params, campaign, request)
+
+    log_call(db, params, campaign, request)
 
     resp = twilio.twiml.Response()
 
