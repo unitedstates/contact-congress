@@ -279,6 +279,10 @@ def call_complete_status():
 def demo():
     return render_template('demo.html')
 
+@app.route('/count')
+def count():
+    return db.session.query(Call).count()
+
 
 @app.route('/stats')
 def stats():
