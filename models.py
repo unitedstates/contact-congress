@@ -84,7 +84,7 @@ def log_call(db, params, campaign, request):
 
 def call_count(db):
     try:
-        return dict(count=db.session.query(func.Count(Call.zipcode)))
+        return dict(count=db.session.query(func.Count(Call.zipcode)).all())
     except:
         return 0
 
