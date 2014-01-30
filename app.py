@@ -281,7 +281,7 @@ def demo():
 
 @app.route('/count')
 def count():
-    return call_count(db)
+    return jsonify(call_count(db))
 
 
 @app.route('/stats')
