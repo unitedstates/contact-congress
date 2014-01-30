@@ -9,7 +9,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from raven.contrib.flask import Sentry
 from twilio import TwilioRestException
 
-from models import aggregate_stats, log_call
+from models import aggregate_stats, log_call, call_count
 from utils import play_or_say
 from political_data import PoliticalData
 
@@ -281,7 +281,7 @@ def demo():
 
 @app.route('/count')
 def count():
-    return db.session.query(Call).count()
+    return call_count(db)
 
 
 @app.route('/stats')
