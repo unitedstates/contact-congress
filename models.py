@@ -68,19 +68,21 @@ def log_call(db, params, campaign, request):
     try:
         i = int(request.values.get('call_index'))
 
-        kwds = dict(
-            campaign_id=campaign['id'],
-            member_id=params['repIds'][i],
-            zipcode=params['zipcode'],
-            phone_number=params['userPhone'],
-            call_id=request.values.get('CallSid', None),  # twilio call id
-            status=request.values.get('DialCallStatus', 'unknown'),
-            duration=request.values.get('DialCallDuration', 0))
+        kwds = {
+            'campaign_id': campaign['id'],
+            'member_id': params['repIds'][i],
+            'zipcode': params['zipcode'],
+            'phone_number': params['userPhone'],
+            'call_id': request.values.get('CallSid', None),  # twilio call id
+            'status': request.values.get('DialCallStatus', 'unknown'),
+            'duration': request.values.get('DialCallDuration', 0)
+        }
 
         db.session.add(Call(**kwds))
         db.session.commit()
-    except:
-        logging.error('Failed to log call: {}'.format(kwds))
+    except Exception:
+        logging.error('Failed to log call: Exception: {}'.format(kwds),
+                      exc_info=True)
 
 def call_count(db):
     try:
