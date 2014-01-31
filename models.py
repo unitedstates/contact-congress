@@ -84,11 +84,15 @@ def log_call(db, params, campaign, request):
         logging.error('Failed to log call: Exception: {}'.format(kwds),
                       exc_info=True)
 
+
 def call_count(db):
     try:
-        return dict(count=db.session.query(func.Count(Call.zipcode)).all()[0][0])
+        return {
+            'count': db.session.query(func.Count(Call.zipcode)).all()[0][0]
+        }
     except:
         return 0
+
 
 def aggregate_stats(cid):
     zipcodes = db.session.query(Call.zipcode, func.Count(Call.zipcode)) \
