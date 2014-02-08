@@ -8,37 +8,44 @@ import twilio.rest
 class Config(object):
     DEBUG = True
 
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///dev.db'
+
     APPLICATION_ROOT = 'http://1cf55a5a.ngrok.com'
+
     TW_CLIENT = twilio.rest.TwilioRestClient(
         os.environ.get('TWILIO_DEV_ACCOUNT_SID'),
         os.environ.get('TWILIO_DEV_AUTH_TOKEN'))
-
-    TW_NUMBER = '5005550006' # development number
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///dev.db'
+    TW_NUMBER = '5005550006'  # development number
 
     TASKFORCE_KEY = os.environ.get('TASKFORCE_KEY')
     SUNLIGHTLABS_KEY = os.environ.get('SUNLIGHTLABS_KEY')
 
     # limit on the length of the call
-    TW_TIME_LIMIT = 60 * 4 # sec/min * min
+    TW_TIME_LIMIT = 60 * 4  # 4 minutes
 
     # limit on the amount of time to ring before giving up
-    TW_TIMEOUT = 20 # sec
+    TW_TIMEOUT = 20  # seconds
 
     SECRET_KEY = 'AOUSBDAONPSOMDASIDUBSDOUABER)*#(R&(&@@#))'
+
 
 class ConfigProduction(Config):
     DEBUG = strtobool(os.environ.get('DEBUG', 'false'))
 
     SENTRY_DSN = os.environ.get('SENTRY_DSN')
 
+    SQLALCHEMY_POOL_RECYCLE = 60 * 60  # 1 hour
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')
+
     APPLICATION_ROOT = os.environ.get('APPLICATION_ROOT')
+
     TW_CLIENT = twilio.rest.TwilioRestClient(
         os.environ.get('TWILIO_ACCOUNT_SID'),
         os.environ.get('TWILIO_AUTH_TOKEN'))
     TW_NUMBER = os.environ.get('TWILIO_NUMBER')
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')
+
     SECRET_KEY = os.environ.get('SECRET_KEY')
+
 
 class ConfigTesting(Config):
     TESTING = True

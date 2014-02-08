@@ -91,11 +91,13 @@ def zip_gather(resp, params, campaign):
 
 
 def dialing_config(params):
-    return dict(
-        timeLimit=app.config['TW_TIME_LIMIT'],
-        timeout=app.config['TW_TIMEOUT'],
-        hangupOnStar=True,  # allow the user to hangup and move onto next call
-        action=url_for('call_complete', **params))
+    return {
+        'timeLimit': app.config['TW_TIME_LIMIT'],
+        'timeout': app.config['TW_TIMEOUT'],
+        # allow the user to hangup and move onto next call
+        'hangupOnStar': True,
+        'action': url_for('call_complete', **params)
+    }
 
 
 def make_calls(params, campaign):
@@ -280,13 +282,14 @@ def call_complete():
 @app.route('/call_complete_status', methods=call_methods)
 def call_complete_status():
     # asynch callback from twilio on call complete
-    params, campaign = parse_params(request)
+    params, _ = parse_params(request)
 
-    return jsonify(dict(
-        phoneNumber=request.values.get('To', ''),
-        callStatus=request.values.get('CallStatus', 'unknown'),
-        repIds=params['repIds'],
-        campaignId=params['campaignId']))
+    return jsonify({
+        'phoneNumber': request.values.get('To', ''),
+        'callStatus': request.values.get('CallStatus', 'unknown'),
+        'repIds': params['repIds'],
+        'campaignId': params['campaignId']
+    })
 
 
 @app.route('/demo')
@@ -300,16 +303,16 @@ def count():
 
 @app.route('/stats')
 def stats():
-    pwd = request.values.get('password', None)
-    campaign = data.get_campaign(request.values.get('campaignId', 'default'))
+    password = request.values.get('password', None)
+    campaign = request.values.get('campaign', 'default')
 
-    if pwd == app.config['SECRET_KEY']:
-        return jsonify(aggregate_stats(campaign['id']))
+    if password == app.config['SECRET_KEY']:
+        return jsonify(aggregate_stats(campaign))
     else:
         return jsonify(error="access denied")
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # load the debugger config
     app.config.from_object('config.Config')
     app.run(host='0.0.0.0')
