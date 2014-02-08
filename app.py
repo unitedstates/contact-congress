@@ -141,7 +141,7 @@ def call_user():
     try:
         call = app.config['TW_CLIENT'].calls.create(
             to=params['userPhone'],
-            from_=campaign['number'],
+            from_=random.choice(campaign['numbers']),
             url=full_url_for("connection", **params),
             timeLimit=app.config['TW_TIME_LIMIT'],
             timeout=app.config['TW_TIMEOUT'],

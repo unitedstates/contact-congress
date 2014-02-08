@@ -1,33 +1,41 @@
 - id: default
-  number: 415-123-1234
+  numbers:
+    - 415-123-1234
   target_house: true
   target_senate: true
   target_house_first: false
   msg_intro: Hi. Welcome to call congress.
-  msg_intro_confirm: "Press star to start."
-  msg_ask_zip: Please enter your zip code so we can lookup your Congress person.
-  msg_invalid_zip: "Sorry, that zip code didn't work. Please try again."
-  msg_call_block_intro: "{{#many_reps}}We'll now connect you to {{n_reps}} representatives. Press star for next rep.{{/many_reps}}"
-  msg_rep_intro: "We're now connecting you to {{name}}"
-  msg_between_thanks: You're doing great - here's the next call.      
+  msg_intro_confirm: Press star to start.
+  msg_ask_zip: >
+    Please enter your zip code so we can lookup your Congress person.
+  msg_invalid_zip: Sorry, that zip code didn't work. Please try again.
+  msg_call_block_intro: >
+    {{#many_reps}}We'll now connect you to {{n_reps}} representatives. Press
+    star for next rep.{{/many_reps}}
+  msg_rep_intro: We're now connecting you to {{name}}
+  msg_between_thanks: You're doing great - here's the next call.
   msg_final_thanks: Thank you!
-  secret_key: ""
 
 - id: call-Ted-Cruz
-  number: 415-444-5555
+  numbers:
+    - 415-444-5555
   repIds: [C001098]
 
 - id: restrict-nsa
-  number: 415-419-8672
+  numbers:
+    - 415-419-8672
   target_house: true
   target_senate: true
   target_house_first: true
-  voted_with_list: ['F000062', 'P000197']
-  msg_repo_intro_voted_with: '{{name}} supports reasonable legislation to restrict the N.S.A. Let them know what a good decision that is.'
-  random_choice: ['R000146', 'M000355']
+  voted_with_list: [F000062, P000197]
+  msg_repo_intro_voted_with: >
+    {{name}} supports reasonable legislation to restrict the N.S.A. Let them
+    know what a good decision that is.
+  random_choice: [R000146, M000355]
 
 - id: trolling-effects
-  number: 415-419-8672
+  numbers:
+    - 415-419-8672
   target_house: true
   target_senate: false
   target_house_first: true
@@ -35,30 +43,36 @@
   msg_ask_zip: http://tfrce.s3.amazonaws.com/te-call-askzip.mp3
   msg_invalid_zip: http://tfrce.s3.amazonaws.com/te-call-zipagain.mp3
   msg_call_block_intro: http://tfrce.s3.amazonaws.com/te-call-precall.mp3
-  msg_rep_intro: "Connecting you to {{name}}"
-  msg_between_thanks: ""
+  msg_rep_intro: Connecting you to {{name}}
+  msg_between_thanks: ~
   msg_final_thanks: http://tfrce.s3.amazonaws.com/te-call-thanks.mp3
 
 - id: stop-fast-track
-  number: 415-419-8672
+  numbers:
+    - 415-419-8672
   target_house: true
   target_senate: true
   target_house_first: true
   msg_intro: http://tfrce.s3.amazonaws.com/sft/sft_msg_intro.mp3
   msg_ask_zip: http://tfrce.s3.amazonaws.com/sft/sft_ask_zip.mp3
   msg_invalid_zip: http://tfrce.s3.amazonaws.com/sft/sft_invalid_zip.mp3
-  msg_call_block_intro: http://tfrce.s3.amazonaws.com/sft/sft_call_block_intro.mp3
-  msg_rep_intro: "We're now connecting you to {{name}}"
+  msg_call_block_intro: >
+    http://tfrce.s3.amazonaws.com/sft/sft_call_block_intro.mp3
+  msg_rep_intro: We're now connecting you to {{name}}
   msg_between_thanks: http://tfrce.s3.amazonaws.com/sft/sft_between_thanks.mp3
   msg_final_thanks: http://tfrce.s3.amazonaws.com/sft/sft_msg_final_thanks.mp3
 
-
 - id: tdwfb
-  number: 202-999-3996
+  numbers:
+    - 202-999-3996
+    - 415-419-8672
+    - 415-413-4137
   target_house: true
   target_senate: true
   target_house_first: true
-  msg_intro: The call congress tool will be enabled on February 11th. Please try again then.
+  msg_intro: >
+    The call congress tool will be enabled on February 11th. Please try again
+    then.
   msg_ask_zip: Please try again then.
   msg_invalid_zip: Please try again on February 11th.
   msg_call_block_intro: Please try again on February 11th.
