@@ -8,6 +8,7 @@ import pystache
 import twilio.twiml
 
 from flask import Flask, request, render_template, url_for
+from flask_cache import Cache
 from flask_jsonpify import jsonify
 from raven.contrib.flask import Sentry
 from twilio import TwilioRestException
@@ -19,6 +20,7 @@ app = Flask(__name__)
 
 app.config.from_object('config.ConfigProduction')
 
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 sentry = Sentry(app)
 
 db.init_app(app)
@@ -26,6 +28,13 @@ db.init_app(app)
 call_methods = ['GET', 'POST']
 
 data = PoliticalData()
+
+
+def make_cache_key(*args, **kwargs):
+    path = request.path
+    args = str(hash(frozenset(request.args.items())))
+
+    return (path + args).encode('utf-8')
 
 
 def play_or_say(resp_or_gather, msg_template, **kwds):
@@ -297,11 +306,13 @@ def demo():
     return render_template('demo.html')
 
 
+@cache.cached(timeout=5)
 @app.route('/count')
 def count():
     return jsonify(count=call_count())
 
 
+@cache.cached(timeout=60, key_prefix=make_cache_key)
 @app.route('/stats')
 def stats():
     password = request.values.get('password', None)
