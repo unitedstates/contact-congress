@@ -8,7 +8,7 @@ import pystache
 import twilio.twiml
 
 from flask import Flask, request, render_template, url_for
-from flask.ext.jsonpify import jsonify
+from flask_jsonpify import jsonify
 from raven.contrib.flask import Sentry
 from twilio import TwilioRestException
 
