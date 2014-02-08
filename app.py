@@ -9,19 +9,19 @@ import twilio.twiml
 
 from flask import Flask, request, render_template, url_for
 from flask.ext.jsonpify import jsonify
-from flask.ext.sqlalchemy import SQLAlchemy
 from raven.contrib.flask import Sentry
 from twilio import TwilioRestException
 
-from models import aggregate_stats, log_call, call_count
+from models import db, aggregate_stats, log_call, call_count
 from political_data import PoliticalData
 
 app = Flask(__name__)
 
 app.config.from_object('config.ConfigProduction')
 
-db = SQLAlchemy(app)
 sentry = Sentry(app)
+
+db.init_app(app)
 
 call_methods = ['GET', 'POST']
 
@@ -259,7 +259,7 @@ def make_single_call():
 def call_complete():
     params, campaign = parse_params(request)
 
-    log_call(db, params, campaign, request)
+    log_call(params, campaign, request)
 
     resp = twilio.twiml.Response()
 
@@ -296,9 +296,10 @@ def call_complete_status():
 def demo():
     return render_template('demo.html')
 
+
 @app.route('/count')
 def count():
-    return jsonify(call_count(db))
+    return jsonify(count=call_count())
 
 
 @app.route('/stats')
