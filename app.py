@@ -4,6 +4,7 @@ patch_all()
 import random
 import urlparse
 
+import pystache
 import twilio.twiml
 
 from flask import Flask, request, render_template, url_for
@@ -13,7 +14,6 @@ from raven.contrib.flask import Sentry
 from twilio import TwilioRestException
 
 from models import aggregate_stats, log_call, call_count
-from utils import play_or_say
 from political_data import PoliticalData
 
 app = Flask(__name__)
@@ -26,6 +26,17 @@ sentry = Sentry(app)
 call_methods = ['GET', 'POST']
 
 data = PoliticalData()
+
+
+def play_or_say(resp_or_gather, msg_template, **kwds):
+    # take twilio response and play or say a mesage
+    # can use mustache templates to render keword arguments
+    msg = pystache.render(msg_template, kwds)
+
+    if msg.startswith('http'):
+        resp_or_gather.play(msg)
+    elif msg:
+        resp_or_gather.say(msg)
 
 
 def full_url_for(route, **kwds):
