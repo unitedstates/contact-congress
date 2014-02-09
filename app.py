@@ -309,7 +309,9 @@ def demo():
 @cache.cached(timeout=5)
 @app.route('/count')
 def count():
-    return jsonify(count=call_count())
+    campaign = request.values.get('campaign', 'default')
+
+    return jsonify(campaign=campaign, count=call_count(campaign))
 
 
 @cache.cached(timeout=60, key_prefix=make_cache_key)
