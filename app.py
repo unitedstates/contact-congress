@@ -105,16 +105,6 @@ def zip_gather(resp, params, campaign):
     return str(resp)
 
 
-def dialing_config(params):
-    return {
-        'timeLimit': app.config['TW_TIME_LIMIT'],
-        'timeout': app.config['TW_TIMEOUT'],
-        # allow the user to hangup and move onto next call
-        'hangupOnStar': True,
-        'action': url_for('call_complete', **params)
-    }
-
-
 def make_calls(params, campaign):
     """
     Connect a user to a sequence of congress members.
@@ -285,7 +275,9 @@ def make_single_call():
         print u'DEBUG: Call #{}, {} ({}) from make_single_call()'.format(
             i, full_name, congress_phone)
 
-    resp.dial(congress_phone, **dialing_config(params))
+    resp.dial(congress_phone, timeLimit=app.config['TW_TIME_LIMIT'],
+              timeout=app.config['TW_TIMEOUT'], hangupOnStar=True,
+              action=url_for('call_complete', **params))
 
     return str(resp)
 
