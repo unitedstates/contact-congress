@@ -21,7 +21,7 @@ class Config(object):
     SUNLIGHTLABS_KEY = os.environ.get('SUNLIGHTLABS_KEY')
 
     # limit on the length of the call
-    TW_TIME_LIMIT = 60 * 4  # 4 minutes
+    TW_TIME_LIMIT = 60 * 20  # 4 minutes
 
     # limit on the amount of time to ring before giving up
     TW_TIMEOUT = 40  # seconds
