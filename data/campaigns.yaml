@@ -16,11 +16,6 @@
   msg_between_thanks: You're doing great - here's the next call.
   msg_final_thanks: Thank you!
 
-- id: call-Ted-Cruz
-  numbers:
-    - 415-444-5555
-  repIds: [C001098]
-
 - id: restrict-nsa
   numbers:
     - 415-419-8672
@@ -56,26 +51,38 @@
   msg_intro: http://tfrce.s3.amazonaws.com/sft/sft_msg_intro.mp3
   msg_ask_zip: http://tfrce.s3.amazonaws.com/sft/sft_ask_zip.mp3
   msg_invalid_zip: http://tfrce.s3.amazonaws.com/sft/sft_invalid_zip.mp3
-  msg_call_block_intro: >
-    http://tfrce.s3.amazonaws.com/sft/sft_call_block_intro.mp3
+  msg_call_block_intro: http://tfrce.s3.amazonaws.com/sft/sft_call_block_intro.mp3
   msg_rep_intro: We're now connecting you to {{name}}
   msg_between_thanks: http://tfrce.s3.amazonaws.com/sft/sft_between_thanks.mp3
   msg_final_thanks: http://tfrce.s3.amazonaws.com/sft/sft_msg_final_thanks.mp3
 
 - id: tdwfb
   numbers:
-    - 202-999-3996
-    - 415-419-8672
-    - 415-413-4137
+    - 202-552-0252
+    - 202-552-0262
+    - 202-552-0272
   target_house: true
   target_senate: true
-  target_house_first: true
+  target_house_first: false
   msg_intro: >
-    The call congress tool will be enabled on February 11th. Please try again
-    then.
-  msg_ask_zip: Please try again then.
-  msg_invalid_zip: Please try again on February 11th.
-  msg_call_block_intro: Please try again on February 11th.
-  msg_rep_intro: Please try again on February 11th.
-  msg_between_thanks: Please try again on February 11th.
-  msg_final_thanks: Please try again on February 11th.
+    The call congress tool will be enabled on February 11th. Please try again then. # http://tfrce.s3.amazonaws.com/tdwfb/msg_intro.mp3
+  msg_ask_zip: http://tfrce.s3.amazonaws.com/twfb/msg_ask_zip.mp3
+  msg_invalid_zip: http://tfrce.s3.amazonaws.com/tdwfb/msg_invalid_zip.mp3
+  msg_call_block_intro: http://tfrce.s3.amazonaws.com/tdwfb/msg_call_block_intro_calltool.mp3
+  msg_rep_intro: We're now connecting you to {{name}}
+  msg_between_thanks: http://tfrce.s3.amazonaws.com/tdwfb/msg_between_thanks.mp3
+  msg_final_thanks: http://tfrce.s3.amazonaws.com/tdwfb/msg_final_thanks.mp3
+
+- id: tdwfb-mobile
+  numbers:
+    - 202-552-0505
+  target_house: true
+  target_senate: true
+  target_house_first: false
+  msg_intro: The call congress tool will be enabled on February 11th. Please try again then. # http://tfrce.s3.amazonaws.com/tdwfb/msg_intro.mp3
+  msg_ask_zip: http://tfrce.s3.amazonaws.com/twfb/msg_ask_zip.mp3
+  msg_invalid_zip: http://tfrce.s3.amazonaws.com/tdwfb/msg_invalid_zip.mp3
+  msg_call_block_intro: http://tfrce.s3.amazonaws.com/tdwfb/msg_call_block_intro_number.mp3
+  msg_rep_intro: We're now connecting you to {{name}}
+  msg_between_thanks: http://tfrce.s3.amazonaws.com/tdwfb/msg_between_thanks.mp3
+  msg_final_thanks: http://tfrce.s3.amazonaws.com/tdwfb/msg_final_thanks.mp3
