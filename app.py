@@ -7,7 +7,7 @@ import urlparse
 import pystache
 import twilio.twiml
 
-from flask import Flask, request, render_template, url_for
+from flask import abort, Flask, request, render_template, url_for
 from flask_cache import Cache
 from flask_jsonpify import jsonify
 from raven.contrib.flask import Sentry
@@ -63,6 +63,9 @@ def parse_params(r):
 
     # lookup campaign by ID
     campaign = data.get_campaign(params['campaignId'])
+
+    if not campaign:
+        return None, None
 
     # add repIds to the parameter set, if spec. by the campaign
     if campaign.get('repIds', None):
@@ -131,6 +134,9 @@ def make_calls(params, campaign):
 def _make_calls():
     params, campaign = parse_params(request)
 
+    if not params or not campaign:
+        abort(404)
+
     return make_calls(params, campaign)
 
 
@@ -147,6 +153,9 @@ def call_user():
     """
     # parse the info needed to make the call
     params, campaign = parse_params(request)
+
+    if not params or not campaign:
+        abort(404)
 
     # initiate the call
     try:
@@ -179,6 +188,9 @@ def connection():
     """
     params, campaign = parse_params(request)
 
+    if not params or not campaign:
+        abort(404)
+
     if params['repIds']:
         resp = twilio.twiml.Response()
 
@@ -207,6 +219,9 @@ def incoming_call():
     """
     params, campaign = parse_params(request)
 
+    if not params or not campaign:
+        abort(404)
+
     return intro_zip_gather(params, campaign)
 
 
@@ -217,6 +232,10 @@ def zip_parse():
     Required Params: campaignId, Digits
     """
     params, campaign = parse_params(request)
+
+    if not params or not campaign:
+        abort(404)
+
     zipcode = request.values.get('Digits', '')
     rep_ids = data.locate_member_ids(zipcode, campaign)
 
@@ -238,6 +257,10 @@ def zip_parse():
 @app.route('/make_single_call', methods=call_methods)
 def make_single_call():
     params, campaign = parse_params(request)
+
+    if not params or not campaign:
+        abort(404)
+
     i = int(request.values.get('call_index', 0))
     params['call_index'] = i
     member = [l for l in data.legislators
@@ -268,6 +291,9 @@ def make_single_call():
 def call_complete():
     params, campaign = parse_params(request)
 
+    if not params or not campaign:
+        abort(404)
+
     log_call(params, campaign, request)
 
     resp = twilio.twiml.Response()
@@ -292,6 +318,9 @@ def call_complete():
 def call_complete_status():
     # asynch callback from twilio on call complete
     params, _ = parse_params(request)
+
+    if not params:
+        abort(404)
 
     return jsonify({
         'phoneNumber': request.values.get('To', ''),
