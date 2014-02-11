@@ -4,10 +4,13 @@ patch_all()
 import random
 import urlparse
 
+from datetime import datetime, timedelta
+
 import pystache
 import twilio.twiml
 
-from flask import abort, Flask, request, render_template, url_for
+from flask import (abort, after_this_request, Flask, request, render_template,
+                   url_for)
 from flask_cache import Cache
 from flask_jsonpify import jsonify
 from raven.contrib.flask import Sentry
@@ -335,9 +338,19 @@ def demo():
     return render_template('demo.html')
 
 
-@cache.cached(timeout=5)
+@cache.cached(timeout=60)
 @app.route('/count')
 def count():
+    @after_this_request
+    def add_expires_header(response):
+        expires = datetime.utcnow()
+        expires = expires + timedelta(seconds=60)
+        expires = datetime.strftime(expires, "%a, %d %b %Y %H:%M:%S GMT")
+
+        response.headers['Expires'] = expires
+
+        return response
+
     campaign = request.values.get('campaign', 'default')
 
     return jsonify(campaign=campaign, count=call_count(campaign))
