@@ -24,7 +24,7 @@ class Config(object):
     TW_TIME_LIMIT = 60 * 4  # 4 minutes
 
     # limit on the amount of time to ring before giving up
-    TW_TIMEOUT = 20  # seconds
+    TW_TIMEOUT = 40  # seconds
 
     SECRET_KEY = 'AOUSBDAONPSOMDASIDUBSDOUABER)*#(R&(&@@#))'
 
