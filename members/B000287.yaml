@@ -3,7 +3,7 @@ contact_form:https://forms.house.gov/becerra/webforms/issue_subscribe.html
   method:POST
   action:"https://forms.house.gov/htbin/formproc_za/becerra/webforms/issue_subscribe_parm.txt&amp;form=/becerra/webforms/issue_subscribe_verify_test.html"
   steps:
-    - visit:"https://forms.house.gov/becerra/webforms/issue_subscribe.html"
+    - visit:https://forms.house.gov/becerra/webforms/issue_subscribe.html
     - fill_in:
       - name:required-first
         selector:"#first_name"
@@ -81,7 +81,7 @@ contact_form:https://forms.house.gov/becerra/webforms/issue_subscribe.html
         - "Social Security" : "SOC"
         - "Other" : "OTHER"
     - click_on: 
-      - value: "Submit"
+      - value: "Send Email"
         selector: "input[type='submit'][value='Send Email']"
   success:
     headers:
