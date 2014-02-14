@@ -1,9 +1,61 @@
 bioguide: S000033
 contact_form:
   method: POST
-  action: http://www.sanders.senate.gov/contact/contact.cfm
+  action: http://www.sanders.senate.gov/contact/comment
   steps:
-    - visit: http://www.sanders.senate.gov/contact/contact.cfm
+    - visit: http://www.sanders.senate.gov/contact/comment
+    - select:
+      - name: subject
+        selector: "#subject"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Academy Nominations"
+          - "Agriculture"
+          - "Animal Rights"
+          - "Appropriations"
+          - "Arts & Humanities"
+          - "Banking & Financial Services"
+          - "Budget"
+          - "Business and Commerce"
+          - "Campaign/Election Reform"
+          - "Casework"
+          - "Census"
+          - "Consumer Protection"
+          - "Defense and Military"
+          - "Economic Development"
+          - "Education"
+          - "Energy"
+          - "Environment"
+          - "Ethics Reform"
+          - "Flag Requests"
+          - "Foreign Relations"
+          - "Grant Letters"
+          - "Guns"
+          - "Healthcare"
+          - "Homeland Security"
+          - "Housing and Urban Affairs"
+          - "Immigration"
+          - "Insurance Problems"
+          - "Interior"
+          - "Intelligence"
+          - "Judiciary"
+          - "Labor"
+          - "Nutrition"
+          - "Other"
+          - "Postal Service"
+          - "Science and Innovation"
+          - "Seniors"
+          - "Social Issues"
+          - "Taxes"
+          - "Technology and Telecom"
+          - "Tour Requests"
+          - "Trade"
+          - "Transportation"
+          - "Veterans"
+          - "Women and Children"
+    - find:
+      - selector: "#fname"
     - fill_in:
       - name: fname
         selector: "#fname"
@@ -13,39 +65,38 @@ contact_form:
         selector: "#lname"
         value: "$NAME_LAST"
         required: Yes
-      - name: address
-        selector: "#address"
+      - name: mailing_streetAddress1
+        selector: "#mailing_streetAddress1"
         value: "$ADDRESS_STREET"
         required: Yes
-      - name: address2
-        selector: "#address2"
+      - name: mailing_streetAddress2
+        selector: "#mailing_streetAddress2"
         value: "$ADDRESS_STREET_2"
-      - name: city
-        selector: "#city"
+      - name: mailing_city
+        selector: "#mailing_city"
         value: "$ADDRESS_CITY"
         required: Yes
-      - name: zipcode
-        selector: "#zipcode"
+      - name: mailing_zipCode
+        selector: "#mailing_zipCode"
         value: "$ADDRESS_ZIP5"
         required: Yes
-      - name: phone
-        selector: "#phone"
+      - name: home_phone_number
+        selector: "#home_phone_number"
         value: "$PHONE"
-        required: Yes
-      - name: email
-        selector: "#contact-email"
+      - name: email_address
+        selector: "#email"
         value: "$EMAIL"
         required: Yes
       - name: verify_email
-        selector: "#verify-email"
+        selector: "#verify_email"
         value: "$EMAIL"
         required: Yes
-      - name: subject
-        selector: "#subject"
+      - name: regarding
+        selector: "#regarding"
         value: "$SUBJECT"
         required: Yes
-      - name: comments
-        selector: "#comments"
+      - name: message
+        selector: "#message"
         value: "$MESSAGE"
         required: Yes
     - select:
@@ -54,70 +105,89 @@ contact_form:
         value: "$NAME_PREFIX"
         required: Yes
         options:
-          - "null"
-          - "Dr."
           - "Mr."
-          - "Mrs."
           - "Ms."
+          - "Mrs."
+          - "Miss"
+          - "Mr. and Mrs."
+          - "Dr."
           - "Prof."
+          - "Senator"
+          - "Gov."
+          - "Congressman"
+          - "Hon."
+          - "Fr."
+          - "Sister"
+          - "Rabbi"
+          - "Reverend"
+          - "Fleet Admiral"
+          - "Admiral"
+          - "Vice Admiral"
+          - "Rear Admiral (upper half)"
+          - "Rear Admiral (lower half)"
+          - "Captain"
+          - "Commander"
+          - "Lieutenant Commander"
+          - "Lieutenant"
+          - "Lieutenant, Junior Grade"
+          - "Ensign"
+          - "Master Chief Petty Officer of the Navy"
+          - "Master Chief Petty Officer"
+          - "Senior Chief Petty Officer"
+          - "Chief Petty Officer"
+          - "Petty Officer First Class"
+          - "Petty Officer Second Class"
+          - "Petty Officer Third Class"
+          - "Seaman"
+          - "Seaman Apprentice"
+          - "Seaman Recruit"
+          - "Chief Warrant Officer"
+          - "Warrant Officer"
+          - "Sgt Major Of The Corps"
+          - "Sergeant Major"
+          - "Master Gunnery Sgt"
+          - "First Sergeant"
+          - "Master Sergeant"
+          - "Gunnery Sergeant"
+          - "Staff Sergeant"
+          - "Sergeant"
+          - "Corporal"
+          - "Lance Corporal"
+          - "Private First Class"
+          - "Private"
+          - "General of the Air Force"
+          - "General"
+          - "Lieutenant General"
+          - "Major General"
+          - "Brigadier General"
+          - "Colonel"
+          - "Lieutenant Colonel"
+          - "Major"
+          - "First Lieutenant"
+          - "Second Lieutenant"
+          - "Chief Master Sergeant of the Air Force"
+          - "Command  Chief Master Sergeant"
+          - "Chief Master Sergeant"
+          - "Senior Master Sergeant"
+          - "Technical Sergeant"
+          - "Senior Airman"
+          - "Airman First Class"
+          - "Airman"
       - name: state
         selector: "#state"
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
         required: Yes
         options: US_STATES_AND_TERRITORIES
-      - name: topic
-        selector: "#topic"
-        value: "$TOPIC"
+    - check:
+      - name: response
+        selector: "#response_y"
+        value: Yes
         required: Yes
-        options:
-          "Select an Issue": "null"
-          "Agriculture": "AGR"
-          "Animal Rights": "ANI"
-          "Appropriations": "APP"
-          "Arts and Humanities": "Art"
-          "Banking & Financial Services": "BNK"
-          "Budget": "BGT"
-          "Business and Commerce": "BUS"
-          "Campaign/Election Reform": "CAM"
-          "Casework": "CASE"
-          "Census": "CEN"
-          "Consumer Protection": "CON"
-          "Defense and Military": "DEF"
-          "Economic Development": "ECO"
-          "Education": "EDU"
-          "Energy": "ENE"
-          "Environment": "ENV"
-          "Ethics Reform": "ETH"
-          "Foreign Relations": "FOR"
-          "Grant Letters": "GRANT"
-          "Guns": "GUNS"
-          "Healthcare": "HEA"
-          "Homeland Security": "HSC"
-          "Housing and Urban Affairs": "HOU"
-          "Immigration": "IMM"
-          "Insurance Problems": "INS"
-          "Interior": "INT"
-          "Intelligence": "INTEL"
-          "Judiciary": "JUD"
-          "Labor": "LAB"
-          "Nutrition": "NUT"
-          "Other": "OTH"
-          "Postal Service": "POS"
-          "Science and Innovation": "SCI"
-          "Seniors": "SEN"
-          "Social Issues": "SOC"
-          "Taxes": "TAX"
-          "Technology and Telecom": "TEC"
-          "Tour Requests": "TOURS"
-          "Trade": "TRD"
-          "Transportation": "TRN"
-          "Veterans": "VET"
-          "Women and Children": "WOM"
     - click_on:
       - value: Submit
-        selector: ".submit-button"
+        selector: "#side-search-btn"
   success:
     headers:
       status: 200
     body:
-      contains: "your message has been received"
+      contains: "Thank you for contacting me."

@@ -6,7 +6,7 @@ contact_form:
     - visit: http://www.heitkamp.senate.gov/contact.cfm
     - fill_in:
       - name: firstName
-        selector: "$firstName"
+        selector: "#firstName"
         value: "$NAME_FIRST"
         required: Yes
       - name: lastName
@@ -115,10 +115,10 @@ contact_form:
           - "The Honorable"
           - "Representative"
           - "Senator"
-    - name: state
-      selector: "#state"
-      value: "$ADDRESS_STATE"
-      options: US_STATES_AND_MPCS
+      - name: state
+        selector: "#state"
+        value: "$ADDRESS_STATE"
+        options: US_STATES_AND_MPCS
     - click_on:
       - value: Send
         selector: "#submit"

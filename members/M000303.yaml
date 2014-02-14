@@ -1,112 +1,113 @@
 bioguide: M000303
 contact_form:
   method: POST
-  action: home/contact/webformActionIAV2.cfm
+  action: http://www.mccain.senate.gov/public/index.cfm/contact-form
   steps:
-    - visit: http://www.mccain.senate.gov/public/index.cfm?FuseAction=Contact.ContactForm
+    - visit: http://www.mccain.senate.gov/public/index.cfm/contact-form
     - fill_in:
-      - name: firstName
-        selector: "#firstName"
+      - name: field_d5a73635-88fa-4b32-b8b5-274d2f97d77e
+        selector: "#field_d5a73635-88fa-4b32-b8b5-274d2f97d77e"
         value: "$NAME_FIRST"
         required: Yes
-      - name: lastName
-        selector: "#lastName"
+      - name: field_530365c1-9d19-4874-8e05-15cf67df77fa
+        selector: "#field_530365c1-9d19-4874-8e05-15cf67df77fa"
         value: "$NAME_LAST"
         required: Yes
-      - name: Address1
-        selector: "#Address1"
+      - name: field_9f996d75-2053-4808-a6cb-fa827927f477
+        selector: "#field_9f996d75-2053-4808-a6cb-fa827927f477"
         value: "$ADDRESS_STREET"
         required: Yes
-      - name: Address2
-        selector: "#Address2"
+      - name: field_e6cb6a76-6a8f-4611-927b-ca2b46c7b911
+        selector: "#field_e6cb6a76-6a8f-4611-927b-ca2b46c7b911"
         value: "$ADDRESS_STREET_2"
-      - name: city
-        selector: "#city"
+      - name: field_cdb2c870-0a38-4862-9ba2-83b5e7099e4c
+        selector: "#field_cdb2c870-0a38-4862-9ba2-83b5e7099e4c"
         value: "$ADDRESS_CITY"
         required: Yes
-      - name: zip
-        selector: "#zip"
+      - name: field_edcb31bc-046a-4ced-af15-678947ac8be8
+        selector: "#field_edcb31bc-046a-4ced-af15-678947ac8be8"
         value: "$ADDRESS_ZIP5"
         required: Yes
-      - name: homePhone
-        selector: "#homePhone"
+      - name: field_47697f5b-b18a-4d75-a6eb-0b5d92cd9ee5
+        selector: "#field_47697f5b-b18a-4d75-a6eb-0b5d92cd9ee5"
         value: "$PHONE"
-      - name: workPhone
-        selector: "#workPhone"
+      - name: field_c3328bb8-9b28-4dd9-8db4-a758a4cb35e4
+        selector: "#field_c3328bb8-9b28-4dd9-8db4-a758a4cb35e4"
         value: "$PHONE"
-      - name: email
-        selector: "#email"
+      - name: field_775ed1f8-c016-4685-9e4f-785268d148a6
+        selector: "#field_775ed1f8-c016-4685-9e4f-785268d148a6"
         value: "$EMAIL"
         required: Yes
-      - name: MessageBody
-        selector: ".textarea"
+      - name: field_5d52282e-1edb-4cd7-abb8-5f940bdb0ea1
+        selector: "#field_5d52282e-1edb-4cd7-abb8-5f940bdb0ea1"
         value: "$MESSAGE"
         required: Yes
     - select:
-      - name: Prefix
-        selector: "#thisForm select[name='Prefix']"
+      - name: field_fabf1d80-94c6-4e2f-a4b6-6a1ffd08b5c4
+        selector: "#field_fabf1d80-94c6-4e2f-a4b6-6a1ffd08b5c4"
         value: "$NAME_PREFIX"
         required: Yes
         options:
-          " Mr. ": "Mr."
-          " Mrs. ": "Mrs."
-          " Ms. ": "Ms."
-          " Mr. and Mrs. ": "Mr. and Mrs."
-          " Dr. ": "Dr."
-          " Dr. and Mrs. ": "Dr. and Mrs."
-          " Reverend ": "Reverend"
-          " Sister ": "Sister"
-          " Pastor ": "Pastor"
-          " The Honorable ": "The Honorable"
-          " Representative ": "Representative"
-          " Senator ": "Senator"
-      - name: State
-        selector: "#thisForm select[name='State']"
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Reverend"
+          - "Sister"
+          - "Pastor"
+          - "The Honorable"
+          - "Representative"
+          - "Senator"
+      - name: field_aa5ae151-f62d-4151-af76-58a5be236f25
+        selector: "#field_aa5ae151-f62d-4151-af76-58a5be236f25"
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
         required: Yes
         options: US_STATES_AND_TERRITORIES
-      - name: Subject
-        selector: "#thisForm select[name='Subject']"
+      - name: field_7a47a752-056a-4df4-9782-5782f68587c0
+        selector: "#field_7a47a752-056a-4df4-9782-5782f68587c0"
         value: "$TOPIC"
         required: Yes
         options:
-          "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": "Agriculture"
-          "\n\t\t\t\t\t\t\tAppropriations\n\t\t\t\t\t\t": "Appropriations"
-          "\n\t\t\t\t\t\t\tBanking & Finance\n\t\t\t\t\t\t": "Banking & Finance"
-          "\n\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t": "Budget"
-          "\n\t\t\t\t\t\t\tCommerce & Business\n\t\t\t\t\t\t": "Commerce & Business"
-          "\n\t\t\t\t\t\t\tCommunications\n\t\t\t\t\t\t": "Communications"
-          "\n\t\t\t\t\t\t\tCrime\n\t\t\t\t\t\t": "Crime"
-          "\n\t\t\t\t\t\t\tDefense\n\t\t\t\t\t\t": "Defense"
-          "\n\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t": "Economy"
-          "\n\t\t\t\t\t\t\tEducation\n\t\t\t\t\t\t": "Education"
-          "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": "Energy"
-          "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": "Environment"
-          "\n\t\t\t\t\t\t\tForeign Affairs\n\t\t\t\t\t\t": "Foreign Affairs"
-          "\n\t\t\t\t\t\t\tForeign Trade\n\t\t\t\t\t\t": "Foreign Trade"
-          "\n\t\t\t\t\t\t\tHealth\n\t\t\t\t\t\t": "Health"
-          "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": "Housing"
-          "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": "Immigration"
-          "\n\t\t\t\t\t\t\tIndian Affairs\n\t\t\t\t\t\t": "Indian Affairs"
-          "\n\t\t\t\t\t\t\tInterior\n\t\t\t\t\t\t": "Interior"
-          "\n\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t": "Judiciary"
-          "\n\t\t\t\t\t\t\tLabor\n\t\t\t\t\t\t": "Labor"
-          "\n\t\t\t\t\t\t\tMedicare\n\t\t\t\t\t\t": "Medicare"
-          "\n\t\t\t\t\t\t\tPostal Service\n\t\t\t\t\t\t": "Postal Service"
-          "\n\t\t\t\t\t\t\tScience & Technology\n\t\t\t\t\t\t": "Science & Technology"
-          "\n\t\t\t\t\t\t\tEagle Scout\n\t\t\t\t\t\t": "Eagle Scout"
-          "\n\t\t\t\t\t\t\tSmall Business\n\t\t\t\t\t\t": "Small Business"
-          "\n\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t": "Social Security"
-          "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": "Taxes"
-          "\n\t\t\t\t\t\t\tThank You\n\t\t\t\t\t\t": "Thank You"
-          "\n\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t": "Transportation"
-          "\n\t\t\t\t\t\t\tVeterans Affairs\n\t\t\t\t\t\t": "Veterans Affairs"
-          "\n\t\t\t\t\t\t\tWildlife\n\t\t\t\t\t\t": "Wildlife"
+          "2nd Amendment": "JUGU"
+          "Agriculture": "AGGE"
+          "Appropriations": "APGE"
+          "Banking and Finance": "BAGE"
+          "Budget": "BUGE"
+          "Commerce and Business": "CBGE"
+          "Communications": "CMGE"
+          "Crime": "CRGE"
+          "Defense": "DEGE"
+          "Economy": "ECGE"
+          "Education": "EDGE"
+          "Energy": "ERGE"
+          "Environment": "EVGE"
+          "Foreign Affairs": "FOGE"
+          "Foreign Trade": "FTGE"
+          "Health": "HEGE"
+          "Housing": "HOGE"
+          "Immigration": "IMGE"
+          "Indian Affairs": "INGE"
+          "Interior": "ITGE"
+          "Judiciary": "JUGE "
+          "Labor": "LAGE"
+          "Medicare": "MEGE"
+          "Postal Service": "POGE"
+          "Science and Technology": "SIGE"
+          "Eagle Scout": "SCEA"
+          "Small Business": "SMGE"
+          "Social Security": "SOGE"
+          "Taxes": "TAGE"
+          "Thank You": "THGE"
+          "Transportation": "TRGE"
+          "Veterans Affairs": "VAGE"
+          "Wildlife": "WIGE"
     - click_on:
       - value: Submit
-        selector: "#thisForm input[type='submit']"
+        selector: ".btn-primary"
   success:
     headers:
       status: 200
     body:
-      contains: "Your comment has been submitted"
+      contains: "Thank You!"

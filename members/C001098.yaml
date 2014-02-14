@@ -3,7 +3,7 @@ contact_form:
   method: POST
   action: http://www.cruz.senate.gov/webformActionVoiceV2.cfm
   steps:
-    - visit: http://www.cruz.senate.gov/contact.cfm
+    - visit: http://www.cruz.senate.gov/?p=email_senator
     - fill_in:
       - name: firstName
         selector: "#firstName"
@@ -26,7 +26,7 @@ contact_form:
         required: Yes
       - name: zip
         selector: "#zip"
-        value: $ADDRESS_ZIP
+        value: $ADDRESS_ZIP5
         required: Yes
       - name: phone
         selector: "#phone"
@@ -54,14 +54,26 @@ contact_form:
           - Mrs.
           - Ms.
           - Mr. and Mrs.
+          - Miss
           - Dr.
           - Dr. and Mrs.
+          - Dr. and Mr.
+          - Admiral
+          - Captain
+          - Chief Master Sergeant
+          - Colonel
+          - Commander
+          - Corporal
+          - Father
+          - Lieutenant
+          - Lieutenant Colonel
+          - Master Sergeant
           - Reverend
+          - Sergeant
+          - Second Lieutenant
+          - ergeant Major
           - Sister
-          - Pastor
-          - The Honorable
-          - Representative
-          - Senator
+          - Technical Sergeant
       - name: State
         selector: "#thisForm select[name='State']"
         value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -80,55 +92,49 @@ contact_form:
           - Appropriations
           - Banking
           - Campaign Finance
-          - Children
+          - Children/Family
           - Civil Rights
           - Commerce
           - Communications
-          - Congratulations
-          - Congressional Issues
           - Crime
-          - Defense
+          - Defense/Military
           - Drugs
-          - Ecomony
-          - Education Higher
-          - Education K through 12
+          - Economy
+          - Education - K/12
+          - Education - Higher
           - Elections
           - Energy
           - Environment
-          - Family
           - Food Stamps
-          - Foreign Affairs
-          - Gun Control
-          - Health
+          - Foreign Policy
+          - Health Care
           - Homeland Security
           - Housing
           - Immigration
-          - Inauguration
-          - Insurance Health
-          - Insurance Other
-          - Interior
-          - Iran
-          - Iraq
+          - Insurance - Health
+          - Insurance - Other
           - Judiciary
           - Labor
           - Medicaid
           - Medicare
-          - Military
           - NASA
           - Nutrition
-          - Other
           - Patents
           - Pensions
+          - Religion
+          - Second Amendment
           - Securities
           - Small Business
           - Social Security
           - Taxes
+          - Tenth Amendment
           - Tobacco
           - Trade
           - Transportation
-          - Veterans
+          - Veterans Affairs
           - Welfare
           - Women's Issues
+          - Other
     - click_on:
       - value: Submit
         selector: "#thisForm input[type='submit']"

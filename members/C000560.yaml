@@ -114,9 +114,14 @@ contact_form:
           - "VET"
           - "WAR"
           - "WEL"
+    - choose:
+      - name: "field_d401e225-88e5-407f-8efa-da1a2e2b979e"
+        selector: "#field_d401e225-88e5-407f-8efa-da1a2e2b979e_1"
+        value: "Y"
+        required: Yes
     - click_on:
       - value: Submit
-        selector: "input"
+        selector: ".uniForm input[type='submit']"
   success:
     headers:
       status: 200

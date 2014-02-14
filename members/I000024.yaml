@@ -55,7 +55,7 @@ contact_form:
         value: $ADDRESS_CITY
         required: Yes
       - name: mailing_zipCode
-        selector: "#mailing_zipcode"
+        selector: "#mailing_zipCode"
         value: $ADDRESS_ZIP5
         required: Yes
       - name: home_phone_number
@@ -158,7 +158,7 @@ contact_form:
         options: US_STATES
     - click_on:
       - value: "Submit"
-        selector: "input.btn_right[value=Submit]"
+        selector: "input.btn.right[value=Submit]"
   success:
     headers:
       status: 200

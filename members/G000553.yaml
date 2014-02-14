@@ -1,0 +1,105 @@
+bioguide: G000553
+contact_form:
+  method: POST
+  action: "https://algreen.house.gov/htbin/formproc_za/zip-auth.txt&amp;form=/contact-me/email-me-zip-authenticated&amp;nobase&amp;fpGetVer=2"
+  steps:
+    - visit: https://algreen.house.gov/contact-me/email-me
+    - fill_in:
+      - name: required-zip5
+        selector: "#required-zip5"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: zip4
+        selector: "#zip4"
+        value: $ADDRESS_ZIP4
+    - click_on:
+      - value: "Go To Next Step"
+        selector: "#submit"
+    - find:
+      - selector: "#contactForm"
+    - fill_in:
+      - name: prefix
+        selector: "#prefix"
+        value: $NAME_PREFIX
+      - name: required-first
+        selector: "#required-first"
+        value: $NAME_FIRST
+        required: Yes
+      - name: required-last
+        selector: "#required-last"
+        value: $NAME_LAST
+        required: Yes
+      - name: required-address
+        selector: "#required-address"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: address2
+        selector: "#address2"
+        value: $ADDRESS_STREET_2
+      - name: required-city
+        selector: "#required-city"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: required-valid-email
+        selector: "#required-valid-email"
+        value: $EMAIL
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: $PHONE
+      - name: required-subject
+        selector: "#required-subject"
+        value: $SUBJECT
+        required: Yes
+      - name: required-message
+        selector: "#required-message"
+        value: $MESSAGE
+        required: Yes
+    - select:
+      - name: required-issue
+        selector: "#required-issue"
+        value: $TOPIC
+        required: Yes
+        options:
+          "Agriculture": "AGRI"
+          "Animals": "ANML"
+          "Arts and Humanities": "ART"
+          "Banking and Finance": "BANK"
+          "Budget and Economy": "BUD"
+          "Campaign Finance Reform": "CF"
+          "Congress and Elections": "CMPN"
+          "District of Columbia--Tours": "TOUR"
+          "Defense and Military": "DEF"
+          "Education": "EDU"
+          "Energy": "ENR"
+          "Environment": "ENV"
+          "Federal Employees": "OTH"
+          "Foreign Relations": "FAFF"
+          "Guns": "GUNS"
+          "Health": "HLTH"
+          "Housing and Urban Development": "HOUS"
+          "Immigration": "IMM"
+          "Judiciary": "JUD"
+          "Labor": "LBR"
+          "LGBT": "LGBT"
+          "Post Office": "POST"
+          "Science and Technology": "SCI"
+          "Senior Citizens": "SNR"
+          "Social Security": "SS"
+          "Social Services": "OTH"
+          "Taxes": "TAX"
+          "Telecommunications": "TELE"
+          "Transportation": "TRANS"
+          "Trade": "TRD"
+          "Veterans": "VET"
+          "Women's Issues": "WOM"
+          "Other Issues": "OTH"
+    - click_on:
+      - value: "Send Email"
+        selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank"
+

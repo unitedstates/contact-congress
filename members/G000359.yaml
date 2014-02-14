@@ -1,7 +1,7 @@
 bioguide: G000359
 contact_form:
   method: POST
-  action: http://www.senate.gov/cgi-bin/webform.iq2
+  action: http://www.lgraham.senate.gov/public/index.cfm?FuseAction=Contact.EmailSenatorGraham
   steps:
     - visit: http://www.lgraham.senate.gov/public/index.cfm?FuseAction=Contact.EmailSenatorGraham
     - fill_in:
@@ -62,6 +62,7 @@ contact_form:
           - "Father"
           - "The Honorable"
           - "Rabbi"
+          - "---Army---"
           - "General of the Army"
           - "General, Army Chief of Staff"
           - "Major General"
@@ -89,6 +90,7 @@ contact_form:
           - "Specialist"
           - "Private First Class"
           - "Private"
+          - "---Navy---"
           - "Fleet Admiral"
           - "Admiral, Chief of Naval Operations"
           - "Vice Admiral"
@@ -115,6 +117,7 @@ contact_form:
           - "Seaman"
           - "Seaman Apprentice"
           - "Seaman Recruit"
+          - "---Marines---"
           - "General, Commandant of the Marine Corps"
           - "Lieutenant General"
           - "Major General"
@@ -142,6 +145,7 @@ contact_form:
           - "Lance Corporal"
           - "Private First Class"
           - "Private"
+          - "---Air Force---"
           - "General of the Air Force"
           - "General, Air Force Chief of Staff"
           - "Lieutenant General"
@@ -165,6 +169,7 @@ contact_form:
           - "Airman First Class"
           - "Airman Basic"
           - "Airman Basic"
+          - "---Coast Guard---"
           - "Admiral, Commandant of the Coast Guard"
           - "Vice Admiral"
           - "Rear Admiral"
@@ -189,55 +194,59 @@ contact_form:
           - "Airman, Fireman, or Seaman Apprentice"
           - "Airman, Fireman, or Seaman Recruit"
       - name: G01
-        selector: "#G01"
+        selector: "select[name='G01']"
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
         required: Yes
-        options: US_STATES_AND_MPCS
+        options: US_STATES_AND_TERRITORIES
       - name: J01
-        selector: "#J01"
+        selector: "select[name='J01']"
         value: "$TOPIC"
         required: Yes
         options:
-          - "Abortion": "Abortion"
-          - "Agriculture": "AG"
-          - "Aviation": "AIR"
-          - "Border Security/Immigration": "IMM"
-          - "Campaign Finance": "CF"
-          - "Defense/Military": "DEF"
-          - "Economy": "ECONOMY"
-          - "Education": "ED"
-          - "Energy": "EN"
-          - "Environment": "ENV"
-          - "Ethics": "ETHICS"
-          - "Federal Budget": "BUD"
-          - "Federal Emergency Management Agency": "FEMA"
-          - "Financial Services": "FINANCE"
-          - "Gun Control": "GUN"
-          - "Health- General": "HEA"
-          - "Health- Medicare": "HEA"
-          - "Health- Medicaid": "HEA"
-          - "Homeland Security/Terrorism": "NATL SEC"
-          - "Housing": "HOUSING"
-          - "Internship": "INTERN"
-          - "International Relations": "IR"
-          - "Judicial Nominations/Supreme Court": "JUDICIARY"
-          - "Labor": "LAB"
-          - "Pensions": "PENSIONS"
-          - "Postal Issues": "POSTAL"
-          - "Social Security and Pensions": "SSA"
-          - "Taxes": "TAX"
-          - "Telecommunications": "TELECOM"
-          - "Trade": "TRADE"
-          - "Transportation Authorization": "TRAN"
-          - "Veterans Affairs": "VET"
-          - "Welfare": "WELF"
+          "Please select one": "Please select one"
+          "Abortion": "Abortion"
+          "Agriculture": "AG"
+          "Aviation": "AIR"
+          "Border Security/Immigration": "IMM"
+          "Campaign Finance": "CF"
+          "Defense/Military": "DEF"
+          "Economy": "ECONOMY"
+          "Education": "ED"
+          "Energy": "EN"
+          "Environment": "ENV"
+          "Ethics": "ETHICS"
+          "Federal Budget": "BUD"
+          "Federal Emergency Management Agency": "FEMA"
+          "Financial Services": "FINANCE"
+          "Gun Control": "GUN"
+          "Health- General": "HEA"
+          "Health- Medicare": "HEA"
+          "Health- Medicaid": "HEA"
+          "Homeland Security/Terrorism": "NATL SEC"
+          "Housing": "HOUSING"
+          "Internship": "INTERN"
+          "International Relations": "IR"
+          "Judicial Nominations/Supreme Court": "JUDICIARY"
+          "Labor": "LAB"
+          "Pensions": "PENSIONS"
+          "Postal Issues": "POSTAL"
+          "Social Security and Pensions": "SSA"
+          "Taxes": "TAX"
+          "Telecommunications": "TELECOM"
+          "Trade": "TRADE"
+          "Transportation Authorization": "TRAN"
+          "Veterans Affairs": "VET"
+          "Welfare": "WELF"
       - name: J15
-        selector: "#J15"
-        value: "Yes, I would like a written response."
+        selector: "select[name='J15']"
+        value: Yes
         required: Yes
+        options:
+          "Yes, I would like a written response.": "Yes, I would like a written response."
+          "No, I am just passing my comments along.": "No, I am just passing my comments along."
     - click_on:
       - value: Submit
-        selector: "#CFForm_1 input[type='submit']"
+        selector: ".buttonContact[type='submit']"
   success:
     headers:
       status: 200

@@ -32,7 +32,7 @@ contact_form:
         selector: "#phone_number"
         value: "$PHONE"
       - name: email
-        selector: "#email_address"
+        selector: "#contactForm input[name='email']"
         value: "$EMAIL"
         required: Yes
       - name: verify_email
@@ -291,7 +291,7 @@ contact_form:
           "Website Issues (Problems/Questions Using This Website)": "Website Issues"
     - click_on:
       - value: Submit
-        selector: "#contactForm .rollover"
+        selector: "#contactForm #side-search-btn"
   success:
     headers:
       status: 200

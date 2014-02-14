@@ -1,0 +1,119 @@
+bioguide: B001269
+contact_form:
+  method: POST
+  action: "https://barletta.house.gov/index.cfm?sectionid=58"
+  steps:
+    - visit: "https://barletta.house.gov/index.cfm?sectionid=58&amp;sectiontree=2,58"
+    - fill_in:
+      - name: firstname
+        selector: "#req_firstname"
+        value: $NAME_FIRST
+        required: Yes
+      - name: lastname
+        selector: "#req_lastname"
+        value: $NAME_LAST
+        required: Yes
+      - name: street
+        selector: "#req_street"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: street2
+        selector: "input[name=street2]"
+        value: $ADDRESS_STREET_2
+      - name: city
+        selector: "#req_city"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: zipcode
+        selector: "#req_zip"
+        value: $ADDRESS_ZIP5
+        required:
+      - name: zipfour
+        selector: "#zip2"
+        value: $ADDRESS_ZIP4
+      - name: eamiladdress
+        selector: "#req_email"
+        value: $EMAIL
+        required: Yes
+      - name: phone
+        selector: "input[name=phone]"
+        value: $PHONE
+      - name: message
+        selector: "#req_message"
+        value: $MESSAGE
+        required: Yes
+    - select:
+      - name: prefix
+        selector: "#req_prefix"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+          "Mr.": "Mr. "
+          "Mrs.": "Mrs."
+          "Ms.": "Ms."
+          "Miss": "Miss"
+          "Dr.": "Dr."
+          "Hon.": "Hon."
+          "Rev.": "Rev."
+          "Rabbi": "Rabbi"
+      - name: state
+        selector: "#req_state"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        options: US_STATES
+      - name: subject
+        selector: "#req_subject"
+        value: $TOPIC
+        required: Yes
+        options:
+          "Help with Federal Agency": "CW"
+          "Grant Information": "GRANTS"
+          "Military Academy Nomination": "MILAPS"
+          "Abortion": "ABORT"
+          "Animal Issues": "ANIMALS"
+          "Budget": "BUDGET"
+          "Children": "CHILDREN"
+          "Civil Liberties": "CIV_LIB"
+          "Civil Rights": "CIV_RTS"
+          "Congratulations": "CONGRATS"
+          "Congress and Executive": "CONG_EXEC"
+          "Crime": "CRIME"
+          "Defense": "DEFENSE"
+          "Economy": "ECONOMY"
+          "Education": "EDDUCATION"
+          "Energy": "ENERGY"
+          "Environment": "ENVIRONMENT"
+          "Foreign Affairs": "FOREIGN_AFFFAIRS"
+          "Gun Control": "GUN_CONTROL"
+          "Health": "HEALTH"
+          "Homeland Security": "HOMELAND_SECURITY"
+          "Immigration": "IMMIGRATION"
+          "Iraq": "IRAQ"
+          "Judiciary": "JUDICIARY"
+          "Labor": "LABOR"
+          "Other": "OTHER"
+          "Pension Issues": "PENSION"
+          "Science and Technology": "SCI"
+          "Small Business Issues": "SMALL BUS"
+          "Social Security": "SS"
+          "Taxes": "TAXES"
+          "Telecommunications": "TELECOM"
+          "Thank You": "THANK_YOU"
+          "Transportation": "TRANSPO"
+          "Trade": "TRD"
+          "Veterans": "VET"
+          "Welfare": "WELF"
+      - name: response
+        selector: "#req_response"
+        value: "Y"
+        required: Yes
+        options:
+          "I do not need a response.": "N"
+          "I would like a response.": "Y"
+    - click_on:
+      - value: "Submit"
+        selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank"

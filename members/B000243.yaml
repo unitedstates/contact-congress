@@ -67,7 +67,7 @@ contact_form:
         value: ""
     - select:
       - name: Prefix
-        selector: "#thisForm :nth-child(3) select"
+        selector: "#thisForm select[name='Prefix']"
         value: "$NAME_PREFIX"
         required: Yes
         options:
@@ -107,12 +107,12 @@ contact_form:
           " The Honorable ": "The Honorable"
           " Warrant Officer ": "Warrant Officer"
       - name: State
-        selector: ":nth-child(36) select"
+        selector: "#thisForm select[name='State']"
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
         required: Yes
         options: US_STATES_AND_TERRITORIES
       - name: Subject
-        selector: "select:nth-child(4)"
+        selector: "#thisForm select[name='Subject']"
         value: "$TOPIC"
         required: Yes
         options:
@@ -155,7 +155,7 @@ contact_form:
           "\n\t\t\t\t\t\t\tWashington DC Invitation\n\t\t\t\t\t\t": "Washington DC Invitation"
     - click_on:
       - value: Submit
-        selector: ".submit:nth-child(2)"
+        selector: "#thisForm input[type='submit']"
   success:
     headers:
       status: 200
