@@ -31,16 +31,17 @@
 - id: trolling-effects
   numbers:
     - 415-419-8672
-  target_house: true
-  target_senate: false
-  target_house_first: true
-  msg_intro: http://tfrce.s3.amazonaws.com/te-call-intro.mp3
-  msg_ask_zip: http://tfrce.s3.amazonaws.com/te-call-askzip.mp3
-  msg_invalid_zip: http://tfrce.s3.amazonaws.com/te-call-zipagain.mp3
-  msg_call_block_intro: http://tfrce.s3.amazonaws.com/te-call-precall.mp3
-  msg_rep_intro: Connecting you to {{name}}
-  msg_between_thanks: ~
-  msg_final_thanks: http://tfrce.s3.amazonaws.com/te-call-thanks.mp3
+  target_house: false
+  target_senate: true
+  target_house_first: false
+  msg_intro: http://tfrce.s3.amazonaws.com/trolling-effects/msg_intro.mp3
+  msg_ask_zip: http://tfrce.s3.amazonaws.com/trolling-effects/msg_ask_zip.mp3
+  msg_invalid_zip: http://tfrce.s3.amazonaws.com/trolling-effects/msg_invalid_zip.mp3
+  msg_call_block_intro: http://tfrce.s3.amazonaws.com/trolling-effects/msg_call_block_intro.mp3
+  msg_rep_intro: We're now connecting you to {{name}}. Press star once you're done.
+  msg_between_thanks: http://tfrce.s3.amazonaws.com/trolling-effects/msg_between_thanks.mp3
+  msg_final_thanks: http://tfrce.s3.amazonaws.com/trolling-effects/msg_final_thanks.mp3
+
 
 - id: stop-fast-track
   numbers:
