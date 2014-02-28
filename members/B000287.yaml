@@ -1,16 +1,16 @@
-bioguide:B000287
-contact_form:https://forms.house.gov/becerra/webforms/issue_subscribe.html
-  method:POST
-  action:"https://forms.house.gov/htbin/formproc_za/becerra/webforms/issue_subscribe_parm.txt&amp;form=/becerra/webforms/issue_subscribe_verify_test.html"
+bioguide: B000287
+contact_form:
+  method: POST
+  action: "https://forms.house.gov/htbin/formproc_za/becerra/webforms/issue_subscribe_parm.txt&amp;form=/becerra/webforms/issue_subscribe_verify_test.html"
   steps:
-    - visit:https://forms.house.gov/becerra/webforms/issue_subscribe.html
+    - visit: https://forms.house.gov/becerra/webforms/issue_subscribe.html
     - fill_in:
-      - name:required-first
-        selector:"#first_name"
+      - name: required-first
+        selector: "#first_name"
         value: $NAME_FIRST
         required: Yes
-      - name:required-last
-        selector:"#last_name"
+      - name: required-last
+        selector: "#last_name"
         value: $NAME_LAST
         required: Yes
       - name: required-address
@@ -30,10 +30,10 @@ contact_form:https://forms.house.gov/becerra/webforms/issue_subscribe.html
         value: $ADDRESS_ZIP4
         required: Yes
       - name: required-phone
-        selector: "input[name=required-phone]"
+        selector: "input[name='required-phone']"
         value: $PHONE
       - name: required-email
-        selector: "input[name=required-email]"
+        selector: "input[name='required-email']"
         value: $EMAIL
         required: Yes
       - name: required-message
@@ -41,12 +41,12 @@ contact_form:https://forms.house.gov/becerra/webforms/issue_subscribe.html
         value: $MESSAGE
     - choose:
       - name: affl1
-        selector: "input[type='radio'][name=affl1]"
-        value: "Delete"
+        selector: "input[type='radio'][name='affl1']"
+        value: ""
         required: Yes
     - select:
       - name: required-prefix
-        selector: "select[name=required-prefix]"
+        selector: "select[name='required-prefix']"
         value: $NAME_PREFIX
         required: Yes
         options:
@@ -58,7 +58,7 @@ contact_form:https://forms.house.gov/becerra/webforms/issue_subscribe.html
         - "Sister"
         - "Father"
       - name: required-state
-        selector: "select[name=required-state]"
+        selector: "select[name='required-state']"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
         options:
