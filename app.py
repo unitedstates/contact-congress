@@ -1,28 +1,54 @@
+from gevent.monkey import patch_all
+patch_all()
+
 import random
 import urlparse
 
+from datetime import datetime, timedelta
+
+import pystache
 import twilio.twiml
 
-from flask import Flask, request, render_template, url_for
-from flask.ext.jsonpify import jsonify
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask import (abort, after_this_request, Flask, request, render_template,
+                   url_for)
+from flask_cache import Cache
+from flask_jsonpify import jsonify
 from raven.contrib.flask import Sentry
 from twilio import TwilioRestException
 
-from models import aggregate_stats, log_call, call_count
-from utils import play_or_say
+from models import db, aggregate_stats, log_call, call_count
 from political_data import PoliticalData
 
 app = Flask(__name__)
 
 app.config.from_object('config.ConfigProduction')
 
-db = SQLAlchemy(app)
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 sentry = Sentry(app)
+
+db.init_app(app)
 
 call_methods = ['GET', 'POST']
 
 data = PoliticalData()
+
+
+def make_cache_key(*args, **kwargs):
+    path = request.path
+    args = str(hash(frozenset(request.args.items())))
+
+    return (path + args).encode('utf-8')
+
+
+def play_or_say(resp_or_gather, msg_template, **kwds):
+    # take twilio response and play or say a mesage
+    # can use mustache templates to render keword arguments
+    msg = pystache.render(msg_template, kwds)
+
+    if msg.startswith('http'):
+        resp_or_gather.play(msg)
+    elif msg:
+        resp_or_gather.say(msg)
 
 
 def full_url_for(route, **kwds):
@@ -40,6 +66,9 @@ def parse_params(r):
 
     # lookup campaign by ID
     campaign = data.get_campaign(params['campaignId'])
+
+    if not campaign:
+        return None, None
 
     # add repIds to the parameter set, if spec. by the campaign
     if campaign.get('repIds', None):
@@ -76,14 +105,6 @@ def zip_gather(resp, params, campaign):
     return str(resp)
 
 
-def dialing_config(params):
-    return dict(
-        timeLimit=app.config['TW_TIME_LIMIT'],
-        timeout=app.config['TW_TIMEOUT'],
-        hangupOnStar=True,  # allow the user to hangup and move onto next call
-        action=url_for('call_complete', **params))
-
-
 def make_calls(params, campaign):
     """
     Connect a user to a sequence of congress members.
@@ -106,6 +127,9 @@ def make_calls(params, campaign):
 def _make_calls():
     params, campaign = parse_params(request)
 
+    if not params or not campaign:
+        abort(404)
+
     return make_calls(params, campaign)
 
 
@@ -123,11 +147,14 @@ def call_user():
     # parse the info needed to make the call
     params, campaign = parse_params(request)
 
+    if not params or not campaign:
+        abort(404)
+
     # initiate the call
     try:
         call = app.config['TW_CLIENT'].calls.create(
             to=params['userPhone'],
-            from_=campaign['number'],
+            from_=random.choice(campaign['numbers']),
             url=full_url_for("connection", **params),
             timeLimit=app.config['TW_TIME_LIMIT'],
             timeout=app.config['TW_TIMEOUT'],
@@ -153,6 +180,9 @@ def connection():
         repIds (if not present go to incoming_call flow and asked for zipcode)
     """
     params, campaign = parse_params(request)
+
+    if not params or not campaign:
+        abort(404)
 
     if params['repIds']:
         resp = twilio.twiml.Response()
@@ -182,6 +212,9 @@ def incoming_call():
     """
     params, campaign = parse_params(request)
 
+    if not params or not campaign:
+        abort(404)
+
     return intro_zip_gather(params, campaign)
 
 
@@ -192,6 +225,10 @@ def zip_parse():
     Required Params: campaignId, Digits
     """
     params, campaign = parse_params(request)
+
+    if not params or not campaign:
+        abort(404)
+
     zipcode = request.values.get('Digits', '')
     rep_ids = data.locate_member_ids(zipcode, campaign)
 
@@ -213,6 +250,10 @@ def zip_parse():
 @app.route('/make_single_call', methods=call_methods)
 def make_single_call():
     params, campaign = parse_params(request)
+
+    if not params or not campaign:
+        abort(404)
+
     i = int(request.values.get('call_index', 0))
     params['call_index'] = i
     member = [l for l in data.legislators
@@ -231,10 +272,13 @@ def make_single_call():
         play_or_say(resp, campaign['msg_rep_intro'], name=full_name)
 
     if app.debug:
-        print u'DEBUG: Call #{}, {} ({}) from make_single_call()'.format(
-            i, full_name, congress_phone)
+        print u'DEBUG: Call #{}, {} ({}) from {} in make_single_call()'.format(
+            i, full_name, congress_phone, params['userPhone'])
 
-    resp.dial(congress_phone, **dialing_config(params))
+    resp.dial(congress_phone, callerId=params['userPhone'],
+              timeLimit=app.config['TW_TIME_LIMIT'],
+              timeout=app.config['TW_TIMEOUT'], hangupOnStar=True,
+              action=url_for('call_complete', **params))
 
     return str(resp)
 
@@ -243,7 +287,10 @@ def make_single_call():
 def call_complete():
     params, campaign = parse_params(request)
 
-    log_call(db, params, campaign, request)
+    if not params or not campaign:
+        abort(404)
+
+    log_call(params, campaign, request)
 
     resp = twilio.twiml.Response()
 
@@ -266,31 +313,50 @@ def call_complete():
 @app.route('/call_complete_status', methods=call_methods)
 def call_complete_status():
     # asynch callback from twilio on call complete
-    params, campaign = parse_params(request)
+    params, _ = parse_params(request)
 
-    return jsonify(dict(
-        phoneNumber=request.values.get('To', ''),
-        callStatus=request.values.get('CallStatus', 'unknown'),
-        repIds=params['repIds'],
-        campaignId=params['campaignId']))
+    if not params:
+        abort(404)
+
+    return jsonify({
+        'phoneNumber': request.values.get('To', ''),
+        'callStatus': request.values.get('CallStatus', 'unknown'),
+        'repIds': params['repIds'],
+        'campaignId': params['campaignId']
+    })
 
 
 @app.route('/demo')
 def demo():
     return render_template('demo.html')
 
+
+@cache.cached(timeout=60)
 @app.route('/count')
 def count():
-    return jsonify(call_count(db))
+    @after_this_request
+    def add_expires_header(response):
+        expires = datetime.utcnow()
+        expires = expires + timedelta(seconds=60)
+        expires = datetime.strftime(expires, "%a, %d %b %Y %H:%M:%S GMT")
+
+        response.headers['Expires'] = expires
+
+        return response
+
+    campaign = request.values.get('campaign', 'default')
+
+    return jsonify(campaign=campaign, count=call_count(campaign))
 
 
+@cache.cached(timeout=60, key_prefix=make_cache_key)
 @app.route('/stats')
 def stats():
-    pwd = request.values.get('password', None)
-    campaign = data.get_campaign(request.values.get('campaignId', 'default'))
+    password = request.values.get('password', None)
+    campaign = request.values.get('campaign', 'default')
 
-    if pwd == app.config['SECRET_KEY']:
-        return jsonify(aggregate_stats(campaign['id']))
+    if password == app.config['SECRET_KEY']:
+        return jsonify(aggregate_stats(campaign))
     else:
         return jsonify(error="access denied")
 
@@ -299,7 +365,7 @@ def eff_test():
     return jsonify(error="eff test")
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # load the debugger config
     app.config.from_object('config.Config')
     app.run(host='0.0.0.0')

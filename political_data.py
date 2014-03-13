@@ -39,7 +39,9 @@ class PoliticalData():
         self.districts = districts
 
     def get_campaign(self, campaign_id):
-        return dict(self.campaigns['default'], **self.campaigns[campaign_id])
+        if campaign_id in self.campaigns:
+            return dict(self.campaigns['default'],
+                        **self.campaigns[campaign_id])
 
     def get_senators(self, districts):
         states = [d['state'] for d in districts]

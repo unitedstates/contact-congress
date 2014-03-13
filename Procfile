@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: newrelic-admin run-program uwsgi uwsgi.ini
