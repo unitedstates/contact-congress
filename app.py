@@ -294,8 +294,13 @@ def stats():
     else:
         return jsonify(error="access denied")
 
+@app.route('/eff_test')
+def eff_test():
+    return jsonify(error="eff test")
+
 
 if __name__ == "__main__":
     # load the debugger config
     app.config.from_object('config.Config')
     app.run(host='0.0.0.0')
+
