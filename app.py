@@ -3,7 +3,8 @@ patch_all()
 
 import random
 import urlparse
-
+import requests
+from threading import Thread
 from datetime import datetime, timedelta
 
 import pystache
@@ -360,9 +361,19 @@ def stats():
     else:
         return jsonify(error="access denied")
 
+def open_website(url, user_id):
+    return  requests.post(url, params={'description': 'Call succesfully completed', 'user_id': user_id})
+
 @app.route('/eff_test')
 def eff_test():
-    return jsonify(error="eff test")
+    callback_url = request.values.get('callback_url', None)
+    user_id = request.values.get('user_id', None)
+
+    if callback_url:
+        t = Thread(target=open_website, args=[callback_url, user_id])
+        t.daemon = True
+        t.start()
+    return jsonify(message="success")
 
 
 if __name__ == '__main__':
