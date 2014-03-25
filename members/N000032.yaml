@@ -6,7 +6,7 @@ contact_form:
     - visit: http://www.billnelson.senate.gov/contact/email.cfm
     - select:
       - name: Re
-        selector: "select[name=Re]"
+        selector: "select[name='Re']"
         required: Yes
         options:
           - issue
@@ -16,7 +16,7 @@ contact_form:
       - value: ""
         selector: "input[type=image][alt=Submit]"
     - find:
-      - selector: "form[name=issue]"
+      - selector: "form[name='issue']"
     - fill_in:
       - name: First
         selector: "tr:nth-child(4) .textfieldMd"

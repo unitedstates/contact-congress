@@ -6,48 +6,48 @@ contact_form:
     - visit: https://forms.house.gov/buchanan/webforms/contact-new.html
     - fill_in:
       - name: required-prefix
-        selector: "table.contentpaneopen input[name=required-prefix]"
+        selector: "table.contentpaneopen input[name='required-prefix']"
         value: $NAME_PREFIX
         required: Yes
       - name: required-first
-        selector: "table.contentpaneopen input[name=required-first]"
+        selector: "table.contentpaneopen input[name='required-first']"
         value: $NAME_FIRST
         required: Yes
       - name: required-last
-        selector: "table.contentpaneopen input[name=required-last]"
+        selector: "table.contentpaneopen input[name='required-last']"
         value: $NAME_LAST
         required: Yes
       - name: required-address
-        selector: "table.contentpaneopen input[name=required-address]"
+        selector: "table.contentpaneopen input[name='required-address']"
         value: $ADDRESS_STREET
         required: Yes
       - name: required-city
-        selector: "table.contentpaneopen input[name=required-city]"
+        selector: "table.contentpaneopen input[name='required-city']"
         value: $ADDRESS_CITY
         required: Yes
       - name: required-state #must be from Florida
-        selector: "table.contentpaneopen input[name=required-state]"
+        selector: "table.contentpaneopen input[name='required-state']"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
       - name: zip5
-        selector: "table.contentpaneopen input[name=zip5]"
+        selector: "table.contentpaneopen input[name='zip5']"
         value: $ADDRESS_ZIP5
         required: Yes
       - name: zip4
-        selector: "table.contentpaneopen input[name=zip4]"
+        selector: "table.contentpaneopen input[name='zip4']"
         value: $ADDRESS_ZIP4
         required: Yes
       - name: required-email
-        selector: "table.contentpaneopen input[name=required-email]"
+        selector: "table.contentpaneopen input[name='required-email']"
         value: $EMAIL
         required: Yes
       - name: required-message
-        selector: "table.contentpaneopen input[name=required-message]"
+        selector: "table.contentpaneopen input[name='required-message']"
         value: $MESSAGE
         required: Yes
     - select:
       - name: required-issue
-        selector: "table.contentpaneopen input[name=required-issue]"
+        selector: "table.contentpaneopen input[name='required-issue']"
         value: $TOPIC
         required: Yes
         options:
@@ -79,4 +79,3 @@ contact_form:
       status: 200
     body:
       contains: "Thank" # generic message
-          

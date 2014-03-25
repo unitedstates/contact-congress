@@ -160,7 +160,7 @@ contact_form:
     - choose:
       - name: "ctl00$ctl22$ReplyChoice"
         selector: "#ctl00_ctl22_ReplyChoice_0"
-        value: "Respond" 
+        value: "Respond"
         required: Yes
     - fill_in:
       - name: "ctl00_ctl22_Subject"
@@ -171,7 +171,7 @@ contact_form:
         value: $MESSAGE
     - click_on:
       - value: "Submit"
-        selector: "input[name=ctl00$ctl22$SubmitButton]"
+        selector: "input[name='ctl00$ctl22$SubmitButton']"
   success:
     headers:
       status: 200
