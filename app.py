@@ -361,16 +361,16 @@ def stats():
     else:
         return jsonify(error="access denied")
 
-def open_website(url, user_id):
-    return  requests.post(url, params={'description': 'Call succesfully completed', 'user_id': user_id})
+def open_website(url, meta):
+    return  requests.post(url, params={'description': 'Call succesfully completed', 'meta': meta})
 
 @app.route('/eff_test')
 def eff_test():
     callback_url = request.values.get('callback_url', None)
-    user_id = request.values.get('user_id', None)
+    meta = request.values.get('meta', None)
 
     if callback_url:
-        t = Thread(target=open_website, args=[callback_url, user_id])
+        t = Thread(target=open_website, args=[callback_url, meta])
         t.daemon = True
         t.start()
     return jsonify(message="success")
