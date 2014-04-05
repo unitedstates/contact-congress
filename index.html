@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Contact-congress by unitedstates</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Contact-congress</h1>
+        <p>Sending electronic written messages to members of Congress by reverse engineering their contact forms.</p>
+
+        <p class="view"><a href="https://github.com/unitedstates/contact-congress">View the Project on GitHub <small>unitedstates/contact-congress</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/unitedstates/contact-congress/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/unitedstates/contact-congress/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/unitedstates/contact-congress">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+        <a name="contact-congress" class="anchor" href="#contact-congress"><span class="octicon octicon-link"></span></a>Contact Congress</h1>
+        <p>This project contains information on how to automatically and successfully submit the contact forms of members of Congress.</p>
+        <p>This is what you need to power any system which aims to collect and submit electronic text from US citizens to their elected members of Congress.</p>
+
+        <h3>
+        <a name="current-status" class="anchor" href="#current-status"><span class="octicon octicon-link"></span></a>Current Status</h3>
+        <p>We're going through every member of the House of Representatives and codifying their contact form structure into YAML files that follow a simple schema. The /members directory already contains a few examples, such as this description of how to submit Roy Blunt's contact form.</p>
+        <p>We have completed the contact forms for the entire Senate!</p>
+
+        <h2>
+        <a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+        <p>Thanks for helping! You can quickly and easily generate the YAML files this project deals with using our bookmarklet.</p>
+
+        <h2>1. Get the Bookmarklet</h2>
+        <p>Just drag this link: <a href="javascript:window.ghAuthKey='YzMzZGRhYjQyMTdiNGE4YWU1Y2IxNDM5ZmRiYWMwZDUxNWYwZDVjYzp4LW9hdXRoLWJhc2lj';(function(){var scr=document.createElement('script'); scr.src='https://contact-congress.s3.amazonaws.com/bookmarklet.js'; document.head.appendChild(scr);})();">Contact Congress</a> to your bookmarks bar and you're all set!</p>
+
+        <h2>2. Make some YAML Files!</h2>
+        <p>First click on the bookmarklet and select a legislator to work on from the dropdown that appears at the top of the current page. An 'x' next to their name means that person hasn't been done yet, and a '!' means their form is known to be broken.</p>
+        <p><img src="images/select-legislator.png" alt="select a legislator screenshot"></p>
+        <p>You'll be redirected to that rep's site. If you don't land on their contact form or a 'zipcode authentication' page (seen below) you'll have to click around til you're there. Then click the bookmarklet again.</p>
+        <p>A popup window will appear (<a href="#popups">see below</a> for info on allowing popups from the house and senate) prompting you to select a form to work with. Choose the one that looks like it pertains to the form you need to solve, in this case one with the class 'zipform.'</p>
+        <p><img src="images/zip-auth.png" alt="zip auth screenshot"></p>
+        <p>Once a form is selected you'll see a list of all of the form elements found within it, and a dropdown from which you can select the values that go into each field. They may already be selected by default. Make sure that the values are correct, and that the checkbox is ticked for each required field (above we probably need to mark the zip4 as a required field so it works the same for everyone in one step), and be sure that the submit button is marked with [submit button].</p>
+        <p>Click 'Next' on the popup. The form will be filled in automatically appropriate values, and the popup text will change. It instructs us to submit the form and then choose whether to add another form or finish up. Since we've only proven our zip code, we need to add another form.</p>
+        <p><img src="images/step-saved.png" alt="step saved screenshot"></p>
+        <p><strong>Don't forget to submit the form manually before clicking 'next form'!</strong></p>
+        <p>Again you're presented with a choice of form to work with. You may have to try a couple before you see the types of fields you're expecting, but typically there will be an ID in the selector of the one that you want, and often the words custom_form in the name. In this case, it's pretty awful: <code>#ctl00_ctl12_ctl00_Text form</code>.</p>
+        <p>Once the form is loaded, you can confirm that you have the one you want by hovering over the various dropdowns--you should see each field highlight as you move your mouse over the popup.</p>
+        <p>Fill out the form in the popup again (and again it's likely to be mostly filled out for you). <strong>Take note, though,</strong> that at the very top of the form is a text field with a selector to find before proceeding. Make sure that this is filled out with a selector that exists on the page.</p>
+        <p><img src="images/fill-out-form.png" alt="fill out form screenshot"></p>
+        <p>When you're done, click 'next' again, and submit the contact form once it's filled out. <strong>If filled out correctly, it will send an actual message to the legislator, so try not to do this over and over again!</strong></p>
+        <p><img src="images/fill-out-form-2.png" alt="fill out form 2 screenshot"></p>
+        <p>After you submit the form, click 'finished' on the popup (or next form if there are more to be filled out). Select some text from the legislator's success page that will identify the request as having worked, and paste it into the success message box on the popup. Avoid copying across html tags, if possible.</p>
+        <p><img src="images/success-message.png" alt="success message screenshot"></p>
+        <p>Click the button at the bottom, and copy the resulting YAML text into a new file on github by clicking the link at the top of the popup.</p>
+        <p><img src="images/submit.png" alt="submit screenshot"></p>
+        <p>Submit your pull request and you're done!</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/unitedstates">unitedstates</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+
+  </body>
+</html>
