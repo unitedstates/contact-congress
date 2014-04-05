@@ -1,0 +1,134 @@
+bioguide: B000574
+contact_form:
+  method: POST
+  action: "/htbin/formproc_za/blumenauer/webforms/issue_subscribe_parm.txt&form=/blumenauer/webforms/issue_subscribe_verify.htm"
+  steps:
+    - visit: "https://forms.house.gov/blumenauer/webforms/issue_subscribe.html"
+    - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+        - name: required-first
+          selector: "#name_first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#name_last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#int-left form input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-valid-email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: required-message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-state
+          selector: "#int-left form select[name='required-state']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - DC
+        - name: required-issue
+          selector: "#int-left form select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            I Need Help: CASE
+            "Afghanistan, Iraq Wars and Defense": IRQ
+            Agriculture: AG
+            Budget and Taxes: BU
+            "Civil Liberties, Immigration and Judicial Issues": LIB
+            Education and Technology: EDU
+            "Environment, Energy, and Global Warming": EV
+            Foreign Affairs: FA
+            Government Reform: REF
+            Gun Safety: GUN_SAFETY
+            "Health, Medicare, and Social Security": HE
+            Livable Communities: LIV
+            Native Americans: NA
+            Trade and the Economy: TRD
+            Transportation: TRAN
+            Veterans: VET
+            Other: OTH
+    - click_on:
+        - value: Send Message
+          selector: "#int-left form input[type='submit'][value='Send Message']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you
