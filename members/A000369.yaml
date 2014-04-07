@@ -1,0 +1,137 @@
+bioguide: A000369
+contact_form:
+  method: post
+  action: /contact-us/
+  steps:
+    - visit: "https://amodei.house.gov/contact-us"
+    - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go to Form
+          selector: input.button
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#custom_form6 input[name='street2']"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: false
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#custom_form6 input[name='phone']"
+          value: $PHONE
+          required: false
+        - name: topic
+          selector: "#req_topic"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#req_prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: "Mr. "
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
+        - name: state
+          selector: "#req_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            NV: NV
+        - name: subject
+          selector: "#req_subject"
+          value: $TOPIC
+          required: true
+          options:
+            " Abortion": ABORTION
+            Agriculture: AGRI
+            Animal Welfare: ANML
+            Arts and Humanities: ARTS
+            Banking and Finance: BANK
+            Budget: BUD
+            Small Business: BUS
+            Defense/Military: DEF
+            Education: EDU
+            Energy: ENR
+            Environment: ENV
+            Foreign Affairs: FAFF
+            FEMA/Disaster Relief: FEMA
+            Gaming: GAMING
+            Government Reform and Constitutional Issues: GOV_REF
+            Second Amendment and Gun Rights: GUNS
+            Healthcare: HLTH
+            Help with Federal Agency: CASE
+            Housing: HOUS
+            "Homeland Security, Intelligence": HSEC
+            Immigration: IMM
+            Judiciary: JUD
+            Labor: LBR
+            "Medicare, Medicaid": MEDI
+            Mining: MINING
+            Aerospace/NASA: NASA
+            Other: OTHER
+            Postal Issues: POST
+            "Public Lands, Water, Fisheries, Parks, Native American Issues": PUBLIC_LANDS
+            Social Security: SOC
+            Tax: TAX
+            Telecom/Technology: TELE
+            Tours: TOUR
+            Transportation: TRANS
+            Trade: TRD
+            Unemployment: UNEMP
+            Values Issues: VALUES
+            Veterans Issues: VET
+        - name: response
+          selector: "#req_response"
+          value: "Y"
+          required: true
+          options:
+            I do not need a response.: "N"
+            I would like a response.: "Y"
+    - click_on:
+        - value: Submit
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been successfully submitted
