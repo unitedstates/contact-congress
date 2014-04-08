@@ -97,6 +97,8 @@ contact_form:
             - WI
             - WY
     - check:
+        - name: HealthCareCB
+          selector: "#HealthCareCB"
         - name: EconomyCB
           selector: "#EconomyCB"
           value: "on"
@@ -111,4 +113,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for e-mailing me
+      contains: I appreciate hearing from you.
