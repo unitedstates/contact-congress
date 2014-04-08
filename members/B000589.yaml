@@ -4,6 +4,8 @@ contact_form:
   action: /contact.aspx
   steps:
     - visit: "https://boehner.house.gov/contact/email.htm?zip5=45069&zip4=6637"
+    - find:
+        selector: "#ctl00_ctl12_ctl00_Text form"
     - fill_in:
         - name: firstname
           selector: "#ctl00_ctl12_ctl00_Text form input[name='firstname']"
@@ -11,7 +13,7 @@ contact_form:
           required: true
         - name: lastname
           selector: "#ctl00_ctl12_ctl00_Text form input[name='lastname']"
-          value: $NAME_FIRST
+          value: $NAME_LAST
           required: true
         - name: street
           selector: "#ctl00_ctl12_ctl00_Text form input[name='street']"
@@ -36,7 +38,7 @@ contact_form:
         - name: message
           selector: "#ctl00_ctl12_ctl00_Text form textarea[name='message']"
           value: $MESSAGE
-          required: false
+          required: true
     - select:
         - name: State
           selector: "#ctl00_ctl12_ctl00_Text form select[name='State']"
@@ -97,6 +99,8 @@ contact_form:
     - check:
         - name: HealthCareCB
           selector: "#HealthCareCB"
+        - name: EconomyCB
+          selector: "#EconomyCB"
           value: "on"
     - uncheck:
         - name: subscribe
