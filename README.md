@@ -28,16 +28,6 @@ Suggestions on making this process easier are quite welcome.
 
 ### FAQ
 
-**Why just the Senate?**
-
-Several reasons:
-
-* The Senate is a smaller target (100 members) than the House (441 members).
-* Senate contact form URLs are officially and centrally [maintained in XML](https://www.senate.gov/general/contact_information/senators_cfm.xml).
-* Senate systems are less aggressive about rejecting letters by constituents thought not to be in their district.
-
-Once the Senate data is good, we'll look at moving on to the House.
-
 **So I can drop my contract with `[vendor name here]`??**
 
 This is just data. Even once we have data for everyone, you'll still need to build a system that **integrates** this data. There's nothing here for tracking and storing errors and mistakes, strategies for re-trying, or storing any sort of user data or success statistics.
