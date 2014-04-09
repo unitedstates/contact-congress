@@ -1,0 +1,140 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  font:16px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*
+ * Global add-ons and styles
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+p, ul, ol, table, pre, dl {
+  margin:0 0 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color:#222;
+  font-weight: 700;
+}
+
+h1, h2, h3 {
+  line-height:1.3;
+}
+
+h1 {
+  margin:0px 0 30px 0;
+  font-weight: 300;
+}
+
+h2 {
+  color:#393939;
+  font-size:21px;
+  text-transform: uppercase;
+  margin:30px 0 10px 0;
+}
+
+h3 {
+  font-size: 21px;
+  margin:0 0 10px 0;
+}
+
+h3, h4, h5, h6 {
+  color:#494949;
+}
+
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar content */
+
+.sidebar img {
+  max-width: 100%;
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 0px;
+    padding-left: 5px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+.main h2 {
+  margin-top:5px;
+}
+
+table {
+  font-size:12px;
+}
+
+table img {
+}
+
+.table>tbody>tr>td {
+  line-height: 1.3;
+  padding: 3px;
+}
+
+table i {
+  font-size: 24px;
+}
+
