@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "form#contact"
     - fill_in:
         - name: required-first
           selector: "#contact input[name='required-first']"
