@@ -1,0 +1,74 @@
+bioguide: L000397
+contact_form:
+  method: get
+  action: /contact/contactform.htm
+  steps:
+    - visit: "http://lofgren.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - fill_in:
+        - name: required-first
+          selector: "#contact input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#contact input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#contact input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#contact input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#contact input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#contact input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-email
+          selector: "#contact input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#contact input[name='phone']"
+          value: $PHONE
+          required: false
+        - name: required-message
+          selector: "#contact textarea[name='required-message']"
+          value: $MESSAGE
+          required: false
+    - select:
+        - name: required-prefix
+          selector: "#contact select[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options: {}
+        - name: required-issue
+          selector: "#subject"
+          value: Other Issue
+          required: false
+          options: {}
+    - click_on:
+        - value: Send Email
+          selector: "#contact input[type='submit'][value='Send Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you. Your form has been successfully submitted.
