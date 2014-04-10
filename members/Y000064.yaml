@@ -1,0 +1,109 @@
+bioguide: Y000064
+contact_form:
+  method: post
+  action: /give-me-your-opinion/
+  steps:
+    - visit: "https://toddyoungforms.house.gov/give-me-your-opinion"
+    - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go to Form
+          selector: input.button
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#street2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zip2"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#req_prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+            - Hon.
+            - Rev.
+            - Rabbi
+        - name: subject
+          selector: "#req_subject"
+          value: $TOPIC
+          required: true
+          options:
+            Jobs and the Economy: ECON
+            "Budget, Government Spending, National Debt": BUD
+            "Medicare, Social Security, Medicaid, Welfare": ENT
+            "Tax Rates, Tax Code, the IRS": TAX
+            Health Care: HLTH
+            "Agriculture, Farming, Food & Nutrition": AG
+            "Marriage, Adoption, Family Issues": FAM
+            "Education, Student Loans, Teachers": EDU
+            "Energy, Cap and Trade, Domestic Drilling": ENR
+            Foreign Affairs: FOR
+            "Military, Department of Defense, Afghanistan, Iraq": DEF
+            "Immigration, Border Protection, Amnesty": IMM
+            "Judicial Branch, Law Enforcement, 2nd Amendment": JUD
+            "Transportation & Infrastructure, Highways, Bridges": TI
+            Veterans Affairs: VET
+            Other: OTH
+        - name: response
+          selector: "#req_response"
+          value: "Y"
+          required: true
+          options:
+            I do not need a response.: "N"
+            I would like a response.: "Y"
+    - click_on:
+        - value: Submit
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been sent.
