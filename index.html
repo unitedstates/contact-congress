@@ -110,14 +110,16 @@
                  <iframe src="//www.youtube-nocookie.com/embed/Zf2Dz233sLQ" frameborder="0" width="560" height="315"></iframe>
               </div>
               
-              <p style="margin-top:30px;">Some extra notes for troubleshooting YAML files:</p>
-              <ul>
-                <li>In some cases, a member's form will automatically copy over a field (like the zip code) from the first page of the form to the second or have a default value (like in a state dropdown). You should mark those inputs on the  as "leave as default," since a parser wouldn't need to make a change to that field in order to submit it.</li>
-                <li>If the bookmarklet goes blank between forms, it's likely because the contact form switched from HTTP to HTTPS after you submitted the first page. For security reasons browsers will block the bookmarklet  from work. In chrome, there's a console error that reads:<br> <code> Uncaught SecurityError: Blocked a frame with origin "http://crawford.house.gov" from accessing a frame with origin "https://crawford.house.gov". Protocols must match.</code> <br>When that happens, the only solution is to use the bookmarklet separately on the first page and the second page of the contact form, and then merge the two resulting YAML files together manually. If you're just getting started, skip this file and come back to it once you've had some practice.</li>
-              </ul>
+              <div class="troubleshooting">
+                <p style="margin-top:30px; margin-bottom: 0">Some extra notes for troubleshooting YAML files:</p>
+                <ul>
+                  <li>In some cases, a member's form will automatically copy over a field (like the zip code) from the first page of the form to the second, or have a default value (like in the state dropdown). The latter happens at 6:25 in the video above. If that happens, you should mark those inputs  as "leave as default," since a parser wouldn't need to make a change to that field in order to submit it.</li>
+                  <li>If the bookmarklet goes blank between forms, it's likely because the contact form switched from HTTP to HTTPS after you submitted the first page. For security reasons browsers will block the bookmarklet from working. In chrome, there's a console error that reads:<br> <code> Uncaught SecurityError: Blocked a frame with origin "http://crawford.house.gov" from accessing a frame with origin "https://crawford.house.gov". Protocols must match.</code> <br>When that happens, the only solution is to use the bookmarklet separately on the first page and the second page of the contact form, and then merge the two resulting YAML files together manually. If you're just getting started, skip this file and come back to it once you've had some practice.</li>
+                </ul>
+              </div>
             </div>
             <div class="col-sm-6">
-              <p>We recommend watching the video first, as it'll make this part much simpler to understand</p>
+              <p><em>We recommend watching the video first, as it'll make this part much simpler to understand.</em></p>
               <p>1 - Find the Rep's contact page using a Google search.</p>
               <p>2 - Click the bookmarklet (you'll need to allow popups). Select the correct form from the list shown in the popup. The bookmarklet will attempt to automatically match the inputs to our predefined YAML variables, but it'll likely miss a few. Run through and check them, and make sure that any required fields are marked as such in the popup. Required fields are ones that need to be changed in order for the form to submit correctly.</p>
               <p>3 - Once you're done, click "Next" in the popup. The bookmarklet will fill the form with its default values automatically. Now press the submit button at the end of member of Congress's form.</p>
@@ -140,7 +142,7 @@
               <p>4 - If there's an error, look in the "Recent Fill Attempts" section and click on the top entry. You'll see a screenshot and an error message.</p>
               <p>5 - Based on the legislator's contact form, the YAML file you've generated, and the error message, try and figure out what's causing the issue. Make changes to your YAML file, resubmit them, and wait for the status message to update. If you continue to have problems, add a note to your Github issue and ping us on IRC.</p>
               <p>6 - Once the YAML file is submitting properly, you can close your representative's Github issue!</p>
-              <p>There are quite a few untested or failing YAML files in the dataset at the moment. Help us out by testing them and fixing any problems.</p>
+              <p><em>There are quite a few untested or failing YAML files in the dataset at the moment. Help us out by testing them and fixing any problems.</em></p>
             </div>
           </div>
 
