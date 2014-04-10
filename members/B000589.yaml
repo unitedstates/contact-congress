@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "https://boehner.house.gov/contact/email.htm?zip5=45069&zip4=6637"
     - find:
-        selector: "#ctl00_ctl12_ctl00_Text form"
+        - selector: "#ctl00_ctl12_ctl00_Text form"
     - fill_in:
         - name: firstname
           selector: "#ctl00_ctl12_ctl00_Text form input[name='firstname']"
