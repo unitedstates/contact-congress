@@ -264,6 +264,12 @@ window.Utils || (Utils = {});
   // Returns true if the passed-in selector is unique on a page, false if not.
   u.isUnique = function(selector, ctx) {
     ctx || (ctx = $(document));
+    // IDs need to be tested as attr selectors because of getElementById's behavior
+    if (selector.match(/^#[^\s'"]+$/)) {
+        selector = u.render("[id='{{ selector }}']", {
+          selector: selector.replace('#', '')
+        })
+    }
     return $(ctx).find(selector).length === 1
   };
 
@@ -1010,7 +1016,7 @@ CCH.prototype.finalizeStep = function(e) {
     steps.push({visit: window.opener.location.href});
   };
   if (find = this.popupTargetDiv().find('input.find').val()) {
-    steps.push({find: {selector: find}});
+    steps.push({find: [{selector: find}]});
   };
 
   var toFillIn = this.currentFields().filter(Forms.textInputSelector + ', textarea'),
