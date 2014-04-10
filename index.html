@@ -109,6 +109,12 @@
               <div class="video-container">
                  <iframe src="//www.youtube-nocookie.com/embed/Zf2Dz233sLQ" frameborder="0" width="560" height="315"></iframe>
               </div>
+              
+              <p style="margin-top:30px;">Some extra notes for troubleshooting YAML files:</p>
+              <ul>
+                <li>In some cases, a member's form will automatically copy over a field (like the zip code) from the first page of the form to the second or have a default value (like in a state dropdown). You should mark those inputs on the  as "leave as default," since a parser wouldn't need to make a change to that field in order to submit it.</li>
+                <li>If the bookmarklet goes blank between forms, it's likely because the contact form switched from HTTP to HTTPS after you submitted the first page. For security reasons browsers will block the bookmarklet  from work. In chrome, there's a console error that reads:<br> <code> Uncaught SecurityError: Blocked a frame with origin "http://crawford.house.gov" from accessing a frame with origin "https://crawford.house.gov". Protocols must match.</code> <br>When that happens, the only solution is to use the bookmarklet separately on the first page and the second page of the contact form, and then merge the two resulting YAML files together manually. If you're just getting started, skip this file and come back to it once you've had some practice.</li>
+              </ul>
             </div>
             <div class="col-sm-6">
               <p>We recommend watching the video first, as it'll make this part much simpler to understand</p>
@@ -116,8 +122,6 @@
               <p>2 - Click the bookmarklet (you'll need to allow popups). Select the correct form from the list shown in the popup. The bookmarklet will attempt to automatically match the inputs to our predefined YAML variables, but it'll likely miss a few. Run through and check them, and make sure that any required fields are marked as such in the popup. Required fields are ones that need to be changed in order for the form to submit correctly.</p>
               <p>3 - Once you're done, click "Next" in the popup. The bookmarklet will fill the form with its default values automatically. Now press the submit button at the end of member of Congress's form.</p>
               <p>4 - If there's a second page to the form, click the "Next Form" button and repeat the process above  (otherwise you can skip to the next step). Note that depending on the type of form, you might be asked for a "Selector to find before proceeding." This is so that any parsers can tell when the second part of the form has loaded. You can usually use the form's selectors from the dropdown above, but in rare cases you may need to change later down the road. When you're done, click the 'Next' button in the bookmarklet again, and then submit the form on the member of Congress's site.</p>
-              <p>Some extra notes:</p>
-              <ul><li>In some cases, a member's form will automatically copy over a field (like the zip code) from the first page of the form to the second or have a default value (like in a state dropdown). You should mark those inputs on the  as "leave as default," since a parser wouldn't need to make a change to that field in order to submit it.</li></ul>
               <p>5 - You'll now likely be onto the Congress member's "success" page. If something's gone wrong, you'll have to start again. Otherwise, click the "Finished" button in the bookmarklet. Select some text from the legislator's success page that will identify the request as having worked, and paste it into the success message box on the popup. Avoid copying across html tags by find a part of the success page that is plain text.</p>
               <p>6 - Click the "Done! Let's send it to Github!" button, then click the "new file on Github" link and copy the resulting YAML text into the new file. In your commit mesage, include something like "First pass at #123," where 123 is the Github issue associated with the congress member you're working on.</p>
               <p>7 - Now submit your change as a pull request, and wait for it to be accepted. We'll try to accept Github issues as quickly as soon as we see them.</p>
