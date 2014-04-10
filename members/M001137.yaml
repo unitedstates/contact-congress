@@ -17,7 +17,7 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - find:
-        - selector: "#contactForm"
+        selector: "#contactForm"
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -35,10 +35,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -47,10 +43,6 @@ contact_form:
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -62,7 +54,7 @@ contact_form:
     - select:
         - name: required-issue
           selector: "#required-issue"
-          value: $MESSAGE
+          value: $TOPIC
           required: true
           options:
             Agriculture: AGRI
@@ -105,7 +97,7 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "Y"
-          required: false
+          required: true
           options:
             I do not need a response: "N"
             I would like a response: "Y"
