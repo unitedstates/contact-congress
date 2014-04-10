@@ -17,18 +17,6 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
-    - click_on:
-        - value: Go To Next Step
-          selector: "#submit"
-    - fill_in:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
@@ -129,4 +117,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:\n\nName: Mr. John Smith\n\nAddress: 1600 Pennsylvania Avenue NW, West Wing\nCity/State/Zip: Washington, FL 32073 4411\n\nE-mail: thepresident@example.com\nTelephone:\n\nIssue: AGR\n\nMessage Subject: Testing\nMessage Text:\nHello World!\n\nWould you like a response? Y"
+      contains: "Email Me - Thank You"
