@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /email-congressman-bilirakis/
   steps:
-    - visit: "https://bilirakis.house.gov/email-congressman-bilirakis"
+    - visit: "https://bilirakis.house.gov/email-congressman-bilirakis/"
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: "#zipauthform input.button"
+    - find:
+        selector: "#custom_form24"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -29,21 +31,9 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
           required: true
         - name: emailaddress
           selector: "#req_email"
@@ -58,79 +48,9 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
         - name: issue
           selector: "#req_issue"
-          value: $SUBJECT
+          value: $TOPIC
           required: true
           options:
             Agriculture: WEBAGR
