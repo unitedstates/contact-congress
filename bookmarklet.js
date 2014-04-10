@@ -1016,7 +1016,7 @@ CCH.prototype.finalizeStep = function(e) {
     steps.push({visit: window.opener.location.href});
   };
   if (find = this.popupTargetDiv().find('input.find').val()) {
-    steps.push({find: {selector: find}});
+    steps.push({find: [{selector: find}]});
   };
 
   var toFillIn = this.currentFields().filter(Forms.textInputSelector + ', textarea'),
