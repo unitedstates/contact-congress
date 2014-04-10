@@ -49,60 +49,51 @@
       </div>
     </div> -->
 
-    <div class="container main">
+    <div class="main">
       <div class="row">
-        <div>
-          <!-- <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-          </ul> -->
-
           <h1>
             <a name="contact-congress" class="anchor" href="#contact-congress"><span class="octicon octicon-link"></span></a>
             Help create an open data format for Congress contact forms
           </h1>
             
           <h2>Why</h2>
-          <p>At present the only way to send electronic messages to members of Congress is to directly visiting each legislator's contact form. In order to be able to create simpler tools for contacting legislators, we're creating an open data format that describes the contact forms of members of congress. </p>
+          <p>As of now the only way to send electronic messages to members of Congress is by either using an expensive proprietary third party vendor or directly visiting each legislator's contact form. Those contact forms are cumbersome and difficult to use. In order to be able to create simpler tools for contacting legislators, we've created an open data format that describes their contact forms.</p>
 
-          <p>This dataset will be a foundation that will allow a range of open government and advocacy organizations to create tools to allow users to email congress.</p>
+          <p>This dataset will be a foundation that'll allow open government and advocacy organizations to create tools to allow users to email congress.</p>
 
-          <h2>Who's doing this</h2>
+          <h2>Who</h2>
           <p>
-            This dataset will be used by the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a> for <a href="http://www.opencongress.org/">OpenCongress.org</a> and by <a href="https://www.eff.org/">the Electronic Frontier Foundation</a> to help constituents advocate for better technology laws.
+            This dataset will be used by the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a> for <a href="http://www.opencongress.org/">OpenCongress.org</a> and by <a href="https://www.eff.org/">the Electronic Frontier Foundation</a> and <a href="https://taskforce.is">Taskforce.is</a> to help constituents advocate for better technology laws.
           </p>
-          <!-- <p>This project contains information on how to automatically and successfully submit the contact forms of members of Congress.</p>
-          <p>This is what you need to power any system which aims to collect and submit electronic text from US citizens to their elected members of Congress.</p> -->
-          
-          <h2>Help us</h2>
-          <p>There are 539 individual contact forms. We've made tools to make the process simple, but we need all the help to process each representative.</p>
 
           <h2>Current Status</h2>
-          <p>We're going through every member of the House of Representatives and codifying their contact form structure into YAML files that follow a simple schema. The Github repo's <a href="https://github.com/unitedstates/contact-congress/tree/master/members">/members</a> directory already contains a few examples, such as <a href="https://github.com/unitedstates/contact-congress/blob/master/members/B000575.yaml">this description</a> of how to submit Roy Blunt's contact form.</p>
-          <p>We have completed the contact forms for the entire Senate!</p>
+          <div class="current-status">
+            <p><i class="fa fa-check"></i> &nbsp;Created a standardized YAML data format for describing legislator contact forms.</p>
+            <p><i class="fa fa-check"></i> &nbsp;Created a bookmarklet to make it easy to generate YAML files</p>
+            <p><i class="fa fa-check"></i> &nbsp;Made a testing suite to error-check generated files</p>
+            <p><i class="fa fa-check"></i> &nbsp;Created YAML files for almost all 100 members of the Senate.</p>
+            <p><i class="fa fa-times"></i> &nbsp;Created YAML files for almost the 439 members of the House of Representatives.</p>
+          </div>
+          
+
+          <h2>Help us</h2>
+          <p>There are 439 individual contact forms. We've made tools to make the process simple, but we need help from volunteers to make this happen.</p>
 
           <h2>Contributing</h2>
           <p><strong>It's easy!</strong> You need only basic programming proficiency to be able to help us generate the YAML files that make up the contact-congress dataset.</p>
-          
-          <h3>STEP 1 - Bookmarklet, IRC chat, and &amp; claiming your first Congress member.</h3>
+          <p>Here's how to get involved:</p>
+        </div>
+      </div>
+
+        <div class="container-fluid main instructions">
+
+          <h3>Step 1: Bookmarklet, IRC chat, and &amp; claiming your first Congress member.</h3>
           <div class="row step">
+            <div class="col-sm-6">
               <div class="video-container">
                  <iframe src="//www.youtube-nocookie.com/embed/zn6Mo0tz7rE" frameborder="0" width="560" height="315"></iframe>
               </div>
+            </div>
             <div class="col-sm-6">
               <p>1 - Drag this link: <a href="javascript:window.ghAuthKey='YzMzZGRhYjQyMTdiNGE4YWU1Y2IxNDM5ZmRiYWMwZDUxNWYwZDVjYzp4LW9hdXRoLWJhc2lj';(function(){var scr=document.createElement('script'); scr.src='https://contact-congress.s3.amazonaws.com/bookmarklet.js'; document.head.appendChild(scr);})();">Contact Congress</a> to your bookmarks bar.</p>
               <p>2 - Join the IRC chat room via <a href="irc.html" target="_blank">this web interface</a> or your own client (irc.freenode.net, #opencongress).</p>
@@ -112,7 +103,7 @@
             </div>
           </div>
 
-          <h3>STEP 2 - Generate a YAML file.</h3>
+          <h3>Step 2: Generate a YAML file.</h3>
           <div class="row step">
             <div class="col-sm-6">
               <div class="video-container">
@@ -131,20 +122,24 @@
             </div>
           </div>
 
-          <h3>STEP 3 - Test the YAML file you've just submitted.</h3>
+          <h3>Step 3: Test the YAML file you've just submitted.</h3>
           <div class="row step">
             <div class="col-sm-6">
               <img src="http://www.leapforwardinc.com/wp-content/uploads/2013/11/youtube-placeholder.png" class="img-responsive" />
             </div>
             <div class="col-sm-6">
-              <p>1 - Find the Rep's contact page using a Google search.</p>
-              <p>2 - Click the bookmarklet (you'll need to allow popups). Select the correct form from the list shown in the popup. The bookmarklet will attempt to automatically match the inputs to our predefined YAML variables, but it'll likely miss a few. Run through and check them, and make sure that any required fields are marked as such in the popup. Required fields are ones that need to be changed in order for the form to submit correctly.</p>
-              <p>3 - Once you're done, click "Next" in the popup. The bookmarklet will fill the form with its default values.</p>
+              <p>1 - Find the Congress member's name in the list below and click the "tools" link.</p>
+              <p>2 - Check the "updated at" time to make sure that the latest version of your YAML file has been uploaded. The times are updated every minute.</p>
+              <p>3 - Click to populate the form with default values, then click to submit it to your representative. You'll get a success or error message after a few seconds.</p>
+              <p>4 - If there's an error, look in the "Recent Fill Attempts" section and click on the top entry. You'll see a screenshot and an error message.</p>
+              <p>5 - Based on the legislator's contact form, the YAML file you've generated, and the error message, try and figure out what's causing the issue. Make changes to your YAML file, resubmit them, and wait for the status message to update. If you continue to have problems, add a note to your Github issue and ping us on IRC.</p>
+              <p>6 - Once the YAML file is submitting properly, you can close your representative's Github issue!</p>
+              <p>There are quite a few untested or failing YAML files in the dataset at the moment. Help us out by testing them and fixing any problems.</p>
             </div>
           </div>
 
-          <h3>2. Make some YAML Files!</h3>
-          <!-- <p>First click on the bookmarklet and select a legislator to work on from the dropdown that appears at the top of the current page. An 'x' next to their name means that person hasn't been done yet, and a '!' means their form is known to be broken.</p>
+          <!-- <h3>2. Make some YAML Files!</h3>
+          <p>First click on the bookmarklet and select a legislator to work on from the dropdown that appears at the top of the current page. An 'x' next to their name means that person hasn't been done yet, and a '!' means their form is known to be broken.</p>
           <p><img src="images/select-legislator.png" alt="select a legislator screenshot"></p>
           <p>You'll be redirected to that rep's site. If you don't land on their contact form or a 'zipcode authentication' page (seen below) you'll have to click around til you're there. Then click the bookmarklet again.</p>
           <p>A popup window will appear (<a href="#popups">see below</a> for info on allowing popups from the house and senate) prompting you to select a form to work with. Choose the one that looks like it pertains to the form you need to solve, in this case one with the class 'zipform.'</p>
@@ -167,7 +162,8 @@
 
         </div>
       </div>
-
+    
+    <div class="main datatable">
       <div class="row">
         <h2>Current dataset status:</h2>
           <div class="table-responsive">
@@ -724,7 +720,6 @@
               </tbody>
             </table>
 
-          </div>
       </div>
     </div>
 

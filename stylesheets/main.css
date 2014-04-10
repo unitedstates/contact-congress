@@ -6,8 +6,8 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding-top: 10px;
-  font:17px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 0px;
+  font:19px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .container {max-width: 800px;}
@@ -34,13 +34,10 @@ h1, h2, h3 {
   line-height:1.3;
 }
 
-
-
 h1 {
   margin:50px 0 30px 0;
   font-weight: 700;
-  text-align: center;
-  font-size: 26px;
+  font-size: 36px;
 }
 
 h2 {
@@ -51,9 +48,8 @@ h2 {
 }
 
 h3 {
-  font-size: 16px;
-  margin:40px 0 5px 0;
-  text-transform: uppercase;
+  font-size: 20px;
+  margin:0px 0 20px 0;
 }
 
 h3, h4, h5, h6 {
@@ -61,7 +57,8 @@ h3, h4, h5, h6 {
 }
 
 .row.step {
-  margin-top:20px;
+  margin-top:10px;
+  margin-bottom:60px;
 }
 
 
@@ -118,20 +115,41 @@ h3, h4, h5, h6 {
 
 .main {
   padding: 20px;
+  max-width: 800px;
+  width: 80%;
+  margin-right: auto;
+  margin-left:5%;
 }
 @media (min-width: 768px) {
   .main {
     padding-right: 0px;
-    padding-left: 5px;
+    padding-left:15px;
   }
 }
-.main .page-header {
-  margin-top: 0;
+
+.current-status p {
+  margin-bottom:5px;
+  margin-left:10px;
 }
 
+.instructions {
+  max-width: 1200px;
+  width: 90%;
+  margin-top:0;
+  font-size:17px;
+}
+
+.main.datatable h2{
+  margin-top:0;
+}
+
+.main.datatable {
+  padding-top:0;
+  }
 
 table {
-  font-size:16px;
+  font-size:17px;
+  margin-top:25px;
 }
 
 table img {
