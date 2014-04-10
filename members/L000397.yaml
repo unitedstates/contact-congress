@@ -56,14 +56,9 @@ contact_form:
     - select:
         - name: required-prefix
           selector: "#contact select[name='required-prefix']"
-          value: $NAME_PREFIX
+          value: "Mr."
           required: true
-          options: 
-            - "Mr." : "Mr."
-            - "Mrs." : "Mrs."
-            - "Ms." : "Ms."
-            - "Dr." : "Dr."
-            - "Rev." : "Rev."
+          options: {}
         - name: required-issue
           selector: "#subject"
           value: Other Issue
