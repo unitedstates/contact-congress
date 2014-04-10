@@ -40,7 +40,7 @@ contact_form:
         - name: zip4
           selector: "#contact input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: required-email
           selector: "#contact input[name='required-email']"
           value: $EMAIL
@@ -56,9 +56,14 @@ contact_form:
     - select:
         - name: required-prefix
           selector: "#contact select[name='required-prefix']"
-          value: "Mr."
+          value: $NAME_PREFIX
           required: true
-          options: {}
+          options: 
+            - "Mr." : "Mr."
+            - "Mrs." : "Mrs."
+            - "Ms." : "Ms."
+            - "Dr." : "Dr."
+            - "Rev." : "Rev."
         - name: required-issue
           selector: "#subject"
           value: Other Issue
