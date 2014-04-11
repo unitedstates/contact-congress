@@ -111,7 +111,7 @@
               </div>
               
               <div class="troubleshooting">
-                <p style="margin-top:30px; margin-bottom: 0">Some extra notes for troubleshooting YAML files:</p>
+                <p style="margin-top:30px; margin-bottom: 0">Some extra notes for troubleshooting YAML file generation with the bookmarklet:</p>
                 <ul>
                   <li>In some cases, a member's form will automatically copy over a field (like the zip code) from the first page of the form to the second, or have a default value (like in the state dropdown). The latter happens at 6:25 in the video above. If that happens, you should mark those inputs  as "leave as default," since a parser wouldn't need to make a change to that field in order to submit it.</li>
                   <li>If the bookmarklet goes blank between forms, it's likely because the contact form switched from HTTP to HTTPS after you submitted the first page. For security reasons browsers will block the bookmarklet from working. In chrome, there's a console error that reads:<br> <code> Uncaught SecurityError: Blocked a frame with origin "http://crawford.house.gov" from accessing a frame with origin "https://crawford.house.gov". Protocols must match.</code> <br>When that happens, the only solution is to use the bookmarklet separately on the first page and the second page of the contact form, and then merge the two resulting YAML files together manually. If you're just getting started, skip this file and come back to it once you've had some practice.</li>
@@ -136,6 +136,12 @@
             <div class="col-sm-6">
               <div class="video-container">
                  <iframe src="//www.youtube-nocookie.com/embed/AeXcaoLg3dQ" frameborder="0" width="560" height="315"></iframe>
+              </div>
+              <div class="troubleshooting">
+                <p style="margin-top:30px; margin-bottom: 0">Some extra notes for troubleshooting YAML testing:</p>
+                <ul>
+                  <li>If you're testing a YAML file and everything seems to be right, but the status that shows in the test tool is "failure" (for example this happened in <a href="https://github.com/unitedstates/contact-congress/issues/198" target="_blank">#198</a>). In that case, go to the form page yourself and fill in everything exactly how it appears in the screenshot. Then click on the submit. If it submits correctly then either a) the success criteria is wrong, or b) the form is being loaded via javascript and you need to add an extra "find" action to your YAML to search for an element that only exists on the success page. See <a target="_blank" href="https://github.com/unitedstates/contact-congress/commit/76f4f8bc488ed56918695ef8cccb80d227adf2af">this commit</a> for an example.</li>
+                </ul>
               </div>
             </div>
             <div class="col-sm-6">
