@@ -1,0 +1,23 @@
+bioguide: B001248
+contact_form:
+  method: get
+  action: /contact/contactform.htm
+  steps:
+    - visit: "http://burgess.house.gov/contact/356345.htm"
+    - fill_in:
+        - name: zip5
+          selector: "#zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: ""
