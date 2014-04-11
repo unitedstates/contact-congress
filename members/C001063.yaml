@@ -1,0 +1,23 @@
+bioguide: C001063
+contact_form:
+  method: get
+  action: /Forms/WriteYourRep/
+  steps:
+    - visit: "http://cuellar.house.gov/contact/sendmeanemail.htm"
+    - fill_in:
+        - name: zip5
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#plusfour"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: ""
