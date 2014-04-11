@@ -1,0 +1,82 @@
+bioguide: C001078
+contact_form:
+  method: post
+  action: "/htbin/formproc/connolly/contact_form_file.txt&display=/connolly/contact_thankyou.shtml"
+  steps:
+    - visit: "https://forms.house.gov/connolly/contact-form.shtml"
+    - fill_in:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: "#zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#contactForm input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-email
+          selector: "#required-email"
+          value: $EMAIL
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#subject"
+          value: $SUBJECT
+          required: true
+          options:
+            Agriculture: WEBAGR
+            Budget: WEBBUD
+            Defense: WEBDEF
+            Economy: WEBECON
+            Education and Labor: WEBEDU
+            Energy: WEBENE
+            Environmental: WEBENV
+            Government Reform: WEBGOV
+            Health: WEBHEA
+            Homeland Security: WEBHOM
+            Immigration: WEBIMM
+            International Relations: WEBINT
+            Judicial: WEBJUD
+            Social Issues: WEBSOC
+            Social Security: WEBSSEC
+            Taxes and Trade: WEBTAX
+            Telecommunications: WEBTEL
+            Transportation: WEBTRA
+            Veterans: WEBVET
+            Welfare: WEBWEL
+            Other: WEBOTH
+    - click_on:
+        - value: Send Email
+          selector: "#contactForm input[name='submit2']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "The following information has been submitted:"
