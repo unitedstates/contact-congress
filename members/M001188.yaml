@@ -15,7 +15,7 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: "#emailForm input[name='submit']"
     - find:
         - selector: "#contactForm"
     - fill_in:
@@ -35,10 +35,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -50,7 +46,7 @@ contact_form:
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -61,7 +57,7 @@ contact_form:
           required: true
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#contactForm input[name='submit']"
   success:
     headers:
       status: 200
