@@ -599,7 +599,7 @@ window.Forms || (Forms = {});
     '$ADDRESS_STREET_2': '[name*="street"]:not([name*="1"], [name*="first"])',
     '$ADDRESS_CITY': '[name*="city"]',
     '$ADDRESS_STATE_POSTAL_ABBREV': '[name*="state"]',
-    '$ADDRESS_STATE': '',
+    '$ADDRESS_STATE_FULL': '',
     '$ADDRESS_COUNTY': '[name*="county"]',
     '$ADDRESS_ZIP5': '[name*="zip"]:not([name*="4"], [name*="four"], [name*="extended"]), [name*="code"]:not([name*="4"], [name*="four"], [name*="extended"])',
     '$ADDRESS_ZIP4': '[name*="zip"][name*="4"], [name*="zip"][name*="four"], [name*="zip"][name*="extended"], [name*="code"][name*="4"], [name*="code"][name*="four"], [name*="code"][name*="extended"]',
