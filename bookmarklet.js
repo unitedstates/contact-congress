@@ -744,13 +744,20 @@ window.Forms || (Forms = {});
       }
     }, this));
     options = $(options);
-    if (options.eq(0).text() == options.eq(0).attr('value') &&
+    // if values equal text...
+    if ((options.eq(0).text() == options.eq(0).attr('value') &&
         options.eq(1).text() == options.eq(1).attr('value') &&
-        options.eq(2).text() == options.eq(2).attr('value')) {
+        options.eq(2).text() == options.eq(2).attr('value')) ||
+        // or values are blank...
+        (!options.eq(0).attr('value') &&
+         !options.eq(1).attr('value') &&
+         !options.eq(2).attr('value'))) {
       return options.map(function(i, option){
-        return $(option).attr('value');
+        // it's an array
+        return $(option).text();
       }).get();
     } else {
+      // otherwise a hash
       var opts = {};
       options.each(function(i, option){
         opts[$(option).text()] = $(option).attr('value');
@@ -877,7 +884,15 @@ CCH.prototype.parentMain = function() {
 };
 
 CCH.prototype.topWindow = function() {
-  return (window.opener) ? window.opener : window;
+  // if the window's opener is github or throws an error we are in
+  // the parent window.
+  var top = window.opener;
+  try {
+    window.opener.location.href == 'http://theunitedstates.io/contact-congress/' && (top = window);
+  } catch(e) {
+    top = window;
+  }
+  return top || window;
 };
 
 CCH.prototype.topWindowBody = function() {
@@ -885,7 +900,7 @@ CCH.prototype.topWindowBody = function() {
 }
 
 CCH.prototype.popupWindow = function() {
-  return this.popup || (this.popup = (window.opener) ? window : open('about:blank', "cch", "width=700,height=650"));
+  return this.popup || (this.popup = (window !== this.topWindow()) ? window : open('about:blank', "cch", "width=700,height=650"));
 }
 
 CCH.prototype.popupTargetDiv = function() {
@@ -1013,7 +1028,7 @@ CCH.prototype.finalizeStep = function(e) {
       steps = [];
 
   if (this.currentSteps().length === 0) {
-    steps.push({visit: window.opener.location.href});
+    steps.push({visit: this.topWindow().location.href});
   };
   if (find = this.popupTargetDiv().find('input.find').val()) {
     steps.push({find: [{selector: find}]});
