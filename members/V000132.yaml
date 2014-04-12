@@ -105,7 +105,7 @@ contact_form:
       - value: "Submit"
         selector: "input[value=Submit]"
     - find:
-      - contains: "a[href='http://www.vela.house.gov']:contains('Here')"
+      - selector: "a[href='http://www.vela.house.gov']:contains('Here')"
   success:
     headers:
       status: 200
