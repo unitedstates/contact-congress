@@ -104,8 +104,10 @@ contact_form:
     - click_on:
       - value: "Submit"
         selector: "input[value=Submit]"
+    - find:
+      - contains: "a[href='http://www.vela.house.gov']:contains('Here')"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank"
+      contains: "Your email should"
