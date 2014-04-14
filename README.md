@@ -15,9 +15,7 @@ This is what you need to power any system which aims to collect and submit elect
 
 ### Contributing
 
-**Due to the large quantity of House representatives, we need all the help we can get to complete this dataset.**
-
-**Please visit our [contribution guide](http://theunitedstates.io/contact-congress/) for a full description, but in brief:**
+**Due to the large quantity of House representatives, we need all the help we can get to complete this dataset. Please visit our [contribution guide](http://theunitedstates.io/contact-congress/) for a full description of how to contribute, but in brief:**
 
 1. [Reply to an open ticket](https://github.com/unitedstates/congress-contact/issues?labels=MoC&page=1&state=open) stating that you are currently working on a congress member's form.
 2. [Use the bookmarklet](http://theunitedstates.io/contact-congress/) to generate a new YAML file.
