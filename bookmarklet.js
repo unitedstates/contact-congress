@@ -677,7 +677,7 @@ window.Forms || (Forms = {});
     Utils.getAsyncCSV({
       baseAPIUrl: "https://api.github.com/repos/sinak",
       repo: 'congress-zip-plus-four',
-      filename: '7- output-final.csv'
+      filename: '8- output-final-with-senate.csv'
     }).done(function(rows){
       _.map(rows, function(row, i){
         self.zips[row.Bio_ID] = row;
