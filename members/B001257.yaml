@@ -1,9 +1,9 @@
-bioguide: B000755
+bioguide: B001257
 contact_form:
   method: post
-  action: /contact-form/
+  action: /email-congressman-bilirakis/
   steps:
-    - visit: "https://kevinbradyforms.house.gov/contact-form"
+    - visit: "https://bilirakis.house.gov/email-congressman-bilirakis/"
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
@@ -17,7 +17,7 @@ contact_form:
         - value: Go to Form
           selector: "#zipauthform input.button"
     - find:
-        - selector: "#custom_form11"
+        - selector: "#custom_form24"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -31,61 +31,53 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
           required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: phn
+          selector: "#req_phn"
           value: $PHONE
-          required: false
+          required: true
         - name: message
           selector: "#req_message"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
+        - name: issue
+          selector: "#req_issue"
+          value: $TOPIC
           required: true
           options:
-            Cdr.: Cdr
-            Col.: Col
-            Cpt.: Cpt.
-            Dr.: Dr.
-            Father: Father
-            Gen.: Gen
-            Hon.: Hon.
-            Lt.: Lt
-            Maj.: Maj
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Rabbi: Rabbi
-            Rev.: Rev.
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            Texas: TX
-    - check:
-        - name: required-topic
-          selector: "#topic_other"
-          value: OTHER
+            Agriculture: WEBAGR
+            Budget: WEBBUD
+            Defense: WEBDEF
+            Education and Labor: WEBEDU
+            Energy: WEBENE
+            Environmental: WEBENV
+            International Relations: WEBINT
+            Government Reform: WEBGOV
+            Health: WEBHEA
+            Homeland Security: WEBHOM
+            Immigration: WEBIMM
+            Jobs and Economy: jobs.econ
+            Judiciary: WEBJUD
+            Social Issues: WEBSOC
+            Social Security: WEBSSEC
+            Telecommunications: WEBTEL
+            Taxes and Trade: WEBTAX
+            Transportation: WEBTRA
+            Veterans: WEBVET
+            Welfare: WEBWEL
+            Other: WEBOTH
+    - uncheck:
+        - name: newsletter
+          selector: "#newsletter"
+          value: "<AFFL>EMAIL.OPTIN</AFFL>"
     - click_on:
         - value: Send Email
           selector: "#submitButton"
@@ -93,4 +85,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for your message
+      contains: "Thank you for your correspondence,"

@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: "#zipauthform input.button"
+    - find:
+        - selector: "#custom_form63"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -161,4 +163,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted
+      contains: Your message has been successfully submitted.

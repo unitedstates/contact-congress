@@ -104,8 +104,10 @@ contact_form:
     - click_on:
       - value: "Submit"
         selector: "input[value=Submit]"
+    - find:
+      - selector: "p a[href='http://www.vela.house.gov']"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank"
+      contains: "Thank you for contacting"

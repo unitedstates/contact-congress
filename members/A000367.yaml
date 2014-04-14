@@ -12,6 +12,7 @@ contact_form:
       - name: zip4
         selector: "#zip4"
         value: $ADDRESS_ZIP4
+        required: Yes
     - click_on:
       - value: "Go To Next Step"
         selector: "#submit"
@@ -98,6 +99,11 @@ contact_form:
         options:
           "No Response Needed": "NRN"
           "Response Needed": "Response Needed"
+    - choose:
+      - name: "affl1_2"
+        selector: "#affl1_2"
+        value: "No Action"
+        required: Yes
     - click_on:
       - value: "Send Email"
         selector: "#submit"

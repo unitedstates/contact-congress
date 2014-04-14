@@ -1,0 +1,87 @@
+bioguide: U000031
+contact_form:
+  method: get
+  action: /Contact/ContactForm.htm
+  steps:
+    - visit: "http://upton.house.gov/contact/zipauth.htm"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find: 
+        - selector: "form.zipform[name='contact']"
+    - fill_in:
+        - name: required-first
+          selector: "form.zipform[name='contact'] input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "form.zipform[name='contact'] input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "form.zipform[name='contact'] input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "form.zipform[name='contact'] input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "form.zipform[name='contact'] input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform[name='contact'] input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: required-email
+          selector: "form.zipform[name='contact'] input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: required-message
+          selector: "form.zipform[name='contact'] textarea[name='required-message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "form.zipform[name='contact'] select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AG
+            Defense/National Security: DEF
+            Economy/Business: EB
+            Education: ED
+            Energy/Gas Prices: EN
+            Environment: EI
+            Ethics: GV
+            Foreign Policy: IR
+            Healthcare: HE
+            Immigration: IM
+            Iraq/Afghanistan: IR
+            Job Creation: EB
+            Pro-Family/Protecting our Children: SO
+            Social Security/Medicare: SS
+            Taxes/Fiscal Responsibility: TX
+            Telecommunications: CT
+            Veterans Affairs: VA
+    - click_on:
+        - value: Send Email
+          selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
+    - click_on:
+        - value: Send Email
+          selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thanks for your request. We will try to address your message as soon as we are able

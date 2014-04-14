@@ -1,9 +1,9 @@
-bioguide: B001242
+bioguide: K000378
 contact_form:
   method: post
-  action: /email-me/
+  action: /email-adam/
   steps:
-    - visit: "https://timbishop.house.gov/email-me"
+    - visit: "https://kinzinger.house.gov/email-adam"
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
@@ -17,7 +17,7 @@ contact_form:
         - value: Go to Form
           selector: input.button
     - find:
-        - selector: "#custom_form23"
+        - selector: "#custom_form7"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -32,7 +32,7 @@ contact_form:
           value: $ADDRESS_STREET
           required: true
         - name: street2
-          selector: "#address2"
+          selector: "#custom_form7 input[name='street2']"
           value: $ADDRESS_STREET_2
           required: false
         - name: city
@@ -43,21 +43,25 @@ contact_form:
           selector: "#req_zip"
           value: $ADDRESS_ZIP5
           required: true
+        - name: zipfour
+          selector: "#zip2"
+          value: $ADDRESS_ZIP4
+          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: "#req_phone"
           value: $PHONE
-          required: false
+          required: true
         - name: message
           selector: "#req_message"
           value: $MESSAGE
           required: true
     - select:
         - name: prefix
-          selector: "#prefix"
+          selector: "#req_prefix"
           value: $NAME_PREFIX
           required: true
           options:
@@ -69,73 +73,40 @@ contact_form:
             Hon.: Hon.
             Rev.: Rev.
             Rabbi: Rabbi
-            Other: Other
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+        - name: subject
+          selector: "#req_subject"
+          value: $TOPIC
           required: true
           options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-    - uncheck:
-        - name: newsletter
-          selector: "#newsletter"
-          value: "1"
+            Constituent Services: CASE
+            Grant Requests: GRANT
+            Agriculture: AGRI
+            Budget: BUD
+            Defense: DEF
+            Economy: ECON
+            Education/Labor: EDU
+            Energy: ENR
+            Environment: ENV
+            International: FOR
+            Government Reform: GOV
+            Health Care: HLTH
+            Homeland Security: HSEC
+            Immigration: IMM
+            Jobs: JOBS
+            Judiciary: JUD
+            Social Issues: FAM
+            Social Security: SOC
+            Telecommunications: TELE
+            Taxes and Trade: TAX
+            Transportation: TRANS
+            Veterans: VET
+            Welfare: WEL
+            Other: OTH
     - click_on:
-        - value: Send Email
+        - value: Submit
           selector: "#submitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted
+      contains: Thank you for submitting your information.
