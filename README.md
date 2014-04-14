@@ -15,7 +15,7 @@ This is what you need to power any system which aims to collect and submit elect
 
 ### Contributing
 
-Due to the large quantity of House representatives, we need all the help we can get to complete this dataset.
+**Due to the large quantity of House representatives, we need all the help we can get to complete this dataset.**
 
 **Please visit our [contribution guide](http://theunitedstates.io/contact-congress/) for a full description, but in brief:**
 
