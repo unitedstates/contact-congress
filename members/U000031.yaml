@@ -77,6 +77,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "form.zipform.activeForm.submit"
     - click_on:
         - value: Send Email
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
