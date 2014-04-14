@@ -48,7 +48,7 @@ You can find detailed, reliable data about every current and historical member o
 
 * The [Sunlight Foundation](http://sunlightfoundation.com) will be integrating it into [OpenCongress.org](http://www.opencongress.org).
 
-* The [Electronic Frontier Foudnation](https://eff.org) will be using the data with their [congress-forms](https://github.com/EFForg/congress-forms/) delivery implementation to advocate for better technology laws and regulations.
+* The [Electronic Frontier Foundation](https://eff.org) will be using the data with their [congress-forms](https://github.com/EFForg/congress-forms/) delivery implementation to advocate for better technology laws and regulations.
 
 * [Taskforce.is](https://taskforce.is) will be using the data for technology-related activism campaigns.
 
