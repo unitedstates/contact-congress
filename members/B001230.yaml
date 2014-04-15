@@ -48,7 +48,7 @@ contact_form:
           - Veterans
           - Womens Issues
     - find:  # waits for dom element to appear before proceeding
-      - selector: "#continue-form fieldset"
+      - selector: "#continue-form fieldset:nth-child(1)"
     - fill_in:
       - name: fname
         selector: "#fname"
