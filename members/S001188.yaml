@@ -42,17 +42,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: "contact[salutation]"
-          selector: "#contact_salutation"
-          value: $NAME_PREFIX
-          required: false
-          options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Dr.
-            - Rev.
-            - Other
         - name: "contact[topic]"
           selector: "#contact_topic"
           value: $TOPIC
