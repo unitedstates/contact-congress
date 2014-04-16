@@ -1,0 +1,200 @@
+bioguide: C001062
+contact_form:
+  method: get
+  action: /Forms/WriteYourRep/
+  steps:
+    - visit: "http://conaway.house.gov/contact/default.aspx#email"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#aspnetForm"
+    - fill_in:
+        - name: ctl00$ctl10$FirstName
+          selector: "#ctl00_ctl10_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl10$LastName
+          selector: "#ctl00_ctl10_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl10$Street
+          selector: "#ctl00_ctl10_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl10$City
+          selector: "#ctl00_ctl10_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl10$Zip
+          selector: "#ctl00_ctl10_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl10$Phone
+          selector: "#ctl00_ctl10_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl10$Email
+          selector: "#ctl00_ctl10_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl10$Subject
+          selector: "#ctl00_ctl10_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl10$Body
+          selector: "#ctl00_ctl10_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$ctl10$PrefixList
+          selector: "#ctl00_ctl10_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
+            - Rev.
+            - "Mr. & Mrs."
+            - Col
+            - Lt
+            - Lt Col
+            - Gen
+            - Lt Gen
+            - Sgt
+            - MSGT
+            - Capt
+            - Adm
+            - Maj
+            - TSgt
+        - name: ctl00$ctl10$State
+          selector: "#ctl00_ctl10_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl10$IssuesList
+          selector: "#ctl00_ctl10_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            "": "14796"
+            Agriculture: "3960"
+            Budget: "13380"
+            Campaign Finance Reform: "13381"
+            Concerned Citizen: "24067"
+            Congressional Members Health Care: "25406"
+            Constitutional Support: "24030"
+            Debt Ceiling: "24071"
+            "Defense & the Military": "4072"
+            Education: "3959"
+            Energy and Environment: "3972"
+            Environment: "13382"
+            Ethics: "27225"
+            FAA: "25511"
+            Family Values: "3958"
+            Fiscal Responsibility: "4074"
+            Flag Requests: "13383"
+            Government Reform: "13384"
+            Grant Information: "13385"
+            Health Care: "114399"
+            Homeland Security: "21240"
+            Immigration: "102430"
+            Internet Passport: "25405"
+            Judiciary: "13386"
+            Labor: "13387"
+            Legislation: "4212"
+            Oil Spill: "24068"
+            Other: "14566"
+            Others: "13396"
+            Science: "13389"
+            Second Amendment Rights: "3956"
+            Social Security: "3961"
+            "Spending & Appropriations": "4695"
+            Tax Compromise: "21713"
+            Taxes: "13392"
+            Telecommunications: "13390"
+            Term Limits: "24070"
+            Terrorism Issues: "13391"
+            Transportation: "13393"
+            Values: "3973"
+            Veterans: "3962"
+            Washington Tours: "13395"
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl10_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your email. "
