@@ -14,31 +14,31 @@ contact_form:
           selector: "form.zipform input[type='submit'][value='Submit']"
     - fill_in:
         - name: required-first
-          selector: "#ctl00_ctl11_ctl00_Text form input[name='required-first']"
+          selector: "form input[name='required-first']"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#ctl00_ctl11_ctl00_Text form input[name='required-last']"
+          selector: "form input[name='required-last']"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#ctl00_ctl11_ctl00_Text form input[name='required-address']"
+          selector: "form input[name='required-address']"
           value: $NAME_FULL
           required: true
         - name: required-city
-          selector: "#ctl00_ctl11_ctl00_Text form input[name='required-city']"
+          selector: "form input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: "#ctl00_ctl11_ctl00_Text form input[name='zip5']"
+          selector: "form input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: required-email
-          selector: "#ctl00_ctl11_ctl00_Text form input[name='required-email']"
+          selector: "form input[name='required-email']"
           value: $EMAIL
           required: false
         - name: phone
-          selector: "#ctl00_ctl11_ctl00_Text form input[name='phone']"
+          selector: "form input[name='phone']"
           value: $PHONE
           required: false
         - name: required-message
@@ -47,7 +47,7 @@ contact_form:
           required: true
     - select:
         - name: required-prefix
-          selector: "#ctl00_ctl11_ctl00_Text form select[name='required-prefix']"
+          selector: "form select[name='required-prefix']"
           value: $NAME_PREFIX
           required: true
           options:
@@ -125,7 +125,7 @@ contact_form:
             - A1C
             - SrA
         - name: Issues
-          selector: "#ctl00_ctl11_ctl00_Text form select[name='Issues']"
+          selector: "form select[name='Issues']"
           value: $TOPIC
           required: true
           options:
@@ -158,7 +158,7 @@ contact_form:
           value: "yes"
     - click_on:
         - value: Send Message
-          selector: "#ctl00_ctl11_ctl00_Text form input[name='WR_Submit']"
+          selector: "form input[name='WR_Submit']"
   success:
     headers:
       status: 200
