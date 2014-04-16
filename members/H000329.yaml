@@ -32,7 +32,7 @@ contact_form:
         - name: zip4
           selector: "form.zipform[name='contact'] input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
         - name: phone
           selector: "form.zipform[name='contact'] input[name='phone']"
           value: $PHONE
@@ -94,10 +94,6 @@ contact_form:
             - Veterans
             - Welfare
             - Wenatchee Valley Medical Center
-    - uncheck:
-        - name: subscribe
-          selector: "form.zipform[name='contact'] input[name='subscribe']"
-          value: subscribe
     - click_on:
         - value: Send Email
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
