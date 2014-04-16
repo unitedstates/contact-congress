@@ -56,7 +56,7 @@ contact_form:
         - name: required-valid-email
           selector: "#contactForm input[name='required-valid-email']"
           value: $EMAIL
-          required: false
+          required: true
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
@@ -111,11 +111,8 @@ contact_form:
             Other Issues: OTHER
         - name: required-response
           selector: "#required-response"
-          value: "Yes"
-          required: false
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
+          value: "Y"
+          required: true
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
