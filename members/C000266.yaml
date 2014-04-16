@@ -1,0 +1,73 @@
+bioguide: C000266
+contact_form:
+  method: post
+  action: "?zip5=45202&zip4=3003"
+  steps:
+    - visit: "https://chabot.house.gov/forms/writeyourrep/?zip5=45202&zip4=3003"
+    - fill_in:
+        - name: ctl00$ctl16$FirstName
+          selector: "#ctl00_ctl16_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl16$LastName
+          selector: "#ctl00_ctl16_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl16$Street
+          selector: "#ctl00_ctl16_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl16$City
+          selector: "#ctl00_ctl16_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl16$Zip
+          selector: "#ctl00_ctl16_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl16$Phone
+          selector: "#ctl00_ctl16_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl16$Email
+          selector: "#ctl00_ctl16_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl16$Subject
+          selector: "#ctl00_ctl16_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl16$Body
+          selector: "#ctl00_ctl16_Body"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$ctl16$CampaignID
+          selector: "#ctl00_ctl16_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl16$CampaignInfo
+          selector: "#ctl00_ctl16_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl16$PrefixList
+          selector: "#ctl00_ctl16_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Dr.
+    - check:
+        - name: ctl00$ctl16$ReplyChoice
+          selector: "#ctl00_ctl16_ReplyChoice_0"
+          value: Respond
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl16_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for submitting your message! I appreciate the benefit of your views. If you are need of immediate assistance from my office, please call (513) 684-2723 or (202) 225-2216."
