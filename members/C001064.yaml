@@ -12,10 +12,12 @@ contact_form:
         - name: zipfour
           selector: "#zipfour"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
         - value: Go to Form
           selector: "#zipauthform input.button"
+    - find:
+        - selector: "form[name=\"custom_form\"]"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -70,7 +72,7 @@ contact_form:
             Other: Other
         - name: state
           selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          value: CA
           required: true
           options:
             - AK
@@ -128,7 +130,7 @@ contact_form:
         - name: issue
           selector: "#req_issue"
           value: $TOPIC
-          required: true
+          required: false
           options:
             Agriculture: AGRICULTURE
             California or 45th District Issues: STATE_DISTRICT
