@@ -1,0 +1,234 @@
+bioguide: C001048
+contact_form:
+  method: get
+  action: /Forms/WriteYourRep/
+  steps:
+    - visit: "https://culbersonforms.house.gov/contact/zipauth.htm"
+    - fill_in:
+        - name: zip5
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#plusfour"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - fill_in:
+        - name: ctl00$ctl11$FirstName
+          selector: "#ctl00_ctl11_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl11$LastName
+          selector: "#ctl00_ctl11_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl11$Street
+          selector: "#ctl00_ctl11_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl11$City
+          selector: "#ctl00_ctl11_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl11$Zip
+          selector: "#ctl00_ctl11_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl11$Phone
+          selector: "#ctl00_ctl11_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl11$Email
+          selector: "#ctl00_ctl11_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl11$Subject
+          selector: "#ctl00_ctl11_Subject"
+          value: $SUBJECT
+          required: false
+        - name: ctl00$ctl11$Body
+          selector: "#ctl00_ctl11_Body"
+          value: $MESSAGE
+          required: false
+        - name: ctl00$ctl11$CampaignID
+          selector: "#ctl00_ctl11_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl11$CampaignInfo
+          selector: "#ctl00_ctl11_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl11$PrefixList
+          selector: "#ctl00_ctl11_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - 1LT
+            - 1SGT
+            - 2LT
+            - Admiral
+            - Agent
+            - Ambassador
+            - BG
+            - Brigadier General
+            - Captain
+            - Chairman
+            - Chairwoman
+            - Chief
+            - Coach
+            - Colonel
+            - Commissioner
+            - Congressman
+            - Congresswoman
+            - CPT
+            - CSM
+            - CTSRN
+            - CW4
+            - Deputy Commissioner
+            - Eagle Scout
+            - Deputy
+            - Director
+            - Dr.
+            - Emperor
+            - Fr.
+            - General
+            - Governor
+            - FSEFN
+            - LCDR
+            - Lieutenant
+            - LTC
+            - LtCol
+            - LTG
+            - LtGen
+            - Major General
+            - Major
+            - Master
+            - Mayor
+            - Miss
+            - Mr. and Mrs.
+            - Mr. Speaker
+            - Mr.
+            - Mrs.
+            - Ms.
+            - MSG
+            - Officer
+            - PFC
+            - President
+            - Professor
+            - Rev.
+            - Rear
+            - Admiral
+            - Representative
+            - Senator
+            - Sergeant
+            - SFC
+            - SGT
+            - SH
+            - SN
+            - SPC
+            - SSG
+            - The Honorable and Mrs.
+            - The Honorable
+            - The Reverend
+            - Vice Admiral
+            - CMSgt.
+            - SSgt.
+            - The
+            - Cadet
+            - Secretary
+            - Sergeant Major
+            - Commissioner
+            - Rabbi
+            - Pastor
+            - MSgt.
+            - Chief Deputy Coroner
+            - Commander
+            - CW2
+            - SOC
+            - Lieutenant Colonel
+            - Lance Corporal
+            - First Sergeant
+        - name: ctl00$ctl11$State
+          selector: "#ctl00_ctl11_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+    - check:
+        - name: ctl00$ctl11$ReplyChoice
+          selector: "#ctl00_ctl11_ReplyChoice_0"
+          value: Respond
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl11_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thanks for submitting your comments
