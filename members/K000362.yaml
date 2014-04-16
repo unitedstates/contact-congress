@@ -1,0 +1,87 @@
+bioguide: K000362
+contact_form:
+  method: POST
+  action: "/htbin/formproc_za/king/webforms/issue_subscribe_parm.txt&form=/king/webforms/issue_subscribe_verify.htm"
+  steps:
+    - visit: "https://forms.house.gov/king/webforms/issue_subscribe.html"
+    - fill_in:
+        - name: required-first
+          selector: "#pagefull form input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#pagefull form input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#pagefull form input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#pagefull form input[name='address2']"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#pagefull form input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: "#pagefull form input[name='required-zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: required-zip4
+          selector: "#pagefull form input[name='required-zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: required-valid-email
+          selector: "#pagefull form input[name='required-valid-email']"
+          value: $EMAIL
+          required: true
+        - name: comments
+          selector: "#pagefull form textarea[name='comments']"
+          value: $MESSAGE
+          required: false
+    - select:
+        - name: required-prefix
+          selector: "#pagefull form select[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mrs.
+            - Ms.
+            - Mr.
+            - Dr.
+        - name: required-issue
+          selector: "#topic"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: WEBAGR
+            Budget: WEBBUD
+            Defense: WEBDEF
+            Economy: WEBECO
+            Education and Labor: WEBEDU
+            Energy: WEBENE
+            Environmental: WEBENV
+            International Relations: WEBINT
+            Government Reform: WEBGOV
+            Health: WEBHEA
+            Homeland Security: WEBHOM
+            Immigration: WEBIMM
+            Judiciary: WEBJUD
+            Social Issues: WEBSOC
+            Social Security: WEBSSEC
+            Telecommunications: WEBTEL
+            Taxes and Trade: WEBTAX
+            Transportation: WEBTRA
+            Veterans: WEBVET
+            Welfare: WEBWEL
+            Other: WEBOTH
+    - click_on:
+        - value: Send Email
+          selector: "#pagefull form input[type='submit'][value='Send Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: I appreciate hearing from you on federal issues that are important to you.
