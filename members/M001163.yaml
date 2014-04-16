@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: "#zipauthform input.button"
+    - find:
+        - selector: "#custom_form24"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -184,6 +186,13 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             "Women's Issues": WOMEN
+    - name: response
+          selector: "#response"
+          value: RN
+          required: true
+          options:
+            "Yes": RN
+            "No": NRN
     - uncheck:
         - name: newsletter
           selector: "#newsletter"
