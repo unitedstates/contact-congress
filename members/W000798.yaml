@@ -12,7 +12,7 @@ contact_form:
         - name: required-first
           selector: "#contact input[name='required-first']"
           value: $NAME_FIRST
-          required: true
+          required: false
         - name: required-last
           selector: "#contact input[name='required-last']"
           value: $NAME_LAST
@@ -20,11 +20,11 @@ contact_form:
         - name: required-address
           selector: "#contact input[name='required-address']"
           value: $ADDRESS_STREET
-          required: true
+          required: false
         - name: required-city
           selector: "#contact input[name='required-city']"
           value: $ADDRESS_CITY
-          required: true
+          required: false
         - name: zip5
           selector: "#contact input[name='zip5']"
           value: $ADDRESS_ZIP5
@@ -49,7 +49,7 @@ contact_form:
         - name: required-issue
           selector: "#subject"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: WEBAGR
             Budget: WEBBUD
@@ -73,10 +73,6 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other Issues: WEBOTH
-    - check:
-        - name: response
-          selector: "input[type='radio'][name='response'][value='Y']"
-          value: "Y"
     - click_on:
         - value: Send Email
           selector: "#contact input[type='submit'][value='Send Email']"
@@ -84,4 +80,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank you for sending me your email. "
+      contains: THANK YOU
