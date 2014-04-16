@@ -1,0 +1,97 @@
+bioguide: V000081
+contact_form:
+  method: POST
+  action: "/htbin/formproc_za/velazquez/IMA/issue_subscribe_parm.txt&form=/velazquez/IMA/issue_subscribe_verify.shtml&nobase"
+  steps:
+    - visit: "http://velazquez.house.gov/IMA/issue_subscribe.shtml"
+    - fill_in:
+        - name: required-prefix
+          selector: "#lipsum form input[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#lipsum form input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#lipsum form input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#lipsum form input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#lipsum form input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#lipsum form input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#lipsum form input[name='zip4']"
+          value: $ADDRESS_ZIP_PLUS_4
+          required: true
+        - name: required-email
+          selector: "#lipsum form input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: required-message
+          selector: "#lipsum form textarea[name='required-message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#lipsum form select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            Office Administration: ADMIN
+            Agriculture: AGRICULTURE
+            Banking and Financial Services: "BANKING "
+            Budget Issues: BUDGET
+            Congressional Hispanic Caucus: CHC
+            "Letters of Congratulation, Thank You, Condolescence": CNGRAT/THANK/CONDOL
+            Defense and Military Issues: DEFENSE
+            Economic Development: ECON_DEV
+            General Education/Arts Child Care: ED
+            Election Reform/Campaign Finance: ELECT-REFORM
+            Energy Issues: ENERGY
+            Environmental Issues: ENVIRONMENTAL
+            Ethics: ETHICS
+            Nutrition and Hunger Issues: FOOD AND NUTRITION
+            Gay and Lesbian Rights: GAY
+            Grants: GRANTS
+            Health: GRANTS
+            Medicare/Medicaide: HEALTH-MCARE/CAIDE
+            "Research, Access to Care, Patients Rights": HEALTH-PUBLIC
+            Homeland Security: HOMELAND
+            Housing Issues: HOUSE
+            "Immigration, Asylum, Border Enforcement": IMMIGRATION
+            Initiated: INIT
+            "International Relations - Development, Human Rights": IR
+            Judiciary - Civil and Constitutional Rights: JUD-CIVIL/CONST
+            "Judiciary - Crime, Gun Control, Drugs": JUD-CRIME/GUNS
+            Hurricane Katrina Related Issues: KATRINA
+            Labor/Worker Training: LABOR
+            Local District Specific Issues: LOCAL NY 12
+            New York City Agency: NYC AGENCY
+            Small Business Committee: SBC
+            Science and Technology: SCI AND TECH
+            Seniors/Social Security/Pensions: SENIOR
+            General Tax Issues: TAX_GEN
+            Telecommunications: TELE
+            General Trade Issues: TRADE
+            Transportation: TRANS
+            Veterans Issues: VETS
+            Welfare Issues: WELFARE
+            Women’s Issues: WOMEN
+    - click_on:
+        - value: Send Email
+          selector: "#lipsum form input[name='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your correspondence.
