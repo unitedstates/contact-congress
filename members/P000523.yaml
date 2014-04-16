@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /contact/
   steps:
-    - visit: "https://price.house.gov/contact/"
+    - visit: "https://price.house.gov/contact"
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
@@ -51,20 +51,7 @@ contact_form:
           selector: "#req_message"
           value: $MESSAGE
           required: true
-    - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
+    - select: []
     - click_on:
         - value: Send Email
           selector: "#submitButton"
