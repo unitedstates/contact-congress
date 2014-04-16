@@ -37,10 +37,6 @@ contact_form:
           selector: "input[name='required-phone']"
           value: $PHONE
           required: true
-        - name: required-message
-          selector: "textarea[name='required-message']"
-          value: $MESSAGE
-          required: true
         - name: required-issue
           selector: "select[name='required-issue']"
           value: $TOPIC
@@ -87,6 +83,10 @@ contact_form:
             Welfare: we
             2nd Amendment: gc
             Other: other
+        - name: required-message
+          selector: "textarea[name='required-message']"
+          value: $MESSAGE
+          required: true
     - click_on:
         - value: Send Email
           selector: "input[type='submit']"
