@@ -12,6 +12,8 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
+    - find:
+        - selector: "#prefix"
     - fill_in:
         - name: prefix
           selector: "#prefix"
