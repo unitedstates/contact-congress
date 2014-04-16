@@ -16,8 +16,6 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: input.button
-    - find:
-        - selector: "#custom_form4"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -31,6 +29,10 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
+        - name: street2
+          selector: "#custom_form4 input[name='street2']"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
@@ -42,11 +44,15 @@ contact_form:
         - name: zipfour
           selector: "#zip2"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
           required: true
+        - name: phone
+          selector: "#custom_form4 input[name='phone']"
+          value: $PHONE
+          required: false
         - name: message
           selector: "#req_message"
           value: $MESSAGE
@@ -55,7 +61,7 @@ contact_form:
         - name: prefix
           selector: "#req_prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
           options:
             - Mr.
             - Mrs.
@@ -67,14 +73,14 @@ contact_form:
             - Rabbi
         - name: state
           selector: "#req_state"
-          value: TX
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
             TX: TX
         - name: topic
           selector: "#req_topic"
           value: $TOPIC
-          required: true
+          required: false
           options:
             Abortion: ABORTION
             Agriculture: AGRICULTURE
@@ -131,4 +137,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted
+      contains: "Your message has been successfully submitted! We will get in touch as soon as possible."

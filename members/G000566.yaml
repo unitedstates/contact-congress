@@ -1,9 +1,11 @@
-bioguide: G000573
+bioguide: G000566
 contact_form:
   method: post
-  action: ""
+  action: default.aspx
   steps:
-    - visit: "http://garciaforms.house.gov/email-me/"
+    - visit: "https://gowdy.house.gov/forms/writeyourrep/default.aspx"
+    - find:
+        - selector: "#aspnetForm"
     - fill_in:
         - name: ctl00$ctl11$FirstName
           selector: "#ctl00_ctl11_FirstName"
@@ -25,10 +27,6 @@ contact_form:
           selector: "#ctl00_ctl11_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl11$Phone
-          selector: "#ctl00_ctl11_Phone"
-          value: $PHONE
-          required: false
         - name: ctl00$ctl11$Email
           selector: "#ctl00_ctl11_Email"
           value: $EMAIL
@@ -49,17 +47,11 @@ contact_form:
           selector: "#ctl00_ctl11_CampaignInfo"
           value: $CAMPAIGN_UUID
           required: false
+    - check:
+        name: ctl00$ctl11$ReplyChoice
+        selector: "#ctl00_ctl11_ReplyChoice_0"
+        value: Respond
     - select:
-        - name: ctl00$ctl11$PrefixList
-          selector: "#ctl00_ctl11_PrefixList"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - Dr.
-            - Ms.
-            - Col.
         - name: ctl00$ctl11$State
           selector: "#ctl00_ctl11_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -125,10 +117,6 @@ contact_form:
             - MP
             - PR
             - VI
-    - check:
-        - name: ctl00$ctl11$ReplyChoice
-          selector: "#ctl00_ctl11_ReplyChoice_0"
-          value: Respond
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl11_SubmitButton"
@@ -136,4 +124,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to write me
+      contains: Thank you for your message.

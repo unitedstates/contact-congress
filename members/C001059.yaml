@@ -1,0 +1,129 @@
+bioguide: C001059
+contact_form:
+  method: post
+  action: "/htbin/formproc_za/formcosta/issue_parm.txt&form=/formcosta/issue_verify.htm"
+  steps:
+    - visit: "http://www.house.gov/formcosta/issue.htm"
+    - fill_in:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AK
+            - AL
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - FL
+            - GA
+            - HI
+            - IA
+            - ID
+            - IL
+            - IN
+            - KS
+            - KY
+            - LA
+            - MA
+            - MD
+            - ME
+            - MI
+            - MN
+            - MO
+            - MS
+            - MT
+            - NC
+            - ND
+            - NE
+            - NH
+            - NJ
+            - NM
+            - NV
+            - NY
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VA
+            - VT
+            - WA
+            - WI
+            - WV
+            - WY
+        - name: zip5
+          selector: "#zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-email
+          selector: "#required-email"
+          value: $EMAIL
+          required: true
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: WEB.AG
+            Budget: WEB.BUD
+            Crime: WEB.CRI
+            Defense: WEB.DEF
+            Education: WEB.EDU
+            Environment: WEB.ENV
+            Foreign Affairs: WEB.FA
+            Health: WEB.HEA
+            Housing: WEB.HOU
+            Immigration: WEB.IMM
+            Labor: WEB.LAB
+            Science: WEB.SCI
+            Social Security: WEB.SS
+            Trade: WEB.TRAD
+            Transportation: WEB.TRAN
+            Water: WEB.WAT
+            Womens Issues: WEB.WOM
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Send Email
+          selector: "input[type="submit"]"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for sending Rep. Jim Costa an email, you will receive a response soon."
