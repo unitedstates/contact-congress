@@ -87,6 +87,7 @@ contact_form:
       - name: Subject
         value: "$TOPIC"
         required: Yes
+        selector: "select[name=Subject]"
         options:
           - Abortion
           - Adoption/Foster Care
@@ -149,13 +150,6 @@ contact_form:
           - Unemployment Insurance
           - Veterans
           - "Women's Issues"
-      - name: field_4815620b-0631-45d2-b52e-a9420a813de5
-        selector: "#field_4815620b-0631-45d2-b52e-a9420a813de5"
-        value: Yes
-        required: Yes
-        options:
-          - "Yes"
-          - "No"
     - click_on:
       - value: Submit
         selector: ".normal-input input"
