@@ -12,19 +12,19 @@ contact_form:
         - name: required-first
           selector: "form.validate.wsbform input[name='required-first']"
           value: $NAME_FIRST
-          required: true
+          required: false
         - name: required-last
           selector: "form.validate.wsbform input[name='required-last']"
           value: $NAME_LAST
-          required: true
+          required: false
         - name: required-address
           selector: "form.validate.wsbform input[name='required-address']"
           value: $ADDRESS_STREET
-          required: true
+          required: false
         - name: required-city
           selector: "form.validate.wsbform input[name='required-city']"
           value: $ADDRESS_CITY
-          required: true
+          required: false
         - name: zip5
           selector: "form.validate.wsbform input[name='zip5']"
           value: $ADDRESS_ZIP5
@@ -36,7 +36,7 @@ contact_form:
         - name: required-email
           selector: "form.validate.wsbform input[name='required-email']"
           value: $EMAIL
-          required: true
+          required: false
         - name: phone
           selector: "form.validate.wsbform input[name='phone']"
           value: $PHONE
@@ -44,17 +44,12 @@ contact_form:
         - name: required-message
           selector: "form.validate.wsbform textarea[name='required-message']"
           value: $MESSAGE
-          required: true
+          required: false
     - select:
-        - name: required-state
-          selector: "form.validate.wsbform select[name='required-state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options: []
         - name: required-issue
           selector: "form.validate.wsbform select[name='required-issue']"
-          value: $SUBJECT
-          required: true
+          value: $TOPIC
+          required: false
           options:
             Agriculture: WEBAGR
             Budget: WEBBUD
@@ -87,4 +82,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You for your message
+      contains: "Thanks for your message. Your thoughts and concerns are very important to me.\n\nMy office makes every effort to respond to messages from constituents in Iowa's First Congressional District in a timely manner."
