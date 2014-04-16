@@ -36,19 +36,11 @@ contact_form:
         - name: ctl00$ctl11$Subject
           selector: "#ctl00_ctl11_Subject"
           value: $SUBJECT
-          required: false
+          required: true
         - name: ctl00$ctl11$Body
           selector: "#ctl00_ctl11_Body"
           value: $MESSAGE
-          required: false
-        - name: ctl00$ctl11$CampaignID
-          selector: "#ctl00_ctl11_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl11$CampaignInfo
-          selector: "#ctl00_ctl11_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
+          required: true
     - select:
         - name: ctl00$ctl11$PrefixList
           selector: "#ctl00_ctl11_PrefixList"
@@ -146,7 +138,7 @@ contact_form:
         - name: ctl00$ctl11$IssuesList
           selector: "#ctl00_ctl11_IssuesList"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Abortion: "9860"
             Agriculture: "9853"
@@ -202,6 +194,10 @@ contact_form:
             Ways and Means: "86132"
             Wildlife: "86133"
             Workforce: "86134"
+    - check:
+        - name: ctl00$ctl11$ReplyChoice
+          selector: "#ctl00_ctl11_ReplyChoice_0"
+          value: Respond
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl11_SubmitButton"
@@ -209,4 +205,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting Congressman Howard Coble.  The North Carolina General Assembly draws the lines for each of our state’s 13 congressional districts.  You do not reside in one of the 10 counties located within the boundaries of the Sixth Congressional District.
+      contains: "Thank you for taking the time to contact our office.  If you requested a response, we will write back to you as soon as possible."
