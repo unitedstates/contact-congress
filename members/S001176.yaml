@@ -1,0 +1,124 @@
+bioguide: S001176
+contact_form:
+  method: post
+  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  steps:
+    - visit: "https://scalise.house.gov/contact-me/email-me"
+    - fill_in:
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go To Next Step
+          selector: "#submit"
+    - fill_in:
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Adm.
+            - Capt.
+            - Cmdr.
+            - Col.
+            - Dr.
+            - Gen.
+            - Lt.
+            - Maj.
+            - Rev.
+            - Rabbi
+            - Sgt.
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: WEBAGR
+            Budget: WEBBUD
+            Defense: WEBDEF
+            Education and Labor: WEBEDU
+            Energy: WEBENE
+            Environmental: WEBENV
+            International Relations: WEBINT
+            Government Reform: WEBGOV
+            Health: WEBHEA
+            Homeland Security: WEBHOM
+            Immigration: WEBIMM
+            Judiciary: WEBJUD
+            Social Issues: WEBSOC
+            Social Security: WEBSSEC
+            Telecommunications: WEBTEL
+            Taxes and Trade: WEBTAX
+            Transportation: WEBTRA
+            Veterans: WEBVET
+            Welfare: WEBWEL
+            Other: WEBOTH
+    - click_on:
+        - value: Send Email
+          selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "The following information has been submitted:"
