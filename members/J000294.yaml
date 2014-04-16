@@ -8,11 +8,11 @@ contact_form:
         - name: zip5
           selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
-          required: false
+          required: true
         - name: zip4
           selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
