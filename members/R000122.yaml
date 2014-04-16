@@ -190,6 +190,10 @@ contact_form:
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
         required: Yes
         options: US_STATES_AND_TERRITORIES
+    - click_on:
+      - value: Submit
+        selector: "img[alt='Next Step']"
+    - fill_in:
       - name: topic
         selector: "#topic"
         value: "$TOPIC"
