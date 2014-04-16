@@ -17,12 +17,12 @@ contact_form:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
     - find:
-        - selector: "#contactForm"
+        - selector: .form-11
     - fill_in:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: false
+          required: true
         - name: required-first
           selector: "#contactForm input[name='required-first']"
           value: $NAME_FIRST
@@ -46,11 +46,11 @@ contact_form:
         - name: required-state
           selector: "#required-state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
+          required: false
         - name: required-zip5
           selector: "#required-zip5"
           value: $ADDRESS_ZIP5
-          required: true
+          required: false
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
@@ -62,7 +62,7 @@ contact_form:
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -87,3 +87,4 @@ contact_form:
       status: 200
     body:
       contains: "The following information has been submitted:"
+
