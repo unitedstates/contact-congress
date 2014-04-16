@@ -391,7 +391,9 @@ window.UnitedStates || (UnitedStates = function() {
     // against their regular url
     if (uri.host === 'forms.house.gov') {
       var name = uri.pathname.split('/')[1];
-      legislators = _.filter(function(legislator) {
+      if (name === 'write')
+        name = uri.pathname.split('/')[2];
+      legislators = _.filter(this.legislators, function(legislator) {
         return legislator.url().match(new RegExp('\\b' + name + '\\b')) !== null;
       });
     }
@@ -879,7 +881,9 @@ CCH.prototype.parentMain = function() {
     // we're on a form page, open the popup and inject the script
     this.popupWindow().ghAuthKey = this.ghAuthKey;
     var scr = this.popupWindow().document.createElement('script');
-    scr.src = this.scriptUrl;
+    scr.src = $('#cchbookmarklet').attr('src');
+    if (scr.src === undefined)
+      scr.src = this.scriptUrl;
     this.popupWindow().document.head.appendChild(scr);
   } else {
     // we're on a random page, add the select box
