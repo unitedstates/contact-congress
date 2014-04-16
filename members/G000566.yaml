@@ -1,6 +1,6 @@
 bioguide: G000566
 contact_form:
-  method: post
+  method: POST
   action: default.aspx
   steps:
     - visit: "https://gowdy.house.gov/forms/writeyourrep/default.aspx"
@@ -51,6 +51,7 @@ contact_form:
         name: ctl00$ctl11$ReplyChoice
         selector: "#ctl00_ctl11_ReplyChoice_0"
         value: Respond
+        required: true
     - select:
         - name: ctl00$ctl11$State
           selector: "#ctl00_ctl11_State"
