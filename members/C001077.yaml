@@ -1,0 +1,88 @@
+bioguide: C001077
+contact_form:
+  method: POST
+  action: "/htbin/formproc_za/coffman/webforms/issue_subscribe_parm.txt&form=/coffman/webforms/issue_subscribe_verify.htm"
+  steps:
+    - visit: "http://forms.house.gov/coffman/webforms/issue_subscribe.htm"
+    - fill_in:
+        - name: required-first
+          selector: "form[action='/htbin/formproc_za/coffman/webforms/issue_subscribe_parm.txt&form=/coffman/webforms/issue_subscribe_verify.htm'] input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "form[action='/htbin/formproc_za/coffman/webforms/issue_subscribe_parm.txt&form=/coffman/webforms/issue_subscribe_verify.htm'] input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "form[action='/htbin/formproc_za/coffman/webforms/issue_subscribe_parm.txt&form=/coffman/webforms/issue_subscribe_verify.htm'] input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "form[action='/htbin/formproc_za/coffman/webforms/issue_subscribe_parm.txt&form=/coffman/webforms/issue_subscribe_verify.htm'] input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: "form[action='/htbin/formproc_za/coffman/webforms/issue_subscribe_parm.txt&form=/coffman/webforms/issue_subscribe_verify.htm'] input[name='required-zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: required-email
+          selector: "form[action='/htbin/formproc_za/coffman/webforms/issue_subscribe_parm.txt&form=/coffman/webforms/issue_subscribe_verify.htm'] input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "form[action='/htbin/formproc_za/coffman/webforms/issue_subscribe_parm.txt&form=/coffman/webforms/issue_subscribe_verify.htm'] input[name='required-phone']"
+          value: $PHONE
+          required: true
+        - name: required-message
+          selector: "form[action='/htbin/formproc_za/coffman/webforms/issue_subscribe_parm.txt&form=/coffman/webforms/issue_subscribe_verify.htm'] textarea[name='required-message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-prefix
+          selector: "form[action='/htbin/formproc_za/coffman/webforms/issue_subscribe_parm.txt&form=/coffman/webforms/issue_subscribe_verify.htm'] select[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Dr.
+        - name: required-state
+          selector: "form[action='/htbin/formproc_za/coffman/webforms/issue_subscribe_parm.txt&form=/coffman/webforms/issue_subscribe_verify.htm'] select[name='required-state']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options: []
+        - name: required-issue
+          selector: "#subject"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: WEBAGR
+            Budget: WEBBUD
+            Defense: WEBDEF
+            Economy: WEBECON
+            Education and Labor: WEBEDU
+            Energy: WEBENE
+            Environmental: WEBENV
+            Government Reform: WEBGOV
+            Health: WEBHEA
+            Homeland Security: WEBHOM
+            Immigration: WEBIMM
+            International Relations: WEBINT
+            Judicial: WEBJUD
+            Social Issues: WEBSOC
+            Social Security: WEBSSEC
+            Taxes and Trade: WEBTAX
+            Telecommunications: WEBTEL
+            Transportation: WEBTRA
+            Veterans: WEBVET
+            Welfare: WEBWEL
+            Other: WEBOTH
+    - click_on:
+        - value: Send Email
+          selector: "form[action='/htbin/formproc_za/coffman/webforms/issue_subscribe_parm.txt&form=/coffman/webforms/issue_subscribe_verify.htm'] input[type='submit'][value='Send Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your correspondence!"
