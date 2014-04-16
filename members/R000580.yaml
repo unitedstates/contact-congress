@@ -1,0 +1,105 @@
+bioguide: R000580
+contact_form:
+  method: post
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  steps:
+    - visit: "https://roskam.house.gov/contact/email-me"
+    - fill_in:
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: "#emailForm input[name='submit']"
+    - fill_in:
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGRICULTURE
+            Animal Issues: ANIMAL ISSUES
+            Armed Services: ARMED SERVICES
+            Budget: BUDGET
+            Constituent Issue: CONSTITUENT ISSUE
+            Defense: DEFENSE
+            Education: EDUCATION
+            Energy: ENERGY
+            Environment: ENVIRONMENT
+            Finance/Banking: FINANCE/BANKING
+            Foreign Affairs: FOREIGN AFFAIRS
+            General: GENERAL
+            Gun Control: GUN CONTROL
+            Health Care: HEALTH CARE
+            Homeland Security: HOMELAND SECURITY
+            Illinois State Issue: ILLINOIS STATE ISSUE
+            Immigration: IMMIGRATION
+            Judiciary: JUDICIARY
+            Labor: LABOR
+            Postal Service: POSTAL SERVICE
+            Science: SCIENCE
+            Social Issue: SOCIAL ISSUE
+            Social Security: SOCIAL SECURITY
+            Taxes: TAXES
+            Technology: TECHNOLOGY
+            Trade: TRADE
+            Transportation: TRANSPORTATION
+            Veterans: VETERANS
+            "Women's Issues": WOMENS ISSUES
+        - name: required-response
+          selector: "#required-response"
+          value: "No"
+          required: true
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
+    - click_on:
+        - value: Send Email
+          selector: "#contactForm input[name='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: The following information has been submitted
