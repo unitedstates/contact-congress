@@ -1,0 +1,73 @@
+bioguide: S001156
+contact_form:
+  method: POST
+  action: "/htbin/formproc_za/lindasanchez/webforms/issue_subscribe_parm.txt&form=/lindasanchez/webforms/issue_subscribe_verify.htm"
+  steps:
+    - visit: "https://forms.house.gov/lindasanchez/webforms/issue_subscribe.htm"
+    - fill_in:
+        - name: required-first
+          selector: "#article-content form input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#article-content form input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#article-content form input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#article-content form input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#article-content form input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#article-content form input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: required-email
+          selector: "#article-content form input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#article-content form input[name='phone']"
+          value: $PHONE
+          required: false
+        - name: required-message
+          selector: "#article-content form textarea[name='required-message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-prefix
+          selector: "#article-content form select[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Dr.
+            - Mrs.
+            - Miss
+            - Hon.
+            - Prof
+        - name: required-state
+          selector: "#article-content form select[name='required-state']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options: []
+    - check:
+        - name: required-newsletter
+          selector: "input[type='radio'][name='required-newsletter'][value='noAction']"
+          value: noAction
+    - click_on:
+        - value: Send Email
+          selector: "#article-content form input[type='submit'][value='Send Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: be sent
