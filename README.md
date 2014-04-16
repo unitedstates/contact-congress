@@ -26,7 +26,7 @@ At present, the only way to send electronic messages to members of Congress is t
 2. [Use the bookmarklet](http://theunitedstates.io/contact-congress/) to generate a new YAML file.
 3. Save the genearted file in `/members` as `[bioguide].yaml`, where `[bioguide]` is that member's *Bioguide ID*.
 4. [Submit a pull request](https://github.com/unitedstates/congress-contact/compare/) with the new file.
-5. Test the YAML file using [congress-forms-test](efforg.github.io/congress-forms-test/) and make changes to the file as necessary.
+5. Test the YAML file using [congress-forms-test](http://efforg.github.io/congress-forms-test/) and make changes to the file as necessary.
 
 You can also check out the [schema](documentation/schema.md) we're using to represent the steps involved in filling out a member's web form.
 
