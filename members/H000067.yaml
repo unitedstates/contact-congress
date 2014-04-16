@@ -54,9 +54,11 @@ contact_form:
           value: $MESSAGE
           required: true
         - name: phone
-           selector: "#custom_form4 input[name='phone']"
-           value: $PHONE
-           required: false
+          selector: "#custom_form4 input[name='phone']"
+          value: $PHONE
+          required: false
+    - find:
+        - selector: "#req_response"
     - select:
         - name: response
           selector: "#req_response"

@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "http://negretemcleod.house.gov/contact"
+    - visit: "http://negretemcleod.house.gov/EmailGloria"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -12,15 +12,17 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
+    - find:
+        - selector: "#contactForm"
     - fill_in:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: false
+          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -33,6 +35,10 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -44,7 +50,7 @@ contact_form:
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -57,7 +63,7 @@ contact_form:
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
-          required: true
+          required: false
           options:
             Agriculture: AGR
             Animals: AN
@@ -102,7 +108,7 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "Y"
-          required: true
+          required: false
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"

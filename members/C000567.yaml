@@ -1,105 +1,113 @@
 bioguide: C000567
 contact_form:
-  method: POST
-  action: http://www.cochran.senate.gov/public/index.cfm/email-me
+  method: post
+  action: "http://www.cochran.senate.gov/public/index.cfm/email-me"
   steps:
-    - visit: http://www.cochran.senate.gov/public/index.cfm/email-me
+    - visit: "http://www.cochran.senate.gov/public/index.cfm/email-me"
     - fill_in:
-      - name: field_7cb9abdf-19c6-4b94-b388-99d40dae6175
-        selector: "#field_7cb9abdf-19c6-4b94-b388-99d40dae6175"
-        value: "$NAME_PREFIX"
-        required: Yes
-      - name: field_f2d00d51-9eba-4957-8571-46a94807d224
-        selector: "#field_f2d00d51-9eba-4957-8571-46a94807d224"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_cd28319f-a44e-4316-a091-af77c6c91e5a
-        selector: "#field_cd28319f-a44e-4316-a091-af77c6c91e5a"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_98547ce9-a2eb-4cf4-af40-dee6dca9dbfa
-        selector: "#field_98547ce9-a2eb-4cf4-af40-dee6dca9dbfa"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_96973811-7366-493a-b39a-d5d8a85b8aa3
-        selector: "#field_96973811-7366-493a-b39a-d5d8a85b8aa3"
-        value: "$ADDRESS_STREET_2"
-      - name: field_87e7fb66-d019-41dc-a83d-3d71c44cb7c7
-        selector: "#field_87e7fb66-d019-41dc-a83d-3d71c44cb7c7"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_f3cef5a3-3d72-4927-a5af-ef00fe961527
-        selector: "#field_f3cef5a3-3d72-4927-a5af-ef00fe961527"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-      - name: field_b673ec32-82a7-49b3-9642-50c2262a551b
-        selector: "#field_b673ec32-82a7-49b3-9642-50c2262a551b"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_6a04e7c2-3bb6-49e2-b837-c43a1e62ab4a
-        selector: "#field_6a04e7c2-3bb6-49e2-b837-c43a1e62ab4a"
-        value: "$PHONE"
-        required: Yes
-      - name: field_8c0687eb-c8e9-4905-8dff-9f523dabbc7d
-        selector: "#field_8c0687eb-c8e9-4905-8dff-9f523dabbc7d"
-        value: "$PHONE"
-      - name: field_f336956b-1ef2-47f7-bb9d-b2089d171146
-        selector: "#field_f336956b-1ef2-47f7-bb9d-b2089d171146"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_e5808243-acda-4192-9989-ac0598f3b322
-        selector: "#field_e5808243-acda-4192-9989-ac0598f3b322"
-        value: "$MESSAGE"
-        required: Yes
+        - name: field_d977f7a2-3618-49d6-a4dd-fc825487aa23
+          selector: "#field_d977f7a2-3618-49d6-a4dd-fc825487aa23"
+          value: $NAME_FIRST
+          required: true
+        - name: field_17057c13-813e-45f2-b611-18cd0b9b0628
+          selector: "#field_17057c13-813e-45f2-b611-18cd0b9b0628"
+          value: $NAME_LAST
+          required: true
+        - name: field_522bb9d8-25c2-40b1-a5e1-cbcc12f5a3f2
+          selector: "#field_522bb9d8-25c2-40b1-a5e1-cbcc12f5a3f2"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_ec0068ce-17c8-4053-85ae-4f6e67efc420
+          selector: "#field_ec0068ce-17c8-4053-85ae-4f6e67efc420"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: field_0e631a3f-4211-4bbc-86f6-97a427b98985
+          selector: "#field_0e631a3f-4211-4bbc-86f6-97a427b98985"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_73e0e5cf-bc83-4149-9fb3-3eb8a93ea636
+          selector: "#field_73e0e5cf-bc83-4149-9fb3-3eb8a93ea636"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: field_15776769-150b-48f5-9100-337de2e0ef87
+          selector: "#field_15776769-150b-48f5-9100-337de2e0ef87"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_3b436a3e-262c-469b-8fee-a496473af289
+          selector: "#field_3b436a3e-262c-469b-8fee-a496473af289"
+          value: $PHONE
+          required: true
+        - name: field_e3d57b35-8231-4bff-be88-477ee47c2414
+          selector: "#field_e3d57b35-8231-4bff-be88-477ee47c2414"
+          value: $EMAIL
+          required: true
+        - name: field_c6841c81-5e4d-4b2b-9f86-99ece64b3377
+          selector: "#field_c6841c81-5e4d-4b2b-9f86-99ece64b3377"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: field_3d88b068-3fe2-4b49-a7e1-bdadaf10850d
-        selector: "#field_3d88b068-3fe2-4b49-a7e1-bdadaf10850d"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          - "Abortion/Family Planning"
-          - "Agriculture"
-          - "Arts/Humanities"
-          - "Assistance with a Federal Agency"
-          - "Banking/Financial Services"
-          - "Budget"
-          - "Congratulatory/Commemorative"
-          - "Congress"
-          - "Defense/National Security"
-          - "Economy"
-          - "Education"
-          - "Energy"
-          - "Environment/Natural Resources"
-          - "FEMA/Disaster Relief"
-          - "Foreign Policy"
-          - "Government Regulation"
-          - "Guns/Second Amendment Rights"
-          - "Healthcare"
-          - "Homeland Security"
-          - "Housing/Community Development"
-          - "Immigration/Border Security"
-          - "Indian Affairs"
-          - "Jobs/Economic Development"
-          - "Judiciary"
-          - "Labor/Employment/Pensions"
-          - "Law Enforcement/Public Safety"
-          - "Medicare/Medicaid"
-          - "NASA/Science/Technology"
-          - "Postal Service"
-          - "Religious Freedoms"
-          - "Social Security"
-          - "Taxation"
-          - "Telecommunications"
-          - "Trade"
-          - "Transportation"
-          - "Veterans Affairs"
-          - "Welfare"
-          - "Other"
+        - name: field_92b27f14-94c8-42b6-936d-f144c6422998
+          selector: "#field_92b27f14-94c8-42b6-936d-f144c6422998"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Hon.
+            - Dr.
+            - Reverend
+            - Sister
+        - name: field_a2b54723-46f9-4a75-bfcf-6e4974580e71
+          selector: "#field_a2b54723-46f9-4a75-bfcf-6e4974580e71"
+          value: $SUBJECT
+          required: true
+          options:
+            Abortion/Family Planning: ABORT
+            Agriculture: AG
+            Animals/Wildlife: ANIM
+            Arts/Humanities: ARHUM
+            Banking/Financial Services: BANK
+            Budget: BUDG
+            Business/Economic Development: ECONDEV
+            Congratulatory/Commemorative: AD
+            Congress/Legislative Branch: CONG
+            Department of Homeland Security: HOMESEC
+            Economy: ECON
+            Education: EDU
+            Energy: ENG
+            Environment/Natural Resources: ENV
+            Federal Surveillance: INTEL
+            FEMA/Disaster Relief: FEMA
+            Foreign Policy: FORPO
+            Guns/Second Amendment Rights: GUNS
+            Healthcare/Health Insurace: HEALTH
+            Housing/Community Development: HOUSE
+            Immigration/Border Security: IMMIG
+            Individual Assistance with a Federal Agency: CW
+            Judiciary: JUD
+            Labor/Employment/Pensions: LABOR
+            Law Enforcement/Public Safety: COPS
+            Medicare/Medicaid: CS
+            Military/Defense: DEF
+            Native American Affairs: INDIAN
+            Postal Service: POST
+            President/Executive Branch: GOVREG
+            Religious Freedoms: RELIG
+            Science/Technology/NASA: NASA
+            Social Security: SOCSEC
+            Taxation/IRS: TAX
+            Telecommunications/Federal Communications Commission: TEL
+            Trade: TRAD
+            Transportation: TRANS
+            Veterans Affairs: VA
+            Welfare: WELF
     - click_on:
-      - value: Submit
-        selector: ".buttonHolder input"
+        - value: Submit
+          selector: div.buttonHolder input
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for taking the time to contact"
+      contains: Thank you for taking the time to contact Senator Cochran.
+

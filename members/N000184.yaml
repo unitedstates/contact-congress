@@ -4,7 +4,7 @@ contact_form:
   action: the url
   steps:
     - visit: "http://noem.house.gov/index.cfm/email-kristi"
-    - click:
+    - click_on:
         - selector: "button[rel=close]"
     - fill_in:
         - name: field_844CEEDB-B2E1-4444-8E26-E7C1A9866178
@@ -182,4 +182,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: the success message
+      contains: "Thank you for sending me your email. I appreciate the time you have taken to keep me informed about your concerns."

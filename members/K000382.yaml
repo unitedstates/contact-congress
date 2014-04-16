@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
@@ -20,7 +20,7 @@ contact_form:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: false
+          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -33,10 +33,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -44,11 +40,11 @@ contact_form:
         - name: required-state
           selector: "#required-state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: false
+          required: true
         - name: required-zip5
           selector: "#required-zip5"
           value: $ADDRESS_ZIP5
-          required: false
+          required: true
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
@@ -60,7 +56,7 @@ contact_form:
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: true
+          required: false
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -72,7 +68,7 @@ contact_form:
     - select:
         - name: required-issue
           selector: "#required-issue"
-          value: "Other Issues"
+          value: $TOPIC
           required: true
           options:
             Agriculture: AGR
@@ -117,8 +113,8 @@ contact_form:
             Other Issues: OTHER
         - name: required-response
           selector: "#required-response"
-          value: "N"
-          required: true
+          value: "Y"
+          required: false
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
@@ -129,4 +125,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: The following information has been submitted
