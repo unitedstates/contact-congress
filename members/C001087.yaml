@@ -1,0 +1,186 @@
+bioguide: C001087
+contact_form:
+  method: get
+  action: /Forms/WriteYourRep/
+  steps:
+    - visit: "http://crawford.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+ +      - selector: "#ctl00_ctl13_FirstName"
+    - fill_in:
+        - name: ctl00$ctl13$FirstName
+          selector: "#ctl00_ctl13_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl13$LastName
+          selector: "#ctl00_ctl13_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl13$Street
+          selector: "#ctl00_ctl13_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl13$City
+          selector: "#ctl00_ctl13_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl13$Zip
+          selector: "#ctl00_ctl13_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl13$Phone
+          selector: "#ctl00_ctl13_Phone"
+          value: $PHONE
+          required: false
+        - name: ctl00$ctl13$Email
+          selector: "#ctl00_ctl13_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl13$Subject
+          selector: "#ctl00_ctl13_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl13$Body
+          selector: "#ctl00_ctl13_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$ctl13$PrefixList
+          selector: "#ctl00_ctl13_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+            - "Mr. & Mrs."
+            - "Dr. & Mrs."
+            - "Dr. & Mr."
+            - C.O.
+            - Representative
+            - Senator
+            - The Honorable
+            - Col.
+        - name: ctl00$ctl13$State
+          selector: "#ctl00_ctl13_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl13$IssuesList
+          selector: "#ctl00_ctl13_IssuesList"
+          value: $TOPIC
+          required: false
+          options:
+            Abortion: "27723"
+            Agriculture: "27644"
+            Animal Rights: "56253"
+            Banking: "56254"
+            Budget: "56226"
+            Defense: "56228"
+            Economy: "27236"
+            Education: "56224"
+            Energy: "27602"
+            Environment: "27239"
+            Government Reform: "56255"
+            Health Care: "42749"
+            Homeland Security: "27604"
+            Housing: "56256"
+            Immigration: "27419"
+            International Affairs: "27409"
+            Labor: "56258"
+            Outdoor Sporting: "27291"
+            Postal Service: "27501"
+            Second Amendment: "56229"
+            Social Issues: "56259"
+            Social security and elderly assistance: "27297"
+            Taxation: "27287"
+            Telecommunications: "56231"
+            Trade: "56232"
+            Transportation: "27801"
+            Veterans Affairs: "42748"
+    - check:
+        - name: ctl00$ctl13$ReplyChoice
+          selector: "#ctl00_ctl13_ReplyChoice_1"
+          value: Comment
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl13_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: sending me
+
