@@ -63,164 +63,164 @@ contact_form:
         selector: "#ctl00_ctl14_CampaignInfo"
         value: $CAMPAIGN_UUID
         required: false
-  - select:
-      - name: ctl00$ctl14$PrefixList
-        selector: "#ctl00_ctl14_PrefixList"
-        value: $NAME_PREFIX
-        required: true
-        options:
-          - Mr.
-          - Mrs.
-          - Ms.
-          - Miss
-          - Mr. and Mrs.
-          - Dr.
-          - The Honorable
-          - The Reverend
-          - Rabbi
-          - Airman
-          - Brigadier General
-          - Cadet
-          - Captain
-          - Chaplain
-          - Chief Master Sergeant
-          - Chief Petty Officer
-          - Chief Warrant Officer
-          - Colonel
-          - Commander
-          - Command Sergeant Major
-          - Congressman
-          - Congresswoman
-          - Corporal
-          - Ensign
-          - First Lieutenant
-          - First Sergeant
-          - General
-          - Gunnery Sergeant
-          - Lance Corporal
-          - Lieutenant
-          - Lieutenant Colonel
-          - Lieutenant Commander
-          - Lieutenant General
-          - Lieutenant Junior Grade
-          - Major
-          - Major General
-          - Master Chief Petty Officer
-          - Master Gunnery Sergeant
-          - Master Sergeant
-          - Pastor
-          - Private
-          - Private First Class
-          - Seaman
-          - Senator
-          - Sergeant
-          - Sergeant Major
-          - Sheriff
-          - Staff Sergeant
-          - Warrant Officer
-      - name: ctl00$ctl14$State
-        selector: "#ctl00_ctl14_State"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: true
-        options:
-          - AL
-          - AK
-          - AZ
-          - AR
-          - CA
-          - CO
-          - CT
-          - DE
-          - DC
-          - FL
-          - GA
-          - HI
-          - ID
-          - IL
-          - IN
-          - IA
-          - KS
-          - KY
-          - LA
-          - ME
-          - MD
-          - MA
-          - MI
-          - MN
-          - MS
-          - MO
-          - MT
-          - NE
-          - NV
-          - NH
-          - NJ
-          - NM
-          - NY
-          - NC
-          - ND
-          - OH
-          - OK
-          - OR
-          - PA
-          - RI
-          - SC
-          - SD
-          - TN
-          - TX
-          - UT
-          - VT
-          - VA
-          - WA
-          - WV
-          - WI
-          - WY
-          - AA
-          - AE
-          - AP
-          - FM
-          - GU
-          - MH
-          - MP
-          - PR
-          - VI
-      - name: ctl00$ctl14$IssuesList
-        selector: "#ctl00_ctl14_IssuesList"
-        value: $TOPIC
-        required: false
-        options:
-          Abortion: "19311"
-          Agriculture: "107405"
-          Congressional ethics: "107409"
-          Defense: "19355"
-          Economy: "107410"
-          Education: "19389"
-          Energy: "19190"
-          Environment: "19173"
-          Foreign Affairs: "18997"
-          Government: "19117"
-          Gun Control: "107407"
-          Health Care: "53137"
-          Housing: "19021"
-          Immigration: "53135"
-          Labor: "18977"
-          Medicare: "19037"
-          National Budget: "107408"
-          National Security: "18824"
-          Social Security: "18828"
-          Taxes: "18875"
-          Telecommunications: "107406"
-          Trade: "19131"
-          Transportation: "53138"
-          Veterans: "18823"
-  - check:
-      - name: ctl00$ctl14$ReplyChoice
-        selector: "#ctl00_ctl14_ReplyChoice_0"
-        value: Respond
-  - click_on:
-      - value: Submit
-        selector: "#ctl00_ctl14_SubmitButton"
-success:
-  headers:
-    status: 200
-  body:
-    contains: Thank you for taking the time to write me
+    - select:
+        - name: ctl00$ctl14$PrefixList
+          selector: "#ctl00_ctl14_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Mr. and Mrs.
+            - Dr.
+            - The Honorable
+            - The Reverend
+            - Rabbi
+            - Airman
+            - Brigadier General
+            - Cadet
+            - Captain
+            - Chaplain
+            - Chief Master Sergeant
+            - Chief Petty Officer
+            - Chief Warrant Officer
+            - Colonel
+            - Commander
+            - Command Sergeant Major
+            - Congressman
+            - Congresswoman
+            - Corporal
+            - Ensign
+            - First Lieutenant
+            - First Sergeant
+            - General
+            - Gunnery Sergeant
+            - Lance Corporal
+            - Lieutenant
+            - Lieutenant Colonel
+            - Lieutenant Commander
+            - Lieutenant General
+            - Lieutenant Junior Grade
+            - Major
+            - Major General
+            - Master Chief Petty Officer
+            - Master Gunnery Sergeant
+            - Master Sergeant
+            - Pastor
+            - Private
+            - Private First Class
+            - Seaman
+            - Senator
+            - Sergeant
+            - Sergeant Major
+            - Sheriff
+            - Staff Sergeant
+            - Warrant Officer
+        - name: ctl00$ctl14$State
+          selector: "#ctl00_ctl14_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl14$IssuesList
+          selector: "#ctl00_ctl14_IssuesList"
+          value: $TOPIC
+          required: false
+          options:
+            Abortion: "19311"
+            Agriculture: "107405"
+            Congressional ethics: "107409"
+            Defense: "19355"
+            Economy: "107410"
+            Education: "19389"
+            Energy: "19190"
+            Environment: "19173"
+            Foreign Affairs: "18997"
+            Government: "19117"
+            Gun Control: "107407"
+            Health Care: "53137"
+            Housing: "19021"
+            Immigration: "53135"
+            Labor: "18977"
+            Medicare: "19037"
+            National Budget: "107408"
+            National Security: "18824"
+            Social Security: "18828"
+            Taxes: "18875"
+            Telecommunications: "107406"
+            Trade: "19131"
+            Transportation: "53138"
+            Veterans: "18823"
+    - check:
+        - name: ctl00$ctl14$ReplyChoice
+          selector: "#ctl00_ctl14_ReplyChoice_0"
+          value: Respond
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl14_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time to write me
