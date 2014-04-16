@@ -1,299 +1,356 @@
 bioguide: C001070
 contact_form:
-  method: POST
-  action: http://www.casey.senate.gov/contact/
+  method: post
+  action: /contact
   steps:
-    - visit: http://www.casey.senate.gov/contact/
+    - visit: "http://www.casey.senate.gov/contact"
     - fill_in:
-      - name: fname
-        selector: "#fname"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: lname
-        selector: "#lname"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: mailing_streetAddress1
-        selector: "#mailing_streetAddress1"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: mailing_streetAddress2
-        selector: "#mailing_streetAddress2"
-        value: "$ADDRESS_STREET_2"
-      - name: mailing_city
-        selector: "#mailing_city"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: mailing_zipCode
-        selector: "#mailing_zipCode"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: phone_number
-        selector: "#phone_number"
-        value: "$PHONE"
-      - name: email
-        selector: "#contactForm input[name='email']"
-        value: "$EMAIL"
-        required: Yes
-      - name: verify_email
-        selector: "#verify_email"
-        value: "$EMAIL"
-        required: Yes
-      - name: comments
-        selector: "#comments"
-        value: "$MESSAGE"
-        required: Yes
-      - name: suffix
-        selector: "#suffix"
-        value: ""
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: mailing_streetAddress1
+          selector: "#mailing_streetAddress1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: mailing_streetAddress2
+          selector: "#mailing_streetAddress2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: mailing_city
+          selector: "#mailing_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: mailing_zipCode
+          selector: "#mailing_zipCode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: "#verify_email"
+          value: $EMAIL
+          required: true
+        - name: phone_number
+          selector: "#phone_number"
+          value: $PHONE
+          required: false
+        - name: comments
+          selector: "#comments"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: salutation
-        selector: "#salutation"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          "Mr.": "Mr."
-          "Mrs.": "Mrs."
-          "Mr. and Mrs.": "Mr. and Mrs."
-          "Ms.": "Ms."
-          "Miss": "Miss"
-          "Dr.": "Dr."
-          "Hon.": "Hon."
-          "Prof.": "Prof."
-          "Fr.": "Fr."
-          "Sister": "Sister"
-          "Reverend": "Reverend"
-          "Rabbi": "Rabbi"
-          "Private": "Private"
-          "SR": "SR"
-          "Airman Basic": "Airman Basic"
-          "PV2": "PV2"
-          "SA": "SA"
-          "PFC": "PFC"
-          "Amn": "Amn"
-          "SN": "SN"
-          "LCpl": "LCpl"
-          "A1C": "A1C"
-          "CPL": "CPL"
-          "SPC": "SPC"
-          "PO3": "PO3"
-          "Cpl": "Cpl"
-          "SrA": "SrA"
-          "SGT": "SGT"
-          "PO2": "PO2"
-          "Sgt": "Sgt"
-          "SSgt": "SSgt"
-          "SSG": "SSG"
-          "PO1": "PO1"
-          "TSgt": "TSgt"
-          "SFC": "SFC"
-          "CPO": "CPO"
-          "GySgt": "GySgt"
-          "MSgt": "MSgt"
-          "First Sergeant": "First Sergeant"
-          "MSG": "MSG"
-          "1SG": "1SG"
-          "SCPO": "SCPO"
-          "SMSgt": "SMSgt"
-          "SGM": "SGM"
-          "CSM": "CSM"
-          "MCPO": "MCPO"
-          "MGySgt": "MGySgt"
-          "SgtMaj": "SgtMaj"
-          "CMSgt": "CMSgt"
-          "SMA": "SMA"
-          "MCPON": "MCPON"
-          "MCPOCG": "MCPOCG"
-          "SgtMajMC": "SgtMajMC"
-          "CMSAF": "CMSAF"
-          "WO1": "WO1"
-          "WO": "WO"
-          "CW2": "CW2"
-          "CWO2": "CWO2"
-          "CW3": "CW3"
-          "CWO3": "CWO3"
-          "CW4": "CW4"
-          "CWO4": "CWO4"
-          "CW5": "CW5"
-          "CWO5": "CWO5"
-          "2LT": "2LT"
-          "ENS": "ENS"
-          "2ndLt": "2ndLt"
-          "2d Lt": "2d Lt"
-          "1LT": "1LT"
-          "LTJG": "LTJG"
-          "1stLt": "1stLt"
-          "1st Lt": "1st Lt"
-          "CPT": "CPT"
-          "LT": "LT"
-          "Capt": "Capt"
-          "MAJ": "MAJ"
-          "LCDR": "LCDR"
-          "Maj": "Maj"
-          "LTC": "LTC"
-          "CDR": "CDR"
-          "LtCol": "LtCol"
-          "Lt Col": "Lt Col"
-          "COL": "COL"
-          "CAPT": "CAPT"
-          "Col": "Col"
-          "BG": "BG"
-          "RDML": "RDML"
-          "BGen": "BGen"
-          "Brig Gen": "Brig Gen"
-          "MG": "MG"
-          "RADM": "RADM"
-          "MajGen": "MajGen"
-          "Maj Gen": "Maj Gen"
-          "LTG": "LTG"
-          "VADM": "VADM"
-          "LtGen": "LtGen"
-          "Lt Gen": "Lt Gen"
-          "GEN": "GEN"
-          "ADM": "ADM"
-          "Gen": "Gen"
-      - name: mailing_state
-        selector: "#mailing_state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: county
-        selector: "#county"
-        value: "$COUNTY"
-        required: Yes
-        options:
-          "--": "null"
-          "Adams": "Adams"
-          "Allegheny": "Allegheny"
-          "Armstrong": "Armstrong"
-          "Beaver": "Beaver"
-          "Bedford": "Bedford"
-          "Berks": "Berks"
-          "Blair": "Blair"
-          "Bradford": "Bradford"
-          "Bucks": "Bucks"
-          "Butler": "Butler"
-          "Cambria": "Cambria"
-          "Cameron": "Cameron"
-          "Carbon": "Carbon"
-          "Centre": "Centre"
-          "Chester": "Chester"
-          "Clarion": "Clarion"
-          "Clearfield": "Clearfield"
-          "Clinton": "Clinton"
-          "Columbia": "Columbia"
-          "Crawford": "Crawford"
-          "Cumberland": "Cumberland"
-          "Dauphin": "Dauphin"
-          "Delaware": "Delaware"
-          "Elk": "Elk"
-          "Erie": "Erie"
-          "Fayette": "Fayette"
-          "Forest": "Forest"
-          "Franklin": "Franklin"
-          "Fulton": "Fulton"
-          "Greene": "Greene"
-          "Huntingdon": "Huntingdon"
-          "Indiana": "Indiana"
-          "Jefferson": "Jefferson"
-          "Juniata": "Juniata"
-          "Lackawanna": "Lackawanna"
-          "Lancaster": "Lancaster"
-          "Lawrence": "Lawrence"
-          "Lebanon": "Lebanon"
-          "Lehigh": "Lehigh"
-          "Luzerne": "Luzerne"
-          "Lycoming": "Lycoming"
-          "Mc Kean": "Mc Kean"
-          "Mercer": "Mercer"
-          "Mifflin": "Mifflin"
-          "Monroe": "Monroe"
-          "Montgomery": "Montgomery"
-          "Montour": "Montour"
-          "Northampton": "Northampton"
-          "Northumberland": "Northumberland"
-          "Perry": "Perry"
-          "Philadelphia": "Philadelphia"
-          "Pike": "Pike"
-          "Potter": "Potter"
-          "Schuylkill": "Schuylkill"
-          "Snyder": "Snyder"
-          "Somerset": "Somerset"
-          "Sullivan": "Sullivan"
-          "Susquehanna": "Susquehanna"
-          "Tioga": "Tioga"
-          "Union": "Union"
-          "Venango": "Venango"
-          "Warren": "Warren"
-          "Washington": "Washington"
-          "Wayne": "Wayne"
-          "Westmoreland": "Westmoreland"
-          "Wyoming": "Wyoming"
-          "York": "York"
-      - name: subject
-        selector: "#subject"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          "Abortion and Family Planning": "Abortion"
-          "Aging": "Aging"
-          "Animals": "Agriculture"
-          "Arts and Humanities": "Arts and Humanities"
-          "Banking": "Banking"
-          "Budget": "Budget"
-          "Census": "Budget"
-          "Children and Youth": "Children and Youth"
-          "Cloning and Stem Cell Research": "Abortion"
-          "Crime and Criminal Justice": "Criminal Justice"
-          "Conservation": "Agriculture"
-          "Defense and the Military": "Armed Services"
-          "Diplomatic Relations": "Foreign Relations"
-          "Disability": "Disabilities"
-          "Domestic Violence": "Domestic Violence"
-          "Education": "Education"
-          "Election and Campaign Finance Reform": "Election and Campaign Finance Reform"
-          "Employment Inquiry": "Employment Inquiry"
-          "Energy": "Energy"
-          "Environment": "Environment"
-          "Ethics and Clean Government": "Ethics and Clean Government"
-          "Farming": "Agriculture"
-          "Firearms": "Criminal Justice"
-          "Forestry": "Agriculture"
-          "Foreign Relations": "Foreign Relations"
-          "Global Health and Poverty": "Foreign Relations"
-          "Health Care": "Healthcare"
-          "Health Insurance": "Health Insurance"
-          "Health IT (Electronic Medical Records)": "Health IT"
-          "Homeland Security": "Homeland Security"
-          "Housing and Homelessness": "Housing and Homelessness"
-          "Immigration": "Immigration"
-          "Intelligence": "Intelligence"
-          "Iraq/Middle East": "Foreign Relations"
-          "Judiciary": "Judiciary"
-          "Labor and Jobs": "Jobs and Labor"
-          "LGBT Issues": "LGBT Issues"
-          "Medicaid": "Medicaid"
-          "Medical Providers/Practitioners and Hospitals": "Healthcare Workforce"
-          "Medicare": "Medicare"
-          "Nutrition": "Agriculture"
-          "Pensions": "Pensions"
-          "Poverty and TANF": "TANF - Welfare Reform"
-          "Prescription Drugs": "FDA/Drugs"
-          "Public Lands": "Agriculture"
-          "Science and Technology": "Science and Technology"
-          "Small Business": "Small Business"
-          "Social Security": "Social Security"
-          "Taxes": "Taxes"
-          "Telecommunications (Internet, Television, etc.)": "Telecommunications"
-          "Trade": "Trade"
-          "Transportation": "Transportation"
-          "Veterans": "Veterans"
-          "Website Issues (Problems/Questions Using This Website)": "Website Issues"
+        - name: salutation
+          selector: "#salutation"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - None
+            - Mr.
+            - Mrs.
+            - Mr. and Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+            - Hon.
+            - Prof.
+            - Fr.
+            - Sister
+            - Reverend
+            - Rabbi
+            - Private
+            - SR
+            - Airman Basic
+            - PV2
+            - SA
+            - PFC
+            - Amn
+            - SN
+            - LCpl
+            - A1C
+            - CPL
+            - SPC
+            - PO3
+            - Cpl
+            - SrA
+            - SGT
+            - PO2
+            - Sgt
+            - SSgt
+            - SSG
+            - PO1
+            - TSgt
+            - SFC
+            - CPO
+            - GySgt
+            - MSgt
+            - First Sergeant
+            - MSG
+            - 1SG
+            - SCPO
+            - SMSgt
+            - SGM
+            - CSM
+            - MCPO
+            - MGySgt
+            - SgtMaj
+            - CMSgt
+            - SMA
+            - MCPON
+            - MCPOCG
+            - SgtMajMC
+            - CMSAF
+            - WO1
+            - WO
+            - CW2
+            - CWO2
+            - CW3
+            - CWO3
+            - CW4
+            - CWO4
+            - CW5
+            - CWO5
+            - 2LT
+            - ENS
+            - 2ndLt
+            - 2d Lt
+            - 1LT
+            - LTJG
+            - 1stLt
+            - 1st Lt
+            - CPT
+            - LT
+            - Capt
+            - MAJ
+            - LCDR
+            - Maj
+            - LTC
+            - CDR
+            - LtCol
+            - Lt Col
+            - COL
+            - CAPT
+            - Col
+            - BG
+            - RDML
+            - BGen
+            - Brig Gen
+            - MG
+            - RADM
+            - MajGen
+            - Maj Gen
+            - LTG
+            - VADM
+            - LtGen
+            - Lt Gen
+            - GEN
+            - ADM
+            - Gen
+        - name: mailing_state
+          selector: "#mailing_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - APO AA
+            - APO AE
+            - APO AP
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - DPO AA
+            - DPO AE
+            - DPO AP
+            - FL
+            - FPO AA
+            - FPO AE
+            - FPO AP
+            - GA
+            - HI
+            - IA
+            - ID
+            - IL
+            - IN
+            - KS
+            - KY
+            - LA
+            - MA
+            - MD
+            - ME
+            - MI
+            - MN
+            - MO
+            - MS
+            - MT
+            - NC
+            - ND
+            - NE
+            - NH
+            - NJ
+            - NM
+            - NV
+            - NY
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VA
+            - VT
+            - WA
+            - WI
+            - WV
+            - WY
+        - name: mailing_county
+          selector: "#mailing_county"
+          value: $ADDRESS_COUNTY
+          required: false
+          options:
+            - Adams
+            - Allegheny
+            - Armstrong
+            - Beaver
+            - Bedford
+            - Berks
+            - Blair
+            - Bradford
+            - Bucks
+            - Butler
+            - Cambria
+            - Cameron
+            - Carbon
+            - Centre
+            - Chester
+            - Clarion
+            - Clearfield
+            - Clinton
+            - Columbia
+            - Crawford
+            - Cumberland
+            - Dauphin
+            - Delaware
+            - Elk
+            - Erie
+            - Fayette
+            - Forest
+            - Franklin
+            - Fulton
+            - Greene
+            - Huntingdon
+            - Indiana
+            - Jefferson
+            - Juniata
+            - Lackawanna
+            - Lancaster
+            - Lawrence
+            - Lebanon
+            - Lehigh
+            - Luzerne
+            - Lycoming
+            - McKean
+            - Mercer
+            - Mifflin
+            - Monroe
+            - Montgomery
+            - Montour
+            - Northampton
+            - Northumberland
+            - Perry
+            - Philadelphia
+            - Pike
+            - Potter
+            - Schuylkill
+            - Snyder
+            - Somerset
+            - Sullivan
+            - Susquehanna
+            - Tioga
+            - Union
+            - Venango
+            - Warren
+            - Washington
+            - Wayne
+            - Westmoreland
+            - Wyoming
+            - York
+        - name: subject
+          selector: "#subject"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion and Family Planning: Abortion
+            Aging: Aging
+            Animals: Agriculture
+            Arts and Humanities: Arts and Humanities
+            Banking: Banking
+            Budget: Budget
+            Census: Budget
+            Children and Youth: Children and Youth
+            Cloning and Stem Cell Research: Abortion
+            Crime and Criminal Justice: Criminal Justice
+            Conservation: Agriculture
+            Defense and the Military: Armed Services
+            Diplomatic Relations: Foreign Relations
+            Disability: Disabilities
+            Domestic Violence: Domestic Violence
+            Education: Education
+            Election and Campaign Finance Reform: Election and Campaign Finance Reform
+            Energy: Energy
+            Environment: Environment
+            Ethics and Clean Government: Ethics and Clean Government
+            Farming: Agriculture
+            Firearms: Criminal Justice
+            Forestry: Agriculture
+            Foreign Relations: Foreign Relations
+            Global Health and Poverty: Foreign Relations
+            Health Care: Healthcare
+            Health Insurance: Health Insurance
+            Health IT (Electronic Medical Records): Health IT
+            Homeland Security: Homeland Security
+            Housing and Homelessness: Housing and Homelessness
+            Immigration: Immigration
+            Intelligence: Intelligence
+            Iraq/Middle East: Foreign Relations
+            Judiciary: Judiciary
+            Labor and Jobs: Jobs and Labor
+            LGBT Issues: LGBT Issues
+            Medicaid: Medicaid
+            Medical Providers/Practitioners and Hospitals: Healthcare Workforce
+            Medicare: Medicare
+            Nutrition: Nutrition
+            Pensions: Pensions
+            Poverty and TANF: TANF Welfare Reform
+            Prescription Drugs: FDA/Drugs
+            Public Lands: Agriculture
+            Science and Technology: Science and Technology
+            Small Business: Small Business
+            Social Security: Social Security
+            Taxes: Taxes
+            "Telecommunications (Internet, Television, etc.)": Telecommunications
+            Trade: Trade
+            Transportation: Transportation
+            Veterans: Veterans
     - click_on:
-      - value: Submit
-        selector: "#contactForm #side-search-btn"
+        - value: Send
+          selector: "#side-search-btn"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting me"
+      contains: "Thank You\nThank you for contacting me."
