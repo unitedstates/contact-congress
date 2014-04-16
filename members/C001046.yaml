@@ -131,6 +131,10 @@ contact_form:
           value: "true"
     - click_on:
         - selector: "#validate_user_response"
+    - find:
+        - selector: "#fancybox-close"
+    - click_on:
+        - selector: "#fancybox-close"
   success:
     headers:
       status: 200
