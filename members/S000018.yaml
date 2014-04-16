@@ -16,8 +16,6 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
-    - find:
-        - selector: .form-11
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -119,4 +117,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "The following information has been submitted"
