@@ -882,11 +882,10 @@ CCH.prototype.parentMain = function() {
     this.popupWindow().ghAuthKey = this.ghAuthKey;
     var scr = this.popupWindow().document.createElement('script');
     var mainScr = $('#cchbookmarklet');
-    if (mainScr === null) {
-      scr.src = this.scriptUrl;
-    } else {
+    if (mainScr !== null)
       scr.src = mainScr.attr('src');
-    }
+    if (scr.src === undefined)
+      scr.src = this.scriptUrl;
     this.popupWindow().document.head.appendChild(scr);
   } else {
     // we're on a random page, add the select box
