@@ -52,6 +52,7 @@ contact_form:
         - name: captcha
           selector: "#captcha"
           captcha_selector: "#thisForm img"
+          captcha_id_selector: "#thisForm input[name='captcha']"
           value: $CAPTCHA_SOLUTION
           required: true
     - select:
