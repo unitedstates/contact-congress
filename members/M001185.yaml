@@ -36,3 +36,78 @@ contact_form:
           value: $ADDRESS_STREET
           required: true
         - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: false
+          options:
+            Agriculture: AGRI
+            Banking and Finance: BANK
+            Budget and Economy: BUD
+            Campaign Finance Reform: JUD
+            Congress and Elections: JUD
+            Defense and Military: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: EN
+            Environment: EN
+            Foreign Relations: FAFF
+            Guns: JUD
+            Health: HLTH
+            Homeland Security: HOM
+            Housing and Urban Development: ECON
+            Immigration: IMM
+            Judiciary: JUD
+            Labor: LAB
+            LGBT: JUD
+            Post Office: POSTAL
+            Social Security: SOC
+            Taxes: TAX
+            Transportation: TRANS
+            Trade: TRD
+            Veterans: VET
+            Other Issues: OTH
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: false
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
+    - uncheck:
+        - name: subscribe
+          selector: "#subscribe"
+          value: Email.Optin
+    - click_on:
+        - value: Send Email
+          selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank You
+
