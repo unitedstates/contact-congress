@@ -1,0 +1,97 @@
+bioguide: P000593
+contact_form:
+  method: POST
+  action: "/htbin/formproc/perlmutter/webforms/contact.txt&display=thanks.shtml"
+  steps:
+    - visit: "https://forms.house.gov/perlmutter/webforms/contact.shtml"
+    - fill_in:
+        - name: required-first
+          selector: "#mainbodyContentleft form input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#mainbodyContentleft form input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#mainbodyContentleft form input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: phone
+          selector: "#mainbodyContentleft form input[name='phone']"
+          value: $PHONE
+          required: true
+        - name: required-city
+          selector: "#mainbodyContentleft form input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#mainbodyContentleft form input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#mainbodyContentleft form input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: required-email
+          selector: "#mainbodyContentleft form input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: required-message
+          selector: "#mainbodyContentleft form textarea[name='required-message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-prefix
+          selector: "#mainbodyContentleft form select[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+        - name: required-issue
+          selector: "#mainbodyContentleft form select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGR
+            Budget: BUD
+            Defense: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
+            Environment: ENV
+            Financial Services: FIN
+            Foreign Relations: INT
+            Government Reform: GOV
+            Gun Safety: GUN
+            Healthcare: HEA
+            Homeland Security: HOM
+            Immigration: IMM
+            Judiciary: JUD
+            Labor and Workforce: LAB
+            Medicare: MCARE
+            Natural Resources: NAT
+            Small Business: SB
+            Social Security: SSEC
+            Tours: TOUR
+            Trade: TRADE
+            Transportation: TRA
+            " Veterans": VET
+            Women: WOM
+            Other: "\_"
+    - check:
+        - name: required-response
+          selector: "input[type='radio'][name='required-response'][value='Yes Response']"
+          value: Yes Response
+    - click_on:
+        - value: Send Email
+          selector: "#mainbodyContentleft form input[type='submit'][value='Send Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting me through my website. As your Representative in Congress, it is vital to have this flow of communication. "
