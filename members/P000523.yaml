@@ -1,0 +1,83 @@
+bioguide: P000523
+contact_form:
+  method: post
+  action: /contact/
+  steps:
+    - visit: "https://price.house.gov/contact/"
+    - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go to Form
+          selector: "#zipauthform input.button"
+    - find:
+        - selector: "#custom_form24"
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: phone2
+          selector: "#phone2"
+          value: $PHONE
+          required: false
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Mr.: "Mr. "
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
+    - click_on:
+        - value: Send Email
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been successfully submitted.
