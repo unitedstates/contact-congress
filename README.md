@@ -1,6 +1,6 @@
 ## Contacting Congress
 
-This project defines an open data format to describe the contact form's of members of Congress, and we're currently working on creating a definitive, updated list of active legislator's contact forms according to that format. Once completed, the files in this project can be used to power any system that allows US citizens to send messages to their elected members of Congress.
+This project defines an open data format to describe the contact forms of members of Congress, and we're currently working on creating a definitive, updated list of active legislator's contact forms according to that format. Once completed, the files in this project can be used to power any system that allows US citizens to send messages to their elected members of Congress.
 
 ### Current Status
 
