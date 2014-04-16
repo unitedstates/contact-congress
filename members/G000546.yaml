@@ -31,10 +31,6 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#custom_form17 input[name='street2']"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
@@ -55,26 +51,18 @@ contact_form:
           selector: "#req_phone"
           value: $PHONE
           required: true
-        - name: phonebusiness
-          selector: "#custom_form17 input[name='phonebusiness']"
-          value: $PHONE
-          required: false
         - name: message
           selector: "#req_message"
           value: $MESSAGE
           required: true
-        
-        - name: response
-          selector: "#custom_form17 input[name='response']"
+        - name: response_require
+          selector: "#custom_form17 input[name='response_require']"
           value: RN
           required: true
-          options:
-            I do not need a response.: NRN
-            I would like a response.: RN
     - select:
         - name: state
           selector: "#req_state"
-          value: $ADDRESS_STATE_FULL
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
             Alaska: AK
@@ -171,6 +159,13 @@ contact_form:
             Trade: TRD
             Veterans: VET
             Welfare: WELF
+        - name: response
+          selector: "#req_response"
+          value: RN
+          required: true
+          options:
+            I do not need a response.: NRN
+            I would like a response.: RN
     - click_on:
         - value: Submit
           selector: "#submitButton"
