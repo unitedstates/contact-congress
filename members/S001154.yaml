@@ -12,10 +12,12 @@ contact_form:
         - name: zipfour
           selector: "#zipfour"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
         - value: Go to Form
           selector: input.button
+    - find:
+        - selector: "#custom_form6"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -29,8 +31,8 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street_require
-          selector: "#custom_form6 input[name='street_require']"
+        - name: street2
+          selector: "#custom_form6 input[name='street2']"
           value: $ADDRESS_STREET_2
           required: false
         - name: city
@@ -49,13 +51,13 @@ contact_form:
           selector: "#req_email"
           value: $EMAIL
           required: true
+        - name: phone
+          selector: "#custom_form6 input[name='phone']"
+          value: $PHONE
+          required: false
         - name: message
           selector: "#req_message"
           value: $MESSAGE
-          required: true
-        - name: response_require
-          selector: "#custom_form6 input[name='response_require']"
-          value: "Y"
           required: true
     - select:
         - name: prefix
@@ -112,6 +114,13 @@ contact_form:
             Welfare: WLF
             Tour Request: TRQ
             Flag Request: FRQ
+        - name: response
+          selector: "#req_response"
+          value: "Y"
+          required: true
+          options:
+            I do not need a response.: "N"
+            I would like a response.: "Y"
     - click_on:
         - value: Submit
           selector: "#submitButton"
@@ -119,4 +128,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting your information
+      contains: Thank you for submitting your information.
