@@ -1,0 +1,118 @@
+bioguide: C001061
+contact_form:
+  method: post
+  action: "/htbin/formproc/email-me.txt%26display%3D/contact/email-me/email-me-thank-you%26nobase%26fpGetVer%3D2"
+  steps:
+    - visit: "https://cleaver.house.gov/contact/email-me"
+    - fill_in:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: false
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion Rights: ABOR
+            Agriculture and Animal Rights: AG
+            Arts and Humanities: ART
+            Banking and Financial Services: BANK
+            Budget and Appropriations: BUD
+            Campaign Finance and Election Reform: CFR
+            Crime and Drug Control: CRI
+            "Civil Rights, First Amendment and Church and State": CVLR
+            Defense and Military: DEF
+            Education: EDU
+            "Energy, Environment and Natural Resources": ENV
+            Fisheries and Maritime: FISH
+            Congress and Government Reform: GOVR
+            "Healthcare (Non-M&M)": HLTH
+            "Homeland Security, Terrorism and Intelligence": HOSE
+            Housing and Welfare: HUD
+            Immigration: IMM
+            International Relations and Foreign Aid: IRFA
+            "Justice, Judiciary and Gun Control": JUS
+            "Labor, Workforce and Unemployment": LAB
+            LGBT: LGBT
+            "Medicare, Medicaid and Prescription Drugs": MED
+            Miscellaneous and General: MISC
+            Native American Issues: NATAM
+            "Congratulations, Greetings and Condolences": PERS
+            Science and Technology: SCITECH
+            Small Business and Economy: SMBUS
+            Social Security and Pensions: SOCSEC
+            Taxes: TAX
+            Telecommunications and Cable TV: TELE
+            Trade: TRAD
+            Transportation and Infrastructure: TRAN
+            "Veterans' Affairs": VET
+            Other: OTH
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: false
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
+    - uncheck:
+        - name: subscribe
+          selector: "#subscribe"
+          value: Email.Optin
+    - click_on:
+        - value: Send Email
+          selector: "#contactForm input[name='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "The following information has been submitted:"
