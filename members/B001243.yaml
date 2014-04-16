@@ -48,7 +48,7 @@ contact_form:
         - name: required-message
           selector: "form.zipform textarea[name='required-message']"
           value: $MESSAGE
-          required: true
+          required: false
     - select:
         - name: required-prefix
           selector: "form.zipform select[name='required-prefix']"
@@ -61,7 +61,7 @@ contact_form:
             - Miss
         - name: required-state
           selector: "form.zipform select[name='required-state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          value: TN
           required: true
           options:
             - AK
@@ -118,7 +118,7 @@ contact_form:
         - name: required-issue
           selector: "form.zipform select[name='required-issue']"
           value: $TOPIC
-          required: true
+          required: false
           options:
             Agriculture: AGR
             Budget: BUD
@@ -150,4 +150,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office.
+      contains: "Thank you for contacting my office."
