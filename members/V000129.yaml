@@ -1,0 +1,96 @@
+bioguide: V000129
+contact_form:
+  method: get
+  action: /forms/writeyourrep
+  steps:
+    - visit: "http://valadao.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#aspnetForm"
+    - fill_in:
+        - name: ctl00$ctl14$FirstName
+          selector: "#ctl00_ctl14_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl14$LastName
+          selector: "#ctl00_ctl14_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl14$Street
+          selector: "#ctl00_ctl14_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl14$City
+          selector: "#ctl00_ctl14_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl14$Zip
+          selector: "#ctl00_ctl14_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl14$Phone
+          selector: "#ctl00_ctl14_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl14$Email
+          selector: "#ctl00_ctl14_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl14$Subject
+          selector: "#ctl00_ctl14_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl14$Body
+          selector: "#ctl00_ctl14_Body"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$ctl14$CampaignID
+          selector: "#ctl00_ctl14_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl14$CampaignInfo
+          selector: "#ctl00_ctl14_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl14$PrefixList
+          selector: "#ctl00_ctl14_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+            - Mr. and Mrs.
+        - name: ctl00$ctl14$IssuesList
+          selector: "#ctl00_ctl14_IssuesList"
+          value: $TOPIC
+          required: false
+          options:
+            Agriculture: "103620"
+            Defense and Military: "103533"
+            Economy and Jobs: "103621"
+            Energy: "103623"
+            Environment: "103624"
+            General Government: "103591"
+            Healthcare: "103627"
+            Immigration: "103628"
+            Social Security and Medicare: "103630"
+            Transportation and Infrastructure: "103631"
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl14_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time to contact me. It is an honor and a privilege to serve you in California’s 21st Congressional District.
