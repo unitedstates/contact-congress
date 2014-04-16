@@ -1,9 +1,9 @@
-bioguide: W000187
+bioguide: W000806
 contact_form:
   method: post
   action: /submit-contact.aspx
   steps:
-    - visit: "https://waters.house.gov/contact/contactform.htm"
+    - visit: "https://webster.house.gov/contact/contactform.htm"
     - fill_in:
         - name: required-prefix
           selector: "form.zipform[name='contact'] input[name='required-prefix']"
@@ -41,46 +41,52 @@ contact_form:
           selector: "form.zipform[name='contact'] input[name='required-email']"
           value: $EMAIL
           required: true
+        - name: required-subject
+          selector: "form.zipform[name='contact'] input[name='required-subject']"
+          value: $SUBJECT
+          required: true
         - name: required-message
           selector: "form.zipform[name='contact'] textarea[name='required-message']"
           value: $MESSAGE
           required: true
     - select:
+        - name: required-state
+          selector: "form.zipform[name='contact'] select[name='required-state']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: false
+          options: []
         - name: required-issue
           selector: "form.zipform[name='contact'] select[name='required-issue']"
           value: $TOPIC
           required: true
           options:
             Agriculture: AG
+            Arts and Humanities: ART
             Banking and Finance: BANK
             Budget and Economy: BUD
-            Commerce: CMRC
+            Campaign Finance Reform: CFR
             Congress and Elections: CONG
-            Crime Issues: CRIME
             Defense and Military: DEF
             Education: ED
-            Employment: EMP
             Energy: EN
             Environment: ENV
+            Federal Employees: FED
             Foreign Relations: FR
-            Government Affairs: GOV
             Health: HE
-            Housing and Urban Development: HUD
             Immigration: IM
-            Interior: INT
             Judiciary: JUD
             Labor: LAB
-            Medicare and related issues: MEDICARE
-            Postal Issues: POST
-            Public Works: PW
             Science and Technology: SCI
+            Senior Citizens: SENIORS
             Social Security: SS
+            Social Services: SOC.SERVICES
             Taxes: TAX
+            Telecommunications: COMM
             Transportation: TRAN
             Trade: TRD
             Veterans: VET
-            Voting: VOTE
-            Welfare: WELF
+            "Women's Issues": WOMEN
+            Other Issues: OTHER
     - click_on:
         - value: Send Email
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
@@ -88,4 +94,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thanks for your interest.
+      contains: Thank you for taking a moment to share your views.

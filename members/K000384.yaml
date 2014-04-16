@@ -62,7 +62,7 @@ contact_form:
           - "Womens Issues "
           - "Workforce & Labor  "
     - find:  # waits for dom element to appear before proceeding
-      - selector: "#continue-form fieldset"
+      - selector: "#continue-form fieldset #prefname"
     - fill_in:
       - name: fname
         selector: "#fname"
@@ -100,7 +100,7 @@ contact_form:
         value: $EMAIL
         required: Yes
       - name: subject
-        selector: "#subject"
+        selector: "[name='subject']"
         value: $SUBJECT
         required: Yes
       - name: message
