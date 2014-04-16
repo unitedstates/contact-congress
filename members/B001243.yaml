@@ -3,22 +3,11 @@ contact_form:
   method: get
   action: /ContactForm/Email.htm
   steps:
-    - find: "#TB_title"
+    - visit: "https://blackburn.house.gov/contactform/email.htm"
+    - find: 
+        - selector: "#TB_title"
     - click_on:
         - selector: "#TB_closeWindowButton"
-    - visit: "https://blackburn.house.gov/contactform/"
-    - fill_in:
-        - name: zip5
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#plusfour"
-          value: $ADDRESS_ZIP4
-          required: false
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[name='find']"
     - fill_in:
         - name: required-first
           selector: "form.zipform input[name='required-first']"
@@ -121,7 +110,7 @@ contact_form:
         - name: required-issue
           selector: "form.zipform select[name='required-issue']"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: AGR
             Budget: BUD
