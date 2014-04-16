@@ -1,206 +1,257 @@
 bioguide: S001181
 contact_form:
-  method: POST
-  action: "http://www.shaheen.senate.gov/contact/index.cfm"
+  method: post
+  action: /contact/index.cfm
   steps:
-    - visit: http://www.shaheen.senate.gov/contact/
+    - visit: "http://www.shaheen.senate.gov/contact/"
     - fill_in:
-      - name: first_name
-        selector: "#first_name"
-        value: $NAME_FIRST
-        required: Yes
-      - name: last_name
-        selector: "#last_name"
-        value: $NAME_LAST
-        required: Yes
-      - name: street_address
-        selector: "#street_address"
-        value: $ADDRESS_STREET
-        required: Yes
-      - name: street_address_2
-        selector: "#street_address_2"
-        value: $ADDRESS_STREET_2
-      - name: city
-        selector: "#city"
-        value: $ADDRESS_CITY
-        required: Yes
-      - name: zip
-        selector: "#zip"
-        value: $ADDRESS_ZIP5
-        required: Yes
-      - name: home_phone
-        selector: "#home_phone"
-        value: $PHONE
-        required: Yes
-      - name: work_phone
-        selector: "#work_phone"
-        value: $PHONE_WORK
-      - name: email
-        selector: "#email"
-        value: $EMAIL
-        required: Yes
-      - name: verify_email
-        selector: "#verify_email"
-        value: $EMAIL
-        required: Yes
-      - name: comments
-        selector: "#comments"
-        value: $MESSAGE
+        - name: first_name
+          selector: "#first_name"
+          value: $NAME_FIRST
+          required: true
+        - name: last_name
+          selector: "#last_name"
+          value: $NAME_LAST
+          required: true
+        - name: street_address
+          selector: "#street_address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street_address_2
+          selector: "#street_address_2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: home_phone
+          selector: "#home_phone"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: "#verify_email"
+          value: $EMAIL
+          required: true
+        - name: comments
+          selector: "#contactForm textarea[name='comments']"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: salutation
-        selector: "#salutation"
-        value: $NAME_PREFIX
-        required: Yes
-        options:
-        - "Mr."
-        - "Mrs."
-        - "Ms."
-        - "Miss"
-        - "Mr. and Mrs."
-        - "Dr."
-        - "Prof."
-        - "Senator"
-        - "Gov."
-        - "Congressman"
-        - "Hon."
-        - "Fr."
-        - "Sister"
-        - "Rabbi"
-        - "Reverend"
-        - "Fleet Admiral"
-        - "Admiral"
-        - "Vice Admiral"
-        - "Rear Admiral (upper half)"
-        - "Rear Admiral (lower half)"
-        - "Captain"
-        - "Commander"
-        - "Lieutenant Commander"
-        - "Lieutenant"
-        - "Lieutenant, Junior Grade"
-        - "Ensign"
-        - "Master Chief Petty Officer of the Navy"
-        - "Master Chief Petty Officer"
-        - "Senior Chief Petty Officer"
-        - "Chief Petty Officer"
-        - "Petty Officer First Class"
-        - "Petty Officer Second Class"
-        - "Petty Officer Third Class"
-        - "Seaman"
-        - "Seaman Apprentice"
-        - "Seaman Recruit"
-        - "Chief Warrant Officer"
-        - "Warrant Officer"
-        - "Sgt Major Of The Corps"
-        - "Sergeant Major"
-        - "Master Gunnery Sgt"
-        - "First Sergeant"
-        - "Master Sergeant"
-        - "Gunnery Sergeant"
-        - "Specialist"
-        - "Staff Sergeant"
-        - "Sergeant"
-        - "Corporal"
-        - "Lance Corporal"
-        - "Private First Class"
-        - "Private"
-        - "General of the Air Force"
-        - "General"
-        - "Lieutenant General"
-        - "Major General"
-        - "Brigadier General"
-        - "Colonel"
-        - "Lieutenant Colonel"
-        - "Major"
-        - "First Lieutenant"
-        - "Second Lieutenant"
-        - "Chief Master Sergeant of the Air Force"
-        - "Command  Chief Master Sergeant"
-        - "Chief Master Sergeant"
-        - "Senior Master Sergeant"
-        - "Technical Sergeant"
-        - "Staff Sergeant"
-        - "Senior Airman"
-        - "Airman First Class"
-        - "Airman"
-        - "Attorney"
-      - name: state
-        selector: "#state"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
-        options: US_STATES
-      - name: topic
-        selector: "#topic"
-        value: $TOPIC
-        required: Yes
-        options:
-        - "Abortion" : "ABOR"
-        - "Afghanistan" : "AFG"
-        - "Aging / Seniors" : "SEN"
-        - "Agriculture" : "AGR"
-        - "Animal Rights" : "ANIM"
-        - "Appropriations" : "APP"
-        - "Arts and Humanities" : "ARTS"
-        - "Banking" : "BANK"
-        - "Budget" : "BUD"
-        - "Campaign Finance Reform" : "CAMP"
-        - "Child Abuse" : "ABUSE"
-        - "Children / Family / Adoption" : "CHILD"
-        - "Civil Rights" : "CIV"
-        - "Civil Service / Postal" : "POST"
-        - "Social Issues" : "SOC"
-        - "Commerce" : "COM"
-        - "Congressional Issues" : "CON"
-        - "Crimes / Drugs / Guns" : "CRIME"
-        - "Debt / Deficit" : "DEBT"
-        - "Defense" : "DEF"
-        - "Economy" : "ECON"
-        - "Education" : "EDU"
-        - "Elections / Election Reform" : "ELECT"
-        - "Energy" : "ENE"
-        - "Environment / Public Works" : "ENV"
-        - "Firearms" : "FIREARMS"
-        - "Foreign Relations" : "FR"
-        - "Governmental Reform" : "GOV"
-        - "Healthcare" : "HEA"
-        - "Homeland Security" : "HOM"
-        - "Housing" : "HOUS"
-        - "Immigration" : "IMM"
-        - "Indian Affairs" : "IND"
-        - "Insurance - Other" : "INSUR-OTHER"
-        - "Interior / Forestry" : "INTERI"
-        - "Iraq" : "IRAQ"
-        - "Jobs" : "JOBS"
-        - "Judiciary" : "JUD"
-        - "Labor" : "LAB"
-        - "LGBT" : "LGBT"
-        - "LIHEAP" : "LIHEAP"
-        - "Medicare / Medicaid" : "MED"
-        - "Military / Retiree Health Care" : "MIL.HEA"
-        - "NASA" : "NASA"
-        - "Nutrition" : "NUT"
-        - "Patents" : "PAT"
-        - "Pensions" : "PENS"
-        - "Science and Technology" : "SCI"
-        - "Securities" : "SEC"
-        - "Small Business" : "BUS"
-        - "Social Issues" : "SOC"
-        - "Social Security" : "SSEC"
-        - "Taxes" : "TAX"
-        - "Telecommunications / Communications" : "TEL"
-        - "Tobacco" : "TOB"
-        - "Trade" : "TRADE"
-        - "Transportation" : "TRA"
-        - "Veterans" : "VET"
-        - "Welfare / Food Stamps" : "WEL"
+        - name: salutation
+          selector: "#salutation"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Mr. and Mrs.
+            - Dr.
+            - Prof.
+            - Senator
+            - Gov.
+            - Congressman
+            - Hon.
+            - Fr.
+            - Sister
+            - Rabbi
+            - Reverend
+            - Fleet Admiral
+            - Admiral
+            - Vice Admiral
+            - Rear Admiral (upper half)
+            - Rear Admiral (lower half)
+            - Captain
+            - Commander
+            - Lieutenant Commander
+            - Lieutenant
+            - "Lieutenant, Junior Grade"
+            - Ensign
+            - Master Chief Petty Officer of the Navy
+            - Master Chief Petty Officer
+            - Senior Chief Petty Officer
+            - Chief Petty Officer
+            - Petty Officer First Class
+            - Petty Officer Second Class
+            - Petty Officer Third Class
+            - Seaman
+            - Seaman Apprentice
+            - Seaman Recruit
+            - Chief Warrant Officer
+            - Warrant Officer
+            - Sgt Major Of The Corps
+            - Sergeant Major
+            - Master Gunnery Sgt
+            - First Sergeant
+            - Master Sergeant
+            - Gunnery Sergeant
+            - Specialist
+            - Staff Sergeant
+            - Sergeant
+            - Corporal
+            - Lance Corporal
+            - Private First Class
+            - Private
+            - General of the Air Force
+            - General
+            - Lieutenant General
+            - Major General
+            - Brigadier General
+            - Colonel
+            - Lieutenant Colonel
+            - Major
+            - First Lieutenant
+            - Second Lieutenant
+            - Chief Master Sergeant of the Air Force
+            - Command  Chief Master Sergeant
+            - Chief Master Sergeant
+            - Senior Master Sergeant
+            - Technical Sergeant
+            - Staff Sergeant
+            - Senior Airman
+            - Airman First Class
+            - Airman
+            - Attorney
+        - name: state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "--": "null"
+            AA: AA
+            AE: AE
+            AK: AK
+            AL: AL
+            AP: AP
+            AR: AR
+            AZ: AZ
+            CA: CA
+            CO: CO
+            CT: CT
+            DC: DC
+            DE: DE
+            FL: FL
+            GA: GA
+            HI: HI
+            IA: IA
+            ID: ID
+            IL: IL
+            IN: IN
+            KS: KS
+            KY: KY
+            LA: LA
+            MA: MA
+            MD: MD
+            ME: ME
+            MI: MI
+            MN: MN
+            MO: MO
+            MS: MS
+            MT: MT
+            NC: NC
+            ND: ND
+            NE: NE
+            NH: NH
+            NJ: NJ
+            NM: NM
+            NV: NV
+            NY: NY
+            OH: OH
+            OK: OK
+            OR: OR
+            PA: PA
+            RI: RI
+            SC: SC
+            SD: SD
+            TN: TN
+            TX: TX
+            UT: UT
+            VA: VA
+            VT: VT
+            WA: WA
+            WI: WI
+            WV: WV
+            WY: WY
+        - name: topic
+          selector: "#topic"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: ABOR
+            Aging / Seniors: SEN
+            Agriculture: AGR
+            Animal Rights: ANIM
+            Appropriations: APP
+            Arts and Humanities: ARTS
+            Banking: BANK
+            Budget: BUD
+            Campaign Finance Reform: CAMP
+            Child Abuse: ABUSE
+            Children / Family / Adoption: CHILD
+            Civil Rights: CIV
+            Civil Service / Postal: POST
+            Social Issues: SOC
+            Commerce: COM
+            Congressional Issues: CON
+            Crimes / Drugs / Guns: CRIME
+            Debt / Deficit: DEBT
+            Defense: DEF
+            Economy: ECON
+            Education: EDU
+            Elections / Election Reform: ELECT
+            Energy: ENE
+            Environment / Public Works: ENV
+            Firearms: FIREARMS
+            Foreign Relations: FR
+            Governmental Reform: GOV
+            Healthcare: HEA
+            Homeland Security: HOM
+            Housing: HOUS
+            Immigration: IMM
+            Indian Affairs: IND
+            Insurance - Other: INSUR-OTHER
+            Interior / Forestry: INTERI
+            Jobs: JOBS
+            Judiciary: JUD
+            Labor: LAB
+            LGBT: LGBT
+            LIHEAP: LIHEAP
+            Medicare / Medicaid: MED
+            Military / Retiree Health Care: MIL.HEA
+            NASA: NASA
+            Nutrition: NUT
+            Patents: PAT
+            Pensions: PENS
+            Science and Technology: SCI
+            Securities: SEC
+            Small Business: BUS
+            Social Security: SSEC
+            Taxes: TAX
+            Telecommunications / Communications: TEL
+            Tobacco: TOB
+            Trade: TRADE
+            Transportation: TRA
+            Veterans: VET
+            Welfare / Food Stamps: WEL
     - uncheck:
-      - name: newsletter
-        selector: "#newsletter"
-        value: newsletter
+        - name: newsletter
+          selector: "#newsletter"
+          value: newsletter
     - click_on:
-      - value: Submit
-        selector: "submit"
+        - value: submit
+          selector: input.rollover
   success:
     headers:
       status: 200
     body:
-      contains: Thanks for contacting Senator Shaheen
+      contains: Thanks for contacting Senator Shaheen.
