@@ -183,38 +183,10 @@ contact_form:
             - MP
             - PR
             - VI
-        - name: ctl00$ctl14$IssuesList
-          selector: "#ctl00_ctl14_IssuesList"
-          value: $TOPIC
-          required: false
-          options:
-            Abortion: "19311"
-            Agriculture: "107405"
-            Congressional ethics: "107409"
-            Defense: "19355"
-            Economy: "107410"
-            Education: "19389"
-            Energy: "19190"
-            Environment: "19173"
-            Foreign Affairs: "18997"
-            Government: "19117"
-            Gun Control: "107407"
-            Health Care: "53137"
-            Housing: "19021"
-            Immigration: "53135"
-            Labor: "18977"
-            Medicare: "19037"
-            National Budget: "107408"
-            National Security: "18824"
-            Social Security: "18828"
-            Taxes: "18875"
-            Telecommunications: "107406"
-            Trade: "19131"
-            Transportation: "53138"
-            Veterans: "18823"
     - check:
         - name: ctl00$ctl14$ReplyChoice
           selector: "#ctl00_ctl14_ReplyChoice_0"
+          required: true
           value: Respond
     - click_on:
         - value: Submit
