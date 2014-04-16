@@ -20,7 +20,7 @@ contact_form:
           value: $ADDRESS_STREET
           required: true
         - name: required-city
-          selector: "form.zipform input[name='required-city']"
+          selector: "form.zipform input[name='required-address']"
           value: $ADDRESS_CITY
           required: true
         - name: zip5
@@ -42,6 +42,10 @@ contact_form:
         - name: required-message
           selector: "form.zipform textarea[name='required-message']"
           value: $MESSAGE
+          required: true
+        - name: district-contact
+          selector: "form.zipform input[name='district-contact']"
+          value: "InD"
           required: true
     - select:
         - name: required-prefix
@@ -86,7 +90,7 @@ contact_form:
             Other Issues: WEBOTH
     - click_on:
         - value: Send Email
-          selector: "form.zipform input[type='submit'][value='Send Email']"
+          selector: form.zipform[name='contact'] input[type='submit'][value='Send Email']
   success:
     headers:
       status: 200
