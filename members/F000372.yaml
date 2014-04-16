@@ -1,0 +1,65 @@
+bioguide: F000372
+contact_form:
+  method: post
+  action: /contact-form/
+  steps:
+    - visit: "https://frelinghuysenforms.house.gov/contact-form"
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#custom_form8 input[name='street2']"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#req_phone"
+          value: $PHONE
+          required: true
+        - name: subjectline
+          selector: "#req_subjectline"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options: []
+    - click_on:
+        - value: Send Email
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your request below has been submitted.
