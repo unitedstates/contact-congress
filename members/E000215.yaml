@@ -1,0 +1,192 @@
+bioguide: E000215
+contact_form:
+  method: post
+  action: /email-me/
+  steps:
+    - visit: "https://eshoo.house.gov/email-me/"
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#req_phone"
+          value: $PHONE
+          required: true
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#req_prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: "Mr. "
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
+        - name: state
+          selector: "#req_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AK
+            - AL
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - FL
+            - GA
+            - HI
+            - IA
+            - ID
+            - IL
+            - IN
+            - KS
+            - KY
+            - LA
+            - MA
+            - MD
+            - ME
+            - MI
+            - MN
+            - MO
+            - MS
+            - MT
+            - NC
+            - ND
+            - NE
+            - NH
+            - NJ
+            - NM
+            - NV
+            - NY
+            - OH
+            - OK
+            - OR
+            - PA
+            - PR
+            - RI
+            - SC
+            - SD
+            - TS
+            - TX
+            - UT
+            - VA
+            - VT
+            - WA
+            - WI
+            - WV
+            - WY
+        - name: issue
+          selector: "#req_issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGRICULTURE
+            Animals: ANIMALS
+            Appointments: APPOINTMENTS
+            Appropriations: APPROPRIATIONS
+            Banking: BANKING
+            Budget: BUDGET
+            Children: CHILDREN
+            Civil Rights: CIVILRIGHTS
+            Civil Service: CIVILSERVICE
+            Congress: CONGRESS
+            Crime/Gun Control: CRIME
+            Economy: ECONOMY
+            Defense/War: DEFENSE
+            Drugs: DRUGS
+            Education: EDUCATION
+            Elections/Voting: ELECTIONS
+            Energy: ENERGY
+            Environment: ENVIRONMENT
+            Foreign Affairs: FOREIGNAFFAIRS
+            Gay/Lesbian Issues: GAYS
+            Health: HEALTH
+            Housing: HOUSING
+            Immigration: IMMIGRATION
+            Judiciary: JUDICIARY
+            Jobs: JOBS
+            Labor: LABOR
+            Medicaid/Medicare: MEDICAID
+            Military/Armed Services: MILITARY
+            Native Americans: NATIVE AMERICANS
+            Passports: PASSPORTS
+            Politics: POLITICS
+            Post Office: POSTOFFICE
+            Poverty: POVERTY
+            The President: PRESIDENT
+            Science: SCIENCE
+            Small Business: SMALLBUSINESS
+            Social Security: SOCIALSECURITY
+            Space/NASA: SPACE
+            Taxation: TAX
+            Technology: TECHNOLOGY
+            Telecommunications: TELECOM
+            Telephone Town Hall: TELEPHONE TOWN HALL
+            Terrorism: TERRORISM
+            Trade/Commerce: TRADE
+            Transportation: TRANSPORTATION
+            Veterans Affairs: VETERANS
+            Welfare/Poverty: WELFARE
+            "Women's Issues": WOMEN
+            Academies: ACADEMIES
+            Art Contest: ARTCONTEST
+            Casework/Constituent Services: CASEWORK
+            Flags: FLAGS
+            Grants: GRANTS
+            "Visiting Washington, D.C. (Tours)": TOURS
+            Public Works/Utilities: PUBLICWORKS
+            Web Site Comments: WEB
+            Miscellaneous/Other: MISCELLANEOUS
+    - uncheck:
+        - name: newsletter
+          selector: "#newsletter"
+          value: "<AFFL>EMAIL.OPTOUTe</AFFL>"
+    - click_on:
+        - value: Send Email
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been successfully submitted.
