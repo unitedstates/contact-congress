@@ -2,7 +2,7 @@ bioguide: S001179
 
 contact_form:
   method: get
-  action: https://shock.house.gov/Contact/ContactForm.htm
+  action: https://schock.house.gov/Contact/ContactForm.htm
   steps:
     - visit: "http://schock.house.gov/contact/"
     - fill_in:
@@ -13,8 +13,6 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
-    - find:
-        selector: "form.zipform"
     - fill_in:
         - name: required-first
           selector: "form.zipform[name='contact'] input[name='required-first']"
