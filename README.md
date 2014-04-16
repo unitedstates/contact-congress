@@ -66,7 +66,7 @@ This project is [dedicated to the public domain](LICENSE). As spelled out in [CO
 
 These graphics are pulled in near-real-time from the [congress-forms-test](http://efforg.github.io/congress-forms-test/) server.
 
-| Bioguide ID | Website | Status | 
+| Bioguide ID | Website | Status |
 |-------------|---------|:------------:|:------------:|
 | [F000457](https://github.com/unitedstates/contact-congress/blob/master/members/F000457.yaml) | [Sen. Alan Franken (D-MN)](http://www.franken.senate.gov) | [![F000457 status](http://ec2-54-215-28-56.us-west-1.compute.amazonaws.com:3000/recent-fill-image/F000457)](http://efforg.github.io/congress-forms-test/?bioguide_id=F000457)
 | [K000367](https://github.com/unitedstates/contact-congress/blob/master/members/K000367.yaml) | [Sen. Amy Klobuchar (D-MN)](http://www.klobuchar.senate.gov) | [![K000367 status](http://ec2-54-215-28-56.us-west-1.compute.amazonaws.com:3000/recent-fill-image/K000367)](http://efforg.github.io/congress-forms-test/?bioguide_id=K000367)
@@ -607,7 +607,7 @@ These graphics are pulled in near-real-time from the [congress-forms-test](http:
 | [C001067](https://github.com/unitedstates/contact-congress/blob/master/members/C001067.yaml) | [Rep. Yvette Clarke (D-NY)](http://clarke.house.gov) | [![C001067 status](http://ec2-54-215-28-56.us-west-1.compute.amazonaws.com:3000/recent-fill-image/C001067)](http://efforg.github.io/congress-forms-test/?bioguide_id=C001067)
 | [L000397](https://github.com/unitedstates/contact-congress/blob/master/members/L000397.yaml) | [Rep. Zoe Lofgren (D-CA)](http://lofgren.house.gov) | [![L000397 status](http://ec2-54-215-28-56.us-west-1.compute.amazonaws.com:3000/recent-fill-image/L000397)](http://efforg.github.io/congress-forms-test/?bioguide_id=L000397)
 
-<!-- 
+<!--
 | Bioguide ID | Website | Last Attempt - OpenCongress | Success Rate - EFF | Stats/Test |
 |-------------|---------|:------------:|:------------:|:------------:|
 | [A000055](https://github.com/unitedstates/contact-congress/blob/master/members/A000055.yaml) | [website](http://aderholt.house.gov) | [![A000055 status](https://d1l0yomkzx8y5l.cloudfront.net/contact_congress/status/A000055.png)](http://www.opencongress.org/contact_congress/status/A000055.text) | ![A000055 status](http://ec2-54-215-28-56.us-west-1.compute.amazonaws.com:3000/recent-fill-image/A000055) | [Test/Stats](http://efforg.github.io/congress-forms-test/?bioguide_id=A000055)
