@@ -3,17 +3,7 @@ contact_form:
   method: post
   action: /email-contact.aspx
   steps:
-    - visit: "http://adamsmith.house.gov/contact/"
-    - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
-    - find:
-        - selector: "form.migForm.zipform[name='contact']"
+    - visit: "https://adamsmith.house.gov/contact/contactform.htm"
     - fill_in:
         - name: required-prefix
           selector: "form.migForm.zipform[name='contact'] input[name='required-prefix']"
@@ -42,7 +32,7 @@ contact_form:
         - name: zip4
           selector: "form.migForm.zipform[name='contact'] input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: required-phone
           selector: "form.migForm.zipform[name='contact'] input[name='required-phone']"
           value: $PHONE
@@ -56,13 +46,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select: []
-    - uncheck:
-        - name: affl1
-          selector: "#subscribe-me"
-          value: "yes"
-    - click_on:
-        - value: Send Email
-          selector: "form.migForm.zipform[name='contact'] input[name='submit']"
     - click_on:
         - value: Send Email
           selector: "form.migForm.zipform[name='contact'] input[name='submit']"
@@ -71,3 +54,4 @@ contact_form:
       status: 200
     body:
       contains: Thank You
+
