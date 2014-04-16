@@ -1,129 +1,181 @@
 bioguide: K000383
 contact_form:
-  method: POST
-  action: http://www.king.senate.gov/contact
+  method: post
+  action: /contact
   steps:
-    - visit: http://www.king.senate.gov/contact
+    - visit: "http://www.king.senate.gov/contact"
     - fill_in:
-      - name: fname
-        selector: "#fname"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: lname
-        selector: "#lname"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: mailing_streetAddress1
-        selector: "#mailing_streetAddress1"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: mailing_streetAddress2
-        selector: "#mailing_streetAddress2"
-        value: "$ADDRESS_STREET_2"
-      - name: mailing_city
-        selector: "#mailing_city"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: mailing_zipCode
-        selector: "#mailing_zipCode"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: home_phone_number
-        selector: "#home_phone_number"
-        value: "$PHONE"
-      - name: work_phone_number
-        selector: "#work_phone_number"
-        value: "$PHONE"
-      - name: email_address
-        selector: "#email"
-        value: "$EMAIL"
-        required: Yes
-      - name: verify_email
-        selector: "#verify_email"
-        value: "$EMAIL"
-        required: Yes
-      - name: comments
-        selector: "#comments"
-        value: "$MESSAGE"
-        required: Yes
-      - name: subject
-        selector: "#subject"
-        value: "$SUBJECT"
-        required: Yes
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: mailing_streetAddress1
+          selector: "#mailing_streetAddress1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: mailing_streetAddress2
+          selector: "#mailing_streetAddress2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: mailing_city
+          selector: "#mailing_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: mailing_zipCode
+          selector: "#mailing_zipCode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: home_phone_number
+          selector: "#home_phone_number"
+          value: $PHONE
+          required: true
+        - name: email_address
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: "#verify_email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: topic
-        selector: "#topic"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          - "Agriculture"
-          - "Banking & Financial Services"
-          - "Budget & Appropriations"
-          - "Civil Liberties"
-          - "Civil Rights"
-          - "Defense & Intelligence"
-          - "Education"
-          - "Elections & Campaign Finance"
-          - "Energy"
-          - "Environment & Forestry"
-          - "Family & Children's Issues"
-          - "Fisheries"
-          - "Foreign Policy & International Relations"
-          - "Government Reform"
-          - "Grant Assistance"
-          - "Gun Control"
-          - "Healthcare & Health Insurance"
-          - "Homeland Security & FEMA"
-          - "Housing and Urban Affairs"
-          - "Immigration"
-          - "Indian Affairs"
-          - "Judiciary & Criminal Law Enforcement"
-          - "Labor"
-          - "Medicare & Medicaid"
-          - "National Parks & Federal Lands"
-          - "Nutrition/SNAP"
-          - "Other"
-          - "Patents & Copyrights"
-          - "Pensions & Other Senior Issues"
-          - "Postal Service"
-          - "Reproductive Rights"
-          - "Science, Technology, & Telecom"
-          - "Small Business"
-          - "Social Security"
-          - "Taxes"
-          - "Trade"
-          - "Transportation"
-          - "Veterans"
-          - "Website Feedback"
-          - "Welfare"
-      - name: salutation
-        selector: "#salutation"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          - "Mr."
-          - "Ms."
-          - "Mrs."
-          - "Miss"
-          - "Mr. and Mrs."
-          - "Dr."
-          - "Prof."
-          - "Senator"
-          - "Gov."
-          - "Congressman"
-          - "Hon."
-          - "Sister"
-          - "Rabbi"
-          - "Reverend"
-      - name: state
-        selector: "#state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        options: US_STATES
+        - name: salutation
+          selector: "#salutation"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Miss
+            - Mr. and Mrs.
+            - Dr.
+            - Prof.
+            - Senator
+            - Gov.
+            - Congressman
+            - Hon.
+            - Sister
+            - Rabbi
+            - Reverend
+        - name: state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "--": "null"
+            AK: AK
+            AL: AL
+            AR: AR
+            AZ: AZ
+            CA: CA
+            CO: CO
+            CT: CT
+            DC: DC
+            DE: DE
+            FL: FL
+            GA: GA
+            HI: HI
+            IA: IA
+            ID: ID
+            IL: IL
+            IN: IN
+            KS: KS
+            KY: KY
+            LA: LA
+            MA: MA
+            MD: MD
+            ME: ME
+            MI: MI
+            MN: MN
+            MO: MO
+            MS: MS
+            MT: MT
+            NC: NC
+            ND: ND
+            NE: NE
+            NH: NH
+            NJ: NJ
+            NM: NM
+            NV: NV
+            NY: NY
+            OH: OH
+            OK: OK
+            OR: OR
+            PA: PA
+            RI: RI
+            SC: SC
+            SD: SD
+            TN: TN
+            TX: TX
+            UT: UT
+            VA: VA
+            VT: VT
+            WA: WA
+            WI: WI
+            WV: WV
+            WY: WY
+        - name: topic
+          selector: "#topic"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGR
+            "Banking & Financial Services": BANKING
+            "Budget & Appropriations": BUD
+            Civil Liberties: CIVIL LIB
+            Civil Rights: CIVIL RIGHTS
+            "Defense & Intelligence": DEF
+            Education: EDU
+            "Elections & Campaign Finance": ELECTIONS
+            Energy: ENE
+            "Environment & Forestry": ENV
+            "Family & Children's Issues": FAMILY
+            Fisheries: FISH
+            "Foreign Policy & International Relations": FOREIGN AFFAIRS
+            Government Reform: GOV
+            Grant Assistance: GRANT
+            Gun Control: GUN CONTROL
+            "Healthcare & Health Insurance": HEA
+            "Homeland Security & FEMA": HOM
+            Housing and Urban Affairs: HOUSING
+            Immigration: IMM
+            Indian Affairs: INDIANS
+            "Judiciary & Criminal Law Enforcement": JUD
+            Labor: LABOR
+            "Medicare & Medicaid": MEDICARE
+            "National Parks & Federal Lands": INTERIOR
+            Nutrition/SNAP: NUTRI
+            Other: OTHER
+            "Patents & Copyrights": IPROP
+            "Pensions & Other Senior Issues": PENSIONS
+            Postal Service: USPS
+            Reproductive Rights: ABORTION
+            "Science, Technology, & Telecom": TEL
+            Small Business: SMALL BUSINESS
+            Social Security: SSEC
+            Taxes: TAX
+            Trade: TRADE
+            Transportation: TRA
+            Veterans: VET
+            Website Feedback: WEBSITE
+            Welfare: WEL
     - click_on:
-      - value: Send
-        selector: "#side-search-btn"
+        - value: Send
+          selector: "#side-search-btn"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank You"
+      contains: Thank You
