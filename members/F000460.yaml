@@ -1,0 +1,129 @@
+bioguide: F000460
+contact_form:
+  method: get
+  action: /forms/writeyourrep/
+  steps:
+    - visit: "http://farentholdforms.house.gov/contact/email.htm"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#aspnetForm"
+    - fill_in:
+        - name: ctl00$ctl18$FirstName
+          selector: "#ctl00_ctl18_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl18$LastName
+          selector: "#ctl00_ctl18_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl18$Street
+          selector: "#ctl00_ctl18_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl18$City
+          selector: "#ctl00_ctl18_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl18$Zip
+          selector: "#ctl00_ctl18_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl18$Phone
+          selector: "#ctl00_ctl18_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl18$Email
+          selector: "#ctl00_ctl18_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl18$Subject
+          selector: "#ctl00_ctl18_Subject"
+          value: $SUBJECT
+          required: false
+        - name: ctl00$ctl18$Body
+          selector: "#ctl00_ctl18_Body"
+          value: $MESSAGE
+          required: false
+        - name: ctl00$ctl18$CampaignID
+          selector: "#ctl00_ctl18_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl18$CampaignInfo
+          selector: "#ctl00_ctl18_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl18$PrefixList
+          selector: "#ctl00_ctl18_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Mr. and Mrs.
+            - Miss
+            - Dr.
+            - Dr. and Mrs.
+            - Dr. and Mr.
+            - Drs.
+            - Professor
+            - The Honorable
+            - Reverend
+            - Pastor
+            - Representative
+            - The Reverend Monsignor
+            - The Reverend Dr.
+            - Sister
+            - Brother
+            - Rabbi
+        - name: ctl00$ctl18$IssuesList
+          selector: "#ctl00_ctl18_IssuesList"
+          value: $TOPIC
+          required: false
+          options:
+            Agriculture: "59244"
+            Border security: "59815"
+            Budget and spending: "59816"
+            Business: "59827"
+            Communications: "59246"
+            Defense and military: "59817"
+            Energy: "58468"
+            "Energy Independence ": "58667"
+            Environment: "58105"
+            Finance and banking: "59824"
+            Foreign Affairs: "58275"
+            Government reform: "59825"
+            Homeland Security: "58666"
+            Housing: "59829"
+            Immigration: "58285"
+            Jobs: "59828"
+            Judiciary: "59830"
+            Labor: "59826"
+            Pensions: "59822"
+            Postal service: "58367"
+            Science: "59245"
+            Second Amendment: "59823"
+            Taxation: "58153"
+            Trade: "59818"
+            Transportation: "59819"
+            Veterans: "58101"
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl18_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time to write me.
