@@ -393,7 +393,7 @@ window.UnitedStates || (UnitedStates = function() {
       var name = uri.pathname.split('/')[1];
       if (name === 'write')
         name = uri.pathname.split('/')[2];
-      legislators = _.filter(function(legislator) {
+      legislators = _.filter(this.legislators, function(legislator) {
         return legislator.url().match(new RegExp('\\b' + name + '\\b')) !== null;
       });
     }
