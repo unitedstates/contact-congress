@@ -118,6 +118,7 @@ contact_form:
         selector: "#message"
         value: "$MESSAGE"
         required: Yes
+    - check:
       - name: newsletter
         selector: "#newsletter_y"
         value: Y
@@ -142,6 +143,4 @@ contact_form:
         selector: "#side-search-btn"
   success:
     body:
-      contains: "<h2>Thank You</h2>"
-    body:
-      contains: "Thank you"
+      contains: Thank You
