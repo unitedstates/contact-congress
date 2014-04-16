@@ -36,7 +36,7 @@ contact_form:
         - name: ctl00$ctl11$Subject
           selector: "#ctl00_ctl11_Subject"
           value: $SUBJECT
-          required: false
+          required: true
         - name: ctl00$ctl11$Body
           selector: "#ctl00_ctl11_Body"
           value: $MESSAGE
@@ -67,71 +67,6 @@ contact_form:
             - Capt.
             - Major General
             - Maj.
-        - name: ctl00$ctl11$State
-          selector: "#ctl00_ctl11_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - AA
-            - AE
-            - AP
-            - FM
-            - GU
-            - MH
-            - MP
-            - PR
-            - VI
         - name: ctl00$ctl11$IssuesList
           selector: "#ctl00_ctl11_IssuesList"
           value: $TOPIC
