@@ -45,6 +45,11 @@ contact_form:
           selector: "#phone"
           value: $PHONE
           required: true
+    - click_on:
+        - selector: "#validate_name_address"
+    - find:
+        - selector: "#subject"
+    - fill_in:
         - name: subject
           selector: "#subject"
           value: $SUBJECT
@@ -112,10 +117,18 @@ contact_form:
             - Unemployment
             - Veterans Affairs
             - Welfare
+    - click_on:
+        - selector: "#validate_user_comments"
+    - find:
+        - selector: "#response_requested"
     - check:
         - name: contact_pref
           selector: "#response_requested"
           value: response requested
+    - uncheck:
+        - name: list
+          selector: "#list"
+          value: "true"
     - click_on:
         - value: submit
           selector: "#default_submit button"
