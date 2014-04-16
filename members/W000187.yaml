@@ -29,12 +29,12 @@ contact_form:
           selector: "form.zipform[name='contact'] input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: false
+        - name: zip4
+          selector: "form.zipform[name='contact'] input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
         - name: phone
           selector: "form.zipform[name='contact'] input[name='phone']"
-          value: $PHONE
-          required: false
-        - name: cell
-          selector: "form.zipform[name='contact'] input[name='cell']"
           value: $PHONE
           required: false
         - name: required-email
@@ -44,7 +44,7 @@ contact_form:
         - name: required-message
           selector: "form.zipform[name='contact'] textarea[name='required-message']"
           value: $MESSAGE
-          required: true
+          required: false
     - select:
         - name: required-issue
           selector: "form.zipform[name='contact'] select[name='required-issue']"
@@ -88,4 +88,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thanks for your interest.
+      contains: Thanks for your interest
