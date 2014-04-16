@@ -1,0 +1,209 @@
+bioguide: R000597
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://tomriceforms.house.gov/forms/writeyourrep/"
+    - fill_in:
+        - name: ctl00$ctl14$FirstName
+          selector: "#ctl00_ctl14_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl14$LastName
+          selector: "#ctl00_ctl14_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl14$Street
+          selector: "#ctl00_ctl14_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl14$City
+          selector: "#ctl00_ctl14_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl14$Zip
+          selector: "#ctl00_ctl14_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl14$Phone
+          selector: "#ctl00_ctl14_Phone"
+          value: $PHONE
+          required: false
+        - name: ctl00$ctl14$Email
+          selector: "#ctl00_ctl14_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl14$Subject
+          selector: "#ctl00_ctl14_Subject"
+          value: $SUBJECT
+          required: false
+        - name: ctl00$ctl14$Body
+          selector: "#ctl00_ctl14_Body"
+          value: $MESSAGE
+          required: false
+    - select:
+        - name: ctl00$ctl14$PrefixList
+          selector: "#ctl00_ctl14_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Miss
+            - Ms.
+            - "Mr. & Mrs."
+            - Dr.
+            - The Reverend
+            - "Dr. & Mrs."
+            - "Mr. & Dr."
+            - The Honorable
+            - 1LT
+            - 1LT and Mrs.
+            - 1SG
+            - 1SG and Mrs.
+            - 1st Lt
+            - 1st Lt and Mrs.
+            - 1stSgt
+            - 1stSgt and Mrs.
+            - 2d Lt
+            - 2d Lt and Mrs.
+            - 2LT
+            - 2LT and Mrs.
+            - 2nd Lt
+            - 2nd Lt and Mrs.
+            - A1C
+            - A1C and Mrs.
+            - AB
+            - AB and Mrs.
+            - ADM
+            - ADM and Mrs.
+            - Amn
+            - Amn and Mrs.
+            - BG
+            - BG and Mrs.
+            - BGen
+            - BGen and Mrs.
+            - Brig Gen
+            - Brig Gen and Mrs.
+            - Brother
+            - CAPT
+            - Capt
+            - CAPT and Mrs.
+            - Capt and Mrs.
+            - CDR
+            - CDR and Mrs.
+            - Chaplain
+            - Chief
+            - CMSAF
+            - CMSAF and Mrs.
+            - CMSgt
+            - CMSgt and Mrs.
+            - Col
+            - COL
+            - Col and Mrs.
+            - COL and Mrs.
+            - CPL
+            - Cpl
+            - CPL and Mrs.
+            - Cpl and Mrs.
+            - CPO
+            - CPO and Mrs.
+            - CPT
+            - CPT and Mrs.
+            - CSM
+            - CSM and Mrs.
+            - CW2
+            - CW2 and Mrs.
+            - CW3
+            - CW3 and Mrs.
+            - CW4
+            - CW4 and Mrs.
+            - CW5
+            - CW5 and Mrs.
+            - CWO-1
+            - CWO-1 and Mrs.
+            - CWO2
+            - CWO-2
+            - CWO2 and Mrs.
+            - CWO-2 and Mrs.
+            - CWO3
+            - CWO-3
+            - CWO3 and Mrs.
+            - CWO-3 and Mrs.
+            - CWO4
+            - CWO-4
+            - CWO4 and Mrs.
+            - CWO-4 and Mrs.
+            - CWO-5
+            - CWO-5 and Mrs.
+            - Dean
+            - Dean and Mrs.
+            - Drs.
+            - Elder
+            - ENS
+            - ENS and Mrs.
+            - Father
+            - Gen
+            - GEN
+            - Gen and Mrs.
+            - GEN and Mrs.
+            - GySgt
+            - GySgt and Mrs.
+            - LCDR
+            - LCDR and Mrs.
+            - LCpl
+            - LCpl and Mrs.
+            - LT
+            - LT and Mrs.
+            - Lt Col
+            - Lt Col and Mr
+        - name: ctl00$ctl14$IssuesList
+          selector: "#ctl00_ctl14_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture and Food: "110205"
+            Animals: "110200"
+            Armed Forces and National Security: "110170"
+            "Arts, Culture, Religion": "110143"
+            "Civil Rights and Liberties, Minority Issues": "110127"
+            Commerce: "110109"
+            Congress: "110087"
+            Crime and Law Enforcement: "110074"
+            Economics and Public Finance: "110048"
+            Education: "110204"
+            Emergency Management: "110015"
+            Energy: "110006"
+            Environment: "109645"
+            Families: "109975"
+            Finance and Financial Sector: "109965"
+            Foreign Affairs: "114197"
+            Foreign Trade and International Finance: "109948"
+            Government Operations and Politics: "109934"
+            Health Care: "110203"
+            Housing and Community Development: "109839"
+            Immigration: "109825"
+            Labor and Employment: "109795"
+            Law: "109779"
+            Native Americans: "109761"
+            Public Lands and Natural Resources: "109754"
+            "Science, Technology, Communications": "109739"
+            Social Sciences and History: "109715"
+            Social Welfare: "109707"
+            Sports and Recreation: "109701"
+            Taxation: "109693"
+            Transportation and Public Works: "110202"
+            Water Resources Development: "109658"
+    - check:
+        - name: ctl00$ctl14$ReplyChoice
+          selector: "#ctl00_ctl14_ReplyChoice_0"
+          value: Respond
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl14_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your correspondence has been sent
+
