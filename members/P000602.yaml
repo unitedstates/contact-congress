@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /submit-contact.aspx
   steps:
-    - visit: "https://pompeo.house.gov/contact/contactform.htm?zip5="$ADDRESS_ZIP5
+    - visit: "https://pompeo.house.gov/contact/contactform.htm?zip5=$ADDRESS_ZIP5"
     - find:
         - selector: ".zipform"
     - fill_in:
