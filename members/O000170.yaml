@@ -1,7 +1,7 @@
 bioguide: O000170
 contact_form:
   method: post
-  action: ""
+  action: "https://orourkeforms.house.gov/forms/writeyourrep/?Confirmation=true"
   steps:
     - visit: "https://orourkeforms.house.gov/forms/writeyourrep/"
     - fill_in:
@@ -164,6 +164,12 @@ contact_form:
         - name: ctl00$ctl08$ReplyChoice
           selector: "#ctl00_ctl08_ReplyChoice_1"
           value: Comment
+    - uncheck:
+        - name: ctl00$ctl08$SubscribeChoice
+          selector: "#ctl00_ctl08_SubscribeChoice"
+        - name: ctl00$ctl08$ReplyChoice
+          selector: "#ctl00_ctl08_ReplyChoice_0"
+          value: Respond
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl08_SubmitButton"
@@ -171,4 +177,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting my office. This message is to acknowledge that I have received your message. If you selected that you would like a response, I am working to reply to your inquiry. "
+      contains: Thank you for contacting my office
