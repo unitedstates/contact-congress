@@ -1,0 +1,116 @@
+bioguide: S001148
+contact_form:
+  method: post
+  action: /submit-contact.aspx
+  steps:
+    - visit: "http://simpson.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - fill_in:
+        - name: required-first
+          selector: "form[name='contact'] input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "form[name='contact'] input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "form[name='contact'] input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "form[name='contact'] input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "form[name='contact'] input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: false
+        - name: zip4
+          selector: "form[name='contact'] input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: phone
+          selector: "form[name='contact'] input[name='phone']"
+          value: $PHONE
+          required: true
+        - name: required-email
+          selector: "form[name='contact'] input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: required-message
+          selector: "form[name='contact'] textarea[name='required-message']"
+          value: $MESSAGE
+          required: false
+    - select:
+        - name: required-issue
+          selector: "form[name='contact'] select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            (select one): MISC
+            Abortion: AB
+            Agriculture: AG
+            Animal Rights: AR
+            Appropriations: AP
+            Arts and Humanities: ART
+            Banking and Finance: BA
+            Budget: BU
+            Campaign Finances and Election Reform: CF
+            Commerce and Business: CO
+            Congress: CG
+            Consumer Protection: CP
+            Crime: CR
+            Drug Abuse: DRUG
+            Economy: EC
+            Education: ED
+            Endangered Species and Wildlife: ESA
+            Energy: EG
+            Environment: ENV
+            Ethics Reform: ET
+            Foreign Affairs: FA
+            Government Operations: GO
+            Guns: GUN
+            Healthcare: HC
+            Homeland Security and Intelligence: HS
+            Housing: HOU
+            Immigration: IM
+            Judiciary: JU
+            Labor: LA
+            Medicaid: MD
+            Medicare: MC
+            Military Affairs and National Defense: MIL
+            Native American Issues: NA
+            Natural Resources: NR
+            Postal Issues: PO
+            Public Lands: PL
+            Science and Technology: SCI
+            Small Business: SB
+            Social Issues: SOC
+            Social Security: SS
+            Taxes: TAX
+            Telecommunications: TC
+            Trade: TRD
+            Transportation: TR
+            Veterans Affairs: VA
+            Welfare: WF
+            General: MISC
+    - click_on:
+        - value: Send Email
+          selector: "form[name='contact'] input[type='submit'][value='Send Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for sending me your email."
