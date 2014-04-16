@@ -3,27 +3,7 @@ contact_form:
   method: post
   action: /submit-contact.aspx
   steps:
-    - visit: "http://royce.house.gov/contact/zipcheck.htm"
-    - fill_in:
-        - name: first
-          selector: "form.zipform input[name='first']"
-          value: $NAME_FIRST
-          required: true
-        - name: last
-          selector: "form.zipform input[name='last']"
-          value: $NAME_LAST
-          required: true
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: false
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
+    - visit: "https://royce.house.gov/contact/contactform.htm"
     - fill_in:
         - name: required-first
           selector: "#contactForm input[name='required-first']"
@@ -44,7 +24,11 @@ contact_form:
         - name: zip5
           selector: "#contactForm input[name='zip5']"
           value: $ADDRESS_ZIP5
-          required: false
+          required: true
+        - name: zip4
+          selector: "#contactForm input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
         - name: phone
           selector: "#contactForm input[name='phone']"
           value: $PHONE
@@ -56,7 +40,7 @@ contact_form:
         - name: required-message
           selector: "#contactForm textarea[name='required-message']"
           value: $MESSAGE
-          required: false
+          required: true
     - select:
         - name: required-prefix
           selector: "#contactForm select[name='required-prefix']"
@@ -68,11 +52,6 @@ contact_form:
             - Mrs.
             - "Mr. & Mrs."
             - Dr.
-        - name: required-state
-          selector: "#contactForm select[name='required-state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options: []
         - name: required-issue
           selector: "#contactForm select[name='required-issue']"
           value: $TOPIC
@@ -100,6 +79,10 @@ contact_form:
             Transportation: WEBTRA
             Veterans: WEBVET
             Other: WEBOTHER
+    - uncheck:
+        - name: rsp
+          selector: "#contactForm input[name='rsp']"
+          value: "no"
     - click_on:
         - value: Send Email
           selector: "#contactForm input[type='submit'][value='Send Email']"
@@ -107,4 +90,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: THANKS FOR YOUR MESSAGE
+      contains: Your message has been received.
