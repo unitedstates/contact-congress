@@ -1,0 +1,104 @@
+bioguide: H001059
+contact_form:
+  method: post
+  action: /email-me/
+  steps:
+    - visit: "https://hultgren.house.gov/email-me"
+    - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go to Form
+          selector: input.button
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#req_phone"
+          value: $PHONE
+          required: false
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#req_prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: "Mr. "
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
+        - name: state
+          selector: "#req_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            IL: IL
+        - name: subject
+          selector: "#req_subject"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: FAM
+            Agriculture: AGRI
+            Banking and Finance: BANK
+            Budget: BUD
+            Economy: ECON
+            Education: EDU
+            Energy: EN
+            Environment: ENV
+            Foreign Relations: FAFF
+            Healthcare: HLTH
+            Immigration: IMM
+            Judiciary/Law Enforcement: JUD
+            Labor: LBR
+            Marriage: FAM
+            Miscellaneous/Other: OTHER
+            "Science, Space & Technology": TECH
+            Taxes: TAX
+            Trade: TRD
+            "Transportation & Infrastructure": TRANS
+            Veterans: VET
+    - click_on:
+        - value: Submit
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: We will get back to you shortly
