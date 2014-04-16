@@ -25,7 +25,24 @@ contact_form:
           selector: 'input[name="required-city"]'
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
+        - name: zip5
+          selector: 'input[name="zip5"]'
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: 'input[name="zip4"]'
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-email
+          selector: 'input[name="required-email"]'
+          value: $EMAIL
+          required: true
+        - name: required-message
+          selector: 'textarea[name="required-message"]'
+          value: $MESSAGE
+          required: true
+    - select:
+      - name: required-state
           selector: 'select[name="required-state"]'
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
@@ -81,19 +98,7 @@ contact_form:
             - WI
             - WV
             - WY
-        - name: zip5
-          selector: 'input[name="zip5"]'
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: 'input[name="zip4"]'
-          value: $ADDRESS_ZIP4
-          required: false
-        - name: required-email
-          selector: 'input[name="required-email"]'
-          value: $EMAIL
-          required: true
-        - name: required-issue
+      - name: required-issue
           selector: 'select[name="required-issue"]'
           value: $TOPIC
           required: true
@@ -115,10 +120,6 @@ contact_form:
             Transportation: WEB.TRAN
             Water: WEB.WAT
             Womens Issues: WEB.WOM
-        - name: required-message
-          selector: 'textarea[name="required-message"]'
-          value: $MESSAGE
-          required: true
     - click_on:
         - value: Send Email
           selector: 'input[type="submit"][value="Send Email"]'
