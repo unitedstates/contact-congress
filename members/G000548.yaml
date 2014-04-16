@@ -32,11 +32,11 @@ contact_form:
         - name: ctl00$ctl12$Subject
           selector: "#ctl00_ctl12_Subject"
           value: $SUBJECT
-          required: false
+          required: true
         - name: ctl00$ctl12$Body
           selector: "#ctl00_ctl12_Body"
           value: $MESSAGE
-          required: false
+          required: true
         - name: ctl00$ctl12$CampaignID
           selector: "#ctl00_ctl12_CampaignID"
           value: $CAMPAIGN_UUID
@@ -45,138 +45,7 @@ contact_form:
           selector: "#ctl00_ctl12_CampaignInfo"
           value: $CAMPAIGN_UUID
           required: false
-    - select:
-        - name: ctl00$ctl12$PrefixList
-          selector: "#ctl00_ctl12_PrefixList"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
-            - Dr.
-            - Dean
-            - Professor
-            - Congressman
-            - Congresswoman
-            - Representative
-            - Delegate
-            - Assemblyman
-            - Assemblywoman
-            - Mayor
-            - Freeholder
-            - Sheriff
-            - Councilman
-            - Councilwoman
-            - Councilmember
-            - Chair
-            - Chairman
-            - Chairwoman
-            - General
-            - Colonel
-            - Major
-            - Captain
-            - Lieutenant
-            - Sergeant
-            - Corporal
-            - Commander
-            - Private
-            - Admiral
-            - Airman
-            - Cadet
-            - LCpl
-            - Ens.
-            - Rev.
-            - Rev. Doc.
-            - Rt. Rev.
-            - Msgr.
-            - Fr.
-            - Pastor
-            - Sister
-            - Brother
-            - Rabbi
-            - The Honorable
-            - Amb.
-            - Commissioner
-            - Governor
-            - Director
-            - Acting Director
-            - Gov.
-            - Lt. Gov.
-            - Justice
-            - Judge
-            - Lieutenant Commander
-            - Lieutenant General
-            - Lieutenant Colonel
-            - Deacon
-            - President
-            - Vice President
-        - name: ctl00$ctl12$State
-          selector: "#ctl00_ctl12_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - AA
-            - AE
-            - AP
-            - FM
-            - GU
-            - MH
-            - MP
-            - PR
-            - VI
+    - select: []
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl12_SubmitButton"
@@ -184,4 +53,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to write me. I will carefully consider your views as I serve you and your fellow constituents.  Please feel free to contact me about any other concerns you have.
+      contains: Thank you for taking the time to write me. I will carefully consider your views as I serve you and your fellow constituents. Please feel free to contact me about any other concerns you have.
