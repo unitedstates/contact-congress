@@ -63,10 +63,14 @@ contact_form:
           selector: "#req_message"
           value: $MESSAGE
           required: true
-        - name: response_require
+        
+        - name: response
           selector: "#req_response"
           value: RN
           required: true
+          options:
+            I do not need a response.: NRN
+            I would like a response.: RN
     - select:
         - name: state
           selector: "#req_state"
