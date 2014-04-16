@@ -85,6 +85,27 @@
       </div>
 
         <div class="container-fluid main instructions">
+          
+          <div class="update">
+            <h3>We're almost there: help us get to 100% </h3>
+            <p>We though this'd take weeks, but in about 16 hours we've gotten 90% of the way there - a big big thanks to all those who've helped! It's been all kinds of awesome. This last 10% is going to be the hardest though, <strong>read on for how you can help get us there.</strong></p>
+            <p>In the list at the bottom of this page, there are a lot of representatives who have less than 100% completion rate. That means that since the last update to their YAML file, not all the tests performed in the test-tool have succeeded.</p>
+            <p>Ideally we want all of them to be at 100%. Here's how to get there:</p>
+            <ul>
+              <li>First, let the world know you're working on a rep to get it to 100% by commenting in their Github issue. Reopen it if it's closed.</li>
+              <li>For some of the reps, the failures were because of bugs with congress-form-test that have now been fixed. Try populating and testing again a few times, and if they work consistently, simply touch the YAML file (add whitespace at the end of a line) to reset the log of tests, push the changes, and then run tests again so the success rate is 100%. Easy :).</li>
+              <li>Some are failing because the address/zip codes that the test tool pulls in are wrong. To fix that: 
+                <ul>
+                  <li>First you'll need a valid address/zip+4 combination. Try the zip codes from the district offices listed at the bottom of rep's pages. They usually won't have a +4 included, so use ><a href="https://tools.usps.com/go/ZipLookupAction!input.action?mode=0&refresh=true" target="_blank">USPS's tool to find those. </li>
+                  <li>Once you have a valid address, go to the <a target="_blank" href="https://github.com/sinak/congress-zip-plus-four/">congress-zip-plus-four repo</a>. You'll want to update the addresses with ones that work in both the <a target="_blank" href="https://github.com/sinak/congress-zip-plus-four/blob/master/8-%20output-final-with-senate.csv">8- output-final-with-senate.csv</a> and <a href="https://github.com/sinak/congress-zip-plus-four/blob/master/toJson.js">toJson.js</a> files. Submit a pull request and we'll merge.</li>
+                  <li>Once that's done, test the legislators and make sure they pass. Then touch their YAML files  (add whitespace at the end of a line) to reset the stats, push the changes, and then runn tests again and you're done.</li>
+                </ul>
+              <li>In other cases, it'll be problem with the YAML files. In that case, troubleshoot them. Check out the troubleshooting tips on the left hand side below the Step 3 video on this page.</li>
+              </ul>
+              <p>Badges can take up to a few minutes to update, so if it doesn't happen immediately but the test tool shows 100% passing, trust that they will eventually :).</p>
+              <p>As always we'll be on IRC (#opencongress on freenode, <a href="http://theunitedstates.io/contact-congress/irc.html" target="_blank">web interface</a>) if you have problems or questions.</p>
+              <p>Again, a big big thanks from the teams at EFF and Sunlight Foundation who've been working on this!</p>
+          </div>
 
           <h3>Step 1: Getting started.</h3>
           <div class="row step">
