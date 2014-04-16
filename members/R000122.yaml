@@ -193,10 +193,11 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "img[alt='Next Step']"
-    - fill_in:
+    - select:
       - name: topic
         selector: "#topic"
         value: "$TOPIC"
+        required: yes
         options:
           "Abortion": "Abortion"
           "Agriculture & Nutrition": "Agriculture"
