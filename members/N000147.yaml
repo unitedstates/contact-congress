@@ -9,10 +9,6 @@ contact_form:
           selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
@@ -40,10 +36,6 @@ contact_form:
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
-          required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
         - name: required-valid-email
           selector: "#required-valid-email"
@@ -110,7 +102,7 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "Yes"
-          required: true
+          required: false
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
