@@ -51,34 +51,14 @@ contact_form:
         required: Yes
     - select:
       - name: Prefix
-        selector: "#field_eec119b6-f19d-4f37-8035-f4a46c2d7c2f"
+        selector: "select[name=Prefix]"
         value: "$NAME_PREFIX"
         required: Yes
         options:
           - "Mr."
           - "Mrs."
           - "Ms."
-          - "Mr. and Mrs."
-          - "Miss"
           - "Dr."
-          - "Dr. and Mrs."
-          - "Dr. and Mr."
-          - "Admiral"
-          - "Captain"
-          - "Chief Master Sergeant"
-          - "Colonel"
-          - "Commander"
-          - "Corporal"
-          - "Father"
-          - "Lieutenant"
-          - "Lieutenant Colonel"
-          - "Master Sergeant"
-          - "Reverend"
-          - "Sergeant"
-          - "Second Lieutenant"
-          - "ergeant Major" #NOT a typo -- at least not by contributor.  This is a typo on the senator's website.
-          - "Sister"
-          - "Technical Sergeant"
       - name: State
         selector: "#State"
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
