@@ -130,8 +130,12 @@ contact_form:
           selector: "#list"
           value: "true"
     - click_on:
+        - selector: "#validate_user_response"
+    - find:
+        - selector: "#default_submit"
+    - click_on:
         - value: submit
-          selector: "#default_submit button"
+          selector: "#default_submit"
   success:
     headers:
       status: 200
