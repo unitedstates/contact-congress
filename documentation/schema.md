@@ -33,7 +33,7 @@ a subset of [Capybara methods](http://rubydoc.info/github/jnicklas/capybara/mast
 - [`find`](#find): Locating a selector on the page, an indication that no further 
     steps should be executed until the selector is present and visible.
 - [`fill_in`](#fill_in): Entering text into a text `input` or `textarea`.
-- [`select`](#select): Choosing a value from a `select` list.
+- [`select`](#select): Choosing a value from a `select` list.  If this value isn't found, choose an option with the text matching the value of `value` in the YAML file.  (This is so that we can choose options by text, since some forms do not include `value` attributes.)
 - [`check`](#checkuncheckchoose): Ticking a checkbox `input`.
 - [`uncheck`](#checkuncheckchoose) The opposite of `check`.
 - [`choose`](#checkuncheckchoose) Ticking a specific item in a set of radio 
