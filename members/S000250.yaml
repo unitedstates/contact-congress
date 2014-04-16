@@ -43,8 +43,9 @@ contact_form:
           required: true
         - name: recaptcha_response_field
           selector: "#recaptcha_response_field"
-          value: $CAPTCHA_SOLUTION
-          required: true
+          captcha_selector: "#recaptcha_img img"
+          captcha_id_selector: "#recaptcha_challenge_field"
+          value: "$CAPTCHA_SOLUTION"
     - select:
         - name: field_A39C3195-9A18-4E92-B084-184DAD78C31D
           selector: "#field_A39C3195-9A18-4E92-B084-184DAD78C31D"
