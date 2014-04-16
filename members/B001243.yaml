@@ -8,6 +8,8 @@ contact_form:
         - selector: "#TB_title"
     - click_on:
         - selector: "#TB_closeWindowButton"
+    - find:
+        -selector: "form.zipform"
     - fill_in:
         - name: required-first
           selector: "form.zipform input[name='required-first']"
