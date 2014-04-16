@@ -1,0 +1,56 @@
+bioguide: M001177
+contact_form:
+  method: post
+  action: "https://mcclintockforms.house.gov/htbin/formproc.pl?/mcclintock/forms/contact_form_file.txt&display=/mcclintock/forms/contact-thankyou.shtml&nobase"
+  steps:
+    - visit: "https://mcclintockforms.house.gov/forms/contact-form.shtml"
+    - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
+    - select: []
+    - click_on:
+        - value: Send Email
+          selector: "#contactForm input[name='submit2']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "The following information has been submitted:"
