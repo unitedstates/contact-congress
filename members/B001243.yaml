@@ -140,8 +140,10 @@ contact_form:
     - click_on:
         - value: "Send Email"
           selector: "form.zipform input[type='submit']"
+    - find:
+        - selector: "ct100_PageLink"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank"
+      contains: "Thank you for contacting my office"
