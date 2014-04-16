@@ -7,11 +7,11 @@ contact_form:
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
-          value: "03060"
+          value: $ADDRESS_ZIP5
           required: true
         - name: zip4
           selector: "#zip4"
-          value: "3438"
+          value: $ADDRESS_ZIP4
           required: true
     - click_on:
         - value: Go To Next Step
@@ -52,7 +52,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
@@ -72,7 +72,7 @@ contact_form:
     - select:
         - name: required-issue
           selector: "#required-issue"
-          value: "\"OTHER\""
+          value: OTHER
           required: true
           options:
             Agriculture: AGR
