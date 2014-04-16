@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /submit-contact.aspx
   steps:
-    - visit: "https://rigell.house.gov/contact/contactform.htm"
+    - visit: "http://rigell.house.gov/contact/contactform.htm"
     - fill_in:
         - name: required-first
           selector: "#contact input[name='required-first']"
@@ -157,20 +157,15 @@ contact_form:
             Transportation: TRA
             Veterans: VET
             Others: GEN
-    - uncheck:
-        - name: subscribe
-          selector: "#contact input[name='subscribe']"
-          value: subscribe
     - check:
         - name: response
           selector: "#contact input[name='response']"
           value: "Yes"
     - click_on:
         - value: Send Email
-          selector: "#contact input[type='submit'][value='Send Email']"
+          selector: "#contact input[type='submit']"
   success:
     headers:
       status: 200
     body:
       contains: Thank you
-
