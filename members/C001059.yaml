@@ -6,7 +6,7 @@ contact_form:
     - visit: "http://www.house.gov/formcosta/issue.htm"
     - fill_in:
         - name: required-prefix
-          selector: "#required-prefix"
+          selector: 'input[name="required-prefix"]'
           value: $NAME_PREFIX
           required: true
         - name: required-first
