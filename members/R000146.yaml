@@ -164,6 +164,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#sendbutton"
+    - find:
+        - selector: "#usermessagea.success"
   success:
     headers:
       status: 200
