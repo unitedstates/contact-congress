@@ -40,7 +40,7 @@ contact_form:
         - name: phone
           selector: "#req_phone"
           value: $PHONE
-          required: false
+          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -48,17 +48,12 @@ contact_form:
         - name: msg
           selector: "#req_message"
           value: $MESSAGE
-          required: false
-    - select:
-        - name: state
-          selector: "#req-state"
-          value: CO
           required: true
-          options: []
+    - select:
         - name: required-issue
           selector: "#req_issue"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: AGR-FARM
             Budget: BUD
@@ -92,4 +87,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Your message has been sent. Thank you for sharing your comments and concerns with me. I will respond back to you as soon as possible.
+      contains: Your message has been sent.  Thank you for sharing your comments and concerns with me.  I will respond back to you as soon as possible.
