@@ -16,8 +16,6 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
-    - find:
-        - selector: "#contactForm"
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -120,7 +118,7 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "Yes"
-          required: true
+          required: false
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
