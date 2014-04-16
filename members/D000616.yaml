@@ -16,8 +16,6 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
-    - find:
-        - selector: "#contactForm"
     - fill_in:
         - name: required-prefix
           selector: "#required-prefix"
@@ -37,7 +35,7 @@ contact_form:
           required: true
         - name: address2
           selector: "#address2"
-          value: $ADDRESS_STREET
+          value: $ADDRESS_STREET_2
           required: false
         - name: required-city
           selector: "#required-city"
@@ -75,7 +73,7 @@ contact_form:
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: WEBAGR
             Budget: WEBBUD
@@ -101,8 +99,8 @@ contact_form:
             Other Issues: WEBOTH
         - name: required-response
           selector: "#required-response"
-          value: "Y"
-          required: false
+          value: "yes"
+          required: true
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
@@ -113,4 +111,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: EMAIL ME - THANK YOU
