@@ -38,7 +38,7 @@ contact_form:
         - name: ctl00$ctl18$Zip
           selector: "#ctl00_ctl18_Zip"
           value: $ADDRESS_ZIP5
-          required: true
+          required: false
         - name: ctl00$ctl18$Phone
           selector: "#ctl00_ctl18_Phone"
           value: $PHONE
@@ -50,11 +50,11 @@ contact_form:
         - name: ctl00$ctl18$Subject
           selector: "#ctl00_ctl18_Subject"
           value: $SUBJECT
-          required: false
+          required: true
         - name: ctl00$ctl18$Body
           selector: "#ctl00_ctl18_Body"
           value: $MESSAGE
-          required: false
+          required: true
         - name: ctl00$ctl18$CampaignID
           selector: "#ctl00_ctl18_CampaignID"
           value: $CAMPAIGN_UUID
