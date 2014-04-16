@@ -3,10 +3,10 @@ contact_form:
   method: get
   action: /ContactForm/Email.htm
   steps:
+    - visit: "https://blackburn.house.gov/contactform/"
     - find: "#TB_title"
     - click_on:
         - selector: "#TB_closeWindowButton"
-    - visit: "https://blackburn.house.gov/contactform/"
     - fill_in:
         - name: zip5
           selector: "#zipcode"
