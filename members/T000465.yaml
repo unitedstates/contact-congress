@@ -7,7 +7,7 @@ contact_form:
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
-          value: $ADDRESS_ZIP5
+          value: "03101"
           required: true
         - name: zipfour
           selector: "#zipfour"
@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: "#zipauthform input.button"
+    - find:
+        - selector: "#custom_form13"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
