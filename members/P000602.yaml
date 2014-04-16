@@ -45,7 +45,7 @@ contact_form:
           required: true
     - select:
         - name: required-prefix
-          selector: "form.zipform input[name='required-prefix']"
+          selector: "form.zipform select[name='required-prefix']"
           value: $NAME_PREFIX
           required: true
           options:
@@ -58,7 +58,7 @@ contact_form:
             - Rev.
             - Hon.
         - name: required-issue
-          selector: "form.zipform input[name='required-issue']"
+          selector: "form.zipform select[name='required-issue']"
           value: $TOPIC
           required: true
           options:
