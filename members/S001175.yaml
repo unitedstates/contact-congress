@@ -1,0 +1,106 @@
+bioguide: S001175
+contact_form:
+  method: POST
+  action: "/htbin/formproc/speier/webforms/email-jackie.txt&display=thank-you.shtml"
+  steps:
+    - visit: "https://forms.house.gov/speier/webforms/email_jackie.shtml"
+    - fill_in:
+        - name: required-prefix
+          selector: "#mainbodyContentleft form input[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first-name
+          selector: "#firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last-name
+          selector: "#lastname"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#addr1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: addr2
+          selector: "#mainbodyContentleft form input[name='addr2']"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: required-email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#mainbodyContentleft form select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            "Please select one:": selected
+            Agriculture: AGR
+            Animals: ANI
+            "Arts ": ART
+            Budget: BUD
+            Casework: CAS
+            Civil Rights: "CIV "
+            Credit: CRE
+            Defense: DEF
+            Economy: ECO
+            Education: EDU
+            Elections: ELE
+            Energy: ENE
+            Environment: ENV
+            Foreign Affairs: FOR
+            Government Reform: GOV
+            Health: HEA
+            Homeland Security: HOM
+            Housing: HOU
+            Immigration: IMM
+            Judiciary: JUD
+            Labor: LAB
+            Postal Service: POS
+            Science: SCI
+            Small Business: SMB
+            Social Security: SOC
+            Telecommunications: TEL
+            Taxes: TAX
+            "Tours & Flags": TOU
+            Trade: TRD
+            Transportation: TRA
+            Veterans: VET
+            Women: WOM
+            Other: OTH
+        - name: required-rsp
+          selector: "#mainbodyContentleft form select[name='required-rsp']"
+          value: "No"
+          required: true
+          options:
+            "Yes": "Y"
+            "No": "no"
+    - click_on:
+        - value: Submit
+          selector: "#mainbodyContentleft form input[name='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your correspondence.
