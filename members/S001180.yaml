@@ -1,0 +1,312 @@
+bioguide: S001180
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://schrader.house.gov/forms/writeyourrep/"
+    - fill_in:
+        - name: ctl00$ctl14$FirstName
+          selector: "#ctl00_ctl14_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl14$LastName
+          selector: "#ctl00_ctl14_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl14$Street
+          selector: "#ctl00_ctl14_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl14$City
+          selector: "#ctl00_ctl14_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl14$Zip
+          selector: "#ctl00_ctl14_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl14$Phone
+          selector: "#ctl00_ctl14_Phone"
+          value: $PHONE
+          required: false
+        - name: ctl00$ctl14$Email
+          selector: "#ctl00_ctl14_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl14$Subject
+          selector: "#ctl00_ctl14_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl14$Body
+          selector: "#ctl00_ctl14_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$ctl14$PrefixList
+          selector: "#ctl00_ctl14_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Miss
+            - Ms.
+            - "Mr. & Mrs."
+            - Dr.
+            - The Reverend
+            - "Dr. & Mrs."
+            - "Mr. & Dr."
+            - The Honorable
+            - 1LT
+            - 1LT and Mrs.
+            - 1SG
+            - 1SG and Mrs.
+            - 1st Lt
+            - 1st Lt and Mrs.
+            - 1stSgt
+            - 1stSgt and Mrs.
+            - 2d Lt
+            - 2d Lt and Mrs.
+            - 2LT
+            - 2LT and Mrs.
+            - 2nd Lt
+            - 2nd Lt and Mrs.
+            - A1C
+            - A1C and Mrs.
+            - AB
+            - AB and Mrs.
+            - ADM
+            - ADM and Mrs.
+            - Amn
+            - Amn and Mrs.
+            - BG
+            - BG and Mrs.
+            - BGen
+            - BGen and Mrs.
+            - Brig Gen
+            - Brig Gen and Mrs.
+            - Brother
+            - CAPT
+            - Capt
+            - CAPT and Mrs.
+            - Capt and Mrs.
+            - CDR
+            - CDR and Mrs.
+            - Chaplain
+            - Chief
+            - CMSAF
+            - CMSAF and Mrs.
+            - CMSgt
+            - CMSgt and Mrs.
+            - Col
+            - COL
+            - Col and Mrs.
+            - COL and Mrs.
+            - CPL
+            - Cpl
+            - CPL and Mrs.
+            - Cpl and Mrs.
+            - CPO
+            - CPO and Mrs.
+            - CPT
+            - CPT and Mrs.
+            - CSM
+            - CSM and Mrs.
+            - CW2
+            - CW2 and Mrs.
+            - CW3
+            - CW3 and Mrs.
+            - CW4
+            - CW4 and Mrs.
+            - CW5
+            - CW5 and Mrs.
+            - CWO-1
+            - CWO-1 and Mrs.
+            - CWO2
+            - CWO-2
+            - CWO2 and Mrs.
+            - CWO-2 and Mrs.
+            - CWO3
+            - CWO-3
+            - CWO3 and Mrs.
+            - CWO-3 and Mrs.
+            - CWO4
+            - CWO-4
+            - CWO4 and Mrs.
+            - CWO-4 and Mrs.
+            - CWO-5
+            - CWO-5 and Mrs.
+            - Dean
+            - Dean and Mrs.
+            - Drs.
+            - Elder
+            - ENS
+            - ENS and Mrs.
+            - Father
+            - Gen
+            - GEN
+            - Gen and Mrs.
+            - GEN and Mrs.
+            - GySgt
+            - GySgt and Mrs.
+            - LCDR
+            - LCDR and Mrs.
+            - LCpl
+            - LCpl and Mrs.
+            - LT
+            - LT and Mrs.
+            - Lt Col
+            - Lt Col and Mrs.
+            - LTC
+            - LTC and Mrs.
+            - LtCol
+            - LtCol and Mrs.
+            - LTG
+            - LTG and Mrs.
+            - LtGen
+            - LtGen and Mrs.
+            - LTJG
+            - LTJG and Mrs.
+            - Maj
+            - MAJ
+            - Maj and Mrs.
+            - MAJ and Mrs.
+            - Maj Gen
+            - Maj Gen and Mrs.
+            - MajGen
+            - MajGen and Mrs.
+            - MCPO
+            - MCPO and Mrs.
+            - MCPON
+            - MCPON and Mrs.
+            - Messrs.
+            - MG
+            - MG and Mrs.
+            - MGySgt
+            - MGySgt and Mrs.
+            - Mmes.
+            - MSG
+            - MSG and Mrs.
+            - MSgt
+            - MSgt and Mrs.
+            - Pastor
+            - Pastor and Mrs.
+            - PFC
+            - PFC
+            - PFC and Mrs.
+            - PO1
+            - PO1 and Mrs.
+            - PO2
+            - PO2 and Mrs.
+            - PO3
+            - PO3 and Mrs.
+            - President
+            - President and Mrs.
+            - Professor
+            - Professor and Mrs.
+            - PV2
+            - PV2 and Mrs.
+            - PVT
+            - Pvt
+            - PVT and Mrs.
+            - Pvt and Mrs.
+            - Rabbi
+            - Rabbi and Mrs.
+            - RADM
+            - RADM and Mrs.
+            - Rank
+            - SA
+            - SA and Mrs.
+            - SCPO
+            - SCPO and Mrs.
+            - Senator
+            - Senator and Mrs.
+            - SFC
+            - SFC and Mrs.
+            - SGM
+            - SGM and Mrs.
+            - SGT
+            - Sgt
+            - SGT and Mrs.
+            - Sgt and Mrs.
+            - Sgt Maj
+            - Sgt Maj and Mrs.
+            - SgtMajMC
+            - SgtMajMC and Mrs.
+            - Sister
+            - SMA
+            - SMA and Mrs.
+            - SMSgt
+            - SMSgt and Mrs.
+            - SN
+            - SN and Mrs.
+            - SPC
+            - SPC and Mrs.
+            - SR
+            - SR and Mrs.
+            - SrA
+            - SrA and Mrs.
+            - SSG
+            - SSG and Mrs.
+            - SSgt
+            - SSgt and Mrs.
+            - The Honorable and Mrs.
+            - The Reverend and Mrs.
+            - The Reverend Dr.
+            - The Reverend Dr. and Mrs.
+            - TSgt
+            - TSgt and Mrs.
+            - VADM
+            - VADM and Mrs.
+            - WO1
+            - WO1 and Mrs.
+        - name: ctl00$ctl14$IssuesList
+          selector: "#ctl00_ctl14_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: "63045"
+            Animal Welfare: "63040"
+            Appropriations: "62886"
+            Budget: "62887"
+            Commerce and Small Business: "62949"
+            Consumer Affairs: "62943"
+            Defense and Military: "63010"
+            Education and Schools: "63044"
+            Energy: "62845"
+            Environment: "62482"
+            Finances and Financial Services: "62803"
+            Fisheries: "64757"
+            Foreign Affairs: "62652"
+            Government: "62772"
+            Guns and Weapons: "64759"
+            Health Care: "63043"
+            Homeland Security: "62479"
+            Housing: "62676"
+            Immigration: "62662"
+            Judiciary and Courts: "62616"
+            Labor: "62632"
+            Medicare and Medicaid: "64763"
+            Native Americans: "62598"
+            Natural Resources: "62591"
+            Science and Technology: "64765"
+            Social Security: "64767"
+            Taxation: "62530"
+            Telecommunications: "64766"
+            Trade: "62786"
+            Transportation and Infrastructure: "63042"
+            Veterans Affairs: "62478"
+            Other: "65337"
+    - check:
+        - name: ctl00$ctl14$ReplyChoice
+          selector: "#ctl00_ctl14_ReplyChoice_0"
+          value: Respond
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl14_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you
+
