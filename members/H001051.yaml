@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /email-me/
   steps:
-    - visit: "https://hanna.house.gov/email-me/"
+    - visit: "https://hanna.house.gov/email-me"
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
@@ -16,8 +16,6 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: "#zipauthform input.button"
-    - find:
-        - selector: "#custom_form24"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -161,10 +159,6 @@ contact_form:
             Trade: TRA
             Veterans: VET
             "Women & Children": WOMEN
-    - uncheck:
-        - name: newsletter
-          selector: "#newsletter"
-          value: "<AFFL>Subscribe</AFFL>"
     - click_on:
         - value: Send Email
           selector: "#submitButton"
