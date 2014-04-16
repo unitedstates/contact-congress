@@ -61,7 +61,7 @@ contact_form:
         - name: prefix
           selector: "#req_prefix"
           value: $NAME_PREFIX
-          required: false
+          required: true
           options:
             "--Select One--": " "
             Mr.: "Mr. "
@@ -72,6 +72,12 @@ contact_form:
             Hon.: Hon.
             Rev.: Rev.
             Rabbi: Rabbi
+        - name: state
+          selector: "#req_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            IL: IL
         - name: subject
           selector: "#req_subject"
           value: $TOPIC
@@ -105,7 +111,7 @@ contact_form:
         - name: response
           selector: "#req_response"
           value: I would like a response.
-          required: false
+          required: true
           options:
             I do not need a response.: "N"
             I would like a response.: "Y"
