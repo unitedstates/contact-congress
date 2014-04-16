@@ -117,6 +117,15 @@
                   <li><strong>The bookmarklet goes blank after I submit the first form.</strong><br>
                     This happens because the contact form switched from HTTP to HTTPS after you submitted the first page. For security reasons browsers will block the bookmarklet from working. In Chrome, there's a console error that reads:<br> <code> Uncaught SecurityError: Blocked a frame with origin "http://crawford.house.gov" from accessing a frame with origin "https://crawford.house.gov". Protocols must match.</code> <br>Tthe only solution is to use the bookmarklet separately on the first page and the second page of the contact form, and then merge the two resulting YAML files together manually. If you're just getting started, skip this file and come back to it once you've had some practice.</li>
                 </ul>
+                <p style="margin-top:30px; margin-bottom: 0"><strong>Errors that can be seen in the developer javascript console of the bookmarklet:</strong></p>
+                <ul>
+                  <li><strong>Uncaught TypeError: Cannot read property 'selector' of undefined</strong><br>
+                    This error most often happens when the submit button was not automagically detected.  Setting the submit button field in the bookmarklet to '[submit button]' should allow you to progress.</li>
+                  <li><strong>Uncaught TypeError: Cannot read property 'repr' of undefined</strong><br>
+                    This is a known bug that has not been resolved yet.  Please reference the issue you are working on <a href="https://github.com/unitedstates/contact-congress/issues/681">here</a> and move on to another issue.</li>
+                  <li><strong>Uncaught JS-YAML: unacceptabe kind of an object to dump [object Undefined]</strong><br>
+                    This is also a known bug that has not yet been resolved.  Please reference the issue you are working on <a href="https://github.com/unitedstates/contact-congress/issues/621">here</a> and move on to another issue.</li>
+                </ul>
               </div>
             </div>
             <div class="col-sm-6">
@@ -156,6 +165,7 @@
               <p><em>There are quite a few untested or failing YAML files in the dataset at the moment. Help us out by testing them and fixing any problems.</em></p>
             </div>
           </div>
+          <h5>After you have successfully completed two pull-requests, ask in IRC and someone will give you commit access.</h5>
 
           <!-- <h3>2. Make some YAML Files!</h3>
           <p>First click on the bookmarklet and select a legislator to work on from the dropdown that appears at the top of the current page. An 'x' next to their name means that person hasn't been done yet, and a '!' means their form is known to be broken.</p>
