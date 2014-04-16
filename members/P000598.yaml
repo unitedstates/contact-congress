@@ -41,27 +41,21 @@ contact_form:
           selector: "#ctl00_ctl11_Body"
           value: $MESSAGE
           required: true
-    - select:
-        - name: ctl00$ctl11$IssuesList
-          selector: "#ctl00_ctl11_IssuesList"
-          value: $TOPIC
+        - name: ctl00$ctl11$CampaignID
+          selector: "#ctl00_ctl11_CampaignID"
+          value: $CAMPAIGN_UUID
           required: false
+        - name: ctl00$ctl11$CampaignInfo
+          selector: "#ctl00_ctl11_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl11$State
+          selector: "#ctl00_ctl11_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
           options:
-            Appropriations: "4810"
-            Budget: "21245"
-            Economy: "4639"
-            Education: "4642"
-            "Energy & Environment": "4706"
-            Health Care: "4641"
-            Immigration: "4638"
-            "LGBT Equality & Civil Rights": "5032"
-            Local Issues: "7134"
-            "National Security & Foreign Policy": "4640"
-            Other: "24100"
-            Recovery: "8413"
-            "Science & Technology": "4806"
-            Taxes: "21244"
-            "Transportation & Infrastructure": "4913"
+            - CO
     - check:
         - name: ctl00$ctl11$ReplyChoice
           selector: "#ctl00_ctl11_ReplyChoice_0"
@@ -73,4 +67,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: I always appreciate hearing from my constituents
+      contains: "Thank you for your email. I always appreciate hearing from my constituents, and I rely on your input to help me effectively represent our district in Congress. Due to the large volume of emails I receive, I ask for your patience in receiving a reply."
