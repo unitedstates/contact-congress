@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,7 +52,7 @@
       <div class="row">
           <h1>
             <a name="contact-congress" class="anchor" href="#contact-congress"><span class="octicon octicon-link"></span></a>
-            Help create an open data format for Congress contact forms
+            Help create an open data format for Congressional contact forms
           </h1>
 
           <h2>Why</h2>
@@ -63,14 +62,14 @@
 
           <h2>Who</h2>
           <p>
-            This dataset will be used by the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a> for <a href="http://www.opencongress.org/">OpenCongress.org</a> and by <a href="https://www.eff.org/">the Electronic Frontier Foundation</a> and <a href="https://taskforce.is">Taskforce.is</a> to help constituents advocate for better technology laws. All of the data is being placed into the <a href="https://github.com/unitedstates/contact-congress#public-domain">public domain</a>.
+            This dataset will be used by the <a href="http://sunlightfoundation.com/">Sunlight Foundation</a> for <a href="http://www.opencongress.org/">OpenCongress.org</a>, <a href="https://www.eff.org/">the Electronic Frontier Foundation</a>, and by <a href="https://taskforce.is">Taskforce.is</a> to help constituents advocate for better technology laws. All of the data is being placed into the <a href="https://github.com/unitedstates/contact-congress#public-domain">public domain</a>.
           </p>
 
           <h2>Current Status</h2>
           <div class="current-status">
             <p><i class="fa fa-check"></i> &nbsp;Created a standardized YAML data format for describing legislator contact forms.</p>
             <p><i class="fa fa-check"></i> &nbsp;Created a bookmarklet to make it easy to generate YAML files</p>
-            <p><i class="fa fa-check"></i> &nbsp;Made a testing suite to error-check generated files</p>
+            <p><i class="fa fa-check"></i> &nbsp;Created a testing suite to error-check generated files</p>
             <p><i class="fa fa-check"></i> &nbsp;Created YAML files for almost all 100 members of the Senate.</p>
             <p><i class="fa fa-times"></i> &nbsp;Created YAML files for almost all 439 members of the House of Representatives.</p>
           </div>
@@ -124,7 +123,7 @@
               <p><em>We recommend watching the video first, as it'll make this part much simpler to understand.</em></p>
               <p><strong>Make sure you completed  #5 above and claimed a rep's Github issue before starting work on generating YAML.</strong></p>
               <p>1 - Find the Rep's contact page using a Google search.</p>
-              <p>2 - Click the bookmarklet (you'll need to allow popups). Select the correct form from the list shown in the popup. The bookmarklet will attempt to automatically match the inputs to our predefined YAML variables, but it'll likely miss a few. Run through and check them, and make sure that any required fields are marked as such in the popup. Required fields are ones that need to be changed in order for the form to submit correctly.</p>
+              <p>2 - Click the bookmarklet (you'll need to allow popups). Select the correct form from the list shown in the popup. The bookmarklet will attempt to automatically match the inputs to our predefined YAML variables, but it'll likely miss a few. Make sure that any required fields are marked as such in the popup. Required fields are ones that need to be changed in order for the form to submit correctly.</p>
               <p>3 - Once you're done, click "Next" in the popup. The bookmarklet will fill the form with its default values automatically. Now press the submit button at the end of member of Congress's form.</p>
               <p>4 - If there's a second page to the form, click the "Next Form" button and repeat the process above  (otherwise you can skip to the next step). Note that depending on the type of form, you might be asked for a "Selector to find before proceeding." This is so that any parsers can tell when the second part of the form has loaded. You can usually use the form's selectors from the dropdown above, but in rare cases you may need to change later down the road. When you're done, click the 'Next' button in the bookmarklet again, and then submit the form on the member of Congress's site.</p>
               <p>5 - You'll now likely be onto the Congress member's "success" page. If something's gone wrong, you'll have to start again. Otherwise, click the "Finished" button in the bookmarklet. Select some text from the legislator's success page that will identify the request as having worked, and paste it into the success message box on the popup. Avoid copying across html tags by find a part of the success page that is plain text.</p>
