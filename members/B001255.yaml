@@ -12,7 +12,7 @@ contact_form:
         - name: zipfour
           selector: "#zipfour"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
         - value: Go to Form
           selector: input.button
@@ -77,7 +77,7 @@ contact_form:
             Rabbi: Rabbi
         - name: state
           selector: "#req_state"
-          value: $ADDRESS_STATE_FULL
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
             North Carolina: NC
@@ -159,6 +159,17 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other Issues: WEBOTH
+        - name: response
+          selector: "#response"
+          value: "N"
+          required: false
+          options:
+            "Yes": RN
+            "No": NRN
+    - check:
+        - name: aff1
+          selector: "input[type='radio'][name='aff1'][value='<AFFL_DEL>Subscribe</AFFL_DEL>']"
+          value: "<AFFL_DEL>Subscribe</AFFL_DEL>"
     - click_on:
         - value: Send Email
           selector: "#submitButton"
@@ -166,4 +177,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you.
+      contains: The following information was sent to us
