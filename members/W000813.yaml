@@ -5,8 +5,7 @@ contact_form:
   steps:
     - visit: "https://walorski.house.gov/contact/email-me"
     - click_on:  # newsletter signup needs to be dismissed
-        - value: ""
-          selector: "#close-enews-popup"
+        - selector: "#close-enews-popup"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
