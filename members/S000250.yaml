@@ -1,0 +1,143 @@
+bioguide: S000250
+contact_form:
+  method: post
+  action: /index.cfm/contact-form
+  steps:
+    - visit: "https://sessions.house.gov/index.cfm/contact-form"
+    - fill_in:
+        - name: field_776EC445-9AA7-4711-84B2-1FE86234EF94
+          selector: "#field_776EC445-9AA7-4711-84B2-1FE86234EF94"
+          value: $NAME_FIRST
+          required: true
+        - name: field_74972329-7006-45C7-973E-303BEF2AFD83
+          selector: "#field_74972329-7006-45C7-973E-303BEF2AFD83"
+          value: $NAME_LAST
+          required: true
+        - name: field_EA33F802-15C8-4F9A-A675-8EAB7A78ED76
+          selector: "#field_EA33F802-15C8-4F9A-A675-8EAB7A78ED76"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_E4607099-C302-4E4E-9C6E-C8DCF96E0480
+          selector: "#field_E4607099-C302-4E4E-9C6E-C8DCF96E0480"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: field_B9C5E239-A5AA-4230-BF87-61B6AB8DE59A
+          selector: "#field_B9C5E239-A5AA-4230-BF87-61B6AB8DE59A"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_080532D6-654C-4112-8B0F-483117AC92C0
+          selector: "#field_080532D6-654C-4112-8B0F-483117AC92C0"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_0D128CE0-1182-401C-8E4C-7414E2013101
+          selector: "#field_0D128CE0-1182-401C-8E4C-7414E2013101"
+          value: $PHONE
+          required: true
+        - name: field_CB5B1C06-61B3-4F2F-A1C1-5C3FA21967D0
+          selector: "#field_CB5B1C06-61B3-4F2F-A1C1-5C3FA21967D0"
+          value: $EMAIL
+          required: true
+        - name: field_6AA78EC6-51E3-4F22-BF51-73BEB2668029
+          selector: "#field_6AA78EC6-51E3-4F22-BF51-73BEB2668029"
+          value: $MESSAGE
+          required: true
+        - name: recaptcha_response_field
+          selector: "#recaptcha_response_field"
+          value: $CAPTCHA_SOLUTION
+          required: true
+    - select:
+        - name: field_A39C3195-9A18-4E92-B084-184DAD78C31D
+          selector: "#field_A39C3195-9A18-4E92-B084-184DAD78C31D"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            Alabama: AL
+            Alaska: AK
+            Arizona: AZ
+            Arkansas: AR
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            Delaware: DE
+            District of Columbia: DC
+            Florida: FL
+            Georgia: GA
+            Hawaii: HI
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Iowa: IA
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Maine: ME
+            Maryland: MD
+            Massachusetts: MA
+            Michigan: MI
+            Minnesota: MN
+            Mississippi: MS
+            Missouri: MO
+            Montana: MT
+            Nebraska: NE
+            Nevada: NV
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            New York: NY
+            North Carolina: NC
+            North Dakota: ND
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Pennsylvania: PA
+            Rhode Island: RI
+            South Carolina: SC
+            South Dakota: SD
+            Tennessee: TN
+            Texas: TX
+            Utah: UT
+            Vermont: VT
+            Virginia: VA
+            Washington: WA
+            West Virginia: WV
+            Wisconsin: WI
+            Wyoming: WY
+        - name: field_9B5E8CB0-E95B-4692-8764-52D75628C5CB
+          selector: "#field_9B5E8CB0-E95B-4692-8764-52D75628C5CB"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AG
+            Banking and Financial Services: BANK
+            Budget and Federal Spending: BUDGET
+            Defense/Military: DEFENSE
+            Disabilities: DISABILITIES
+            Education: ED
+            Energy: EN
+            Environment: ENV
+            Foreign Affairs: FOREIGN-AFFAIRS
+            Government Reform: GOV-REFORM
+            2nd Amendment: GUNS
+            Health Care: HEALTH
+            Homeland Security: HOME SEC
+            Immigration: IMM
+            Judiciary: JUD
+            Labor/Workforce: LABOR
+            Small Business: SM-BUSINESS
+            Social Issues: SOCIAL
+            Social Security: SS
+            Taxes: TAX
+            Telecommunications: TELE-COM
+            Trade: TRADE
+            Transportation: TRAN
+            Veterans: VET
+            Welfare: WELFARE
+    - click_on:
+        - value: Submit
+          selector: div.buttonHolder input
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you
+
