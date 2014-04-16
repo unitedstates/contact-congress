@@ -4,6 +4,10 @@ contact_form:
   action: /ContactForm/Email.htm
   steps:
     - visit: "https://blackburn.house.gov/contactform/email.htm"
+    - find: 
+        - selector: "#TB_title"
+    - click_on:
+        - selector: "#TB_closeWindowButton"
     - fill_in:
         - name: required-first
           selector: "form.zipform input[name='required-first']"
