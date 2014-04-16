@@ -387,6 +387,14 @@ window.UnitedStates || (UnitedStates = function() {
     legislators = _.filter(this.legislators, function(legislator) {
       return legislator.contactFormUrl().match(new RegExp('\\b' + uri.host + '\\b')) !== null;
     });
+    // if the legislator uses the generic form, find their actual id and match
+    // against their regular url
+    if (uri.host === 'forms.house.gov') {
+      var name = uri.pathname.split('/')[1];
+      legislators = _.filter(function(legislator) {
+        return legislator.url().match(new RegExp('\\b' + name + '\\b')) !== null;
+      });
+    }
     // then try to match the last name
     if (legislators.length === 0 ) {
       legislators = _.filter(this.legislators, function(legislator) {
