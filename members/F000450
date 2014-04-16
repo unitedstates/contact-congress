@@ -1,0 +1,100 @@
+bioguide: F000450
+contact_form:
+  method: POST
+  action: "/htbin/formproc_za/formfoxx/IMA/issue_subscribe_parm.txt&form=/formfoxx/IMA/issue_subscribe_verify.htm"
+  steps:
+    - visit: "http://www.house.gov/formfoxx/IMA/issue_subscribe.htm"
+    - fill_in:
+        - name: required-first
+          selector: "input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "input[name='required-last']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: "input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-email
+          selector: "input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "input[name='required-phone']"
+          value: $PHONE
+          required: true
+        - name: required-message
+          selector: "input[name='required-message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-prefix
+          selector: "form select[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr
+            - Mrs.
+            - Mr. and Mrs.
+            - Ms.
+            - Dr.
+            - Dr. and Mrs.
+            - The Reverend
+            - The Reverend and Mrs.
+        - name: required-state
+          selector: "form select[name='required-state']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - NC
+        - name: required-issue
+          selector: "form select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AG
+            Animals: AN
+            Defense and Military: DEF
+            Education: ED
+            Environment: ENV
+            Foreign - General: FR.GEN
+            Financial Services: FS
+            Second Amendment Rights: GUN
+            Health: HEA
+            Immigration: IMM
+            Judiciary: JUD
+            Labor: LAB
+            Medicare Related: MEDICARE
+            Pension: PEN
+            Social Security: SS
+            Taxes: TAX
+            Transportation: TRAN
+            Family Values: VAL
+            Veteran Affairs: VET
+            Miscellaneous: MISC
+    - check:
+      - name: affl1
+        selector: "input[type='radio'][name='affl1'][value='']"
+        value: ""
+    - click_on:
+        - value: Send Email
+          selector: "input[type='submit'][value='Send Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you
