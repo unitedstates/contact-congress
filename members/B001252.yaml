@@ -20,39 +20,39 @@ contact_form:
         - selector: "#ctl00_ContentCell"
     - fill_in:
         - name: ctl00$ctl18$FirstName
-          selector: "#ctl00_ctl18_FirstName"
+          selector: "input[name='ctl00$ctl18$FirstName']"
           value: $NAME_FIRST
           required: true
         - name: ctl00$ctl18$LastName
-          selector: "#ctl00_ctl18_LastName"
+          selector: "input[name='ctl00$ctl18$LastName']"
           value: $NAME_LAST
           required: true
         - name: ctl00$ctl18$Street
-          selector: "#ctl00_ctl18_Street"
+          selector: "input[name='ctl00$ctl18$Street']"
           value: $ADDRESS_STREET
           required: true
         - name: ctl00$ctl18$City
-          selector: "#ctl00_ctl18_City"
+          selector: "input[name='ctl00$ctl18$City']"
           value: $ADDRESS_CITY
           required: true
         - name: ctl00$ctl18$Zip
-          selector: "#ctl00_ctl18_Zip"
+          selector: "input[name='ctl00$ctl18$Zip']"
           value: $ADDRESS_ZIP5
           required: true
         - name: ctl00$ctl18$Phone
-          selector: "#ctl00_ctl18_Phone"
+          selector: "input[name='ctl00$ctl18$Phone']"
           value: $PHONE
           required: true
         - name: ctl00$ctl18$Email
-          selector: "#ctl00_ctl18_Email"
+          selector: "input[name='ctl00$ctl18$Email']"
           value: $EMAIL
           required: true
         - name: ctl00$ctl18$Subject
-          selector: "#ctl00_ctl18_Subject"
+          selector: "input[name='ctl00$ctl18$Subject']"
           value: $SUBJECT
           required: false
         - name: ctl00$ctl18$Body
-          selector: "#ctl00_ctl18_Body"
+          selector: "textarea[name='ctl00$ctl18$Body']"
           value: $MESSAGE
           required: true
         - name: ctl00$ctl18$CampaignID
