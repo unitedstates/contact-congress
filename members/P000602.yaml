@@ -1,7 +1,7 @@
 bioguide: P000602
 contact_form:
-  method: get
-  action: /Contact/ContactForm.htm
+  method: post
+  action: /submit-contact.aspx
   steps:
     - visit: "http://pompeo.house.gov/contact/"
     - fill_in:
@@ -16,7 +16,7 @@ contact_form:
         - selector: ".zipform"
     - fill_in:
         - name: required-first
-          selector: "#required-first"
+          selector: "form.zipform input[name='required-first']"
           value: $NAME_FIRST
           required: true
         - name: required-last
@@ -24,15 +24,15 @@ contact_form:
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#required-address"
+          selector:  "form.zipform input[name='required-address']"
           value: $ADDRESS_STREET
           required: true
         - name: required-city
-          selector: "#required-city"
+          selector: "form.zipform input[name='required-address']"
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: "#zip5"
+          selector:  "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
@@ -40,20 +40,20 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: false
         - name: phone
-          selector: "#phone"
+          selector: "form.zipform input[name='phone']"
           value: $PHONE
           required: false
         - name: required-email
-          selector: "#required-email"
+          selector: "form.zipform input[name='required-email']"
           value: $EMAIL
           required: true
         - name: required-message
-          selector: "#required-message"
+          selector: "form.zipform input[name='required-message']"
           value: $MESSAGE
           required: true
     - select:
         - name: required-prefix
-          selector: "#required-prefix"
+          selector: "form.zipform input[name='required-prefix']"
           value: $NAME_PREFIX
           required: true
           options:
@@ -66,7 +66,7 @@ contact_form:
             - Rev.
             - Hon.
         - name: required-issue
-          selector: "#required-issue"
+          selector: "form.zipform input[name='required-issue']"
           value: $TOPIC
           required: true
           options:
@@ -99,4 +99,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office. This is an automatic reply to serve as confirmation that we have received your communication.
+      contains: "Thank"
