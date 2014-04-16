@@ -1,17 +1,21 @@
 bioguide: C001066
 contact_form:
   method: post
-  action: "https://forms.house.gov/htbin/formproc/write/castor/email-me.txt&display=/write/castor/email-me-thankyou.shtml&nobase&fpGetVer=2"
+  action: "https://forms.house.gov/htbin/formproc_za/write/castor/zip-auth.txt&form=/write/castor/email.shtml"
   steps:
     - visit: "https://forms.house.gov/write/castor/email-me.shtml"
     - fill_in:
-        - name: ZIP
-          selector: "#Find_Rep_by_Zipcode"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
     - click_on:
         - value: Go to Next Step
-          selector: "form.validate input[type=\"submit\"]"
+          selector: "form.clearfix.validate.wsbform input[name='Submit']"
     - fill_in:
         - name: required-name
           selector: "#required-name"
