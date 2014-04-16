@@ -107,6 +107,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contact input[type='submit'][value='Send Email']"
+    - find:
+        - selector: ".footerspotlight"
   success:
     headers:
       status: 200
