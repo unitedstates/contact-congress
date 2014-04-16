@@ -16,17 +16,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#zip input[name='find']"
-  success:
-    headers:
-      status: 200
-    body:
-      contains: asd
-bioguide: H001056
-contact_form:
-  method: post
-  action: default.aspx
-  steps:
-    - visit: "https://herrerabeutler.house.gov/forms/writeyourrep/default.aspx"
+    - find:
+        - selector: "#ctl00_ctl10_FirstName"
     - fill_in:
         - name: ctl00$ctl10$FirstName
           selector: "#ctl00_ctl10_FirstName"
