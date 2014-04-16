@@ -1,0 +1,98 @@
+bioguide: C001080
+contact_form:
+  method: post
+  action: "/htbin/formproc/email-me.txt&display=/connect-with-me/email-me-thankyou&nobase&fpGetVer=2"
+  steps:
+    - visit: "http://chu.house.gov/connect-with-me/email-judy"
+    - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGR
+            Animal Rights: ANI
+            The Budget: BUD
+            Campaign Finance Reform: GOV
+            Civil Rights: JUD
+            Congress and Government Reform: GOV
+            Crime and Safety: JUD
+            Defense and Military: DEF
+            Economy and Jobs: ECON
+            Education: EDU
+            Energy: ENE
+            Environment: ENV
+            Financial Services: ECON
+            Foreign Affairs: INT
+            Health Care: HEA
+            Housing: HOUS
+            Immigration: IMM
+            Judiciary and the Courts: JUD
+            "Labor and Workers' Rights": ECON
+            Medicare: HEA
+            Science and Technology: TEL
+            Seniors: SSEC
+            Social Security: SSEC
+            Taxes: TAX
+            Telecommunications: TEL
+            Trade: ECON
+            Transportation: TRA
+            Veterans: VET
+            Other Issues: GOV
+    - click_on:
+        - value: Send Email
+          selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "The following information has been submitted:"
