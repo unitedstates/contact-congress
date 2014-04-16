@@ -46,9 +46,6 @@ contact_form:
         selector: ".required[name='MessageBody']"
         value: "$MESSAGE"
         required: Yes
-    - click:
-      - selector: "a[data-dismiss=modal]"
-    - fill_in:
       - name: captcha_code
         selector: "#captcha_code"
         captcha_selector: "img.img-polaroid"
@@ -57,6 +54,8 @@ contact_form:
         #
         # jQuery('a[href$=".wav"]').attr('href').match(/_([a-z0-9]+)\.wav/)[1]
         value: "$CAPTCHA_SOLUTION"
+    - click:
+      - selector: "a[data-dismiss=modal]"
     - select:
       - name: Prefix
         selector: ".required[name='Prefix']"
