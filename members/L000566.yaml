@@ -13,7 +13,7 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "form.zipform[name='contact']"
+        - selector: "form.zipform"
     - fill_in:
         - name: required-prefix
           selector: "form.zipform[name='contact'] input[name='required-prefix']"
