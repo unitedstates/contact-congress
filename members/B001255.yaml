@@ -12,7 +12,7 @@ contact_form:
         - name: zipfour
           selector: "#zipfour"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go to Form
           selector: input.button
@@ -44,7 +44,7 @@ contact_form:
         - name: zipfour
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
