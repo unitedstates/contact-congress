@@ -884,7 +884,7 @@ CCH.prototype.parentMain = function() {
     var mainScr = $('#cchbookmarklet');
     if (mainScr !== null)
       scr.src = mainScr.attr('src');
-    if (scr.src === undefined)
+    if (!scr.src)
       scr.src = this.scriptUrl;
     this.popupWindow().document.head.appendChild(scr);
   } else {
