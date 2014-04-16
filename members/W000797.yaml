@@ -1,0 +1,100 @@
+bioguide: W000797
+contact_form:
+  method: post
+  action: "https://wassermanschultz.house.gov//htbin/formproc_za.pl?/wassermanschultz/zip-
+
+auth.txt&form=/wassermanschultz/contact/email-me-zip-authenticated.shtml&nobase"
+  steps:
+    - visit: "http://wassermanschultz.house.gov/contact/email-me.shtml"
+    - fill_in:
+        - name: zip5
+          selector: "#zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: "#Submit"
+    - find:
+        - selector: "form.validate.wsbform[name='contactForm']"
+    - fill_in:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AG
+            Animal Welfare: AN
+            Arts: ART
+            Budget: BUD
+            Consumer Protection: CP
+            Defense and Military: DEF
+            Economy/Jobs: ECON
+            Education: ED
+            Energy: EN
+            Environment: ENV
+            Foreign Affairs: FR
+            Gun Laws: GL
+            Help with a Federal Agency: CW
+            Health Care: HC
+            Housing: HUD
+            Hurricanes/FEMA: FEMA-HURR
+            Immigration: IM
+            Israel: ISR
+            Judiciary/Civil Rights: JUD
+            Labor: LAB
+            LGBT: LGBT
+            Seniors/Social Security/Medicare: SN
+            Taxes: TAX
+            Technology/Telecom: TECH
+            Veterans: VET
+            "Women's Issues": WOM
+            Other: OT
+    - click_on:
+        - value: Send Email
+          selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "The following information has been submitted:"
