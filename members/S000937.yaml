@@ -20,7 +20,7 @@ contact_form:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -52,7 +52,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
@@ -60,7 +60,7 @@ contact_form:
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: true
+          required: false
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -129,4 +129,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: The following information has been submitted
