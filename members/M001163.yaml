@@ -65,7 +65,7 @@ contact_form:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: false
+          required: true
           options:
             Mr.: "Mr. "
             Mrs.: Mrs.
@@ -77,7 +77,7 @@ contact_form:
             Rabbi: Rabbi
         - name: state
           selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          value: CA
           required: true
           options:
             - AK
