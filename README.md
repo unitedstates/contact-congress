@@ -8,7 +8,7 @@ This project defines an open data format to describe the contact forms of member
 - [✓] Create a bookmarklet to make it easy to generate YAML files.
 - [✓] Make a testing suite to error-check generated files.
 - [✓] Create YAML files for almost all 100 members of the Senate.
-- [ - ] Create YAML files for almost all 439 members of the House of Representatives.
+- [✓] Create YAML files for almost all 439 members of the House of Representatives.
 - [ - ] Tested files.
 
 
