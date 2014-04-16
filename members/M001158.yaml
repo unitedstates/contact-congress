@@ -28,15 +28,15 @@ contact_form:
         - name: zip5
           selector: "#contact input[name='zip5']"
           value: $ADDRESS_ZIP5
-          required: false
+          required: true
         - name: zip4
           selector: "#contact input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: required-email
           selector: "#contact input[name='required-email']"
           value: $EMAIL
-          required: true
+          required: false
         - name: required-message
           selector: "#contact textarea[name='required-message']"
           value: $MESSAGE
@@ -44,7 +44,7 @@ contact_form:
     - select:
         - name: required-state
           selector: "#contact select[name='required-state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          value: "TX"
           required: true
           options:
             TX: TX
@@ -104,10 +104,6 @@ contact_form:
             "Women's Health": WOMHEA
             Washington Tours: TOUR
             Others: GEN
-    - uncheck:
-        - name: subscribe
-          selector: "#contact input[name='subscribe']"
-          value: subscribe
     - click_on:
         - value: Send Email
           selector: "#contact input[type='submit'][value='Send Email']"
@@ -115,4 +111,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for sending me your email
+      contains: Thank
