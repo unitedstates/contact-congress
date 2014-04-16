@@ -1,0 +1,95 @@
+bioguide: L000564
+contact_form:
+  method: post
+  action: /contact-form/
+  steps:
+    - visit: "https://lambornforms.house.gov/contact-form"
+    - fill_in:
+        - name: prefix
+          selector: "#req_prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#custom_form25 input[name='street2']"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: phone
+          selector: "#req_phone"
+          value: $PHONE
+          required: false
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: msg
+          selector: "#req_message"
+          value: $MESSAGE
+          required: false
+    - select:
+        - name: state
+          selector: "#req-state"
+          value: CO
+          required: true
+          options: []
+        - name: required-issue
+          selector: "#req_issue"
+          value: $TOPIC
+          required: false
+          options:
+            Agriculture: AGR-FARM
+            Budget: BUD
+            "Defense & Military": DEF-MIL
+            Economy: ECON
+            Education: EDU
+            Energy: RESOURCES-EN
+            Environment: RESOURCES-ENV
+            Finance: FIN-BANK
+            Foreign Relations: FOR
+            Government Reform: GOV-REFORM
+            Health: HEA
+            Homeland Security: HOMELANDSEC
+            Immigration: IMM
+            Judicial: JUD
+            Labor: LAB
+            Second Amendment Rights: GUN
+            Social Issues and Traditional Values: VAT
+            Social Security and Medicare: AGR-WEL
+            Taxes: TAX
+            Telecommunications: CMRC-COMMU
+            Transportation: TRANS
+            Veterans: VET
+            Water: RESOURCES-WA
+            Welfare: WEL
+            Other: OTH
+    - click_on:
+        - value: Send Email
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been sent. Thank you for sharing your comments and concerns with me. I will respond back to you as soon as possible.

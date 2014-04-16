@@ -1,0 +1,98 @@
+bioguide: L000565
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://loebsack.house.gov/forms/writeyourrep/"
+    - fill_in:
+        - name: ctl00$ctl03$FirstName
+          selector: "#ctl00_ctl03_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl03$LastName
+          selector: "#ctl00_ctl03_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl03$Street
+          selector: "#ctl00_ctl03_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl03$City
+          selector: "#ctl00_ctl03_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl03$Zip
+          selector: "#ctl00_ctl03_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl03$Phone
+          selector: "#ctl00_ctl03_Phone"
+          value: $PHONE
+          required: false
+        - name: ctl00$ctl03$Email
+          selector: "#ctl00_ctl03_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl03$Subject
+          selector: "#ctl00_ctl03_Subject"
+          value: $SUBJECT
+          required: false
+        - name: ctl00$ctl03$Body
+          selector: "#ctl00_ctl03_Body"
+          value: $MESSAGE
+          required: false
+        - name: ctl00$ctl03$CampaignID
+          selector: "#ctl00_ctl03_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl03$CampaignInfo
+          selector: "#ctl00_ctl03_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl03$PrefixList
+          selector: "#ctl00_ctl03_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Dr.
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+        - name: ctl00$ctl03$IssuesList
+          selector: "#ctl00_ctl03_IssuesList"
+          value: $TOPIC
+          required: false
+          options:
+            Agriculture: "3765"
+            Banking and Finance: "74569"
+            Budget: "74570"
+            Defense: "74571"
+            Economy and Jobs: "74573"
+            Education: "74572"
+            Energy: "74574"
+            Environmental: "74575"
+            Government Reform: "74576"
+            Health: "74577"
+            Homeland Security: "74578"
+            Immigration: "74579"
+            International Relations: "74580"
+            Judiciary: "74581"
+            Medicare: "74582"
+            Social Issues: "74583"
+            Social Security: "74584"
+            Taxes: "74586"
+            Telecommunications: "74585"
+            Trade: "74587"
+            Transportation: "3769"
+            Veterans: "74588"
+            Welfare: "74589"
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl03_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "As your Congressman, my first job is to listen to the people of Iowa. I appreciate you taking the time to contact me electronically on this important matter."

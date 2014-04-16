@@ -1,26 +1,26 @@
-bioguide: E000293
+bioguide: J000292
 contact_form:
-  method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  method: get
+  action: /Contact/ContactForm.htm
   steps:
-    - visit: "http://esty.house.gov/contact"
+    - visit: "http://billjohnson.house.gov/contact/default.aspx"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: "#zip input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: "#zip input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+        - value: Submit
+          selector: "#zip input[name='find']"
     - fill_in:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -41,14 +41,26 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: phone
+          selector: "#phone"
           value: $PHONE
-          required: true
+          required: false
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -63,62 +75,36 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Animals: AN
+            Agriculture: AG
             Arts and Humanities: ART
             Banking and Finance: BANK
             Budget and Economy: BUD
-            Campaign Finance Reform: CFR
             Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
             Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
+            Education: ED
+            Energy: EN
             Environment: ENV
             Federal Employees: FED
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
+            Foreign Relations: FA
             Health: HEA
-            Homeland Security: HOM
-            Housing and Urban Development: HUD
-            Immigration: IMM
-            International Relations: INT
+            Immigration: IM
             Judiciary: JUD
             Labor: LAB
-            LGBT: LGBT
-            No Response Necessary: NRN
-            Post Office: POST
             Science and Technology: SCI
-            Social Issues: SOC
-            Senior Citizens: SENIORS
-            Social Security: SSEC
-            Social Services: SOC.SERVICES
+            Social Security: SS
             Taxes: TAX
             Telecommunications: TEL
-            Transportation: TRA
+            Transportation: TRANS
             Trade: TRADE
             Veterans: VET
             "Women's Issues": WOMEN
-            Welfare: WEL
+            Casework: CASEWORK
             Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Yes"
-          required: false
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: Email.Optin
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank you for your e-mail.
