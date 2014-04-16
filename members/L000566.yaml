@@ -16,53 +16,53 @@ contact_form:
         - selector: "form.zipform"
     - fill_in:
         - name: required-prefix
-          selector: "form.zipform[name='contact'] input[name='required-prefix']"
+          selector: "form.zipform input[name='required-prefix']"
           value: $NAME_PREFIX
           required: true
         - name: required-first
-          selector: "form.zipform[name='contact'] input[name='required-first']"
+          selector: "form.zipform input[name='required-first']"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "form.zipform[name='contact'] input[name='required-last']"
+          selector: "form.zipform input[name='required-last']"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "form.zipform[name='contact'] input[name='required-address']"
+          selector: "form.zipform input[name='required-address']"
           value: $ADDRESS_STREET
           required: true
         - name: required-city
-          selector: "form.zipform[name='contact'] input[name='required-city']"
+          selector: "form.zipform input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: "form.zipform[name='contact'] input[name='zip5']"
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "form.zipform[name='contact'] input[name='zip4']"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: false
         - name: phone
-          selector: "form.zipform[name='contact'] input[name='phone']"
+          selector: "form.zipform input[name='phone']"
           value: $PHONE
           required: false
         - name: required-email
-          selector: "form.zipform[name='contact'] input[name='required-email']"
+          selector: "form.zipform input[name='required-email']"
           value: $EMAIL
           required: true
         - name: required-message
-          selector: "form.zipform[name='contact'] textarea[name='required-message']"
+          selector: "form.zipform textarea[name='required-message']"
           value: $MESSAGE
           required: true
     - select:
         - name: required-state
-          selector: "form.zipform[name='contact'] select[name='required-state']"
+          selector: "form.zipform select[name='required-state']"
           value: OH
           required: true
           options: []
         - name: required-issue
-          selector: "form.zipform[name='contact'] select[name='required-issue']"
+          selector: "form.zipform select[name='required-issue']"
           value: $TOPIC
           required: true
           options:
@@ -94,7 +94,7 @@ contact_form:
             Others: GEN
     - click_on:
         - value: Send Email
-          selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
+          selector: "form.zipform input[type='submit'][value='Send Email']"
   success:
     headers:
       status: 200
