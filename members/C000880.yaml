@@ -4,6 +4,8 @@ contact_form:
   action: http://www.crapo.senate.gov/webformActionIAV1.cfm
   steps:
     - visit: http://www.crapo.senate.gov/contact/email.cfm
+    - click:
+      - selector: "a[data-dismiss=modal]"
     - fill_in:
       - name: firstName
         selector: "#firstName"
