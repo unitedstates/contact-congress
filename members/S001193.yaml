@@ -1,0 +1,132 @@
+bioguide: S001193
+contact_form:
+  method: post
+  action: "/htbin/formproc_za.pl?/swalwell/zip-auth.txt&form=/redirect/email-me-zip-authenticated.html&nobase&fpGetVer=2"
+  steps:
+    - visit: "http://swalwell.house.gov/contact-me/email-eric/"
+    - fill_in:
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: "#emailForm input[name='submit']"
+    - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            "\n\t\t\t\t\tAgriculture\n\t\t\t\t": AGR
+            "\n\t\t\t\t\tAnimals\n\t\t\t\t": AN
+            "\n\t\t\t\t\tArts and Humanities\n\t\t\t\t": ART
+            "\n\t\t\t\t\tBanking and Finance\n\t\t\t\t": BANK
+            "\n\t\t\t\t\tBudget and Economy\n\t\t\t\t": BUD
+            "\n\t\t\t\t\tCampaign Finance Reform\n\t\t\t\t": CFR
+            "\n\t\t\t\t\tCongress and Elections\n\t\t\t\t": CONG
+            "\n\t\t\t\t\tDistrict of Columbia--Tours\n\t\t\t\t": TOUR
+            "\n\t\t\t\t\tDefense and Military\n\t\t\t\t": DEF
+            "\n\t\t\t\t\tEconomy\n\t\t\t\t": ECON
+            "\n\t\t\t\t\tEducation\n\t\t\t\t": EDU
+            "\n\t\t\t\t\tEnergy\n\t\t\t\t": ENE
+            "\n\t\t\t\t\tEnvironment\n\t\t\t\t": ENV
+            "\n\t\t\t\t\tFederal Employees\n\t\t\t\t": FED
+            "\n\t\t\t\t\tForeign Relations\n\t\t\t\t": FR
+            "\n\t\t\t\t\tGovernment Reform\n\t\t\t\t": GOV
+            "\n\t\t\t\t\tGuns\n\t\t\t\t": GUN
+            "\n\t\t\t\t\tHealth\n\t\t\t\t": HEA
+            "\n\t\t\t\t\tHomeland Security\n\t\t\t\t": HOM
+            "\n\t\t\t\t\tHousing and Urban Development\n\t\t\t\t": HUD
+            "\n\t\t\t\t\tImmigration\n\t\t\t\t": IMM
+            "\n\t\t\t\t\tInternational Relations\n\t\t\t\t": INT
+            "\n\t\t\t\t\tJudiciary\n\t\t\t\t": JUD
+            "\n\t\t\t\t\tLabor\n\t\t\t\t": LAB
+            "\n\t\t\t\t\tLGBT\n\t\t\t\t": LGBT
+            "\n\t\t\t\t\tNo Response Necessary\n\t\t\t\t": NRN
+            "\n\t\t\t\t\tPost Office\n\t\t\t\t": POST
+            "\n\t\t\t\t\tScience and Technology\n\t\t\t\t": SCI
+            "\n\t\t\t\t\tSocial Issues\n\t\t\t\t": SOC
+            "\n\t\t\t\t\tSenior Citizens\n\t\t\t\t": SENIORS
+            "\n\t\t\t\t\tSocial Security\n\t\t\t\t": SSEC
+            "\n\t\t\t\t\tSocial Services\n\t\t\t\t": SOC.SERVICES
+            "\n\t\t\t\t\tTaxes\n\t\t\t\t": TAX
+            "\n\t\t\t\t\tTelecommunications\n\t\t\t\t": TEL
+            "\n\t\t\t\t\tTransportation\n\t\t\t\t": TRA
+            "\n\t\t\t\t\tTrade\n\t\t\t\t": TRADE
+            "\n\t\t\t\t\tVeterans\n\t\t\t\t": VET
+            "\n\t\t\t\t\tWomen's Issues\n\t\t\t\t": WOMEN
+            "\n\t\t\t\t\tWelfare\n\t\t\t\t": WEL
+            "\n\t\t\t\t\tOther Issues\n\t\t\t\t": OTHER
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "\n\t\t\t\t\tYes, please contact me\n\t\t\t\t": "Y"
+            "\n\t\t\t\t\tNo, I wanted to voice my opinion\n\t\t\t\t": "N"
+    - check:
+        - name: subscribe
+          selector: "#subscribe"
+          value: Email.Optin
+    - click_on:
+        - value: Send Email
+          selector: "#contactForm input[name='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your information has been successfully submitted.
