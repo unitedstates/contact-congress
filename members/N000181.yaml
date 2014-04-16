@@ -30,7 +30,7 @@ contact_form:
           value: $ADDRESS_ZIP5
           required: true
         - name: ctl00$ctl10$zip4
-          selector: "#ctl00$ctl10$zip4"
+          selector: "#ctl00_ctl10_zip4"
           value: $ADDRESS_ZIP4
           required: true
         - name: ctl00$ctl10$Phone
@@ -51,6 +51,8 @@ contact_form:
           required: true
         - name: recaptcha_response_field
           selector: "#recaptcha_response_field"
+          captcha_selector: "#recaptcha_img img"
+          captcha_id_selector: "#recaptcha_challenge_field"
           value: $CAPTCHA_SOLUTION
           required: true
     - select:
