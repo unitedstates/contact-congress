@@ -53,22 +53,18 @@ contact_form:
           selector: "#req_message"
           value: $MESSAGE
           required: true
-        - name: message_require
-          selector: "#custom_form4 input[name='message_require']"
-          value: "N"
-          required: true
         - name: phone
            selector: "#custom_form4 input[name='phone']"
            value: $PHONE
            required: false
-        - name: response
-           selector: "#req_response"
-           value: "N"
-           required: true
-           options:
-             I do not need a response.: "N"
-             I would like a response.: "Y"
     - select:
+        - name: response
+          selector: "#req_response"
+          value: "N"
+          required: true
+          options:
+            I do not need a response.: "N"
+            I would like a response.: "Y"
         - name: prefix
           selector: "#req_prefix"
           value: $NAME_PREFIX
