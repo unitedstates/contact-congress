@@ -32,7 +32,11 @@ contact_form:
         - name: required-address
           selector: "#required-address"
           value: $ADDRESS_STREET
-          required: false
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: true
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -48,19 +52,19 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: required-valid-email
           selector: "#contactForm input[name='required-valid-email']"
           value: $EMAIL
-          required: false
+          required: true
         - name: phone
           selector: "#phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
-          required: false
+          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
@@ -69,7 +73,7 @@ contact_form:
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: AG
             Animals: AN
