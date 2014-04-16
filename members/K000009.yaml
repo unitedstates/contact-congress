@@ -1,0 +1,95 @@
+bioguide: K000009
+contact_form:
+  method: POST
+  action: "/htbin/formproc/kaptur/webforms/issue_subscribe_file_NEW.txt&display=/kaptur/webforms/issue_subscribe_thank_you.htm"
+  steps:
+    - visit: "https://forms.house.gov/kaptur/webforms/issue_subscribe.shtml"
+    - fill_in:
+        - name: required-first
+          selector: "#first_name"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#last_name"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#street_address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip0"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: required-email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: required-message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-prefix
+          selector: "#mainbodyContentleft form select[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Dr.
+        - name: required-subject
+          selector: "#mainbodyContentleft form select[name='required-subject']"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: ABORTION
+            Agriculture: AGRI
+            Animal Rights: ANML
+            Budget: ECON
+            Civil Rights: JUD
+            Economy: ECON
+            Education: EDU
+            Energy: ENR
+            Environment: ENV
+            Foreign Affairs: FP
+            Government Oversight: JUD
+            Healthcare: HLTH
+            Housing: HOUSE
+            Immigration: IMM
+            Jobs: LABOR
+            Judiciary: JUD
+            Labor: LABOR
+            Medicare: SS
+            National Security: MIL
+            Social Security: SS
+            Taxes: TAX
+            Telecommunications: TELCOM
+            Trade: TRADE
+            Transportation: TRANS
+            Veterans Affairs: MIL
+    - check:
+        - name: enewsletteroption
+          selector: "#unsubscribe"
+          value: UNSUBSCRIBE
+    - click_on:
+        - value: Send Email
+          selector: "#mainbodyContentleft form input[type='submit'][value='Send Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your correspondence.
