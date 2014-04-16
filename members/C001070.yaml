@@ -152,75 +152,10 @@ contact_form:
             - GEN
             - ADM
             - Gen
-        - name: mailing_state
-          selector: "#mailing_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - APO AA
-            - APO AE
-            - APO AP
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - DPO AA
-            - DPO AE
-            - DPO AP
-            - FL
-            - FPO AA
-            - FPO AE
-            - FPO AP
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
         - name: mailing_county
           selector: "#mailing_county"
           value: $ADDRESS_COUNTY
-          required: false
+          required: true
           options:
             - Adams
             - Allegheny
@@ -353,4 +288,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank You\nThank you for contacting me."
+      contains: Thank you for contacting me.
