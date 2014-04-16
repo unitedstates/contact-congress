@@ -1,0 +1,99 @@
+bioguide: K000375
+contact_form:
+  method: post
+  action: "/htbin/formproc/keating/webforms/email-me.txt&display=/webforms/thank_you.shtml"
+  steps:
+    - visit: "https://forms.house.gov/keating/webforms/contact.shtml"
+    - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: WEBAGR
+            Budget: WEBBUD
+            Defense: WEBDEF
+            Education: WEBEDU
+            Energy: WEBENE
+            Environmental: WEBENV
+            Government Issues: WEBGOV
+            Health: WEBHEA
+            Homeland Security: WEBHOM
+            Immigration: WEBIMM
+            International Relations: WEBINT
+            Judicial: WEBJUD
+            Labor: WEBLAB
+            Social Issues: WEBSOC
+            Social Security: WEBSSEC
+            Taxes: WEBTAX
+            Telecommunications: WEBTEL
+            Transportation: WEBTRA
+            Trade: WEBTRADE
+            Veterans: WEBVET
+            Welfare: WEBWEL
+            Other Issues: WEBOTH
+    - check:
+        - name: response
+          selector: "input[type='radio'][name='response'][value='Y']"
+          value: "Y"
+    - uncheck:
+        - name: aff1
+          selector: "#mainbodyContentleft form input[name='aff1']"
+          value: EMAIL.OPTIN
+    - click_on:
+        - value: Send Email
+          selector: "#submit2"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your correspondence.
