@@ -239,11 +239,8 @@ contact_form:
           "Welfare": "WELF"
       - name: J15
         selector: "select[name='J15']"
-        value: Yes
+        value: "Yes, I would like a written response."
         required: Yes
-        options:
-          "Yes, I would like a written response.": "Yes, I would like a written response."
-          "No, I am just passing my comments along.": "No, I am just passing my comments along."
     - click_on:
       - value: Submit
         selector: ".buttonContact[type='submit']"
