@@ -1,6 +1,6 @@
 ## Contacting Congress
 
-This project defines an open data format to describe the contact forms of members of Congress, and we're currently working on creating a definitive, updated list of active legislator's contact forms according to that format. Once completed, the files in this project can be used to power any system that allows US citizens to send messages to their elected members of Congress.
+This project defines an open data format to describe the contact forms of members of Congress, and we're currently working on creating a definitive, updated list of active legislators' contact forms according to that format. Once completed, the files in this project can be used to power any system that allows US citizens to send messages to their elected members of Congress.
 
 ### Current Status
 
@@ -20,7 +20,7 @@ At present, the only way to send electronic messages to members of Congress is t
 
 ### Contributing
 
-**Each file contributed to this dataset will potentially allow hundreds of US citizens contact their representative. Please visit our [contribution guide](http://theunitedstates.io/contact-congress/) for a full description of how to contribute, but in brief:**
+**Each file contributed to this dataset will potentially allow hundreds of US citizens to contact their representatives. Please visit our [contribution guide](http://theunitedstates.io/contact-congress/) for a full description of how to contribute, but in brief:**
 
 1. [Reply to an open ticket](https://github.com/unitedstates/congress-contact/issues?labels=MoC&page=1&state=open) stating that you are currently working on a congress member's form.
 2. [Use the bookmarklet](http://theunitedstates.io/contact-congress/) to generate a new YAML file.
@@ -46,7 +46,7 @@ You can find detailed, reliable data about every current and historical member o
 
 ### Who's doing this
 
-* The [Sunlight Foundation](http://sunlightfoundation.com) have been leading development on this project will be integrating it into [OpenCongress.org](http://www.opencongress.org).
+* The [Sunlight Foundation](http://sunlightfoundation.com) have been leading development on this project and will be integrating it into [OpenCongress.org](http://www.opencongress.org).
 
 * The [Electronic Frontier Foundation](https://eff.org) will be using the data with their [congress-forms](https://github.com/EFForg/congress-forms/)  implementation to advocate for better technology laws and regulations.
 
