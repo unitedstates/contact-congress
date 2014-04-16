@@ -1,18 +1,9 @@
 bioguide: S001179
-
 contact_form:
-  method: get
-  action: https://schock.house.gov/Contact/ContactForm.htm
+  method: post
+  action: /submit-contact.aspx
   steps:
-    - visit: "http://schock.house.gov/contact/"
-    - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
+    - visit: "https://schock.house.gov/contact/contactform.htm?zip5="
     - fill_in:
         - name: required-first
           selector: "form.zipform[name='contact'] input[name='required-first']"
@@ -37,7 +28,7 @@ contact_form:
         - name: zip4
           selector: "form.zipform[name='contact'] input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
         - name: phone
           selector: "form.zipform[name='contact'] input[name='phone']"
           value: $PHONE
