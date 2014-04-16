@@ -1,0 +1,84 @@
+bioguide: S001168
+contact_form:
+  method: post
+  action: "http://sarbanes.house.gov/free_details.asp?id=79"
+  steps:
+    - visit: "http://sarbanes.house.gov/federal.asp"
+    - fill_in:
+        - name: prefix
+          selector: "#form7 input[name='prefix']"
+          value: $NAME_PREFIX
+          required: false
+        - name: required-first
+          selector: "#form7 input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#form7 input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#ZIP"
+          value: $ADDRESS_ZIP5
+          required: false
+        - name: required-email
+          selector: "#form7 input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#form7 input[name='phone']"
+          value: $PHONE
+          required: false
+        - name: required-message
+          selector: "#form7 textarea[name='required-message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#form7 select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture
+            - Budget/Economy
+            - Campaign Finance
+            - Chesapeake Bay
+            - Consumer Protection
+            - Defense/Military
+            - Education
+            - Energy
+            - Environment
+            - Federal Employee Issues
+            - Foreign Affairs
+            - Government Reform
+            - Health
+            - Human Rights
+            - Immigration
+            - Judiciary/Crime
+            - Labor Issues
+            - Religious Freedom
+            - "Science & Tech"
+            - Small Business Issues
+            - Retirement Security
+            - Tax
+            - Trade
+            - Transportation
+            - Veterans Affairs
+            - Wildlife/Animal Welfare
+            - "Women's Health"
+    - click_on:
+        - value: 0
+          selector: ""
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your email has been received
