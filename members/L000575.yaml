@@ -105,6 +105,13 @@ contact_form:
           "VET": "Veterans"
           "WOMEN": "Women's Issues"
           "OTHER": "Other Issues"
+      - name: required-response
+        selector: "#required-response"
+        value: "Yes"
+        required: true
+        options:
+          Yes, please contact me: "Yes"
+          No, I wanted to voice my opinion: "No"
     - click_on:
       - value: "Send Email"
         selector: "#submit"
