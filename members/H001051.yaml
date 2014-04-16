@@ -1,0 +1,175 @@
+bioguide: H001051
+contact_form:
+  method: post
+  action: /email-me/
+  steps:
+    - visit: "https://hanna.house.gov/email-me/"
+    - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go to Form
+          selector: "#zipauthform input.button"
+    - find:
+        - selector: "#custom_form24"
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: subject
+          selector: "#req_subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Mr.: "Mr. "
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
+        - name: state
+          selector: "#req_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AK
+            - AL
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - FL
+            - GA
+            - HI
+            - IA
+            - ID
+            - IL
+            - IN
+            - KS
+            - KY
+            - LA
+            - MA
+            - MD
+            - ME
+            - MI
+            - MN
+            - MO
+            - MS
+            - MT
+            - NC
+            - ND
+            - NE
+            - NH
+            - NJ
+            - NM
+            - NV
+            - NY
+            - OH
+            - OK
+            - OR
+            - PA
+            - PR
+            - RI
+            - SC
+            - SD
+            - TS
+            - TX
+            - UT
+            - VA
+            - VT
+            - WA
+            - WI
+            - WV
+            - WY
+        - name: issue
+          selector: "#req_issue"
+          value: $TOPIC
+          required: true
+          options:
+            "Agriculture & Food": AG
+            Banking and Finance: BANK
+            Budget: BUD
+            Defense and Military: DEF
+            Education: ED
+            Energy: EN
+            Environment: ENV
+            Foreign Relations: FR
+            Government Reform: GOV
+            Health Care: HE
+            Immigration: IM
+            "Jobs & Economy": JOBS
+            Labor: LAB
+            Science and Technology: SCI
+            Second Amendment: GUN
+            Senior Citizens: SEN
+            "Social Security & Medicare": SSEC
+            Taxes: TAX
+            Transportation: TRAN
+            Trade: TRA
+            Veterans: VET
+            "Women & Children": WOMEN
+    - uncheck:
+        - name: newsletter
+          selector: "#newsletter"
+          value: "<AFFL>Subscribe</AFFL>"
+    - click_on:
+        - value: Send Email
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been successfully submitted.
