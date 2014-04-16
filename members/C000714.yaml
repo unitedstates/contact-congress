@@ -42,7 +42,8 @@ contact_form:
           required: true
         - name: captcha_3F492369-C9E2-4693-BAAA-BCB55BAD679C
           selector: "#captcha_3F492369-C9E2-4693-BAAA-BCB55BAD679C"
-          captcha_id_selector: "#img"
+          captcha_selector: "form.uniForm .multiField img[height='50']"
+          captcha_id_selector: "#captcha_3F492369-C9E2-4693-BAAA-BCB55BAD679C_hash"
           value: $CAPTCHA_SOLUTION
     - select:
         - name: field_C9D6A780-B426-462F-8D90-D9553C792A65
