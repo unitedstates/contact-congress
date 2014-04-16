@@ -4,7 +4,8 @@ contact_form:
   action: /ContactForm/Email.htm
   steps:
     - visit: "https://blackburn.house.gov/contactform/"
-    - find: "#TB_title"
+    - find: 
+        - selector: "#TB_title"
     - click_on:
         - selector: "#TB_closeWindowButton"
     - fill_in:
