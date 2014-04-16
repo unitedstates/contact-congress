@@ -56,6 +56,12 @@ contact_form:
             Rev.: Rev.
             Rabbi: Rabbi
             Other: Other
+        - name: state
+          selector: "#req_state"
+          value: KS
+          required: true
+          options:
+            KS: KS
         - name: issue
           selector: "#req_issue"
           value: $TOPIC
@@ -82,6 +88,13 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other: WEBOTH
+        - name: response
+          selector: "#response"
+          value: "Y"
+          required: false
+          options:
+            "Yes": "Y"
+            "No": "N"
     - click_on:
         - value: Send Email
           selector: "#submitButton"
