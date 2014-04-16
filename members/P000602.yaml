@@ -1,17 +1,9 @@
 bioguide: P000602
 contact_form:
-  method: get
-  action: /Contact/ContactForm.htm
+  method: post
+  action: /submit-contact.aspx
   steps:
-    - visit: "https://pompeo.house.gov/contact/contactform.htm?zip5=$ADDRESS_ZIP5"
-    - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
+    - visit: "https://pompeo.house.gov/contact/contactform.htm?zip5="$ADDRESS_ZIP5
     - find:
         - selector: ".zipform"
     - fill_in:
