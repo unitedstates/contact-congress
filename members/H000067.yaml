@@ -44,19 +44,19 @@ contact_form:
         - name: zipfour
           selector: "#zip2"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#custom_form4 input[name='phone']"
-          value: $PHONE
-          required: false
         - name: message
           selector: "#req_message"
           value: $MESSAGE
           required: true
+        - name: message_require
+          selector: "#custom_form4 input[name='message_require']"
+          value: "N"
+          required: false
     - select:
         - name: prefix
           selector: "#req_prefix"
@@ -73,7 +73,7 @@ contact_form:
             - Rabbi
         - name: state
           selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          value: TX
           required: true
           options:
             TX: TX
@@ -123,13 +123,6 @@ contact_form:
             Telecommunications: TELECOMM
             Transportation: TRANSPORT
             Veterans Issues: VETERANS
-        - name: response
-          selector: "#req_response"
-          value: "Y"
-          required: true
-          options:
-            I do not need a response.: "N"
-            I would like a response.: "Y"
     - click_on:
         - value: Submit
           selector: "#submitButton"
@@ -137,4 +130,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Your message has been successfully submitted! We will get in touch as soon as possible."
+      contains: successfully
