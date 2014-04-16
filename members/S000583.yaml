@@ -36,7 +36,7 @@ contact_form:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -76,7 +76,7 @@ contact_form:
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: true
+          required: false
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -134,7 +134,7 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "Y"
-          required: true
+          required: false
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
