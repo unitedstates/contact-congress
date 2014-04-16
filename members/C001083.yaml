@@ -8,7 +8,7 @@ contact_form:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -28,10 +28,6 @@ contact_form:
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
-          required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
         - name: required-zip5
           selector: "#required-zip5"
@@ -61,7 +57,7 @@ contact_form:
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: AGR
             Budget: BUD
@@ -85,20 +81,6 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other Issues: OTH
-        - name: response
-          selector: "#response"
-          value: RN
-          required: false
-          options:
-            "Yes": RN
-            "No": NRN
-    - check:
-        - name: speech
-          selector: "#speech_0"
-          value: Voice
-        - name: aff1
-          selector: "input[type='radio'][name='aff1'][value='<AFFL_DEL>Subscribe</AFFL_DEL>']"
-          value: "<AFFL_DEL>Subscribe</AFFL_DEL>"
     - click_on:
         - value: Send Email
           selector: "#mainbodyContentleft form input[name='submit']"
@@ -106,4 +88,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for your correspondence
+      contains: You are being redirected to the Home Page...
