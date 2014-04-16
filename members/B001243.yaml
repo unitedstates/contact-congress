@@ -3,23 +3,7 @@ contact_form:
   method: get
   action: /ContactForm/Email.htm
   steps:
-    - visit: "https://blackburn.house.gov/contactform/"
-    - find: 
-        - selector: "#TB_title"
-    - click_on:
-        - selector: "#TB_closeWindowButton"
-    - fill_in:
-        - name: zip5
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#plusfour"
-          value: $ADDRESS_ZIP4
-          required: false
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[name='find']"
+    - visit: "https://blackburn.house.gov/contactform/email.htm"
     - fill_in:
         - name: required-first
           selector: "form.zipform input[name='required-first']"
