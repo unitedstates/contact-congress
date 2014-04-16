@@ -58,7 +58,7 @@ contact_form:
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -71,7 +71,7 @@ contact_form:
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: AGR
             Animals: AN
@@ -114,12 +114,12 @@ contact_form:
             Welfare: WEL
             Other Issues: OTHER
         - name: required-response
-            selector: "#required-response"
-            value: "Y"
-            required: true
-            options:
-              "Yes, please contact me": "Y"
-              "No, I wanted to voice my opinion": "N"
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
