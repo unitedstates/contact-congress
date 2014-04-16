@@ -12,7 +12,7 @@ contact_form:
         - name: zipfour
           selector: "#zipfour"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go to Form
           selector: input.button
@@ -44,7 +44,7 @@ contact_form:
         - name: zipfour
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -52,7 +52,7 @@ contact_form:
         - name: phone
           selector: "#req_phone"
           value: $PHONE
-          required: false
+          required: true
         - name: subject
           selector: "#req_subject"
           value: $SUBJECT
@@ -136,7 +136,7 @@ contact_form:
         - name: issue
           selector: "#req_issue"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: AGR
             Animals: AN
@@ -181,10 +181,14 @@ contact_form:
         - name: response
           selector: "#req_response"
           value: "N"
-          required: false
+          required: true
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
+    - check:
+        - name: phoneType
+          selector: "#phoneType1"
+          value: Voice
     - click_on:
         - value: Send Email
           selector: "#submitButton"
