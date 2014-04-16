@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: input.button
+    - find:
+        - selector: "#custom_form42"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -127,7 +129,7 @@ contact_form:
         - name: issue
           selector: "#req_issue"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: AGRI
             Budget: BUD
@@ -158,4 +160,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "THANK YOU, JOHN!\nYour message has been successfully submitted."
+      contains: Your message has been successfully submitted.
