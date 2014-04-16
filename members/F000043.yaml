@@ -32,28 +32,24 @@ contact_form:
         - name: zipfour
           selector: "#zip2"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
           required: true
         - name: phone
           selector: "#custom_form4 input[name='phone']"
-          value: $PHONE
+          value: $PHONE_PARENTHESES
           required: false
         - name: message
           selector: "#req_message"
           value: $MESSAGE
           required: true
-        - name: response_require
-          selector: "#custom_form4 input[name='response_require']"
-          value: "Y"
-          required: true
     - select:
         - name: prefix
           selector: "#req_prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
           options:
             Mr.: "Mr. "
             Mrs.: Mrs.
@@ -95,6 +91,13 @@ contact_form:
             Transportation: WEBTRA
             Veterans: WEBVET
             Other: WEBOTH
+        - name: response
+          selector: "#req_response"
+          value: "Y"
+          required: false
+          options:
+            I do not need a response.: "N"
+            I would like a response.: "Y"
     - click_on:
         - value: Submit
           selector: "#submitButton"
@@ -102,4 +105,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for your e-mail. I value your comments and concerns
+      contains: Thank you for your e-mail. I value your comments and concerns.
