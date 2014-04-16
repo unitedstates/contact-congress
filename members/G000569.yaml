@@ -1,10 +1,38 @@
 bioguide: G000569
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  action: "/htbin/formproc/email-me.txt&display=/contact-me/email-me-thankyou&nobase&fpGetVer=2"
   steps:
-    - visit: "https://grimm.house.gov/contact-me/email-me"
+    - visit: "https://grimm.house.gov/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
     - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
         - name: required-zip5
           selector: "#required-zip5"
           value: $ADDRESS_ZIP5
@@ -13,11 +41,28 @@ contact_form:
           selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: false
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select: []
     - click_on:
-        - value: Go To Next Step
+        - value: Send Email
           selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: Zip Authentication - Michael Grimm
+      contains: "Email Me - Zip Aunthenticated: Michael Grim # 354"
