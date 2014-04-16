@@ -391,6 +391,8 @@ window.UnitedStates || (UnitedStates = function() {
     // against their regular url
     if (uri.host === 'forms.house.gov') {
       var name = uri.pathname.split('/')[1];
+      if (name === 'write')
+        name = uri.pathname.split('/')[2];
       legislators = _.filter(function(legislator) {
         return legislator.url().match(new RegExp('\\b' + name + '\\b')) !== null;
       });
