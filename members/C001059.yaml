@@ -26,7 +26,7 @@ contact_form:
           value: $ADDRESS_CITY
           required: true
         - name: required-state
-          selector: 'input[name="required-state"]'
+          selector: 'select[name="required-state"]'
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -94,7 +94,7 @@ contact_form:
           value: $EMAIL
           required: true
         - name: required-issue
-          selector: 'input[name="required-issue"]'
+          selector: 'select[name="required-issue"]'
           value: $TOPIC
           required: true
           options:
@@ -116,7 +116,7 @@ contact_form:
             Water: WEB.WAT
             Womens Issues: WEB.WOM
         - name: required-message
-          selector: 'input[name="required-message"]'
+          selector: 'textarea[name="required-message"]'
           value: $MESSAGE
           required: true
     - click_on:
