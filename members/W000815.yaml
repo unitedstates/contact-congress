@@ -4,6 +4,8 @@ contact_form:
   action: "/forms/writeyourrep/"
   steps:
     - visit: "http://wenstrup.house.gov/contact/"
+    - find:
+        - selector: "form.zipform"
     - fill_in:
         - name: zip5
           selector: "form.zipform input[name='zip5']"
