@@ -233,6 +233,9 @@ contact_form:
           value: "yes"
     - click_on:
         - value: Submit
+          selector: '<div class="form-button help-form-button" onclick="next_step('2');">Preview</div>'
+    - click_on:
+        - value: Submit
           selector: "#send-request"
   success:
     headers:
