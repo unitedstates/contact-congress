@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#aspnetForm"
     - fill_in:
         - name: ctl00$ctl08$FirstName
           selector: "#ctl00_ctl08_FirstName"
