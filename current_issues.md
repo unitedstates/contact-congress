@@ -50,3 +50,21 @@ Error: Firing a click at co-ordinates [98, 735.5] failed. Poltergeist detected a
 <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=V000129>
 
 Error: Filling out the remote form was not successful
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=V000127>
+
+Error: Unable to find css "#continue-form"
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=R000594>
+
+Error: Unable to find css "#contactForm"
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=R000570>
+
+Error: Filling out the remote form was not successful
