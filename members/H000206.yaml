@@ -7,7 +7,7 @@ contact_form:
     - fill_in:
         - name: fname
           selector: "#fname"
-          value: $NAME_PREFIX
+          value: $NAME_FIRST
           required: true
         - name: lname
           selector: "#lname"
@@ -37,22 +37,18 @@ contact_form:
           selector: "#hphone"
           value: $PHONE
           required: false
-        - name: wphone
-          selector: "#wphone"
-          value: $PHONE
-          required: false
         - name: subj
           selector: "#subj"
           value: $SUBJECT
-          required: true
+          required: false
         - name: comment
           selector: "#comment"
           value: $MESSAGE
-          required: true
+          required: false
     - select:
         - name: state
           selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          value: $ADDRESS_STATE_FULL
           required: true
           options:
             "----Military---- ": " "
@@ -113,7 +109,7 @@ contact_form:
             Wyoming: WY
         - name: topic
           selector: "#topic"
-          value: $TOPIC
+          value: "Other"
           required: true
           options:
             Afghanistan: Afghanistan
@@ -180,4 +176,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for expressing your views.
+      contains: Thank you for expressing your views
