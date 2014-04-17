@@ -4,68 +4,70 @@ contact_form:
   action: /contact
   steps:
     - visit: "http://www.markey.senate.gov/contact"
+    - select:
+      - name: issue
+        selector: "#issue"
+        value: $TOPIC
+        required: true
+        options:
+          - Abortion
+          - Agriculture
+          - Animal Rights
+          - Appropriations
+          - Banking
+          - Budget
+          - Children/Family/Adoption
+          - Civil Rights/LGBT
+          - Civil Service/Postal
+          - Clean Energy
+          - Climate Change
+          - Commemorative/Congratulatory
+          - Commerce
+          - Defense
+          - Drugs
+          - Education Higher
+          - Education K to 12
+          - Elections
+          - Energy
+          - Environment/Public Works
+          - Fisheries
+          - Flag Requests
+          - Foreign Relations
+          - Gun Control
+          - Health
+          - Homeland Security
+          - Housing
+          - Immigration
+          - Indian Affairs
+          - Internships
+          - Insurance
+          - Judiciary
+          - Labor
+          - LIHEAP
+          - Medicare/Medicaid
+          - Middle East/North Africa
+          - Natural Resources
+          - Nuclear Proliferation
+          - Other
+          - Patents
+          - Pensions
+          - Privacy
+          - Public Lands and National Parks
+          - Science/Space
+          - Seniors
+          - Small Business
+          - Social Security
+          - Taxes
+          - Technology
+          - Tours and Tickets
+          - Telecommunications
+          - Trade
+          - Transportation
+          - Veterans
+          - Welfare/SNAP
+    - find:
+      - selector: "#continue-form"
     - fill_in:
-        - select:
-        - name: issue
-          selector: "#issue"
-          value: $TOPIC
-          required: true
-          options:
-            - Abortion
-            - Agriculture
-            - Animal Rights
-            - Appropriations
-            - Banking
-            - Budget
-            - Children/Family/Adoption
-            - Civil Rights/LGBT
-            - Civil Service/Postal
-            - Clean Energy
-            - Climate Change
-            - Commemorative/Congratulatory
-            - Commerce
-            - Defense
-            - Drugs
-            - Education Higher
-            - Education K to 12
-            - Elections
-            - Energy
-            - Environment/Public Works
-            - Fisheries
-            - Flag Requests
-            - Foreign Relations
-            - Gun Control
-            - Health
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Indian Affairs
-            - Internships
-            - Insurance
-            - Judiciary
-            - Labor
-            - LIHEAP
-            - Medicare/Medicaid
-            - Middle East/North Africa
-            - Natural Resources
-            - Nuclear Proliferation
-            - Other
-            - Patents
-            - Pensions
-            - Privacy
-            - Public Lands and National Parks
-            - Science/Space
-            - Seniors
-            - Small Business
-            - Social Security
-            - Taxes
-            - Technology
-            - Tours and Tickets
-            - Telecommunications
-            - Trade
-            - Transportation
-            - Veterans
-            - Welfare/SNAP
         - name: fname
           selector: "#fname"
           value: $NAME_FIRST
