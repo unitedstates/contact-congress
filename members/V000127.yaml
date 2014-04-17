@@ -4,6 +4,44 @@ contact_form:
   action: /contact/email-senator-vitter
   steps:
     - visit: "http://www.vitter.senate.gov/contact/email-senator-vitter"
+    - select:
+      - name: subject
+        selector: "#subject"
+        value: $TOPIC
+        required: true
+        options:
+          - Academy Nominations
+          - Agriculture
+          - Budget
+          - Border Security Caucus
+          - Coastal Restoration
+          - Corruption
+          - Crime and Drugs
+          - Economy
+          - Education
+          - Energy
+          - Health Care
+          - Homeland Security
+          - Flag Requests
+          - Housing
+          - Immigration
+          - Hurricane Preparedness
+          - Internships
+          - "Life & Values"
+          - National Defense
+          - Medicare and Medicaid
+          - Passports
+          - Social Security
+          - Seafood
+          - Second Amendment Rights
+          - "Small Business & Economic Development"
+          - Taxes
+          - Veterans Affairs
+          - State Appropriations
+          - Visiting DC
+          - "Women & Family"
+    - find:  # waits for dom element to appear before proceeding
+      - selector: "#continue-form fieldset #fname"
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -49,42 +87,6 @@ contact_form:
           selector: "#message"
           value: $MESSAGE
           required: true
-    - select:
-        - name: subject
-          selector: "#subject"
-          value: $TOPIC
-          required: true
-          options:
-            - Academy Nominations
-            - Agriculture
-            - Budget
-            - Border Security Caucus
-            - Coastal Restoration
-            - Corruption
-            - Crime and Drugs
-            - Economy
-            - Education
-            - Energy
-            - Health Care
-            - Homeland Security
-            - Flag Requests
-            - Housing
-            - Immigration
-            - Hurricane Preparedness
-            - Internships
-            - "Life & Values"
-            - National Defense
-            - Medicare and Medicaid
-            - Passports
-            - Social Security
-            - Seafood
-            - Second Amendment Rights
-            - "Small Business & Economic Development"
-            - Taxes
-            - Veterans Affairs
-            - State Appropriations
-            - Visiting DC
-            - "Women & Family"
         - name: salutation
           selector: "#salutation"
           value: $NAME_PREFIX
