@@ -16,7 +16,7 @@ contact_form:
         - name: required-last
           selector: "form.zipform[name='contact'] input[name='required-last']"
           value: $NAME_LAST
-          required: true
+          required: false
         - name: required-address
           selector: "form.zipform[name='contact'] input[name='required-address']"
           value: $ADDRESS_STREET
@@ -29,10 +29,10 @@ contact_form:
           selector: "form.zipform[name='contact'] input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
-          selector: "form.zipform[name='contact'] input[name='phone']"
+        - name: zip4
+          selector: "form.zipform[name='contact'] input[name='zip4']"
           value: $PHONE
-          required: false
+          required: true
         - name: required-email
           selector: "form.zipform[name='contact'] input[name='required-email']"
           value: $EMAIL
@@ -42,6 +42,11 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: required-state
+          selector: "form.zipform[name='contact'] select[name='required-state']"
+          value: CA
+          required: true
+          options: []
         - name: required-issue
           selector: "form.zipform[name='contact'] select[name='required-issue']"
           value: $TOPIC
@@ -79,9 +84,9 @@ contact_form:
             Welfare: WELF
     - click_on:
         - value: Send Email
-          selector: "form.zipform[name='contact'] input[type='submit']"
+          selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
   success:
     headers:
       status: 200
     body:
-      contains: Thanks
+      contains: Thanks for your interest.
