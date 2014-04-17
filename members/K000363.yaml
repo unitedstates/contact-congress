@@ -90,6 +90,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contact input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "#ctl00_ctl14_ctl00_Text"
   success:
     headers:
       status: 200
