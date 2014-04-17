@@ -3,7 +3,7 @@ contact_form:
   method: get
   action: /Forms/WriteYourRep/
   steps:
-    - visit: "http://culberson.house.gov/contact/zipauth.htm"
+    - visit: "https://culbersonforms.house.gov/forms/writeyourrep/"
     - fill_in:
         - name: zip5
           selector: "#zipcode"
@@ -16,7 +16,6 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
-    - visit: "https://culbersonforms.house.gov/forms/writeyourrep/default.aspx?zip5=77084&zip4=6043"
     - fill_in:
         - name: ctl00$ctl11$FirstName
           selector: "#ctl00_ctl11_FirstName"
@@ -49,11 +48,11 @@ contact_form:
         - name: ctl00$ctl11$Subject
           selector: "#ctl00_ctl11_Subject"
           value: $SUBJECT
-          required: true
+          required: false
         - name: ctl00$ctl11$Body
           selector: "#ctl00_ctl11_Body"
           value: $MESSAGE
-          required: true
+          required: false
         - name: ctl00$ctl11$CampaignID
           selector: "#ctl00_ctl11_CampaignID"
           value: $CAMPAIGN_UUID
@@ -115,9 +114,6 @@ contact_form:
             - Miss
             - Mr. and Mrs.
             - Mr. Speaker
-            - Mr.
-            - Mrs.
-            - Ms.
             - MSG
             - Officer
             - PFC
@@ -250,10 +246,6 @@ contact_form:
             Trade/Commerce: "45928"
             Transportation: "12222"
             Veterans: "45929"
-    - check:
-        - name: ctl00$ctl11$ReplyChoice
-          selector: "#ctl00_ctl11_ReplyChoice_0"
-          value: Respond
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl11_SubmitButton"
@@ -261,4 +253,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thanks for submitting your comments.
+      contains: Thanks for submitting your comments
