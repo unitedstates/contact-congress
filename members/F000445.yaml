@@ -221,6 +221,8 @@ contact_form:
     - click_on:
         - value: Send Message
           selector: "form.zipform input[name='WR_Submit']"
+    - find:
+        - selector: "ctl00_PageLink"
   success:
     headers:
       status: 200
