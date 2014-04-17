@@ -5,6 +5,10 @@ contact_form:
   steps:
     - visit: "https://barletta.house.gov/contact/email-me"
     - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
