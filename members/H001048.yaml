@@ -1,0 +1,183 @@
+bioguide: H001048
+contact_form:
+  method: post
+  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  steps:
+    - visit: "https://hunter.house.gov/contact-me"
+    - fill_in:
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - selector: button.ideal-button
+    - fill_in:
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - selector: button.ideal-button
+    - find:
+        - selector: "#contactForm"
+    - fill_in:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-addr1
+          selector: "#required-addr1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: addr2
+          selector: "#addr2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            Casework: WEBCASE
+            Agriculture: AGR
+            Budget: BUD
+            Defense: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
+            Environmental: ENV
+            Family Values: SOC
+            Government Reform: GOV
+            Health Care: HEA
+            Immigration: IMM
+            International Relations: INT
+            Judicial: JUD
+            National Security: HOM
+            Second Amendment: SECA
+            Social Security and Medicare: SSEC
+            Tax Reform: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Veterans: VET
+            Welfare: WEL
+            Other: OTH
+    - uncheck:
+        - name: newsletter-subscribe
+          selector: "#newsletter-subscribe"
+          value: EMAIL.OPTIN
+    - click_on:
+        - selector: button.ideal-button
+    - fill_in:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-addr1
+          selector: "#required-addr1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: addr2
+          selector: "#addr2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: false
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            Casework: WEBCASE
+            Agriculture: AGR
+            Budget: BUD
+            Defense: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
+            Environmental: ENV
+            Family Values: SOC
+            Government Reform: GOV
+            Health Care: HEA
+            Immigration: IMM
+            International Relations: INT
+            Judicial: JUD
+            National Security: HOM
+            Second Amendment: SECA
+            Social Security and Medicare: SSEC
+            Tax Reform: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Veterans: VET
+            Welfare: WEL
+            Other: OTH
+    - click_on:
+        - selector: button.ideal-button
+  success:
+    headers:
+      status: 200
+    body:
+      contains: The following information has been submitted:
