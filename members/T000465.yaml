@@ -46,7 +46,7 @@ contact_form:
         - name: zipfour
           selector: "#zip2"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -63,7 +63,7 @@ contact_form:
         - name: prefix
           selector: "#req_prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
           options:
             Mr.: "Mr. "
             Mrs.: Mrs.
