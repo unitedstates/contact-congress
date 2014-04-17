@@ -231,9 +231,12 @@ contact_form:
         - name: responsereq
           selector: "#responsereqyes"
           value: "yes"
+    - uncheck:
+        - name: newsletter
+          selector: "#newsletter"
+          value: "yes"
     - click_on:
-        - value: Submit
-          selector: 'div.form-button.help-form-button'
+        - selector: '<div class="form-button help-form-button" onclick="next_step(2);">Preview</div>'
     - click_on:
         - value: Submit
           selector: "#send-request"
@@ -241,4 +244,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me. I have received your message and will get back to you once I have had a chance to review it.
+      contains: Thank you for contacting me.
