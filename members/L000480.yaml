@@ -66,19 +66,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
         - name: state
           selector: "#req_state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -165,7 +152,7 @@ contact_form:
             Other Issues: WEBOTH
     - click_on:
         - value: Send Email
-          selector: "#custom_form32 input.form_submit_button.filled"
+          selector: "#submitButton"
   success:
     headers:
       status: 200
