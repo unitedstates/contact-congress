@@ -3,7 +3,21 @@ contact_form:
   method: post
   action: "/forms/writeyourrep/"
   steps:
-    - visit: "https://wenstrup.house.gov/forms/writeyourrep/"
+    - visit: "http://wenstrup.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#aspnetForm"
     - fill_in:
         - name: ctl00$ctl13$FirstName
           selector: "#ctl00_ctl13_FirstName"
