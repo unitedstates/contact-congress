@@ -40,6 +40,14 @@ contact_form:
         - name: ctl00$ctl12$Body
           selector: "#ctl00_ctl12_Body"
           value: $MESSAGE
+          required: true
+        - name: ctl00$ctl12$CampaignID
+          selector: "#ctl00_ctl12_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl12$CampaignInfo
+          selector: "#ctl00_ctl12_CampaignInfo"
+          value: $CAMPAIGN_UUID
           required: false
     - select:
         - name: ctl00$ctl12$PrefixList
@@ -63,7 +71,7 @@ contact_form:
             - Sen.
         - name: ctl00$ctl12$State
           selector: "#ctl00_ctl12_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          value: NC
           required: true
           options:
             - AL
@@ -127,7 +135,7 @@ contact_form:
             - PR
             - VI
         - name: ctl00$ctl12$IssuesList
-          selector: "input#ctl00_ctl12_IssuesList"
+          selector: "#ctl00_ctl12_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -156,9 +164,9 @@ contact_form:
             Transportation: "61085"
             Veterans: "61086"
     - check:
-      - name: ctl00$ctl12$ReplyChoice
-      - selector: "#ctl00_ctl12_ReplyChoice_0"
-      - value: Respond
+        - name: ctl00$ctl12$ReplyChoice
+          selector: "#ctl00_ctl12_ReplyChoice_0"
+          value: Respond
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl12_SubmitButton"
@@ -166,4 +174,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: I always appreciate hearing from my constituents. Thank you for taking the time to share your thoughts.
+      contains: I always appreciate hearing from my constituents.
