@@ -47,10 +47,11 @@ contact_form:
           selector: "#ctl00_ctl03_ctl00_Text form textarea[name='required-message']"
           value: $MESSAGE
           required: true
-    - select: []
     - click_on:
         - value: Send Email
           selector: "#ctl00_ctl03_ctl00_Text form input[type='submit'][value='Send Email']"
+    - find_text:
+        - value: "Thank you for submitting your comments, I appreciate hearing from you."
   success:
     headers:
       status: 200
