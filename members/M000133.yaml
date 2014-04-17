@@ -1,0 +1,146 @@
+bioguide: M000133
+contact_form:
+  method: POST
+  action: webformActionVoiceV2.cfm
+  steps:
+    - visit: http://www.markey.senate.gov/contact.cfm
+    - select:
+      - name: issue
+        selector: "#issue"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Abortion": "Abortion"
+          "Agriculture": "Agriculture"
+          "Animal Rights": "Animal Rights"
+          "Appropriations": "Appropriations"
+          "Banking": "Banking"
+          "Budget": "Budget"
+          "Children/Family/Adoption": "Children/Family/Adoption"
+          "Civil Rights/LGBT": "Civil Rights/LGBT"
+          "Civil Service/Postal": "Civil Service/Postal"
+          "Clean Energy": "Clean Energy"
+          "Climate Change": "Climate Change"
+          "Commemorative/Congratulatory": "Commemorative/Congratulatory"
+          "Commerce": "Commerce"
+          "Defense": "Defense"
+          "Drugs": "Defense"
+          "Education Higher": "Education Higher"
+          "Education K to 12": "Education K to 12"
+          "Elections": "Elections"
+          "Energy": "Energy"
+          "Environment/Public Works": "Environment/Public Works"
+          "Fisheries": "Fisheries"
+          "Flag Requests": "Flag Requests"
+          "Foreign Relations": "Foreign Relations"
+          "Gun Control": "Gun Control"
+          "Health": "Health"
+          "Homeland Security": "Homeland Security"
+          "Housing": "Housing"
+          "Immigration": "Immigration"
+          "Indian Affairs": "Indian Affairs"
+          "Internships": "Internships"
+          "Insurance": "Insurance"
+          "Judiciary": "Judiciary"
+          "Labor": "Labor"
+          "LIHEAP": "LIHEAP"
+          "Medicare/Medicaid": "Medicare/Medicaid"
+          "Middle East/North Africa": "Middle East/North Africa"
+          "Natural Resources": "Natural Resources"
+          "Nuclear Proliferation": "Nuclear Proliferation"
+          "Other": "Other"
+          "Patents": "Patents"
+          "Pensions": "Pensions"
+          "Privacy": "Privacy"
+          "Public Lands and National Parks": "Public Lands and National Parks"
+          "Science/Space": "Science/Space"
+          "Seniors": "Seniors"
+          "Small Business": "Small Business"
+          "Social Security": "Social Security"
+          "Taxes": "Taxes"
+          "Technology": "Technology"
+          "Tours and Tickets": "Tours and Tickets"
+          "Telecommunications": "Telecommunications"
+          "Trade": "Trade"
+          "Transportation": "Transportation"
+          "Veterans": "Veterans"
+          "Welfare/SNAP": "Welfare/SNAP"
+    - fill_in:
+      - name: fname
+        selector: "#fname"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: iname
+        selector: "#mname"
+        value: Middle Name
+      - name: lname
+        selector: "#lName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: suffix
+        selector: "#suffix"
+        value: Suffix
+      - name: preferred_name
+        selector: "#preferred_name"
+        value: Preferred Name
+      - name: mailing_streetAddress1
+        selector: "#mailing_streetAddress1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: mailing_streetAddress2
+        selector: "#mailing_streetAddress2"
+        value: "$ADDRESS_STREET_2"
+      - name: mailing_city
+        selector: "#mailing_city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: mailing_zipCode
+        selector: "#mailing_zipCode"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: home_phone_number
+        selector: "#home_phone_number"
+        value: "$PHONE"
+        required: Yes
+      - name: email_address
+        selector: "#email"
+        value: "$EMAIL"
+        required: Yes
+      - name: verify_email
+        selector: "#verify_email"
+        value: "$EMAIL"
+        required: Yes
+      - name: subject
+        selector: "#subject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: message
+        selector: "#message"
+        value: "$MESSAGE"
+        required: Yes
+    - check:
+      - name: newsletter
+        selector: "#newsletter_y"
+        value: Y
+    - select:
+      - name: salutation
+        selector: "#salutation"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          " Mr. ": "Mr."
+          " Ms. ": "Ms."
+          " Mrs. ": "Mrs."
+          " Miss. ": "Miss."
+          " Mr. and Mrs. ": "Mr. and Mrs."
+          " Dr. ": "Dr."
+      - name: mailing_state
+        selector: "#mailing_state"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+    - click_on:
+      - value: Send
+        selector: "#side-search-btn"
+  success:
+    body:
+      contains: Thank You

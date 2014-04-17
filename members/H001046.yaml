@@ -1,0 +1,194 @@
+bioguide: H001046
+contact_form:
+  method: POST
+  action: http://www.heinrich.senate.gov/contact/write-martin
+  steps:
+    - visit: http://www.heinrich.senate.gov/contact/write-martin
+    - select:
+      - name: topic
+        selector: "#subject"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Academy Nominations"
+          - "Agriculture/Food Safety"
+          - "Banking and Financial Services"
+          - "Border Security"
+          - "Budget"
+          - "Campaign Finance Reform/Elections"
+          - "Children/Family/Nutrition"
+          - "Civil Liberties"
+          - "Climate Change"
+          - "Commerce"
+          - "E-Newsletter Sign Up"
+          - "Economy & Jobs"
+          - "Education"
+          - "Energy"
+          - "Environment"
+          - "Federal Grant Funding"
+          - "Flag Requests"
+          - "Foreign Affairs"
+          - "General Government"
+          - "Health Care & Wellness"
+          - "Help with a Federal Agency"
+          - "Homeland Security"
+          - "Housing"
+          - "Immigration"
+          - "Indian Country"
+          - "Judiciary"
+          - "Labor/Pensions"
+          - "Military & Defense"
+          - "National Labs"
+          - "Postal"
+          - "Schedule a Meeting"
+          - "Public Lands/Forestry"
+          - "Reproductive Rights"
+          - "Second Amendment"
+          - "Seniors' Issues"
+          - "Small Business"
+          - "Space/NASA/Science/Technology"
+          - "Taxes"
+          - "Telecommunications"
+          - "Trade"
+          - "Transportation & Infrastructure"
+          - "Veterans"
+          - "Visiting DC"
+          - "Welfare/Food Assistance"
+          - "Wildlife/Animal Welfare"
+          - "Women's Issues"
+    - find:
+      - selector: #continue-form
+    - fill_in:
+      - name: fname
+        selector: "#fname"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lname
+        selector: "#lname"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: mailing_streetAddress1
+        selector: "#mailing_streetAddress1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: mailing_streetAddress2
+        selector: "#mailing_streetAddress2"
+        value: "$ADDRESS_STREET_2"
+      - name: mailing_city
+        selector: "#mailing_city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: mailing_zipCode
+        selector: "#mailing_zipCode"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone_number
+        selector: "#phone_number"
+        value: "$PHONE"
+      - name: email_address
+        selector: "#email"
+        value: "$EMAIL"
+        required: Yes
+      - name: verify_email
+        selector: "#verify_email"
+        value: "$EMAIL"
+        required: Yes
+      - name: subject
+        selector: "#subject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: message
+        selector: "#message"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: salutation
+        selector: "#salutation"
+        value: "$NAME_PREFIX"
+        options:
+          - "Mr."
+          - "Ms."
+          - "Mrs."
+          - "Dr."
+          - "Mr. and Mrs."
+          - "Dr. and Mrs."
+          - "Dr. and Mr."
+          - "Dr. and Dr."
+          - "Mr. and Mr."
+          - "Ms. and Ms."
+          - "Pastor"
+          - "Father"
+          - "Reverend"
+          - "Sister"
+          - "Imam"
+          - "Rabbi"
+          - "Governor"
+          - "Senator"
+          - "Representative"
+          - "Hon."
+          - "Fleet Admiral"
+          - "Admiral"
+          - "Vice Admiral"
+          - "Rear Admiral (upper half)"
+          - "Rear Admiral (lower half)"
+          - "Captain"
+          - "Commander"
+          - "Lieutenant Commander"
+          - "Lieutenant"
+          - "Lieutenant, Junior Grade"
+          - "Ensign"
+          - "Master Chief Petty Officer of the Navy"
+          - "Master Chief Petty Officer"
+          - "Senior Chief Petty Officer"
+          - "Chief Petty Officer"
+          - "Petty Officer First Class"
+          - "Petty Officer Second Class"
+          - "Petty Officer Third Class"
+          - "Seaman"
+          - "Seaman Apprentice"
+          - "Seaman Recruit"
+          - "Chief Warrant Officer"
+          - "Warrant Officer"
+          - "Sgt Major Of The Corps"
+          - "Sergeant Major"
+          - "Master Gunnery Sgt"
+          - "First Sergeant"
+          - "Master Sergeant"
+          - "Gunnery Sergeant"
+          - "Staff Sergeant"
+          - "Sergeant"
+          - "Corporal"
+          - "Lance Corporal"
+          - "Private First Class"
+          - "Private"
+          - "General of the Air Force"
+          - "General"
+          - "Lieutenant General"
+          - "Major General"
+          - "Brigadier General"
+          - "Colonel"
+          - "Lieutenant Colonel"
+          - "Major"
+          - "First Lieutenant"
+          - "Second Lieutenant"
+          - "Chief Master Sergeant of the Air Force"
+          - "Command  Chief Master Sergeant"
+          - "Chief Master Sergeant"
+          - "Senior Master Sergeant"
+          - "Technical Sergeant"
+          - "Senior Airman"
+          - "Airman First Class"
+          - "Airman"
+      - name: mailing_state
+        selector: "#mailing_state"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+    - click_on:
+      - value: Submit
+        selector: ".btn[type='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thanks for taking the time to share your thoughts with me"

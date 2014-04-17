@@ -1,0 +1,99 @@
+bioguide: C001037
+contact_form:
+  method: post
+  action: "/htbin/formproc_za/capuano/contact/contact_parm.txt&form=/capuano/contact/message.shtml"
+  steps:
+    - visit: "http://www.house.gov/capuano/contact/email.shtml"
+    - fill_in:
+        - name: required-first
+          selector: "#firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#lastname"
+          value: $NAME_LAST
+          required: true
+        - name: required-zip5
+          selector: "#zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Next
+          selector: "div.paddingmain form input[name='submit']"
+    - fill_in:
+        - name: required-first
+          selector: "#firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#lastname"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-valid-email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: required-message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+        - name: required-issue
+          selector: "#topic"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: WEBAGR
+            Budget: WEBBUD
+            Defense: WEBDEF
+            Education: WEBEDU
+            Energy: WEBENE
+            Environmental: WEBENV
+            International Relations: WEBINT
+            Government Reform: WEBGOV
+            Health: WEBHEA
+            Homeland Security: WEBHOM
+            Housing and Community Development: WEBHUD
+            Immigration: WEBIMM
+            Judiciary: WEBJUD
+            Labor: WEBLABOR
+            Resources: WEBRSC
+            Science: WEBSCI
+            Small Business: WEBSBUS
+            Social Issues: WEBSOC
+            Social Security: WEBSSEC
+            Telecommunications: WEBTEL
+            Taxes and Trade: WEBTAX
+            Transportation: WEBTRA
+            Veterans: WEBVET
+            Welfare: WEBWEL
+            Other: WEBOTH
+    - click_on:
+        - value: Send my message
+          selector: "div.paddingmain form input[name='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: ""

@@ -1,0 +1,122 @@
+bioguide: R000575
+contact_form:
+  method: post
+  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-mike/email-me-zip-authenticated&nobase&fpGetVer=2"
+  steps:
+    - visit: "http://mike-rogers.house.gov/contact-mike/email-me"
+    - fill_in:
+        - name: zip5
+          selector: "#zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go To Next Step
+          selector: "#submit"
+    - find:
+        - selector: form.validate.wsbform
+    - fill_in:
+        - name: required-prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "form.validate.wsbform input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "form.validate.wsbform input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-addr1
+          selector: "form.validate.wsbform input[name='required-addr1']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: addr2
+          selector: "form.validate.wsbform input[name='addr2']"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-zip5
+          selector: "form.validate.wsbform input[name='required-zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: required-valid-email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: msg
+          selector: "#message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#issue"
+          value: $SUBJECT
+          required: true
+          options:
+            Agriculture: AG
+            Animal Welfare: AN
+            Arts and Humanities: ART
+            Banking and Finance: BANK
+            Budget: BUD
+            Casework: CASE
+            Community Development and Organizations: COMMUNITY
+            Congress and Elections: CONG
+            Consumer Issues: CMRC
+            Crime and Drugs: CRIME
+            Disease Treatment and Research: HE.DISEASE
+            Economy and Job Creation: ECON
+            Education: ED
+            Energy: ENER
+            Environment: ENV
+            Ethics: ETH
+            Food Safety: FOOD
+            General: GEN
+            Guns and 2nd Amendment Rights: JUD.GUNS
+            Healthcare: HE
+            Homeland Security: HOME
+            Housing and Urban Development: HUD
+            Immigration: JUD.IM
+            International Relations and Human Rights: IR
+            Judiciary: JUD
+            Labor: LAB
+            Medicaid: HE
+            Medicare: MED
+            National Security: DEF
+            Postal Issues: POST
+            Pro-Life Issues: JUD.AB
+            Scheduling Requests: SCHE
+            Science and Technology: SCI
+            Small Business: SMBU
+            Social Security: SS
+            Taxes: TAX
+            Tele-Comm: COMM
+            Trade: TRADE
+            Transportation: TRAN
+            Troop Benefits: DEF.MIL.BEN
+            Veterans and Tricare Issues: VET
+            Welfare: WELF
+            "Women, Children, and Family": WOMEN
+    - click_on:
+        - value: Submit Information
+          selector: "form.validate.wsbform input[name='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Email Me - Thank You

@@ -1,0 +1,98 @@
+bioguide: D000399
+contact_form:
+  method: POST
+  action: "/htbin/formproc_za/doggett/webforms/issue_parm.txt&form=/doggett/webforms/issue_subscribe_verify.htm&nobase"
+  steps:
+    - visit: "https://forms.house.gov/doggett/webforms/issue_subscribe.htm"
+    - fill_in:
+        - name: required-prefix
+          selector: "#mainbodyContentleft form input[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#mainbodyContentleft form input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#mainbodyContentleft form input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#mainbodyContentleft form input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#mainbodyContentleft form input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#mainbodyContentleft form input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: required-valid-email
+          selector: "#mainbodyContentleft form input[name='required-valid-email']"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "#mainbodyContentleft form input[name='required-phone']"
+          value: $PHONE
+          required: true
+        - name: required-message
+          selector: "#mainbodyContentleft form textarea[name='required-message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#mainbodyContentleft form select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: ab
+            Agriculture: ag
+            Animal Rights: ar
+            Arts: arts
+            Banking: bank
+            Business: bu
+            Consumer Protection: consumer
+            Campaign Finance: Campfgen
+            Crime: cr
+            Defense: de
+            DC Tour Request: tours
+            Economy and Jobs: ta
+            Education: ed
+            Energy: en
+            Environment: ev
+            Family: fv
+            Fiscal Responsibility: budget
+            Foreign Affairs: fa
+            Government: gv
+            Health Care: health
+            Homeland Security: hs
+            Housing: hg
+            Human Rights: hr
+            Immigration: im
+            Judicial/Constitutional: ju
+            Labor: la
+            Medicare: hcmedicare
+            Need Help w/a Fed. Agency: casework
+            Science: s
+            Seniors: se
+            Social Security: ss
+            Taxes: ta
+            Technology: te
+            Telecommunications: co
+            Trade: tr
+            Transportation: ts
+            Veterans: va
+            War: de
+            Welfare: we
+            2nd Amendment: gc
+            Other: other
+    - click_on:
+        - value: Send Email
+          selector: "#mainbodyContentleft form input[type='submit'][value='Send Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your email should

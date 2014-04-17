@@ -1,0 +1,113 @@
+bioguide: T000250
+contact_form:
+  method: POST
+  action: http://www.thune.senate.gov/public/index.cfm/contact
+  steps:
+    - visit: http://www.thune.senate.gov/public/index.cfm/contact
+    - fill_in:
+      - name: field_1315ae35-232e-4f1b-b9e9-5338d7fa2c7a
+        selector: "#field_1315ae35-232e-4f1b-b9e9-5338d7fa2c7a"
+        value: "$NAME_PREFIX"
+        required: Yes
+      - name: field_e3e9333a-d709-49d7-8b96-ab512a781355
+        selector: "#field_e3e9333a-d709-49d7-8b96-ab512a781355"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_1749496b-47ec-4aa8-97bc-16a81a93a022
+        selector: "#field_1749496b-47ec-4aa8-97bc-16a81a93a022"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_5df570d1-faaa-4889-9664-95e3b68baac2
+        selector: "#field_5df570d1-faaa-4889-9664-95e3b68baac2"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_6ab1bf51-18e6-44bb-9609-80c7bb55e157
+        selector: "#field_6ab1bf51-18e6-44bb-9609-80c7bb55e157"
+        value: "$ADDRESS_STREET_2"
+      - name: field_37aebb8f-fe3c-4331-86a2-bcfb6181ecfe
+        selector: "#field_37aebb8f-fe3c-4331-86a2-bcfb6181ecfe"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_72f52a16-9c65-44c6-82bc-f516f395f529
+        selector: "#field_72f52a16-9c65-44c6-82bc-f516f395f529"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_cba11263-b561-4d67-a1c9-e82b29ca2046
+        selector: "#field_cba11263-b561-4d67-a1c9-e82b29ca2046"
+        value: "$PHONE"
+        required: Yes
+      - name: field_87e71839-e399-4dfc-9c2f-89a6663a461a
+        selector: "#field_87e71839-e399-4dfc-9c2f-89a6663a461a"
+        value: "$PHONE"
+      - name: field_35e332a5-029b-44c8-8395-6cca8aec364d
+        selector: "#field_35e332a5-029b-44c8-8395-6cca8aec364d"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_52d20833-c7a4-455d-86b8-1beb4c81e758
+        selector: "#field_52d20833-c7a4-455d-86b8-1beb4c81e758"
+        value: "$MESSAGE"
+        required: Yes
+      - name: field_81910c96-ab21-4aa4-b810-05630055509c
+        selector: "#field_81910c96-ab21-4aa4-b810-05630055509c"
+        value: ""
+    - select:
+      - name: field_fdfc66c1-e24b-455a-b36e-5f3803372580
+        selector: "#field_fdfc66c1-e24b-455a-b36e-5f3803372580"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_6f8f9af6-b16c-4add-9b4f-88f7a910c63f
+        selector: "#field_6f8f9af6-b16c-4add-9b4f-88f7a910c63f"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Help with Federal Agency": "CASE"
+          "Flag Request": "FLAG"
+          "Scheduling Request": "MEET"
+          "Internship Opportunities": "INTERN"
+          "Letter Request": "LETTER"
+          "Photo Request": "PHOTO"
+          "Abortion": "JUD-ABOR"
+          "Agriculture": "AG"
+          "Aviation,Transportation": "TRANS"
+          "Banking and Finance": "BANK"
+          "Budget": "BUDG"
+          "Campaign and Election Reform": "ELEC"
+          "Commerce": "COMM"
+          "Crime": "JUD-CRIME"
+          "Defense and Military": "DEF"
+          "Economy, Business and Industry": "ECN"
+          "Education": "EDU"
+          "Energy,Renewable Energy": "ENG"
+          "Environment,Forests,Public Lands/Parks": "ENV"
+          "Ethics and Congressional Reform": "ETHICS"
+          "Faith-Based Initiatives": "FAITH"
+          "Foreign Relations": "IR"
+          "Government Affairs": "GOV"
+          "Health Care, Medicare": "HLTH"
+          "Homeland Security and Terrorism": "HMSEC"
+          "Housing and Urban Affairs": "HOUSE"
+          "Immigration": "IMM"
+          "Indian Affairs": "IA"
+          "Justice/Legal Issues, US Constitution": "JUD"
+          "Labor": "LABOR"
+          "Nutrition,Welfare": "WEL"
+          "Postal Issues": "POST"
+          "Science and Technology": "SCI"
+          "Second Amendment": "JUD-GUN"
+          "Social Security": "SS"
+          "Student Inquiry": "SPECIAL"
+          "Taxes": "TAX"
+          "Telecommunications and the Internet": "TELECOMM"
+          "Tour Request": "TOUR"
+          "Trade": "TRD"
+          "Veterans Affairs": "VET"
+          "Water Issues": "WATER"
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for taking the time to contact me through my website"

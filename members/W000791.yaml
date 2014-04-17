@@ -1,0 +1,64 @@
+bioguide: W000791
+contact_form:
+  method: post
+  action: /e-mail-greg/
+  steps:
+    - visit: "https://walden.house.gov/e-mail-greg"
+    - fill_in:
+        - name: prefix
+          selector: "#req_prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#custom_form12 input[name='street2']"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: phone
+          selector: "#req_phone"
+          value: $PHONE
+          required: true
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#req_subject"
+          value: $SUBJECT
+          required: true
+        - name: msg
+          selector: "#req_message"
+          value: $MESSAGE
+          required: false
+    - select: []
+    - click_on:
+        - value: Send Email
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for taking the time to let me know your thoughts. While I sometimes get overloaded with incoming mail, emails, calls, and faxes, I want you to know that I value the comments and suggestions I receive, even if I can’t always promptly respond to each one."

@@ -1,0 +1,119 @@
+bioguide: R000515
+contact_form:
+  method: post
+  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  steps:
+    - visit: "https://rush.house.gov/contact-me/legislative-issues"
+    - fill_in:
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go To Next Step
+          selector: "#submit"
+    - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGRICULTURE
+            Animals: ANIMAL
+            Arts and Humanities: ARTS
+            Badger Army Ammunition Plant: BAAP
+            Banking and Finance: BANKING
+            Budget and Economy: BUDGET
+            Campaign Finance Reform: CAMPAIGN FINANCE
+            Congress and Elections: CONG
+            District of Columbia--Tours: TOUR
+            Defense and Military: DEFENSE
+            Education: EDUCATION
+            Energy: ENERGY
+            Environment: ENVIRONMENT
+            Federal Employees: FED
+            Foreign Relations: FOREIGN AFFAIRS
+            Guns: GUN CONTROL
+            Health: HEALTHCARE
+            Housing and Urban Development: HOUSING
+            Immigration: IMMIGRATION
+            Judiciary: JUDICIARY
+            Labor: LABOR ISSUES
+            LGBT: LGBT
+            Post Office: POSTAL
+            Science and Technology: SCIENCE
+            Senior Citizens: SENIORS
+            Social Security: SS
+            Social Services: SSEC
+            Taxes: TAXES
+            Telecommunications: COMM
+            Transportation: TRANSPORTATION
+            Trade: TRADE
+            Veterans: VETERAN
+            "Women's Issues": "WOMENS "
+            Other Issues: OTHER
+    - click_on:
+        - value: Send Email
+          selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: EMAIL ME - THANK YOU

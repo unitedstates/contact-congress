@@ -1,7 +1,7 @@
 bioguide: M001176
 contact_form:
   method: POST
-  action: "http://www.merkley.senate.gov/contact/index.cfm"
+  action: http://www.merkley.senate.gov/contact/index.cfm
   steps:
     - visit: http://www.merkley.senate.gov/contact/
     - fill_in:
@@ -26,15 +26,12 @@ contact_form:
         required: Yes
       - name: mailing_zipCode
         selector: "#mailing_zipCode"
-        value: $ADDRESS_ZIP_PLUS_4
+        value: $ADDRESS_ZIP5
         required: Yes
       - name: home_phone_number
         selector: "#home_phone_number"
         value: $PHONE
         required: Yes
-      - name: work_phone_number
-        selector: "#work_phone_number"
-#       value: $PHONE_WORK
       - name: email_address
         selector: "#email_address"
         value: $EMAIL
@@ -107,7 +104,7 @@ contact_form:
           "Other" : "OTHER"
     - click_on:
       - value: Submit
-        selector: "submit"
+        selector: "#contactForm input[value='submit']"
   success:
     headers:
       status: 200

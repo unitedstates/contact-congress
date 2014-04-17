@@ -1,0 +1,99 @@
+bioguide: W000804
+contact_form:
+  method: post
+  action: /contact-form/
+  steps:
+    - visit: "https://wittman.house.gov/contact-form/"
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#req_address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#req_phone"
+          value: $PHONE
+          required: true
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#req_prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: "Mr. "
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
+        - name: issue
+          selector: "#req_issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGRI
+            Animal Welfare: ANML
+            Budget and Spending: BUD
+            Capitol/White House Tour: TOUR
+            Defense: DEF
+            Economy and Jobs: ECON
+            Education: EDU
+            Energy: ENR
+            Environment: ENV
+            Federal Workforce: FEDWF
+            Flag Request: FLAG
+            International Relations: INT
+            Government Reform: GOV
+            Health Care: HLTH
+            Help with Federal Agency: CASE
+            Immigration: IMM
+            Judiciary: JUD
+            Labor: LABOR
+            Meet with Rob: SCHEDULE
+            National Security: NS
+            Science: SCI
+            Second Amendment: GUNS
+            Social Issues: SOC
+            Social Security: SS
+            Telecommunications: TELE
+            Tax: TAX
+            Transportation: TRANS
+            Veterans: VET
+            Other: OTH
+    - uncheck:
+        - name: newsletter
+          selector: "#newsletter"
+          value: SUBSCRIBE
+    - click_on:
+        - value: Send Email
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your email has been successfully submitted.

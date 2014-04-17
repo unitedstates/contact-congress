@@ -1,0 +1,140 @@
+bioguide: W000817
+contact_form:
+  method: POST
+  action: "http://www.warren.senate.gov/?p=email_senator#thisForm"
+  steps:
+    - visit: "http://www.warren.senate.gov/?p=email_senator#thisForm"
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: "$ADDRESS_STREET_2"
+        required: No
+      - name: city
+        selector: "#city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: zip
+        selector: "#thisForm #zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: "$PHONE"
+        required: Yes
+      - name: email
+        selector: "#thisForm #email"
+        value: "$EMAIL"
+        required: Yes
+      - name: vemail
+        selector: "#vemail"
+        value: "$EMAIL"
+        required: Yes
+      - name: messageSubject
+        selector: "#messageSubject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: messageBody
+        selector: "#thisForm .textarea"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: Prefix
+        selector: "select[name=Prefix]"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Dr."
+      - name: State
+        selector: "select[name=State]"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_MPCS
+      - name: Subject
+        value: "$TOPIC"
+        required: Yes
+        selector: "select[name=Subject]"
+        options:
+          - Abortion
+          - Adoption/Foster Care
+          - Aging
+          - Agriculture
+          - Animal Welfare
+          - Antitrust/Competition
+          - Appropriations
+          - Arts and Culture
+          - Banking
+          - Budget
+          - Campaign Finance
+          - Child Care/Child Welfare
+          - Civil Rights
+          - Commerce
+          - Consumer Protection
+          - Crime and Justice
+          - Defense and Military
+          - Disability
+          - Domestic Violence
+          - Drugs (Illegal)
+          - Economy
+          - "Education - Early Childhood"
+          - "Education - Elementary and Secondary"
+          - "Education - Post-Secondary"
+          - Energy
+          - Environment
+          - Flag Requests
+          - Food Safety
+          - Foreign Affairs
+          - Grants
+          - Guns
+          - Health
+          - Historical Preservation
+          - Homeland Security
+          - Housing
+          - Immigration
+          - Intellectual Property
+          - Job Training
+          - Judicial Nominations
+          - Judiciary
+          - Labor and Unions
+          - Medicaid/Medicare
+          - Meeting Request
+          - Municipal and State Government
+          - Native Americans
+          - Natural Disasters
+          - Pensions and Retirement
+          - Postal Issues
+          - Science/Technology/Space
+          - Small Business
+          - Social Security
+          - Start-Ups and Entrepreneurs
+          - TANF and Low-Income Benefits
+          - Taxes
+          - Telecommunications
+          - Tour Request
+          - Trade
+          - Transportation and Infrastructure
+          - Unemployment Insurance
+          - Veterans
+          - "Women's Issues"
+    - click_on:
+      - value: Submit
+        selector: ".normal-input[name=Submit]"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been sent"

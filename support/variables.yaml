@@ -1,36 +1,72 @@
 "$NAME_PREFIX":
   description: "The prefix of a proper name, such as Mr. or Mrs."
+  example: Mr.
 "$NAME_FIRST":
   description: First name
+  example: John
 "$NAME_LAST":
   description: Last name
+  example: Smith
 "$NAME_FULL":
   description: A concatenation of first and last name
+  example: John Smith
 "$ADDRESS_STREET":
   description: The first line of a street address
+  example: 1600 Pennsylvania Avenue NW
 "$ADDRESS_STREET_2":
   description: The (usually optional) second line of a street address
+  example: West Wing
 "$ADDRESS_CITY":
   description: The city component of a mailing address
+  example: Washington
 "$ADDRESS_STATE_POSTAL_ABBREV":
   description: The 2-letter state component of a mailing address
-"$ADDRESS_COUNTY"
+  example: DC
+"$ADDRESS_STATE_FULL":
+  description: The full name of the state component of a mailing address
+  example: District of Columbia
+"$ADDRESS_COUNTY":
   description: "The county component of a mailing address"
+  example: District of Columbia
 "$ADDRESS_ZIP5":
   description: The 5-digit primary zip code of a mailing address
+  example: "20500"
 "$ADDRESS_ZIP4":
   description: The 4-digit secondary component of a mailing address
+  example: "0003"
 "$ADDRESS_ZIP_PLUS_4":
   description: A concatenation of zip codes separated with a hyphen
+  example: "20500-0003"
 "$PHONE":
   description: A 10 or 11 digit telephone number
+  example: "202-555-1234"
+"$PHONE_PARENTHESES":
+  description: A 10 or 11 digit telephone number with parentheses around the area code
+  example: "(202) 555-1234"
 "$EMAIL":
   description: Primary email address
+  example: thepresident@example.com
 "$TOPIC":
   description: The issue area a contact message pertains to
+  example: Budget
 "$SUBJECT":
   description: The subject line of a contact message
+  example: Testing
 "$MESSAGE":
   description: The body of a contact message
+  example: Hello World!
 "$CAPTCHA_SOLUTION":
   description: The solution to a CAPTCHA challenge
+"$CAMPAIGN_UUID":
+  description: "A UUID representing an email 'Campaign' -- For topical campaigns, such as support or opposition to a bill, the value submitted on behalf of each user should hold constant"
+  example: test
+"$PERMALINK":
+  description: "A permalink to the contact attempt, if displayed publicly"
+  example: ~
+"$ORG_URL":
+  description: "The url of the organization who's submitting on the writer's behalf"
+  example: http://example.com
+"$ORG_NAME":
+  description: "The name of the organization who's submitting on the writer's behalf"
+  example: Test Foundation
+

@@ -1,0 +1,151 @@
+bioguide: M001169
+contact_form:
+  method: POST
+  action: http://www.murphy.senate.gov/contact
+  steps:
+    - visit: http://www.murphy.senate.gov/contact
+    - select:
+      - name: topic
+        selector: "#topic"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Academy Nominations"
+          - "Adoption"
+          - "Aging and Seniors"
+          - "Agriculture"
+          - "Animal Rights"
+          - "Appropriations"
+          - "Arts"
+          - "Budget"
+          - "Campaign Finance"
+          - "Casework"
+          - "Children/Family/Adoption"
+          - "Civil Rights"
+          - "Commemorative/Congratulatory/Memorative"
+          - "Commerce"
+          - "Congressional Issues"
+          - "Crime"
+          - "Defense"
+          - "Education Higher"
+          - "Education K through 12"
+          - "Elections"
+          - "Energy"
+          - "Environment"
+          - "Financial Services"
+          - "Flag Requests"
+          - "Foreclosures"
+          - "Foreign Affairs"
+          - "Government Reform"
+          - "Gun Control"
+          - "Health"
+          - "Health Insurance"
+          - "Homeland Security"
+          - "Housing"
+          - "Illegal Drugs"
+          - "Immigration"
+          - "Indian Affairs"
+          - "Intellectual Property/Patents"
+          - "Interior/Forestry"
+          - "Internships"
+          - "Jobs"
+          - "Judiciary"
+          - "Labor"
+          - "LIHEAP"
+          - "Local Issues"
+          - "Medicare/Medicaid"
+          - "Military"
+          - "Miscellaneous"
+          - "Nutrition"
+          - "Pensions"
+          - "Prescription Drugs"
+          - "Presidential Greetings"
+          - "Reproductive Rights"
+          - "Science and Space"
+          - "Small Business"
+          - "Social Security"
+          - "Taxes"
+          - "Telecommunications"
+          - "Tobacco"
+          - "Tours and Tickets"
+          - "Trade"
+          - "Transportation"
+          - "Veterans"
+          - "Welfare/Food Stamps"
+    - find:
+      - selector: "#continue-form"
+    - fill_in:
+      - name: fname
+        selector: "#fname"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lname
+        selector: "#lname"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: mailing_streetAddress1
+        selector: "#mailing_streetAddress1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: mailing_streetAddress2
+        selector: "#mailing_streetAddress2"
+        value: "$ADDRESS_STREET_2"
+      - name: mailing_city
+        selector: "#mailing_city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: mailing_zipCode
+        selector: "#mailing_zipCode"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone_number
+        selector: "#phone_number"
+        value: "$PHONE"
+        required: Yes
+      - name: email_address
+        selector: "#email"
+        value: "$EMAIL"
+        required: Yes
+      - name: verify_email
+        selector: "#verify_email"
+        value: "$EMAIL"
+        required: Yes
+      - name: subject
+        selector: "#subject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: message
+        selector: "#message"
+        value: "$MESSAGE"
+        required: Yes
+      - name: mname
+        selector: "#mname"
+        value: ""
+    - select:
+      - name: salutation
+        selector: "#salutation"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Ms."
+          - "Mrs."
+          - "Miss"
+          - "Dr."
+      - name: mailing_state
+        selector: "#mailing_state"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+    - check:
+      - name: response
+        selector: "#response_y"
+        value: Yes
+    - click_on:
+      - value: Submit
+        selector: "#side-search-btn"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thanks for taking the time to share your thoughts with me"

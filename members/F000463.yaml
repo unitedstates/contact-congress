@@ -1,0 +1,96 @@
+bioguide: F000463
+contact_form:
+  method: POST
+  action: http://www.fischer.senate.gov/public/?p=email-deb
+  steps:
+    - visit: http://www.fischer.senate.gov/public/?p=email-deb
+    - fill_in:
+      - name: field_54f8542e-f6db-417c-9677-e57f2f190899
+        selector: "#field_54f8542e-f6db-417c-9677-e57f2f190899"
+        value: "$NAME_PREFIX"
+      - name: field_2a913e5f-016d-49ca-b284-b4a1b186f01d
+        selector: "#field_2a913e5f-016d-49ca-b284-b4a1b186f01d"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_2e235441-e702-4d0d-a75b-85d6f316586c
+        selector: "#field_2e235441-e702-4d0d-a75b-85d6f316586c"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_22790971-8cb2-4478-9b93-c3ec8aa88912
+        selector: "#field_22790971-8cb2-4478-9b93-c3ec8aa88912"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_9109e448-ecfb-440d-a3a9-8bea21e116cd
+        selector: "#field_9109e448-ecfb-440d-a3a9-8bea21e116cd"
+        value: "$ADDRESS_STREET_2"
+      - name: field_240e9b49-c4d2-44cf-830e-298c55a40443
+        selector: "#field_240e9b49-c4d2-44cf-830e-298c55a40443"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_0c3f47bf-cec6-4900-b077-223949219c54
+        selector: "#field_0c3f47bf-cec6-4900-b077-223949219c54"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_e4cde960-384d-4aed-ba80-2e2be81190e6
+        selector: "#field_e4cde960-384d-4aed-ba80-2e2be81190e6"
+        value: "$PHONE"
+      - name: field_c3e69c90-7d25-46bb-afd5-1f126572e8a7
+        selector: "#field_c3e69c90-7d25-46bb-afd5-1f126572e8a7"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_6eb9e15b-f29d-4876-9f0f-53e314172579
+        selector: "#field_6eb9e15b-f29d-4876-9f0f-53e314172579"
+        value: "$SUBJECT"
+        required: Yes
+      - name: field_bff13ea3-37ad-467a-bb61-750f5cce59e8
+        selector: "#field_bff13ea3-37ad-467a-bb61-750f5cce59e8"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_0e17a2a5-90f2-490e-9f1c-0b940ef4f4b2
+        selector: "#field_0e17a2a5-90f2-490e-9f1c-0b940ef4f4b2"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_30da42c5-f1dd-4674-8c1d-6e047a20a190
+        selector: "#field_30da42c5-f1dd-4674-8c1d-6e047a20a190"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "noSelect"
+          - "Agriculture"
+          - "Banking"
+          - "Budget"
+          - "Defense"
+          - "Economy"
+          - "Education"
+          - "Energy"
+          - "Environment"
+          - "Government"
+          - "Foreign Affairs"
+          - "Health"
+          - "Housing"
+          - "Immigration"
+          - "Intelligence"
+          - "Judiciary"
+          - "Labor"
+          - "Healthcare"
+          - "Science and Technology"
+          - "Senior Issues"
+          - "Small Business"
+          - "Social Security"
+          - "Taxes"
+          - "Communications"
+          - "Trade"
+          - "Transportation"
+          - "Veterans"
+          - "Welfare"
+          - "Other"
+    - click_on:
+      - value: Submit
+        selector: ".btn-primary"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting me"

@@ -1,0 +1,92 @@
+bioguide: L000571
+contact_form:
+  method: get
+  action: /Contact/ContactForm.htm
+  steps:
+    - visit: "http://lummis.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - fill_in:
+        - name: required-first
+          selector: "#firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#lastname"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: required-email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "form.custom_form[name='contact'] input[name='phone']"
+          value: $PHONE
+          required: false
+        - name: required-message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#subject"
+          value: $SUBJECT
+          required: true
+          options:
+            Agriculture: AGRI
+            Animal rights: ANML
+            Arts: ARTS
+            Banking/Insurance: BANK
+            Budget: BUD
+            Children: CLD
+            Civil Rights: CVL
+            Economic Development: ECONDV
+            Energy: ENR
+            Environment: ENV
+            Education: EDU
+            Foreign Affairs: FAFF
+            Government Reform/Ethics/Transparency: REF
+            Government Spending: GF
+            Healthcare: HLTH
+            Homeland Security: HOME
+            Housing: HOUS
+            Immigration: IMM
+            Labor: LBR
+            Military/Defense: DEF
+            Native Americans: NATIV
+            Science: SCI
+            Social Security/Retirement/Pensions: SS
+            Tax: TAX
+            Telecom: COMM
+            Trade: TRD
+            Transportation/Infrastructure: TRAN
+            Veterans: VET
+            Welfare/Homelessness/Poverty/Unemployment: POV
+            "Women's Issues": WM
+            Other-not Listed: OTHER
+    - click_on:
+        - value: Submit
+          selector: "form.custom_form[name='contact'] input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for sending me your email.

@@ -4,7 +4,7 @@ This document describes how we're currently translating the process of filling o
 
 This is a working document in that the schema is evloving. While we've based this format heavily on the [Capybara](http://jnicklas.github.io/capybara/) testing framework for ruby, we haven't gotten into the full swing of using the format yet, so things are subject to change **([and open to suggestions!](https://github.com/unitedstates/congress-contact/issues))**
 
-You can [jump to the example](#example) if you just want a quick reference.
+You can [jump to the examples](#examples) if you just want a quick reference.
 
 ---
 
@@ -33,7 +33,7 @@ a subset of [Capybara methods](http://rubydoc.info/github/jnicklas/capybara/mast
 - [`find`](#find): Locating a selector on the page, an indication that no further 
     steps should be executed until the selector is present and visible.
 - [`fill_in`](#fill_in): Entering text into a text `input` or `textarea`.
-- [`select`](#select): Choosing a value from a `select` list.
+- [`select`](#select): Choosing a value from a `select` list.  If this value isn't found, choose an option with the text matching the value of `value` in the YAML file.  (This is so that we can choose options by text, since some forms do not include `value` attributes.)
 - [`check`](#checkuncheckchoose): Ticking a checkbox `input`.
 - [`uncheck`](#checkuncheckchoose) The opposite of `check`.
 - [`choose`](#checkuncheckchoose) Ticking a specific item in a set of radio 
@@ -104,7 +104,7 @@ A click_on step terminates the preceding list of input-related steps, by submitt
 
 ---
 
-## Example
+## Examples
 
 To put it all together, let's do a google search for our last name as an example:
 
@@ -126,4 +126,10 @@ contact_form:
     body:
       contains: "results ("
 ```
+
+Here is a list of examples that may help you:
+- [Handling Captchas](https://github.com/unitedstates/contact-congress/blob/master/support/recaptcha-noscript.yaml)
+- [Handling non human readable options](https://github.com/unitedstates/contact-congress/blob/master/members/S000033.yaml)
+- [Handling radio buttons](https://github.com/unitedstates/contact-congress/blob/master/members/H001049.yaml) - checkboxes are the same concept except with "- check"
+- [Finding created forms](https://github.com/unitedstates/contact-congress/blob/master/members/I000024.yaml)
       

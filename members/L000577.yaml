@@ -1,0 +1,84 @@
+bioguide: L000577
+contact_form:
+  method: POST
+  action: http://www.lee.senate.gov/public/index.cfm/contact
+  steps:
+    - visit: http://www.lee.senate.gov/public/index.cfm/contact
+    - fill_in:
+      - name: field_2a51781a-213d-4dc2-9293-3efed302483e
+        selector: "#field_2a51781a-213d-4dc2-9293-3efed302483e"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_1b394f62-2287-4028-830b-803d149d560f
+        selector: "#field_1b394f62-2287-4028-830b-803d149d560f"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_0c59597d-7e2c-417d-a1a0-3f0f251d2dcf
+        selector: "#field_0c59597d-7e2c-417d-a1a0-3f0f251d2dcf"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_47aed200-7fb8-4632-9245-6f8c0a4c9af2
+        selector: "#field_47aed200-7fb8-4632-9245-6f8c0a4c9af2"
+        value: "$ADDRESS_STREET_2"
+      - name: field_c0ccf7df-2f14-4e1c-9a70-7d76feead56a
+        selector: "#field_c0ccf7df-2f14-4e1c-9a70-7d76feead56a"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_46120286-e428-43a6-b615-8c2d10c7b85c
+        selector: "#field_46120286-e428-43a6-b615-8c2d10c7b85c"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_b30bf750-620c-463a-abe4-96a152981195
+        selector: "#field_b30bf750-620c-463a-abe4-96a152981195"
+        value: "$PHONE"
+      - name: field_ff2cc3a1-aa06-464f-9547-0ddd5b8a51ad
+        selector: "#field_ff2cc3a1-aa06-464f-9547-0ddd5b8a51ad"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_f346ae03-8294-4f38-b762-fce94ed239af
+        selector: "#field_f346ae03-8294-4f38-b762-fce94ed239af"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_99a9d53f-bc16-428f-8d09-a237c733995d
+        selector: "#field_99a9d53f-bc16-428f-8d09-a237c733995d"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_7572e5ca-9879-4ab3-9c06-24514d6b57f4
+        selector: "#field_7572e5ca-9879-4ab3-9c06-24514d6b57f4"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Agriculture/Forestry": "Agriculture & Forestry"
+          "Appropriations": "Appropriations"
+          "Banking": "Banking"
+          "Boy Scout Letter": "Boy Scout Letter"
+          "Budget/Finance,Economy/Jobs": "Budget"
+          "Education": "Education"
+          "Energy Independence": "Energy"
+          "Environment": "Environment"
+          "Gun Rights": "Gun Rights"
+          "Healthcare": "Healthcare Reform"
+          "Immigration/Border Security": "Immigration/Border Security"
+          "Indian Affairs": "Indian Affairs (incl.gaming, sovereignty, health, housing, etc.)"
+          "Judiciary": "Judiciary (judicial nominations)"
+          "Labor/Pensions": "Labor/Federal Employees/Pensions (minimum wage)"
+          "National Security": "Anti-Terrorism"
+          "Public Lands": "Public Lands (ANWR, Otero Mesa, etc.)"
+          "Small Business": "Small Business/Economic Development"
+          "Social Security": "Social Security"
+          "Technology": "Internet Issues"
+          "Trade": "Trade (NAFTA, CAFTA, SPP, etc.)"
+          "Transportation": "Transportation"
+          "Religion/Human Rights": "Religious / Human Rights"
+          "NASA/Science Issues": "NASA"
+          "MIlitary/Defense": "Military Issues"
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting me"

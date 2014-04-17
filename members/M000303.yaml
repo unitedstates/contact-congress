@@ -1,0 +1,113 @@
+bioguide: M000303
+contact_form:
+  method: POST
+  action: http://www.mccain.senate.gov/public/index.cfm/contact-form
+  steps:
+    - visit: http://www.mccain.senate.gov/public/index.cfm/contact-form
+    - fill_in:
+      - name: field_d5a73635-88fa-4b32-b8b5-274d2f97d77e
+        selector: "#field_d5a73635-88fa-4b32-b8b5-274d2f97d77e"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_530365c1-9d19-4874-8e05-15cf67df77fa
+        selector: "#field_530365c1-9d19-4874-8e05-15cf67df77fa"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_9f996d75-2053-4808-a6cb-fa827927f477
+        selector: "#field_9f996d75-2053-4808-a6cb-fa827927f477"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_e6cb6a76-6a8f-4611-927b-ca2b46c7b911
+        selector: "#field_e6cb6a76-6a8f-4611-927b-ca2b46c7b911"
+        value: "$ADDRESS_STREET_2"
+      - name: field_cdb2c870-0a38-4862-9ba2-83b5e7099e4c
+        selector: "#field_cdb2c870-0a38-4862-9ba2-83b5e7099e4c"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_edcb31bc-046a-4ced-af15-678947ac8be8
+        selector: "#field_edcb31bc-046a-4ced-af15-678947ac8be8"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_47697f5b-b18a-4d75-a6eb-0b5d92cd9ee5
+        selector: "#field_47697f5b-b18a-4d75-a6eb-0b5d92cd9ee5"
+        value: "$PHONE"
+      - name: field_c3328bb8-9b28-4dd9-8db4-a758a4cb35e4
+        selector: "#field_c3328bb8-9b28-4dd9-8db4-a758a4cb35e4"
+        value: "$PHONE"
+      - name: field_775ed1f8-c016-4685-9e4f-785268d148a6
+        selector: "#field_775ed1f8-c016-4685-9e4f-785268d148a6"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_5d52282e-1edb-4cd7-abb8-5f940bdb0ea1
+        selector: "#field_5d52282e-1edb-4cd7-abb8-5f940bdb0ea1"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_fabf1d80-94c6-4e2f-a4b6-6a1ffd08b5c4
+        selector: "#field_fabf1d80-94c6-4e2f-a4b6-6a1ffd08b5c4"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Reverend"
+          - "Sister"
+          - "Pastor"
+          - "The Honorable"
+          - "Representative"
+          - "Senator"
+      - name: field_aa5ae151-f62d-4151-af76-58a5be236f25
+        selector: "#field_aa5ae151-f62d-4151-af76-58a5be236f25"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_7a47a752-056a-4df4-9782-5782f68587c0
+        selector: "#field_7a47a752-056a-4df4-9782-5782f68587c0"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "2nd Amendment": "JUGU"
+          "Agriculture": "AGGE"
+          "Appropriations": "APGE"
+          "Banking and Finance": "BAGE"
+          "Budget": "BUGE"
+          "Commerce and Business": "CBGE"
+          "Communications": "CMGE"
+          "Crime": "CRGE"
+          "Defense": "DEGE"
+          "Economy": "ECGE"
+          "Education": "EDGE"
+          "Energy": "ERGE"
+          "Environment": "EVGE"
+          "Foreign Affairs": "FOGE"
+          "Foreign Trade": "FTGE"
+          "Health": "HEGE"
+          "Housing": "HOGE"
+          "Immigration": "IMGE"
+          "Indian Affairs": "INGE"
+          "Interior": "ITGE"
+          "Judiciary": "JUGE "
+          "Labor": "LAGE"
+          "Medicare": "MEGE"
+          "Postal Service": "POGE"
+          "Science and Technology": "SIGE"
+          "Eagle Scout": "SCEA"
+          "Small Business": "SMGE"
+          "Social Security": "SOGE"
+          "Taxes": "TAGE"
+          "Thank You": "THGE"
+          "Transportation": "TRGE"
+          "Veterans Affairs": "VAGE"
+          "Wildlife": "WIGE"
+    - click_on:
+      - value: Submit
+        selector: ".btn-primary"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank You!"

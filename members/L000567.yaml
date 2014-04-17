@@ -1,0 +1,97 @@
+bioguide: L000567
+contact_form:
+  method: post
+  action: /contact-me1/
+  steps:
+    - visit: "https://lance.house.gov/contact-me1"
+    - fill_in:
+        - name: prefix
+          selector: "#req_prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#custom_form20 input[name='street2']"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: phone
+          selector: "#req_phone"
+          value: $PHONE
+          required: true
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: msg
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: state
+          selector: "#req-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            NJ: NJ
+        - name: subject
+          selector: "#req_subject"
+          value: $TOPIC
+          required: true
+          options:
+            "Please select one:": No Issue Selected
+            Agriculture: WEBAGR
+            Budget: WEBBUD
+            Defense: WEBDEF
+            Education: WEBEDU
+            Energy: WEBENE
+            Environmental: WEBENV
+            International Relations: WEBINT
+            Government Reform: WEBGOV
+            Health: WEBHEA
+            Homeland Security: WEBHOM
+            Housing and Community Development: WEBHUD
+            Immigration: WEBIMM
+            Judiciary: WEBJUD
+            Labor: WEBLABOR
+            Resources: WEBRSC
+            Science: WEBSCI
+            Small Business: WEBSBUS
+            Social Issues: WEBSOC
+            Social Security: WEBSSEC
+            Telecommunications: WEBTEL
+            Taxes and Trade: WEBTAX
+            Transportation: WEBTRA
+            Veterans: WEBVET
+            Welfare: WEBWEL
+            Other: WEBOTH
+    - click_on:
+        - value: Send Email
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: The following information has been submitted.

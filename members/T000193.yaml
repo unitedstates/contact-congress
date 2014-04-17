@@ -1,0 +1,86 @@
+bioguide: T000193
+contact_form:
+  method: post
+  action: "/htbin/formproc/benniethompson/webforms/contact_form_file.txt&display=/webforms/thank-you.shtml"
+  steps:
+    - visit: "https://forms.house.gov/benniethompson/contact-form.shtml"
+    - fill_in:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: "#zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#contactForm input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-email
+          selector: "#required-email"
+          value: $EMAIL
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#subject"
+          value: $SUBJECT
+          required: true
+          options:
+            Agriculture: AG
+            Budget: BUD
+            Defense: DEF
+            Economy: ECONOMY
+            Education and Labor: EDUCATION
+            Energy: EN
+            Environmental: ENV
+            Greeting Request: GREETING_REQUEST
+            Government Reform: GOV
+            Health: HE
+            Homeland Security: HOMELAND SECURITY
+            Immigration: IMMIGRATION
+            International Relations: INTERNATIONAL
+            Judicial: JUD
+            Photo Request: PHOTO_REQUEST
+            Scheduling Request: SCHEDULING_REQUEST
+            Social Issues: SOC
+            Social Security: SS
+            Taxes and Trade: TAX
+            Telecommunications: TEL
+            Tour Request: TOUR_REQUEST
+            Transportation: TRANSPORTATION
+            Veterans: VET
+            Welfare: WELF
+            Other: OTHER
+    - click_on:
+        - value: Send Email
+          selector: "#contactForm input[name='submit2']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your correspondence.

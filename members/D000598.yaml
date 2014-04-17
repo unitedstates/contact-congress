@@ -1,0 +1,111 @@
+bioguide: D000598
+contact_form:
+  method: POST
+  action: 
+  steps:
+    - visit: https://susandavisforms.house.gov/forms/writeyourrep/
+    - select:
+      - name: ctl00$ctl09$PrefixList
+        selector: "#ctl00_ctl09_PrefixList"
+        value: "$NAME_PREFIX"
+        options:
+          - "Mr." : "Mr."
+          - "Miss" : "Miss"
+          - "Ms." : "Ms."
+          - "Mrs." : "Mrs."
+          - "Dr." : "Dr."
+        required: Yes
+      - name: ctl00$ctl09$State
+        selector: "#ctl00_ctl09_State"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        options: US_STATES
+        required: Yes
+      - name: ctl00$ctl09$IssuesList
+        selector: "#ctl00_ctl09_IssuesList"
+        value: $TOPIC
+        required: Yes
+        options:
+          - "None" : ""
+          - "Animal Welfare" : "9848"
+          - "arts" : "9968"
+          - "Budget/Economy" : "8441"
+          - "Casework Request" : "8440"
+          - "Choice" : "8439"
+          - "Civil Rights" : "8438"
+          - "Defense/Military" : "8443"
+          - "Education" : "8437"
+          - "Elections" : "8442"
+          - "Energy" : "8444"
+          - "Environment" : "8436"
+          - "FDA" : "9917"
+          - "Foreign Affairs" : "8435"
+          - "General Government" : "8448"
+          - "Health Care" : "8449"
+          - "Housing" : "8450"
+          - "Immigration" : "8451"
+          - "Judiciary/Crime" : "8452"
+          - "Labor and Union" : "8453"
+          - "Other" : "8666"
+          - "Other Concerns" : "8461"
+          - "Social Security" : "8454"
+          - "Technology/Internet" : "8455"
+          - "Trade" : "8456"
+          - "Transportation" : "8457"
+          - "Veterans" : "8458"
+          - "Welfare" : "8460"
+          - "Women's Issues" : "8459"
+    - fill_in:
+      - name: ctl00$ctl09$FirstName
+        selector: "#ctl00_ctl09_FirstName"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: ctl00$ctl09$LastName
+        selector: "#ctl00_ctl09_LastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: ctl00$ctl09$Street
+        selector: "#ctl00_ctl09_Street"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: ctl00$ctl09$City
+        selector: "#ctl00_ctl09_City"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: ctl00$ctl09$Zip 
+        selector: "#ctl00_ctl09_Zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: ctl00$ctl09$Phone
+        selector: "#ctl00_ctl09_Phone"
+        value: "$PHONE"
+        required: Yes
+      - name: ctl00$ctl09$Email
+        selector: "#ctl00_ctl09_Email"
+        value: "$EMAIL"
+        required: Yes
+      - name: ctl00$ctl09$Subject
+        selector: "#ctl00_ctl09_Subject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: ctl00$ctl09$Body
+        selector: "#ctl00_ctl09_Body"
+        value: "$MESSAGE"
+        required: Yes
+    - choose:
+      - name: ctl00$ctl09$ReplyChoice
+        selector: "#ctl00_ctl09_ReplyChoice_0"
+        value: "yes"
+        required: Yes
+    - check:
+      - name: ctl00$ctl09$SubscribeChoice
+        selector: "#ctl00_ctl09_SubscribeChoice"
+        value: "yes"
+        required: Yes
+    - click_on:
+      - value: Submit
+        selector: "#ctl00_ctl09_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for taking the time to share your thoughts with me."

@@ -1,0 +1,88 @@
+bioguide: J000293
+contact_form:
+  method: POST
+  action: http://www.ronjohnson.senate.gov/public/index.cfm/contact
+  steps:
+    - visit: http://www.ronjohnson.senate.gov/public/index.cfm/contact
+    - fill_in:
+      - name: field_252e85f4-2fe5-4d71-8e62-9df6919d1ab8
+        selector: "#field_252e85f4-2fe5-4d71-8e62-9df6919d1ab8"
+        value: "$NAME_PREFIX"
+      - name: field_ac036d04-8d06-4d4c-bcad-4c0d66c7c34e
+        selector: "#field_ac036d04-8d06-4d4c-bcad-4c0d66c7c34e"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_7eef1fe1-3d81-4d19-a76f-cf33c2a30826
+        selector: "#field_7eef1fe1-3d81-4d19-a76f-cf33c2a30826"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_94d4b402-7674-450b-90a6-0078f36313ff
+        selector: "#field_94d4b402-7674-450b-90a6-0078f36313ff"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_8a8a4b80-5131-4ec0-8148-75efe5075229
+        selector: "#field_8a8a4b80-5131-4ec0-8148-75efe5075229"
+        value: "$ADDRESS_STREET_2"
+      - name: field_7f0b420d-88de-4310-973f-0d16736688cc
+        selector: "#field_7f0b420d-88de-4310-973f-0d16736688cc"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_acf15530-9220-49be-86f4-5e8d51c49324
+        selector: "#field_acf15530-9220-49be-86f4-5e8d51c49324"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_beb949a7-79b1-4a0e-80c2-2275c551866a
+        selector: "#field_beb949a7-79b1-4a0e-80c2-2275c551866a"
+        value: "$PHONE"
+      - name: field_4a5576fa-7ed1-4ad0-8f54-e50fd425edeb
+        selector: "#field_4a5576fa-7ed1-4ad0-8f54-e50fd425edeb"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_fe704981-7f09-46c3-884f-1e10c4de29ee
+        selector: "#field_fe704981-7f09-46c3-884f-1e10c4de29ee"
+        value: "$SUBJECT"
+        required: Yes
+      - name: field_24b273cc-4761-49a6-ac70-cbcacccad0da
+        selector: "#field_24b273cc-4761-49a6-ac70-cbcacccad0da"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: field_f062734c-8f9c-4e35-8a6d-e8c120afcdf8
+        selector: "#field_f062734c-8f9c-4e35-8a6d-e8c120afcdf8"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_f33b2309-b7af-40ca-aaf8-e40952fff259
+        selector: "#field_f33b2309-b7af-40ca-aaf8-e40952fff259"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Casework (Help With a Federal Agency)": "CASEWORK"
+          "Agriculture": "AGR"
+          "Budget": "BUD"
+          "Defense": "DEF"
+          "Economy & Jobs": "ECO"
+          "Education and Labor": "EDU"
+          "Energy": "ENE"
+          "Environmental": "ENV"
+          "Governmental Reform": "GOV"
+          "Health": "HEA"
+          "Homeland Security": "HOM"
+          "Immigration": "IMM"
+          "International Relations": "INT"
+          "Judiciary": "JUD"
+          "Social Issues": "SOC"
+          "Social Security": "SSEC"
+          "Taxes and Trade": "TAX"
+          "Telecommunications": "TEL"
+          "Transportation": "TRA"
+          "Veterans": "VET"
+          "Welfare": "WEL"
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for sharing your opinions and concerns with me"

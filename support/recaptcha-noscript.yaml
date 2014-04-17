@@ -1,0 +1,15 @@
+steps:
+  - visit:
+    - src_selector: "iframe[src*='google.com/recaptcha/api']"
+  - fill_in:
+    - name: recaptcha_response_field
+      selector: "#recaptcha_response_field"
+      captcha_selector: img
+      captcha_id_selector: "#recaptcha_challenge_field"
+      value: $CAPTCHA_SOLUTION
+      required: Yes
+  - click_on:
+      - value: "I'm a human"
+        selector: "input[type=submit]"
+  - find:
+      - selector: "textarea"

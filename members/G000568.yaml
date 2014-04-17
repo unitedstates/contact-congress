@@ -1,0 +1,100 @@
+bioguide: G000568
+contact_form:
+  method: POST
+  action: "https://morgangriffith.house.gov/contact/submit-contact.aspx"
+  steps:
+    - visit: https://morgangriffith.house.gov/contact/contactform.htm
+    - fill_in:
+      - name: required-first
+        selector: "input[title='First Name']"
+        value: $NAME_FIRST
+        required: Yes
+      - name: required-last
+        selector: "input[title='Last Name']"
+        value: $NAME_LAST
+        required: Yes
+      - name: required-address
+        selector: "input[title='Address']"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: required-city
+        selector: "input[title='City']"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: zip5
+        selector: "input[title='Zip']"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: zip4
+        selector: "input[name='zip4']"
+        value: $ADDRESS_ZIP4
+      - name: required-email
+        selector: "input[title='Email']"
+        value: $EMAIL
+        required: Yes
+      - name: phone
+        selector: "input[title='Phone']"
+        value: $PHONE
+        required: yes
+      - name: subject
+        selector: "input[name='subject']"
+        value: $SUBJECT
+      - name: required-message
+        selector: "textarea[title='Message']"
+        value: $MESSAGE
+        required: Yes
+    - select:
+      - name: required-prefix
+        selector: "select[title='Prefix']"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+          - "Dr."
+          - "Mr."
+          - "Ms."
+          - "Mrs."
+          - "Miss"
+          - "Rev."
+          - "Hon."
+    - select:
+      - name: required-issue
+        selector: "select[title='Issue']"
+        value: $TOPIC
+        required: Yes
+        options:
+          "Agriculture" : "AG"
+          "Banking" : "BAN"
+          "Budget" : "BUD"
+          "Defense" : "DEF"
+          "Economy" : "ECON"
+          "Education" : "ED"
+          "Energy" : "EN"
+          "Environment/Resources" : "ENV"
+          "Family Values" : "FMV"
+          "Government Reform" : "GOV"
+          "Health" : "HE"
+          "Homeland Security" : "DHS"
+          "Immigration" : "HUD"
+          "International Relations" : "INTREL"
+          "Judiciary/Constitution" : "JUD"
+          "Labor/Pensions" : "LABOR"
+          "Science/Space" : "SCI"
+          "Small Business" : "SMB"
+          "Social Security" : "SS"
+          "Taxes" : "TAX"
+          "Trade" : "TRADE"
+          "Telecommunications" : "TEL"
+          "Transportation/Infrastructure" : "TRAN"
+          "Veteran Affairs" : "VET"
+          "Welfare" : "WEL"
+          "Other" : "GEN"
+    - click_on:
+      - value: "Send Email"
+        selector: "#contact input[type='submit']"
+    - find:
+      - selector: "#ctl00_ctl09_ctl00_Text"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank"

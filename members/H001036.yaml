@@ -1,0 +1,111 @@
+bioguide: H001036
+contact_form:
+  method: post
+  action: "https://hensarling.house.gov/htbin/formproc_za.pl?/hensarling/zip-auth.txt&form=/contact/email-me-zip-authenticated.shtml&nobase&fpGetVer=2&fpGetVer=2"
+  steps:
+    - visit: "https://hensarling.house.gov/contact/email-me.shtml"
+    - fill_in:
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go To Next Step
+          selector: "#Submit"
+    - find:
+        - selector: "form.validate[name='contactForm']"
+    - fill_in:
+        - name: required-firstname
+          selector: "#required-firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: required-lastname
+          selector: "#required-lastname"
+          value: $NAME_LAST
+          required: true
+        - name: required-address1
+          selector: "#required-address1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: required-messagebody
+          selector: "#required-messagebody"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - "Mr & Mrs."
+            - Ms.
+            - Dr.
+        - name: required-subject
+          selector: "#subject"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: ABR
+            Aging / Seniors: SOC
+            Agriculture: AGR
+            Arts / Humanities: ART
+            Banking / Finance: BNK
+            Budget: BUD
+            Civil Rights: CIV
+            Commerce: CMR
+            Communications / Technology: TCM
+            Defense: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENR
+            Environment: ENV
+            Financial Services: FIN
+            Foreign Affairs: FRN
+            Health: HEL
+            Housing: HUD
+            Human Services: HHS
+            Immigration: IMM
+            Interior: INT
+            Judiciary: JUD
+            Labor: LAB
+            Science / Space: SCI
+            Social Security: SOC
+            Taxes: TAX
+            Trade: TRD
+            Transportation: TRN
+            Veterans: VET
+            Other: OTHER
+    - check:
+        - name: required-forums
+          selector: "#forums_x"
+          value: No Change
+    - click_on:
+        - value: Send Message
+          selector: "form.validate[name='contactForm'] input[name='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "The following information has been submitted:"

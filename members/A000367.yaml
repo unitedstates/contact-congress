@@ -1,0 +1,114 @@
+bioguide: A000367
+contact_form:
+  method: POST
+  action: "https://amash.house.gov/htbin/formproc_za/zip-auth.txt&amp;form=/contact-me/email-me-zip-authenticated&amp;nobase&amp;fpGetVer=2"
+  steps:
+    - visit: "https://amash.house.gov/contact-me/email-me"
+    - fill_in: 
+      - name: required-zip5
+        selector: "#required-zip5"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: zip4
+        selector: "#zip4"
+        value: $ADDRESS_ZIP4
+        required: Yes
+    - click_on:
+      - value: "Go To Next Step"
+        selector: "#submit"
+    - find:
+      - selector: "#contactForm"
+    - fill_in:
+      - name: required-prefix
+        selector: "#required-prefix"
+        value: $NAME_PREFIX
+        required: Yes
+      - name: required-first
+        selector: "#required-first"
+        value: $NAME_FIRST
+        required: Yes
+      - name: required-last
+        selector: "#required-last"
+        value: $NAME_LAST
+        required: Yes
+      - name: required-address
+        selector: "#required-address"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: address2
+        selector: "#address2"
+        value: $ADDRESS_STREET_2
+      - name: required-city
+        selector: "#required-city"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: required-valid-email
+        selector: "#required-valid-email"
+        value: $EMAIL
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: $PHONE
+      - name: required-subject
+        selector: "#required-subject"
+        value: $SUBJECT
+        required: Yes
+      - name: required-message
+        selector: "#required-message"
+        value: $MESSAGE
+        required: Yes
+    - select:
+      - name: required-issue
+        selector: "#required-issue"
+        value: $TOPIC
+        required: Yes
+        options:
+          "Agriculture": "WEB-AGR"
+          "Animals": "WEB-ANM"
+          "Arts and Humanities": "WEB-ART"
+          "Banking and Finance": "WEB-FIN"
+          "Budget and Appropriations": "WEB-BUD"
+          "Campaign Finance Reform": "WEB-CFR"
+          "Criminal Justice": "WEB-CRJ"
+          "Defense and Military": "WEB-DEF"
+          "Economy": "WEB-ECON"
+          "Education": "WEB-EDU"
+          "Energy": "WEB-ENG"
+          "Environment": "WEB-ENV"
+          "Governmental Reform": "WEB-GOV"
+          "Health Care": "WEB-HEA"
+          "Immigration": "WEB-IMM"
+          "International Affairs": "WEB-INT"
+          "Labor": "WEB-LAB"
+          "Life": "WEB-LIFE"
+          "National Security": "WEB-NSEC"
+          "Other": "WEB-OTHER"
+          "Science and Technology": "WEB-TCH"
+          "Second Amendment": "WEB-GUNS"
+          "Social Issues": "WEB-SOC"
+          "Taxes": "WEB-TAX"
+          "Telecommunications": "WEB-TEL"
+          "Transportation": "WEB-TRA"
+          "Veterans": "WEB-VET"
+          "Welfare": "WEB-WEL"
+          "Women's Issues": "WEB-WOM"
+      - name: required-answer
+        selector: "#required-answer"
+        value: "Response Needed"
+        required: Yes
+        options:
+          "No Response Needed": "NRN"
+          "Response Needed": "Response Needed"
+    - choose:
+      - name: "affl1_2"
+        selector: "#affl1_2"
+        value: "No Action"
+        required: Yes
+    - click_on:
+      - value: "Send Email"
+        selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank"

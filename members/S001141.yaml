@@ -1,0 +1,114 @@
+bioguide: S001141
+contact_form:
+  method: POST
+  action: "index.cfm?FuseAction=ConstituentServices.ContactSubmitNew&CFID=63425015&CFTOKEN=50685883"
+  steps:
+    - visit: http://www.sessions.senate.gov/public/index.cfm?FuseAction=ConstituentServices.ContactMe
+    - fill_in:
+      - name: firstName
+        selector: "form[name='ContactForm'] input[name='firstName']"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "form[name='ContactForm'] input[name='lastName']"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: address1
+        selector: "form[name='ContactForm'] input[name='address1']"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: address2
+        selector: "form[name='ContactForm'] input[name='address2']"
+        value: "$ADDRESS_STREET_2"
+      - name: city
+        selector: "form[name='ContactForm'] input[name='city']"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: zipCode
+        selector: "form[name='ContactForm'] input[name='zipCode']"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: homePhone
+        selector: "form[name='ContactForm'] input[name='homePhone']"
+        value: "$PHONE"
+        required: Yes
+      - name: workPhone
+        selector: "form[name='ContactForm'] input[name='workPhone']"
+        value: "$PHONE"
+      - name: email
+        selector: "form[name='ContactForm'] input[name='email']"
+        value: "$EMAIL"
+        required: Yes
+      - name: message
+        selector: "#myMessage"
+        value: "$MESSAGE"
+        required: Yes
+      - name: captcha_validate
+        selector: "form[name='ContactForm'] input[name='captcha_validate']"
+        captcha_selector: "form[name='ContactForm'] img[alt='Captcha Image']"
+        captcha_id_selector: "form[name='ContactForm'] input[name='captcha_hash']"
+        value: "$CAPTCHA_SOLUTION"
+    - select:
+      - name: prefix
+        selector: "form[name='ContactForm'] select[name='prefix']"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          " Mr. ": "Mr."
+          " Mrs. ": "Mrs."
+          " Ms. ": "Ms."
+          " Dr. ": "Dr."
+      - name: state
+        selector: "form[name='ContactForm'] select[name='state']"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: Subject
+        selector: ".select"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Abortion": "ABOR"
+          "Agriculture": "AGR"
+          "Animals": "ANIMAL-GEN"
+          "Banking": "BANKING"
+          "Boy Scouts": "BOY SCOUTS"
+          "Budget": "BUDGET"
+          "Campaign Reform": "ELECTIONS"
+          "Defense/Military/Veterans": "DEFENSE"
+          "Disaster Relief": "DISASTER REL"
+          "Education": "EDUC"
+          "Energy": "ENER"
+          "Environment": "ENV"
+          "Foreign Affairs": "FAFF"
+          "Gay Marriage": "GAYMAR"
+          "Grants": "GRANT-INFO"
+          "Gun Control": "GUN"
+          "Health": "HEALTH"
+          "Homeland Security": "HOMESEC"
+          "Immigration": "IMMIG"
+          "Internet Freedom": "PIRACY"
+          "Jobs and the Economy": "JOBS"
+          "Judiciary": "JUDIC"
+          "Labor": "LABOR"
+          "Medicare/Medicaid": "MEDICARE"
+          "Military Academy Nominations": "ACADEMY"
+          "NASA/Space Exploration": "NASA"
+          "Post Office": "POSTAL"
+          "Religious Freedoms": "RELIGION"
+          "Social Security": "SSA"
+          "Taxes": "TAX"
+          "Trade": "TRADE"
+          "Technology": "TECHNOLOGY"
+          "Transportation": "TRANS"
+          "War": "DEFENSE"
+          "Welfare": "WELFARE"
+          "Other": "Other"
+    - click_on:
+      - value: Submit
+        selector: ".buttonContact:nth-child(2)"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting my office"

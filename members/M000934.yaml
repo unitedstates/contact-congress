@@ -1,0 +1,128 @@
+bioguide: M000934
+contact_form:
+  method: POST
+  action: http://www.moran.senate.gov/public/index.cfm/e-mail-jerry
+  steps:
+    - visit: http://www.moran.senate.gov/public/index.cfm/e-mail-jerry
+    - fill_in:
+      - name: field_174356c7-866c-41fa-a8cc-afe0ea069ffe
+        selector: "#field_174356c7-866c-41fa-a8cc-afe0ea069ffe"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_f2a238ac-0b82-4157-8fcb-1fe6a37a08a0
+        selector: "#field_f2a238ac-0b82-4157-8fcb-1fe6a37a08a0"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_bcd5c462-5a93-468b-825d-1f1b0504de9f
+        selector: "#field_bcd5c462-5a93-468b-825d-1f1b0504de9f"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_ca8452ee-3fad-4abd-934d-a534c85e9824
+        selector: "#field_ca8452ee-3fad-4abd-934d-a534c85e9824"
+        value: "$ADDRESS_STREET_2"
+      - name: field_dbb6ad7d-20b2-429d-a082-0d01b49ac3e4
+        selector: "#field_dbb6ad7d-20b2-429d-a082-0d01b49ac3e4"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_55223e83-235b-4f62-92ae-f9154484097b
+        selector: "#field_55223e83-235b-4f62-92ae-f9154484097b"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_77f8c6fb-07ce-4c99-a75e-94d54cf2e6da
+        selector: "#field_77f8c6fb-07ce-4c99-a75e-94d54cf2e6da"
+        value: "$PHONE"
+        required: Yes
+      - name: field_84c25d40-ef1f-452d-b84b-c85c65724ccc
+        selector: "#field_84c25d40-ef1f-452d-b84b-c85c65724ccc"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_123312f2-861a-4dc6-aaa2-768d19d27d8d
+        selector: "#field_123312f2-861a-4dc6-aaa2-768d19d27d8d"
+        value: "$MESSAGE"
+        required: Yes
+      - name: recaptcha_response_field
+        selector: "#recaptcha_response_field"
+        captcha_selector: "#recaptcha_image img"
+        value: "$CAPTCHA_SOLUTION"
+    - select:
+      - name: field_19590bcb-8dc4-4761-8c17-0e8bbc746e64
+        selector: "#field_19590bcb-8dc4-4761-8c17-0e8bbc746e64"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Ms."
+          - "Mrs."
+          - "Mr. and Mrs."
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Mr. and Dr."
+          - "Reverend"
+          - "Sister"
+          - "Pastor"
+          - "The Honorable"
+          - "Representative"
+          - "Senator"
+      - name: field_be00d0a0-1a98-4d0c-aedd-ef64ffd94104
+        selector: "#field_be00d0a0-1a98-4d0c-aedd-ef64ffd94104"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_0af46f15-f706-4a8a-896d-6fa820a7f615
+        selector: "#field_0af46f15-f706-4a8a-896d-6fa820a7f615"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          "Jobs": "JOBS"
+          "2nd Amendment": "GUN"
+          "Abortion": "AB"
+          "Agriculture": "AG"
+          "Arts and Humanities": "AH"
+          "Banking and Finance": "BF"
+          "Budget and Economy": "BE"
+          "Census": "CEN"
+          "Crime": "CRIME"
+          "Defense and Military": "DE"
+          "Education": "ED"
+          "Elections and Campaign Finance": "EL"
+          "Energy": "EN"
+          "Environment": "EV"
+          "Federal Employees": "FED"
+          "Foreign Relations and International Affairs": "FR"
+          "Governmental Affairs": "GR"
+          "Health Care": "HE"
+          "Homeland Security": "DHS"
+          "Housing": "HO"
+          "Immigration": "IM"
+          "Indian Affairs": "IA"
+          "Insurance": "IN"
+          "Internships": "INT"
+          "Judicial Nominations": "NOM"
+          "Justice, Constitution and Legal Issues": "CJ"
+          "Labor": "LA"
+          "Medicare": "ME"
+          "NASA and Space": "NASA"
+          "Natural Resources": "NAT"
+          "Pensions": "PEN"
+          "Personal": "PERSONAL"
+          "Religious Issues": "REL"
+          "Science and Technology": "SST"
+          "Small Business": "SB"
+          "Social Security": "SS"
+          "Student": "STUD"
+          "Telecommunications": "TEL"
+          "Tours": "TOURS"
+          "Trade": "TD"
+          "Terrorism": "TER"
+          "Transportation": "TR"
+          "Taxes": "TX"
+          "Veterans": "VA"
+          "Welfare": "WE"
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your message"

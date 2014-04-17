@@ -1,149 +1,70 @@
 bioguide: N000032
 contact_form:
-  method: POST
-  action: http://www.billnelson.senate.gov/contact/email.cfm
+  method: post
+  action: /form_process/email-bill-thank-you
   steps:
-    - visit: http://www.billnelson.senate.gov/contact/email.cfm
-    - select:
-      - name: Re
-        selector: "select[name=Re]"
-        required: Yes
-        options:
-          - issue
-          - agency
-        value: issue
-    - click_on:
-      - value: ""
-        selector: "input[type=image][alt=Submit]"
-    - find:
-      - selector: "form[name=issue]"
+    - visit: "http://www.billnelson.senate.gov/contact-bill"
     - fill_in:
-      - name: First
-        selector: "tr:nth-child(4) .textfieldMd"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: Last
-        selector: "tr:nth-child(5) .textfieldMd"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: Addr1
-        selector: "tr:nth-child(6) .textfieldMd"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: Addr2
-        selector: "tr:nth-child(7) .textfieldMd"
-        value: "$ADDRESS_STREET_2"
-      - name: City
-        selector: "tr:nth-child(8) .textfieldMd"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: Zip
-        selector: ".textfieldSm"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: Phone
-        selector: "tr:nth-child(12) .textfieldMd"
-        value: "$PHONE"
-        required: Yes
-      - name: Email
-        selector: "tr:nth-child(13) .textfieldMd"
-        value: "$EMAIL"
-        required: Yes
-      - name: Subject
-        selector: "tr:nth-child(17) .textfieldMd"
-        value: "$SUBJECT"
-        required: Yes
-      - name: Comments
-        selector: ".textareaLg"
-        value: "$MESSAGE"
-        required: Yes
+        - name: First
+          selector: "#first"
+          value: $NAME_FIRST
+          required: true
+        - name: Last
+          selector: "#Last"
+          value: $NAME_LAST
+          required: true
+        - name: Addr1
+          selector: "#address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: Addr2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: City
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: Zip
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: Phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: Email
+          selector: "#Email"
+          value: $EMAIL
+          required: true
+        - name: sendSubject
+          selector: "#subject"
+          value: $SUBJECT
+          required: true
+        - name: Message
+          selector: "#Message"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: Prefix
-        selector: ".selectSm"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          - "Mr."
-          - "Mr. and Mrs."
-          - "Mrs."
-          - "Ms."
-          - "Dr."
-      - name: State
-        selector: ".selectMd"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: Issue
-        selector: ".selectLg"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          - "Abortion"
-          - "Academy"
-          - "Aging"
-          - "Agriculture"
-          - "Animal Welfare"
-          - "Arts"
-          - "Banking"
-          - "Broadcast  Regulations"
-          - "Budget"
-          - "Business"
-          - "Casework"
-          - "Children's Health Insurance"
-          - "Constitutional Issues"
-          - "Consumer Protection"
-          - "Courts"
-          - "Crime"
-          - "Defense"
-          - "Domestic Wiretaps"
-          - "Economy"
-          - "Education"
-          - "Energy"
-          - "Environment"
-          - "Everglades Restoration"
-          - "FEMA/Natural Disasters"
-          - "Government Reform"
-          - "Elections"
-          - "Flag Requests"
-          - "Foreign Relations"
-          - "Gun Control"
-          - "Health"
-          - "Homeland Security"
-          - "Housing"
-          - "Immigration"
-          - "Import Safety"
-          - "Intelligence"
-          - "Invitations"
-          - "Iraq"
-          - "Judicial Nominations"
-          - "Labor"
-          - "Medicare/Medicaid"
-          - "National Parks"
-          - "Pensions"
-          - "Photograph Requests"
-          - "Port Security"
-          - "Prescription Drugs"
-          - "Privacy"
-          - "Property Insurance"
-          - "Military"
-          - "Native American Issues"
-          - "Social Security"
-          - "Social Services/Welfare"
-          - "Space"
-          - "Stem Cell Research"
-          - "Taxes"
-          - "Telecommunications"
-          - "Tour Request"
-          - "Trade"
-          - "Transportation"
-          - "Veterans"
-          - "Womens Issues"
-          - "Other"
+        - name: Prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mr. and Mrs.
+            - Mrs.
+            - Ms.
+            - Dr.
+    - check:
+        - name: Issue
+          selector: "input[type='radio'][name='Issue'][value='Other']"
+          value: Other
     - click_on:
-      - value: Submit
-        selector: "td:nth-child(1) input"
+        - value: Submit
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for sending me an email"
+      contains: Email Bill - Thank You

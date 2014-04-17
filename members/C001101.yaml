@@ -1,0 +1,109 @@
+bioguide: C001101
+contact_form:
+  method: post
+  action: the url
+  steps:
+    - visit: "https://katherineclark.house.gov/index.cfm/email-me"
+    - fill_in:
+        - name: field_16183F76-2D6E-4B8F-BB85-40BB25B75858
+          selector: "#field_16183F76-2D6E-4B8F-BB85-40BB25B75858"
+          value: $NAME_FIRST
+          required: true
+        - name: field_FAB99B91-D2B0-4135-878D-6ED9A001E233
+          selector: "#field_FAB99B91-D2B0-4135-878D-6ED9A001E233"
+          value: $NAME_LAST
+          required: true
+        - name: field_8F116921-BE70-4D0A-A1A5-D66958A67DB3
+          selector: "#field_8F116921-BE70-4D0A-A1A5-D66958A67DB3"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_B1A3C3AA-B74B-4597-9E5E-DDE01E43DAB6
+          selector: "#field_B1A3C3AA-B74B-4597-9E5E-DDE01E43DAB6"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_890423B9-4B41-4EC0-97F6-1DEF20302A5B
+          selector: "#field_890423B9-4B41-4EC0-97F6-1DEF20302A5B"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_13ED75EE-BA7E-47D6-8C8D-243CD7672011
+          selector: "#field_13ED75EE-BA7E-47D6-8C8D-243CD7672011"
+          value: $EMAIL
+          required: true
+        - name: field_3F1697BF-1048-4297-8167-DC91E94A4999
+          selector: "#field_3F1697BF-1048-4297-8167-DC91E94A4999"
+          value: $PHONE
+          required: false
+        - name: field_3CB3FE47-04FA-465C-8F41-96C585920FC2
+          selector: "#field_3CB3FE47-04FA-465C-8F41-96C585920FC2"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: field_8372DB34-2354-4974-A825-AAD1D2889D6C
+          selector: "#field_8372DB34-2354-4974-A825-AAD1D2889D6C"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+            - Hon.
+            - Rev.
+            - Rabbi
+        - name: field_2A3D8CAE-2395-4A31-988C-EC74CE943BD8
+          selector: "#field_2A3D8CAE-2395-4A31-988C-EC74CE943BD8"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            - "----Military----"
+            - AA
+            - AE
+            - AP
+            - "----States----"
+            - Massachusetts
+            - Other
+        - name: field_9F3053E5-060D-4C23-BAD4-8244969918D8
+          selector: "#field_9F3053E5-060D-4C23-BAD4-8244969918D8"
+          value: $TOPIC
+          required: true
+          options:
+            Grant Requests: GRANT
+            Agriculture: AGR
+            Banking: Banking
+            Budget: BUD
+            Defense: DEF
+            Education: EDU
+            Energy: ENE
+            Environment: ENV
+            Foreign Affairs: Foreign Affairs
+            Government Reform: GOV
+            Health Care: Health Care
+            Homeland Security: HOM
+            Immigration: IMM
+            Judiciary: JUD
+            Labor/Jobs: LAB
+            Natural Resources: NAT
+            Science/Technology: Science/Technology
+            Telecommunications: TEL
+            Social Issues: Social Issues
+            Social Security: SSEC
+            Taxes: TAX
+            Trade: TRADE
+            Transportation: TRA
+            Veterans: VET
+        - name: field_3A9D74AD-83AB-4788-BB79-8E3E40585A87
+          selector: "#field_3A9D74AD-83AB-4788-BB79-8E3E40585A87"
+          value: "Y"
+          required: true
+          options:
+            I do not need a response: N
+            I would like a response: Y
+    - click_on:
+        - value: Submit
+          selector: input.btn.btn-primary
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "We have received your message."

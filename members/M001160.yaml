@@ -1,0 +1,144 @@
+bioguide: M001160
+contact_form:
+  method: post
+  action: /contact-form/
+  steps:
+    - visit: "https://gwenmoore.house.gov/contact-form"
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: subject
+          selector: "#req_subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: state
+          selector: "#req_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            North Carolina: NC
+            Alaska: AK
+            Alabama: AL
+            Arkansas: AR
+            Arizona: AZ
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            District of Columbia: DC
+            Delaware: DE
+            Florida: FL
+            Georgia: GA
+            Hawaii: HI
+            Iowa: IA
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Massachusetts: MA
+            Maryland: MD
+            Maine: ME
+            Michigan: MI
+            Minnesota: MN
+            Missouri: MO
+            Mississippi: MS
+            Montana: MT
+            North Dakota: ND
+            Nebraska: NE
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            Nevada: NV
+            New York: NY
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Pennsylvania: PA
+            Puerto Rico: PR
+            Rhode Island: RI
+            South Carolina: SC
+            South Dakota: SD
+            Tennessee: TN
+            Texas: TX
+            Utah: UT
+            Virginia: VA
+            Vermont: VT
+            Washington: WA
+            Wisconsin: WI
+            West Virginia: WV
+            Wyoming: WY
+        - name: issue
+          selector: "#req_issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: WEBAGR
+            Budget: WEB_BU
+            Defense: WEB_DEF
+            Education: WEB_ED
+            Energy: WEB_EN
+            Environmental: WEB_ENV
+            Government Issues: WEBGOV
+            Health: WEB_HE
+            Homeland Security: WEB_HOM
+            Immigration: WEB_IM
+            International Relations: WEBINT
+            Judicial: WEB_JUD
+            Labor: WEBLAB
+            Social Issues: WEBSOC
+            Social Security: WEB_SS
+            Taxes: WEB_TAX
+            Telecommunications: WEBTEL
+            Transportation: WEB_TRAN
+            Trade: WEB_TRD
+            Veterans: WEB_VET
+            Welfare: WEBWEL
+            Other Issues: WEB_OTH
+    - check:
+        - name: aff1
+          selector: "input[type='radio'][name='aff1'][value='<AFFL_DEL>Subscribe</AFFL_DEL>']"
+          value: "<AFFL_DEL>Subscribe</AFFL_DEL>"
+    - click_on:
+        - value: Send Email
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: The following information was sent to us

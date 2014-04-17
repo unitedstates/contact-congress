@@ -1,0 +1,141 @@
+bioguide: D000619
+contact_form:
+  method: get
+  action: /forms/writeyourrep/
+  steps:
+    - visit: "https://rodneydavisforms.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#aspnetForm"
+    - fill_in:
+        - name: ctl00$ctl08$FirstName
+          selector: "#ctl00_ctl08_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl08$LastName
+          selector: "#ctl00_ctl08_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl08$Street
+          selector: "#ctl00_ctl08_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl08$City
+          selector: "#ctl00_ctl08_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl08$Zip
+          selector: "#ctl00_ctl08_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl08$Phone
+          selector: "#ctl00_ctl08_Phone"
+          value: $PHONE
+          required: false
+        - name: ctl00$ctl08$Email
+          selector: "#ctl00_ctl08_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl08$Subject
+          selector: "#ctl00_ctl08_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl08$Body
+          selector: "#ctl00_ctl08_Body"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$ctl08$CampaignID
+          selector: "#ctl00_ctl08_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl08$CampaignInfo
+          selector: "#ctl00_ctl08_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl08$PrefixList
+          selector: "#ctl00_ctl08_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
+            - Representative
+            - Senator
+            - Maj. Gen.
+            - Col.
+            - Capt.
+            - R. Adm.
+            - Cmdr.
+            - Mayor
+            - President
+            - The Honorable
+        - name: ctl00$ctl08$IssuesList
+          selector: "#ctl00_ctl08_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture and Food: "68179"
+            Animals: "68174"
+            Armed Forces and National Security: "68144"
+            "Arts, Culture, Religion": "68117"
+            "Civil Rights and Liberties, Minority Issues": "68101"
+            Commerce: "68083"
+            Congress: "68061"
+            Crime and Law Enforcement: "68047"
+            Economics and Public Finance: "68021"
+            Education: "68178"
+            Emergency Management: "67988"
+            Energy: "67979"
+            Environment: "67616"
+            Environmental Protection: "67962"
+            Families: "67947"
+            Finance and Financial Sector: "67937"
+            Foreign Policy: "67615"
+            Foreign Trade and International Finance: "67920"
+            Government Operations and Politics: "67906"
+            Health Care: "68177"
+            Homeland Security: "67613"
+            Housing and Community Development: "67810"
+            Immigration: "67796"
+            International Affairs: "67786"
+            Labor and Employment: "67766"
+            Law: "67750"
+            Native Americans: "67732"
+            Private Legislation: "67618"
+            Public Lands and Natural Resources: "67725"
+            Retirement Security: "67617"
+            "Science, Technology, Communications": "67710"
+            Social Sciences and History: "67686"
+            Social Welfare: "67678"
+            Sports and Recreation: "67672"
+            Tax Reform: "67614"
+            Taxation: "67664"
+            Transportation and Public Works: "68176"
+            Veterans Affairs: "67612"
+            Water Resources Development: "67629"
+    - check:
+        - name: ctl00$ctl08$ReplyChoice
+          selector: "#ctl00_ctl08_ReplyChoice_0"
+          value: Respond
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl08_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time to write me.

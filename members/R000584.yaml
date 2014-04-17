@@ -1,0 +1,137 @@
+bioguide: R000584
+contact_form:
+  method: POST
+  action: http://www.risch.senate.gov/public/index.cfm?p=Email
+  steps:
+    - visit: http://www.risch.senate.gov/public/index.cfm?p=Email
+    - fill_in:
+      - name: field_5b32fe1c-2b47-4f0e-87c1-e658f39d899d
+        selector: "#field_5b32fe1c-2b47-4f0e-87c1-e658f39d899d"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: field_793e9dc5-0695-46b7-904c-9eb27a761d3a
+        selector: "#field_793e9dc5-0695-46b7-904c-9eb27a761d3a"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: field_7a0f9104-79dc-4cce-aee5-328456afda7c
+        selector: "#field_7a0f9104-79dc-4cce-aee5-328456afda7c"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: field_bb805a36-ff77-44ca-9137-2b9946690c74
+        selector: "#field_bb805a36-ff77-44ca-9137-2b9946690c74"
+        value: "$ADDRESS_STREET_2"
+      - name: field_73d2b9a5-2b33-475b-8e83-f33ea7f2b6f1
+        selector: "#field_73d2b9a5-2b33-475b-8e83-f33ea7f2b6f1"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: field_63bd55d8-f99e-4097-8f02-4b1d030efc55
+        selector: "#field_63bd55d8-f99e-4097-8f02-4b1d030efc55"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: field_b1169f16-2dea-4b04-b3ec-a20a18a0c18b
+        selector: "#field_b1169f16-2dea-4b04-b3ec-a20a18a0c18b"
+        value: "$PHONE"
+        required: Yes
+      - name: field_b0e2e8d3-6ef6-42b4-b195-97567d284026
+        selector: "#field_b0e2e8d3-6ef6-42b4-b195-97567d284026"
+        value: "$EMAIL"
+        required: Yes
+      - name: field_b3546a94-6fc9-4491-b49e-491ab436132c
+        selector: "#field_b3546a94-6fc9-4491-b49e-491ab436132c"
+        value: "$MESSAGE"
+        required: Yes
+      - name: field_a4aba52f-1db8-4277-a2e9-6429619d6250
+        selector: "#field_a4aba52f-1db8-4277-a2e9-6429619d6250"
+        value: ""
+      - name: field_e2d54e63-01f0-4a1a-882c-826a5cbd0298
+        selector: "#field_e2d54e63-01f0-4a1a-882c-826a5cbd0298"
+        value: ""
+      - name: recaptcha_response_field
+        selector: "#recaptcha_response_field"
+        captcha_selector: "#recaptcha_image img"
+        captcha_id_selector: "#recaptcha_challenge_field"
+        value: "$CAPTCHA_SOLUTION"
+    - select:
+      - name: field_0cb45eca-a067-4502-a126-3bf34074a15a
+        selector: "#field_0cb45eca-a067-4502-a126-3bf34074a15a"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Dr. and Mr."
+          - "Reverend"
+          - "Pastor"
+          - "Sister"
+          - "Military Rank"
+      - name: field_ffafefd0-a4d7-46cb-9f7f-b28fe2384a43
+        selector: "#field_ffafefd0-a4d7-46cb-9f7f-b28fe2384a43"
+        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        required: Yes
+        options: US_STATES_AND_TERRITORIES
+      - name: field_2170b182-5ed8-4beb-afb3-6152d226a3bb
+        selector: "#field_2170b182-5ed8-4beb-afb3-6152d226a3bb"
+        value: "$TOPIC"
+        required: Yes
+        options:
+          - "Abortion"
+          - "Agriculture"
+          - "Animal Rights"
+          - "Appropriations"
+          - "Autographed Photo"
+          - "Banking"
+          - "Budget"
+          - "Crime"
+          - "Civil Rights"
+          - "Constituent Services"
+          - "Constitution"
+          - "Defense/Military"
+          - "Eagle Scouts"
+          - "Economy"
+          - "Education"
+          - "Energy"
+          - "Environment"
+          - "FEMA"
+          - "Finance"
+          - "Foreign Affairs"
+          - "Government Affairs"
+          - "Guns"
+          - "Health Care"
+          - "Health Insurance"
+          - "Homeland Security"
+          - "Housing and Urban Development"
+          - "Immigration"
+          - "Inauguration 2009"
+          - "Insurance"
+          - "Intelligence"
+          - "Judiciary"
+          - "Labor"
+          - "NASA"
+          - "Nominations"
+          - "Science/Technology"
+          - "Small Business"
+          - "Social Security"
+          - "Tax"
+          - "Telecommunications"
+          - "Tort Reform"
+          - "Trade"
+          - "Transportation"
+          - "U.S. Military Academies"
+          - "Veterans Affairs"
+          - "War in Iraq"
+          - "War on Terror"
+          - "Welfare"
+          - "Women's Issues"
+          - "Other"
+    - click_on:
+      - value: Submit
+        selector: ".buttonHolder input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting my office"

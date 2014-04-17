@@ -1,0 +1,121 @@
+bioguide: L000575
+contact_form:
+  steps:
+    # zip authentication form
+    - visit: https://lankford.house.gov/contact-me/
+    - fill_in:
+      - name: required-zip5
+        selector: "#required-zip5"
+        value: $ADDRESS_ZIP5
+        required: Yes
+    - fill_in:
+      - name: zip4
+        selector: "#zip4"
+        value: $ADDRESS_ZIP4
+        required: Yes
+    - click_on:
+      - value: Go To Next Step
+        selector: "#submit"
+    # after submitting, confirm the right form is in the resulting page before proceeding
+    - find:
+      - selector: "#contactForm"
+    - fill_in:
+      - name: prefix
+        selector: "#prefix"
+        value: $NAME_PREFIX
+      - name: required-first
+        selector: "#required-first"
+        value: $NAME_FIRST
+        required: Yes
+      - name: middle
+        selector: "#middle"
+        value: ""
+      - name: required-last
+        selector: "#required-last"
+        value: $NAME_LAST
+        required: Yes
+      - name: suffix
+        selector: "#suffix"
+        value: ""
+      - name: required-address
+        selector: "#required-address"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: address2
+        selector: "#address2"
+        value: $ADDRESS_STREET_2
+      - name: required-city
+        selector: "#required-city"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: required-state
+        selector: "#required-state"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+      - name: required-valid-email
+        selector: "#required-valid-email"
+        value: $EMAIL
+        required: Yes
+      - name: required-subject
+        selector: "#required-subject"
+        value: $SUBJECT
+        required: Yes
+      - name: required-message
+        selector: "#required-message"
+        value: $MESSAGE
+        required: Yes
+    - select:
+      - name: required-issue
+        selector: "#required-issue"
+        value: $TOPIC
+        required: Yes
+        options:
+          "AG": "Agriculture"
+          "AN": "Animals"
+          "ART": "Arts and Humanities"
+          "BAAP": "Badger Army Ammunition Plant"
+          "BANK": "Banking and Finance"
+          "BUD": "Budget and Economy"
+          "CFR": "Campaign Finance Reform"
+          "CONG": "Congress and Elections"
+          "TOUR": "District of Columbia--Tours"
+          "DEF": "Defense and Military"
+          "ED": "Education"
+          "EN": "Energy"
+          "ENV": "Environment"
+          "FED": "Federal Employees"
+          "FLAG": "Flag Order"
+          "FR": "Foreign Relations"
+          "GUN": "Guns"
+          "HE": "Health"
+          "HUD": "Housing and Urban Development"
+          "IM": "Immigration"
+          "JUD": "Judiciary"
+          "LAB": "Labor"
+          "LGBT": "LGBT"
+          "POST": "Post Office"
+          "SCI": "Science and Technology"
+          "SENIORS": "Senior Citizens"
+          "SS": "Social Security"
+          "SOC.SERVICES": "Social Services"
+          "TAX": "Taxes"
+          "COMM": "Telecommunications"
+          "TOUR": "Tour Request"
+          "TRAN": "Transportation"
+          "TRD": "Trade"
+          "VET": "Veterans"
+          "WOMEN": "Women's Issues"
+          "OTHER": "Other Issues"
+      - name: required-response
+        selector: "#required-response"
+        value: "Yes"
+        required: true
+        options:
+          Yes, please contact me: "Yes"
+          No, I wanted to voice my opinion: "No"
+    - click_on:
+      - value: "Send Email"
+        selector: "#submit"
+  success:
+    body:
+      contains: "The following information has been submitted:"

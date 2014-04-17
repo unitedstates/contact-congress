@@ -1,4 +1,4 @@
-bioguide: I000555
+bioguide: I000055
 contact_form:
   method: POST
   action: ""
@@ -51,7 +51,7 @@ contact_form:
       - name: field_69395e1d-910c-43ca-bd6c-43c2ec98a586
         selector: "#field_69395e1d-910c-43ca-bd6c-43c2ec98a586"
         value: $ADDRESS_STATE_POSTAL_ABBREV
-        reqired: Yes
+        required: Yes
         options: US_STATES_AND_TERRITORIES
       - name: field_158b2b90-6381-4626-beeb-7b43c917be66
         selector: "#field_158b2b90-6381-4626-beeb-7b43c917be66"
@@ -86,5 +86,5 @@ contact_form:
     headers:
       status: 200
     body:
-      # contains: Thank you
+      contains: Your message has been submitted
       # matches: "thank you, [a-z\. ]+ for contacting"

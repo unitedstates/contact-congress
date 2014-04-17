@@ -1,0 +1,95 @@
+bioguide: D000216
+contact_form:
+  method: post
+  action: "/htbin/formproc/delauro/webforms/contact_form_email_file.txt&display=/webforms/contact_thanks.shtml"
+  steps:
+    - visit: "https://forms.house.gov/delauro/webforms/contact_form_email.shtml"
+    - fill_in:
+        - name: required-firstname
+          selector: "#mainbodyContentleft form input[name='required-firstname']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-lastname
+          selector: "#mainbodyContentleft form input[name='required-lastname']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#mainbodyContentleft form textarea[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-hcity
+          selector: "#mainbodyContentleft form input[name='required-hcity']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-hzip
+          selector: "#mainbodyContentleft form input[name='required-hzip']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone_home
+          selector: "#mainbodyContentleft form input[name='phone_home']"
+          value: $PHONE
+          required: true
+        - name: required-email
+          selector: "#mainbodyContentleft form input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: required-comments
+          selector: "#mainbodyContentleft form textarea[name='required-comments']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-prefix
+          selector: "#mainbodyContentleft form select[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Miss
+            - Ms.
+        - name: required-subject
+          selector: "#mainbodyContentleft form select[name='required-subject']"
+          value: $TOPIC
+          required: true
+          options:
+            " ------------------------ Not listed \n\n          ------------------------ ": Not listed
+            Agriculture: Agriculture
+            Animal Rights: Animal Rights
+            Budget: Budget
+            Civil Rights: Civil Rights
+            Commerce: Commerce
+            Crime: Crime
+            Defense: Defense
+            Disability: Disability
+            Economy: Economy
+            Education: Education
+            Employment: Employment
+            Energy: Energy
+            Environment: Environment
+            Federal Issues: Federal Issues
+            Foreign Affairs: Foreign Affairs
+            Government: Government
+            Gun Violence Prevention: Gun Violence Prevention
+            Health Care: Health Care
+            Housing: Housing
+            Human Rights: Human Rights
+            Immigration: Immigration
+            Labor: Labor
+            Legislation: Legislation
+            Public Lands: Public Lands
+            Social Issues: Social Issues
+            Senior Citizens: Senior Citizens
+            Taxes: Taxes
+            Technology: Technology
+            Trade: Trade
+            Transportation: Transportation
+            Veterans: Veterans
+            Welfare: Welfare
+    - click_on:
+        - value: Submit
+          selector: "#mainbodyContentleft form input[name='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: has been submitted

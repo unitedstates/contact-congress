@@ -1,0 +1,140 @@
+bioguide: P000599
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://posey.house.gov/forms/writeyourrep/"
+    - fill_in:
+        - name: ctl00$ctl15$FirstName
+          selector: "#ctl00_ctl15_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl15$LastName
+          selector: "#ctl00_ctl15_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl15$Street
+          selector: "#ctl00_ctl15_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl15$City
+          selector: "#ctl00_ctl15_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl15$Zip
+          selector: "#ctl00_ctl15_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl15$Phone
+          selector: "#ctl00_ctl15_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl15$Email
+          selector: "#ctl00_ctl15_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl15$Subject
+          selector: "#ctl00_ctl15_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl15$Body
+          selector: "#ctl00_ctl15_Body"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$ctl15$CampaignID
+          selector: "#ctl00_ctl15_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl15$CampaignInfo
+          selector: "#ctl00_ctl15_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl15$PrefixList
+          selector: "#ctl00_ctl15_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
+            - Rev.
+            - "Mr. & Mrs."
+            - Lance Corporal
+            - Col.
+            - Lt.
+            - Lt. Col.
+            - Gen.
+            - Lt. Gen.
+            - Maj. Gen.
+            - Sgt.
+            - MSgt.
+            - Capt.
+            - Adm.
+            - Hon.
+            - The Honorable
+            - Cdr.
+            - Rear Adm.
+            - Rev. Msgr.
+            - "Rev. & Mrs."
+            - "Dr. & Mrs."
+            - Maj.
+            - Capt.
+            - Brig. Gen.
+            - Sgt. Maj.
+            - SMSgt
+            - CWO.
+        - name: ctl00$ctl15$IssuesList
+          selector: "#ctl00_ctl15_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            "": "14003"
+            "\"Cap & Trade\" - National Energy Tax": "5031"
+            Abortion: "5893"
+            Accountability: "4622"
+            Achieving Energy Independence: "4604"
+            Agriculture: "5892"
+            "America's Mission in Space": "4609"
+            Budget: "5894"
+            Casework: "8268"
+            Chinese Drywall: "8158"
+            Congressional Ethics: "5895"
+            Defense: "5896"
+            Economy: "5897"
+            Education: "5898"
+            Energy: "5899"
+            Environment: "5900"
+            Gun Control: "5901"
+            Health: "5902"
+            Health Care Reform: "5135"
+            Homeland Security: "5903"
+            Housing: "5904"
+            Immigration: "5905"
+            International Relations: "5906"
+            Iraq: "5907"
+            "Jobs & the Economy": "4600"
+            Labor: "5908"
+            Medicare: "5909"
+            National Debt: "8236"
+            Other: "5917"
+            Prescription Drugs: "5910"
+            "Securing America's Border": "4606"
+            Social Security: "5911"
+            TARP: "4764"
+            Taxes: "5912"
+            "Taxes & Fiscal Responsibility": "4607"
+            Telecommunications: "5914"
+            Trade: "5913"
+            Transportation: "5915"
+            Veterans: "5916"
+            "Veterans & National Security": "4598"
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl15_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting me. I appreciate having the benefit of your views on issues that are before the Congress. Your views are important to me and I will be sending a response to you.  While I aim to provide a timely response, due to the large volume of mail and email I receive, my response to you may be delayed. "

@@ -1,0 +1,170 @@
+bioguide: Q000023
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://quigleyforms.house.gov/forms/writeyourrep/"
+    - fill_in:
+        - name: ctl00$ctl17$FirstName
+          selector: "#ctl00_ctl17_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl17$LastName
+          selector: "#ctl00_ctl17_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl17$Street
+          selector: "#ctl00_ctl17_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl17$City
+          selector: "#ctl00_ctl17_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl17$Zip
+          selector: "#ctl00_ctl17_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl17$Phone
+          selector: "#ctl00_ctl17_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl17$Email
+          selector: "#ctl00_ctl17_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl17$Subject
+          selector: "#ctl00_ctl17_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl17$Body
+          selector: "#ctl00_ctl17_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$ctl17$PrefixList
+          selector: "#ctl00_ctl17_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - " Mrs."
+            - " Ms."
+            - " Miss"
+            - " Dr."
+        - name: ctl00$ctl17$State
+          selector: "#ctl00_ctl17_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl17$IssuesList
+          selector: "#ctl00_ctl17_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture and Food: "109641"
+            Animals: "109636"
+            Armed Forces and National Security: "109606"
+            "Arts, Culture, Religion": "109579"
+            "Civil Rights and Liberties, Minority Issues": "109563"
+            Commerce: "109545"
+            Congress: "109523"
+            Crime and Law Enforcement: "109510"
+            Economics and Public Finance: "109484"
+            Education: "109640"
+            Emergency Management: "109451"
+            Energy: "109442"
+            Environment: "109081"
+            Families: "109411"
+            Finance and Financial Sector: "109401"
+            Foreign Trade and International Finance: "109384"
+            Government Operations and Politics: "109370"
+            Health Care: "109639"
+            Housing and Community Development: "109275"
+            Immigration: "109261"
+            International Affairs: "109251"
+            Labor and Employment: "109231"
+            Law: "109215"
+            Native Americans: "109197"
+            "O'Hare Noise Pollution": "114543"
+            Public Lands and Natural Resources: "109190"
+            "Science, Technology, Communications": "109175"
+            Social Sciences and History: "109151"
+            Social Welfare: "109143"
+            Sports and Recreation: "109137"
+            Taxation: "109129"
+            Transportation and Public Works: "109638"
+            Water Resources Development: "109094"
+    - uncheck:
+        - name: ctl00$ctl17$SubscribeChoice
+          selector: "#ctl00_ctl17_SubscribeChoice"
+          value: whatever
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl17_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you
+

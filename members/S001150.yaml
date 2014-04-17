@@ -1,0 +1,113 @@
+bioguide: S001150
+contact_form:
+  method: post 
+  action: /email-congressman-schiff1/
+  steps:
+    - visit: "https://schiff.house.gov/email-congressman-schiff1"
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: "Mr. "
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
+        - name: issue
+          selector: "#req_issue"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion and Family Planning: AB
+            Agriculture: AG
+            Animals: AN
+            Armenian Issues: ARM
+            Arts and Entertainment: ART
+            Banking and Finance: BANK
+            Budget and Economy: BUD
+            Business and Industry: BUS
+            Campaign Finance and Elections: CF
+            Children and Families: CHILD
+            Civil Rights: CIV
+            Consumer Affairs: CONSUMER
+            Defense: DEF
+            Education: ED
+            Energy: ENERGY
+            Environment: ENV
+            Foreign Relations: FR
+            Health Care: HE
+            Homeland Security: HLS
+            Housing and Real Estate: HOUSING
+            Human Rights: HR
+            Immigration: IMM
+            Criminal Justice and Judiciary: JUD
+            "Labor, Retirement and Pensions": LAB
+            LGBT: LGBT
+            Medicare: HE.MCARE
+            Postal Issues: POST
+            Religion: REL
+            "Science, Technology and Space": SCI
+            Social Security: SS
+            Taxes: TAX
+            Telecommunications and the Internet: TEL
+            Transportation: TRAN
+            Trade: TRD
+            Veterans: VET
+    - check:
+        - name: subscribe
+          selector: "input[type='radio'][name='subscribe'][value='ADMIN.UNSUBSCRIBE']"
+          value: ADMIN.UNSUBSCRIBE
+    - click_on:
+        - value: Send Email
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for writing to me."

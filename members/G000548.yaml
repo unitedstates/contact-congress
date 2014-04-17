@@ -1,0 +1,56 @@
+bioguide: G000548
+contact_form:
+  method: post
+  action: "?zip5=07452&zip4=3321"
+  steps:
+    - visit: "https://garrettforms.house.gov/forms/writeyourrep/?zip5=07452&zip4=3321"
+    - fill_in:
+        - name: ctl00$ctl12$FirstName
+          selector: "#ctl00_ctl12_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl12$LastName
+          selector: "#ctl00_ctl12_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl12$Street
+          selector: "#ctl00_ctl12_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl12$City
+          selector: "#ctl00_ctl12_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl12$Zip
+          selector: "#ctl00_ctl12_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl12$Email
+          selector: "#ctl00_ctl12_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl12$Subject
+          selector: "#ctl00_ctl12_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl12$Body
+          selector: "#ctl00_ctl12_Body"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$ctl12$CampaignID
+          selector: "#ctl00_ctl12_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl12$CampaignInfo
+          selector: "#ctl00_ctl12_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select: []
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl12_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time to write me. I will carefully consider your views as I serve you and your fellow constituents. Please feel free to contact me about any other concerns you have. 

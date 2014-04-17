@@ -1,0 +1,111 @@
+bioguide: T000469
+contact_form:
+  method: post
+  action: /email-form1/
+  steps:
+    - visit: "https://tonko.house.gov/email-form1"
+    - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go to Form
+          selector: input.button
+    - find:
+        - selector: "#custom_form5"
+    - fill_in:
+        - name: firstname
+          selector: "#firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#custom_form5 input[name='street2']"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: emailaddress
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#req_prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: "Mr. "
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Dr.: Dr.
+            The Reverend: The Reverend
+            The Honorable: The Honorable
+            Father: Father
+            Rabbi: Rabbi
+            Representative: Representative
+            Senator: Senator
+            Sister: Sister
+        - name: state
+          selector: "#state"
+          value: NY
+          required: true
+          options:
+            NY: NY
+        - name: subject
+          selector: "#custom_form5 select[name='subject']"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: WEBAGR
+            Banking: WEBBAN
+            Budget: WEBBUD
+            Congressional Process: WEBCONG
+            Constitutional Issues: WEBCONS
+            Crime and Drugs: WEBCRI
+            "Defense and Military ": WEBDEF
+            Economy and Taxes: WEBECO
+            Education: WEBEDU
+            Energy: WEBENE
+            Environment and Resources: WEBENV
+            Ethics: WEBETH
+            "Faith-Based Initiative ": WEBFAI
+            Family and Life Issues: WEBFAM
+            Healthcare: WEBHEA
+            Homeland Security: WEBHOM
+            Housing: WEBHOU
+            Immigration: WEBIMM
+            International Affairs: WEBINT
+            Labor Issues: WEBLAB
+            Social Security: WEBSSEC
+            Telecommunications: WEBTEL
+            Trade: WEBTRA
+            Transportation: WEBTRAN
+            Veterans Issues: WEBVET
+            Other Issues: WEBOTH
+    - click_on:
+        - value: Submit
+          selector: "#custom_form5 input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "The following information was sent to us:"

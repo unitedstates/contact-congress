@@ -1,0 +1,116 @@
+bioguide: C000542
+contact_form:
+  method: POST
+  action: ""
+  steps:
+    - visit: http://www.coats.senate.gov/contact/
+    - fill_in:
+      - name: fname
+        selector: "#fname"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lname
+        selector: "#lname"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: mailing_streetAddress1
+        selector: "#mailing_streetAddress1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: mailing_streetAddress2
+        selector: "#mailing_streetAddress2"
+        value: "$ADDRESS_STREET_2"
+      - name: mailing_city
+        selector: "#mailing_city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: mailing_zipCode
+        selector: "#mailing_zipCode"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: phone_number
+        selector: "#phone_number"
+        value: "$PHONE"
+      - name: email
+        selector: "#email_address"
+        value: "$EMAIL"
+        required: Yes
+      - name: verify_email
+        selector: "#verify_email"
+        value: "$EMAIL"
+        required: Yes
+      - name: comments
+        selector: "#comments"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: subject
+        selector: "#subject"
+        value: "$SUBJECT"
+        required: Yes
+        options:
+          - "Help with a Federal Agency"
+          - "Abortion"
+          - "Agriculture"
+          - "Education"
+          - "Appropriations"
+          - "Banking"
+          - "Budget"
+          - "Civil Rights"
+          - "Consumer Safety"
+          - "Crime"
+          - "Defense"
+          - "Economy"
+          - "Energy"
+          - "Environment"
+          - "Financial Services"
+          - "Foreign Affairs"
+          - "Health Care"
+          - "Homeland Security"
+          - "Housing"
+          - "Immigration"
+          - "Insurance"
+          - "Intelligence"
+          - "Jobs"
+          - "Judiciary"
+          - "Labor"
+          - "Medicare"
+          - "Pensions"
+          - "Postal"
+          - "Science and Technology"
+          - "Second Amendment"
+          - "Senior Citizens"
+          - "Small Business"
+          - "Social Security"
+          - "Tax"
+          - "Telecommunications"
+          - "Trade"
+          - "Transportation"
+          - "Veterans"
+          - "Welfare"
+          - "Women’s Issues"
+      - name: salutation
+        selector: "#salutation"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          - "Mr."
+          - "Ms."
+          - "Mrs."
+          - "Miss"
+          - "Mr. and Mrs."
+          - "Dr."
+      - name: newsletter
+        selector: "#newsletter"
+        value: "No"
+        options:
+          - "Yes"
+          - "No"
+    - click_on:
+      - value: Send
+        selector: "#side-search-btn"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank You"

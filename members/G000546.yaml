@@ -1,0 +1,176 @@
+bioguide: G000546
+contact_form:
+  method: post
+  action: /email-sam/
+  steps:
+    - visit: "https://gravesforms.house.gov/email-sam"
+    - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go to Form
+          selector: "#zipauthform input.button"
+    - find:
+        - selector: "#custom_form17"
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zip2"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#req_phone"
+          value: $PHONE
+          required: true
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+        - name: response_require
+          selector: "#custom_form17 input[name='response_require']"
+          value: RN
+          required: true
+    - select:
+        - name: state
+          selector: "#req_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            Alaska: AK
+            Alabama: AL
+            Arkansas: AR
+            Arizona: AZ
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            District of Columbia: DC
+            Delaware: DE
+            Florida: FL
+            Georgia: GA
+            Hawaii: HI
+            Iowa: IA
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Massachusetts: MA
+            Maryland: MD
+            Maine: ME
+            Michigan: MI
+            Minnesota: MN
+            Missouri: MO
+            Mississippi: MS
+            Montana: MT
+            North Carolina: NC
+            North Dakota: ND
+            Nebraska: NE
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            Nevada: NV
+            New York: NY
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Pennsylvania: PA
+            Puerto Rico: PR
+            Rhode Island: RI
+            South Carolina: SC
+            South Dakota: SD
+            Tennessee: TN
+            Texas: TX
+            Utah: UT
+            Virginia: VA
+            Vermont: VT
+            Washington: WA
+            Wisconsin: WI
+            West Virginia: WV
+            Wyoming: WY
+        - name: subject
+          selector: "#req_subject"
+          value: $TOPIC
+          required: true
+          options:
+            Help with Federal Agency: HELPFED
+            Grant Information: GRANT
+            Military Academy Nomination: ACAD.APPL.REQ
+            Abortion: AB
+            Animal Issues: AN
+            Budget: BUD
+            Children: CHILD
+            Civil Liberties: CIVILLIBERTIES
+            Civil Rights: CIVILRIGHTS
+            Congratulations: CONGRATS
+            Congress and Executive: CONG
+            Crime: CRIME
+            Defense: DEF
+            Economy: ECON
+            Education: ED
+            Energy: EN
+            Environment: ENV
+            Foreign Affairs: FORAFF
+            Gun Control: GUNCONTROL
+            Health: HE
+            Homeland Security: HOMELANDSEC
+            Immigration: IM
+            Iraq: IRAQ
+            Judiciary: JUD
+            Labor: LAB
+            Other: OTHER
+            Pension Issues: PEN
+            Science and Technology: SCI
+            Small Business Issues: SMB
+            Social Security: SS
+            Taxes: TAX
+            Telecommunications: TELECOMM
+            Thank You: THANK YOU
+            Transportation: TRAN
+            Trade: TRD
+            Veterans: VET
+            Welfare: WELF
+        - name: response
+          selector: "#req_response"
+          value: RN
+          required: true
+          options:
+            I do not need a response.: NRN
+            I would like a response.: RN
+    - click_on:
+        - value: Submit
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been sent!"

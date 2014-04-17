@@ -1,0 +1,102 @@
+bioguide: M001156
+contact_form:
+  method: get
+  action: /contact/rfa.htm
+  steps:
+    - visit: "http://mchenry.house.gov/contact/zipauth2.htm"
+    - fill_in:
+        - name: zip5
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#plusfour"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "input[name='required-prefix']"
+    - fill_in:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "form[name='form1'] input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: ADD1
+          selector: "#ADD1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: CITY
+          selector: "#Text1"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ZIP5
+          selector: "form[name='form1'] input[name='ZIP5']"
+          value: $ADDRESS_ZIP5
+          required: false
+        - name: ZIP4
+          selector: "form[name='form1'] input[name='ZIP4']"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-email
+          selector: "#required-email"
+          value: $EMAIL
+          required: true
+        - name: WORKTEL
+          selector: "#WORKTEL"
+          value: $PHONE
+          required: true
+        - name: CLAIM
+          selector: "#CLAIM"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options: []
+        - name: subject
+          selector: "#subject"
+          value: $TOPIC
+          required: true
+          options:
+            - "Agriculture "
+            - Contracting with the Federal Government
+            - "Department of Justice "
+            - "Department of Veterans Affairs and/or Military "
+            - "Education "
+            - Employment Issues and Services for Dislocated Workers
+            - "Federal Communications Commission "
+            - "Federal Emergency Management Agency "
+            - Federal Employment
+            - "Flag Requests "
+            - Grants
+            - Housing
+            - Immigration
+            - "Internal Revenue Service "
+            - "Passports "
+            - Service Academy Appointments
+            - Small Business Issues
+            - "Social Security Administration and/or Medicare "
+            - Transportation
+            - U.S. Postal Service
+            - "Visiting Washington "
+            - Other – Not Listed
+    - click_on:
+        - value: Send Message
+          selector: "form[name='form1'] input[name='WR_Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thanks for your request. We will try to address your message as soon as we are able.

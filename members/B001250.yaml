@@ -1,0 +1,98 @@
+bioguide: B001250
+contact_form:
+  method: get
+  action: /Contact/ContactForm.htm
+  steps:
+    - visit: "http://robbishop.house.gov/contact/zipauth.htm"
+    - fill_in:
+        - name: zip5
+          selector: "#zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#zipForm input[name='find']"
+    - find:
+        - selector: "#ctl00_ctl09_ctl00_Text form input[name='required-first']"
+    - fill_in:
+        - name: required-first
+          selector: "#ctl00_ctl09_ctl00_Text form input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#ctl00_ctl09_ctl00_Text form input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#ctl00_ctl09_ctl00_Text form input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#ctl00_ctl09_ctl00_Text form input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#ctl00_ctl09_ctl00_Text form input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#ctl00_ctl09_ctl00_Text form input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: required-email
+          selector: "#ctl00_ctl09_ctl00_Text form input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#ctl00_ctl09_ctl00_Text form input[name='phone']"
+          value: $PHONE
+          required: false
+        - name: required-message
+          selector: "#ctl00_ctl09_ctl00_Text form textarea[name='required-message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#ctl00_ctl09_ctl00_Text form select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: webAg
+            Budget: webBud
+            Commerce: webCMRC
+            Crime: webCrime
+            Defense: webDef
+            Education: webEd
+            Energy: webEN
+            Environment: webEnv
+            Health: webHea
+            Housing and Urban Development: webHud
+            Immigration: webIMM
+            International Issues: webIntl
+            Iraq: webIraq
+            Judicial: webJud
+            Labor: webLab
+            Miscellaneous: webMisc
+            Science: webSci
+            Social Security Administration: webSSA
+            Tax: webTax
+            Transportation: webTran
+            Trade: webTrd
+            Veterans Affairs: webVet
+            Welfare: webWelf
+    - check:
+        - name: rsp
+          selector: "input[type='radio'][name='rsp'][value='yes']"
+          value: "yes"
+    - click_on:
+        - value: Send Email
+          selector: "#ctl00_ctl09_ctl00_Text form input[type='submit'][value='Send Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your inquiry

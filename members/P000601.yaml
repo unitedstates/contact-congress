@@ -1,0 +1,194 @@
+bioguide: P000601
+contact_form:
+  method: get
+  action: /forms/writeyourrep
+  steps:
+    - visit: "http://palazzo.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: false
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - fill_in:
+        - name: ctl00$ctl12$FirstName
+          selector: "#ctl00_ctl12_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl12$LastName
+          selector: "#ctl00_ctl12_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl12$Street
+          selector: "#ctl00_ctl12_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl12$City
+          selector: "#ctl00_ctl12_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl12$Zip
+          selector: "#ctl00_ctl12_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl12$Phone
+          selector: "#ctl00_ctl12_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl12$Email
+          selector: "#ctl00_ctl12_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl12$Subject
+          selector: "#ctl00_ctl12_Subject"
+          value: $SUBJECT
+          required: false
+        - name: ctl00$ctl12$Body
+          selector: "#ctl00_ctl12_Body"
+          value: $MESSAGE
+          required: false
+        - name: ctl00$ctl12$CampaignID
+          selector: "#ctl00_ctl12_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl12$CampaignInfo
+          selector: "#ctl00_ctl12_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl12$PrefixList
+          selector: "#ctl00_ctl12_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Dr.
+            - "Mr. & Mrs."
+            - Miss
+            - SSG
+            - SGT
+            - SFC
+            - COL
+            - LTC
+        - name: ctl00$ctl12$State
+          selector: "#ctl00_ctl12_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl12$IssuesList
+          selector: "#ctl00_ctl12_IssuesList"
+          value: $TOPIC
+          required: false
+          options:
+            Agriculture and Food: "101277"
+            Animals: "101272"
+            Armed Forces and National Security: "101242"
+            "Arts, Culture, Religion": "101215"
+            "Civil Rights and Liberties, Minority Issues": "101199"
+            Commerce: "101181"
+            Congress: "101159"
+            Crime and Law Enforcement: "101146"
+            Economics and Public Finance: "101120"
+            Education: "101276"
+            Emergency Management: "101087"
+            Energy: "101078"
+            Environment: "100717"
+            Families: "101047"
+            Finance and Financial Sector: "101037"
+            Foreign Trade and International Finance: "101020"
+            Government Operations and Politics: "101006"
+            Health Care: "101275"
+            Housing and Community Development: "100911"
+            Immigration: "100897"
+            International Affairs: "100887"
+            Labor and Employment: "100867"
+            Law: "100851"
+            Native Americans: "100833"
+            Public Lands and Natural Resources: "100826"
+            "Science, Technology, Communications": "100811"
+            Social Sciences and History: "100787"
+            Social Welfare: "100779"
+            Sports and Recreation: "100773"
+            Taxation: "100765"
+            Transportation and Public Works: "101274"
+            Water Resources Development: "100730"
+    - check:
+        - name: ctl00$ctl12$ReplyChoice
+          selector: "#ctl00_ctl12_ReplyChoice_0"
+          value: Respond
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl12_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time to share your thoughts and concerns with me

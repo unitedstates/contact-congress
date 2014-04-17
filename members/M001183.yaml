@@ -1,0 +1,118 @@
+bioguide: M001183
+contact_form:
+  method: POST
+  action: http://www.manchin.senate.gov/public/index.cfm/contact-form
+  steps:
+    - visit: http://www.manchin.senate.gov/public/index.cfm/contact-form
+    - fill_in:
+      - name: field_2b2ec1af-f595-4c6d-8679-17dc5235dc9d
+        selector: "#field_2b2ec1af-f595-4c6d-8679-17dc5235dc9d"
+        value: $NAME_FIRST
+        required: Yes
+      - name: field_573cec11-763e-4721-9f2e-d534e4fa8a7e
+        selector: "#field_573cec11-763e-4721-9f2e-d534e4fa8a7e"
+        value: $NAME_LAST
+        required: yes
+      - name: field_459d6e93-ea89-4a7d-b84f-9e9582edf1a5
+        selector: "#field_459d6e93-ea89-4a7d-b84f-9e9582edf1a5"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: field_e718ec4b-6691-49d7-82c7-eedd5ede1789
+        selector: "#field_e718ec4b-6691-49d7-82c7-eedd5ede1789"
+        value: $ADDRESS_STREET_2
+      - name: field_70607b58-2837-4789-a817-b0d6bac2742d
+        selector: "#field_70607b58-2837-4789-a817-b0d6bac2742d"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: field_7c42f6e5-d1dd-4843-a5d3-7730af8ed4fd
+        selector: "#field_7c42f6e5-d1dd-4843-a5d3-7730af8ed4fd"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: field_0e1209a3-f2fd-4f29-bb48-7e41d87bd40d
+        selector: "#field_0e1209a3-f2fd-4f29-bb48-7e41d87bd40d"
+        value: $PHONE
+      - name: field_13fee0ec-ac8c-4fce-968a-c3996732f06b 
+        selector: "#field_13fee0ec-ac8c-4fce-968a-c3996732f06b"
+        value: $EMAIL
+        required: Yes
+      - name: field_82faa3c6-43f8-4ed3-bc83-386cb96469bf
+        selector: "#field_82faa3c6-43f8-4ed3-bc83-386cb96469bf"
+        value: $SUBJECT
+        required: Yes
+      - name: field_e5e07fdc-f54e-43f0-a0c2-0fa4df24a4ae
+        selector: "#field_e5e07fdc-f54e-43f0-a0c2-0fa4df24a4ae"
+        value: $MESSAGE
+    - select:
+      - name: field_2ce505fa-c0ab-4e5d-b984-a0dc7219f6bd
+        selector: "#field_2ce505fa-c0ab-4e5d-b984-a0dc7219f6bd"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+          - "Mr."
+          - "Ms."
+          - "Mrs."
+          - "Miss"
+          - "Mr. and Mrs."
+          - "Dr."
+          - "Dr. and Mrs."
+          - "Mr. and Dr."
+          - "Reverend"
+          - "Sister"
+          - "Pastor"
+          - "The Honorable"
+          - "Representative"
+          - "Senator"
+    - select:
+      - name: field_8ea2327b-8ce4-44da-b35d-66afdd64924f
+        selector: "#field_8ea2327b-8ce4-44da-b35d-66afdd64924f"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+        options: US_STATES_AND_MPCS
+    - select:
+      - name: field_6c9d8eee-c551-4bf1-8324-5134c01dd93a
+        selector: "#field_6c9d8eee-c551-4bf1-8324-5134c01dd93a"
+        value: $TOPIC
+        required: Yes
+        options:
+          "Abortion": "ABO"
+          "Aging / Children / Families": "AGE"
+          "Agriculture": "AGR"
+          "Appalachian Regional Commission": "ARC"
+          "Budget": "BUD"
+          "Coal (Mining, Health & Safety)": "COAL"
+          "Constitution": "CONST"
+          "Defense / Military": "DEF"
+          "Education": "EDU"
+          "Elections": "ELE"
+          "Energy": "ENE"
+          "Environment": "ENV"
+          "Foreign Affairs": "FOR"
+          "Gun Ownership": "GUN"
+          "Health Care": "HEA"
+          "Homeland Security": "HOM"
+          "Immigration": "IMM"
+          "Intelligence": "INT"
+          "Interior / Natural Resources": "INR"
+          "Jobs and the Economy": "JOBS"
+          "Judiciary / Nominations": "JUD"
+          "Labor / Pensions": "LAB"
+          "Medicare": "MED"
+          "Postal": "POST"
+          "Rules": "RUL"
+          "Science / Technology / Telecommunications": "TECH"
+          "Small Business": "SMB"
+          "Social Security": "SSEC"
+          "Taxes": "TAX"
+          "Trade / Steel": "TRAD"
+          "Transportation": "TRA"
+          "Veterans": "VET"
+          "Welfare": "WEL"
+          "Other": "GEN"
+    - click_on:
+      - value: "Submit"
+        selector: "div.buttonHolder input[type=submit]"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your message!"

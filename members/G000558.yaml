@@ -1,0 +1,267 @@
+bioguide: G000558
+contact_form:
+  method: get
+  action: /forms/writeyourrep/
+  steps:
+    - visit: "http://brettguthrieforms.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "form#aspnetForm"
+    - fill_in:
+        - name: ctl00$ctl14$FirstName
+          selector: "#ctl00_ctl14_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl14$LastName
+          selector: "#ctl00_ctl14_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl14$Street
+          selector: "#ctl00_ctl14_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl14$City
+          selector: "#ctl00_ctl14_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl14$Zip
+          selector: "#ctl00_ctl14_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl14$Phone
+          selector: "#ctl00_ctl14_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl14$Email
+          selector: "#ctl00_ctl14_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl14$Subject
+          selector: "#ctl00_ctl14_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl14$Body
+          selector: "#ctl00_ctl14_Body"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$ctl14$CampaignID
+          selector: "#ctl00_ctl14_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl14$CampaignInfo
+          selector: "#ctl00_ctl14_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl14$PrefixList
+          selector: "#ctl00_ctl14_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Dr.
+            - First Lieutenant
+            - First Sergeant
+            - "Mr. & Mrs."
+            - Miss.
+            - "Dr. & Mrs."
+            - "Dr. & Mr."
+            - The Honorable
+            - "The Honorable & Mrs."
+            - "The Honorable & Mr."
+            - Master
+            - Admiral
+            - Airman
+            - Postman
+            - Airman First Class
+            - Airman Basic
+            - Brigadier General
+            - Cadet
+            - Captain
+            - Chaplin
+            - Chief Master Sergeant
+            - Chief Petty Officer
+            - Chief Warrant Officer
+            - Colonel
+            - Commander
+            - Command Sergeant Major
+            - Commodor Admiral
+            - Congressman
+            - Congressman-elect
+            - Congresswoman
+            - Congresswoman-elect
+            - Corporal
+            - Delegate-elect
+            - Drs.
+            - Ensign
+            - Father
+            - Fleet Admiral
+            - General
+            - General of the Army
+            - General of the Air Force
+            - Gunnery Sergeant
+            - Lance Corporal
+            - Lieutenant
+            - Lieutenant Colonel
+            - Lieutenant Commander
+            - Lieutenant General
+            - Major
+            - Major General
+            - Master Chief Petty Officer
+            - Master Gunnery Sergeant
+            - Master Sergeant
+            - Midshipman
+            - Pastor
+            - "Pastor & Mrs"
+            - Petty Officer First Class
+            - Petty Officer Second Class
+            - Petty Officer Third Class
+            - Private
+            - Private First Class
+            - Rabbi
+            - "Rabbi & Mrs"
+            - Representative
+            - "The Reverend & Dr."
+            - The Reverend
+            - "The Reverend & Mrs."
+            - Seaman
+            - Seaman Apprentice
+            - Seaman Recruit
+            - Senator
+            - "Senator & Mr"
+            - "Senator & Mrs"
+            - Senator-elect
+            - Senior Airman
+            - Senior Chief Petty Officer
+            - Senior Master Sergeant
+            - Sergeant
+            - Sergeant First Class
+            - Sergeant Major
+            - Sherriff
+            - "Sherriff & Mrs"
+            - Sister
+            - Special Agent
+            - Staff Sergeant
+            - Technical Sergeant
+            - Warrant Officer
+            - Specialist
+            - Rear Admiral
+            - Colonel Select
+        - name: ctl00$ctl14$State
+          selector: "#ctl00_ctl14_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl14$IssuesList
+          selector: "#ctl00_ctl14_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture and Food: "62375"
+            Armed Forces and National Security: "62340"
+            Economy and Jobs: "62389"
+            Education: "62374"
+            Energy: "62175"
+            Energy and Commerce Committee: "62388"
+            Environment: "61812"
+            Finance and Financial Sector: "62133"
+            Health Care: "62373"
+            Homeland Security: "62177"
+            Labor and Employment: "61962"
+            Law: "61946"
+            Life: "62392"
+            Medicare and Medicaid: "62387"
+            Postal Service: "62074"
+            Second Amendment rights: "62384"
+            Social Security and Elderly Assistance: "61870"
+            State Issues: "62390"
+            Taxation: "61860"
+            Telecommunications: "62385"
+            Trade: "62391"
+            Transportation and Public Works: "62372"
+            Veterans Affairs: "61808"
+    - check:
+        - name: ctl00$ctl14$ReplyChoice
+          selector: "#ctl00_ctl14_ReplyChoice_0"
+          value: Respond
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl14_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time to write me

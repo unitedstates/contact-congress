@@ -1,0 +1,114 @@
+bioguide: J000174
+contact_form:
+  method: get
+  action: /forms/writeyourrep/
+  steps:
+    - visit: "http://samjohnson.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "#zip input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Submit
+          selector: "#zip input[name='find']"
+    - find:
+        - selector: "#aspnetForm"
+    - fill_in:
+        - name: ctl00$ctl12$FirstName
+          selector: "#ctl00_ctl12_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl12$LastName
+          selector: "#ctl00_ctl12_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl12$Street
+          selector: "#ctl00_ctl12_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl12$City
+          selector: "#ctl00_ctl12_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl12$Zip
+          selector: "#ctl00_ctl12_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl12$Email
+          selector: "#ctl00_ctl12_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl12$Subject
+          selector: "#ctl00_ctl12_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl12$Body
+          selector: "#ctl00_ctl12_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$ctl12$PrefixList
+          selector: "#ctl00_ctl12_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+            - Chief
+            - Mayor
+            - Fr.
+        - name: ctl00$ctl12$IssuesList
+          selector: "#ctl00_ctl12_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: "71767"
+            Agriculture: "71768"
+            Banking and Financial Services: "71769"
+            Budget: "71770"
+            Defense: "71766"
+            Education: "71771"
+            Energy: "71772"
+            Environment: "71773"
+            Foreign Affairs: "71774"
+            Government Reform and House Administration: "71775"
+            Health: "71776"
+            Homeland Security: "71777"
+            Housing: "71778"
+            Immigration: "71779"
+            Interior and Resources: "71780"
+            Judiciary: "71781"
+            Labor: "71782"
+            Pensions: "71783"
+            Postal: "71784"
+            Science and Space: "71785"
+            Small Business: "71786"
+            Social Security: "71787"
+            Tax: "71788"
+            Telecommunications: "71789"
+            Trade: "71790"
+            Transportation: "71791"
+            Unemployment Insurance: "71792"
+            "Veterans' Affairs (non-health)": "71793"
+            "Veterans' Health": "71794"
+            Welfare: "71795"
+    - check:
+        - name: ctl00$ctl12$ReplyChoice
+          selector: "#ctl00_ctl12_ReplyChoice_0"
+          value: Respond
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl12_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time to contact my office.

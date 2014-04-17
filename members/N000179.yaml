@@ -1,0 +1,99 @@
+bioguide: N000179
+contact_form:
+  method: post
+  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  steps:
+    - visit: "https://napolitano.house.gov/contact-me/email-me"
+    - fill_in:
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: "#submit"
+    - find:
+        - selector: "#contactForm"
+    - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AG
+            Budget/Economy: "BUD "
+            Business/Industry: BUS
+            Children: CH
+            Crime: CRIME
+            Defense/Terrorism: DEF
+            Education: ED
+            Environment: ENV
+            Foreign Affairs: FR
+            Gun Control: GUNS
+            Health: HE
+            Housing: HUD
+            Immigration: IM
+            Other: GEN
+            Reproductive Rights: AB
+            Science/Technology: SCI
+            Social Security: SS
+            Taxes: TAX
+            Trade: TRD
+            Transportation: TRAN
+            Veterans: VET
+            Welfare: WELF
+            "Women's Issues": WOMEN
+            Other Issues: OTHER
+    - click_on:
+        - value: Send Email
+          selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "The following information has been submitted:"

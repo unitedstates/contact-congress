@@ -1,0 +1,103 @@
+bioguide: N000186
+contact_form:
+  method: post
+  action: /contact-form/
+  steps:
+    - visit: "https://nunnelee.house.gov/contact-form"
+    - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go to Form
+          selector: input.button
+    - find:
+        - selector: "#custom_form21"
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#req_phone"
+          value: $PHONE
+          required: true
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
+            Other: Other
+        - name: issue
+          selector: "#req_issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGRI
+            Budget: BUD
+            Defense: DEF
+            Education: EDU
+            Energy: ENR
+            Environmental: ENV
+            Foreign Affairs: FAFF
+            Government Issues: GOV
+            Health: HLTH
+            Homeland Security: HOM
+            Immigration: IMM
+            International Relations: INT
+            Judicial: JUD
+            Labor: LAB
+            Social Security: SOC
+            Taxes: TAX
+            Telecommunications: TELE
+            Transportation: TRANS
+            Trade: TRD
+            Veterans: VET
+            Welfare: WEL
+            Other Issues: OTH
+    - click_on:
+        - value: Send Email
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been successfully submitted.
