@@ -4,6 +4,8 @@ contact_form:
   action: "/htbin/formproc/mcdermott/contact.txt&display=/webforms/new/thank_you-contact.shtml"
   steps:
     - visit: https://forms.house.gov/mcdermott/webforms/new/contact.shtml
+    - find:
+        - selector: '#mainbodyContentleft'
     - fill_in:
         - name: required-first
           selector: "#mainbodyContentleft form input[name='required-first']"
