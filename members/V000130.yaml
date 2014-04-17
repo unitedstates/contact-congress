@@ -12,15 +12,17 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
+    - find:
+        - selector: "#contactForm"
     - fill_in:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -113,4 +115,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: "The following information has been submitted:"
