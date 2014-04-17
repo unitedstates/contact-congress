@@ -97,6 +97,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#mainbodyContentleft form input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "h2.contentheading"
+
   success:
     headers:
       status: 200
