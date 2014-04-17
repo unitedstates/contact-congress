@@ -7,7 +7,6 @@ Filling out the remote form was not successful
 - <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=R000570>
 - <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=M000312>
 - <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=L000565>
-- <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=J000174>
 
 PhantomJS client died while processing...
 ---
@@ -21,16 +20,6 @@ Error: PhantomJS client died while processing {"name":"click","args":[1,13]}
 Error: PhantomJS client died while processing {"name":"click","args":[1,2]}
 
 Unable to find css...
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=B001252>
-Error: Unable to find css "input#ctl00_ctl18_FirstName"
-
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=C001048>
-Error: Unable to find css "#ctl00_ctl11_SubmitButton"
-
 ---
 
 <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=C001070>
