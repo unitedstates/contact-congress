@@ -1,7 +1,6 @@
 Filling out the remote form was not successful
 ---
 
-- <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=W000187>
 - <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=V000129>
 - <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=V000127>
 - <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=R000570> 
