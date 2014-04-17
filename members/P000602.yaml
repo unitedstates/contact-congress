@@ -1,14 +1,22 @@
 bioguide: P000602
 contact_form:
-  method: post
-  action: /submit-contact.aspx
+  method: get
+  action: /Contact/ContactForm.htm
   steps:
-    - visit: "https://pompeo.house.gov/contact/contactform.htm?zip5=$ADDRESS_ZIP5"
-    - find:
-        - selector: ".zipform"
+    - visit: "http://pompeo.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find: 
+      - selector: "#ctl00_ctl11_ctl00_Header"
     - fill_in:
         - name: required-first
-          selector: "form.zipform input[name='required-first']"
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
         - name: required-last
@@ -16,53 +24,44 @@ contact_form:
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector:  "form.zipform input[name='required-address']"
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
         - name: required-city
-          selector: "form.zipform input[name='required-address']"
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector:  "form.zipform input[name='zip5']"
+          selector: "#zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
           selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
-        - name: phone
-          selector: "form.zipform input[name='phone']"
-          value: $PHONE
-          required: false
+          required: true
         - name: required-email
-          selector: "form.zipform input[name='required-email']"
+          selector: "#required-email"
           value: $EMAIL
           required: true
         - name: required-message
-          selector: "form.zipform textarea[name='required-message']"
+          selector: "#required-message"
           value: $MESSAGE
-          required: true
-        - name: district-contact
-          selector: "form.zipform input[name='district-contact']"
-          value: "InD"
           required: true
     - select:
         - name: required-prefix
-          selector: "form.zipform select[name='required-prefix']"
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            - Dr.
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Mrs.
-            - Miss
-            - Rev.
-            - Hon.
+            - "Mr."
+            - "Mrs."
+            - "Ms."
+            - "Dr."
+            - "Rev."
+            - "Miss"
+            - "Hon."
         - name: required-issue
-          selector: "form.zipform select[name='required-issue']"
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
@@ -90,9 +89,9 @@ contact_form:
             Other Issues: WEBOTH
     - click_on:
         - value: Send Email
-          selector: form.zipform input[type='submit'][value='Send Email']
+          selector: "form.zipform input[type='submit'][value='Send Email']"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank"
+      contains: Thank you for contacting my office.
