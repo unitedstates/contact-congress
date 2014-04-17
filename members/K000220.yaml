@@ -261,6 +261,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "form[name='myform'] input[name='submit']"
+    - find:
+        - selector: "#ctl00_ctl16_ctl00_Text"
   success:
     headers:
       status: 200
