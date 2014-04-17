@@ -1,21 +1,9 @@
 bioguide: F000445
 contact_form:
-  method: get
-  action: /Contact/ContactForm.htm
+  method: post
+  action: /submit-contact.aspx
   steps:
-    - visit: "http://forbes.house.gov/contact/zipauth.htm"
-    - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
+    - visit: "https://forbes.house.gov/contact/contactform.htm"
     - fill_in:
         - name: Firstname
           selector: "form.zipform input[name='Firstname']"
@@ -29,10 +17,14 @@ contact_form:
           selector: "form.zipform input[name='Address1']"
           value: $ADDRESS_STREET
           required: true
+        - name: Address2
+          selector: "form.zipform input[name='Address2']"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: City
           selector: "#City"
           value: $ADDRESS_CITY
-          required: true
+          required: false
         - name: zip5
           selector: "#zip5"
           value: $ADDRESS_ZIP5
@@ -40,7 +32,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
         - name: required-email
           selector: "#Email"
           value: $EMAIL
@@ -233,4 +225,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me.
+      contains: Thank you for contacting me
