@@ -50,7 +50,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#ctl00_ctl03_ctl00_Text form input[type='submit'][value='Send Email']"
-    - find_text:
+    - find:
+        - selector: "span#ctl00_ctl03_ctl00_Text"
         - value: "Thank you for submitting your comments, I appreciate hearing from you."
   success:
     headers:
