@@ -1,23 +1,9 @@
 bioguide: S001187
 contact_form:
-  method: get
-  action: /Forms/WriteYourRep/
+  method: post
+  action: ""
   steps:
-    - visit: "http://stivers.house.gov/contact/"
-    - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: false
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
-    - find:
-        - selector: "#ctl00_ctl11_FirstName"
+    - visit: "https://stivers.house.gov/forms/writeyourrep/"
     - fill_in:
         - name: ctl00$ctl11$FirstName
           selector: "#ctl00_ctl11_FirstName"
@@ -163,6 +149,13 @@ contact_form:
             Transportation: "52924"
             Veterans: "43382"
             Welfare: "25578"
+    - check:
+        - name: ctl00$ctl11$ReplyChoice
+          selector: "#ctl00_ctl11_ReplyChoice_0"
+          value: Respond
+    - uncheck:
+        - name: ctl00$ctl11$SubscribeChoice
+          selector: "#ctl00_ctl11_SubscribeChoice"
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl11_SubmitButton"
@@ -170,4 +163,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office.
+      contains: Thank you for contacting my office
