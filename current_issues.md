@@ -1,3 +1,46 @@
+Filling out the remote form was not successful
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=W000809>
+
+Error: Filling out the remote form was not successful
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=W000187>
+
+Error: Filling out the remote form was not successful
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=V000129>
+
+Error: Filling out the remote form was not successful
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=R000570>
+
+Error: Filling out the remote form was not successful
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=M000312>
+
+Error: Filling out the remote form was not successful
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=L000565>
+
+Error: Filling out the remote form was not successful
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=J000174>
+
+Error: Filling out the remote form was not successful
+
 Unable to find css...
 ---
 
@@ -50,39 +93,9 @@ Error: (<unknown>): mapping values are not allowed in this context at line 3 col
 
 ---
 
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=W000809>
-
-Error: Filling out the remote form was not successful
-
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=W000187>
-
-Error: Filling out the remote form was not successful
-
----
-
 <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=V000130>
 
 Error: Firing a click at co-ordinates [98, 735.5] failed. Poltergeist detected another element with CSS selector...
-
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=V000129>
-
-Error: Filling out the remote form was not successful
-
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=R000570>
-
-Error: Filling out the remote form was not successful
-
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=M000312>
-
-Error: Filling out the remote form was not successful
 
 ---
 
@@ -92,19 +105,6 @@ Error: PhantomJS client died while processing {"name":"click","args":[1,13]}
 
 ---
 
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=L000565>
-
-Error: Filling out the remote form was not successful
-
----
-
 <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=L000480>
 
 Error: PhantomJS client died while processing {"name":"click","args":[1,2]}
-
-
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=J000174>
-
-Error: Filling out the remote form was not successful
