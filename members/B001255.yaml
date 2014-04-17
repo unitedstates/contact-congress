@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /contact-me/
   steps:
-    - visit: "https://boustanyforms.house.gov/contact-me"
+    - visit: "https://boustanyforms.house.gov/contact-me/"
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
@@ -59,7 +59,7 @@ contact_form:
           value: $NAME_PREFIX
           required: false
           options:
-            Mr.: Mr.
+            Mr.: "Mr. "
             Mrs.: Mrs.
             Ms.: Ms.
             Miss: Miss
@@ -96,7 +96,7 @@ contact_form:
             Other Issues: WEBOTH
         - name: response
           selector: "#response"
-          value: "N"
+          value: NRN
           required: false
           options:
             "Yes": RN
