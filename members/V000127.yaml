@@ -62,10 +62,6 @@ contact_form:
         selector: "#mailing_city"
         value: "$ADDRESS_CITY"
         required: true
-      - name: mailing_zipCode
-        selector: "#mailing_zipCode"
-        value: "$ADDRESS_ZIP5"
-        required: true
       - name: home_phone_number
         selector: "#home_phone_number"
         value: "$PHONE"
@@ -292,6 +288,11 @@ contact_form:
           - West Carroll Parish
           - West Feliciana Parish
           - Winn Parish
+    - fill_in:
+      - name: mailing_zipCode
+        selector: "#mailing_zipCode"
+        value: "$ADDRESS_ZIP5"
+        required: true
     - check:
       - name: response
         selector: "#response_y"
