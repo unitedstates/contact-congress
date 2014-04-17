@@ -120,6 +120,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
+    - find:
+        - selector: "h2#headline"
   success:
     headers:
       status: 200
