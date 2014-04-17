@@ -39,8 +39,3 @@ Other
 <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=D000563>
 Error: (<unknown>): mapping values are not allowed in this context at line 3 column 10
 
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=W000815>
-Error: Multiple errors
-  - [Issue thread, intermitten success/error](https://github.com/unitedstates/contact-congress/issues/30#issuecomment-40735955)
