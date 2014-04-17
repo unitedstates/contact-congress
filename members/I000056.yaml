@@ -46,9 +46,9 @@ contact_form:
           value: $MESSAGE
           required: true
         - name: captcha
-          selector: "table#recaptcha_table"
-          captcha_selector: "img#recaptcha_challenge_image"
           selector: "input#recaptcha_response_field"
+          captcha_selector: "img#recaptcha_challenge_image"
+          selector: "input#recaptcha_challenge_field"
           value: "$CAPTCHA_SOLUTION"
     - select:
         - name: input_12
