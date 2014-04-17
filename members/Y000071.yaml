@@ -1,0 +1,199 @@
+bioguide: M001169
+contact_form:
+  method: post
+  action: /contact
+  steps:
+    - visit: "http://www.murphy.senate.gov/contact"
+    - fill_in:
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: mailing_streetAddress1
+          selector: "#mailing_streetAddress1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: mailing_streetAddress2
+          selector: "#mailing_streetAddress2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: mailing_city
+          selector: "#mailing_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: mailing_zipCode
+          selector: "#mailing_zipCode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone_number
+          selector: "#phone_number"
+          value: $PHONE
+          required: false
+        - name: email_address
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: "#verify_email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: topic
+          selector: "#topic"
+          value: $TOPIC
+          required: true
+          options:
+            - Academy Nominations
+            - Adoption
+            - Aging and Seniors
+            - Agriculture
+            - Animal Rights
+            - Appropriations
+            - Arts
+            - Budget
+            - Campaign Finance
+            - Casework
+            - Children/Family/Adoption
+            - Civil Rights
+            - Commemorative/Congratulatory/Memorative
+            - Commerce
+            - Congressional Issues
+            - Crime
+            - Defense
+            - Education Higher
+            - Education K through 12
+            - Elections
+            - Energy
+            - Environment
+            - Financial Services
+            - Flag Requests
+            - Foreclosures
+            - Foreign Affairs
+            - Government Reform
+            - Gun Control
+            - Health
+            - Health Insurance
+            - Homeland Security
+            - Housing
+            - Illegal Drugs
+            - Immigration
+            - Indian Affairs
+            - Intellectual Property/Patents
+            - Interior/Forestry
+            - "Internships & Senate Page Program"
+            - Jobs
+            - Judiciary
+            - Labor
+            - LIHEAP
+            - Local Issues
+            - Medicare/Medicaid
+            - Military
+            - Nutrition
+            - Pensions
+            - Prescription Drugs
+            - Presidential Greetings
+            - Reproductive Rights
+            - Science and Space
+            - Small Business
+            - Social Security
+            - Taxes
+            - Telecommunications
+            - Tobacco
+            - Tours and Tickets
+            - Trade
+            - Transportation
+            - Veterans
+            - Welfare/Food Stamps
+        - name: salutation
+          selector: "#salutation"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Miss
+            - Dr.
+        - name: mailing_state
+          selector: "#mailing_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "--": "null"
+            AK: AK
+            AL: AL
+            AR: AR
+            AZ: AZ
+            CA: CA
+            CO: CO
+            CT: CT
+            DC: DC
+            DE: DE
+            FL: FL
+            GA: GA
+            HI: HI
+            IA: IA
+            ID: ID
+            IL: IL
+            IN: IN
+            KS: KS
+            KY: KY
+            LA: LA
+            MA: MA
+            MD: MD
+            ME: ME
+            MI: MI
+            MN: MN
+            MO: MO
+            MS: MS
+            MT: MT
+            NC: NC
+            ND: ND
+            NE: NE
+            NH: NH
+            NJ: NJ
+            NM: NM
+            NV: NV
+            NY: NY
+            OH: OH
+            OK: OK
+            OR: OR
+            PA: PA
+            RI: RI
+            SC: SC
+            SD: SD
+            TN: TN
+            TX: TX
+            UT: UT
+            VA: VA
+            VT: VT
+            WA: WA
+            WI: WI
+            WV: WV
+            WY: WY
+    - check:
+        - name: response
+          selector: "#response_y"
+          value: "Y"
+    - find:
+      - selector: "<div  id="loading" style="display:none">"
+    - click_on:
+        - value: Send
+          selector: "#side-search-btn"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thanks for taking the time to share your thoughts with me. I will get back to you on that topic as soon as I can.
