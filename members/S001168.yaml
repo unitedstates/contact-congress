@@ -87,6 +87,8 @@ contact_form:
             "No, I do not require a response.": "No"
     - click_on:
         - selector: "#form7 input[type='submit']"
+    - find:
+        - selector: "script"
   success:
     headers:
       status: 200
