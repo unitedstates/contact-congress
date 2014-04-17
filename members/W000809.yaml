@@ -107,8 +107,10 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "#ctl00_ctl12_ctl00_Text"
   success:
     headers:
       status: 200
     body:
-      contains: Thanks for contacting me.
+      contains: Thanks for
