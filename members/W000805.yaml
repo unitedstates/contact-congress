@@ -1,150 +1,190 @@
 bioguide: W000805
 contact_form:
-  method: POST
-  action: http://www.warner.senate.gov/public//index.cfm?p=ContactPage#form_f9db6196-2dc7-4cda-8add-f8435a71318a
+  method: post
+  action: ""
   steps:
-    - visit: http://www.warner.senate.gov/public//index.cfm?p=ContactPage#form_f9db6196-2dc7-4cda-8add-f8435a71318a
+    - visit: "http://www.warner.senate.gov/public//index.cfm?p=ContactPage#form_f9db6196-2dc7-4cda-8add-f8435a71318a"
     - fill_in:
-      - name: field_db042583-9e58-4b92-8979-a28769f48db6
-        selector: "#field_db042583-9e58-4b92-8979-a28769f48db6"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_b5ec1754-a087-456b-8adb-7d3b19cf9997
-        selector: "#field_b5ec1754-a087-456b-8adb-7d3b19cf9997"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_35ed0d76-065e-41f1-b5c8-5f8de89ecf90
-        selector: "#field_35ed0d76-065e-41f1-b5c8-5f8de89ecf90"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_85957133-1789-436c-b14c-0fb68fcddb25
-        selector: "#field_85957133-1789-436c-b14c-0fb68fcddb25"
-        value: "$ADDRESS_STREET_2"
-      - name: field_3d314fc8-c88d-42f9-843e-163ad337d87c
-        selector: "#field_3d314fc8-c88d-42f9-843e-163ad337d87c"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_0f85608e-fb00-4c2c-a32a-82b202f738c9
-        selector: "#field_0f85608e-fb00-4c2c-a32a-82b202f738c9"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_050c394f-5f4c-40fd-92c0-5dd66961745d
-        selector: "#field_050c394f-5f4c-40fd-92c0-5dd66961745d"
-        value: "$PHONE"
-        required: Yes
-      - name: field_9c7d925d-cfd3-40bc-9cf6-961fc04333d6
-        selector: "#field_9c7d925d-cfd3-40bc-9cf6-961fc04333d6"
-        value: "$EMAIL"
-        required: Yes
-        disallow_plus: Yes
-      - name: field_7a0144ec-734e-4c09-8992-734ac3e6e337
-        selector: "#field_7a0144ec-734e-4c09-8992-734ac3e6e337"
-        value: "$SUBJECT"
-        required: Yes
-      - name: field_6fa5f44f-28ca-45fd-9142-3c29c257b186
-        selector: "#field_6fa5f44f-28ca-45fd-9142-3c29c257b186"
-        value: "$MESSAGE"
-        required: Yes
+        - name: field_db042583-9e58-4b92-8979-a28769f48db6
+          selector: "#field_db042583-9e58-4b92-8979-a28769f48db6"
+          value: $NAME_FIRST
+          required: true
+        - name: field_b5ec1754-a087-456b-8adb-7d3b19cf9997
+          selector: "#field_b5ec1754-a087-456b-8adb-7d3b19cf9997"
+          value: $NAME_LAST
+          required: true
+        - name: field_35ed0d76-065e-41f1-b5c8-5f8de89ecf90
+          selector: "#field_35ed0d76-065e-41f1-b5c8-5f8de89ecf90"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_85957133-1789-436c-b14c-0fb68fcddb25
+          selector: "#field_85957133-1789-436c-b14c-0fb68fcddb25"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: field_3d314fc8-c88d-42f9-843e-163ad337d87c
+          selector: "#field_3d314fc8-c88d-42f9-843e-163ad337d87c"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_0f85608e-fb00-4c2c-a32a-82b202f738c9
+          selector: "#field_0f85608e-fb00-4c2c-a32a-82b202f738c9"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_050c394f-5f4c-40fd-92c0-5dd66961745d
+          selector: "#field_050c394f-5f4c-40fd-92c0-5dd66961745d"
+          value: $PHONE
+          required: true
+        - name: field_9c7d925d-cfd3-40bc-9cf6-961fc04333d6
+          selector: "#field_9c7d925d-cfd3-40bc-9cf6-961fc04333d6"
+          value: $EMAIL
+          disallow_plus: Yes
+          required: true
+        - name: field_7a0144ec-734e-4c09-8992-734ac3e6e337
+          selector: "#field_7a0144ec-734e-4c09-8992-734ac3e6e337"
+          value: $SUBJECT
+          required: true
+        - name: field_6fa5f44f-28ca-45fd-9142-3c29c257b186
+          selector: "#field_6fa5f44f-28ca-45fd-9142-3c29c257b186"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: field_eec119b6-f19d-4f37-8035-f4a46c2d7c2f
-        selector: "#field_eec119b6-f19d-4f37-8035-f4a46c2d7c2f"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Mr. and Mrs."
-          - "Dr."
-          - "Dr. and Mrs."
-          - "Dr. and Mr."
-          - "Reverend"
-          - "Pastor"
-          - "Sister"
-          - "RABBI"
-          - "Imam"
-          - "OTHMIL"
-          - "ADMIRAL"
-          - "COMMANDER"
-          - "COLONEL"
-          - "CAPT"
-          - "GENERAL"
-          - "LIEUTENANT"
-          - "LTCOL"
-          - "LIEUTENANTCOMMANDER"
-          - "MAJOR"
-          - "PRIVATE"
-          - "SERGEANT"
-          - "SSGT"
-      - name: field_d9dda459-112b-45bc-8edd-31d2beb13f70
-        selector: "#field_d9dda459-112b-45bc-8edd-31d2beb13f70"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: field_abec110b-7e92-4b85-b94a-5ccc8a7a046d
-        selector: "#field_abec110b-7e92-4b85-b94a-5ccc8a7a046d"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          "Afghanistan": "fr.afghan"
-          "Agriculture": "Agr"
-          "Animal Welfare": "Anim"
-          "Arts and Humanities": "Arts"
-          "Banking and Financial Services": "FINC"
-          "Budget": "bud"
-          "Campaign Finance": "campfinc"
-          "Civil Rights": "civrgt"
-          "Civil Service": "fed.wkr"
-          "Climate Change": "Clim"
-          "Defense": "Def"
-          "Deficit Reduction": "Bud"
-          "Drugs": "Drugs"
-          "Education K-12": "Edu"
-          "Education - Higher Ed": "Edu.Hi"
-          "Education - Student Loans": "EDU.LOAN"
-          "Energy": "Ene"
-          "Environment": "Env"
-          "Foreign Affairs": "fr"
-          "Gun Ownership": "gun"
-          "Healthcare Reform": "hc.ref"
-          "Health and Wellness": "hc"
-          "High Technology": "hi.tech"
-          "Housing": "Hous"
-          "Immigration": "Imm"
-          "Intellectual Property": "ip"
-          "Internships": "intern"
-          "Iraq": "fr.Iraq"
-          "Job Creation": "emp"
-          "Labor": "Lab"
-          "Medicare/Medicaid": "mcar.caid"
-          "NASA": "NASA"
-          "Nominations": "Nom"
-          "Postal": "pstl"
-          "Reproductive Health": "rephe"
-          "Small Business": "biz.sm"
-          "Social Security": "ssec"
-          "Supreme Court": "JUD"
-          "Taxes": "Tax"
-          "Telecommunications": "comm.telc"
-          "Term Limits": "ELECT"
-          "Tickets and Tours": "Tour"
-          "Trade": "fr.trd"
-          "Transportation": "Tra"
-          "Tricare": "VET.TRI"
-          "Veterans": "Vet"
-          "Voting Rights": "VOTE"
-      - name: field_4815620b-0631-45d2-b52e-a9420a813de5
-        selector: "#field_4815620b-0631-45d2-b52e-a9420a813de5"
-        value: Yes
-        required: Yes
-        options:
-          - "Yes"
-          - "No"
+        - name: field_eec119b6-f19d-4f37-8035-f4a46c2d7c2f
+          selector: "#field_eec119b6-f19d-4f37-8035-f4a46c2d7c2f"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mrs.
+            - Dr. and Mr.
+            - Reverend
+            - Pastor
+            - Sister
+            - Rabbi
+            - Imam
+            - "-----Military Ranks-----"
+            - Admiral
+            - Airman
+            - Airman Basic
+            - Airman First Class
+            - Brigadier General
+            - Captain
+            - Chief Master Sergeant
+            - Chief Master Sergeant of the Air Force
+            - "Chief Petty Officer "
+            - Chief Warrant Officer
+            - Colonel
+            - Command Chief Master Sergeant
+            - Command Sergeant Major
+            - Commander
+            - Corporal
+            - Ensign
+            - First Lieutenant
+            - First Sergeant
+            - General
+            - Gunnery Sergeant
+            - Lance Corporal
+            - Lieutenant
+            - Lieutenant Colonel
+            - Lieutenant Commander
+            - Lieutenant General
+            - "Lieutenant, Junior Grade"
+            - Major
+            - Major General
+            - Master Chief Petty Officer
+            - Master Chief Petty Officer of the Navy
+            - Master Gunnery Sergeant
+            - Master Sergeant
+            - Petty Officer First Class
+            - Petty Officer Second Class
+            - Petty Officer Third Class
+            - Private
+            - Private First Class
+            - Rear Admiral (lower half)
+            - Rear Admiral (upper half)
+            - Seaman
+            - Seaman Apprentice
+            - Seaman Recruit
+            - Second Lieutenant
+            - Senior Airman
+            - Senior Chief Petty Officer
+            - Senior Master Sergeant
+            - Sergeant
+            - "Sergeant First Class "
+            - Sergeant Major
+            - "Sergeant Major of the Army "
+            - Sergeant Major of the Corps
+            - "Specialist "
+            - Staff Sergeant
+            - Technical Sergeant
+            - Vice Admiral
+            - Warrant Officer
+        - name: field_abec110b-7e92-4b85-b94a-5ccc8a7a046d
+          selector: "#field_abec110b-7e92-4b85-b94a-5ccc8a7a046d"
+          value: $TOPIC
+          required: true
+          options:
+            Afghanistan: fr.afghan
+            Agriculture: Agr
+            Animal Welfare: Anim
+            Arts and Humanities: Arts
+            Banking and Financial Services: FINC
+            Budget: bud
+            Campaign Finance: campfinc
+            Civil Rights: civrgt
+            Civil Service: fed.wkr
+            Climate Change: Clim
+            Defense: Def
+            Deficit Reduction: Bud
+            Drugs: Drugs
+            Education K-12: Edu
+            Education - Higher Ed: Edu.Hi
+            Education - Student Loans: EDU.LOAN
+            Energy: Ene
+            Environment: Env
+            Foreign Affairs: fr
+            Gun Ownership: gun
+            Healthcare Reform: hc.ref
+            Health and Wellness: hc
+            High Technology: hi.tech
+            Housing: Hous
+            Immigration: Imm
+            Intellectual Property: ip
+            Internships: intern
+            Iraq: fr.Iraq
+            Job Creation: emp
+            Labor: Lab
+            Medicare/Medicaid: mcar.caid
+            NASA: NASA
+            Nominations: Nom
+            Postal: pstl
+            Reproductive Health: rephe
+            Small Business: biz.sm
+            Social Security: ssec
+            Supreme Court: JUD
+            Taxes: Tax
+            Telecommunications: comm.telc
+            Term Limits: ELECT
+            Tickets and Tours: Tour
+            Trade: fr.trd
+            Transportation: Tra
+            Tricare: VET.TRI
+            Veterans: Vet
+            Voting Rights: VOTE
+        - name: field_4815620b-0631-45d2-b52e-a9420a813de5
+          selector: "#field_4815620b-0631-45d2-b52e-a9420a813de5"
+          value: "No"
+          required: false
+          options:
+            "Yes": "Yes"
+            "No": "No"
     - click_on:
-      - value: Submit
-        selector: ".buttonHolder input"
+        - value: Submit
+          selector: div.buttonHolder input
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting our office"
+      contains: Thank you for contacting our office.
