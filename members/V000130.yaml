@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
@@ -35,10 +35,26 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_FULL
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
@@ -115,4 +131,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Email Me - Thank You
