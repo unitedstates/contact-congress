@@ -5,51 +5,7 @@ contact_form:
   steps:
     - visit: "http://www.markey.senate.gov/contact"
     - fill_in:
-        - name: fname
-          selector: "#fname"
-          value: $NAME_FIRST
-          required: true
-        - name: lname
-          selector: "#lname"
-          value: $NAME_LAST
-          required: false
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
-          value: $ADDRESS_STREET
-          required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: mailing_city
-          selector: "#mailing_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: home_phone_number
-          selector: "#home_phone_number"
-          value: $PHONE
-          required: false
-        - name: email_address
-          selector: "#email"
-          value: $EMAIL
-          required: true
-        - name: verify_email
-          selector: "#verify_email"
-          value: $EMAIL
-          required: true
-        - name: subject
-          selector: "#subject"
-          value: $SUBJECT
-          required: true
-        - name: message
-          selector: "#message"
-          value: $MESSAGE
-          required: true
-    - select:
+        - select:
         - name: issue
           selector: "#issue"
           value: $TOPIC
@@ -110,6 +66,50 @@ contact_form:
             - Transportation
             - Veterans
             - Welfare/SNAP
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: mailing_streetAddress1
+          selector: "#mailing_streetAddress1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: mailing_streetAddress2
+          selector: "#mailing_streetAddress2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: mailing_city
+          selector: "#mailing_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: mailing_zipCode
+          selector: "#mailing_zipCode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: home_phone_number
+          selector: "#home_phone_number"
+          value: $PHONE
+          required: false
+        - name: email_address
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: "#verify_email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
         - name: salutation
           selector: "#salutation"
           value: $NAME_PREFIX
@@ -185,4 +185,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank You\nThank you for contacting me."
+      contains: Thank you for contacting me.
