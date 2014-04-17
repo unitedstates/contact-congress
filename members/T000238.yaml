@@ -1,23 +1,9 @@
 bioguide: T000238
 contact_form:
-  method: get
-  action: /forms/writeyourrep/
+  method: post
+  action: ""
   steps:
-    - visit: "http://thornberry.house.gov/contact/"
-    - fill_in:
-        - name: zip5
-          selector: "form.zipform.parent-active input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "form.zipform.parent-active input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Submit
-          selector: "form.zipform.parent-active input[type='submit'][value='Submit']"
-    - find:
-        - value: #aspnetForm
+    - visit: "https://thornberry.house.gov/forms/writeyourrep/"
     - fill_in:
         - name: ctl00$ctl15$FirstName
           selector: "#ctl00_ctl15_FirstName"
@@ -26,7 +12,7 @@ contact_form:
         - name: ctl00$ctl15$LastName
           selector: "#ctl00_ctl15_LastName"
           value: $NAME_LAST
-          required: true
+          required: false
         - name: ctl00$ctl15$Street
           selector: "#ctl00_ctl15_Street"
           value: $ADDRESS_STREET
@@ -39,10 +25,6 @@ contact_form:
           selector: "#ctl00_ctl15_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl15$Phone
-          selector: "#ctl00_ctl15_Phone"
-          value: $PHONE
-          required: false
         - name: ctl00$ctl15$Email
           selector: "#ctl00_ctl15_Email"
           value: $EMAIL
@@ -55,14 +37,6 @@ contact_form:
           selector: "#ctl00_ctl15_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl15$CampaignID
-          selector: "#ctl00_ctl15_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl15$CampaignInfo
-          selector: "#ctl00_ctl15_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
         - name: ctl00$ctl15$PrefixList
           selector: "#ctl00_ctl15_PrefixList"
@@ -388,4 +362,3 @@ contact_form:
       status: 200
     body:
       contains: Thank you
-
