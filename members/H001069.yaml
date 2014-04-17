@@ -101,7 +101,7 @@ contact_form:
       - name: Prefix
         selector: "#Prefix"
         value: "$NAME_PREFIX"
-        required: Yes
+        required: true
         options:
           - "Mr."
           - "Mrs."
@@ -119,6 +119,7 @@ contact_form:
         selector: "#state"
         value: "$ADDRESS_STATE"
         options: US_STATES_AND_MPCS
+        required: true
     - click_on:
       - value: Send
         selector: "#submit"
