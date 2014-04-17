@@ -33,10 +33,6 @@ contact_form:
           selector: "#home_phone_number"
           value: $PHONE
           required: false
-        - name: work_phone_number
-          selector: "#work_phone_number"
-          value: $PHONE
-          required: false
         - name: email
           selector: "#email_address"
           value: $EMAIL
@@ -181,6 +177,50 @@ contact_form:
             WI: WI
             WV: WV
             WY: WY
+    - choose:
+        - name: subject
+          selector: "#contactForm input[name='subject']"
+          value: $TOPIC
+          required: true
+          options:
+            - Afghanistan
+            - Agriculture
+            - Animals Rights
+            - Civil Rights
+            - Crime and Public Safety
+            - Economy
+            - Education
+            - Energy
+            - Environment
+            - Ethics Reform
+            - Federal Grant Applications
+            - Financial Services
+            - Foreign Relations
+            - Gun Violence
+            - Health Care
+            - Homeland Security
+            - Housing
+            - Immigration Reform
+            - Iraq
+            - Israel
+            - Job Creation
+            - Judiciary
+            - Labor and Pensions
+            - LGBT Rights
+            - Medicare/Medicaid
+            - National Security
+            - Poverty
+            - Science/Technology
+            - Social Security
+            - Taxes
+            - Telecommunications
+            - Tours : tours
+            - Veterans
+            - Womens Issues
+    - uncheck:
+        - name: newsletter
+          selector: "#newsletter"
+          value: newsletter
     - click_on:
         - value: submit
           selector: input.rollover
