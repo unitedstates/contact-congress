@@ -1114,15 +1114,22 @@ CCH.prototype.fillInStep = function(els){
         required = !!this.popupTargetDiv().find('input[data-selector="' + selector + '"]:checked').length;
 
     if (mappedValue) {
-      console.log(mappedValue);
-      // if it's a zip use the ones we downloaded, else the sample letter
-      if (_(['$ADDRESS_ZIP5', '$ADDRESS_ZIP4', '$ADDRESS_ZIP_PLUS_4']).indexOf(mappedValue) !== -1){
-        if (mappedValue === '$ADDRESS_ZIP5') {
-          $(element).val(Forms.zips[this.currentLegislator().bioguide()].Zip);
+      // pad zipcodes parsed from CSV with leading zero if needed
+      var zip = Forms.zips[this.currentLegislator().bioguide()].Zip;
+      if (zip.toString().length === 4) {
+          zip = '0' + zip;
+      }
+      // if it's a zip or street address use the ones we downloaded, else the sample letter
+      // note: leaving state out of this because it's tougher to autoselect (well), but it's easy to override.
+      if (_(['$ADDRESS_ZIP5', '$ADDRESS_ZIP4', '$ADDRESS_ZIP_PLUS_4', '$ADDRESS_STREET']).indexOf(mappedValue) !== -1){
+        if (mappedValue === '$ADDRESS_STREET') {
+          $(element).val(Forms.zips[this.currentLegislator().bioguide()]['Address to use']);
+        } else if (mappedValue === '$ADDRESS_ZIP5') {
+          $(element).val(zip);
         } else if (mappedValue === '$ADDRESS_ZIP4') {
           $(element).val(Forms.zips[this.currentLegislator().bioguide()].Plus_Four);
         } else {
-          $(element).val(Forms.zips[this.currentLegislator().bioguide()].Zip + '-' + Forms.zips[this.currentLegislator().bioguide()].Plus_Four);
+          $(element).val(zip + '-' + Forms.zips[this.currentLegislator().bioguide()].Plus_Four);
         }
       } else {
         $(element).val(Forms.sampleLetter[mappedValue]);
