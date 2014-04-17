@@ -1,45 +1,13 @@
 Filling out the remote form was not successful
 ---
 
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=W000809>
-
-Error: Filling out the remote form was not successful
-
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=W000187>
-
-Error: Filling out the remote form was not successful
-
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=V000129>
-
-Error: Filling out the remote form was not successful
-
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=R000570>
-
-Error: Filling out the remote form was not successful
-
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=M000312>
-
-Error: Filling out the remote form was not successful
-
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=L000565>
-
-Error: Filling out the remote form was not successful
-
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=J000174>
-
-Error: Filling out the remote form was not successful
+- <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=W000809>
+- <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=W000187>
+- <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=V000129>
+- <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=R000570>
+- <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=M000312>
+- <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=L000565>
+- <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=J000174>
 
 Unable to find css...
 ---
