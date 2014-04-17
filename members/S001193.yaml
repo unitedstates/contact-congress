@@ -117,6 +117,10 @@ contact_form:
           selector: "#required-response"
           value: "Y"
           required: true
+    - uncheck:
+        - name: subscribe
+          selector: "#subscribe"
+          value: Email.Optin
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
