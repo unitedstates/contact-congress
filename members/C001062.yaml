@@ -1,23 +1,9 @@
 bioguide: C001062
 contact_form:
-  method: get
-  action: /Forms/WriteYourRep/
+  method: post
+  action: default.aspx
   steps:
-    - visit: "http://conaway.house.gov/contact/"
-    - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: false
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
-    - find:
-        - selector: "#aspnetForm"
+    - visit: "https://conaway.house.gov/forms/writeyourrep/default.aspx"
     - fill_in:
         - name: ctl00$ctl10$FirstName
           selector: "#ctl00_ctl10_FirstName"
@@ -54,7 +40,7 @@ contact_form:
         - name: ctl00$ctl10$Body
           selector: "#ctl00_ctl10_Body"
           value: $MESSAGE
-          required: true
+          required: false
         - name: ctl00$ctl10$CampaignID
           selector: "#ctl00_ctl10_CampaignID"
           value: $CAMPAIGN_UUID
@@ -89,7 +75,7 @@ contact_form:
         - name: ctl00$ctl10$IssuesList
           selector: "#ctl00_ctl10_IssuesList"
           value: $TOPIC
-          required: false
+          required: true
           options:
             "": "14796"
             Agriculture: "3960"
