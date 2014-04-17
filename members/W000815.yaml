@@ -1,23 +1,9 @@
 bioguide: W000815
 contact_form:
-  method: get
-  action: /forms/writeyourrep/
+  method: post
+  action: "/forms/writeyourrep/"
   steps:
-    - visit: "http://wenstrup.house.gov/contact/"
-    - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
-    - find:
-        - selector: "#aspnetForm"
+    - visit: "https://wenstrup.house.gov/forms/writeyourrep/"
     - fill_in:
         - name: ctl00$ctl13$FirstName
           selector: "#ctl00_ctl13_FirstName"
@@ -55,14 +41,6 @@ contact_form:
           selector: "#ctl00_ctl13_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl13$CampaignID
-          selector: "#ctl00_ctl13_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl13$CampaignInfo
-          selector: "#ctl00_ctl13_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
         - name: ctl00$ctl13$PrefixList
           selector: "#ctl00_ctl13_PrefixList"
@@ -73,71 +51,6 @@ contact_form:
             - Mrs.
             - Dr.
             - Ms.
-        - name: ctl00$ctl13$State
-          selector: "#ctl00_ctl13_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - AA
-            - AE
-            - AP
-            - FM
-            - GU
-            - MH
-            - MP
-            - PR
-            - VI
         - name: ctl00$ctl13$IssuesList
           selector: "#ctl00_ctl13_IssuesList"
           value: $TOPIC
@@ -163,9 +76,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl13_SubmitButton"
-
   success:
     headers:
-      status: 200
+      status: 302
     body:
-      contains: Thank you for taking the time to write me.
+      contains: ''
+
