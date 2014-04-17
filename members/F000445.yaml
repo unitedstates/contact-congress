@@ -32,7 +32,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: required-email
           selector: "#Email"
           value: $EMAIL
@@ -185,11 +185,11 @@ contact_form:
             Active Duty Military Personnel: AD
             Agriculture: AG
             Animal Rights: AR
-            "Arts & Humanities": AH
-            "Banking & Finance": BK
+            Arts & Humanities: AH
+            Banking & Finance: BK
             Budget: BU
             China Issues: IR
-            "Crime & Drugs": CR
+            Crime & Drugs: CR
             Defense: DF
             Economy/Business/Jobs: EC
             Education: ED
@@ -210,7 +210,7 @@ contact_form:
             Labor/Pensions: LB
             Medicare/Medicaid: MC
             Prescription Drugs: HC
-            "Science & Technology/Space": SC
+            Science & Technology/Space: SC
             Small Business: SB
             Social Security: SS
             Taxes: TX
@@ -227,4 +227,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me
+      contains: Thank you
