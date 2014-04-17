@@ -1,22 +1,9 @@
 bioguide: C001048
 contact_form:
-  method: get
-  action: /Forms/WriteYourRep/
+  method: post
+  action: default.aspx
   steps:
-    - visit: "http://culberson.house.gov/contact/zipauth.htm"
-    - fill_in:
-        - name: zip5
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#plusfour"
-          value: $ADDRESS_ZIP4
-          required: false
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
-    - visit: "https://culbersonforms.house.gov/forms/writeyourrep/default.aspx?zip5=77084&zip4=6043"
+    - visit: "https://culbersonforms.house.gov/forms/writeyourrep/default.aspx"
     - fill_in:
         - name: ctl00$ctl11$FirstName
           selector: "#ctl00_ctl11_FirstName"
@@ -224,7 +211,7 @@ contact_form:
         - name: ctl00$ctl11$IssuesList
           selector: "#ctl00_ctl11_IssuesList"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: "12225"
             Budget: "12163"
