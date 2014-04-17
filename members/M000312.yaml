@@ -8,11 +8,11 @@ contact_form:
         - name: zip5
           selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
-          required: false
+          required: true
         - name: zip4
           selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
@@ -36,10 +36,6 @@ contact_form:
         - name: ctl00$ctl06$Zip
           selector: "#ctl00_ctl06_Zip"
           value: $ADDRESS_ZIP5
-          required: true
-        - name: ctl00$ctl06$Phone
-          selector: "#ctl00_ctl06_Phone"
-          value: $PHONE
           required: false
         - name: ctl00$ctl06$Email
           selector: "#ctl00_ctl06_Email"
@@ -53,6 +49,14 @@ contact_form:
           selector: "#ctl00_ctl06_Body"
           value: $MESSAGE
           required: true
+        - name: ctl00$ctl06$CampaignID
+          selector: "#ctl00_ctl06_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl06$CampaignInfo
+          selector: "#ctl00_ctl06_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
     - select:
         - name: ctl00$ctl06$PrefixList
           selector: "#ctl00_ctl06_PrefixList"
@@ -64,71 +68,6 @@ contact_form:
             - Ms.
             - Dr.
             - The Honorable
-        - name: ctl00$ctl06$State
-          selector: "#ctl00_ctl06_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - AA
-            - AE
-            - AP
-            - FM
-            - GU
-            - MH
-            - MP
-            - PR
-            - VI
         - name: ctl00$ctl06$IssuesList
           selector: "#ctl00_ctl06_IssuesList"
           value: $TOPIC
@@ -149,8 +88,8 @@ contact_form:
             Transportation: "73871"
     - check:
         - name: ctl00$ctl06$ReplyChoice
-          selector: "#ctl00_ctl06_ReplyChoice_0"
-          value: Respond
+          selector: "#ctl00_ctl06_ReplyChoice_1"
+          value: Comment
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl06_SubmitButton"
@@ -158,4 +97,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting your email message.
+      contains: Thank you for submitting your email message
