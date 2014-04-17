@@ -26,3 +26,27 @@ Error: (<unknown>): mapping values are not allowed in this context at line 3 col
 <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=G000555>
 
 Error: Unable to find css nil
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=W000809>
+
+Error: Filling out the remote form was not successful
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=W000187>
+
+Error: Filling out the remote form was not successful
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=V000130>
+
+Error: Firing a click at co-ordinates [98, 735.5] failed. Poltergeist detected another element with CSS selector...
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=V000129>
+
+Error: Filling out the remote form was not successful
