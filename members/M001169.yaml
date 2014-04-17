@@ -135,12 +135,12 @@ contact_form:
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
         required: Yes
         options: US_STATES_AND_TERRITORIES
+    - find:
+      - selector: '<div  id="loading" style="display:none">'
     - check:
       - name: response
         selector: "#response_y"
         value: Yes
-    - find:
-      - selector: "#loading[style='display: none;']"
     - click_on:
       - value: Submit
         selector: "#side-search-btn"
