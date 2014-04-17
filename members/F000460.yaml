@@ -63,33 +63,6 @@ contact_form:
           selector: "#ctl00_ctl18_CampaignInfo"
           value: $CAMPAIGN_UUID
           required: false
-    - find:
-        - selector: "#ctl00_ctl18_PrefixList"
-    - select:
-        - name: ctl00$ctl18$PrefixList
-          selector: "#ctl00_ctl18_PrefixList"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Mr. and Mrs.
-            - Miss
-            - Dr.
-            - Dr. and Mrs.
-            - Dr. and Mr.
-            - Drs.
-            - Professor
-            - The Honorable
-            - Reverend
-            - Pastor
-            - Representative
-            - The Reverend Monsignor
-            - The Reverend Dr.
-            - Sister
-            - Brother
-            - Rabbi
         - name: ctl00$ctl18$IssuesList
           selector: "#ctl00_ctl18_IssuesList"
           value: $TOPIC
