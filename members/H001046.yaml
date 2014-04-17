@@ -4,6 +4,51 @@ contact_form:
   action: /contact/write-martin
   steps:
     - visit: "http://www.heinrich.senate.gov/contact/write-martin"
+    - select:
+        - name: topic
+          selector: "#contactForm select[name='topic']"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture/Food Safety: Agriculture/Food Safety
+            "Banking & Financial Services": Banking and Financial Services
+            Border Security: Border Security
+            Budget: Budget
+            Campaign Finance Reform/Elections: Campaign Finance Reform/Elections
+            Children/Family/Nutrition: Children/Family/Nutrition
+            Civil Liberties: Civil Liberties
+            Climate Change: Climate Change
+            Commerce: Commerce
+            "Economy & Jobs": "Economy & Jobs"
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Federal Grant Funding: Federal Grant Funding
+            Foreign Affairs: Foreign Affairs
+            General Government: General Government
+            "Health Care & Wellness": "Health Care & Wellness"
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Indian Country: Indian Country
+            Judiciary: Judiciary
+            Labor/Pensions: Labor/Pensions
+            "Military & Defense": "Military & Defense"
+            National Labs: National Labs
+            Postal: Postal
+            Public Lands/Forestry: Public Lands/Forestry
+            Reproductive Rights: Reproductive Rights
+            Second Amendment: Second Amendment
+            "Seniors' Issues": "Seniors' Issues"
+            Small Business: Small Business
+            Space/NASA/Science/Technology: Space/NASA/Science/Technology
+            Telecommunications: Telecommunications
+            Trade: Trade
+            "Transportation & Infrastructure": "Transportation & Infrastructure"
+            Veterans: Veterans
+            Welfare/Food Assistance: Welfare/Food Assistance
+            Wildlife/Animal Welfare: Wildlife/Animal Welfare
+            "Women's Issues": "Women's Issues"
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -49,58 +94,6 @@ contact_form:
           selector: "#message"
           value: $MESSAGE
           required: true
-    - select:
-        - name: topic
-          selector: "#contactForm select[name='topic']"
-          value: $TOPIC
-          required: true
-          options:
-            Academy Nominations: Academy Nominations
-            Agriculture/Food Safety: Agriculture/Food Safety
-            "Banking & Financial Services": Banking and Financial Services
-            Border Security: Border Security
-            Budget: Budget
-            Campaign Finance Reform/Elections: Campaign Finance Reform/Elections
-            Children/Family/Nutrition: Children/Family/Nutrition
-            Civil Liberties: Civil Liberties
-            Climate Change: Climate Change
-            Commerce: Commerce
-            E-Newsletter Sign Up: E-Newsletter Sign Up
-            "Economy & Jobs": "Economy & Jobs"
-            Education: Education
-            Energy: Energy
-            Environment: Environment
-            Federal Grant Funding: Federal Grant Funding
-            Flag Requests: Flag Requests
-            Foreign Affairs: Foreign Affairs
-            General Government: General Government
-            "Health Care & Wellness": "Health Care & Wellness"
-            Help with a Federal Agency: Help with a Federal Agency
-            Homeland Security: Homeland Security
-            Housing: Housing
-            Immigration: Immigration
-            Indian Country: Indian Country
-            Judiciary: Judiciary
-            Labor/Pensions: Labor/Pensions
-            "Military & Defense": "Military & Defense"
-            National Labs: National Labs
-            Postal: Postal
-            Schedule a Meeting: Schedule a Meeting
-            Public Lands/Forestry: Public Lands/Forestry
-            Reproductive Rights: Reproductive Rights
-            Second Amendment: Second Amendment
-            "Seniors' Issues": "Seniors' Issues"
-            Small Business: Small Business
-            Space/NASA/Science/Technology: Space/NASA/Science/Technology
-            Taxes: Taxes
-            Telecommunications: Telecommunications
-            Trade: Trade
-            "Transportation & Infrastructure": "Transportation & Infrastructure"
-            Veterans: Veterans
-            Visiting DC: Visiting DC
-            Welfare/Food Assistance: Welfare/Food Assistance
-            Wildlife/Animal Welfare: Wildlife/Animal Welfare
-            "Women's Issues": "Women's Issues"
         - name: salutation
           selector: "#salutation"
           value: $NAME_PREFIX
@@ -179,63 +172,6 @@ contact_form:
             - Senior Airman
             - Airman First Class
             - Airman
-        - name: mailing_state
-          selector: "#mailing_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            "--": "null"
-            AK: AK
-            AL: AL
-            AR: AR
-            AZ: AZ
-            CA: CA
-            CO: CO
-            CT: CT
-            DC: DC
-            DE: DE
-            FL: FL
-            GA: GA
-            HI: HI
-            IA: IA
-            ID: ID
-            IL: IL
-            IN: IN
-            KS: KS
-            KY: KY
-            LA: LA
-            MA: MA
-            MD: MD
-            ME: ME
-            MI: MI
-            MN: MN
-            MO: MO
-            MS: MS
-            MT: MT
-            NC: NC
-            ND: ND
-            NE: NE
-            NH: NH
-            NJ: NJ
-            NM: NM
-            NV: NV
-            NY: NY
-            OH: OH
-            OK: OK
-            OR: OR
-            PA: PA
-            RI: RI
-            SC: SC
-            SD: SD
-            TN: TN
-            TX: TX
-            UT: UT
-            VA: VA
-            VT: VT
-            WA: WA
-            WI: WI
-            WV: WV
-            WY: WY
     - click_on:
         - value: Submit
           selector: input.btn.pull-right
@@ -243,4 +179,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: Thanks for taking the time to share your thoughts with me.
