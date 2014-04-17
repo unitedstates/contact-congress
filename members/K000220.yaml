@@ -13,6 +13,10 @@ contact_form:
           selector: "form[name='myform'] input[name='required-last']"
           value: $NAME_LAST
           required: true
+        - name: required-address
+          selector: "form[name='myform'] input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
         - name: required-city
           selector: "form[name='myform'] input[name='required-city']"
           value: $ADDRESS_CITY
