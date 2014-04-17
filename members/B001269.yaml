@@ -5,10 +5,6 @@ contact_form:
   steps:
     - visit: "https://barletta.house.gov/contact/email-me"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -19,7 +15,7 @@ contact_form:
           required: true
         - name: required-address
           selector: "#required-address"
-          value: $ADDRESS_STREET
+          value: $ADDRESS_CITY
           required: true
         - name: address2
           selector: "#address2"
@@ -57,6 +53,21 @@ contact_form:
           selector: "#required-message"
           value: $MESSAGE
           required: true
+    - select:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - "The Honorable\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_"
+            - Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -104,8 +115,8 @@ contact_form:
             Other Issues: OTHER
         - name: required-response
           selector: "#required-response"
-          value: "Y"
-          required: true
+          value: "N"
+          required: false
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
@@ -116,4 +127,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: THANK YOU
+      contains: following
