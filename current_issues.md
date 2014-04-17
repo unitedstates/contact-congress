@@ -98,3 +98,17 @@ Error: Filling out the remote form was not successful
 <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=L000480>
 
 Error: PhantomJS client died while processing {"name":"click","args":[1,2]}
+
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=J000174>
+
+Error: Filling out the remote form was not successful
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=H001055>
+
+Error: Unable to find css "option[value=\"WEBGUNS\"]:nth-child(1)"
+
