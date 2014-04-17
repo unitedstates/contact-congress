@@ -1,105 +1,73 @@
-bioguide: M001143
+bioguide: S001191
 contact_form:
-  method: POST
-  action: "https://mccollum.house.gov/htbin/formproc/email-me.txt&display=/contact-me/email-me-thankyou&nobase&fpGetVer=2"
+  method: post
+  action: ""
   steps:
-    - visit: https://mccollum.house.gov/contact-me/email-me
+    - visit: "https://sinemaforms.house.gov/forms/writeyourrep/"
     - fill_in:
-      - name: prefix
-        selector: "#prefix"
-        value: $NAME_PREFIX
-      - name: required-first
-        selector: "#required-first"
-        value: $NAME_FIRST
-        required: Yes
-      - name: required-last
-        selector: "#required-last"
-        value: $NAME_LAST
-        required: Yes
-      - name: required-address
-        selector: "#required-address"
-        value: $ADDRESS_STREET
-        required: Yes
-      - name: address2
-        selector: "#address2"
-        value: $ADDRESS_STREET_2
-      - name: required-city
-        selector: "#required-city"
-        value: $ADDRESS_CITY
-        required: Yes
-      - name: required-state
-        selector: "#required-state"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
-      - name: required-zip5
-        selector: "#required-zip5"
-        value: $ADDRESS_ZIP5
-        required: Yes
-      - name: required-valid-email
-        selector: "#required-valid-email"
-        value: $EMAIL
-        required: Yes
-      - name: phone
-        selector: "#phone"
-        value: $PHONE
-      - name: required-subject
-        selector: "#required-subject"
-        value: $SUBJECT
-        required: Yes
-      - name: required-message
-        selector: "#required-message"
-        value: $MESSAGE
-        required: Yes
+        - name: ctl00$ctl22$FirstName
+          selector: "#ctl00_ctl22_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl22$LastName
+          selector: "#ctl00_ctl22_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl22$Street
+          selector: "#ctl00_ctl22_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl22$City
+          selector: "#ctl00_ctl22_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl22$Zip
+          selector: "#ctl00_ctl22_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl22$Phone
+          selector: "#ctl00_ctl22_Phone"
+          value: $PHONE
+          required: false
+        - name: ctl00$ctl22$Email
+          selector: "#ctl00_ctl22_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl22$Subject
+          selector: "#ctl00_ctl22_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl22$Body
+          selector: "#ctl00_ctl22_Body"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$ctl22$CampaignID
+          selector: "#ctl00_ctl22_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl22$CampaignInfo
+          selector: "#ctl00_ctl22_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
     - select:
-      - name: required-issue
-        selector: "#required-issue"
-        value: $TOPIC
-        required: Yes
-        options:
-          "Agriculture": "AG"
-          "Animals": "AN"
-          "Arts and Humanities": "ART"
-          "Banking and Finance": "BANK"
-          "Budget and Economy": "BUD"
-          "Campaign Finance Reform": "CFR"
-          "Congress and Elections": "CONG"
-          "D.C. - Tours": "TOUR"
-          "Defense and Military": "DEF"
-          "Education": "ED"
-          "Energy": "EN"
-          "Environment": "ENV"
-          "Federal Employees": "FED"
-          "Foreign Relations": "FR"
-          "Guns": "GUN"
-          "Health": "HE"
-          "Housing and Urban Development": "HUD"
-          "Immigration": "IM"
-          "Judiciary": "JUD"
-          "Labor": "LAB"
-          "LGBT": "LGBT"
-          "Post Office": "POST"
-          "Science and Technology": "SCI"
-          "Senior Citizens": "SENIORS"
-          "Social Security": "SS"
-          "Social Services": "SOC.SERVICES"
-          "Taxes": "TAX"
-          "Telecommunications": "COMM"
-          "Transportation": "TRAN"
-          "Trade": "TRD"
-          "Veterans": "VET"
-          "Women's Issues": "WOMEN"
-          "Other Issues": "OTHER"
-    - select:
-      - name: response
-        selector: "#response"
-        value: "Y"
-        required: Yes
+        - name: ctl00$ctl22$PrefixList
+          selector: "#ctl00_ctl22_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
+    - check:
+        - name: ctl00$ctl22$ReplyChoice
+          selector: "#ctl00_ctl22_ReplyChoice_1"
+          value: Comment
     - click_on:
-      - value: "Send Email"
-        selector: "#submit"
+        - value: Submit
+          selector: "#ctl00_ctl22_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank You"
-
+      contains: Thank you for taking the time to write me.
