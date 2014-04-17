@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /submit-contact.aspx
   steps:
-    - visit: "http://rigell.house.gov/contact/contactform.htm"
+    - visit: "https://rigell.house.gov/contact/contactform.htm"
     - fill_in:
         - name: required-first
           selector: "#contact input[name='required-first']"
@@ -32,7 +32,7 @@ contact_form:
         - name: phone
           selector: "#contact input[name='phone']"
           value: $PHONE
-          required: true
+          required: false
         - name: required-email
           selector: "#contact input[name='required-email']"
           value: $EMAIL
@@ -46,85 +46,12 @@ contact_form:
           selector: "#contact select[name='required-prefix']"
           value: $NAME_PREFIX
           required: true
-          options:
-            - "Mr."
-            - "Mrs."
-            - "Ms."
-            - "Dr."
-            - "Rev."
-            - "1LT"
-            - "1SG"
-            - "1stSgt"
-            - "2LT"
-            - "A1C"
-            - "AB"
-            - "ADM"
-            - "Amn"
-            - "BG"
-            - "CAPT"
-            - "CCM Sgt"
-            - "CDR"
-            - "CMC"
-            - "CMSgt"
-            - "COL"
-            - "Cpl"
-            - "CPO"
-            - "CPT"
-            - "CSM"
-            - "CW01"
-            - "CW02"
-            - "CW03"
-            - "CW04"
-            - "CW05"
-            - "CW2"
-            - "CW3"
-            - "CW4"
-            - "CWS"
-            - "E-7"
-            - "E-8"
-            - "E-9"
-            - "ENS"
-            - "FLTMC"
-            - "FORMC"
-            - "GEN"
-            - "GySgt"
-            - "LCDR"
-            - "LCpl"
-            - "LT"
-            - "LTC"
-            - "LTG"
-            - "MAJ"
-            - "MCPO"
-            - "MG"
-            - "MGySgt"
-            - "MSgt"
-            - "PFC"
-            - "P01"
-            - "P02"
-            - "P03"
-            - "PV1"
-            - "PV2"
-            - "Pvt"
-            - "RADM"
-            - "RDML"
-            - "SA"
-            - "SCPO"
-            - "SFC"
-            - "SGM"
-            - "SGT"
-            - "Sgt"
-            - "SgtMaj"
-            - "SMSgt"
-            - "SN"
-            - "SPC"
-            - "SrA"
-            - "SSG"
-            - "SSgt"
-            - "TSgt"
-            - "USCG"
-            - "VADM"
-            - "W01"
-            - "WO"
+          options: []
+        - name: required-state
+          selector: "#contact select[name='required-state']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options: []
         - name: required-issue
           selector: "#contact select[name='required-issue']"
           value: $TOPIC
@@ -161,11 +88,15 @@ contact_form:
         - name: response
           selector: "#contact input[name='response']"
           value: "Yes"
+    - uncheck:
+        - name: subscribe
+          selector: "#contact input[name='subscribe']"
+          value: subscribe
     - click_on:
         - value: Send Email
-          selector: "#contact input[type='submit']"
+          selector: "#contact input[type='submit'][value='Send Email']"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Thank
