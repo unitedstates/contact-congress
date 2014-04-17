@@ -86,7 +86,8 @@ contact_form:
         - value: Send Email
           selector: "form[name=contact] input[type=submit][value='Send Email']"
     - find:
-        - selector: "#ctl00_ctl11_ctl00_Text"
+        - selector: "#ctl00_PageLink"
+          value: "Thanks"
   success:
     headers:
       status: 200
