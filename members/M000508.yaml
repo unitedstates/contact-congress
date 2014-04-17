@@ -1,23 +1,9 @@
 bioguide: M000508
 contact_form:
-  method: get
-  action: /Forms/WriteYourRep/
+  method: post
+  action: default.aspx
   steps:
-    - visit: "http://mckeon.house.gov/contact/"
-    - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
-    - find:
-        - selector: "#aspnetForm"
+    - visit: "https://mckeon.house.gov/forms/writeyourrep/default.aspx"
     - fill_in:
         - name: ctl00$ctl10$FirstName
           selector: "#ctl00_ctl10_FirstName"
@@ -39,6 +25,10 @@ contact_form:
           selector: "#ctl00_ctl10_Zip"
           value: $ADDRESS_ZIP5
           required: true
+        - name: ctl00$ctl10$Phone
+          selector: "#ctl00_ctl10_Phone"
+          value: $PHONE
+          required: false
         - name: ctl00$ctl10$Email
           selector: "#ctl00_ctl10_Email"
           value: $EMAIL
@@ -187,4 +177,5 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to write Representative Buck McKeon about your issue.
+      contains: Thank you
+
