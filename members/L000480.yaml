@@ -5,6 +5,18 @@ contact_form:
   steps:
     - visit: "https://lowey.house.gov/contact-form/"
     - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go to Form
+          selector: input.button
+    - fill_in:
         - name: ZIPVALIDATED
           selector: "#custom_form32 input[name='ZIPVALIDATED']"
           value: "true"
