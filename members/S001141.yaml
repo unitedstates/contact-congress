@@ -46,8 +46,8 @@ contact_form:
           required: true
         - name: recaptcha_response_field
           selector: "#recaptcha_response_field"
-          captcha_selector: "form[name='ContactForm'] img[alt='Captcha Image']"
-          captcha_id_selector: "form[name='ContactForm'] input[name='captcha_hash']"
+          captcha_selector: "#recaptcha_image img"
+          captcha_id_selector: "#recaptcha_challenge_field"
           value: $CAPTCHA_SOLUTION
     - select:
         - name: field_7b4f29dc-e2dd-4162-8dca-665dfd02e53d
