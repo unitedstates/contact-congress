@@ -17,7 +17,7 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "form.zipform[name='contact'] input[name='required-prefix']"
+        - selector: "form.zipform"
     - fill_in:
         - name: required-prefix
           selector: "form.zipform[name='contact'] input[name='required-prefix']"
@@ -57,73 +57,10 @@ contact_form:
           required: false
     - select:
         - name: required-issue
-          selector: ""
-          value: none
-          required: false
+          selector: "select:nth-child(1)"
+          value: AG
+          required: true
           options:
-            Select One--: none
-            " Agriculture": AG
-            Budget: BD
-            Banking: BK
-            Business: BN
-            Communications: CM
-            Crime: CR
-            Defense: DF
-            " Education": ED
-            Energy: EG
-            Environment: EN
-            " Foreign Affairs": FA
-            Healthcare: HE
-            Homeland Security: HS
-            Housing: HO
-            Immigration: IM
-            Judiciary: JD
-            Labor: LB
-            Science and Space: SC
-            Social Issues: SI
-            Social Security: SS
-            Taxes: TX
-            Trade: TD
-            Transportation: TP
-            Veterans: VT
-            " Other": none
-        - name: required-issue
-          selector: ""
-          value: none
-          required: false
-          options:
-            Select One--: none
-            " Agriculture": AG
-            Budget: BD
-            Banking: BK
-            Business: BN
-            Communications: CM
-            Crime: CR
-            Defense: DF
-            " Education": ED
-            Energy: EG
-            Environment: EN
-            " Foreign Affairs": FA
-            Healthcare: HE
-            Homeland Security: HS
-            Housing: HO
-            Immigration: IM
-            Judiciary: JD
-            Labor: LB
-            Science and Space: SC
-            Social Issues: SI
-            Social Security: SS
-            Taxes: TX
-            Trade: TD
-            Transportation: TP
-            Veterans: VT
-            " Other": none
-        - name: required-issue
-          selector: ""
-          value: none
-          required: false
-          options:
-            Select One--: none
             " Agriculture": AG
             Budget: BD
             Banking: BK

@@ -37,14 +37,6 @@ contact_form:
           selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -76,63 +68,6 @@ contact_form:
             - Pastor
             - Rabbi
             - Fr.
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
         - name: issue
           selector: "#req_issue"
           value: $TOPIC

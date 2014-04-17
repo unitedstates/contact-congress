@@ -1,7 +1,7 @@
 bioguide: S000250
 contact_form:
   method: post
-  action: /index.cfm/contact-form
+  action: ""
   steps:
     - visit: "https://sessions.house.gov/index.cfm/contact-form"
     - fill_in:
@@ -17,10 +17,6 @@ contact_form:
           selector: "#field_EA33F802-15C8-4F9A-A675-8EAB7A78ED76"
           value: $ADDRESS_STREET
           required: true
-        - name: field_E4607099-C302-4E4E-9C6E-C8DCF96E0480
-          selector: "#field_E4607099-C302-4E4E-9C6E-C8DCF96E0480"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: field_B9C5E239-A5AA-4230-BF87-61B6AB8DE59A
           selector: "#field_B9C5E239-A5AA-4230-BF87-61B6AB8DE59A"
           value: $ADDRESS_CITY
@@ -40,12 +36,11 @@ contact_form:
         - name: field_6AA78EC6-51E3-4F22-BF51-73BEB2668029
           selector: "#field_6AA78EC6-51E3-4F22-BF51-73BEB2668029"
           value: $MESSAGE
-          required: true
+          required: false
         - name: recaptcha_response_field
           selector: "#recaptcha_response_field"
-          captcha_selector: "#recaptcha_img img"
-          captcha_id_selector: "#recaptcha_challenge_field"
-          value: "$CAPTCHA_SOLUTION"
+          value: $CAPTCHA_SOLUTION
+          required: true
     - select:
         - name: field_A39C3195-9A18-4E92-B084-184DAD78C31D
           selector: "#field_A39C3195-9A18-4E92-B084-184DAD78C31D"
@@ -106,7 +101,7 @@ contact_form:
         - name: field_9B5E8CB0-E95B-4692-8764-52D75628C5CB
           selector: "#field_9B5E8CB0-E95B-4692-8764-52D75628C5CB"
           value: $TOPIC
-          required: true
+          required: false
           options:
             Agriculture: AG
             Banking and Financial Services: BANK
@@ -140,5 +135,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you
-
+      contains: Thank you for your email.

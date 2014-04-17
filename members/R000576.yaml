@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
@@ -60,7 +60,7 @@ contact_form:
     - select:
         - name: required-response
           selector: "#required-response"
-          value: "No"
+          value: "Y"
           required: false
           options:
             "Yes, please contact me": "Y"
@@ -72,4 +72,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: "The following information has been submitted:"

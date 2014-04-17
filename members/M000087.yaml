@@ -16,8 +16,6 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
-    - find:
-        - selector: "#contactForm"
     - fill_in:
         - name: required-prefix
           selector: "#required-prefix"
@@ -34,11 +32,27 @@ contact_form:
         - name: required-address
           selector: "#required-address"
           value: $ADDRESS_STREET
-          required: true
+          required: false
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
+        - name: required-state
+          selector: "#required-state"
+          value: "NY"
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
@@ -59,6 +73,9 @@ contact_form:
         - name: required-affl
           selector: "#required-affl-1"
           value: NO_ACTION
+        - name: speech
+          selector: "#speech_0"
+          value: Voice
     - click_on:
         - value: Send Email
           selector: "#submit"
@@ -66,4 +83,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: "Thank you for your comments and thoughts; it is my hope to respond to you shortly."

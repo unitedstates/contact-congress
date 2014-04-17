@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /contact-me/
   steps:
-    - visit: "https://boustanyforms.house.gov/contact-me"
+    - visit: "https://boustanyforms.house.gov/contact-me/"
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
@@ -37,14 +37,6 @@ contact_form:
           selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -65,7 +57,7 @@ contact_form:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: false
+          required: true
           options:
             Mr.: "Mr. "
             Mrs.: Mrs.
@@ -75,63 +67,6 @@ contact_form:
             Hon.: Hon.
             Rev.: Rev.
             Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_FULL
-          required: true
-          options:
-            North Carolina: NC
-            Alaska: AK
-            Alabama: AL
-            Arkansas: AR
-            Arizona: AZ
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            District of Columbia: DC
-            Delaware: DE
-            Florida: FL
-            Georgia: GA
-            Hawaii: HI
-            Iowa: IA
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Massachusetts: MA
-            Maryland: MD
-            Maine: ME
-            Michigan: MI
-            Minnesota: MN
-            Missouri: MO
-            Mississippi: MS
-            Montana: MT
-            North Dakota: ND
-            Nebraska: NE
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            Nevada: NV
-            New York: NY
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Pennsylvania: PA
-            Puerto Rico: PR
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Virginia: VA
-            Vermont: VT
-            Washington: WA
-            Wisconsin: WI
-            West Virginia: WV
-            Wyoming: WY
         - name: issue
           selector: "#req_issue"
           value: $TOPIC
@@ -159,6 +94,17 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other Issues: WEBOTH
+        - name: response
+          selector: "#response"
+          value: RN
+          required: false
+          options:
+            "Yes": RN
+            "No": NRN
+    - check:
+        - name: aff1
+          selector: "input[type='radio'][name='aff1'][value='<AFFL_DEL>Subscribe</AFFL_DEL>']"
+          value: "<AFFL_DEL>Subscribe</AFFL_DEL>"
     - click_on:
         - value: Send Email
           selector: "#submitButton"
@@ -166,4 +112,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you.
+      contains: The following information was sent to us

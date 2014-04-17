@@ -21,10 +21,6 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#custom_form25 input[name='street2']"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
@@ -33,14 +29,10 @@ contact_form:
           selector: "#req_zipcode"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: phone
           selector: "#req_phone"
           value: $PHONE
-          required: false
+          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -50,15 +42,10 @@ contact_form:
           value: $MESSAGE
           required: false
     - select:
-        - name: state
-          selector: "#req-state"
-          value: CO
-          required: true
-          options: []
         - name: required-issue
           selector: "#req_issue"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: AGR-FARM
             Budget: BUD
@@ -92,4 +79,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Your message has been sent. Thank you for sharing your comments and concerns with me. I will respond back to you as soon as possible.
+      contains: Success

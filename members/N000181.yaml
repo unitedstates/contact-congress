@@ -28,11 +28,11 @@ contact_form:
         - name: ctl00$ctl10$zip5
           selector: "#ctl00_ctl10_zip5"
           value: $ADDRESS_ZIP5
-          required: false
+          required: true
         - name: ctl00$ctl10$zip4
           selector: "#ctl00_ctl10_zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: ctl00$ctl10$Phone
           selector: "#ctl00_ctl10_Phone"
           value: $PHONE
@@ -51,13 +51,14 @@ contact_form:
           required: true
         - name: recaptcha_response_field
           selector: "#recaptcha_response_field"
+          captcha_selector: "#recaptcha_image img"
+          captcha_id_selector: "#recaptcha_challenge_field"
           value: $CAPTCHA_SOLUTION
-          required: true
     - select:
         - name: ctl00$ctl10$State
           selector: "#ctl00_ctl10_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: false
+          required: true
           options:
             - AK
             - AL
@@ -136,7 +137,7 @@ contact_form:
             Guns: "10"
             Health Care: "6"
             Homeland Security: "37"
-            "Housing & Urban Development": "2"
+            Housing & Urban Development: "2"
             Immigration: "26"
             Intelligence: "38"
             Judiciary: "3"

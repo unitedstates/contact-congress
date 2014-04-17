@@ -1,21 +1,9 @@
 bioguide: F000445
 contact_form:
-  method: get
-  action: /Contact/ContactForm.htm
+  method: post
+  action: /submit-contact.aspx
   steps:
-    - visit: "http://forbes.house.gov/contact/zipauth.htm"
-    - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
+    - visit: "https://forbes.house.gov/contact/contactform.htm"
     - fill_in:
         - name: Firstname
           selector: "form.zipform input[name='Firstname']"
@@ -29,10 +17,14 @@ contact_form:
           selector: "form.zipform input[name='Address1']"
           value: $ADDRESS_STREET
           required: true
+        - name: Address2
+          selector: "form.zipform input[name='Address2']"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: City
           selector: "#City"
           value: $ADDRESS_CITY
-          required: true
+          required: false
         - name: zip5
           selector: "#zip5"
           value: $ADDRESS_ZIP5
@@ -193,11 +185,11 @@ contact_form:
             Active Duty Military Personnel: AD
             Agriculture: AG
             Animal Rights: AR
-            "Arts & Humanities": AH
-            "Banking & Finance": BK
+            Arts & Humanities: AH
+            Banking & Finance: BK
             Budget: BU
             China Issues: IR
-            "Crime & Drugs": CR
+            Crime & Drugs: CR
             Defense: DF
             Economy/Business/Jobs: EC
             Education: ED
@@ -218,7 +210,7 @@ contact_form:
             Labor/Pensions: LB
             Medicare/Medicaid: MC
             Prescription Drugs: HC
-            "Science & Technology/Space": SC
+            Science & Technology/Space: SC
             Small Business: SB
             Social Security: SS
             Taxes: TX
@@ -229,8 +221,10 @@ contact_form:
     - click_on:
         - value: Send Message
           selector: "form.zipform input[name='WR_Submit']"
+    - find:
+        - selector: "#ctl00_ctl11_ctl00_Text > table"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me.
+      contains: Thank you

@@ -3,22 +3,13 @@ contact_form:
   method: get
   action: /ContactForm/Email.htm
   steps:
-    - find: "#TB_title"
+    - visit: "https://blackburn.house.gov/contactform/email.htm"
+    - find: 
+        - selector: "#TB_title"
     - click_on:
         - selector: "#TB_closeWindowButton"
-    - visit: "https://blackburn.house.gov/contactform/"
-    - fill_in:
-        - name: zip5
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#plusfour"
-          value: $ADDRESS_ZIP4
-          required: false
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[name='find']"
+    - find:
+        - selector: "form.zipform"
     - fill_in:
         - name: required-first
           selector: "form.zipform input[name='required-first']"
@@ -43,7 +34,7 @@ contact_form:
         - name: required-phone
           selector: "form.zipform input[name='required-phone']"
           value: $PHONE
-          required: false
+          required: true
         - name: required-email
           selector: "form.zipform input[name='required-email']"
           value: $EMAIL
@@ -51,7 +42,7 @@ contact_form:
         - name: required-message
           selector: "form.zipform textarea[name='required-message']"
           value: $MESSAGE
-          required: false
+          required: true
     - select:
         - name: required-prefix
           selector: "form.zipform select[name='required-prefix']"
@@ -121,7 +112,7 @@ contact_form:
         - name: required-issue
           selector: "form.zipform select[name='required-issue']"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: AGR
             Budget: BUD
@@ -147,10 +138,13 @@ contact_form:
             Welfare: WELF
             Other: OTH
     - click_on:
-        - value: Send Email
-          selector: "form.zipform input[type='submit'][value='Send Email']"
+        - value: "Send Email"
+          selector: "form.zipform input[type='submit']"
+    - find:
+        - selector: "span#ctl00_PageLink"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting my office."
+      contains: "Thank you for contacting my office"

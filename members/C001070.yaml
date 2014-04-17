@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "http://www.casey.senate.gov/contact"
+    - visit: "http://www.casey.senate.gov/contact/"
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -152,6 +152,71 @@ contact_form:
             - GEN
             - ADM
             - Gen
+        - name: mailing_state
+          selector: "#mailing_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - APO AA
+            - APO AE
+            - APO AP
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - DPO AA
+            - DPO AE
+            - DPO AP
+            - FL
+            - FPO AA
+            - FPO AE
+            - FPO AP
+            - GA
+            - HI
+            - IA
+            - ID
+            - IL
+            - IN
+            - KS
+            - KY
+            - LA
+            - MA
+            - MD
+            - ME
+            - MI
+            - MN
+            - MO
+            - MS
+            - MT
+            - NC
+            - ND
+            - NE
+            - NH
+            - NJ
+            - NM
+            - NV
+            - NY
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VA
+            - VT
+            - WA
+            - WI
+            - WV
+            - WY
         - name: mailing_county
           selector: "#mailing_county"
           value: $ADDRESS_COUNTY
@@ -229,7 +294,7 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Abortion and Family Planning: Abortion
+            "Abortion and Family Planning": Abortion
             Aging: Aging
             Animals: Agriculture
             Arts and Humanities: Arts and Humanities

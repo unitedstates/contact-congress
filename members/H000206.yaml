@@ -7,7 +7,7 @@ contact_form:
     - fill_in:
         - name: fname
           selector: "#fname"
-          value: $NAME_PREFIX
+          value: $NAME_FIRST
           required: true
         - name: lname
           selector: "#lname"
@@ -35,10 +35,6 @@ contact_form:
           required: true
         - name: hphone
           selector: "#hphone"
-          value: $PHONE
-          required: false
-        - name: wphone
-          selector: "#wphone"
           value: $PHONE
           required: false
         - name: subj
@@ -176,6 +172,9 @@ contact_form:
     - click_on:
         - value: Send Your Message To Tom
           selector: "#form input[name='submit']"
+    - find:
+        - selector: "em"
+          value: "Thank you for expressing your views."
   success:
     headers:
       status: 200

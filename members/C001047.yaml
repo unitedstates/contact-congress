@@ -7,7 +7,7 @@ contact_form:
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
-          value: $ADDRESS_ZIP5
+          value: $ADDRESS_ZIP5 
           required: true
         - name: zipfour
           selector: "#zipfour"
@@ -67,12 +67,6 @@ contact_form:
             Hon.: Hon.
             Rev.: Rev.
             Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            WV: WV
         - name: subject
           selector: "#req_subject"
           value: $TOPIC

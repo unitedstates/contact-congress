@@ -6,45 +6,45 @@ contact_form:
     - visit: http://www.wyden.senate.gov/contact
     - fill_in:
       - name: fname
-        selector: "#fname"
+        selector: "#contactForm #fname"
         value: $NAME_FIRST
         required: Yes
       - name: lname
-        selector: "#lname"
+        selector: "#contactForm #lname"
         value: $NAME_LAST
         required: Yes
       - name: mailing_streetAddress1
-        selector: "#mailing_streetAddress1"
+        selector: "#contactForm #mailing_streetAddress1"
         value: $ADDRESS_STREET
         required: Yes
       - name: mailing_streetAddress2
-        selector: "#mailing_streetAddress2"
+        selector: "#contactForm #mailing_streetAddress2"
         value: $ADDRESS_STREET_2
       - name: mailing_city
-        selector: "#mailing_city"
+        selector: "#contactForm #mailing_city"
         value: $ADDRESS_CITY
         required: Yes
       - name: mailing_zipCode
-        selector: "#mailing_zipCode"
+        selector: "#contactForm #mailing_zipCode"
         value: $ADDRESS_ZIP5
         required: Yes
       - name: home_phone_number
-        selector: "#home_phone_number"
+        selector: "#contactForm #home_phone_number"
         value: $PHONE
       - name: email_address
-        selector: "#email_address"
+        selector: "#contactForm #email_address"
         value: $EMAIL
         required: Yes
       - name: verify_email
-        selector: "#verify_email"
+        selector: "#contactForm #verify_email"
         value: $EMAIL
         required: Yes
       - name: message
-        selector: "#message"
+        selector: "#contactForm #message"
         value: $MESSAGE
     - select:
       - name: salutation
-        selector: "#salutation"
+        selector: "#contactForm select#salutation"
         value: $NAME_PREFIX
         required: Yes
         options:
@@ -117,12 +117,12 @@ contact_form:
           - "Airman First Class"
           - "Airman"
       - name: state
-        selector: "#state"
+        selector: "#contactForm #state"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
         options: US_STATES
       - name: subject
-        selector: "#subject"
+        selector: "#contactForm #subject"
         value: $TOPIC
         required: Yes
         options:
@@ -183,7 +183,7 @@ contact_form:
           - "Autographed Photo Request"
     - click_on:
       - value: Submit
-        selector: "#side-search-btn"
+        selector: "#contactForm #side-search-btn"
   success:
     headers:
       status: 200

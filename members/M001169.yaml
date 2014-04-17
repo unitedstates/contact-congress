@@ -72,8 +72,6 @@ contact_form:
           - "Transportation"
           - "Veterans"
           - "Welfare/Food Stamps"
-    - find:
-      - selector: "#continue-form"
     - fill_in:
       - name: fname
         selector: "#fname"
@@ -141,6 +139,8 @@ contact_form:
       - name: response
         selector: "#response_y"
         value: Yes
+    - find:
+      - selector: "#loading[style='display: none;']"
     - click_on:
       - value: Submit
         selector: "#side-search-btn"

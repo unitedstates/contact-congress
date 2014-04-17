@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: input.button
+    - find:
+        - selector: "#custom_form32"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -159,13 +161,6 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other Issues: WEBOTH
-        - name: response
-          selector: "#response"
-          value: RN
-          required: false
-          options:
-            "Yes": RN
-            "No": NRN
     - click_on:
         - value: Send Email
           selector: "#custom_form32 input.form_submit_button.filled"
@@ -173,4 +168,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: The following information was sent to us
+      contains: "The following information was sent to us:"

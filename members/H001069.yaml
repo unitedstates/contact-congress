@@ -8,26 +8,26 @@ contact_form:
       - name: firstName
         selector: "#firstName"
         value: "$NAME_FIRST"
-        required: Yes
+        required: true
       - name: lastName
         selector: "#lastName"
         value: "$NAME_LAST"
-        required: Yes
+        required: true
       - name: Address1
         selector: "#Address1"
         value: "$ADDRESS_STREET"
-        required: Yes
+        required: true
       - name: Address2
         selector: "#Address2"
         value: "$ADDRESS_STREET_2"
       - name: city
         selector: "#city"
         value: "$ADDRESS_CITY"
-        required: Yes
+        required: true
       - name: zip
         selector: "#zip"
         value: "$ADDRESS_ZIP5"
-        required: Yes
+        required: true
       - name: phone
         selector: "#phone"
         value: "$PHONE"
@@ -38,16 +38,16 @@ contact_form:
       - name: messageSubject
         selector: "#messageSubject"
         value: "$SUBJECT"
-        required: Yes
+        required: true
       - name: messageBody
         selector: "#messageBody"
         value: "$MESSAGE"
-        required: Yes
+        required: true
     - select:
       - name: Subject
         selector: "#Subject"
         value: "$TOPIC"
-        required: Yes
+        required: true
         options:
           - "Abortion"
           - "Aging"
@@ -101,7 +101,7 @@ contact_form:
       - name: Prefix
         selector: "#Prefix"
         value: "$NAME_PREFIX"
-        required: Yes
+        required: true
         options:
           - "Mr."
           - "Mrs."
@@ -119,6 +119,7 @@ contact_form:
         selector: "#state"
         value: "$ADDRESS_STATE"
         options: US_STATES_AND_MPCS
+        required: true
     - click_on:
       - value: Send
         selector: "#submit"

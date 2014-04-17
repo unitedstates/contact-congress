@@ -4,6 +4,7 @@ contact_form:
   action: http://www.vitter.senate.gov/contact/email-senator-vitter
   steps:
     - visit: http://www.vitter.senate.gov/contact/email-senator-vitter
+    - select:
       - name: subject
         selector: "#subject"
         value: "$TOPIC"

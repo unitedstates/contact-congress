@@ -1,17 +1,9 @@
 bioguide: P000602
 contact_form:
-  method: get
-  action: /Contact/ContactForm.htm
+  method: post
+  action: /submit-contact.aspx
   steps:
-    - visit: "http://pompeo.house.gov/contact/"
-    - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
+    - visit: "https://pompeo.house.gov/contact/contactform.htm?zip5=$ADDRESS_ZIP5"
     - find:
         - selector: ".zipform"
     - fill_in:
@@ -38,11 +30,7 @@ contact_form:
         - name: zip4
           selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
+          required: true
         - name: required-email
           selector: "#required-email"
           value: $EMAIL
@@ -57,14 +45,13 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Dr.
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Mrs.
-            - Miss
-            - Rev.
-            - Hon.
+            - "Mr."
+            - "Mrs."
+            - "Ms."
+            - "Dr."
+            - "Rev."
+            - "Miss"
+            - "Hon."
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -95,8 +82,10 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "form.zipform input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "#ctl00_ctl11_ctl00_Text"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office. This is an automatic reply to serve as confirmation that we have received your communication.
+      contains: Thank you for contacting my office.

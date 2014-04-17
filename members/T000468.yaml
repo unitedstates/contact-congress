@@ -14,9 +14,9 @@ contact_form:
         value: $ADDRESS_ZIP4
     - click_on:
       - value: "Go To Next Step"
-        selector: "#submit"
+        selector: ".form-100 #submit"
     - find:
-      - selector: "#contactForm"
+      - selector: ".field-item #contactForm"
     - fill_in:
       - name: prefix
         selector: "#prefix"
@@ -41,7 +41,7 @@ contact_form:
         value: $ADDRESS_CITY
         required: Yes
       - name: required-valid-email
-        selector: "#required-valid-email"
+        selector: ".form-100 #required-valid-email"
         value: $EMAIL
         required: Yes
       - name: required-phone
@@ -50,7 +50,7 @@ contact_form:
         required: Yes
       - name: required-subject
         selector: "#required-subject"
-        value: #SUBJECT
+        value: $SUBJECT
         required: Yes
       - name: required-message
         selector: "#required-message"
@@ -111,9 +111,9 @@ contact_form:
           "No, I wanted to voice my opinion": "N"
     - click_on:
       - value: "Send Email"
-        selector: "#submit"
+        selector: ".form-100 #submit"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank"
+      contains: "The following information has been submitted:"

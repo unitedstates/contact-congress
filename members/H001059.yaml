@@ -1,104 +1,124 @@
 bioguide: H001059
 contact_form:
   method: post
-  action: /email-me/
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-randy/email-randy-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://hultgren.house.gov/email-me"
+    - visit: "https://hultgren.house.gov/contact/email-randy"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
+        - name: zip4
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: false
     - click_on:
-        - value: Go to Form
-          selector: input.button
+        - value: Go To Next Step
+          selector: "#emailForm input[name='submit']"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: required-last
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: required-address
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#req_city"
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#req_phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#req_prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: IL
-          required: true
-          options:
-            IL: IL
-        - name: subject
-          selector: "#req_subject"
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Abortion: FAM
-            Agriculture: AGRI
+            Agriculture: AGR
+            Animals: AN
+            Arts and Humanities: ART
             Banking and Finance: BANK
-            Budget: BUD
+            Budget and Economy: BUD
+            Campaign Finance Reform: CFR
+            Congress and Elections: CONG
+            District of Columbia--Tours: TOUR
+            Defense and Military: DEF
             Economy: ECON
             Education: EDU
-            Energy: EN
+            Energy: ENE
             Environment: ENV
-            Foreign Relations: FAFF
-            Healthcare: HLTH
+            Federal Employees: FED
+            Foreign Relations: FR
+            Government Reform: GOV
+            Guns: GUN
+            Health: HEA
+            Homeland Security: HOM
+            Housing and Urban Development: HUD
             Immigration: IMM
-            Judiciary/Law Enforcement: JUD
-            Labor: LBR
-            Marriage: FAM
-            Miscellaneous/Other: OTHER
-            "Science, Space & Technology": TECH
+            International Relations: INT
+            Judiciary: JUD
+            Labor: LAB
+            LGBT: LGBT
+            No Response Necessary: NRN
+            Post Office: POST
+            Science and Technology: SCI
+            Social Issues: SOC
+            Senior Citizens: SENIORS
+            Social Security: SSEC
+            Social Services: SOC.SERVICES
             Taxes: TAX
-            Trade: TRD
-            "Transportation & Infrastructure": TRANS
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRADE
             Veterans: VET
+            "Women's Issues": WOMEN
+            Welfare: WEL
+            Other Issues: OTHER
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
+    - uncheck:
+        - name: subscribe
+          selector: "#subscribe"
+          value: Email.Optin
     - click_on:
-        - value: Submit
-          selector: "#submitButton"
+        - value: Send Email
+          selector: "#contactForm input[name='submit']"
   success:
     headers:
       status: 200
     body:
-      contains: We will get back to you shortly
+      contains: "The following information has been submitted:"

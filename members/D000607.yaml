@@ -10,7 +10,6 @@ contact_form:
         value: "$TOPIC"
         required: Yes
         options:
-          "Academy Nominations": "Academy"
           "Abortion": "JUD.ABORTION"
           "Aging and Seniors": "SS"
           "Agriculture": "AGR"
@@ -189,9 +188,8 @@ contact_form:
           - "Specialist"
       - name: mailing_state
         selector: "#mailing_state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        value: "IN"
         required: Yes
-        options: US_STATES_AND_TERRITORIES
     - check:
       - name: response
         selector: "#response_y"

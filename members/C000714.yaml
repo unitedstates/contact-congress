@@ -1,9 +1,8 @@
 bioguide: C000714
 contact_form:
   method: post
-  action: /index.cfm/online-contact-form
   steps:
-    - visit: "https://conyers.house.gov/index.cfm/online-contact-form#form_3F492369-C9E2-4693-BAAA-BCB55BAD679C"
+    - visit: "https://conyers.house.gov/index.cfm/online-contact-form"
     - fill_in:
         - name: field_BECA980B-379B-4D82-A550-DD74B5C2EDA6
           selector: "#field_BECA980B-379B-4D82-A550-DD74B5C2EDA6"
@@ -43,13 +42,14 @@ contact_form:
           required: true
         - name: captcha_3F492369-C9E2-4693-BAAA-BCB55BAD679C
           selector: "#captcha_3F492369-C9E2-4693-BAAA-BCB55BAD679C"
+          captcha_selector: "form.uniForm .multiField img[height='50']"
+          captcha_id_selector: "#captcha_3F492369-C9E2-4693-BAAA-BCB55BAD679C_hash"
           value: $CAPTCHA_SOLUTION
-          required: true
     - select:
         - name: field_C9D6A780-B426-462F-8D90-D9553C792A65
           selector: "#field_C9D6A780-B426-462F-8D90-D9553C792A65"
           value: $NAME_PREFIX
-          required: false
+          required: true
           options:
             - Mr.
             - Mrs.
@@ -66,7 +66,7 @@ contact_form:
             - Senator
         - name: field_E2BC480A-E285-45CA-9F22-C919E45B5134
           selector: "#field_E2BC480A-E285-45CA-9F22-C919E45B5134"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          value: $ADDRESS_STATE_FULL
           required: true
           options:
             - AA
@@ -125,7 +125,7 @@ contact_form:
             - Wyoming
         - name: field_32F0733B-76D3-4B2B-8E7C-8F9879C0C1C9
           selector: "#field_32F0733B-76D3-4B2B-8E7C-8F9879C0C1C9"
-          value: $SUBJECT
+          value: $TOPIC
           required: true
           options:
             Africa: Africa
@@ -146,10 +146,10 @@ contact_form:
             Weatherization: Weatherization
             What does the new health care law mean for me and my family?: What does the new health care law mean for me and my family?
     - click_on:
-        - value: Please wait ..
+        - value: Submit
           selector: div.buttonHolder input
   success:
     headers:
       status: 200
     body:
-      contains: We received your request and someone from our office will be in contact with you soon.
+      contains: We received your request

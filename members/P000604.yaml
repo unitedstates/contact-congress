@@ -1,9 +1,9 @@
 bioguide: P000604
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt&form=/contact/email-me-zip-authenticated&nobase&fpGetVer=2"
+  action: "/contact/email-me"
   steps:
-    - visit: "https://payne.house.gov/htbin/formproc_za/zip-auth.txt&form=/contact/email-me-zip-authenticated&nobase&fpGetVer=2"
+    - visit: "http://payne.house.gov/contact/email-me"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"

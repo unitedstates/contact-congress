@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /contactsubmit.aspx
   steps:
-    - visit: "https://latham.house.gov/contact/contactform.htm?zip5="
+    - visit: "https://latham.house.gov/contact/contactform.htm"
     - fill_in:
         - name: required-prefix
           selector: "form[name='contact'] input[name='required-prefix']"
@@ -27,20 +27,16 @@ contact_form:
           required: true
         - name: zip5
           selector: "form[name='contact'] input[name='zip5']"
-          value: $ADDRESS_ZIP4
-          required: false
+          value: $ADDRESS_ZIP5
+          required: true
         - name: phone
           selector: "form[name='contact'] input[name='phone']"
-          value: $PHONE
-          required: false
-        - name: cell
-          selector: "form[name='contact'] input[name='cell']"
           value: $PHONE
           required: false
         - name: required-email
           selector: "form[name='contact'] input[name='required-email']"
           value: $EMAIL
-          required: false
+          required: true
         - name: required-message
           selector: "form[name='contact'] textarea[name='required-message']"
           value: $MESSAGE
@@ -83,4 +79,5 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for your correspondence.
+      contains: Thank you
+

@@ -54,7 +54,7 @@ contact_form:
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
-          required: false
+          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
@@ -63,7 +63,7 @@ contact_form:
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: WEBAGR
             Budget: WEBBUD
@@ -89,6 +89,10 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other Issues: WEBOTH
+    - check:
+        - name: response
+          selector: "#response_0"
+          value: "Yes"
     - click_on:
         - value: Send Email
           selector: "#submit"
@@ -96,4 +100,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "Thank You"

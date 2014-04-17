@@ -4,6 +4,12 @@ contact_form:
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
     - visit: "https://walorski.house.gov/contact/email-me"
+    - find:
+        - selector: "#boxes-box-congress_enews_popup"
+    - click_on:
+        - selector: "#close-enews-popup"
+    - find:
+        - selector: "#emailForm"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -16,11 +22,13 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
+    - find:
+        - selector: "#boxes-box-congress_enews_popup"
+    - click_on:
+        - selector: "#close-enews-popup"
+    - find:
+        - selector: "#contactForm"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -33,10 +41,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -106,14 +110,10 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "Y"
-          required: false
+          required: true
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
-    - check:
-        - name: speech
-          selector: "#speech_0"
-          value: Voice
     - click_on:
         - value: Send Email
           selector: "#submit"
@@ -121,4 +121,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: "The following information has been submitted:"

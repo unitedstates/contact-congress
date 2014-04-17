@@ -34,67 +34,10 @@ contact_form:
           value: $EMAIL
           required: true
         - name: required-message
-          selector: "input[name='required-message']"
+          selector: "textarea[name='required-message']"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-state
-          selector: "select[name='required-state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
         - name: required-issue
           selector: "select[name='required-issue']"
           value: $TOPIC
@@ -128,4 +71,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting me. Your inquiry is being reviewed and a response will be provided as promptly as possible. If you reside outside of the District that I represent, I will instruct my staff to forward your correspondence to the Representative from your area. Thank you again.""
+      contains: "Thank you for contacting me. Your inquiry is being reviewed and a response will be provided as promptly as possible. If you reside outside of the District that I represent, I will instruct my staff to forward your correspondence to the Representative from your area. Thank you again."

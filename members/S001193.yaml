@@ -20,7 +20,7 @@ contact_form:
         - selector: "#contactForm"
     - fill_in:
         - name: prefix
-          selector: "#prefix"
+          selector: "#prefix" 
           value: $NAME_PREFIX
           required: false
         - name: required-first
@@ -29,7 +29,7 @@ contact_form:
           required: true
         - name: required-last
           selector: "#required-last"
-          value: $NAME_LAST
+          value: $NAME_LAST 
           required: true
         - name: required-address
           selector: "#required-address"
@@ -117,11 +117,18 @@ contact_form:
           selector: "#required-response"
           value: "Y"
           required: true
+    - uncheck:
+        - name: subscribe
+          selector: "#subscribe"
+          value: Email.Optin
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
+    - find:
+        - selector: "h2#headline"
+          contains: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: If you are not redirected immediately
+      contains: Thank You

@@ -1,111 +1,163 @@
 bioguide: R000307
 contact_form:
-  method: POST
-  action: http://www.roberts.senate.gov/public/index.cfm?p=EmailPat
+  method: post
   steps:
-    - visit: http://www.roberts.senate.gov/public/index.cfm?p=EmailPat
+    - visit: "http://www.roberts.senate.gov/public/index.cfm?p=EmailPat"
     - fill_in:
-      - name: field_23c64f0f-17aa-4395-bfa8-65ea859c9ddb
-        selector: "#field_23c64f0f-17aa-4395-bfa8-65ea859c9ddb"
-        value: "$NAME_PREFIX"
-        required: Yes
-      - name: field_7bbad001-4221-4cb0-b7bd-b1adc5e3a379
-        selector: "#field_7bbad001-4221-4cb0-b7bd-b1adc5e3a379"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_08788e58-2487-4d39-bd3e-99b47a7db6b3
-        selector: "#field_08788e58-2487-4d39-bd3e-99b47a7db6b3"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_6e92b6ce-26ea-4520-a313-fb9fb4554935
-        selector: "#field_6e92b6ce-26ea-4520-a313-fb9fb4554935"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_3d1183cf-bf40-4f07-bc9a-c1cefb5a9773
-        selector: "#field_3d1183cf-bf40-4f07-bc9a-c1cefb5a9773"
-        value: "$ADDRESS_STREET_2"
-      - name: field_a10af97b-ac6c-4b88-8bfd-0c8e6a2ef117
-        selector: "#field_a10af97b-ac6c-4b88-8bfd-0c8e6a2ef117"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_aea5b2a7-06b4-4af8-933e-2b74af558cfb
-        selector: "#field_aea5b2a7-06b4-4af8-933e-2b74af558cfb"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_f80f60a1-095a-4e5d-9946-91e5d9fe422d
-        selector: "#field_f80f60a1-095a-4e5d-9946-91e5d9fe422d"
-        value: "$PHONE"
-      - name: field_af66d71a-44c1-4126-928d-9c35ef430cd2
-        selector: "#field_af66d71a-44c1-4126-928d-9c35ef430cd2"
-        value: "$PHONE"
-      - name: field_f7677061-8f71-4136-b3b2-ed7bcc421d95
-        selector: "#field_f7677061-8f71-4136-b3b2-ed7bcc421d95"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_6d262f00-ebe4-49b9-ab23-0c2c3f61225c
-        selector: "#field_6d262f00-ebe4-49b9-ab23-0c2c3f61225c"
-        value: "$MESSAGE"
-        required: Yes
-      - name: captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af
-        selector: "#captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af"
-        captcha_selector: "#captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af_container img"
-        captcha_id_selector: "#captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af_hash"
-        value: "$CAPTCHA_SOLUTION"
+        - name: field_23c64f0f-17aa-4395-bfa8-65ea859c9ddb
+          selector: "#field_23c64f0f-17aa-4395-bfa8-65ea859c9ddb"
+          value: $NAME_PREFIX
+          required: true
+        - name: field_7bbad001-4221-4cb0-b7bd-b1adc5e3a379
+          selector: "#field_7bbad001-4221-4cb0-b7bd-b1adc5e3a379"
+          value: $NAME_FIRST
+          required: true
+        - name: field_08788e58-2487-4d39-bd3e-99b47a7db6b3
+          selector: "#field_08788e58-2487-4d39-bd3e-99b47a7db6b3"
+          value: $NAME_LAST
+          required: true
+        - name: field_6e92b6ce-26ea-4520-a313-fb9fb4554935
+          selector: "#field_6e92b6ce-26ea-4520-a313-fb9fb4554935"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_3d1183cf-bf40-4f07-bc9a-c1cefb5a9773
+          selector: "#field_3d1183cf-bf40-4f07-bc9a-c1cefb5a9773"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: field_a10af97b-ac6c-4b88-8bfd-0c8e6a2ef117
+          selector: "#field_a10af97b-ac6c-4b88-8bfd-0c8e6a2ef117"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_aea5b2a7-06b4-4af8-933e-2b74af558cfb
+          selector: "#field_aea5b2a7-06b4-4af8-933e-2b74af558cfb"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_f80f60a1-095a-4e5d-9946-91e5d9fe422d
+          selector: "#field_f80f60a1-095a-4e5d-9946-91e5d9fe422d"
+          value: $PHONE
+          required: true
+        - name: field_f7677061-8f71-4136-b3b2-ed7bcc421d95
+          selector: "#field_f7677061-8f71-4136-b3b2-ed7bcc421d95"
+          value: $EMAIL
+          required: true
+        - name: field_6d262f00-ebe4-49b9-ab23-0c2c3f61225c
+          selector: "#field_6d262f00-ebe4-49b9-ab23-0c2c3f61225c"
+          value: $MESSAGE
+          required: true
+        - name: captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af
+          selector: "#captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af"
+          captcha_selector: "#captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af_container img"
+          captcha_id_selector: "#captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af_hash"
+          value: "$CAPTCHA_SOLUTION"
     - select:
-      - name: field_68e68fc2-4b93-4928-ab54-f788ee8eeda0
-        selector: "#field_68e68fc2-4b93-4928-ab54-f788ee8eeda0"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: field_9e46d42d-a8a8-4014-af7c-a316aa230d9f
-        selector: "#field_9e46d42d-a8a8-4014-af7c-a316aa230d9f"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          - "Government Shutdown"
-          - "Health Care Costs"
-          - "Economy/Jobs"
-          - "Gas Prices"
-          - "Immigration"
-          - "National Security"
-          - "Social Security"
-          - "Terrorism"
-          - "Abortion"
-          - "Agriculture"
-          - "Arctic National Wildlife Refuge"
-          - "Aviation"
-          - "Banking-General"
-          - "Budget"
-          - "Children's Issues"
-          - "Communications"
-          - "Defense-General"
-          - "Economy-General"
-          - "Education"
-          - "Energy"
-          - "Environment"
-          - "Foreign Affairs"
-          - "Global Warming"
-          - "Government Affairs"
-          - "Gun Control"
-          - "Health Care-General"
-          - "Housing"
-          - "Intelligence Issues"
-          - "Judiciary"
-          - "Labor"
-          - "Nuclear Weapons"
-          - "Seniors' Issues"
-          - "Small Business"
-          - "Tax-General"
-          - "Trade-General"
-          - "Transportation"
-          - "Veterans Affairs"
-          - "Violence"
-          - "Other"
+        - name: field_68e68fc2-4b93-4928-ab54-f788ee8eeda0
+          selector: "#field_68e68fc2-4b93-4928-ab54-f788ee8eeda0"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            - AA
+            - AE
+            - Alabama
+            - Alaska
+            - AP
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+        - name: field_9e46d42d-a8a8-4014-af7c-a316aa230d9f
+          selector: "#field_9e46d42d-a8a8-4014-af7c-a316aa230d9f"
+          value: $TOPIC
+          required: true
+          options:
+            - Government Shutdown
+            - Health Care Costs
+            - Economy/Jobs
+            - Gas Prices
+            - Immigration
+            - National Security
+            - Social Security
+            - Terrorism
+            - Abortion
+            - Agriculture
+            - Arctic National Wildlife Refuge
+            - Aviation
+            - Banking-General
+            - Budget
+            - "Children's Issues"
+            - Communications
+            - Defense-General
+            - Economy-General
+            - Education
+            - Energy
+            - Environment
+            - Foreign Affairs
+            - Global Warming
+            - Government Affairs
+            - Gun Control
+            - Health Care-General
+            - Housing
+            - Intelligence Issues
+            - Judiciary
+            - Labor
+            - Nuclear Weapons
+            - "Seniors' Issues"
+            - Small Business
+            - Tax-General
+            - Trade-General
+            - Transportation
+            - Veterans Affairs
+            - Violence
+            - Other
     - click_on:
-      - value: Submit
-        selector: ".primaryAction"
+        - value: Submit
+          selector: input.primaryAction
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for expressing your views"
+      contains: Thank
