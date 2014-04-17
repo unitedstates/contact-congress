@@ -66,6 +66,9 @@ contact_form:
             - Transportation
             - Veterans
             - Welfare/SNAP
+    - find:
+      - selector: "#continue-form"
+    - fill_in:
         - name: fname
           selector: "#fname"
           value: $NAME_FIRST
