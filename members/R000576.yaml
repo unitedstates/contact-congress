@@ -12,17 +12,15 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
-    - find:
-        - selector: .form-11
     - fill_in:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
         - name: required-first
           selector: "#contactForm input[name='required-first']"
           value: $NAME_FIRST
@@ -43,18 +41,6 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: false
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: false
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: required-valid-email
           selector: "#contactForm input[name='required-valid-email']"
           value: $EMAIL
@@ -74,8 +60,8 @@ contact_form:
     - select:
         - name: required-response
           selector: "#required-response"
-          value: "Yes"
-          required: true
+          value: "Y"
+          required: false
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
@@ -87,4 +73,3 @@ contact_form:
       status: 200
     body:
       contains: "The following information has been submitted:"
-
