@@ -172,6 +172,9 @@ contact_form:
     - click_on:
         - value: Send Your Message To Tom
           selector: "#form input[name='submit']"
+    - find:
+        - selector: "em"
+          value: "Thank you for expressing your views."
   success:
     headers:
       status: 200
