@@ -68,3 +68,9 @@ Error: Unable to find css "#contactForm"
 <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=R000570>
 
 Error: Filling out the remote form was not successful
+
+---
+
+<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=H001055>
+
+Error: Unable to find css "option[value=\"WEBGUNS\"]:nth-child(1)"
