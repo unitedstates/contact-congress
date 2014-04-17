@@ -1,9 +1,9 @@
 bioguide: M001156
 contact_form:
   method: get
-  action: /contact/rfa.htm
+  action: /Forms/WriteYourRep/
   steps:
-    - visit: "http://mchenry.house.gov/contact/zipauth2.htm"
+    - visit: "http://mchenry.house.gov/contact/zipauth.htm"
     - fill_in:
         - name: zip5
           selector: "#zipcode"
@@ -12,91 +12,197 @@ contact_form:
         - name: zip4
           selector: "#plusfour"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "input[name='required-prefix']"
+        - selector: "#aspnetForm"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
-          required: true
-        - name: required-first
-          selector: "#required-first"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "form[name='form1'] input[name='required-last']"
+        - name: ctl00$ctl12$FirstName
+          selector: "#ctl00_ctl12_FirstName"
           value: $NAME_LAST
           required: true
-        - name: ADD1
-          selector: "#ADD1"
+        - name: ctl00$ctl12$LastName
+          selector: "#ctl00_ctl12_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl12$Street
+          selector: "#ctl00_ctl12_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: CITY
-          selector: "#Text1"
+        - name: ctl00$ctl12$City
+          selector: "#ctl00_ctl12_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ZIP5
-          selector: "form[name='form1'] input[name='ZIP5']"
+        - name: ctl00$ctl12$Zip
+          selector: "#ctl00_ctl12_Zip"
           value: $ADDRESS_ZIP5
-          required: false
-        - name: ZIP4
-          selector: "form[name='form1'] input[name='ZIP4']"
-          value: $ADDRESS_ZIP4
-          required: false
-        - name: required-email
-          selector: "#required-email"
-          value: $EMAIL
           required: true
-        - name: WORKTEL
-          selector: "#WORKTEL"
+        - name: ctl00$ctl12$Phone
+          selector: "#ctl00_ctl12_Phone"
           value: $PHONE
           required: true
-        - name: CLAIM
-          selector: "#CLAIM"
+        - name: ctl00$ctl12$Email
+          selector: "#ctl00_ctl12_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl12$Subject
+          selector: "#ctl00_ctl12_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl12$Body
+          selector: "#ctl00_ctl12_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-prefix
-          selector: "#required-prefix"
+        - name: ctl00$ctl12$PrefixList
+          selector: "#ctl00_ctl12_PrefixList"
           value: $NAME_PREFIX
           required: true
-          options: []
-        - name: subject
-          selector: "#subject"
+          options:
+            - Adm
+            - Brigadier General
+            - Capt.
+            - Col.
+            - Commissioner
+            - Dr.
+            - General
+            - His Excellency
+            - Judge
+            - Lt.
+            - LTC
+            - LTC (RET)
+            - Major
+            - Mayor
+            - Miss
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Pastor
+            - Pvt.
+            - Rev.
+            - Reverend
+            - SAC
+            - Senator
+            - Sgt.
+            - Sr.
+            - SSgt.
+            - The Honorable
+        - name: ctl00$ctl12$State
+          selector: "#ctl00_ctl12_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl12$IssuesList
+          selector: "#ctl00_ctl12_IssuesList"
           value: $TOPIC
           required: true
           options:
-            - "Agriculture "
-            - Contracting with the Federal Government
-            - "Department of Justice "
-            - "Department of Veterans Affairs and/or Military "
-            - "Education "
-            - Employment Issues and Services for Dislocated Workers
-            - "Federal Communications Commission "
-            - "Federal Emergency Management Agency "
-            - Federal Employment
-            - "Flag Requests "
-            - Grants
-            - Housing
-            - Immigration
-            - "Internal Revenue Service "
-            - "Passports "
-            - Service Academy Appointments
-            - Small Business Issues
-            - "Social Security Administration and/or Medicare "
-            - Transportation
-            - U.S. Postal Service
-            - "Visiting Washington "
-            - Other – Not Listed
+            Abortion: "44694"
+            Agriculture: "44695"
+            Animal Rights: "44696"
+            Appropriations: "44697"
+            Budget: "44730"
+            Capitol/White House Tour: "44698"
+            Crime: "44699"
+            "Defense of Marriage & Traditional Values": "1622"
+            Defense/War: "44700"
+            Education: "44701"
+            Energy: "44702"
+            Environment: "1613"
+            Ethics/Government Reform/Lobbying: "44703"
+            FDA: "44704"
+            Financial Services/Banking/Commerce: "44705"
+            Guns: "44706"
+            Healthcare: "1617"
+            Housing: "44709"
+            Illegal Drugs: "44710"
+            "Immigration & Border Security": "2100"
+            "Infrastructure & Transportation": "1623"
+            International Relations: "44711"
+            Judiciary/Tort Reform/Legal Issues: "44712"
+            Medicare/Medicaid: "44714"
+            National Guard: "44715"
+            Native American Affairs: "44716"
+            Other - Not Listed: "44724"
+            Pension: "44717"
+            Phones/Internet/Television: "44718"
+            Postal Reform: "44719"
+            Prescription Drugs: "44720"
+            Science/Technology: "44721"
+            Small Businesses: "1625"
+            Strengthening Social Security: "1624"
+            Tax Relief: "1334"
+            Thank You: "44722"
+            The Economy: "44731"
+            Trade Policy: "1335"
+            Welfare: "44723"
     - click_on:
-        - value: Send Message
-          selector: "form[name='form1'] input[name='WR_Submit']"
+        - value: Submit
+          selector: "#ctl00_ctl12_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thanks for your request. We will try to address your message as soon as we are able.
+      contains: Thank you for contacting my office with your concerns.
