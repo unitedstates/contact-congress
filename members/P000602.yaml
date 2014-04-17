@@ -82,6 +82,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "form.zipform input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "#ctl00_ctl11_ctl00_Text"
   success:
     headers:
       status: 200
