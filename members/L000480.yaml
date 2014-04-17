@@ -3,22 +3,12 @@ contact_form:
   method: post
   action: /contact-form/
   steps:
-    - visit: "https://lowey.house.gov/contact-form"
+    - visit: "https://lowey.house.gov/contact-form/"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
+        - name: ZIPVALIDATED
+          selector: "#custom_form32 input[name='ZIPVALIDATED']"
+          value: "true"
           required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: false
-    - click_on:
-        - value: Go to Form
-          selector: input.button
-    - find:
-        - selector: "#custom_form32"
-    - fill_in:
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
@@ -163,9 +153,9 @@ contact_form:
             Other Issues: WEBOTH
     - click_on:
         - value: Send Email
-          selector: "#custom_form32 input.form_submit_button"
+          selector: "#custom_form32 input.form_submit_button.filled"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information was sent to us:"
+      contains: The following information was sent to us
