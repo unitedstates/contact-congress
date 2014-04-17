@@ -28,14 +28,14 @@ contact_form:
         value: "$ADDRESS_CITY"
         required: Yes
       - name: zip
-        selector: "#zip"
+        selector: "#thisForm input[name='zip']"
         value: "$ADDRESS_ZIP5"
         required: Yes
       - name: phone
         selector: "#phone"
         value: "$PHONE"
       - name: email
-        selector: "#email"
+        selector: "#thisForm input[name='email']"
         value: "$EMAIL"
         required: Yes
       - name: messageSubject
@@ -148,7 +148,7 @@ contact_form:
           "\n\t\t\t\t\t\tOther\n\t\t\t\t\t": "Other"
     - click_on:
       - value: Submit
-        selector: "#thisForm select[name='Submit']"
+        selector: "#thisForm input[name='Submit']"
   success:
     headers:
       status: 200
