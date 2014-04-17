@@ -966,8 +966,8 @@ CCH.prototype.commit = function(e) {
   var yaml = jsyaml.safeDump({
     bioguide: this.currentLegislator().bioguide(),
     contact_form: {
-      method: this.startForm.method,
-      action: this.startForm.action,
+      method: this.startForm.method || '',
+      action: this.startForm.action || '',
       steps: this.currentSteps(),
       success: {
         headers: {
