@@ -221,7 +221,8 @@ contact_form:
           WI: WI
           WY: WY
       - find:
-        - selector: "#county-label"
+        # Just ensures LA counties are loaded first before continuing
+        - selector: "option[value='Acadia Parish']"
       - name: county
         selector: "#county"
         value: $ADDRESS_COUNTY
