@@ -1,9 +1,9 @@
 bioguide: W000815
 contact_form:
   method: post
-  action: "/forms/writeyourrep/?zip5=$ZIP5&zip4=$ZIP4"
+  action: "/forms/writeyourrep/"
   steps:
-    - visit: "https://wenstrup.house.gov/forms/writeyourrep/?zip5=$ZIP5&zip4=$ZIP4"
+    - visit: "https://wenstrup.house.gov/forms/writeyourrep/"
     - fill_in:
         - name: ctl00$ctl13$FirstName
           selector: "#ctl00_ctl13_FirstName"
