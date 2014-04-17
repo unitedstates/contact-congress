@@ -4,51 +4,6 @@ contact_form:
   action: /contact/write-martin
   steps:
     - visit: "http://www.heinrich.senate.gov/contact/write-martin"
-    - fill_in:
-        - name: fname
-          selector: "#fname"
-          value: $NAME_FIRST
-          required: true
-        - name: lname
-          selector: "#lname"
-          value: $NAME_LAST
-          required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
-          value: $ADDRESS_STREET
-          required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: mailing_city
-          selector: "#mailing_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: phone_number
-          selector: "#phone_number"
-          value: $PHONE
-          required: false
-        - name: email_address
-          selector: "#email"
-          value: $EMAIL
-          required: true
-        - name: verify_email
-          selector: "#verify_email"
-          value: $EMAIL
-          required: true
-        - name: subject
-          selector: "#contactForm input[name='subject']"
-          value: $SUBJECT
-          required: true
-        - name: message
-          selector: "#message"
-          value: $MESSAGE
-          required: true
     - select:
         - name: topic
           selector: "#contactForm select[name='topic']"
@@ -101,6 +56,51 @@ contact_form:
             Welfare/Food Assistance: Welfare/Food Assistance
             Wildlife/Animal Welfare: Wildlife/Animal Welfare
             "Women's Issues": "Women's Issues"
+    - fill_in:
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: mailing_streetAddress1
+          selector: "#mailing_streetAddress1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: mailing_streetAddress2
+          selector: "#mailing_streetAddress2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: mailing_city
+          selector: "#mailing_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: mailing_zipCode
+          selector: "#mailing_zipCode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone_number
+          selector: "#phone_number"
+          value: $PHONE
+          required: false
+        - name: email_address
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: "#verify_email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#contactForm input[name='subject']"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
         - name: salutation
           selector: "#salutation"
           value: $NAME_PREFIX
