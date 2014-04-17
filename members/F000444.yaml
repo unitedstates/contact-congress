@@ -190,6 +190,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#thisForm input[type='submit'][value='Submit']"
+    - find:
+        - selector: "div[align='center']"
   success:
     headers:
       status: 200
