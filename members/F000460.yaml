@@ -4,7 +4,7 @@ contact_form:
   action: /forms/writeyourrep/
   steps:
     - visit: "http://farentholdforms.house.gov/contact/email.htm" 
-    - fill_in:
+    - fill_in: 
         - name: zip5
           selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
