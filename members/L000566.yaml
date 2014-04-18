@@ -1,4 +1,4 @@
-bioguide: L000566  
+bioguide: L000566
 contact_form:
   method: post
   action: /submit-contact.aspx
@@ -32,11 +32,11 @@ contact_form:
         - name: zip4
           selector: "form.zipform[name='contact'] input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
         - name: phone
           selector: "form.zipform[name='contact'] input[name='phone']"
           value: $PHONE
-          required: true
+          required: false
         - name: required-email
           selector: "form.zipform[name='contact'] input[name='required-email']"
           value: $EMAIL
@@ -77,18 +77,11 @@ contact_form:
             Transportation: TRAN
             Veterans: VET
             Others: GEN
-    - uncheck:
-        - name: subscribe
-          selector: "form.zipform[name='contact'] input[name='subscribe']"
-          value: subscribe
     - click_on:
         - value: Send Email
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
-    - find:
-        - selector: "span#ctl00_PageLink"
-          value: "THANK YOU"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for sending
+      contains: Thank you for sending me
