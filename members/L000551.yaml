@@ -1,7 +1,7 @@
 bioguide: L000551
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
     - visit: "http://lee.house.gov/contact-the-office/email-me"
     - fill_in:
@@ -15,7 +15,9 @@ contact_form:
           required: false
     - click_on:
         - value: Go To Next Step
-          selector: "#submit.submit"
+          selector: "#emailForm input[name='submit']"
+    - find:
+        - selector: "#contactForm"
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -36,29 +38,17 @@ contact_form:
         - name: address2
           selector: "#address2"
           value: $ADDRESS_STREET_2
-          required: true
+          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
         - name: required-valid-email
-          selector: "#contactForm input[name='required-valid-email']"
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
           required: true
         - name: required-subject
@@ -75,43 +65,56 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Agriculture: AG
+            Agriculture: AGR
             Animals: AN
             Arts and Humanities: ART
-            Badger Army Ammunition Plant: BAAP
             Banking and Finance: BANK
             Budget and Economy: BUD
             Campaign Finance Reform: CFR
             Congress and Elections: CONG
             District of Columbia--Tours: TOUR
             Defense and Military: DEF
-            Education: ED
-            Energy: EN
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
             Environment: ENV
             Federal Employees: FED
             Foreign Relations: FR
+            Government Reform: GOV
             Guns: GUN
-            Health: HE
+            Health: HEA
+            Homeland Security: HOM
             Housing and Urban Development: HUD
-            Immigration: IM
+            Immigration: IMM
+            International Relations: INT
             Judiciary: JUD
             Labor: LAB
             LGBT: LGBT
+            No Response Necessary: NRN
             Post Office: POST
             Science and Technology: SCI
+            Social Issues: SOC
             Senior Citizens: SENIORS
-            Social Security: SS
+            Social Security: SSEC
             Social Services: SOC.SERVICES
             Taxes: TAX
-            Telecommunications: COMM
-            Transportation: TRAN
-            Trade: TRD
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRADE
             Veterans: VET
             "Women's Issues": WOMEN
+            Welfare: WEL
             Other Issues: OTHER
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#contactForm input[name='submit']"
   success:
     headers:
       status: 200
