@@ -3,8 +3,6 @@ Filling out the remote form was not successful
 
 - <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=R000570> 
   - [Issue thread, figured out why the form won't submit.](https://github.com/unitedstates/contact-congress/issues/183#issuecomment-40733376)
-- <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=L000565> 
-  - [Issue thread, error figured out.](https://github.com/unitedstates/contact-congress/issues/288)
 
 PhantomJS client died while processing...
 ---
