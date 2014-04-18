@@ -21,10 +21,6 @@ Unable to find css...
 <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=C001070>
 Error: Unable to find css "option[value=\"Abortion\"]:nth-child(1)"
 
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=G000555>
-Error: Unable to find css nil
 
 Other
 ---
