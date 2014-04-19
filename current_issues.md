@@ -15,13 +15,6 @@ Error: PhantomJS client died while processing {"name":"click","args":[1,13]}
 <http://efforg.github.io/congress-forms-test/index.html?bioguide_id=L000480>
 Error: PhantomJS client died while processing {"name":"click","args":[1,2]}
 
-Unable to find css...
----
-
-<http://efforg.github.io/congress-forms-test/index.html?bioguide_id=C001070>
-Error: Unable to find css "option[value=\"Abortion\"]:nth-child(1)"
-
-
 Other
 ---
 
