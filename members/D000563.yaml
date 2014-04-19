@@ -4,6 +4,8 @@ contact_form:
   action: /public/index.cfm/contact
   steps:
     - visit: "http://www.durbin.senate.gov/public/index.cfm/contact"
+    - find:
+        - selector: "#field_c665e606-f6be-4edb-a3eb-430518253fb1"
     - fill_in:
         - name: field_c665e606-f6be-4edb-a3eb-430518253fb1
           selector: "#field_c665e606-f6be-4edb-a3eb-430518253fb1"
