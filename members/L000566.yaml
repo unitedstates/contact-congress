@@ -82,9 +82,8 @@ contact_form:
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
     - find:
         - selector: "#ctl00_PageLink"
-          value: "THANK YOU"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for sending me
+      contains: "Thank you"
