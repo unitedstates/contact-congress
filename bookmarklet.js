@@ -285,7 +285,7 @@ window.Utils || (Utils = {});
 
   // Returns true if the passed-in object is a DOM node, false if not.
   u.isNode = function(obj) {
-    return obj.hasOwnProperty('nodeType') && obj.nodeType === 1;
+    return obj.nodeType === 1;
   };
 
   // Returns true if the passed-in object is a DOM node or non-empty nodelist
@@ -314,7 +314,7 @@ window.Utils || (Utils = {});
       if (_(data).isArray()) { // directory endpoint
         jsondata = data;
       } else { // individual file endpoint
-        jsondata = jsyaml.safeLoad(atob(data.content));
+        jsondata = jsyaml.safeLoad(atob(data.content.replace(/\s/g, '')));
       }
       if(_(jsondata).isArray()){
         hydrated = _(jsondata).map(function(obj, i, arr){
@@ -336,7 +336,7 @@ window.Utils || (Utils = {});
         headers = null,
         jsondata = [];
     $.getJSON(url).done(function(data){
-      csvdata = CSV.parse(atob(data.content));
+      csvdata = CSV.parse(atob(data.content.replace(/\s/g, '')));
       headers = csvdata.shift();
       _.each(csvdata, function(row){
         var entry = {};
@@ -877,16 +877,15 @@ CCH.prototype.popupMain = function() {
 };
 
 CCH.prototype.parentMain = function() {
+  var self = this;
   if (location.href.match(/\.(house|senate)(forms)?\.gov/)) {
     // we're on a form page, open the popup and inject the script
     this.popupWindow().ghAuthKey = this.ghAuthKey;
     var scr = this.popupWindow().document.createElement('script');
-    var mainScr = $('#cchbookmarklet');
-    if (mainScr !== null)
-      scr.src = mainScr.attr('src');
-    if (!scr.src)
-      scr.src = this.scriptUrl;
-    this.popupWindow().document.head.appendChild(scr);
+    scr.src = this.scriptUrl;
+    setTimeout(function(){
+      self.popupWindow().document.head.appendChild(scr);
+    }, 100);
   } else {
     // we're on a random page, add the select box
     var target = this.topWindowBody().append(this.templates.layout()).find('.cch-target');
