@@ -67,6 +67,8 @@ The value of a visit step is just a `string` url.
 
 The value of a find step is just a string CSS selector which should be found on the page (and should be visible) before proceeding to execute more steps.
 
+If `find` does not locate the selector within a predetermined period of time (the default is currently 5 seconds), the form fill will be abandoned and will return an error to the caller. This default wait time can be overridden on an individual `find`, by specifying the `options` attribute on the `find` step, and including the option `wait: x`, where `x` is an integer number of seconds.
+
 ### fill_in
 
 The value of a fill_in step can be a single field, or a list of hashes defining a batch of fields to fill in at once, but should be defined as a list either way. Each hash describes a form field by a few attributes, many of which are common to most steps:
