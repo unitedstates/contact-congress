@@ -78,7 +78,7 @@ def parse_params(r):
             params['repIds'] = campaign['repIds']
 
     # get representative's id by zip code
-    if params['zipcode'] and params['repIds']:
+    if params['zipcode']:
         params['repIds'] = data.locate_member_ids(
             params['zipcode'], campaign)
 
