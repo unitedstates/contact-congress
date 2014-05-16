@@ -59,11 +59,6 @@ contact_form:
           selector: "#required-message"
           value: $MESSAGE
           required: true
-        - name: recaptcha_response_field
-          selector: "#recaptcha_response_field"
-          captcha_selector: "#recaptcha_image img"
-          captcha_id_selector: "#recaptcha_challenge_field"
-          value: "$CAPTCHA_SOLUTION"
     - select:
         - name: required-issue
           selector: "#required-issue"
