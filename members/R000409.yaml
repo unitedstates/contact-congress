@@ -15,6 +15,8 @@ contact_form:
           required: false
     - click_on:
         - selector: button.ideal-button
+    - find:
+        - selector: "#contactForm input[name='required-first']"
     - fill_in:
         - name: required-prefix
           selector: "#required-prefix"
