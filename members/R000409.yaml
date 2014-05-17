@@ -15,19 +15,17 @@ contact_form:
           required: false
     - click_on:
         - selector: button.ideal-button
-    - find:
-        - selector: "#contactForm input[name='required-first']"
     - fill_in:
         - name: required-prefix
           selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
         - name: required-first
-          selector: "#contactForm input[name='required-first']"
+          selector: "#required-first"
           value: $NAME_FIRST
           required: false
         - name: required-last
-          selector: "#contactForm input[name='required-last']"
+          selector: "#required-last"
           value: $NAME_LAST
           required: false
         - name: required-addr1
