@@ -1,9 +1,9 @@
 bioguide: H001036
 contact_form:
   method: post
-  action: "https://hensarling.house.gov/htbin/formproc_za.pl?/hensarling/zip-auth.txt&form=/contact/email-me-zip-authenticated.shtml&nobase&fpGetVer=2&fpGetVer=2"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://hensarling.house.gov/contact/email-me.shtml"
+    - visit: "https://hensarling.house.gov/contact/email-me"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -15,20 +15,24 @@ contact_form:
           required: false
     - click_on:
         - value: Go To Next Step
-          selector: "#Submit"
+          selector: "#submit"
     - find:
-        - selector: "form.validate[name='contactForm']"
+        - selector: "#prefix"
     - fill_in:
-        - name: required-firstname
-          selector: "#required-firstname"
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: required-lastname
-          selector: "#required-lastname"
+        - name: required-last
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
-        - name: required-address1
-          selector: "#required-address1"
+        - name: required-address
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
         - name: address2
@@ -43,27 +47,21 @@ contact_form:
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
-          required: false
-        - name: required-messagebody
-          selector: "#required-messagebody"
+          required: true
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - "Mr & Mrs."
-            - Ms.
-            - Dr.
-        - name: required-subject
-          selector: "#subject"
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
@@ -97,15 +95,18 @@ contact_form:
             Transportation: TRN
             Veterans: VET
             Other: OTHER
-    - check:
-        - name: required-forums
-          selector: "#forums_x"
-          value: No Change
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
     - click_on:
-        - value: Send Message
-          selector: "form.validate[name='contactForm'] input[name='submit']"
+        - value: Send Email
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: The following information has been submitted
