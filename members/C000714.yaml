@@ -1,6 +1,7 @@
 bioguide: C000714
 contact_form:
   method: post
+  action: ""
   steps:
     - visit: "https://conyers.house.gov/index.cfm/online-contact-form"
     - fill_in:
@@ -42,14 +43,15 @@ contact_form:
           required: true
         - name: captcha_3F492369-C9E2-4693-BAAA-BCB55BAD679C
           selector: "#captcha_3F492369-C9E2-4693-BAAA-BCB55BAD679C"
-          captcha_selector: "form.uniForm .multiField img[height='50']"
+          captcha_selector: .multiField img[height="50"][width="300"]
           captcha_id_selector: "#captcha_3F492369-C9E2-4693-BAAA-BCB55BAD679C_hash"
           value: $CAPTCHA_SOLUTION
+          required: true
     - select:
         - name: field_C9D6A780-B426-462F-8D90-D9553C792A65
           selector: "#field_C9D6A780-B426-462F-8D90-D9553C792A65"
           value: $NAME_PREFIX
-          required: true
+          required: false
           options:
             - Mr.
             - Mrs.
@@ -66,63 +68,9 @@ contact_form:
             - Senator
         - name: field_E2BC480A-E285-45CA-9F22-C919E45B5134
           selector: "#field_E2BC480A-E285-45CA-9F22-C919E45B5134"
-          value: $ADDRESS_STATE_FULL
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
-          options:
-            - AA
-            - AE
-            - AP
-            - Alabama
-            - Alaska
-            - Arizona
-            - Arkansas
-            - California
-            - Colorado
-            - Connecticut
-            - Delaware
-            - District of Columbia
-            - Florida
-            - Georgia
-            - Hawaii
-            - Idaho
-            - Illinois
-            - Indiana
-            - Iowa
-            - Kansas
-            - Kentucky
-            - Loisiana
-            - Maine
-            - Maryland
-            - Massachusetts
-            - Michigan
-            - Minnesota
-            - Mississippi
-            - Missouri
-            - Montana
-            - Nebraska
-            - Nevada
-            - New Hampshire
-            - New Jersey
-            - New Mexico
-            - New York
-            - North Carolina
-            - North Dakota
-            - Ohio
-            - Oklahoma
-            - Oregon
-            - Pennsylvania
-            - Rhode Island
-            - South Carolina
-            - South Dakota
-            - Tennessee
-            - Texas
-            - Utah
-            - Vermont
-            - Virginia
-            - Washington
-            - West Virginia
-            - Wisconsin
-            - Wyoming
+          options: US_STATES_AND_MPCS
         - name: field_32F0733B-76D3-4B2B-8E7C-8F9879C0C1C9
           selector: "#field_32F0733B-76D3-4B2B-8E7C-8F9879C0C1C9"
           value: $TOPIC
@@ -148,6 +96,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: div.buttonHolder input
+    - find:
+        - selector: ".form a[name]"
+          value: We received your request
   success:
     headers:
       status: 200
