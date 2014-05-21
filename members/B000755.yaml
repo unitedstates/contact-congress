@@ -3,22 +3,7 @@ contact_form:
   method: post
   action: /contact-form/
   steps:
-    - visit: "https://kevinbradyforms.house.gov/contact-form"
-    - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - selector: "html body div.toolbar div.hide"
-        - value: Go to Form
-          selector: "#zipauthform input.button"
-    - find:
-        - selector: "#custom_form11"
+    - visit: "https://kevinbrady.house.gov/contact-form"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -83,10 +68,6 @@ contact_form:
           required: true
           options:
             Texas: TX
-    - check:
-        - name: required-topic
-          selector: "#topic_other"
-          value: OTHER
     - click_on:
         - value: Send Email
           selector: "#submitButton"
