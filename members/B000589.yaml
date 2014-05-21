@@ -1,116 +1,79 @@
 bioguide: B000589
 contact_form:
-  method: post
-  action: /contact.aspx
+  method: POST
+  action: "/htbin/formproc_za.pl?/boehner/form_zipauth.txt&form=/boehner/get_contact_page2.asp&fpGetVer=2"
   steps:
-    - visit: "https://boehner.house.gov/contact/email.htm?zip5=45069&zip4=6637"
-    - find:
-        - selector: "#ctl00_ctl12_ctl00_Text form"
+    - visit: "http://boehner.house.gov/contact/"
     - fill_in:
-        - name: firstname
-          selector: "#ctl00_ctl12_ctl00_Text form input[name='firstname']"
-          value: $NAME_FIRST
-          required: true
-        - name: lastname
-          selector: "#ctl00_ctl12_ctl00_Text form input[name='lastname']"
-          value: $NAME_LAST
-          required: true
-        - name: street
-          selector: "#ctl00_ctl12_ctl00_Text form input[name='street']"
-          value: $ADDRESS_STREET
-          required: true
-        - name: city
-          selector: "#ctl00_ctl12_ctl00_Text form input[name='city']"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zip
-          selector: "#ctl00_ctl12_ctl00_Text form input[name='zip']"
+        - name: required-zip5
+          selector: "#main form input[name='required-zip5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
-          selector: "#ctl00_ctl12_ctl00_Text form input[name='phone']"
-          value: $PHONE
+        - name: zip4
+          selector: "#main form input[name='zip4']"
+          value: $ADDRESS_ZIP4
           required: false
-        - name: Email
-          selector: "#ctl00_ctl12_ctl00_Text form input[name='Email']"
+    - click_on:
+        - value: Go to Next Step
+          selector: "#main form input[type='submit'][value='Go to Next Step']"
+    - find:
+        - selector: "#your_fname"
+    - fill_in:
+        - name: required-firstname1
+          selector: "#your_fname"
+          value: $NAME_FIRST
+          required: true
+        - name: required-lastname1
+          selector: "#your_lname"
+          value: $NAME_LAST
+          required: true
+        - name: required-valid-email
+          selector: "#your_email"
           value: $EMAIL
           required: true
-        - name: message
-          selector: "#ctl00_ctl12_ctl00_Text form textarea[name='message']"
+        - name: phone
+          selector: "#your_phone"
+          value: $PHONE
+          required: false
+        - name: required-address
+          selector: "#your_address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#your_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: comments
+          selector: "#your_comments"
           value: $MESSAGE
           required: true
     - select:
-        - name: State
-          selector: "#ctl00_ctl12_ctl00_Text form select[name='State']"
+        - name: state
+          selector: "#your_state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IN
-            - IL
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
+            - Ohio
     - check:
-        - name: HealthCareCB
-          selector: "#HealthCareCB"
-        - name: EconomyCB
-          selector: "#EconomyCB"
-          value: "on"
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: "on"
+        - name: sub-economy
+          selector: "#main form input[name='sub-economy']"
+          value: ENEWS.ECONOMY
+        - name: sub-education
+          selector: "#main form input[name='sub-education']"
+          value: ENEWS.EDUCATION
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl12_ctl00_Text form input[type='submit'][value='Submit']"
+          selector: "#main form input[type='submit'][value='Submit']"
   success:
     headers:
       status: 200
     body:
-      contains: I appreciate hearing from you.
+      contains: Thanks for contacting us
