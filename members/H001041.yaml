@@ -1,115 +1,182 @@
 bioguide: H001041
 contact_form:
-  method: POST
-  action: http://www.heller.senate.gov/public/index.cfm/contact-form
+  method: post
+  action: ""
   steps:
-    - visit: http://www.heller.senate.gov/public/index.cfm/contact-form
+    - visit: "http://www.heller.senate.gov/public/index.cfm/contact-form"
     - fill_in:
-      - name: field_914f1282-4dc5-4986-a19f-98490ba26802
-        selector: "#field_914f1282-4dc5-4986-a19f-98490ba26802"
-        value: "$NAME_PREFIX"
-        required: Yes
-      - name: field_1dcd64f4-e34a-4321-8af2-b3b700d921c4
-        selector: "#field_1dcd64f4-e34a-4321-8af2-b3b700d921c4"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_5b6b155c-17b8-4ceb-80dd-7ddcc92dbcb9
-        selector: "#field_5b6b155c-17b8-4ceb-80dd-7ddcc92dbcb9"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_497f41d9-bbee-4388-8b96-e7054de40441
-        selector: "#field_497f41d9-bbee-4388-8b96-e7054de40441"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_4642cced-36d2-44a8-a62c-a457b30fca1c
-        selector: "#field_4642cced-36d2-44a8-a62c-a457b30fca1c"
-        value: "$ADDRESS_STREET_2"
-      - name: field_410e1d9d-b5e2-4229-821a-ac6c891cc5e6
-        selector: "#field_410e1d9d-b5e2-4229-821a-ac6c891cc5e6"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_8f8978f7-8148-4546-a4e9-e1963386e0d8
-        selector: "#field_8f8978f7-8148-4546-a4e9-e1963386e0d8"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_78b60da9-2eb3-402a-a2e3-4f7f39b3f556
-        selector: "#field_78b60da9-2eb3-402a-a2e3-4f7f39b3f556"
-        value: "$PHONE"
-        required: Yes
-      - name: field_504a6bf0-239d-4981-be6e-1f4987b68c94
-        selector: "#field_504a6bf0-239d-4981-be6e-1f4987b68c94"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_e954a14b-8b14-444b-914e-c1fd3d638258
-        selector: "#field_e954a14b-8b14-444b-914e-c1fd3d638258"
-        value: "$MESSAGE"
-        required: Yes
+        - name: field_1dcd64f4-e34a-4321-8af2-b3b700d921c4
+          selector: "#field_1dcd64f4-e34a-4321-8af2-b3b700d921c4"
+          value: $NAME_FIRST
+          required: true
+        - name: field_5b6b155c-17b8-4ceb-80dd-7ddcc92dbcb9
+          selector: "#field_5b6b155c-17b8-4ceb-80dd-7ddcc92dbcb9"
+          value: $NAME_LAST
+          required: true
+        - name: field_497f41d9-bbee-4388-8b96-e7054de40441
+          selector: "#field_497f41d9-bbee-4388-8b96-e7054de40441"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_4642cced-36d2-44a8-a62c-a457b30fca1c
+          selector: "#field_4642cced-36d2-44a8-a62c-a457b30fca1c"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: field_410e1d9d-b5e2-4229-821a-ac6c891cc5e6
+          selector: "#field_410e1d9d-b5e2-4229-821a-ac6c891cc5e6"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_8f8978f7-8148-4546-a4e9-e1963386e0d8
+          selector: "#field_8f8978f7-8148-4546-a4e9-e1963386e0d8"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_78b60da9-2eb3-402a-a2e3-4f7f39b3f556
+          selector: "#field_78b60da9-2eb3-402a-a2e3-4f7f39b3f556"
+          value: $PHONE
+          required: false
+        - name: field_504a6bf0-239d-4981-be6e-1f4987b68c94
+          selector: "#field_504a6bf0-239d-4981-be6e-1f4987b68c94"
+          value: $EMAIL
+          required: true
+        - name: field_e954a14b-8b14-444b-914e-c1fd3d638258
+          selector: "#field_e954a14b-8b14-444b-914e-c1fd3d638258"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: field_51425bd8-665d-4a9c-8e50-3ee8323dabfd
-        selector: "#field_51425bd8-665d-4a9c-8e50-3ee8323dabfd"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: field_7d523b66-8097-43d9-875c-e6715b09918f
-        selector: "#field_7d523b66-8097-43d9-875c-e6715b09918f"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          - "Abortion"
-          - "Agriculture"
-          - "Animal Rights"
-          - "Budget/Spending"
-          - "Business"
-          - "Civil Rights"
-          - "Commerce"
-          - "Congratulations/Birthdays"
-          - "Crime/Drugs"
-          - "Defense"
-          - "Education"
-          - "Elections"
-          - "Energy"
-          - "Environment"
-          - "Family Values"
-          - "Foreign Relations"
-          - "Government Reform"
-          - "Health"
-          - "Homeland Security"
-          - "Housing"
-          - "Immigration"
-          - "Intelligence"
-          - "Jobs"
-          - "Judiciary"
-          - "Labor"
-          - "Parks and Public Lands"
-          - "Pension/Retirement"
-          - "Postal"
-          - "Regulatory Reform"
-          - "Religion"
-          - "Science/Technology"
-          - "Second Amendment Rights"
-          - "Senate Procedure"
-          - "Small Business"
-          - "Social Security"
-          - "Taxes"
-          - "Telecommunications"
-          - "Tobacco"
-          - "Trade"
-          - "Transportation"
-          - "Unemployment"
-          - "VA Backlog"
-          - "Veterans"
-          - "Water/Rivers"
-          - "Welfare"
-          - "Other"
+        - name: field_605adcac-5e71-4b93-9035-24a1d31c5794
+          selector: "#field_605adcac-5e71-4b93-9035-24a1d31c5794"
+          value: $NAME_PREFIX
+          required: false
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - "Mr. & Mrs."
+            - Dr.
+            - "Dr. & Mrs."
+            - "Dr. & Mr."
+            - Reverend
+            - Sister
+            - Pastor
+            - Hon.
+        - name: field_51425bd8-665d-4a9c-8e50-3ee8323dabfd
+          selector: "#field_51425bd8-665d-4a9c-8e50-3ee8323dabfd"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "----Military---- ": "----Military---- "
+            "AA ": AA
+            "AE ": AE
+            "AP ": AP
+            "----States---- ": " "
+            "Alabama ": AL
+            "Alaska ": AK
+            "Arizona ": AZ
+            "Arkansas ": AR
+            "California ": CA
+            "Colorado ": CO
+            "Connecticut ": CT
+            "Delaware ": DE
+            "District of Columbia ": DC
+            "Florida ": FL
+            "Georgia ": GA
+            "Hawaii ": HI
+            "Idaho ": ID
+            "Illinois ": IL
+            "Indiana ": IN
+            "Iowa ": IA
+            "Kansas ": KS
+            "Kentucky ": KY
+            "Louisiana ": LA
+            "Maine ": ME
+            "Maryland ": MD
+            "Massachusetts ": MA
+            "Michigan ": MI
+            "Minnesota ": MN
+            "Mississippi ": MS
+            "Missouri ": MO
+            "Montana ": MT
+            "Nebraska ": NE
+            "Nevada ": NV
+            "New Hampshire ": NH
+            "New Jersey ": NJ
+            "New Mexico ": NM
+            "New York ": NY
+            "North Carolina ": NC
+            "North Dakota ": ND
+            "Ohio ": OH
+            "Oklahoma ": OK
+            "Oregon ": OR
+            "Pennsylvania ": PA
+            "Rhode Island ": RI
+            "South Carolina ": SC
+            "South Dakota ": SD
+            "Tennessee ": TN
+            "Texas ": TX
+            "Utah ": UT
+            "Vermont ": VT
+            "Virginia ": VA
+            "Washington ": WA
+            "West Virginia ": WV
+            "Wisconsin ": WI
+            Wyoming: WY
+        - name: field_7d523b66-8097-43d9-875c-e6715b09918f
+          selector: "#field_7d523b66-8097-43d9-875c-e6715b09918f"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: ABR
+            Agriculture: AGR
+            Animal Rights: ANI
+            Budget/Spending: BUD
+            Business: BUS
+            Civil Rights: JUD
+            Commerce: TLC
+            Congratulations/Birthdays: GEN
+            Crime/Drugs: CRI
+            Defense: DEF
+            Education: EDU
+            Elections: GOV
+            Energy: ENE
+            Environment: ENV
+            Foreign Relations: FOR
+            Government Reform: GOV
+            Health: HEA
+            Homeland Security: HLS
+            Housing: HOU
+            Immigration: IMM
+            Intelligence: HLS
+            Jobs: JOB
+            Judiciary: JUD
+            Labor: LBR
+            Parks and Public Lands: RES
+            Pension/Retirement: LBR
+            Postal: PST
+            Religion: OTR
+            Science/Technology: SCI
+            Second Amendment Rights: GUN
+            Senate Procedure: RUL
+            Small Business: BUS
+            Social Security: SOC
+            Taxes: TAX
+            Telecommunications: TLC
+            Tobacco: HEA
+            Trade: TRD
+            Transportation: TRN
+            Unemployment: LBR
+            VA Backlog: VET
+            Veterans: VET
+            Water/Rivers: RES
+            Welfare: WEL
     - uncheck:
-      - name: _FTSubscribe
-        selector: "#_FTSubscribe"
-        value: 1
+        - name: _FTSubscribe
+          selector: "#_FTSubscribe"
+          value: "1"
     - click_on:
-      - value: Submit
-        selector: ".buttonHolder input"
+        - value: Submit
+          selector: div.buttonHolder input
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for taking the time to contact me"
+      contains: Thank you for taking the time to contact me
