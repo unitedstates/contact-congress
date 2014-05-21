@@ -6,7 +6,7 @@ contact_form:
     - visit: "https://ellmersforms.house.gov/contact-us1"
     - fill_in:
         - name: zipcode
-          selector: "#req_zipcode"
+          selector: "#req_zipcode, #zipcode"
           value: $ADDRESS_ZIP5
           required: true
         - name: zipfour
@@ -120,5 +120,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting your information.
- 
+      contains: Thank you for submitting your information
