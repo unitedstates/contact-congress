@@ -1,130 +1,182 @@
 bioguide: H001069
 contact_form:
-  method: POST
-  action: http://www.heitkamp.senate.gov/webformActionIQV2.cfm
+  method: post
+  action: ""
   steps:
-    - visit: http://www.heitkamp.senate.gov/contact.cfm
+    - visit: "http://www.heitkamp.senate.gov/public/index.cfm/email-heidi"
     - fill_in:
-      - name: firstName
-        selector: "#firstName"
-        value: "$NAME_FIRST"
-        required: true
-      - name: lastName
-        selector: "#lastName"
-        value: "$NAME_LAST"
-        required: true
-      - name: Address1
-        selector: "#Address1"
-        value: "$ADDRESS_STREET"
-        required: true
-      - name: Address2
-        selector: "#Address2"
-        value: "$ADDRESS_STREET_2"
-      - name: city
-        selector: "#city"
-        value: "$ADDRESS_CITY"
-        required: true
-      - name: zip
-        selector: "#zip"
-        value: "$ADDRESS_ZIP5"
-        required: true
-      - name: phone
-        selector: "#phone"
-        value: "$PHONE"
-      - name: email
-        selector: "#email"
-        value: "$EMAIL"
-        required: Yes
-      - name: messageSubject
-        selector: "#messageSubject"
-        value: "$SUBJECT"
-        required: true
-      - name: messageBody
-        selector: "#messageBody"
-        value: "$MESSAGE"
-        required: true
+        - name: field_98246390-b734-489d-b114-dd3e27dd74b1
+          selector: "#field_98246390-b734-489d-b114-dd3e27dd74b1"
+          value: $NAME_FIRST
+          required: true
+        - name: field_fab82e40-11d6-4165-8a1f-69d633d543b9
+          selector: "#field_fab82e40-11d6-4165-8a1f-69d633d543b9"
+          value: $NAME_LAST
+          required: true
+        - name: field_37b1d0df-fd27-4864-8a93-e5e18134d847
+          selector: "#field_37b1d0df-fd27-4864-8a93-e5e18134d847"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_d5594c7e-758f-450e-87a3-8090465fcf6e
+          selector: "#field_d5594c7e-758f-450e-87a3-8090465fcf6e"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: field_26182c02-1aa8-482b-a578-228bf7f11582
+          selector: "#field_26182c02-1aa8-482b-a578-228bf7f11582"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_49e219b7-8099-4674-8610-e353012344f2
+          selector: "#field_49e219b7-8099-4674-8610-e353012344f2"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_465edbf0-a4a4-4a60-b12a-a25fb7b97477
+          selector: "#field_465edbf0-a4a4-4a60-b12a-a25fb7b97477"
+          value: $PHONE
+          required: false
+        - name: field_aef0763a-c3d0-4f00-a7e2-f7c0e1856d53
+          selector: "#field_aef0763a-c3d0-4f00-a7e2-f7c0e1856d53"
+          value: $EMAIL
+          required: true
+        - name: field_5bf02de2-5948-4452-bd23-3d714792b5ec
+          selector: "#field_5bf02de2-5948-4452-bd23-3d714792b5ec"
+          value: $SUBJECT
+          required: true
+        - name: field_d57a0ad2-172c-477e-a580-86a6c8b69dd6
+          selector: "#field_d57a0ad2-172c-477e-a580-86a6c8b69dd6"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: Subject
-        selector: "#Subject"
-        value: "$TOPIC"
-        required: true
-        options:
-          - "Abortion"
-          - "Aging"
-          - "Agriculture"
-          - "Animal Welfare"
-          - "Appropriations"
-          - "Banking"
-          - "Budget, Government Spending"
-          - "Civil Rights"
-          - "Commerce"
-          - "Communications"
-          - "Congratulations"
-          - "Crime"
-          - "Defense"
-          - "Drugs"
-          - "Economy"
-          - "Education"
-          - "Elections"
-          - "Energy"
-          - "Environment"
-          - "Family"
-          - "Filibuster"
-          - "Food Stamps"
-          - "Foreign Affairs"
-          - "Gun Control"
-          - "Health"
-          - "Homeland Security"
-          - "Housing"
-          - "Immigration"
-          - "IND"
-          - "Judiciary"
-          - "Labor"
-          - "Medicaid"
-          - "Medicare"
-          - "Military"
-          - "Nutrition"
-          - "Other"
-          - "Pensions"
-          - "Postal Service"
-          - "Public Lands and Parks"
-          - "Science and Technology"
-          - "Small Business"
-          - "Social Security"
-          - "Taxes"
-          - "Tobacco"
-          - "Trade"
-          - "Transportation"
-          - "Veterans"
-          - "Welfare"
-          - "Women's Issues"
-      - name: Prefix
-        selector: "#Prefix"
-        value: "$NAME_PREFIX"
-        required: true
-        options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Mr. and Mrs."
-          - "Dr."
-          - "Dr. and Mrs."
-          - "Reverend"
-          - "Sister"
-          - "Pastor"
-          - "The Honorable"
-          - "Representative"
-          - "Senator"
-      - name: state
-        selector: "#state"
-        value: "$ADDRESS_STATE"
-        options: US_STATES_AND_MPCS
-        required: true
+        - name: field_8d7b0b71-2228-4184-8931-eccbaef74929
+          selector: "#field_8d7b0b71-2228-4184-8931-eccbaef74929"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mr.
+            - Dr. and Mrs.
+            - Reverend
+            - Sister
+            - Pastor
+            - The Honorable
+            - Representative
+            - Senator
+        - name: field_4cbbd473-5f06-4162-b56c-5bd9c77797da
+          selector: "#field_4cbbd473-5f06-4162-b56c-5bd9c77797da"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AA
+            - AE
+            - AP
+            - Alabama
+            - Alaska
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+        - name: field_2443af65-5fb0-455b-b747-645741ead991
+          selector: "#field_2443af65-5fb0-455b-b747-645741ead991"
+          value: $TOPIC
+          required: false
+          options:
+            - Other
+            - Aging
+            - Agriculture
+            - Animal Welfare
+            - Appropriations
+            - Banking
+            - "Budget, Government Spending"
+            - Civil Rights
+            - Commerce
+            - Communications
+            - Congratulations
+            - Crime
+            - Defense
+            - Drugs
+            - Economy
+            - Education
+            - Elections
+            - Energy
+            - Environment
+            - Family
+            - Filibuster
+            - Foreign Affairs
+            - Gun Control
+            - Health
+            - Homeland Security
+            - Housing
+            - Immigration
+            - Native American Affairs
+            - Judiciary
+            - Labor
+            - Medicaid
+            - Medicare
+            - Military
+            - Postal Service
+            - Public Lands and Parks
+            - Science and Technology
+            - Small Business
+            - Social Security
+            - Taxes
+            - Trade
+            - Transportation
+            - Veterans
+            - Welfare
+            - "Women's Issues"
     - click_on:
-      - value: Send
-        selector: "#submit"
+        - value: Submit
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you"
+      contains: Thank you for contacting
