@@ -15,7 +15,7 @@ contact_form:
           required: false
     - click_on:
         - value: Authenticate
-          selector: input.button.submitbtn
+          selector: "input.button.submitbtn, input.button[value='Go to Form']"
     - find:
         - selector: "#custom_form6"
     - fill_in:
