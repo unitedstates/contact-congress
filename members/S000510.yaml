@@ -54,6 +54,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "form.activeForm.submit input[name='submit']"
+    - find:
+        - selector: "span"
+          value: "Thank You"
   success:
     headers:
       status: 200
