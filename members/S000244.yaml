@@ -161,6 +161,9 @@ contact_form:
     - click_on:
         - value: Send Message
           selector: "form input[name='WR_Submit']"
+    - find:
+        - selector: "span"
+          value: "Thank You"
   success:
     headers:
       status: 200
