@@ -115,6 +115,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
+    - find:
+        - selector: .field-item.even
+          value: The following information has been submitted
   success:
     headers:
       status: 200
