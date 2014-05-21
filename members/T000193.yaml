@@ -36,7 +36,7 @@ contact_form:
         - name: zip4
           selector: "#contactForm input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: required-email
           selector: "#required-email"
           value: $EMAIL
@@ -46,6 +46,12 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - MS
         - name: required-issue
           selector: "#subject"
           value: $SUBJECT
@@ -76,6 +82,10 @@ contact_form:
             Veterans: VET
             Welfare: WELF
             Other: OTHER
+    - check:
+        - name: required-affl
+          selector: "input[type='radio'][name='required-affl'][value='Unsubscribe']"
+          value: Unsubscribe
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit2']"
@@ -83,4 +93,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for your correspondence.
+      contains: Thank you for your
