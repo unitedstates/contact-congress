@@ -1,71 +1,132 @@
 bioguide: G000386
 contact_form:
-  method: POST
-  action: http://www.grassley.senate.gov/contact/contact.cfm
+  method: post
+  action: /constituents/questions-and-comments
   steps:
-    - visit: http://www.grassley.senate.gov/contact/contact.cfm
+    - visit: "http://www.grassley.senate.gov/constituents/questions-and-comments"
     - fill_in:
-      - name: firstName
-        selector: "#firstName"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: lastName
-        selector: "#lastName"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: streetAddress
-        selector: "#streetAddress"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: address2
-        selector: "p:nth-child(16) input"
-        value: "$ADDRESS_STREET_2"
-      - name: city
-        selector: "#city"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: state
-        selector: "#state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-      - name: zipCode
-        selector: "#zipCode"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: homePhone
-        selector: "p:nth-child(27) input"
-        value: "$PHONE"
-      - name: fromEmail
-        selector: "#fromEmail"
-        value: "$EMAIL"
-        required: Yes
-      - name: messageBody
-        selector: "#messageBody"
-        value: "$MESSAGE"
-        required: Yes
-      # Below input is a honeypot. Id changes but name doesn't seem to.
-      - name: formfield1234567894
-        selector: "input[name='formfield1234567894']"
-        value: ""
+        - name: "submitted[first_name]"
+          selector: "#edit-submitted-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: "submitted[last_name]"
+          selector: "#edit-submitted-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: "submitted[address]"
+          selector: "#edit-submitted-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "submitted[address_2]"
+          selector: "#edit-submitted-address-2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: "submitted[city]"
+          selector: "#edit-submitted-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "submitted[zip]"
+          selector: "#edit-submitted-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "submitted[email]"
+          selector: "#edit-submitted-email"
+          value: $EMAIL
+          required: true
+        - name: "submitted[home_phone]"
+          selector: "#edit-submitted-home-phone"
+          value: $PHONE
+          required: false
+        - name: "submitted[subject]"
+          selector: "#edit-submitted-subject"
+          value: $SUBJECT
+          required: true
+        - name: "submitted[message]"
+          selector: "#edit-submitted-message"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: prefix
-        selector: "select"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Miss"
-          - "Dr."
-          - "Rev."
-          - "Mr. and Mrs."
-          - "Sister"
+        - name: "submitted[prefix]"
+          selector: "#edit-submitted-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: "1"
+            Mrs.: "2"
+            Ms.: "3"
+            Miss: "4"
+            Dr.: "5"
+            Rev.: "6"
+            Mr. and Mrs.: "7"
+            Sister: "8"
+        - name: "submitted[state]"
+          selector: "#edit-submitted-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            Alabama: AL
+            Alaska: AK
+            American Samoa: AS
+            Arizona: AZ
+            Arkansas: AR
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            Delaware: DE
+            District of Columbia: DC
+            Florida: FL
+            Georgia: GA
+            Guam: GU
+            Hawaii: HI
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Iowa: IA
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Maine: ME
+            Marshall Islands: MH
+            Maryland: MD
+            Massachusetts: MA
+            Michigan: MI
+            Minnesota: MN
+            Mississippi: MS
+            Missouri: MO
+            Montana: MT
+            Nebraska: NE
+            Nevada: NV
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            New York: NY
+            North Carolina: NC
+            North Dakota: ND
+            Northern Marianas Islands: MP
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Palau: PW
+            Pennsylvania: PA
+            Puerto Rico: PR
+            Rhode Island: RI
+            South Carolina: SC
+            South Dakota: SD
+            Tennessee: TN
+            Texas: TX
+            Utah: UT
+            Vermont: VT
+            Virgin Islands: VI
+            Virginia: VA
+            Washington: WA
+            West Virginia: WV
+            Wisconsin: WI
+            Wyoming: WY
     - click_on:
-      - value: Submit
-        selector: "input.button"
+        - value: Send Message
+          selector: "#edit-submit"
   success:
     headers:
       status: 200
     body:
-      contains: "Your message has been sent"
+      contains: Thanks for your submission
