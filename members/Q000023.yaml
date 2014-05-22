@@ -5,45 +5,53 @@ contact_form:
   steps:
     - visit: "https://quigleyforms.house.gov/forms/writeyourrep/"
     - fill_in:
-        - name: ctl00$ctl17$FirstName
-          selector: "#ctl00_ctl17_FirstName"
+        - name: ctl00$ctl22$FirstName
+          selector: "#ctl00_ctl22_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl17$LastName
-          selector: "#ctl00_ctl17_LastName"
+        - name: ctl00$ctl22$LastName
+          selector: "#ctl00_ctl22_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl17$Street
-          selector: "#ctl00_ctl17_Street"
+        - name: ctl00$ctl22$Street
+          selector: "#ctl00_ctl22_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl17$City
-          selector: "#ctl00_ctl17_City"
+        - name: ctl00$ctl22$City
+          selector: "#ctl00_ctl22_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl17$Zip
-          selector: "#ctl00_ctl17_Zip"
+        - name: ctl00$ctl22$Zip
+          selector: "#ctl00_ctl22_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl17$Phone
-          selector: "#ctl00_ctl17_Phone"
+        - name: ctl00$ctl22$Phone
+          selector: "#ctl00_ctl22_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl17$Email
-          selector: "#ctl00_ctl17_Email"
+        - name: ctl00$ctl22$Email
+          selector: "#ctl00_ctl22_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl17$Subject
-          selector: "#ctl00_ctl17_Subject"
+        - name: ctl00$ctl22$Subject
+          selector: "#ctl00_ctl22_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl17$Body
-          selector: "#ctl00_ctl17_Body"
+        - name: ctl00$ctl22$Body
+          selector: "#ctl00_ctl22_Body"
           value: $MESSAGE
           required: true
+        - name: ctl00$ctl22$CampaignID
+          selector: "#ctl00_ctl22_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl22$CampaignInfo
+          selector: "#ctl00_ctl22_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
     - select:
-        - name: ctl00$ctl17$PrefixList
-          selector: "#ctl00_ctl17_PrefixList"
+        - name: ctl00$ctl22$PrefixList
+          selector: "#ctl00_ctl22_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -52,8 +60,8 @@ contact_form:
             - " Ms."
             - " Miss"
             - " Dr."
-        - name: ctl00$ctl17$State
-          selector: "#ctl00_ctl17_State"
+        - name: ctl00$ctl22$State
+          selector: "#ctl00_ctl22_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -117,54 +125,11 @@ contact_form:
             - MP
             - PR
             - VI
-        - name: ctl00$ctl17$IssuesList
-          selector: "#ctl00_ctl17_IssuesList"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture and Food: "109641"
-            Animals: "109636"
-            Armed Forces and National Security: "109606"
-            "Arts, Culture, Religion": "109579"
-            "Civil Rights and Liberties, Minority Issues": "109563"
-            Commerce: "109545"
-            Congress: "109523"
-            Crime and Law Enforcement: "109510"
-            Economics and Public Finance: "109484"
-            Education: "109640"
-            Emergency Management: "109451"
-            Energy: "109442"
-            Environment: "109081"
-            Families: "109411"
-            Finance and Financial Sector: "109401"
-            Foreign Trade and International Finance: "109384"
-            Government Operations and Politics: "109370"
-            Health Care: "109639"
-            Housing and Community Development: "109275"
-            Immigration: "109261"
-            International Affairs: "109251"
-            Labor and Employment: "109231"
-            Law: "109215"
-            Native Americans: "109197"
-            "O'Hare Noise Pollution": "114543"
-            Public Lands and Natural Resources: "109190"
-            "Science, Technology, Communications": "109175"
-            Social Sciences and History: "109151"
-            Social Welfare: "109143"
-            Sports and Recreation: "109137"
-            Taxation: "109129"
-            Transportation and Public Works: "109638"
-            Water Resources Development: "109094"
-    - uncheck:
-        - name: ctl00$ctl17$SubscribeChoice
-          selector: "#ctl00_ctl17_SubscribeChoice"
-          value: whatever
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl17_SubmitButton"
+          selector: "#ctl00_ctl22_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
-
+      contains: Thank you for taking the time
