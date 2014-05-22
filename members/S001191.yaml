@@ -166,9 +166,11 @@ contact_form:
       - name: "ctl00_ctl22_Subject"
         selector: "#ctl00_ctl22_Subject"
         value: $SUBJECT
+        required: true
       - name: "ctl00$ctl22$Body"
         selector: "#ctl00_ctl22_Body"
         value: $MESSAGE
+        required: true
     - click_on:
       - value: "Submit"
         selector: "input[name='ctl00$ctl22$SubmitButton']"
