@@ -124,6 +124,33 @@ contact_form:
             - WI
             - WV
             - WY
+        - name: issue
+          selector: "#req_issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGRI
+            Budget: BUD
+            Defense: DEF
+            Education: EDU
+            Energy: ENR
+            Environmental: ENV
+            Foreign Affairs: FAFF
+            Government Issues: GOV
+            Health: HLTH
+            Homeland Security: HOM
+            Immigration: IMM
+            International Relations: INT
+            Judicial: JUD
+            Labor: LAB
+            Social Security: SOC
+            Taxes: TAX
+            Telecommunications: TELE
+            Transportation: TRANS
+            Trade: TRD
+            Veterans: VET
+            Welfare: WEL
+            Other Issues: OTH
     - click_on:
         - value: Send Email
           selector: "#submitButton"
