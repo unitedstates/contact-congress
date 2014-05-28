@@ -105,6 +105,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl13_SubmitButton"
+    - find:
+        - selector: "p"
+          value: "Thank you for contacting my office"
   success:
     headers:
       status: 200
