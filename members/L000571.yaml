@@ -12,6 +12,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#firstname"
     - fill_in:
         - name: required-first
           selector: "#firstname"
@@ -85,6 +87,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.custom_form[name='contact'] input[type='submit'][value='Submit']"
+    - find:
+        - selector:
+          value: 
   success:
     headers:
       status: 200
