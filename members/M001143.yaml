@@ -1,73 +1,109 @@
 bioguide: M001143
 contact_form:
   method: post
-  action: ""
+  action: "/htbin/formproc/email-me.txt&display=/contact-me/email-me-thankyou&nobase&fpGetVer=2"
   steps:
-    - visit: "https://sinemaforms.house.gov/forms/writeyourrep/"
+    - visit: "https://mccollum.house.gov/contact-me/email-me"
     - fill_in:
-        - name: ctl00$ctl22$FirstName
-          selector: "#ctl00_ctl22_FirstName"
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+        - name: required-first
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl22$LastName
-          selector: "#ctl00_ctl22_LastName"
+        - name: required-last
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl22$Street
-          selector: "#ctl00_ctl22_Street"
+        - name: required-address
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl22$City
-          selector: "#ctl00_ctl22_City"
+        - name: required-city
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl22$Zip
-          selector: "#ctl00_ctl22_Zip"
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl22$Phone
-          selector: "#ctl00_ctl22_Phone"
-          value: $PHONE
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
           required: false
-        - name: ctl00$ctl22$Email
-          selector: "#ctl00_ctl22_Email"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl22$Subject
-          selector: "#ctl00_ctl22_Subject"
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: required-subject
+          selector: "#required-subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl22$Body
-          selector: "#ctl00_ctl22_Body"
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl22$CampaignID
-          selector: "#ctl00_ctl22_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl22$CampaignInfo
-          selector: "#ctl00_ctl22_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
-        - name: ctl00$ctl22$PrefixList
-          selector: "#ctl00_ctl22_PrefixList"
-          value: $NAME_PREFIX
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Dr.
-            - Ms.
-    - check:
-        - name: ctl00$ctl22$ReplyChoice
-          selector: "#ctl00_ctl22_ReplyChoice_1"
-          value: Comment
+            Agriculture: AG
+            Animals: AN
+            Arts and Humanities: ART
+            Banking and Finance: BANK
+            Budget and Economy: BUD
+            Campaign Finance Reform: CFR
+            Congress and Elections: CONG
+            District of Columbia--Tours: TOUR
+            Defense and Military: DEF
+            Education: ED
+            Energy: EN
+            Environment: ENV
+            Federal Employees: FED
+            Foreign Relations: FR
+            Guns: GUN
+            Health: HE
+            Housing and Urban Development: HUD
+            Immigration: IM
+            Judiciary: JUD
+            Labor: LAB
+            LGBT: LGBT
+            Post Office: POST
+            Science and Technology: SCI
+            Senior Citizens: SENIORS
+            Social Security: SS
+            Social Services: SOC.SERVICES
+            Taxes: TAX
+            Telecommunications: COMM
+            Transportation: TRAN
+            Trade: TRD
+            Veterans: VET
+            "Women's Issues": WOMEN
+            Other Issues: OTHER
+        - name: response
+          selector: "#response"
+          value: "Y"
+          required: true
+          options:
+            "Yes": "Y"
+            "No": "N"
     - click_on:
-        - value: Submit
-          selector: "#ctl00_ctl22_SubmitButton"
+        - value: Send Email
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to write me.
+      contains: The following information has been submitted
