@@ -44,7 +44,7 @@ contact_form:
         - name: comments
           selector: "#comments"
           value: $MESSAGE
-          required: false
+          required: true
     - select:
         - name: salutation
           selector: "#salutation"
@@ -227,6 +227,9 @@ contact_form:
             - Unemployment
             - Veterans Policy
             - Other
+    - uncheck:
+        - name: newsletter
+          selector: "#newsletter"
     - check:
         - name: responsereq
           selector: "#responsereqyes"
@@ -234,6 +237,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: 'div.form-button.help-form-button'
+    - find:
+        - selector: "#send-request"
     - click_on:
         - value: Submit
           selector: "#send-request"
