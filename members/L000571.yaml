@@ -88,8 +88,8 @@ contact_form:
         - value: Submit
           selector: "form.custom_form[name='contact'] input[type='submit'][value='Submit']"
     - find:
-        - selector:
-          value: 
+        - selector: "span#ctl00_PageLink"
+          value: "Thank You"
   success:
     headers:
       status: 200
