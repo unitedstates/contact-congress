@@ -19,10 +19,22 @@ contact_form:
     - find:
         - selector: "#contactForm"
     - fill_in:
-        - name: prefix
+    - select:
+        - name: required-prefix
           selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
+          options:
+            - Ms
+            - Miss
+            - Mrs
+            - Mr
+            - Dr
+            - Prof
+            - Ofc
+            - Atty
+            - Rev
+            - Fr
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
