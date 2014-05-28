@@ -8,16 +8,16 @@ contact_form:
       - name: prefix
         selector: "#req_prefix"
         value: $NAME_PREFIX
-        required: Yes
+        required: true
         options:
-          - "Mr." : "Mr. "
-          - "Mrs." : "Mrs."
-          - "Ms." : "Ms."
-          - "Miss" : "Miss"
-          - "Dr." : "Dr."
-          - "Hon." : "Hon."
-          - "Rev." : "Rev."
-          - "Rabbi" : "Rabbi"
+          Mr.: "Mr. "
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Miss: Miss
+          Dr.: Dr.
+          Hon.: Hon.
+          Rev.: Rev.
+          Rabbi: Rabbi
     - fill_in:
       - name: firstname
         selector: "#req_firstname"
