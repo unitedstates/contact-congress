@@ -170,6 +170,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl10_SubmitButton"
+    - find:
+        - selector: "p"
+          value: "Thank you"
   success:
     headers:
       status: 200
