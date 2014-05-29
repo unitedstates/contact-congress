@@ -88,14 +88,10 @@ contact_form:
             Social Security: SS
             Transportation: TRAN
             Veterans: VET
-    - check:
+    - choose:
         - name: required-RadioGroup1
           selector: "#RadioGroup1_0"
           value: "Y"
-    - uncheck:
-        - name: required-RadioGroup1
-          selector: "#RadioGroup1_1"
-          value: "N"
     - click_on:
         - value: Send Email
           selector: "#submit"
