@@ -156,6 +156,13 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other Issues: OTH
+        - name: response
+          selector: "#response"
+          value: "Y"
+          required: false
+          options:
+            "No": "N"
+            "Yes": "Y"
     - click_on:
         - value: Send Email
           selector: "#submitButton"
