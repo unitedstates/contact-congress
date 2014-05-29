@@ -99,7 +99,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submit"
-
+    - find:
+        - selector: "span#ctl00_PageLink"
+          find: "Thank You"
   success:
     headers:
       status: 200
