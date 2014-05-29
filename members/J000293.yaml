@@ -81,6 +81,9 @@ contact_form:
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"
+    - find:
+      - selector: "span"
+        value: "THANK YOU!"
   success:
     headers:
       status: 200
