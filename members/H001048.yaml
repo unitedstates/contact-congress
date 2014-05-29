@@ -14,7 +14,7 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: false
     - click_on:
-          selector: button.ideal-button
+          selector: "button.ideal-button"
     - find:
         - selector: "#required-prefix"
     - fill_in:
@@ -88,7 +88,7 @@ contact_form:
             Welfare: WEL
             Other: OTH
     - click_on:
-          selector: button.ideal-button
+          selector: "button.ideal-button"
   success:
     headers:
       status: 200
