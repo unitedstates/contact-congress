@@ -127,6 +127,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submitButton"
+    - find:
+        - selector: "span"
+          value: "THANK YOU"
   success:
     headers:
       status: 200
