@@ -46,7 +46,7 @@ contact_form:
         - name: required-valid-email
           selector: "#contactForm input[name='required-valid-email']"
           value: $EMAIL
-          required: false
+          required: true
         - name: phone
           selector: "#phone"
           value: $PHONE
@@ -109,6 +109,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submit"
+    - find:
+        - selector: "h1#page-title-no-line"
+          value: "Thank You"
   success:
     headers:
       status: 200
