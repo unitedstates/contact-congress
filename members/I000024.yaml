@@ -149,14 +149,14 @@ contact_form:
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
         options: US_STATES
+    - wait:
+      - value: 1
     - click_on:
       - value: "Submit"
         selector: "input.btn.right[value=Submit]"
     - find:
       - selector: "h1"
         value: "Thank You"
-        options:
-          wait: 10
   success:
     headers:
       status: 200
