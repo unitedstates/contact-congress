@@ -175,14 +175,14 @@ contact_form:
             "Senior Airman": "Senior Airman"
             "Airman First Class": "Airman First Class"
             "Airman": "Airman"
+    - wait:
+        - value: 1
     - click_on:
         - value: Submit
           selector: input.btn.pull-right
     - find:
         - selector: "h1"
           value: "Thank You"
-          options:
-            wait: 30
   success:
     headers:
       status: 200
