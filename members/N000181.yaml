@@ -160,6 +160,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#ctl00 input[name='ctl00$ctl10$ctl13']"
+    - find:
+        - selector: "span#ctl00_PageLink"
+          value: "Thank You"
   success:
     headers:
       status: 200
