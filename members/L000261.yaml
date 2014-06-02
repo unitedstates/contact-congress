@@ -242,6 +242,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#send-request"
+    - find:
+        - selector: "p"
+          value: "Thank you"
   success:
     headers:
       status: 200
