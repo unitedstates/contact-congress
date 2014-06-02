@@ -40,6 +40,10 @@ contact_form:
         selector: "#field_48423449-a5cb-4b5e-8af8-6941ab24e7bc"
         value: "$MESSAGE"
         required: Yes
+      - name: captcha
+        selector: "#captcha_ed3bc819-9b16-4ee9-b32c-0b529718df3f"
+        captcha_selector: "#captcha_ed3bc819-9b16-4ee9-b32c-0b529718df3f_container img[height='75']"
+        value: "$CAPTCHA_SOLUTION"
     - select:
       - name: field_a8c5319b-dac0-4f7d-8752-783380f5d8fe
         selector: "#field_a8c5319b-dac0-4f7d-8752-783380f5d8fe"
