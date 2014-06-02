@@ -94,6 +94,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl10_SubmitButton"
+    - find:
+        - selector: "h1#page-title-no-line"
+          value: "THANK YOU"
   success:
     headers:
       status: 200
