@@ -196,6 +196,8 @@ contact_form:
         value: "no"
         required: Yes
         # I would like to receive email updates from the Senator
+    - wait:
+        - value: 1
     - click_on:
       - value: Submit
         selector: "#contactForm input[type='submit']"
