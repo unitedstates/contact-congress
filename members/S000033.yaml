@@ -182,6 +182,9 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "#side-search-btn"
+    - find:
+      - selector: "h2"
+        value: "Thank You"
   success:
     headers:
       status: 200
