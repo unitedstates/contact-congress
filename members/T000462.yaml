@@ -1,71 +1,91 @@
 bioguide: T000462
 contact_form:
   method: post
-  action: "https://forms.house.gov/htbin/formproc_za/write/tiberi/zip-auth.txt&form=/write/tiberi/email.shtml"
+  action: /contact.aspx
   steps:
-    - visit: "https://forms.house.gov/write/tiberi/email-me.shtml"
-    - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
-    - click_on:
-        - value: Go to Next Step
-          selector: "form.clearfix.validate.wsbform input[name='Submit']"
-    - find:
-        - selector: "#contactForm"
+    - visit: "https://tiberi.house.gov/contact/contactform.htm"
     - fill_in:
         - name: required-first
-          selector: "#required-first"
+          selector: "#contactForm input[name='required-first']"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#required-last"
+          selector: "#contactForm input[name='required-last']"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#required-address"
+          selector: "#contactForm input[name='required-address']"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
-          selector: "#required-city"
+          selector: "#contactForm input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: zip5
+          selector: "#contactForm input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: false
+        - name: zip4
+          selector: "#contactForm input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-email
+          selector: "#contactForm input[name='required-email']"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
         - name: required-message
-          selector: "#required-message"
+          selector: "#contactForm textarea[name='required-message']"
           value: $MESSAGE
           required: true
     - select:
         - name: required-prefix
-          selector: "#required-prefix"
+          selector: "#contactForm select[name='required-prefix']"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Ms.
             - Mrs.
-            - Miss
+            - "Mr. & Mrs."
+            - Dr.
+        - name: required-state
+          selector: "#contactForm select[name='required-state']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: false
+          options: []
+        - name: required-issue
+          selector: "#contactForm select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGRICULTURE
+            Animal Welfare: ANIMAL_WELFARE
+            Budget/Spending: BUDGET
+            Defense/National Security: DEFENSE
+            Education: EDUCATION
+            Elections/Campaign Finance: ELECTIONS/CAMPAIGNS
+            Energy: ENERGY
+            Environment: ENVIRONMENT
+            Financial Services: FINANCIAL SERVICES
+            Foreign Affairs: FOREIGN_AFFAIRS
+            Healthcare: HEALTH_CARE
+            Human Rights: HUMAN_RIGHTS
+            Immigration: IMMIGRATION
+            Judiciary: JUDICIARY
+            Pension/Retirement: PENSION REFORM
+            Postal Reform: POSTAL REFORM
+            Right to Life: RIGHT_TO_LIFE
+            Science/Technology: TECH
+            Social Security: SOCIAL SECURITY
+            Telecommunications: TELECOMMUNICATIONS
+            Trade: TRADE
+            Transportation: TRANSPORTATION
+            Veterans: VETERANS
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#contactForm input[type='submit'][value='Send Email']"
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: Thank you for your request.
