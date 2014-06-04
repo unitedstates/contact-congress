@@ -126,59 +126,62 @@ contact_form:
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
         options: US_STATES_AND_MPCS
+    - select:
       - name: Subject
-        selector: "select[name='Subject']"
+        selector: "#frmContact select[name='Subject']"
         value: $TOPIC
-        required: Yes
+        required: true
         options:
-          "Affordable Care Act" : "HT_ACA"
-          "Climate Change" : "HT_ClimateChange"
-          "Federal Budget" : "HT_FederalBudget"
-          "Minimum Wage" : "HT_MinimumWage"
-          "Abortion" : "Abortion"
-          "Afghanistan" : "AFGHANISTAN"
-          "Agriculture" : "AGRICULTURE"
-          "Animal Welfare" : "ANIMAL WELFARE"
-          "Banking & Finance" : "BANKING FINANCE"
-          "Business" : "BUSINESS"
-          "Children" : "CHILDREN"
-          "Civil Rights" : "CIVIL RIGHTS"
-          "Crime" : "CRIME"
-          "Defense" : "DEFENSE"
-          "Disability Issues" : "DISABILITY ISSUES"
-          "Economy" : "ECONOMY"
-          "Education" : "EDUCATION"
-          "Energy" : "ENERGY"
-          "Environment" : "ENVIRONMENT"
-          "Federal Budget" : "FEDERAL BUDGET"
-          "Foreign Policy" : "FOREIGN AFFAIRS"
-          "Gas Prices" : "ENERGY"
-          "Health" : "HEALTH"
-          "Homeland Security" : "HOMELAND SECURITY"
-          "Housing" : "HOUSING"
-          "Immigration" : "IMMIGRATION"
-          "Iraq" : "IRAQ"
-          "Judicial Nominations" : "JUDICIARY"
-          "Labor" : "LABOR"
-          "Medicare/Medicaid" : "MEDICARE MEDICAID"
-          "Middle East" : "FOREIGN AFFAIRS"
-          "Native Americans" : "NATIVE AMERICANS"
-          "Natural Disasters" : "NATURAL DISASTERS"
-          "Prescription Drugs" : "PRESCRIPTION DRUGS"
-          "Political Parties and Elections" : "POLITICS"
-          "Science" : "SCIENCE"
-          "Seniors" : "SENIORS"
-          "Sensible Gun Laws" : "CRIME"
-          "Social Security" : "SOCIAL SECURITY"
-          "Space" : "SPACE"
-          "Taxation" : "TAXES"
-          "Technology" : "TECHNOLOGY"
-          "Telecommunications/Broadcast" : "TELECOMMUNICATIONS"
-          "Trade" : "TRADE"
-          "Transportation" : "TRANSPORTATION"
-          "Veterans" : "VETERANS"
-          "Welfare" : "WELFARE"
-          "Women's Issues" : "WOMEN"
+          " * Help with a Federal Agency * ": Help Request
+          " * Greetings for Birthdays, Retirement, etc. * ": Greet Request
+          Climate Change: HT_ClimateChange
+          Minimum Wage Increase: HT_MinimumWage
+          Sensible Gun Laws: CRIME
+          Unemployment Insurance Extension: HT_UnemploymentExtension
+          Crisis in Ukraine: HT_Ukraine
+          Abortion: Abortion
+          Afghanistan: AFGHANISTAN
+          Agriculture: AGRICULTURE
+          Animal Welfare: ANIMAL WELFARE
+          "Banking & Finance": BANKING FINANCE
+          Business: BUSINESS
+          Children: CHILDREN
+          Civil Rights: CIVIL RIGHTS
+          Crime: CRIME
+          Defense: DEFENSE
+          Disability Issues: DISABILITY ISSUES
+          Economy: ECONOMY
+          Education: EDUCATION
+          Energy: ENERGY
+          Environment: ENVIRONMENT
+          Federal Budget: FEDERAL BUDGET
+          Foreign Policy: FOREIGN AFFAIRS
+          Gas Prices: ENERGY
+          Health: HEALTH
+          Homeland Security: HOMELAND SECURITY
+          Housing: HOUSING
+          Immigration: IMMIGRATION
+          Iraq: IRAQ
+          Judicial Nominations: JUDICIARY
+          Labor: LABOR
+          Medicare/Medicaid: MEDICARE MEDICAID
+          Middle East: FOREIGN AFFAIRS
+          Native Americans: NATIVE AMERICANS
+          Natural Disasters: NATURAL DISASTERS
+          Prescription Drugs: PRESCRIPTION DRUGS
+          Political Parties and Elections: POLITICS
+          Science: SCIENCE
+          Seniors: SENIORS
+          Social Security: SOCIAL SECURITY
+          Space: SPACE
+          Taxation: TAXES
+          Technology: TECHNOLOGY
+          Telecommunications/Broadcast: TELECOMMUNICATIONS
+          Trade: TRADE
+          Transportation: TRANSPORTATION
+          Veterans: VETERANS
+          Welfare: WELFARE
+          "Women's Issues": WOMEN
     - click_on:
       - value: Submit
         selector: "input[type='submit'][value='Submit']"
