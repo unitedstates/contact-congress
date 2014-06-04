@@ -140,6 +140,8 @@ contact_form:
     - check:
       - name: response
         selector: "#response_y"
+    - wait:
+      - value: 1
     - click_on:
       - value: Submit
         selector: "#side-search-btn"
