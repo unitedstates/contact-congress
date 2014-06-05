@@ -84,27 +84,25 @@ contact_form:
         options: US_STATES_AND_TERRITORIES
       - name: Subject
         selector: "#Subject"
-        value: "$TOPIC"
-        required: Yes
+        value: $TOPIC
+        required: true
         options:
-          "Agriculture": "AG"
-          "Banking & Credit": "BN"
-          "Budget & Taxes": "BU"
-          "Business, Commerce & Labor": "CM"
-          "Congress": "CG"
-          "Federal & Postal Employees": "CS"
-          "Education, Science & Technology": "ED"
-          "Energy": "EN"
-          "Environment, Nat. Resources & Wildlife": "EV"
-          "Foreign Affairs": "FA"
-          "Health Care & Social Issues": "HC"
-          "Homeland Security & Immigration": "HS"
-          "Judiciary & Crime": "JU"
-          "Native Americans": "NA"
-          "Medicaid/Medicare & Welfare": "MD"
-          "Seniors & Social Security": "SS"
-          "Telecomm. & Transportation": "TC"
-          "*Other*": "CWM1"
+          "": CWM1
+          Agriculture: AG
+          "Banking & Credit": BN
+          "Budget & Taxes": BU
+          "Business, Commerce & Labor": CM
+          "Congress, Federal & Postal Employees": CG
+          "Education, Science & Technology": ED
+          Energy: EN
+          "Environment, Nat. Resources & Wildlife": EV
+          "Foreign Affairs, Military & Veterans": FA
+          Health Care: HC
+          "Homeland Security & Immigration": HS
+          "Judiciary & Crime": JU
+          Native Americans: NA
+          Social Safety Net: MD
+          Not Listed/Other: EMAIL
     - find:
       - selector: ".btn-primary"
     - click_on:
