@@ -58,19 +58,20 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+    - select:
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            No Response Necessary: NRN
             Agriculture: AGR
-            Animal Rights: ANML
+            Animal Welfare: ANML
             Arts and Humanities: ART
             Banking and Finance: FIN
             Budget: BUD
             Campaign Finance Reform: CAMP
-            Defense: DEF
+            Criminal Justice and Judiciary: JUST
+            Defense and Military: DEF
             Economy: ECON
             Education: EDU
             Energy: ENE
@@ -84,17 +85,18 @@ contact_form:
             International Relations: INT
             Labor: LAB
             LGBTQ: LGBTQ
+            Poverty and Social Safety Net Programs: SSEC
+            Religion: REL
             Science and Technology: SCI
             Senior Citizens: SNR
-            Social Security and the Social Safety Net: SSEC
+            Social Security: SSEC
             Taxes: TAX
-            Telecommunications: TEL
+            Telecommunications and the Internet: TEL
             Transportation: TRA
             Trade: TRADE
             Veterans: VET
             Voter Rights: VTR
             "Women's Issues": WOM
-            Other Issues: OTHER
         - name: required-response
           selector: "#required-response"
           value: "Y"
