@@ -1,56 +1,122 @@
 bioguide: S001157
 contact_form:
   method: post
-  action: "https://forms.house.gov/htbin/formproc_za/write/davidscott/zip-auth.txt&form=/write/davidscott/email.shtml"
+  action: /contact.aspx
   steps:
-    - visit: "https://forms.house.gov/write/davidscott/email-me.shtml"
+    - visit: "https://davidscott.house.gov/contact/contactform.htm"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
+        - name: required-first
+          selector: "#contactForm input[name='required-first']"
+          value: $NAME_FIRST
           required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
-    - click_on:
-        - value: Go to Next Step
-          selector: "form.clearfix.validate.wsbform input[name='Submit']"
-    - fill_in:
-        - name: required-name
-          selector: "#required-name"
-          value: $NAME_FULL
+        - name: required-last
+          selector: "#contactForm input[name='required-last']"
+          value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#required-address"
+          selector: "#contactForm input[name='required-address']"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
-          selector: "#required-city"
+          selector: "#contactForm input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: zip5
+          selector: "#contactForm input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: required-email
+          selector: "#contactForm input[name='required-email']"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
         - name: required-message
-          selector: "#required-message"
+          selector: "#contactForm textarea[name='required-message']"
           value: $MESSAGE
           required: true
+    - select:
+        - name: required-prefix
+          selector: "#contactForm select[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - "Mr. & Mrs."
+            - Dr.
+        - name: required-state
+          selector: "#contactForm select[name='required-state']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options: []
+        - name: required-issue
+          selector: "#contactForm select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: "AB\t"
+            Adoption/Child Care and Support: ADOPT
+            Agriculture: "AG\t"
+            Animal Rights: ANIMALS
+            Arts and Humanities: ART
+            Banking/Finance: BANKING
+            Budget: BUD
+            Business/Small Business: BUS
+            Campaigns/Elections: CAMPAIGN
+            Casework: CASE
+            Civil Liberties/Privacy: CIVIL
+            Commerce: CMRC
+            Communications: COMM
+            Condolence: CONDOLENCE
+            Congratulations: CONGRATS
+            Crime: CRIME
+            Defense and Military: DEF
+            Drug Policy: DRUGS
+            Education: ED
+            Elections and Voting: ELECT/VOTE
+            Employment: EMP
+            Energy/Water Policy: EN
+            Environment: ENV
+            Ethics - Governmental: ETH
+            Foreign Affairs: FOR.AFF
+            Foreign Trade: FOR.TDE
+            Fort MacPherson Commisary Concerns: FTMAC
+            Gay - Lesbian: GLB
+            Governmental Affairs: GOV
+            Guns: GUNS
+            Health: HEA
+            Congress/Legislature: HILL
+            HomeSafe concerns: HOMESAFE
+            Homeland Security: HOMESEC
+            Housing and Urban Development: HUD
+            Immigration: IMM
+            Judicial Affairs: JUD
+            Labor: LAB
+            Medicare: MED
+            Miscellaneous: MISC
+            Newsletter-Subscribe: NEWSSUB
+            No Response Necessary: NRN
+            Postal Service: POS
+            Faith/Religion: RELIGION
+            Small Business Administration: SBA
+            Scheduling Reqest: SCHEDULE
+            Science and Technology: SCI
+            Social Security Administration: SSA
+            Taxes: TAX
+            Thank You for Support: "THANKS\t"
+            Tour Request: TOUR
+            "Transportation & Infrastructure": TRAN
+            Veterans Affairs: VET
+            Welfare: WELF
+            Youth: YOUTH
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#contactForm input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "span#ctl00_PageLink"
+          value: "THANK YOU"
   success:
     headers:
       status: 200
     body:
-      contains: "Your message has been sent."
-
+      contains: "Thank you for contacting us!"
