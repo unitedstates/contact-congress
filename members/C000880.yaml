@@ -48,8 +48,8 @@ contact_form:
         selector: ".required[name='MessageBody']"
         value: "$MESSAGE"
         required: Yes
-    - find:
-      - selector: "#captcha_code"
+    - wait:
+      - value: 1
     - fill_in:
       - name: captcha_code
         selector: "#captcha_code"
