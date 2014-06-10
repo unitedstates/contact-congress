@@ -5,6 +5,13 @@ contact_form:
   steps:
     - visit: "https://wittman.house.gov/contact-form/"
     - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+    - click_on:
+        - selector: "input[type=submit][value='Go to Form']"
+    - find:
+        - selector: "#req_firstname"
+    - fill_in:
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
