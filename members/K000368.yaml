@@ -16,6 +16,9 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
+    - find:
+        - selector: "#form-enews-cancel"
+    - click_on:
         - value: No thanks
           selector: "#form-enews-cancel"
     - find:
