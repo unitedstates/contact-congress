@@ -18,7 +18,6 @@ contact_form:
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
         - selector: "#contact"
-    - fill_in:
     - select:
         - name: required-prefix
           selector: "#contact select[name='required-prefix']"
@@ -33,6 +32,7 @@ contact_form:
               - Fr.
               - Rev.
               - Hon.
+    - fill_in:
         - name: required-first
           selector: "#contact input[name='required-first']"
           value: $NAME_FIRST
