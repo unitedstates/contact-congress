@@ -114,7 +114,7 @@ contact_form:
           value: Email.Optin
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: "#contactForm input[type='submit'][value='Send Email']"
     - find:
         - selector: "h1#page-title"
           value: "Thank You"
