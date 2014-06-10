@@ -17,12 +17,22 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#contact input[name='required-prefix']"
+        - selector: "#contact"
     - fill_in:
+    - select:
         - name: required-prefix
-          selector: "#contact input[name='required-prefix']"
+          selector: "#contact select[name='required-prefix']"
           value: $NAME_PREFIX
           required: true
+          options:
+            - Mr.
+            - Ms.
+            - Miss
+            - Mrs.
+            - Dr.
+            - Fr.
+            - Rev.
+            - Hon.
         - name: required-first
           selector: "#contact input[name='required-first']"
           value: $NAME_FIRST
