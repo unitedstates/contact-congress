@@ -127,8 +127,7 @@ contact_form:
           selector: "#subscribe"
           value: "Y"
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit']"
+        - selector: "input[name='submit'][value='Send Email']"
   success:
     headers:
       status: 200
