@@ -40,64 +40,67 @@ contact_form:
         value: "$MESSAGE"
         required: Yes
     - select:
-      - name: field_193d88c0-8e02-4d0d-977c-749632d5d4e3
-        selector: "#field_193d88c0-8e02-4d0d-977c-749632d5d4e3"
-        value: "$ADDRESS_STATE_FULL"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
       - name: field_0919c49e-53e2-45f3-9967-4ac8ce6e4e96
         selector: "#field_0919c49e-53e2-45f3-9967-4ac8ce6e4e96"
-        value: "$TOPIC"
-        required: Yes
+        value: $TOPIC
+        required: true
         options:
-          - "Abortion"
-          - "AG"
-          - "Banking"
-          - "Budget"
-          - "CAMP-FIN"
-          - "Commerce"
-          - "telecom"
-          - "Congress"
-          - "Copyright"
-          - "Crime"
-          - "Defense"
-          - "Economy"
-          - "Education"
-          - "voting"
-          - "Energy"
-          - "soc-sec"
-          - "ENVIRON"
-          - "Ethics"
-          - "Family"
-          - "debt"
-          - "foreign-aid"
-          - "BUDGET"
-          - "debt"
-          - "firearms"
-          - "Health Care"
-          - "Housing"
-          - "welfare-tanf"
-          - "IMMIGRATION"
-          - "Iraq"
-          - "LABOR"
-          - "misc-jud"
-          - "LABOR"
-          - "MEDICARE"
-          - "Military"
-          - "NATIVE-AMER"
-          - "environ"
-          - "NUCLEAR-WAST"
-          - "Other"
-          - "misc-jud"
-          - "Religion"
-          - "SMALL-BIZ"
-          - "SOC-SEC"
-          - "nasa"
-          - "Taxes"
-          - "Trade"
-          - "TRANSPORT"
-          - "Veterans"
-          - "boys"
+          Abortion: Abortion
+          Administrative: Administrative
+          Agriculture: AG
+          "Arts & Humanities ": "Arts & Humanities"
+          Aviation: Aviation
+          Banking: Banking
+          Boy/Girl Scouts/Youth: Boy/Girl Scouts/Youth
+          Budget/Economy: Budget
+          Casework: Casework
+          Census: Census
+          Commerce: Commerce
+          Congratulatory: Congratulatory
+          Crime: Crime
+          Disability Issues: Disability Issues
+          Education: Education
+          Election Reform: voting
+          Energy: Energy
+          Environment: ENVIRON
+          Ethics: Ethics
+          "Federal Trade Commission ": Federal Trade Commission
+          FEMA: FEMA
+          Finance: Finance
+          Firearms: Firearms
+          Flag Requests: Flag Requests
+          Foreign Affairs: foreign-aid
+          General Responses: General Responses
+          Government Affairs: Government Affairs
+          Grants: Grants
+          Healthcare: Healthcare
+          Homeland Security: Homeland Security
+          Housing: Housing
+          Immigration: IMMIGRATION
+          "Intellectual Property ": Intellectual Property
+          Interior: "Interior "
+          Invitation Request: Invitation Request
+          Judiciary: Judiciary
+          Labor: LABOR
+          Marriage/Family: Marriage/Family
+          Medicare: MEDICARE
+          Military/Defense: Military
+          Native Americans: NATIVE-AMER
+          Postal: Postal
+          President: President
+          Press: Press
+          Prisons: Prisons
+          Religion: Religion
+          Small Business: SMALL-BIZ
+          Social Security: SOC-SEC
+          Space/NASA: nasa
+          Taxes: Taxes
+          Technology: Technoly
+          Telecommunications: Telecommunications
+          Tour Requests: Tour Requests
+          Transportation: TRANSPORT
+          Veterans: Veterans
+          Welfare: Welfare
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"
