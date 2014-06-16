@@ -128,36 +128,41 @@ contact_form:
         options: US_STATES_AND_TERRITORIES
       - name: subject
         selector: "#subject"
-        value: "$TOPIC"
-        required: Yes
+        value: $TOPIC
+        required: true
         options:
-          - "Agriculture"
-          - "Budget"
-          - "Civil Rights"
-          - "Crime"
-          - "Defense"
-          - "Domestic Violence"
-          - "Drugs"
-          - "Economy"
-          - "Education"
-          - "Energy"
-          - "Environment"
-          - "Foreign Policy"
-          - "gun_control"
-          - "Jobs"
-          - "Health Care"
-          - "Homeland Security"
-          - "Immigration"
-          - "Labor"
-          - "LGBT Equality"
-          - "Working for Delaware"
-          - "Seniors"
-          - "Stimulus"
-          - "The War in Afghanistan"
-          - "The War in Iraq"
-          - "Veterans"
-          - "Women"
-          - "Other"
+          - Agriculture
+          - Animal Welfare
+          - Banking and Financial Services
+          - Budget and Appropriations
+          - Civil Rights
+          - Climate Change
+          - Crime and Law Enforcement
+          - Defense
+          - Deficit Reduction
+          - Domestic Violence
+          - Drugs
+          - Economy
+          - Education
+          - Energy
+          - Environment
+          - Foreign Policy
+          - Guns
+          - Health Care
+          - Homeland Security
+          - Immigration
+          - Jobs
+          - Labor
+          - LGBT Equality
+          - Manufacturing
+          - Military Operations
+          - "Seniors, Social Security and Medicare"
+          - Taxes
+          - Trade
+          - Transportation and Infrastructure
+          - Veterans
+          - "Women's Issues"
+          - Other
     - click_on:
       - value: Submit
         selector: "#side-search-btn"
