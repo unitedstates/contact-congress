@@ -40,7 +40,7 @@ contact_form:
         - name: zipfour
           selector: "#zipfour"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -175,8 +175,11 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submitButton"
+    - find:
+        - selector: "h1"
+          value: "Thank you"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me. Your email has been received and I will review your message and respond as soon as possible.
+      contains: email has been received
