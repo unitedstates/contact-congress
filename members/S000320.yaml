@@ -51,6 +51,9 @@ contact_form:
         selector: "#field_4d8403a8-273c-4280-ae1e-3d764fe53d83"
         value: "$MESSAGE"
         required: Yes
+    - find:
+      - selector: "form.uniForm .multiField img[height='50']"
+    - fill_in:
       - name: captcha_28f3334f-5551-4423-a1b9-b5f136dab92d
         selector: "#captcha_28f3334f-5551-4423-a1b9-b5f136dab92d"
         captcha_selector: "form.uniForm .multiField img[height='50']"
