@@ -15,8 +15,8 @@ contact_form:
           required: false
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
-    - fill_in:
+        selector: "#emailForm input[name='submit']"
+    - select:
         - name: prefix
           selector: "#required-prefix"
           value: $NAME_PREFIX
@@ -26,6 +26,7 @@ contact_form:
             - Mrs.
             - Ms.
             - Miss
+    - fill_in:
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -110,7 +111,7 @@ contact_form:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
     - find:
-        - selector: "h1#page-title"
+      - selector: "h1#page-title"
           value: "Thank You"
   success:
     headers:
