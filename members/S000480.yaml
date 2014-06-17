@@ -5,6 +5,18 @@ contact_form:
   steps:
     - visit: "https://louise.house.gov/contact-louise"
     - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go to Form
+          selector: "#zipauthform input.button"
+    - fill_in:
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
@@ -28,7 +40,7 @@ contact_form:
         - name: zipfour
           selector: "#zipfour"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -163,11 +175,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submitButton"
-    - find:
-        - selector: "h1"
-          value: "Thank you"
   success:
     headers:
       status: 200
     body:
-      contains: email has been received
+      contains: Thank you for contacting me. Your email has been received and I will review your message and respond as soon as possible.
