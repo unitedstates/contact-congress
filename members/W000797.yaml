@@ -4,6 +4,8 @@ contact_form:
   action: /email-me/
   steps:
     - visit: "https://wassermanschultz.house.gov/email-me"
+    - find:
+        - selector: "#zipcode"
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
