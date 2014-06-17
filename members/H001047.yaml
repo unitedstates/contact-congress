@@ -1,4 +1,4 @@
-gbioguide: H001047
+bioguide: H001047
 contact_form:
   method: post
   action: "https://himes.house.gov/contact-me/email-me"
@@ -98,6 +98,9 @@ contact_form:
     - click_on:
         - value: Submit Message
           selector: "#submit"
+    - find:
+        - selector: "h1#page-title-no-line"
+          value: "Thank You"
   success:
     headers:
       status: 200
