@@ -169,6 +169,9 @@ contact_form:
     - click_on:
       - value: "Submit"
         selector: "input[name='ctl00$ctl22$SubmitButton']"
+    - find:
+      - selector: "span#ctl00_ctl22_ConfirmationText"
+        value: "Thank you"
   success:
     headers:
       status: 200
