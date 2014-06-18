@@ -1,0 +1,144 @@
+- id: default
+  numbers:
+    - 415-123-1234
+  target_house: true
+  target_senate: true
+  target_house_first: false
+  msg_intro: Hi. Welcome to call congress.
+  msg_intro_confirm: Press star to start.
+  msg_ask_zip: >
+    Please enter your zip code so we can lookup your Congress person.
+  msg_invalid_zip: Sorry, that zip code didn't work. Please try again.
+  msg_call_block_intro: >
+    {{#many_reps}}We'll now connect you to {{n_reps}} representatives. Press
+    star for next rep.{{/many_reps}}
+  msg_rep_intro: We're now connecting you to {{name}}
+  msg_between_thanks: You're doing great - here's the next call.
+  msg_final_thanks: Thank you!
+
+- id: restrict-nsa
+  numbers:
+    - 415-419-8672
+  target_house: true
+  target_senate: true
+  target_house_first: true
+  voted_with_list: [F000062, P000197]
+  msg_repo_intro_voted_with: >
+    {{name}} supports reasonable legislation to restrict the N.S.A. Let them
+    know what a good decision that is.
+  random_choice: [R000146, M000355]
+
+- id: trolling-effects
+  numbers:
+    - 415-419-8672
+  target_house: false
+  target_senate: true
+  target_house_first: false
+  msg_intro: http://tfrce.s3.amazonaws.com/trolling-effects/msg_intro.mp3
+  msg_ask_zip: http://tfrce.s3.amazonaws.com/trolling-effects/msg_ask_zip.mp3
+  msg_invalid_zip: http://tfrce.s3.amazonaws.com/trolling-effects/msg_invalid_zip.mp3
+  msg_call_block_intro: http://tfrce.s3.amazonaws.com/trolling-effects/msg_call_block_intro.mp3
+  msg_rep_intro: We're now connecting you to {{name}}. Press star once you're done.
+  msg_between_thanks: http://tfrce.s3.amazonaws.com/trolling-effects/msg_between_thanks.mp3
+  msg_final_thanks: http://tfrce.s3.amazonaws.com/trolling-effects/msg_final_thanks.mp3
+
+
+- id: stop-fast-track
+  numbers:
+    - 415-419-8672
+  target_house: true
+  target_senate: true
+  target_house_first: true
+  msg_intro: http://tfrce.s3.amazonaws.com/sft/sft_msg_intro.mp3
+  msg_ask_zip: http://tfrce.s3.amazonaws.com/sft/sft_ask_zip.mp3
+  msg_invalid_zip: http://tfrce.s3.amazonaws.com/sft/sft_invalid_zip.mp3
+  msg_call_block_intro: http://tfrce.s3.amazonaws.com/sft/sft_call_block_intro.mp3
+  msg_rep_intro: We're now connecting you to {{name}}
+  msg_between_thanks: http://tfrce.s3.amazonaws.com/sft/sft_between_thanks.mp3
+  msg_final_thanks: http://tfrce.s3.amazonaws.com/sft/sft_msg_final_thanks.mp3
+
+- id: tdwfb
+  numbers:
+    - 202-552-0252
+    - 202-552-0262
+    - 202-552-0272
+  target_house: true
+  target_senate: true
+  target_house_first: false
+  msg_intro: http://tfrce.s3.amazonaws.com/tdwfb/msg_intro.mp3
+  msg_ask_zip: http://tfrce.s3.amazonaws.com/tdwfb/msg_ask_zip.mp3
+  msg_invalid_zip: http://tfrce.s3.amazonaws.com/tdwfb/msg_invalid_zip.mp3
+  msg_call_block_intro: http://tfrce.s3.amazonaws.com/tdwfb/msg_call_block_intro_calltool.mp3
+  msg_rep_intro: We're now connecting you to {{name}}. Press star once you're done.
+  msg_between_thanks: http://tfrce.s3.amazonaws.com/tdwfb/msg_between_thanks.mp3
+  msg_final_thanks: http://tfrce.s3.amazonaws.com/tdwfb/msg_final_thanks.mp3
+
+- id: tdwfb-mobile
+  numbers:
+    - 202-552-0505
+  target_house: true
+  target_senate: true
+  target_house_first: false
+  msg_intro: http://tfrce.s3.amazonaws.com/tdwfb/msg_intro.mp3
+  msg_ask_zip: http://tfrce.s3.amazonaws.com/tdwfb/msg_ask_zip.mp3
+  msg_invalid_zip: http://tfrce.s3.amazonaws.com/tdwfb/msg_invalid_zip.mp3
+  msg_call_block_intro: http://tfrce.s3.amazonaws.com/tdwfb/msg_call_block_intro_number.mp3
+  msg_rep_intro: We're now connecting you to {{name}}. Press star once you're done.
+  msg_between_thanks: http://tfrce.s3.amazonaws.com/tdwfb/msg_between_thanks.mp3
+  msg_final_thanks: http://tfrce.s3.amazonaws.com/tdwfb/msg_final_thanks.mp3
+
+- id: nn-calltool
+  numbers:
+    - 202-552-0272
+  target_house: true
+  target_senate: false
+  target_house_first: false
+  msg_intro: http://tfrce.s3.amazonaws.com/nn/msg_intro.mp3
+  msg_ask_zip: http://tfrce.s3.amazonaws.com/nn/msg_ask_zip.mp3
+  msg_invalid_zip: http://tfrce.s3.amazonaws.com/nn/msg_invalid_zip.mp3
+  msg_call_block_intro: http://tfrce.s3.amazonaws.com/nn/msg_call_block_intro_calltool.mp3
+  msg_rep_intro: Thanks
+  msg_between_thanks: http://tfrce.s3.amazonaws.com/nn/msg_between_thanks.mp3
+  msg_final_thanks: http://tfrce.s3.amazonaws.com/nn/msg_final_thanks.mp3
+
+- id: nn-dial
+  numbers:
+    - 202-552-0272
+  target_house: true
+  target_senate: false
+  target_house_first: false
+  msg_intro: http://tfrce.s3.amazonaws.com/nn/msg_intro.mp3
+  msg_ask_zip: http://tfrce.s3.amazonaws.com/nn/msg_ask_zip.mp3
+  msg_invalid_zip: http://tfrce.s3.amazonaws.com/nn/msg_invalid_zip.mp3
+  msg_call_block_intro: http://tfrce.s3.amazonaws.com/nn/msg_call_block_intro_dial.mp3
+  msg_rep_intro: We're now connecting you to {{name}}. Press star once you're done.
+  msg_between_thanks: Thanks
+  msg_final_thanks: http://tfrce.s3.amazonaws.com/nn/msg_final_thanks.mp3
+
+- id: lofgren-nsa-calltool
+  numbers:
+    - 415-419-8672
+  target_house: true
+  target_senate: false
+  target_house_first: false
+  msg_intro: https://shutthebackdoor.net/call-tool/msg_intro.mp3
+  msg_ask_zip: https://shutthebackdoor.net/call-tool/msg_ask_zip.mp3
+  msg_invalid_zip: https://shutthebackdoor.net/call-tool/msg_invalid_zip.mp3
+  msg_call_block_intro: https://shutthebackdoor.net/call-tool/msg_callblock_intro_calltool.mp3
+  msg_rep_intro: We're now connecting you to {{name}}. Press star once you're done.
+  msg_between_thanks: Thanks
+  msg_final_thanks: https://shutthebackdoor.net/call-tool/msg_final_thanks.mp3
+
+- id: lofgren-nsa-dial
+  numbers:
+    - 415-419-8672
+  target_house: true
+  target_senate: false
+  target_house_first: false
+  msg_intro: https://shutthebackdoor.net/call-tool/msg_intro.mp3
+  msg_ask_zip: https://shutthebackdoor.net/call-tool/msg_ask_zip.mp3
+  msg_invalid_zip: https://shutthebackdoor.net/call-tool/msg_invalid_zip.mp3
+  msg_call_block_intro: https://shutthebackdoor.net/call-tool/msg_callblock_intro_dial.mp3
+  msg_rep_intro: We're now connecting you to {{name}}. Press star once you're done.
+  msg_between_thanks: Thanks
+  msg_final_thanks: https://shutthebackdoor.net/call-tool/msg_final_thanks.mp3

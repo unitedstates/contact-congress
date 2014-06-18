@@ -1,0 +1,216 @@
+html {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-family:"ff-dagny-web-pro",sans-serif;
+  color: #484848;
+  padding: 25px 0 0 0;
+  background: #ecf0f1;
+  line-height: 1.5;
+}
+.content-container {
+  width: 700px;
+  margin: 0 auto;
+}
+strong {
+  font-weight: bold;
+}
+h1 {
+font-size: 32px;
+line-height: 40px;
+margin-bottom: 15px;
+}
+p {
+  padding: 10px 0 10px 0;
+}
+h1 {
+  text-align: center;
+}
+h2 {
+  font-weight: bold;
+  font-size: 1.6em;
+  text-align: center;
+}
+.important {
+  font-weight: bold;
+}
+.box {
+  background-color:white;
+  -moz-box-shadow: 0 0 3px 1px rgba(0,0,0,.05), 0 1px 2px 0px rgba(0,0,0,.1);
+  -webkit-box-shadow: 0 0 3px 1px rgba(0,0,0,.05), 0 1px 2px 0px rgba(0,0,0,.1);
+  box-shadow: 0 0 3px 1px rgba(0,0,0,.05), 0 1px 2px 0px rgba(0,0,0,.1);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:20px;
+  padding:20px;
+}
+.box.last {
+  margin-bottom: 0;
+}
+.zipcode-search  {
+  width: 440px;
+  margin: auto;
+}
+.zipcode-search input,
+.zipcode-search label,
+.zipcode-search button {
+  float: left;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  margin-right: 15px;
+}
+.zipcode-search label {
+  font-size: 24px;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+}
+.zipcode-search input.search {
+  height: 40px;
+  padding: 0;
+  font-size: 22px;
+  border: 1px solid #ebebeb;
+color: #444;
+padding-left: 10px;
+width: 100px;
+padding-right: 10px;
+}
+blockquote {
+  font-size: 95%;
+  color: #777;
+  font-variant: italic;
+  padding-left: 20px;
+}
+.user-phone-number-general{
+  height: 40px;
+  width: 12em;
+  font-size: 14px;
+}
+.btn {
+  height : 40px;
+  border-radius: 3px;
+  background-color: rgb(52, 152, 219);
+  border: 0px;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
+  width: 100%;
+  padding : 12px 0px;
+  max-width: 160px;
+  display: block;
+  cursor: pointer;
+}
+.contact-button {
+  border-radius: 3px;
+  background-color: #FF6666;
+  border: 0px;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding : 4px 8px;
+  display: block;
+  cursor: hand;
+  box-shadow: 0px 1px 2px 0px #AFAFAF, -1px -1px 3px 0px rgba(197, 197, 197, 0.19) inset;
+}
+
+#submit-zipcode.btn {
+  max-width: 200px !important;
+}
+.btn:hover {
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+}
+
+#legislators.loading {
+  padding: 20px;
+  text-align:center;
+  content: 'Loading...';
+  background: url(../images/ajax-loader.gif) no-repeat center center;
+}
+#tweets, #phones {
+  display: none;
+}
+.footer {
+  padding: 5px;
+  text-align: right;
+  font-size: 12px;
+}
+
+#tweets {
+  margin-top: 20px;
+}
+
+table th {
+  font-weight: bold;
+  text-align: left;
+}
+
+.vote-table-data td {
+  padding: 10px;
+  margin: 5px;
+}
+
+.leg-name {
+  margin-left: 5px;
+}
+
+.leg-contact {
+  margin-left: 5px;
+  font-size: 90%;
+  float: left;
+}
+
+.number-and-twitter {
+  float: left;
+}
+
+.voted-for,
+.voted-against {
+  font-weight: bold;
+  text-align: center;
+  padding-right: 3em;
+}
+
+.voted-against {
+  color: #ff6666;
+}
+
+.voted-for {
+  color: #66cc00;
+}
+
+.yes-table .contact-button {
+  background-color: #66cc00;
+}
+
+.vote-table-data {
+  width: 100%;
+}
+
+.against-column,
+.for-column {
+   width: 310px;
+   float: left;
+}

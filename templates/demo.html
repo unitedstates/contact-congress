@@ -1,0 +1,129 @@
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<!-- Begin Wrapper > Header HTML -->
+<!--[if lt IE 7]>              <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7]>                 <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8]>                 <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>                <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en">         <!--<![endif]-->
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+
+
+  <title>Demo for Call Congress</title>
+  <!-- Empty conditional comment hack
+  Prevents lo d stacking in IE8
+  See http://www.phpied.com/conditional-comments-block-downloads/ -->
+  <!--[if IE]><![endif]-->
+  <!-- Chrome Frame for browsers that support it -->
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+
+  <link rel="shortcut icon" type="image/ico" href="static/images/favicon.png">
+
+  <!-- coalition edit start -->
+  <link rel="stylesheet" href="static/css/styles.css" />
+  <!-- coalition edit end -->
+
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/lodash.min.js"></script>
+  <script src="static/js/main.js"></script>
+ </head>
+
+ <body>
+  <div class="content-container">
+    <div>
+      <h1>Demo for Call Congress</h1>
+    </div>
+    <div class="box">
+      <div class="box call-now" style="text-align: center;">
+        <p class="important">Tell your representative what you think about how they voted.</p>
+        <input required class='user-phone-number-general' placeholder='my phone number'></input>
+        <button class="btn caller-button-general" style="display: inline-block">Call now!</button>        
+        <p>
+        or dial 415-123-1234
+        </p>
+      </div>
+      
+      <div class="box vote-table">
+      <h2>The roll call</h2>
+      </div>
+
+      <script type="text/template" id="contact-template">
+        <input required class='user-phone-number' placeholder='my phone number'></input>
+        <button class='caller-button-legislator'>Connect me</a>        
+      </script>
+
+      <script type="text/template" id="call-template">
+      <form style="" class="zipcodeform">
+
+          <fieldset class="zipcode-search">
+            <label for="zipcode">Zip Code</label>
+            <input pattern="\d{5}" title="The zip code should consist of five numbers only"
+             required id="zipcode" class="search" type="text" placeholder=""
+             autofocus>
+            <input type="submit" class="btn" id="submit-zipcode" value="Find your legislators"  />
+
+          </fieldset>
+        </form>
+        <div style="clear: both;"></div>
+
+      <div class="for-column">
+      <p class="voted-for">Voted for the amendment and against NSA surveillance.</p>
+      <table class="vote-table-data yes-table" cellspacing="10">
+        <thead>
+          <th>Legislator</th>
+        </thead>
+        <tbody>
+         <% _.each(votes.yes, function(vote){ %>
+         <tr class="leg-row" data-bio-id="<%= vote.details.bioguide_id %>">
+          <td class="fn">
+          <div style="border: 1px solid #ebebeb; float: left; width: 50px; height: 50px; background: url(https://graph.facebook.com/<%= vote.details.facebook_id %>/picture);"></div>
+
+          <span class="leg-name"><%= vote.details.first_name %> <%= vote.details.last_name %></span><br />
+          <div class="leg-contact">
+            <button data-vote="<%= vote.vote[0] %>" data-twitter-id="<%= vote.details.twitter_id %>" data-phone-number="<%= vote.details.phone %>" class="contact-button" >Call now</button>
+            <div class="number-and-twitter" style="display: none;"></div>
+          </div>
+          </td>
+         </tr>
+         <% }); %>
+        </tbody>
+      </table>
+      </div>
+      <div class="against-column">
+      <p class="voted-against">Voted against the amendment and for NSA surveillance.</p>
+
+      <table class="vote-table-data no-table">
+        <thead>
+          <th>Legislator</th>
+        </thead>
+        <tbody>
+          <% _.each(votes.no, function(vote){ %>
+         <tr class="leg-row" data-bio-id="<%= vote.details.bioguide_id %>">
+          <td class="fn">
+           <div style="border: 1px solid #ebebeb; float: left; width: 50px; height: 50px; background: url(https://graph.facebook.com/<%= vote.details.facebook_id %>/picture);"></div>
+
+          <span class="leg-name"><%= vote.details.first_name %> <%= vote.details.last_name %></span><br />
+          <div class="leg-contact">
+            <button data-vote="<%= vote.vote[0] %>" data-twitter-id="<%= vote.details.twitter_id %>" data-phone-number="<%= vote.details.phone %>" class="contact-button" >Call now</button>
+            <div class="number-and-twitter" style="display: none;"></div>
+          </div>
+          </td>
+         </tr>
+         <% }); %>
+        </tbody>
+      </table>
+      </div>
+      <div style="clear: both;"></div>
+      </script>
+      
+      <div class="footer" style="padding-top:40px;">
+       This site was built by members of <a target="_blank"
+        href="http://sina.is/task-force/">Taskforce.is</a>. 
+        <br/>
+        It is open source: <a href="https://github.com/tfrce/call-congress">tfrce/call-congress</a>.
+      </div>
+    </div>
+ </body>
+</html>
