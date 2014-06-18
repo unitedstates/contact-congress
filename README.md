@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ## Contacting Congress
 
 This project contains information on how to automatically and successfully submit the contact forms of members of Congress.
@@ -329,4 +329,3 @@ Just download the latest data from Sunlight Congress API using:
 
     cd data && make -B
     git commit data/districts.csv data/legislators.csv
->>>>>>> 477884ad38767c0e36040edc1935962a166dba11
