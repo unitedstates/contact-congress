@@ -14,7 +14,7 @@ We have completed the contact forms for the entire Senate!
 
 Read our [contribution guide](https://github.com/unitedstates/contact-congress/blob/master/documentation/how_to_contribute.md) for a fuller description.
 
-But more briefly, if you'd like to help:
+But more briefly, if you'd like to help: 
 
 * [Reply to an open ticket](https://github.com/unitedstates/congress-contact/issues?labels=MoC&page=1&state=open) stating that you are currently working on this issue.
 * [Fork this repository](https://github.com/unitedstates/congress-contact/fork).
