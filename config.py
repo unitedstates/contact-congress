@@ -19,7 +19,7 @@ class Config(object):
 
     TASKFORCE_KEY = os.environ.get('TASKFORCE_KEY')
     SUNLIGHTLABS_KEY = os.environ.get('SUNLIGHTLABS_KEY')
-
+    print SUNLIGHTLABS_KEY 
     # limit on the length of the call
     TW_TIME_LIMIT = 60 * 20  # 4 minutes
 

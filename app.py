@@ -164,8 +164,9 @@ def call_user():
         result = jsonify(message=call.status, debugMode=app.debug)
         result.status_code = 200 if call.status != 'failed' else 500
     except TwilioRestException, err:
-        result = jsonify(message=err.msg.split(':')[1].strip())
-        result.status_code = 200
+        result = jsonify(message=err.msg)
+        #result = jsonify(message=err.msg.split(':')[1].strip())
+        result.status_code = 500
 
     return result
 
