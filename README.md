@@ -3,7 +3,6 @@ Call Congress
 
 A simple flask server that connects calls between citizens and their congress person using the Twilio API.
 
-
 The server handles two cases:
 
 * A phone call made to the campaign number
