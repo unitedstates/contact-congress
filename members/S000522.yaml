@@ -6,44 +6,44 @@ contact_form:
     - visit: "https://chrissmith.house.gov/contact/write.htm"
     - fill_in:
         - name: required-first
-          selector: "#ctl00_ctl01_ctl01_Text form input[name='required-first']"
+          selector: "#ctl00_ctl14_ctl01_Text form input[name='required-first']"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#ctl00_ctl01_ctl01_Text form input[name='required-last']"
+          selector: "#ctl00_ctl14_ctl01_Text form input[name='required-last']"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#ctl00_ctl01_ctl01_Text form input[name='required-address']"
+          selector: "#ctl00_ctl14_ctl01_Text form input[name='required-address']"
           value: $ADDRESS_STREET
           required: true
         - name: required-city
-          selector: "#ctl00_ctl01_ctl01_Text form input[name='required-city']"
+          selector: "#ctl00_ctl14_ctl01_Text form input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: "#ctl00_ctl01_ctl01_Text form input[name='zip5']"
+          selector: "#ctl00_ctl14_ctl01_Text form input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#ctl00_ctl01_ctl01_Text form input[name='zip4']"
+          selector: "#ctl00_ctl14_ctl01_Text form input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
         - name: required-phone
-          selector: "#ctl00_ctl01_ctl01_Text form input[name='required-phone']"
+          selector: "#ctl00_ctl14_ctl01_Text form input[name='required-phone']"
           value: $PHONE
           required: true
         - name: required-email
-          selector: "#ctl00_ctl01_ctl01_Text form input[name='required-email']"
+          selector: "#ctl00_ctl14_ctl01_Text form input[name='required-email']"
           value: $EMAIL
           required: true
         - name: required-message
-          selector: "#ctl00_ctl01_ctl01_Text form textarea[name='required-message']"
+          selector: "#ctl00_ctl14_ctl01_Text form textarea[name='required-message']"
           value: $MESSAGE
           required: true
     - select:
         - name: required-prefix
-          selector: "#ctl00_ctl01_ctl01_Text form select[name='required-prefix']"
+          selector: "#ctl00_ctl14_ctl01_Text form select[name='required-prefix']"
           value: $NAME_PREFIX
           required: true
           options:
@@ -117,7 +117,7 @@ contact_form:
             - LT
             - LTJG
         - name: required-state
-          selector: "#ctl00_ctl01_ctl01_Text form select[name='required-state']"
+          selector: "#ctl00_ctl14_ctl01_Text form select[name='required-state']"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -173,7 +173,7 @@ contact_form:
             - WV
             - WY
         - name: required-issue
-          selector: "#ctl00_ctl01_ctl01_Text form select[name='required-issue']"
+          selector: "#ctl00_ctl14_ctl01_Text form select[name='required-issue']"
           value: $TOPIC
           required: true
           options:
@@ -203,7 +203,7 @@ contact_form:
           value: "no"
     - click_on:
         - value: Send Email
-          selector: "#ctl00_ctl01_ctl01_Text form input[type='submit'][value='Send Email']"
+          selector: "#ctl00_ctl14_ctl01_Text form input[type='submit'][value='Send Email']"
   success:
     headers:
       status: 200
