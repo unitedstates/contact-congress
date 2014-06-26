@@ -60,38 +60,46 @@ contact_form:
             - Reverend
             - Sister
             - Pastor
+    - select:
         - name: required-issue
           selector: "form.zipform[name='contact'] select[name='required-issue']"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AG
-            Arts and Humanities: ART
-            Banking and Finance: BANK
+            Abortion: ABORT
+            Agriculture: AGR
+            Banking and Finance: BNK
             Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
+            Casework: CASE
+            Congress and Elections: ELCT
             Defense and Military: DEF
-            Education: ED
-            Energy: EN
+            Disaster and Emergency Response: FEMA
+            Education: EDU
+            Energy: ENE
             Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Health: HE
-            Immigration: IM
+            Financial Services: FIN
+            Foreign Relations: FAFF
+            Governmental Reform: GOV
+            Health: HEA
+            Homeland Security: HOM
+            Housing and Urban Development: HUD
+            Immigration: IMM
+            Interior: INT/PARKS
             Judiciary: JUD
             Labor: LAB
-            Science and Technology: SCI
-            Senior Citizens: SENIORS
-            Social Security: SS
-            Social Services: SOC.SERVICES
+            Medicare and Medicaid: MEDI
+            Postal Issue: POSTAL
+            Press: PRESS
+            Science and Technology: SCIENCE
+            Small Business: SBUS
+            Social Security: SSEC
             Taxes: TAX
-            Telecommunications: COMM
-            Transportation: TRAN
-            Trade: TRD
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRADE
             Veterans: VET
-            "Women's Issues": WOMEN
-            Other Issues: OTHER
+            Welfare: WEL
+            Other Issues: GEN_DO
     - click_on:
         - value: Send Email
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
