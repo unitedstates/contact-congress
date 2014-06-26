@@ -43,10 +43,12 @@ contact_form:
           selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
+    - select:
         - name: state
           selector: "#req_state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
+    - fill_in:
         - name: zipcode
           selector: "#req_zip"
           value: $ADDRESS_ZIP5
