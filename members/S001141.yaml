@@ -47,10 +47,9 @@ contact_form:
     - find:
         - selector: "#recaptcha_image img"
     - fill_in:
-        - name: recaptcha_response_field
-          selector: "#recaptcha_response_field"
-          captcha_selector: "#recaptcha_image img"
-          captcha_id_selector: "#recaptcha_challenge_field"
+        - name: captcha_38afc425-4c4c-44c3-b74b-1bfddbbb3ae6
+          selector: "#captcha_38afc425-4c4c-44c3-b74b-1bfddbbb3ae6"
+          captcha_selector: "#captcha_38afc425-4c4c-44c3-b74b-1bfddbbb3ae6_container img[height='50']"
           value: $CAPTCHA_SOLUTION
           required: true
     - select:
