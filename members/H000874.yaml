@@ -5,6 +5,20 @@ contact_form:
   steps:
     - visit: "https://hoyer.house.gov/email-steny"
     - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go to Form
+          selector: "#zipauthform input.button"
+    - find:
+        - selector: "#req_firstname"
+    - fill_in:
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
