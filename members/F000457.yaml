@@ -125,6 +125,8 @@ contact_form:
       - name: receiveUpdates
         selector: "#receiveUpdates"
         value: yes
+    - wait:
+      - value: 1
     - click_on:
       - value: Submit
         selector: "#thisForm input[title='Submit']"
