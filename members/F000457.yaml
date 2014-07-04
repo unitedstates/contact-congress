@@ -84,10 +84,6 @@ contact_form:
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
         required: Yes
         options: US_STATES_AND_TERRITORIES
-      - name: SubSubject
-        selector: "select#SubSubject"
-        value: "Other"
-        options: DEPENDENT
       - name: Subject
         selector: "#Subject"
         value: "$TOPIC"
@@ -122,6 +118,10 @@ contact_form:
           "\n\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t": "Telecommunications"
           "\n\t\t\t\t\t\tTransportation\n\t\t\t\t\t": "Transportation"
           "\n\t\t\t\t\t\tVeterans\n\t\t\t\t\t": "Veterans"
+      - name: SubSubject
+        selector: "select#SubSubject"
+        value: "Other"
+        options: DEPENDENT
     - uncheck:
       - name: noResponseNeeded
         selector: "#noResponseNeeded"
