@@ -53,6 +53,9 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "#sf-submit"
+    - find:
+      - selector: "p"
+        value: "Thank you!"
   success:
     headers:
       status: 200
