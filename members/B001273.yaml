@@ -88,6 +88,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submit"
+    - find:
+        - value: "Thank You"
+          selector: "h1#page-title-no-line"
   success:
     headers:
       status: 200
