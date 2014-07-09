@@ -1,124 +1,55 @@
 bioguide: G000546
 contact_form:
   method: post
-  action: /email-sam/
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://gravesforms.house.gov/email-sam"
+    - visit: "https://graves.house.gov/contact/email-me"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
+        - name: zip4
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
-        - value: Go to Form
-          selector: "#zipauthform input.button"
+        - value: Go To Next Step
+          selector: "#emailForm input[name='submit']"
     - find:
-        - selector: "#custom_form17"
+        - selector: "#required-first"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: required-first
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: required-last
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: required-address
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#req_city"
+        - name: required-city
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip2"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#req_phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
-        - name: response_require
-          selector: "#custom_form17 input[name='response_require']"
-          value: RN
-          required: true
     - select:
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            Alaska: AK
-            Alabama: AL
-            Arkansas: AR
-            Arizona: AZ
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            District of Columbia: DC
-            Delaware: DE
-            Florida: FL
-            Georgia: GA
-            Hawaii: HI
-            Iowa: IA
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Massachusetts: MA
-            Maryland: MD
-            Maine: ME
-            Michigan: MI
-            Minnesota: MN
-            Missouri: MO
-            Mississippi: MS
-            Montana: MT
-            North Carolina: NC
-            North Dakota: ND
-            Nebraska: NE
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            Nevada: NV
-            New York: NY
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Pennsylvania: PA
-            Puerto Rico: PR
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Virginia: VA
-            Vermont: VT
-            Washington: WA
-            Wisconsin: WI
-            West Virginia: WV
-            Wyoming: WY
-        - name: subject
-          selector: "#req_subject"
+        - name: required-subject
+          selector: "#required-subject"
           value: $TOPIC
           required: true
           options:
@@ -159,18 +90,21 @@ contact_form:
             Trade: TRD
             Veterans: VET
             Welfare: WELF
-        - name: response
-          selector: "#req_response"
-          value: RN
-          required: true
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: false
           options:
-            I do not need a response.: NRN
-            I would like a response.: RN
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
     - click_on:
-        - value: Submit
-          selector: "#submitButton"
+        - value: Send Email
+          selector: "#contactForm input[name='submit']"
+    - find:
+        - value: "Thank You"
+          selector: "h1#page-title"
   success:
     headers:
       status: 200
     body:
-      contains: "Your message has been sent!"
+      contains: The following information has been submitted
