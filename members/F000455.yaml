@@ -168,6 +168,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#submitButton"
+    - find:
+        - value: "Thank You"
+          selector: "h1"
   success:
     headers:
       status: 200
