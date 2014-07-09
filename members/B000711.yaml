@@ -185,6 +185,9 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "input[type='submit'][value='Submit']"
+    - find:
+      - selector: "b"
+        value: "Thank you"
   success:
     headers:
       status: 200
