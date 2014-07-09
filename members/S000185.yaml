@@ -145,6 +145,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submitButton"
+    - find:
+        - selector: "h1"
+          value: "THANK YOU"
   success:
     headers:
       status: 200
