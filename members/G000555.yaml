@@ -224,6 +224,9 @@ contact_form:
     - click_on:
         - value: submit
           selector: input.rollover
+    - find:
+        - selector: "p"
+          value: "Thank you"
   success:
     headers:
       status: 200
