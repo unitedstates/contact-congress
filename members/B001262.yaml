@@ -300,6 +300,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl04_SubmitButton"
+    - find:
+        - selector: "Thank you"
+          value: "span#ctl00_ctl04_ConfirmationText"
   success:
     headers:
       status: 200
