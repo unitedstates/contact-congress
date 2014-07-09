@@ -1,58 +1,68 @@
 bioguide: K000362
 contact_form:
-  method: POST
-  action: "/htbin/formproc_za/king/webforms/issue_subscribe_parm.txt&form=/king/webforms/issue_subscribe_verify.htm"
+  method: post
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://forms.house.gov/king/webforms/issue_subscribe.html"
+    - visit: "http://steveking.house.gov/contact"
+    - fill_in:
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go To Next Step
+          selector: "#emailForm input[name='submit']"
+    - find:
+        - selector: "#required-first"
     - fill_in:
         - name: required-first
-          selector: "#pagefull form input[name='required-first']"
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#pagefull form input[name='required-last']"
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#pagefull form input[name='required-address']"
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
         - name: address2
-          selector: "#pagefull form input[name='address2']"
+          selector: "#address2"
           value: $ADDRESS_STREET_2
           required: false
         - name: required-city
-          selector: "#pagefull form input[name='required-city']"
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-zip5
-          selector: "#pagefull form input[name='required-zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: required-zip4
-          selector: "#pagefull form input[name='required-zip4']"
-          value: $ADDRESS_ZIP4
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
           required: true
         - name: required-valid-email
-          selector: "#pagefull form input[name='required-valid-email']"
+          selector: "#contactForm input[name='required-valid-email']"
           value: $EMAIL
           required: true
-        - name: comments
-          selector: "#pagefull form textarea[name='comments']"
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
-          required: false
+          required: true
     - select:
         - name: required-prefix
-          selector: "#pagefull form select[name='required-prefix']"
+          selector: "#required-prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
           options:
             - Mrs.
             - Ms.
             - Mr.
             - Dr.
         - name: required-issue
-          selector: "#topic"
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
@@ -79,9 +89,12 @@ contact_form:
             Other: WEBOTH
     - click_on:
         - value: Send Email
-          selector: "#pagefull form input[type='submit'][value='Send Email']"
+          selector: "#contactForm input[name='submit']"
+    - find:
+        - selector: "h1#page-title"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: Your email should automatically be sent in a few seconds.
+      contains: The following information has been submitted
