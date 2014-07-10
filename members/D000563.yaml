@@ -146,6 +146,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: div.buttonHolder input
+    - find:
+        - selector: "p"
+          value: "Thank you"
   success:
     headers:
       status: 200
