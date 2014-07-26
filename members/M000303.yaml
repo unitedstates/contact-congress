@@ -45,21 +45,13 @@ contact_form:
     - select:
       - name: field_fabf1d80-94c6-4e2f-a4b6-6a1ffd08b5c4
         selector: "#field_fabf1d80-94c6-4e2f-a4b6-6a1ffd08b5c4"
-        value: "$NAME_PREFIX"
-        required: Yes
+        value: $NAME_PREFIX
+        required: true
         options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Mr. and Mrs."
-          - "Dr."
-          - "Dr. and Mrs."
-          - "Reverend"
-          - "Sister"
-          - "Pastor"
-          - "The Honorable"
-          - "Representative"
-          - "Senator"
+          - Mr.
+          - Mrs.
+          - Ms.
+          - Mr. and Mrs.
       - name: field_aa5ae151-f62d-4151-af76-58a5be236f25
         selector: "#field_aa5ae151-f62d-4151-af76-58a5be236f25"
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
