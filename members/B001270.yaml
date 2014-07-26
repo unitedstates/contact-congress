@@ -92,10 +92,9 @@ contact_form:
             Trade: TRADE
             Veterans: VETERANS
             "Women's Issues": WOMENS_ISSUES
-    - uncheck:
-        - name: response
-          selector: "#response"
-          value: "N"
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
     - click_on:
         - value: Send Email
           selector: "#submit"
