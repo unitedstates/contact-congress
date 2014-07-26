@@ -19,52 +19,52 @@ contact_form:
     - find:
         - selector: "#aspnetForm"
     - fill_in:
-        - name: ctl00$ctl18$FirstName
-          selector: "#ctl00_ctl18_FirstName"
+        - name: ctl00$ctl19$FirstName
+          selector: "#ctl00_ctl19_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl18$LastName
-          selector: "#ctl00_ctl18_LastName"
+        - name: ctl00$ctl19$LastName
+          selector: "#ctl00_ctl19_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl18$Street
-          selector: "#ctl00_ctl18_Street"
+        - name: ctl00$ctl19$Street
+          selector: "#ctl00_ctl19_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl18$City
-          selector: "#ctl00_ctl18_City"
+        - name: ctl00$ctl19$City
+          selector: "#ctl00_ctl19_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl18$Zip
-          selector: "#ctl00_ctl18_Zip"
+        - name: ctl00$ctl19$Zip
+          selector: "#ctl00_ctl19_Zip"
           value: $ADDRESS_ZIP5
           required: false
-        - name: ctl00$ctl18$Phone
-          selector: "#ctl00_ctl18_Phone"
+        - name: ctl00$ctl19$Phone
+          selector: "#ctl00_ctl19_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl18$Email
-          selector: "#ctl00_ctl18_Email"
+        - name: ctl00$ctl19$Email
+          selector: "#ctl00_ctl19_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl18$Subject
-          selector: "#ctl00_ctl18_Subject"
+        - name: ctl00$ctl19$Subject
+          selector: "#ctl00_ctl19_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl18$Body
-          selector: "#ctl00_ctl18_Body"
+        - name: ctl00$ctl19$Body
+          selector: "#ctl00_ctl19_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl18$CampaignID
-          selector: "#ctl00_ctl18_CampaignID"
+        - name: ctl00$ctl19$CampaignID
+          selector: "#ctl00_ctl19_CampaignID"
           value: $CAMPAIGN_UUID
           required: false
-        - name: ctl00$ctl18$CampaignInfo
-          selector: "#ctl00_ctl18_CampaignInfo"
+        - name: ctl00$ctl19$CampaignInfo
+          selector: "#ctl00_ctl19_CampaignInfo"
           value: $CAMPAIGN_UUID
           required: false
-        - name: ctl00$ctl18$IssuesList
-          selector: "#ctl00_ctl18_IssuesList"
+        - name: ctl00$ctl19$IssuesList
+          selector: "#ctl00_ctl19_IssuesList"
           value: $TOPIC
           required: false
           options:
@@ -96,9 +96,9 @@ contact_form:
             Veterans: "58101" 
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl18_SubmitButton"
+          selector: "#ctl00_ctl19_SubmitButton"
     - find:
-        - selector: "span#ctl00_ctl18_ConfirmationText"
+        - selector: "span#ctl00_ctl19_ConfirmationText"
           value: "Thank you"
   success:
     headers:
