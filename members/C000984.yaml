@@ -16,11 +16,7 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
-    - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
+  - fill_in:
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -70,6 +66,15 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Dr.: Dr
+            Ms.: Ms
+            Mrs.: Mrs
+            Mr.: Mr
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -116,6 +121,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submit"
+    - find:
+        - selector: "h1#page-title-no-line"
+          value: "Thank You"
   success:
     headers:
       status: 200
