@@ -140,6 +140,9 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "form#thisForm input[type='submit']"
+    - find:
+      - selector: "p"
+        value: "Thank you!"
   success:
     headers:
       status: 200
