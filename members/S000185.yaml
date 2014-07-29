@@ -1,155 +1,129 @@
 bioguide: S000185
 contact_form:
   method: post
-  action: /email-bobby-scott/
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://bobbyscott.house.gov/email-bobby-scott"
+    - visit: "https://bobbyscott.house.gov/contact/email-me"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
-          value: $NAME_FIRST
-          required: true
-        - name: lastname
-          selector: "#req_lastname"
-          value: $NAME_LAST
-          required: true
-        - name: street
-          selector: "#req_street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: city
-          selector: "#req_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
+        - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: false
-        - name: emailaddress
-          selector: "#req_email"
+    - click_on:
+        - value: Go To Next Step
+          selector: "#submit"
+    - find:
+        - selector: "#prefix"
+    - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: false
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: false
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#req_phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#req_prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-            Other: Other
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-        - name: issue
-          selector: "#req_issue"
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Abortion: Abortion
-            Agriculture: AGRI
+            Agriculture: AGR
+            Animals: AN
+            Arts and Humanities: ART
             Banking and Finance: BANK
-            Budget/Fiscal Responsibility: BUD
-            Civil Rights: CVL
-            Defense: DEF
-            Education/Schools: EDU
-            Energy: ENR
+            Budget and Economy: BUD
+            Campaign Finance Reform: CFR
+            Congress and Elections: CONG
+            District of Columbia--Tours: TOUR
+            Defense and Military: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
             Environment: ENV
-            Foreign Affairs: FAFF
-            Guns/Weapons: GUNS
-            Health Care: HLTH
+            Federal Employees: FED
+            Foreign Relations: FR
+            Government Reform: GOV
+            Guns: GUN
+            Health: HEA
+            Homeland Security: HOM
+            Housing and Urban Development: HUD
             Immigration: IMM
-            Labor: LBR
-            Medicaid/Medicare: MEDI
-            Social Security: SOC
+            International Relations: INT
+            Judiciary: JUD
+            Labor: LAB
+            LGBT: LGBT
+            No Response Necessary: NRN
+            Post Office: POST
+            Science and Technology: SCI
+            Social Issues: SOC
+            Senior Citizens: SENIORS
+            Social Security: SSEC
+            Social Services: SOC.SERVICES
             Taxes: TAX
-            Technology/Science: TECH
-            Telecommunications: COMM_TELE
-            Trade: TRD
-            Transportation and Infrastructure: TRANS
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRADE
             Veterans: VET
-            "Women's Issues": WOM
-            Other: OTHER
+            "Women's Issues": WOMEN
+            Welfare: WEL
+            Other Issues: OTHER
     - click_on:
         - value: Send Email
-          selector: "#submitButton"
+          selector: "#submit"
     - find:
-        - selector: "h1"
-          value: "THANK YOU"
+        - selector: "h1#page-title"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted.
+      contains: The following information has been submitted
