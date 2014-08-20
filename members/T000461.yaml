@@ -80,60 +80,47 @@ contact_form:
             - Sergeant Major
             - Sister
             - Technical Sergeant
+    - select:
         - name: Subject
           selector: ".form-contact select[name='Subject']"
           value: $TOPIC
           required: true
           options:
-            "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": Agriculture
-            "\n\t\t\t\t\t\t\tAnimals and Wildlife\n\t\t\t\t\t\t": Animals and Wildlife
-            "\n\t\t\t\t\t\t\tArmed Services\n\t\t\t\t\t\t": Armed Services
-            "\n\t\t\t\t\t\t\tAviation\n\t\t\t\t\t\t": Aviation
-            "\n\t\t\t\t\t\t\tBanking and Financial Services\n\t\t\t\t\t\t": Banking and Financial Services
-            "\n\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t": Budget
-            "\n\t\t\t\t\t\t\tCampaign Finance\n\t\t\t\t\t\t": Campaign Finance
-            "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": Civil Rights
-            "\n\t\t\t\t\t\t\tCommerce\n\t\t\t\t\t\t": Commerce
-            "\n\t\t\t\t\t\t\tConsumer Protection\n\t\t\t\t\t\t": Consumer Protection
-            "\n\t\t\t\t\t\t\tDefense\n\t\t\t\t\t\t": Defense
-            "\n\t\t\t\t\t\t\tDisability Issues\n\t\t\t\t\t\t": Disability Issues
-            "\n\t\t\t\t\t\t\tDisaster Assistance\n\t\t\t\t\t\t": Disaster Assistance
-            "\n\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t": Economy
-            "\n\t\t\t\t\t\t\tEducation\n\t\t\t\t\t\t": Education
-            "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": Energy
-            "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": Environment
-            "\n\t\t\t\t\t\t\tEmployment\n\t\t\t\t\t\t": Employment
-            "\n\t\t\t\t\t\t\tEthics\n\t\t\t\t\t\t": Ethics
-            "\n\t\t\t\t\t\t\tFamily\n\t\t\t\t\t\t": Family
-            "\n\t\t\t\t\t\t\tFederal Employees\n\t\t\t\t\t\t": Federal Employees
-            "\n\t\t\t\t\t\t\tFiscal Responsibility\n\t\t\t\t\t\t": Fiscal Responsibility
-            "\n\t\t\t\t\t\t\tForeign Affairs\n\t\t\t\t\t\t": Foreign Affairs
-            "\n\t\t\t\t\t\t\tForeclosures\n\t\t\t\t\t\t": Foreclosures
-            "\n\t\t\t\t\t\t\tGun Rights\n\t\t\t\t\t\t": Gun Rights
-            "\n\t\t\t\t\t\t\tHealthcare\n\t\t\t\t\t\t": Healthcare
-            "\n\t\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t\t": Homeland Security
-            "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": Housing
-            "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": Immigration
-            "\n\t\t\t\t\t\t\tInfrastructure\n\t\t\t\t\t\t": Infrastructure
-            "\n\t\t\t\t\t\t\tIntelligence\n\t\t\t\t\t\t": Intelligence
-            "\n\t\t\t\t\t\t\tInvestigations and Oversight\n\t\t\t\t\t\t": Investigations and Oversight
-            "\n\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t": Judiciary
-            "\n\t\t\t\t\t\t\tJustice System\n\t\t\t\t\t\t": Justice System
-            "\n\t\t\t\t\t\t\tLabor\n\t\t\t\t\t\t": Labor
-            "\n\t\t\t\t\t\t\tMedicare/Medicaid\n\t\t\t\t\t\t": Medicare/Medicaid
-            "\n\t\t\t\t\t\t\tNatural Resources\n\t\t\t\t\t\t": Natural Resources
-            "\n\t\t\t\t\t\t\tNewsletter\n\t\t\t\t\t\t": Newsletter
-            "\n\t\t\t\t\t\t\tPensions\n\t\t\t\t\t\t": Pensions
-            "\n\t\t\t\t\t\t\tPostal Service\n\t\t\t\t\t\t": Postal Service
-            "\n\t\t\t\t\t\t\tScience\n\t\t\t\t\t\t": Science
-            "\n\t\t\t\t\t\t\tSmall Business\n\t\t\t\t\t\t": Small Business
-            "\n\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t": Social Security
-            "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": Taxes
-            "\n\t\t\t\t\t\t\tTechnology\n\t\t\t\t\t\t": Technology
-            "\n\t\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t\t": Telecommunications
-            "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": Trade
-            "\n\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t": Transportation
-            "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": Veterans
+            "\n\t\t\t\t\t\t\t\t\t\t\tAcademy Nominations\n\t\t\t\t\t\t\t\t\t\t": Academy Nominations
+            "\n\t\t\t\t\t\t\t\t\t\t\tAgriculture and Nutrition\n\t\t\t\t\t\t\t\t\t\t": Agriculture and Nutrition
+            "\n\t\t\t\t\t\t\t\t\t\t\tAnimal Welfare\n\t\t\t\t\t\t\t\t\t\t": Animal Welfare
+            "\n\t\t\t\t\t\t\t\t\t\t\tArmed Services\n\t\t\t\t\t\t\t\t\t\t": Armed Services
+            "\n\t\t\t\t\t\t\t\t\t\t\tBanking and Financial Services\n\t\t\t\t\t\t\t\t\t\t": Banking and Financial Services
+            "\n\t\t\t\t\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t\t\t\t\t": Budget
+            "\n\t\t\t\t\t\t\t\t\t\t\tCensus\n\t\t\t\t\t\t\t\t\t\t": Census
+            "\n\t\t\t\t\t\t\t\t\t\t\tChildren\n\t\t\t\t\t\t\t\t\t\t": Children
+            "\n\t\t\t\t\t\t\t\t\t\t\tConsumer Protection\n\t\t\t\t\t\t\t\t\t\t": Consumer Protection
+            "\n\t\t\t\t\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t\t\t\t\t": Economy
+            "\n\t\t\t\t\t\t\t\t\t\t\tEducation\n\t\t\t\t\t\t\t\t\t\t": Education
+            "\n\t\t\t\t\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t\t\t\t\t": Energy
+            "\n\t\t\t\t\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t\t\t\t\t": Environment
+            "\n\t\t\t\t\t\t\t\t\t\t\tEthics\n\t\t\t\t\t\t\t\t\t\t": Ethics
+            "\n\t\t\t\t\t\t\t\t\t\t\tForeign Relations\n\t\t\t\t\t\t\t\t\t\t": Foreign Relations
+            "\n\t\t\t\t\t\t\t\t\t\t\tGrants\n\t\t\t\t\t\t\t\t\t\t": Grants
+            "\n\t\t\t\t\t\t\t\t\t\t\tGuns and Crime\n\t\t\t\t\t\t\t\t\t\t": Guns and Crime
+            "\n\t\t\t\t\t\t\t\t\t\t\tHealthcare\n\t\t\t\t\t\t\t\t\t\t": Healthcare
+            "\n\t\t\t\t\t\t\t\t\t\t\tHelp with Federal Government\n\t\t\t\t\t\t\t\t\t\t": Help with Federal Government
+            "\n\t\t\t\t\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t\t\t\t\t": Housing
+            "\n\t\t\t\t\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t\t\t\t\t": Immigration
+            "\n\t\t\t\t\t\t\t\t\t\t\tJobs and Labor\n\t\t\t\t\t\t\t\t\t\t": Jobs and Labor
+            "\n\t\t\t\t\t\t\t\t\t\t\tJudiciary Issues\n\t\t\t\t\t\t\t\t\t\t": Judiciary Issues
+            "\n\t\t\t\t\t\t\t\t\t\t\tMarriage and Family\n\t\t\t\t\t\t\t\t\t\t": Marriage and Family
+            "\n\t\t\t\t\t\t\t\t\t\t\tMedicaid\n\t\t\t\t\t\t\t\t\t\t": Medicaid
+            "\n\t\t\t\t\t\t\t\t\t\t\tNational Security\n\t\t\t\t\t\t\t\t\t\t": National Security
+            "\n\t\t\t\t\t\t\t\t\t\t\tPostal Service\n\t\t\t\t\t\t\t\t\t\t": Postal Service
+            "\n\t\t\t\t\t\t\t\t\t\t\tScience and Technology\n\t\t\t\t\t\t\t\t\t\t": Science and Technology
+            "\n\t\t\t\t\t\t\t\t\t\t\tSocial Security and Medicare\n\t\t\t\t\t\t\t\t\t\t": Social Security and Medicare
+            "\n\t\t\t\t\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t\t\t\t\t": Taxes
+            "\n\t\t\t\t\t\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t\t\t\t\t\t": Telecommunications
+            "\n\t\t\t\t\t\t\t\t\t\t\tTour Request\n\t\t\t\t\t\t\t\t\t\t": Tour Request
+            "\n\t\t\t\t\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t\t\t\t\t": Trade
+            "\n\t\t\t\t\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t\t\t\t\t": Transportation
+            "\n\t\t\t\t\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t\t\t\t\t": Veterans
     - click_on:
         - value: Submit
           selector: ".form-contact input[name='Submit']"
