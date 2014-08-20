@@ -46,18 +46,12 @@ contact_form:
           value: $SUBJECT
           required: true
         - name: MessageBody
-          selector: "#thisForm textarea[name='MessageBody']"
+          selector: ".form-contact textarea[name='MessageBody']"
           value: $MESSAGE
-          required: true
-        - name: captcha
-          selector: "#captcha"
-          captcha_selector: "#thisForm img"
-          captcha_id_selector: "#thisForm input[name='captcha']"
-          value: $CAPTCHA_SOLUTION
           required: true
     - select:
         - name: Prefix
-          selector: "#thisForm select[name='Prefix']"
+          selector: ".form-contact select[name='Prefix']"
           value: $NAME_PREFIX
           required: true
           options:
@@ -87,7 +81,7 @@ contact_form:
             - Sister
             - Technical Sergeant
         - name: Subject
-          selector: "#thisForm select[name='Subject']"
+          selector: ".form-contact select[name='Subject']"
           value: $TOPIC
           required: true
           options:
@@ -142,7 +136,7 @@ contact_form:
             "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": Veterans
     - click_on:
         - value: Submit
-          selector: "#thisForm input[name='Submit']"
+          selector: ".form-contact input[name='Submit']"
     - find:
         - selector: "p"
           value: "Thank you"
