@@ -125,10 +125,10 @@ contact_form:
         - value: Submit
           selector: ".form-contact input[name='Submit']"
     - find:
-        - selector: "p"
+        - selector: "h2"
           value: "Thank you"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you! Your message has been sent."
+      contains: "Your message has been sent."
