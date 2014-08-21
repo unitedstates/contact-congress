@@ -4,8 +4,7 @@ contact_form:
   action: http://www.paul.senate.gov/?p=submit
   steps:
     - visit: http://www.paul.senate.gov/?p=contact
-    - click_on:
-      - selector: ".popup-nl-quick .lb-close"
+    - visit: http://www.paul.senate.gov/?p=contact
     - fill_in:
       - name: firstname
         selector: "#firstname"
