@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: input.button
+    - find:
+        - selector: "#req_prefix"
     - fill_in:
         - name: prefix
           selector: "#req_prefix"
