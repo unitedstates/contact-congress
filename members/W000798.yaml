@@ -12,7 +12,7 @@ contact_form:
         - name: required-first
           selector: "#contact input[name='required-first']"
           value: $NAME_FIRST
-          required: false
+          required: true
         - name: required-last
           selector: "#contact input[name='required-last']"
           value: $NAME_LAST
@@ -20,11 +20,11 @@ contact_form:
         - name: required-address
           selector: "#contact input[name='required-address']"
           value: $ADDRESS_STREET
-          required: false
+          required: true
         - name: required-city
           selector: "#contact input[name='required-city']"
           value: $ADDRESS_CITY
-          required: false
+          required: true
         - name: zip5
           selector: "#contact input[name='zip5']"
           value: $ADDRESS_ZIP5
@@ -44,7 +44,7 @@ contact_form:
         - name: required-message
           selector: "#contact textarea[name='required-message']"
           value: $MESSAGE
-          required: false
+          required: true
     - select:
         - name: required-issue
           selector: "#subject"
