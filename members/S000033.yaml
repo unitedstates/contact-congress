@@ -7,48 +7,52 @@ contact_form:
     - select:
       - name: subject
         selector: "#subject"
-        value: "$TOPIC"
-        required: Yes
+        value: $TOPIC
+        required: true
         options:
-          - "Agriculture"
-          - "Animal Rights"
-          - "Appropriations"
-          - "Arts & Humanities"
-          - "Banking & Financial Services"
-          - "Budget"
-          - "Business and Commerce"
-          - "Campaign/Election Reform"
-          - "Census"
-          - "Consumer Protection"
-          - "Defense and Military"
-          - "Economic Development"
-          - "Education"
-          - "Energy"
-          - "Environment"
-          - "Ethics Reform"
-          - "Foreign Relations"
-          - "Guns"
-          - "Healthcare"
-          - "Homeland Security"
-          - "Housing and Urban Affairs"
-          - "Immigration"
-          - "Insurance Problems"
-          - "Interior"
-          - "Intelligence"
-          - "Judiciary"
-          - "Labor"
-          - "Nutrition"
-          - "Other"
-          - "Postal Service"
-          - "Science and Innovation"
-          - "Seniors"
-          - "Social Issues"
-          - "Taxes"
-          - "Technology and Telecom"
-          - "Trade"
-          - "Transportation"
-          - "Veterans"
-          - "Women and Children"
+          Academy Nominations: Academy Nominations
+          Agriculture: AG
+          Animal Rights: ANRTS
+          Appropriations: APPROPS
+          "Arts & Humanities": ARTS
+          "Banking & Financial Services": BANK
+          Budget: BGT
+          Business and Commerce: BIZ
+          Campaign/Election Reform: CAMPAIGN FINANCE
+          Casework: Casework
+          Consumer Protection: BANK
+          Defense and Military: DEF
+          Economic Development: ECON
+          Education: ED
+          Energy: EN
+          Environment: ENV
+          Ethics Reform: ETH
+          Flag Requests: Flag Requests
+          Foreign Relations: FR
+          Grant Letters: Grant Letters
+          Guns: GUNS
+          Healthcare: HEALTH CARE
+          Homeland Security: DHS
+          Housing and Urban Affairs: HUD
+          Immigration: IMMG
+          Insurance Problems: HEALTH CARE
+          Interior: MISC
+          Intelligence: JUD
+          Judiciary: JUD
+          Labor: LABOR
+          Nutrition: FDA
+          Other: MISC
+          Postal Service: POSTAL
+          Science and Innovation: SCI
+          Seniors: SENIORS
+          Social Issues: ECON
+          Taxes: TAXES
+          Technology and Telecom: TELECOM AND TECH
+          Tour Requests: Tour Requests
+          Trade: TRADE
+          Transportation: TRANS
+          Veterans: VET
+          Women and Children: WOMEN
     - find:
       - selector: "#fname"
     - fill_in:
