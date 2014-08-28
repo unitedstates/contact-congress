@@ -4,57 +4,57 @@ contact_form:
   steps:
     - visit: "http://www.sessions.senate.gov/public/index.cfm/contact-jeff"
     - fill_in:
-        - name: field_e9248ddc-11f4-4de9-88b4-99001f9ae060
-          selector: "#field_e9248ddc-11f4-4de9-88b4-99001f9ae060"
+        - name: field_E9248DDC-11F4-4DE9-88B4-99001F9AE060
+          selector: "#field_E9248DDC-11F4-4DE9-88B4-99001F9AE060"
           value: $NAME_PREFIX
           required: true
-        - name: field_167aef38-2bd6-44ba-8479-d909391621e7
-          selector: "#field_167aef38-2bd6-44ba-8479-d909391621e7"
+        - name: field_167AEF38-2BD6-44BA-8479-D909391621E7
+          selector: "#field_167AEF38-2BD6-44BA-8479-D909391621E7"
           value: $NAME_FIRST
           required: true
-        - name: field_8b7dd1c8-3d94-444b-bea6-4258decfd4ec
-          selector: "#field_8b7dd1c8-3d94-444b-bea6-4258decfd4ec"
+        - name: field_8B7DD1C8-3D94-444B-BEA6-4258DECFD4EC
+          selector: "#field_8B7DD1C8-3D94-444B-BEA6-4258DECFD4EC"
           value: $NAME_LAST
           required: true
-        - name: field_7db3ff6a-2f65-4d43-abf4-680539c7ba75
-          selector: "#field_7db3ff6a-2f65-4d43-abf4-680539c7ba75"
+        - name: field_7DB3FF6A-2F65-4D43-ABF4-680539C7BA75
+          selector: "#field_7DB3FF6A-2F65-4D43-ABF4-680539C7BA75"
           value: $ADDRESS_STREET
           required: true
-        - name: field_8cd623d7-cb2d-430c-83a7-1ca9a7129846
-          selector: "#field_8cd623d7-cb2d-430c-83a7-1ca9a7129846"
+        - name: field_8CD623D7-CB2D-430C-83A7-1CA9A7129846
+          selector: "#field_8CD623D7-CB2D-430C-83A7-1CA9A7129846"
           value: $ADDRESS_STREET_2
           required: false
-        - name: field_e593f17a-c054-4d4a-b381-e0175e24fcac
-          selector: "#field_e593f17a-c054-4d4a-b381-e0175e24fcac"
+        - name: field_E593F17A-C054-4D4A-B381-E0175E24FCAC
+          selector: "#field_E593F17A-C054-4D4A-B381-E0175E24FCAC"
           value: $ADDRESS_CITY
           required: true
-        - name: field_15359281-466f-478c-b0f7-ddff7bffa673
-          selector: "#field_15359281-466f-478c-b0f7-ddff7bffa673"
+        - name: field_15359281-466F-478C-B0F7-DDFF7BFFA673
+          selector: "#field_15359281-466F-478C-B0F7-DDFF7BFFA673"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_d2c674b1-d063-4cfe-8343-ab54ce3a149d
-          selector: "#field_d2c674b1-d063-4cfe-8343-ab54ce3a149d"
+        - name: field_D2C674B1-D063-4CFE-8343-AB54CE3A149D
+          selector: "#field_D2C674B1-D063-4CFE-8343-AB54CE3A149D"
           value: $PHONE
           required: true
-        - name: field_3b7ce7b1-6b05-4745-afee-5e72b1527d70
-          selector: "#field_3b7ce7b1-6b05-4745-afee-5e72b1527d70"
+        - name: field_3B7CE7B1-6B05-4745-AFEE-5E72B1527D70
+          selector: "#field_3B7CE7B1-6B05-4745-AFEE-5E72B1527D70"
           value: $EMAIL
           required: true
-        - name: field_b3a39eb2-8c50-4fee-b213-38108b884d37
-          selector: "#field_b3a39eb2-8c50-4fee-b213-38108b884d37"
+        - name: field_B3A39EB2-8C50-4FEE-B213-38108B884D37
+          selector: "#field_B3A39EB2-8C50-4FEE-B213-38108B884D37"
           value: $MESSAGE
           required: true
     - find:
-        - selector: "#captcha_38afc425-4c4c-44c3-b74b-1bfddbbb3ae6_container img[height='50']"
+        - selector: "#captcha_38AFC425-4C4C-44C3-B74B-1BFDDBBB3AE6_container img[height='50']"
     - fill_in:
-        - name: captcha_38afc425-4c4c-44c3-b74b-1bfddbbb3ae6
-          selector: "#captcha_38afc425-4c4c-44c3-b74b-1bfddbbb3ae6"
-          captcha_selector: "#captcha_38afc425-4c4c-44c3-b74b-1bfddbbb3ae6_container img[height='50']"
+        - name: captcha_38AFC425-4C4C-44C3-B74B-1BFDDBBB3AE6
+          selector: "#captcha_38AFC425-4C4C-44C3-B74B-1BFDDBBB3AE6"
+          captcha_SELECTOR: "#captcha_38AFC425-4C4C-44C3-B74B-1BFDDBBB3AE6_container img[height='50']"
           value: $CAPTCHA_SOLUTION
           required: true
     - select:
-        - name: field_7b4f29dc-e2dd-4162-8dca-665dfd02e53d
-          selector: "#field_7b4f29dc-e2dd-4162-8dca-665dfd02e53d"
+        - name: field_7B4F29DC-E2DD-4162-8DCA-665DFD02E53D
+          selector: "#field_7B4F29DC-E2DD-4162-8DCA-665DFD02E53D"
           value: $ADDRESS_STATE_FULL
           required: true
           options:
@@ -112,8 +112,8 @@ contact_form:
             West Virginia: WV
             Wisconsin: WI
             Wyoming: WY
-        - name: field_9fc33321-74a4-4940-8082-c5b5cea8202b
-          selector: "#field_9fc33321-74a4-4940-8082-c5b5cea8202b"
+        - name: field_9FC33321-74A4-4940-8082-C5B5CEA8202B
+          selector: "#field_9FC33321-74A4-4940-8082-C5B5CEA8202B"
           value: $TOPIC
           required: true
           options:
