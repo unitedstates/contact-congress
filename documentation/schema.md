@@ -136,6 +136,10 @@ many of which are common to most steps:
     field.
 - `required` (ironically, optional): This field will be present if a field *must* 
     be filled out with a value in order for the form to be valid.
+- `options` (fittingly, optional): This attributes meaning changes with `value`. If
+    the `value` is one of the following, `options` can be specified accordingly:
+  - `$EMAIL`: `allows_plus: true` or `allows_plus: false`, depending on if the form
+      allows a plus sign in the `email` field.
 
 **A note on CAPTCHAs**
 
