@@ -187,8 +187,11 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "input[name='formaction']"
+    - find:
+        - selector: "p"
+          value: "Thank you!"
   success:
     headers:
       status: 200
     body:
-      contains: test
+      contains: Your message has been sent.
