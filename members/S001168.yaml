@@ -1,48 +1,55 @@
 bioguide: S001168
 contact_form:
   method: post
-  action: "/htbin/formproc.pl?/sarbanes/forms/issue_subscribe.txt&display=/sarbanes/forms/issue_thankyou.shtml&nobase"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-bills-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "http://sarbanes.house.gov/federal.asp"
+    - visit: "https://sarbanes.house.gov/contact/email-me-bills"
+    - fill_in:
+        - name: required-zip5
+          selector: "input[name='required-zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - selector: "input[value='Go To Next Step']"
     - fill_in:
         - name: prefix
-          selector: "#form7 input[name='prefix']"
+          selector: "input[name='prefix']"
           value: $NAME_PREFIX
-          required: true
+          required: false
         - name: required-first
-          selector: "#form7 input[name='required-first']"
+          selector: "input[name='required-first']"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#form7 input[name='required-last']"
+          selector: "input[name='required-last']"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#Street"
+          selector: "input[name='required-address']"
           value: $ADDRESS_STREET
           required: true
+        - name: address2
+          selector: "input[name='address2']"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: required-city
-          selector: "#City"
+          selector: "input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: zip5
-          selector: "#ZIP"
-          value: $ADDRESS_ZIP5
-          required: true
         - name: required-email
-          selector: "#form7 input[name='required-email']"
+          selector: "input[name='required-email']"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#form7 input[name='phone']"
+          selector: "input[name='phone']"
           value: $PHONE
           required: true
         - name: required-message
-          selector: "#form7 textarea[name='required-message']"
+          selector: "textarea[name='required-message']"
           value: $MESSAGE
           required: true
     - select:
@@ -78,20 +85,18 @@ contact_form:
             - Veterans Affairs
             - Wildlife/Animal Welfare
             - "Women's Health"
+    - check:
         - name: response
-          selector: "#form7 select[name='response']"
-          value: "Yes"
+          selector: "input[name='response']"
+          value: "yes"
           required: true
-          options:
-            "Yes, I would like a response.": "Yes"
-            "No, I do not require a response.": "No"
     - click_on:
-        - selector: "#form7 input[type='submit']"
+        - selector: "input[type='submit']"
     - find:
-        - selector: "strong"
-          value: "Thank you"
+        - selector: "h1.page-title"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: Your email has been received.
+      contains: The following information has been submitted
