@@ -17,44 +17,44 @@ contact_form:
         - selector: "#emailForm input[value='Go To Next Step']"
     - fill_in:
         - name: prefix
-          selector: "#emailForm input[name='prefix']"
+          selector: "#contactForm input[name='prefix']"
           value: $NAME_PREFIX
           required: false
         - name: required-first
-          selector: "#emailForm input[name='required-first']"
+          selector: "#contactForm input[name='required-first']"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#emailForm input[name='required-last']"
+          selector: "#contactForm input[name='required-last']"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#emailForm input[name='required-address']"
+          selector: "#contactForm input[name='required-address']"
           value: $ADDRESS_STREET
           required: true
         - name: address2
-          selector: "#emailForm input[name='address2']"
+          selector: "#contactForm input[name='address2']"
           value: $ADDRESS_STREET_2
           required: false
         - name: required-city
-          selector: "#emailForm input[name='required-city']"
+          selector: "#contactForm input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
         - name: required-email
-          selector: "#emailForm input[name='required-email']"
+          selector: "#contactForm input[name='required-email']"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#emailForm input[name='phone']"
+          selector: "#contactForm input[name='phone']"
           value: $PHONE
           required: true
         - name: required-message
-          selector: "#emailForm textarea[name='required-message']"
+          selector: "#contactForm textarea[name='required-message']"
           value: $MESSAGE
           required: true
     - select:
         - name: required-issue
-          selector: "#emailForm select[name='required-issue']"
+          selector: "#contactForm select[name='required-issue']"
           value: $TOPIC
           required: true
           options:
@@ -87,11 +87,11 @@ contact_form:
             - "Women's Health"
     - check:
         - name: response
-          selector: "#emailForm input[name='response']"
+          selector: "#contactForm input[name='response']"
           value: "yes"
           required: true
     - click_on:
-        - selector: "#emailForm input[type='submit']"
+        - selector: "#contactForm input[type='submit']"
     - find:
         - selector: "h1.page-title"
           value: "Thank You"
