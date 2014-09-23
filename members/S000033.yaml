@@ -4,6 +4,8 @@ contact_form:
   action: http://www.sanders.senate.gov/contact/comment
   steps:
     - visit: http://www.sanders.senate.gov/contact/comment
+    - click:
+      - selector: "a.cerabox-close"
     - select:
       - name: subject
         selector: "#subject"
