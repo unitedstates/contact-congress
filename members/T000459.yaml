@@ -76,6 +76,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contact input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "span#ctl00_PageLink"
+          value: "THANK YOU" 
   success:
     headers:
       status: 200
