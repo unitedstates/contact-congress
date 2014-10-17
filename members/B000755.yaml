@@ -24,36 +24,36 @@ contact_form:
           value: $NAME_FIRST
           required: true
         - name: ctl00$ctl10$LastName
-          selector: "#ctl00_ctl10_LastName2"
+          selector: "#ctl00_ctl10_LastName"
           value: $NAME_LAST
           required: true
         - name: ctl00$ctl10$Street
-          selector: "#ctl00_ctl10_Street2"
+          selector: "#ctl00_ctl10_Street"
           value: $ADDRESS_STREET
           required: true
         - name: ctl00$ctl10$City
-          selector: "#ctl00_ctl10_City2"
+          selector: "#ctl00_ctl10_City"
           value: $ADDRESS_CITY
           required: true
         - name: ctl00$ctl10$Zip
-          selector: "#ctl00_ctl10_Zip2"
+          selector: "#ctl00_ctl10_Zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: ctl00$ctl10$Email
-          selector: "#ctl00_ctl10_Email2"
+          selector: "#ctl00_ctl10_Email"
           value: $EMAIL
           required: true
         - name: ctl00$ctl10$Subject
-          selector: "#ctl00_ctl10_Subject2"
+          selector: "#ctl00_ctl10_Subject"
           value: $SUBJECT
           required: true
         - name: ctl00$ctl10$Body
-          selector: "#ctl00_ctl10_Body2"
+          selector: "#ctl00_ctl10_Body"
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl10_SubmitButton2"
+          selector: "#ctl00_ctl10_SubmitButton"
   success:
     headers:
       status: 200
