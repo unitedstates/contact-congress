@@ -15,12 +15,10 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+          selector: "#submit"
+    - find:
+        selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -84,7 +82,6 @@ contact_form:
             Judiciary: JUD
             Labor: LAB
             LGBT: LGBT
-            No Response Necessary: NRN
             Post Office: POST
             Science and Technology: SCI
             Social Issues: SOC
@@ -102,15 +99,15 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "Y"
-          required: true
+          required: false
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
-          selector: "input[value='Send Email']"
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: Thank You
