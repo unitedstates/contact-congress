@@ -17,8 +17,8 @@ contact_form:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
+        - name: required-prefix
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
         - name: required-first
@@ -33,10 +33,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -48,7 +44,7 @@ contact_form:
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: true
+          required: false
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -106,19 +102,15 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "Y"
-          required: true
+          required: false
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: Email.Optin
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank You
