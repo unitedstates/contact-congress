@@ -1,115 +1,156 @@
 bioguide: S001176
 contact_form:
-  method: post
-  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://scalise.house.gov/contact-me/email-me"
+    - visit: "https://scaliseforms.house.gov/contact/"
     - fill_in:
-        - name: required-first
-          selector: "#required-first"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "#required-last"
-          value: $NAME_LAST
-          required: true
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#submit"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        selector: "#ctl00_ctl10_FirstName"
     - fill_in:
-        - name: required-first
-          selector: "#required-first"
+        - name: ctl00$ctl10$FirstName
+          selector: "#ctl00_ctl10_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: ctl00$ctl10$LastName
+          selector: "#ctl00_ctl10_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: ctl00$ctl10$Street
+          selector: "#ctl00_ctl10_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
+        - name: ctl00$ctl10$City
+          selector: "#ctl00_ctl10_City"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: ctl00$ctl10$Zip
+          selector: "#ctl00_ctl10_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl10$Email
+          selector: "#ctl00_ctl10_Email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
-        - name: required-message
-          selector: "#required-message"
+        - name: ctl00$ctl10$Subject
+          selector: "#ctl00_ctl10_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl10$Body
+          selector: "#ctl00_ctl10_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-prefix
-          selector: "#required-prefix"
+        - name: ctl00$ctl10$PrefixList
+          selector: "#ctl00_ctl10_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Mrs.
-            - Ms.
-            - Adm.
-            - Capt.
-            - Cmdr.
-            - Col.
             - Dr.
-            - Gen.
-            - Lt.
-            - Maj.
-            - Rev.
-            - Rabbi
-            - Sgt.
-        - name: required-issue
-          selector: "#required-issue"
+            - Ms.
+        - name: ctl00$ctl10$State
+          selector: "#ctl00_ctl10_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl10$IssuesList
+          selector: "#ctl00_ctl10_IssuesList"
           value: $TOPIC
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Education and Labor: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            International Relations: WEBINT
-            Government Reform: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            Judiciary: WEBJUD
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Telecommunications: WEBTEL
-            Taxes and Trade: WEBTAX
-            Transportation: WEBTRA
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other: WEBOTH
+            Agriculture: "120508"
+            Crime and Drugs: "120509"
+            Education: "120510"
+            Energy: "120511"
+            Family Values: "120512"
+            Health Care: "120513"
+            Hurricane Recovery and Coastal Restoration: "120514"
+            Immigration: "120515"
+            National Security: "120516"
+            Taxes and Economy: "120517"
+            "Veterans' Affairs": "120518"
+    - check:
+        - name: ctl00$ctl10$ReplyChoice
+          selector: "#ctl00_ctl10_ReplyChoice_0"
+          value: Respond
     - click_on:
-        - value: Send Email
-          selector: "#submit"
-    - find:
-        - selector: "h1#page-title-no-line"
-          value: "Thank You"
+        - value: Submit
+          selector: "#ctl00_ctl10_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "Thank you!"
