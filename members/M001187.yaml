@@ -15,9 +15,9 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: "#emailForm #submit"
     - find:
-        selector: "#required-first"
+        - selector: "#required-first"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -93,7 +93,7 @@ contact_form:
             "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#contactForm #submit"
   success:
     headers:
       status: 200
