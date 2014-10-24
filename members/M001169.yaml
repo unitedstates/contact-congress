@@ -180,6 +180,9 @@ contact_form:
     - click_on:
         - value: Send
           selector: "#side-search-btn"
+    - find:
+        - selector: ".headline h2"
+          value: "Thank You"
   success:
     headers:
       status: 200
