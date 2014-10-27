@@ -60,8 +60,6 @@ contact_form:
         # jQuery('a[href$=".wav"]').attr('href').match(/_([a-z0-9]+)\.wav/)[1]
         value: "$CAPTCHA_SOLUTION"
         required: Yes
-    - click_on:
-      - selector: "a[data-dismiss=modal]"
     - select:
       - name: Prefix
         selector: ".required[name='Prefix']"
