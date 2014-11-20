@@ -52,10 +52,9 @@ contact_form:
     - select:
         - name: issue
           selector: "#edit-issue"
-          value: $TOPIC
+          value: $SUBJECT
           required: true
           options:
-            Help with a Federal Agency: CASEWORK
             Aging and Seniors: SSEC_MEDICARE
             Agriculture: AGR
             Finance: FIN
@@ -87,8 +86,6 @@ contact_form:
             Trade: TRADE
             Transportation: TRA
             Veterans: VET
-            Commemorative/Condolence: GREET
-            Other: OTHER
     - click_on:
         - value: Submit
           selector: "#edit-submit"
