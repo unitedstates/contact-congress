@@ -1,9 +1,13 @@
 bioguide: C001071
 contact_form:
   method: POST
-  action: http://www.corker.senate.gov/public/index.cfm?p=ContactMe
+  action: http://www.corker.senate.gov/public/index.cfm/emailme
   steps:
-    - visit: http://www.corker.senate.gov/public/index.cfm?p=ContactMe
+    - visit: http://www.corker.senate.gov/public/index.cfm/emailme
+    - click_on:
+      - selector: ".skip"
+    - wait:
+      - value: 1
     - fill_in:
       - name: field_c8fa410e-b7db-470e-a0c3-42f2c09c90af
         selector: "#field_c8fa410e-b7db-470e-a0c3-42f2c09c90af"

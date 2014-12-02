@@ -12,109 +12,129 @@ contact_form:
         - name: zip4
           selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "form[name='contact'] input[name='required-first']"
+        - selector: "#ctl00_ctl09_FirstName"
     - fill_in:
-        - name: required-first
-          selector: "form[name='contact'] input[name='required-first']"
+        - name: ctl00$ctl09$FirstName
+          selector: "#ctl00_ctl09_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "form[name='contact'] input[name='required-last']"
+        - name: ctl00$ctl09$LastName
+          selector: "#ctl00_ctl09_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "form[name='contact'] input[name='required-address']"
+        - name: ctl00$ctl09$Street
+          selector: "#ctl00_ctl09_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "form[name='contact'] input[name='required-city']"
+        - name: ctl00$ctl09$City
+          selector: "#ctl00_ctl09_City"
           value: $ADDRESS_CITY
           required: true
-        - name: zip5
-          selector: "form[name='contact'] input[name='zip5']"
+        - name: ctl00$ctl09$Zip
+          selector: "#ctl00_ctl09_Zip"
           value: $ADDRESS_ZIP5
-          required: false
-        - name: zip4
-          selector: "form[name='contact'] input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: false
-        - name: phone
-          selector: "form[name='contact'] input[name='phone']"
+          required: true
+        - name: ctl00$ctl09$Phone
+          selector: "#ctl00_ctl09_Phone"
           value: $PHONE
           required: true
-        - name: required-email
-          selector: "form[name='contact'] input[name='required-email']"
+        - name: ctl00$ctl09$Email
+          selector: "#ctl00_ctl09_Email"
           value: $EMAIL
           required: true
-        - name: required-message
-          selector: "form[name='contact'] textarea[name='required-message']"
+        - name: ctl00$ctl09$Subject
+          selector: "#ctl00_ctl09_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl09$Body
+          selector: "#ctl00_ctl09_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "form[name='contact'] select[name='required-issue']"
-          value: $TOPIC
+        - name: ctl00$ctl09$PrefixList
+          selector: "#ctl00_ctl09_PrefixList"
+          value: $NAME_PREFIX
           required: true
           options:
-            General: "(select one)"
-            Abortion: AB
-            Agriculture: AG
-            Animal Rights: AR
-            Appropriations: AP
-            Arts and Humanities: ART
-            Banking and Finance: BA
-            Budget: BU
-            Campaign Finances and Election Reform: CF
-            Commerce and Business: CO
-            Congress: CG
-            Consumer Protection: CP
-            Crime: CR
-            Drug Abuse: DRUG
-            Economy: EC
-            Education: ED
-            Endangered Species and Wildlife: ESA
-            Energy: EG
-            Environment: ENV
-            Ethics Reform: ET
-            Foreign Affairs: FA
-            Government Operations: GO
-            Guns: GUN
-            Healthcare: HC
-            Homeland Security and Intelligence: HS
-            Housing: HOU
-            Immigration: IM
-            Judiciary: JU
-            Labor: LA
-            Medicaid: MD
-            Medicare: MC
-            Military Affairs and National Defense: MIL
-            Native American Issues: NA
-            Natural Resources: NR
-            Postal Issues: PO
-            Public Lands: PL
-            Science and Technology: SCI
-            Small Business: SB
-            Social Issues: SOC
-            Social Security: SS
-            Taxes: TAX
-            Telecommunications: TC
-            Trade: TRD
-            Transportation: TR
-            Veterans Affairs: VA
-            Welfare: WF
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
+        - name: ctl00$ctl09$State
+          selector: "#ctl00_ctl09_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
     - click_on:
-        - value: Send Email
-          selector: "form[name='contact'] input[type='submit'][value='Send Email']"
-    - find:
-        - selector: "span#ctl00_PageLink"
-          value: "THANK YOU"
+        - value: Submit
+          selector: "#ctl00_ctl09_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for sending me your email."
+      contains: Thank you for sending me your email.

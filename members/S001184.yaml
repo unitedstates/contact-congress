@@ -24,7 +24,7 @@ contact_form:
         - name: addr2
           selector: "#edit-addr2"
           value: $ADDRESS_STREET_2
-          required: true
+          required: false
         - name: city
           selector: "#edit-city"
           value: $ADDRESS_CITY
@@ -55,7 +55,6 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Help with a Federal Agency: CASEWORK
             Aging and Seniors: SSEC_MEDICARE
             Agriculture: AGR
             Finance: FIN
@@ -87,8 +86,6 @@ contact_form:
             Trade: TRADE
             Transportation: TRA
             Veterans: VET
-            Commemorative/Condolence: GREET
-            Other: OTHER
     - click_on:
         - value: Submit
           selector: "#edit-submit"

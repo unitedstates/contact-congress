@@ -62,7 +62,7 @@ contact_form:
           required: true
         - name: recaptcha_response_field
           selector: "#recaptcha_response_field"
-          captcha_selector: "#recaptcha_image img"
+          captcha_selector: "img#recaptcha_challenge_image"
           captcha_id_selector: "#recaptcha_challenge_field"
           value: "$CAPTCHA_SOLUTION"
           required: true

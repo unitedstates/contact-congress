@@ -13,83 +13,118 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#firstname"
+        - selector: "#ctl00_ctl09_FirstName"
     - fill_in:
-        - name: required-first
-          selector: "#firstname"
+        - name: ctl00$ctl09$FirstName
+          selector: "#ctl00_ctl09_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#lastname"
+        - name: ctl00$ctl09$LastName
+          selector: "#ctl00_ctl09_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#street"
+        - name: ctl00$ctl09$Street
+          selector: "#ctl00_ctl09_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "#city"
+        - name: ctl00$ctl09$City
+          selector: "#ctl00_ctl09_City"
           value: $ADDRESS_CITY
           required: true
-        - name: zip5
-          selector: "#zipcode"
+        - name: ctl00$ctl09$Zip
+          selector: "#ctl00_ctl09_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: required-email
-          selector: "#email"
+        - name: ctl00$ctl09$Email
+          selector: "#ctl00_ctl09_Email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "form.custom_form[name='contact'] input[name='phone']"
-          value: $PHONE
-          required: false
-        - name: required-message
-          selector: "#message"
+        - name: ctl00$ctl09$Subject
+          selector: "#ctl00_ctl09_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl09$Body
+          selector: "#ctl00_ctl09_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#subject"
-          value: $TOPIC
+        - name: ctl00$ctl09$PrefixList
+          selector: "#ctl00_ctl09_PrefixList"
+          value: $NAME_PREFIX
           required: true
           options:
-            Agriculture: AGRI
-            Animal rights: ANML
-            Arts: ARTS
-            Banking/Insurance: BANK
-            Budget: BUD
-            Children: CLD
-            Civil Rights: CVL
-            Economic Development: ECONDV
-            Energy: ENR
-            Environment: ENV
-            Education: EDU
-            Foreign Affairs: FAFF
-            Government Reform/Ethics/Transparency: REF
-            Government Spending: GF
-            Healthcare: HLTH
-            Homeland Security: HOME
-            Housing: HOUS
-            Immigration: IMM
-            Labor: LBR
-            Military/Defense: DEF
-            Native Americans: NATIV
-            Science: SCI
-            Social Security/Retirement/Pensions: SS
-            Tax: TAX
-            Telecom: COMM
-            Trade: TRD
-            Transportation/Infrastructure: TRAN
-            Veterans: VET
-            Welfare/Homelessness/Poverty/Unemployment: POV
-            "Women's Issues": WM
-            Other-not Listed: OTHER
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
+        - name: ctl00$ctl09$State
+          selector: "#ctl00_ctl09_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
     - click_on:
         - value: Submit
-          selector: "form.custom_form[name='contact'] input[type='submit'][value='Submit']"
-    - find:
-        - selector: "span#ctl00_PageLink"
-          value: "Thank You"
+          selector: "#ctl00_ctl09_SubmitButton"
   success:
     headers:
       status: 200

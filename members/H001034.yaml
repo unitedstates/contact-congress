@@ -20,7 +20,6 @@ contact_form:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -65,10 +64,6 @@ contact_form:
           options:
             "Yes, I want Mike to respond to my email.": "Y"
             "No, I do not want Mike to respond to my email.": "N"
-    - check:
-        - name: speech
-          selector: "#speech_0"
-          value: Voice
     - uncheck:
         - name: subscribe
           selector: "#subscribe"

@@ -1,9 +1,9 @@
-bioguide: R000583
+bioguide: A000370
 contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://rooney.house.gov/contact/email-me"
+    - visit: "https://adams.house.gov/contact/email-me"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -15,9 +15,9 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: "#emailForm #submit"
     - find:
-        - selector: "#required-first"
+        - selector: "#prefix"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -43,45 +43,70 @@ contact_form:
           selector: "#required-phone"
           value: $PHONE
           required: true
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-subject
-          selector: "#required-subject"
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Help with Agency: casework
             Agriculture: AGR
-            Budget: BUD
-            Defense: DEF
+            Animals: AN
+            Arts and Humanities: ART
+            Banking and Finance: BANK
+            Budget and Economy: BUD
+            Campaign Finance Reform: CFR
+            Congress and Elections: CONG
+            District of Columbia--Tours: TOUR
+            Defense and Military: DEF
             Economy: ECON
-            Education and Labor: EDU
+            Education: EDU
             Energy: ENE
-            Environmental: ENV
+            Environment: ENV
+            Federal Employees: FED
+            Foreign Relations: FR
             Government Reform: GOV
+            Guns: GUN
             Health: HEA
             Homeland Security: HOM
+            Housing and Urban Development: HUD
             Immigration: IMM
             International Relations: INT
-            Judicial: JUD
+            Judiciary: JUD
+            Labor: LAB
+            LGBT: LGBT
+            No Response Necessary: NRN
+            Post Office: POST
+            Science and Technology: SCI
             Social Issues: SOC
+            Senior Citizens: SENIORS
             Social Security: SSEC
-            Taxes and Trade: TAX
+            Social Services: SOC.SERVICES
+            Taxes: TAX
             Telecommunications: TEL
             Transportation: TRA
+            Trade: TRADE
             Veterans: VET
+            "Women's Issues": WOMEN
             Welfare: WEL
-            Other: OTH
-    - check:
-        - name: response
-          selector: "#response"
+            Other Issues: OTHER
+        - name: required-response
+          selector: "#required-response"
           value: "Y"
+          required: true
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#contactForm #submit"
   success:
     headers:
       status: 200

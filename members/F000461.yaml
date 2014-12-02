@@ -1,23 +1,9 @@
 bioguide: F000461
 contact_form:
-  method: get
-  action: /forms/writeyourrep/
+  method: post
+  action: "?zip5=76710&zip4=2018"
   steps:
-    - visit: "https://billflores.house.gov/contact/"
-    - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
-    - find:
-        - selector: "#aspnetForm"
+    - visit: "https://flores.house.gov/forms/writeyourrep/?zip5=76710&zip4=2018"
     - fill_in:
         - name: ctl00$ctl16$FirstName
           selector: "#ctl00_ctl16_FirstName"
@@ -134,39 +120,11 @@ contact_form:
             - MP
             - PR
             - VI
-        - name: ctl00$ctl16$IssuesList
-          selector: "#ctl00_ctl16_IssuesList"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: "73313"
-            Budget and the Economy: "73308"
-            Defense: "73309"
-            Education and Labor: "73312"
-            Energy: "73090"
-            Environment: "72729"
-            Government Reform: "73310"
-            Grant Requests: "73307"
-            Healthcare: "73287"
-            Homeland Security: "73092"
-            Immigration: "72909"
-            International Affairs: "72899"
-            Judiciary: "73305"
-            Social Issues: "73211"
-            Social Security: "73304"
-            Taxes and Trade: "73300"
-            Telecommunications: "73303"
-            Transportation: "73301"
-            Veterans: "73302"
-            Welfare: "72791"
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl16_SubmitButton"
-    - find:
-        - selector: "span#ctl00_ctl16_ConfirmationText"
-          value: "Thank you"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to write me
+      contains: Thank you for taking the time to write me.

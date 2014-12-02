@@ -35,7 +35,7 @@ contact_form:
       - name: phone_number
         selector: "#phone_number"
         value: "$PHONE"
-        required: Yes
+        required: No
       - name: email_address
         selector: "#email_address"
         value: "$EMAIL"
@@ -79,6 +79,8 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "#side-search-btn"
+    - wait:
+        - value: 1
     - find:
       - selector: "h1"
         value: "Thank You" 

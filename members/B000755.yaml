@@ -1,81 +1,61 @@
 bioguide: B000755
 contact_form:
-  method: post
-  action: /contact-form/
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://kevinbrady.house.gov/contact-form"
+    - visit: "http://kevinbradyforms.house.gov/contact/"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
-          value: $NAME_FIRST
-          required: true
-        - name: lastname
-          selector: "#req_lastname"
-          value: $NAME_LAST
-          required: true
-        - name: street
-          selector: "#req_street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#req_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+      - selector: "#aspnetForm"
+    - fill_in:
+        - name: ctl00$ctl10$FirstName
+          selector: "#ctl00_ctl10_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl10$LastName
+          selector: "#ctl00_ctl10_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl10$Street
+          selector: "#ctl00_ctl10_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl10$City
+          selector: "#ctl00_ctl10_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl10$Zip
+          selector: "#ctl00_ctl10_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl10$Email
+          selector: "#ctl00_ctl10_Email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
-        - name: message
-          selector: "#req_message"
+        - name: ctl00$ctl10$Subject
+          selector: "#ctl00_ctl10_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl10$Body
+          selector: "#ctl00_ctl10_Body"
           value: $MESSAGE
           required: true
-    - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Cdr.: Cdr
-            Col.: Col
-            Cpt.: Cpt.
-            Dr.: Dr.
-            Father: Father
-            Gen.: Gen
-            Hon.: Hon.
-            Lt.: Lt
-            Maj.: Maj
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Rabbi: Rabbi
-            Rev.: Rev.
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            Texas: TX
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
-    - find:
-        - selector: "h1"
-          value: "Thank you"
+        - value: Submit
+          selector: "#ctl00_ctl10_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your message
+      contains: Thank you for contacting the office of Rep. Kevin Brady
