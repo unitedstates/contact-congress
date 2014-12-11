@@ -109,6 +109,9 @@ contact_form:
     - click_on:
       - value: Submit
         selector: ".btn-primary"
+    - find:
+        - selector: "h1"
+          value: "Thank you for emailing"
   success:
     headers:
       status: 200
