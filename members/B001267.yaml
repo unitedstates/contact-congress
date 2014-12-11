@@ -4,6 +4,8 @@ contact_form:
   action: /?p=contact
   steps:
     - visit: "http://www.bennet.senate.gov/?p=contact"
+    - find: 
+        - selector: "#gen-fieldid-3"
     - fill_in:
         - name: firstName
           selector: "#gen-fieldid-3"
