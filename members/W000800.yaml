@@ -5,20 +5,6 @@ contact_form:
   steps:
     - visit: "https://welch.house.gov/email-me"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go to Form
-          selector: input.button
-    - find:
-        - selector: "#req_prefix"
-    - fill_in:
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
@@ -118,7 +104,7 @@ contact_form:
             - RI
             - SC
             - SD
-            - TS
+            - TN
             - TX
             - UT
             - VA
@@ -130,9 +116,6 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submitButton"
-    - find:
-        - selector: "h1"
-          value: "THANK YOU"
   success:
     headers:
       status: 200
