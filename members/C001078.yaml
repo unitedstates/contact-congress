@@ -1,82 +1,79 @@
 bioguide: C001078
 contact_form:
   method: post
-  action: "/htbin/formproc/connolly/contact_form_file.txt&display=/connolly/contact_thankyou.shtml"
+  action: /contact-gerry1/
   steps:
-    - visit: "https://forms.house.gov/connolly/contact-form.shtml"
+    - visit: "https://connollyforms.house.gov/contact-gerry1"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
+        - name: prefix
+          selector: "#req_prefix"
           value: $NAME_PREFIX
           required: true
-        - name: required-first
-          selector: "#required-first"
+        - name: firstname
+          selector: "#req_firstname"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: lastname
+          selector: "#req_lastname"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: street
+          selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
+        - name: city
+          selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-zip5
-          selector: "#zip5"
+        - name: zip
+          selector: "#req_zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "#contactForm input[name='zip4']"
+        - name: zipfour
+          selector: "#zip2"
           value: $ADDRESS_ZIP4
           required: true
-        - name: required-email
-          selector: "#required-email"
+        - name: emailaddress
+          selector: "#req_email"
           value: $EMAIL
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: message
+          selector: "#req_message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#subject"
+        - name: subject
+          selector: "#req_subject"
           value: $TOPIC
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Economy: WEBECON
-            Education and Labor: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            Government Reform: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            International Relations: WEBINT
-            Judicial: WEBJUD
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Taxes and Trade: WEBTAX
-            Telecommunications: WEBTEL
-            Transportation: WEBTRA
-            Veterans: WEBVET
-            Welfare: WEBWEL
+            Agriculture: AGR
+            Budget: BUD
+            Defense: DEF
+            Economy: ECON
+            Education and Labor: EDU
+            Energy: ENE
+            Environmental: ENV
+            Government Reform: GOV
+            Health: HEA
+            Homeland Security: HOM
+            International Relations: INT
+            Judicial: JUD
+            Labor: LAB
+            Social Issues: SOC
+            Social Security: SSEC
+            Taxes and Trade: TAX
+            Trade: TRADE
+            Telecommunications: TEL
+            Transportation: TRA
+            Veterans: VET
+            Welfare: WEL
             Other: WEBOTH
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit2']"
+        - value: Submit
+          selector: "#submitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "Your message has been successfully submitted!"
