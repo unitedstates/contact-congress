@@ -17,8 +17,12 @@ contact_form:
         - value: Go To Next Step
           selector: "#emailForm #submit"
     - find:
-        - selector: "#prefix"
+        - selector: "#required-prefix"
     - fill_in:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
