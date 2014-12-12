@@ -3,80 +3,259 @@ contact_form:
   method: post
   action: /contact-form/
   steps:
-    - visit: "https://lambornforms.house.gov/contact-form"
+    - visit: "http://douglamborn.house.gov/contact/leave-a-comment.htm"
     - fill_in:
-        - name: prefix
-          selector: "#req_prefix"
-          value: $NAME_PREFIX
-          required: true
-        - name: firstname
-          selector: "#req_firstname"
-          value: $NAME_FIRST
-          required: true
-        - name: lastname
-          selector: "#req_lastname"
-          value: $NAME_LAST
-          required: true
-        - name: street
-          selector: "#req_street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: city
-          selector: "#req_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#req_zipcode"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
-          selector: "#req_phone"
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl13_FirstName"
+    - fill_in:
+        - name: ctl00$ctl13$FirstName
+          selector: "#ctl00_ctl13_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl13$LastName
+          selector: "#ctl00_ctl13_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl13$Street
+          selector: "#ctl00_ctl13_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl13$City
+          selector: "#ctl00_ctl13_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl13$Zip
+          selector: "#ctl00_ctl13_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl13$Phone
+          selector: "#ctl00_ctl13_Phone"
           value: $PHONE
           required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: ctl00$ctl13$Email
+          selector: "#ctl00_ctl13_Email"
           value: $EMAIL
           required: true
-        - name: msg
-          selector: "#req_message"
+        - name: ctl00$ctl13$Subject
+          selector: "#ctl00_ctl13_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl13$Body
+          selector: "#ctl00_ctl13_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#req_issue"
+        - name: ctl00$ctl13$PrefixList
+          selector: "#ctl00_ctl13_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - 1LT
+            - 1SG
+            - 1st Lt
+            - 1stSgt
+            - 2d Lt
+            - 2LT
+            - 2nd Lt
+            - A1C
+            - AB
+            - ADM
+            - Amn
+            - BG
+            - BGen
+            - Brig Gen
+            - CAPT
+            - Capt
+            - CDR
+            - Chaplain
+            - Chief
+            - CMSAF
+            - CMSgt
+            - Col
+            - COL
+            - CPL
+            - Cpl
+            - CPO
+            - CPT
+            - CSM
+            - CW2
+            - CW3
+            - CW4
+            - CW5
+            - CWO-1
+            - CWO2
+            - CWO-2
+            - CWO3
+            - CWO-3
+            - CWO4
+            - CWO-4
+            - CWO-5
+            - ENS
+            - Gen
+            - GEN
+            - GySgt
+            - LCDR
+            - LCpl
+            - LT
+            - Lt Col
+            - LTC
+            - LtCol
+            - LTG
+            - LtGen
+            - LTJG
+            - Maj
+            - MAJ
+            - Maj Gen
+            - MajGen
+            - MCPO
+            - MCPON
+            - MG
+            - MGySgt
+            - Mmes.
+            - MSG
+            - MSgt
+            - PFC
+            - PFC
+            - PO1
+            - PO2
+            - PO3
+            - PV2
+            - PVT
+            - Pvt
+            - RADM
+            - Rank
+            - SA
+            - SCPO
+            - SFC
+            - SGM
+            - SGT
+            - Sgt
+            - Sgt Maj
+            - SgtMajMC
+            - SMA
+            - SMSgt
+            - SN
+            - SPC
+            - SR
+            - SrA
+            - SSG
+            - SSgt
+            - TSgt
+            - VADM
+            - WO1
+        - name: ctl00$ctl13$State
+          selector: "#ctl00_ctl13_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl13$IssuesList
+          selector: "#ctl00_ctl13_IssuesList"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR-FARM
-            Budget: BUD
-            "Defense & Military": DEF-MIL
-            Economy: ECON
-            Education: EDU
-            Energy: RESOURCES-EN
-            Environment: RESOURCES-ENV
-            Finance: FIN-BANK
-            Foreign Relations: FOR
-            Government Reform: GOV-REFORM
-            Health: HEA
-            Homeland Security: HOMELANDSEC
-            Immigration: IMM
-            Judicial: JUD
-            Labor: LAB
-            Second Amendment Rights: GUN
-            Social Issues and Traditional Values: VAT
-            Social Security and Medicare: AGR-WEL
-            Taxes: TAX
-            Telecommunications: CMRC-COMMU
-            Transportation: TRANS
-            Veterans: VET
-            Water: RESOURCES-WA
-            Welfare: WEL
-            Other: OTH
+            Agriculture and Food: "72"
+            Budget: "14828"
+            Defense and Military: "10012"
+            Economy: "14819"
+            Education: "73"
+            Energy: "10177"
+            Environment: "14814"
+            Finance: "10219"
+            Foreign Relations: "10370"
+            Government Reform: "14820"
+            Health: "74"
+            Homeland Security: "14821"
+            Immigration: "10360"
+            Judicial: "14822"
+            Labor: "10390"
+            Second Amendment Rights: "14823"
+            Social Issues and Traditional Values: "14824"
+            Social Security and Medicare: "14825"
+            Taxes: "10493"
+            Telecommunications: "14826"
+            Transportation: "81"
+            Veterans: "14827"
+            Water: "10528"
+            Welfare: "10479"
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - value: Submit
+          selector: "#ctl00_ctl13_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Success
+      contains: Thank you for taking the time to write me.
