@@ -13,6 +13,9 @@ contact_form:
           selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit']"
     - find:
         - selector: "#ctl00_ctl22_FirstName"
     - fill_in:
