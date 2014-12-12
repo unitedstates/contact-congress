@@ -15,7 +15,7 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: "#emailForm #submit"
     - find:
         selector: "#prefix"
     - fill_in:
@@ -53,7 +53,7 @@ contact_form:
           required: true
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#contactForm #submit"
   success:
     headers:
       status: 200
