@@ -72,6 +72,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#submitButton"
+    -find:
+        - selector: "p"
+          value: "Your message has been successfully submitted!"
   success:
     headers:
       status: 200
