@@ -64,6 +64,14 @@ contact_form:
           options:
             "Yes, I want Mike to respond to my email.": "Y"
             "No, I do not want Mike to respond to my email.": "N"
+        - name: required-purpose
+          selector: "#required-purpose"
+          value: $TOPIC
+          required: true
+          options:
+            Give my opinion: CON.OPINION
+            Ask for help: CON.ASSIST
+            Invite Mike: CON.INVITE
     - uncheck:
         - name: subscribe
           selector: "#subscribe"

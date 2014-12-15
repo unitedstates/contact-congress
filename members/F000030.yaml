@@ -5,24 +5,24 @@ contact_form:
   steps:
     - visit: "https://forms.house.gov/farr/webforms/issue_subscribe.html"
     - fill_in:
-        - name: required-prefix
-          selector: "#prefix"
+        - name: required-PREFIX
+          selector: "#required-PREFIX"
           value: $NAME_PREFIX
           required: true
-        - name: required-firstname
-          selector: "#required-firstname"
+        - name: required-FIRSTNAME
+          selector: "#required-FIRSTNAME"
           value: $NAME_FIRST
           required: true
-        - name: required-lastname
-          selector: "#required-lastname"
+        - name: required-LASTNAME
+          selector: "#required-LASTNAME"
           value: $NAME_LAST
           required: true
-        - name: required-address1
-          selector: "#required-address1"
+        - name: required-ADDRESSLINE1
+          selector: "#required-ADDRESSLINE1"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "#required-city"
+        - name: required-CITY
+          selector: "#required-CITY"
           value: $ADDRESS_CITY
           required: true
         - name: required-zip5
@@ -33,21 +33,17 @@ contact_form:
           selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
-        - name: homephone
-          selector: "#homephone"
-          value: $PHONE
-          required: false
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: required-EMAILADDRESS
+          selector: "#required-EMAILADDRESS"
           value: $EMAIL
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: Message
+          selector: "#Message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#idRequiredIssue"
+        - name: required-ISSUE
+          selector: "#required-ISSUE"
           value: $TOPIC
           required: true
           options:
@@ -85,8 +81,11 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#mainbodyContentleft form input[type='submit'][value='Submit']"
+    - find:
+        - value: "Here"
+          selector: "a"
   success:
     headers:
       status: 200
     body:
-      contains: Your email should
+      contains: Thank you for contacting me

@@ -1,177 +1,131 @@
 bioguide: B001267
 contact_form:
-  method: POST
-  action: http://www.bennet.senate.gov/contact/email
+  method: post
+  action: /?p=contact
   steps:
-    - visit: http://www.bennet.senate.gov/contact/email
+    - visit: "http://www.bennet.senate.gov/?p=contact"
+    - find: 
+        - selector: "#gen-fieldid-3"
     - fill_in:
-      - name: first_name
-        selector: "#first_name"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: last_name
-        selector: "#last_name"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: mailing_streetaddress1
-        selector: "#mailing_streetaddress1"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: mailing_streetaddress2
-        selector: "#mailing_streetaddress2"
-        value: "$ADDRESS_STREET_2"
-      - name: mailing_city
-        selector: "#mailing_city"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: mailing_zipcode
-        selector: "#mailing_zipcode"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: phone
-        selector: "#phone"
-        value: "$PHONE"
-        required: Yes
-      - name: email_address
-        selector: "#email_signup"
-        value: "$EMAIL"
-        required: Yes
-      - name: verify_email
-        selector: "#email_verify"
-        value: "$EMAIL"
-        required: Yes
-      - name: subject
-        selector: "#subject"
-        value: "$SUBJECT"
-        required: Yes
-      - name: comments
-        selector: "#comments"
-        value: "$MESSAGE"
-        required: Yes
+        - name: firstName
+          selector: "#gen-fieldid-3"
+          value: $NAME_FIRST
+          required: true
+        - name: lastName
+          selector: "#gen-fieldid-5"
+          value: $NAME_LAST
+          required: true
+        - name: Address1
+          selector: "#gen-fieldid-7"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#gen-fieldid-11"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#gen-fieldid-15"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#gen-fieldid-17"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#gen-fieldid-19"
+          value: $EMAIL
+          required: true
+        - name: vemail
+          selector: "#gen-fieldid-21"
+          value: $EMAIL
+          required: true
+        - name: Subject
+          selector: "#gen-fieldid-25"
+          value: $SUBJECT
+          required: true
+        - name: msg
+          selector: "#gen-fieldid-27"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: salutation
-        selector: "#salutation"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          - "Mr."
-          - "Ms."
-          - "Mrs."
-          - "Miss"
-          - "Mr. and Mrs."
-          - "Dr."
-          - "Prof."
-          - "Senator"
-          - "Gov."
-          - "Congressman"
-          - "Hon."
-          - "Fr."
-          - "Sister"
-          - "Rabbi"
-          - "Reverend"
-          - "Fleet Admiral"
-          - "Admiral"
-          - "Vice Admiral"
-          - "Rear Admiral (upper half)"
-          - "Rear Admiral (lower half)"
-          - "Captain"
-          - "Commander"
-          - "Lieutenant Commander"
-          - "Lieutenant"
-          - "Lieutenant, Junior Grade"
-          - "Ensign"
-          - "Master Chief Petty Officer of the Navy"
-          - "Master Chief Petty Officer"
-          - "Senior Chief Petty Officer"
-          - "Chief Petty Officer"
-          - "Petty Officer First Class"
-          - "Petty Officer Second Class"
-          - "Petty Officer Third Class"
-          - "Seaman"
-          - "Seaman Apprentice"
-          - "Seaman Recruit"
-          - "Chief Warrant Officer"
-          - "Warrant Officer"
-          - "Sgt Major Of The Corps"
-          - "Sergeant Major"
-          - "Master Gunnery Sgt"
-          - "First Sergeant"
-          - "Master Sergeant"
-          - "Gunnery Sergeant"
-          - "Staff Sergeant"
-          - "Sergeant"
-          - "Corporal"
-          - "Lance Corporal"
-          - "Private First Class"
-          - "Private"
-          - "General of the Air Force"
-          - "General"
-          - "Lieutenant General"
-          - "Major General"
-          - "Brigadier General"
-          - "Colonel"
-          - "Lieutenant Colonel"
-          - "Major"
-          - "First Lieutenant"
-          - "Second Lieutenant"
-          - "Chief Master Sergeant of the Air Force"
-          - "Command  Chief Master Sergeant"
-          - "Chief Master Sergeant"
-          - "Senior Master Sergeant"
-          - "Technical Sergeant"
-          - "Senior Airman"
-          - "Airman First Class"
-          - "Airman"
-      - name: state
-        selector: "#state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: feedbackIssueSelector
-        selector: "#feedbackIssueSelector"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          - "Agriculture"
-          - "Animal Rights"
-          - "Appropriations"
-          - "Banking and Financial Services"
-          - "Budget and Fiscal Responsibility"
-          - "Civil Rights"
-          - "Defense and Military"
-          - "Economy and Commerce"
-          - "Education"
-          - "Energy"
-          - "Environment"
-          - "Finance"
-          - "Foreign Policy"
-          - "Government Affairs"
-          - "Health Care"
-          - "Homeland Security"
-          - "Housing"
-          - "Immigration"
-          - "International Trade"
-          - "Judiciary"
-          - "Labor"
-          - "Medicare and Medicaid"
-          - "Science and Technology"
-          - "Second Amendment"
-          - "Small Business"
-          - "Social Security"
-          - "Taxes"
-          - "Telecommunications"
-          - "Transportation"
-          - "Veterans Affairs"
-    - uncheck:
-      - name: newsletter
-        selector: "#newsletter"
-        value: "on"
-        required: Yes
+        - name: Prefix
+          selector: "#gen-fieldid-1"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "-- please select a prefix --": "null"
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Mr. and Mrs.: Mr. and Mrs.
+            Miss: Miss
+            Dr.: Dr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Dr. and Mr.: Dr. and Mr.
+            Admiral: Admiral
+            Captain: Captain
+            Chief Master Sergeant: Chief Master Sergeant
+            Colonel: Colonel
+            Commander: Commander
+            Corporal: Corporal
+            Father: Father
+            Lieutenant: Lieutenant
+            Lieutenant Colonel: Lieutenant Colonel
+            Master Sergeant: Master Sergeant
+            Reverend: Reverend
+            Sergeant: Sergeant
+            Second Lieutenant: Second Lieutenant
+            Sergeant Major: Sergeant Major
+            Sister: Sister
+            Technical Sergeant: Technical Sergeant
+        - name: Issue
+          selector: "#gen-fieldid-23"
+          value: $TOPIC
+          required: true
+          options:
+            "-- please select a topic --": "null"
+            Agriculture: Agriculture
+            Animal Rights: Animal Rights
+            Banking and Financial Services: Banking and Financial Services
+            Budget and Fiscal Responsibility: Budget and Fiscal Responsibility
+            Children and Families: Children and Families
+            Congratulatory or Commemorative Letter Requests: Congratulatory or Commemorative Letter Requests
+            Consumer Finance Protection Bureau: Consumer Finance Protection Bureau
+            Defense and Military: Defense and Military
+            Economy and Commerce: Economy and Commerce
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Finance: Finance
+            Foreign Policy: Foreign Policy
+            Government Affairs: Government Affairs
+            Health Care: Health Care
+            Housing: Housing
+            Homeland Security: Homeland Security
+            Immigration: Immigration
+            Indian Affairs: Indian Affairs
+            Interior: "Interior "
+            International Trade: International Trade
+            Judiciary: Judiciary
+            Labor: Labor
+            Medicare and Medicaid: Medicare and Medicaid
+            Postal Affairs: Postal Affairs
+            Second Amendment: Second Amendment
+            Science and Technology: Science and Technology
+            Small Business: Small Business
+            Social Security: Social Security
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Transportation: Transportation
+            Veterans Affairs: Veterans Affairs
+            U.S. Military Academies: U.S. Military Academies
+            "Women's Issues": "Women's Issues"
+            Other: Other
     - click_on:
-      - value: Submit
-        selector: "#form-contact .submit-button"
+        - value: Submit
+          selector: "form.-validate-form[name='thisForm'] input[name='formaction']"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting Senator"
+      contains: Thank you for submitting your comments.

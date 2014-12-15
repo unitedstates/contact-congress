@@ -1,53 +1,59 @@
 bioguide: L000570
 contact_form:
   method: post
-  action: "/htbin/formproc/lujan/contact_form_file.txt&display=/lujan/contact_thankyou.shtml"
+  action: /issue-subscribe/
   steps:
-    - visit: "https://forms.house.gov/lujan/contact-form.shtml"
+    - visit: "https://lujan.house.gov/issue-subscribe"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
-          required: true
-        - name: required-first
-          selector: "#required-first"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "#required-last"
-          value: $NAME_LAST
-          required: true
-        - name: required-address
-          selector: "#required-address"
-          value: $ADDRESS_STREET
-          required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: required-zip5
-          selector: "#zip5"
+        - name: zipcode
+          selector: "#zipcode"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "#contactForm input[name='zip4']"
+        - name: zipfour
+          selector: "#zipfour"
           value: $ADDRESS_ZIP4
           required: true
-        - name: required-email
-          selector: "#required-email"
+    - click_on:
+        - value: Go to Form
+          selector: input.button
+    - find:
+        - selector: "#prefix"
+    - fill_in:
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: emailaddress
+          selector: "#req_email"
           value: $EMAIL
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: true
+        - name: message
+          selector: "#message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#subject"
+        - name: issue
+          selector: "#issue"
           value: $TOPIC
           required: true
           options:
@@ -73,10 +79,10 @@ contact_form:
             Welfare: WEBWEL
             Other: WEBOTH
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit2']"
+        - value: Send Request
+          selector: "#submitButton"
   success:
     headers:
       status: 200
     body:
-      contains: has been submitted
+      contains: Thanks for subscribing to my issues

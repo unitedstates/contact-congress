@@ -1,65 +1,61 @@
 bioguide: S000510
 contact_form:
   method: post
-  action: /email-contact.aspx
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://adamsmith.house.gov/contact/contactform.htm" 
+    - visit: "https://adamsmith.house.gov/contact/email-me"
     - fill_in:
-        - name: required-prefix
-          selector: "form.migForm.zipform[name='contact'] input[name='required-prefix']"
-          value: $NAME_PREFIX
-          required: true
-        - name: required-first
-          selector: "form.migForm.zipform[name='contact'] input[name='required-first']"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "form.migForm.zipform[name='contact'] input[name='required-last']"
-          value: $NAME_LAST
-          required: true
-        - name: required-address
-          selector: "form.migForm.zipform[name='contact'] input[name='required-address']"
-          value: $ADDRESS_STREET
-          required: true
-        - name: required-city
-          selector: "form.migForm.zipform[name='contact'] input[name='required-city']"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zip5
-          selector: "form.migForm.zipform[name='contact'] input[name='zip5']"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "form.migForm.zipform[name='contact'] input[name='zip4']"
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
-        - name: required-phone
-          selector: "form.migForm.zipform[name='contact'] input[name='required-phone']"
-          value: $PHONE
+    - click_on:
+        - value: Go To Next Step
+          selector: "#emailForm #submit"
+    - find:
+        - selector: "#prefix"
+    - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
           required: true
-        - name: required-email
-          selector: "form.migForm.zipform[name='contact'] input[name='required-email']"
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: message
-          selector: "form.migForm.zipform[name='contact'] textarea[name='message']"
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
-    - select: []
     - click_on:
         - value: Send Email
-          selector: "form.migForm.zipform[name='contact'] input[name='submit']"
-    - find:
-        - selector: "form.activeForm.submit"
-    - click_on:
-        - value: Send Email
-          selector: "form.activeForm.submit input[name='submit']"
-    - find:
-        - selector: "span#ctl00_PageLink"
-          value: "Thank You"
+          selector: "#contactForm #submit"
   success:
     headers:
       status: 200
     body:
-      contains: Thank You
-
+      contains: "The following information has been submitted:"

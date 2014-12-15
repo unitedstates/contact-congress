@@ -1,167 +1,167 @@
 bioguide: S001183
 contact_form:
-  method: post
-  action: /contact-form/
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://schweikert.house.gov/contact-form"
+    - visit: "http://davidschweikert.house.gov/contact/"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go to Form
-          selector: "#zipauthform input.button"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#custom_form12"
+        - selector: "#ctl00_ctl16_FirstName"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: ctl00$ctl16$FirstName
+          selector: "#ctl00_ctl16_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: ctl00$ctl16$LastName
+          selector: "#ctl00_ctl16_LastName"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: ctl00$ctl16$Street
+          selector: "#ctl00_ctl16_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#req_city"
+        - name: ctl00$ctl16$City
+          selector: "#ctl00_ctl16_City"
           value: $ADDRESS_CITY
           required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: ctl00$ctl16$Zip
+          selector: "#ctl00_ctl16_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl16$Phone
+          selector: "#ctl00_ctl16_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl16$Email
+          selector: "#ctl00_ctl16_Email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
-        - name: subject
-          selector: "#req_subject"
+        - name: ctl00$ctl16$Subject
+          selector: "#ctl00_ctl16_Subject"
           value: $SUBJECT
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: ctl00$ctl16$Body
+          selector: "#ctl00_ctl16_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
+        - name: ctl00$ctl16$PrefixList
+          selector: "#ctl00_ctl16_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
+            - Mr.
+            - Mrs.
+            - Miss.
+            - Ms.
+            - Dr.
+        - name: ctl00$ctl16$State
+          selector: "#ctl00_ctl16_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            North Carolina: NC
-            Alaska: AK
-            Alabama: AL
-            Arkansas: AR
-            Arizona: AZ
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            District of Columbia: DC
-            Delaware: DE
-            Florida: FL
-            Georgia: GA
-            Hawaii: HI
-            Iowa: IA
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Massachusetts: MA
-            Maryland: MD
-            Maine: ME
-            Michigan: MI
-            Minnesota: MN
-            Missouri: MO
-            Mississippi: MS
-            Montana: MT
-            North Dakota: ND
-            Nebraska: NE
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            Nevada: NV
-            New York: NY
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Pennsylvania: PA
-            Puerto Rico: PR
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Virginia: VA
-            Vermont: VT
-            Washington: WA
-            Wisconsin: WI
-            West Virginia: WV
-            Wyoming: WY
-        - name: issue
-          selector: "#req_issue"
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl16$IssuesList
+          selector: "#ctl00_ctl16_IssuesList"
           value: $TOPIC
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Education: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            Government Issues: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            International Relations: WEBINT
-            Judicial: WEBJUD
-            Labor: WEBLAB
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Taxes: WEBTAX
-            Telecommunications: WEBTEL
-            Transportation: WEBTRA
-            Trade: WEBTRADE
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other Issues: WEBOTH
+            Agriculture: "72"
+            Budget: "14819"
+            Defense: "14820"
+            Education: "73"
+            Energy: "10177"
+            Environment: "14814"
+            Governmental Issues: "10250"
+            Health Care: "74"
+            Homeland security: "10175"
+            Immigration: "10360"
+            International Relations: "10370"
+            Judicial: "14821"
+            Labor: "10390"
+            Social Issues: "14822"
+            Social Security: "10483"
+            Taxation: "10493"
+            Telecommunications: "14823"
+            Trade: "10236"
+            Transportation: "81"
+            Veterans: "14824"
+            Welfare: "10479"
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
-    - find:
-        - value: "Thank you"
-          selector: "h1"
+        - value: Submit
+          selector: "#ctl00_ctl16_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: The following information was sent to us
-
+      contains: Thank you for taking the time to write me.
