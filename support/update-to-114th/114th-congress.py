@@ -35,7 +35,8 @@ with open("election_results_2014.csv",'r') as results:
                     print("New senator %s's bioguide ID not yet known" % row["new_member"])
                 else:
                     new_senators[row["new_id"]] = row["new_member"].strip()
-                    name_title_party = " ".join(["Sen.",row["new_member"],"({0}-{1})".format(row["winner_party"],row["state_abbrev"])])
+                
+                name_title_party = " ".join(["Sen.",row["new_member"],"({0}-{1})".format(row["winner_party"],row["state_abbrev"])])
                 
                 senators_114.append({"bioguide_id":row["new_id"],
                                 "name_title_party":name_title_party,
