@@ -140,6 +140,8 @@ row_template_no_web = "| [{bioguide_id}](https://github.com/unitedstates/contact
 
 
 with open("new_readme_table.md","w") as readme:
+    readme.write("| Bioguide ID | Website | Status |\n")
+    readme.write("|-------------|---------|:------------:|:------------:|\n")
     for member in all_members:
         if member["bioguide_id"] == "":
             readme.write(row_template_no_bg.format(**member))
