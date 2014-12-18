@@ -114,13 +114,13 @@ with open("../../README.md") as readme_file:
             name_title_party = cells[2].split("]")[0].strip().strip("[")
             lastname = name_title_party.split(" ")[-2]
             chamber = name_title_party.split(" ")[0]
-            website = cells[2].split("(")[1].strip().strip(")")
+            website = cells[2].split("(")[2].strip().strip(")")
             if bioguide_id not in departing_senators and chamber.lower() == "sen.":
                 senators_114.append({"bioguide_id":bioguide_id,
                                     "name_title_party":name_title_party,
                                     "lastname":lastname})
 
-            if bioguide_id in senators_114 or bioguide_id in reps_114 and website != "":
+            if (bioguide_id not in departing_senators and bioguide_id not in departing_reps) and website != "":
                 websites[bioguide_id] = website
 
 
@@ -146,7 +146,7 @@ with open("new_readme_table.md","w") as readme:
         if member["bioguide_id"] == "":
             readme.write(row_template_no_bg.format(**member))
         elif member["bioguide_id"] in websites:
-            member["website"] = websites["bioguide_id"]
+            member["website"] = websites[member["bioguide_id"]]
             readme.write(row_template.format(**member))
         else:
             readme.write(row_template_no_web.format(**member))
