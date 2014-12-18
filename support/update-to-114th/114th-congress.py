@@ -6,7 +6,7 @@ import os
 
 
 
-members_dir = "../../members_test"
+members_dir = "../../members"
 
 #find bioguide ids that need to be added and removed
 new_senators = {}
@@ -137,7 +137,9 @@ row_template_no_bg = "|  | {name_title_party} | |\n"
 row_template_no_web = "| [{bioguide_id}](https://github.com/unitedstates/contact-congress/blob/master/members/{bioguide_id}.yaml) | {name_title_party} | [![{bioguide_id} status](https://congressforms.eff.org/recent-fill-image/{bioguide_id})](http://efforg.github.io/congress-forms-test/?bioguide_id={bioguide_id})\n"
 
 
-with open("readme_temp.md","w") as readme:
+
+
+with open("new_readme_table.md","w") as readme:
     for member in all_members:
         if member["bioguide_id"] == "":
             readme.write(row_template_no_bg.format(**member))
