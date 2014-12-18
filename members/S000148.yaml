@@ -4,6 +4,16 @@ contact_form:
   action: /contact/email-chuck
   steps:
     - visit: "http://www.schumer.senate.gov/contact/email-chuck"
+    - select:
+        - name: actions
+          selector: "#actions"
+          value: opinion
+          required: false
+          options:
+            "--Select an Option--": select
+            Share your opinion or comments on bills or other issues: opinion
+            Request a flag to be flown over the Capitol: flag
+            Request help with a federal agency: federal_agency
     - find:
         - selector: "#fname"
     - fill_in:
@@ -48,15 +58,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: actions
-          selector: "#actions"
-          value: opinion
-          required: false
-          options:
-            "--Select an Option--": select
-            Share your opinion or comments on bills or other issues: opinion
-            Request a flag to be flown over the Capitol: flag
-            Request help with a federal agency: federal_agency
         - name: salutation
           selector: "#salutation"
           value: $NAME_PREFIX
