@@ -1,10 +1,21 @@
 #one-time script for getting rid of losing/retiring members from the 113th
 #and adding new 114th members
 
+
+#you will have to install githubpy by doing something like:
+#pip install githubpy
+#did not create requirements doc because this is one-time code.
+
 import csv
 import os
+import argparse
+import getpass
+from github import GitHub
 
-
+parser = argparse.ArgumentParser()
+parser.add_argument("--issues", action="store_true",
+        help="create github issues")
+args = parser.parse_args()
 
 members_dir = "../../members"
 
@@ -125,7 +136,7 @@ with open("../../README.md") as readme_file:
                 websites[bioguide_id] = website
 
 
-
+print(new_reps)
 
 
 #make a sorted list of dictionaries, senators then reps
@@ -152,5 +163,26 @@ with open("new_readme_table.md","w") as readme:
         else:
             readme.write(row_template_no_web.format(**member))
 
+if args.issues:
+    print("Only create github issues if you're sure you're ready")
+    print("The line actually creating issues is commented out to protect you from yourself")
+    print("So go uncomment it when you're really ready")
+    username = raw_input("Github username:")
+    password = getpass.getpass("Github password:")
 
+    gh = GitHub(username=username, password=password)
 
+    repo = gh.repos('unitedstates')('contact-congress')
+
+    for m in new_reps:
+        title = "[%s] Rep. %s" % (m, new_reps[m])
+        body = "Newly elected to 114th congress"
+        #repo.issues.post(title=title, body=body)
+
+    for m in new_senators:
+        title = "[%s] Sen. %s" % (m, new_reps[m])
+        body = "Newly elected to 114th congress"
+        #repo.issues.post(title=title, body=body)
+
+    #do we also want to create them for existing legislators in case they change anything?
+    ##the decision seems to be no for existing legislators right now.
