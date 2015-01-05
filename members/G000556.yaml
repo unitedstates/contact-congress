@@ -1,30 +1,22 @@
 bioguide: G000556
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "https://forms.house.gov/htbin/formproc_za/grayson/webforms/issue_subscribe_parm.txt&form=/grayson/webforms/issue_subscribe_verify.html"
   steps:
     - visit: "https://forms.house.gov/grayson/webforms/email-me.shtml"
     - fill_in:
-        - name: prefix
-          selector: "select[name='prefix']"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
-          selector: "input[name='required-first']"
+          selector: "#mainbodyContentleft form input[name='required-first']"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "input[name='required-last']"
+          selector: "#mainbodyContentleft form input[name='required-last']"
           value: $NAME_LAST
           required: true
         - name: required-address
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -54,6 +46,16 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: required-prefix
+          selector: "#mainbodyContentleft form select[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -102,7 +104,7 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "Y"
-          required: true
+          required: false
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
