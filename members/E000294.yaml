@@ -115,10 +115,11 @@ contact_form:
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
   - wait:
-    - value: 1
+    - value: 10
   - click_on: 
-    - value: Send Email to Representative Emmer
-      selector: "#contactForm #submit"
+    - selector: "#contactForm #submit"
+  - wait:
+    - value: 10
   - find: 
     - selector: "span.data"
   success: 
