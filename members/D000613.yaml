@@ -1,16 +1,34 @@
-bioguide: G000556
+bioguide: D000613
 contact_form:
   method: post
-  action: "https://forms.house.gov/htbin/formproc_za/grayson/webforms/issue_subscribe_parm.txt&form=/grayson/webforms/issue_subscribe_verify.html"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://forms.house.gov/grayson/webforms/email-me.shtml"
+    - visit: "https://dold.house.gov/contact/email"
     - fill_in:
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: "#emailForm #submit"
+    - find:
+        - selector: "#required-prefix"
+    - fill_in:
+        - name: prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
         - name: required-first
-          selector: "#mainbodyContentleft form input[name='required-first']"
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#mainbodyContentleft form input[name='required-last']"
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
         - name: required-address
@@ -21,14 +39,6 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
@@ -37,25 +47,11 @@ contact_form:
           selector: "#required-phone"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
-          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-prefix
-          selector: "#mainbodyContentleft form select[name='required-prefix']"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
-            - Dr.
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -68,12 +64,11 @@ contact_form:
             Budget and Economy: BUD
             Campaign Finance Reform: CFR
             Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
             Defense and Military: DEF
             Economy: ECON
             Education: EDU
             Energy: ENE
-            Environment: ENV
+            Environmental: ENV
             Federal Employees: FED
             Foreign Relations: FR
             Government Reform: GOV
@@ -83,10 +78,9 @@ contact_form:
             Housing and Urban Development: HUD
             Immigration: IMM
             International Relations: INT
-            Judiciary: JUD
+            Judicial: JUD
             Labor: LAB
             LGBT: LGBT
-            No Response Necessary: NRN
             Post Office: POST
             Science and Technology: SCI
             Social Issues: SOC
@@ -100,19 +94,19 @@ contact_form:
             Veterans: VET
             "Women's Issues": WOMEN
             Welfare: WEL
-            Other Issues: OTHER
+            Other Issue: OTH
         - name: required-response
           selector: "#required-response"
           value: "Y"
-          required: false
+          required: true
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#contactForm #submit"
   success:
     headers:
       status: 200
     body:
-      contains: Your email should automatically be sent in a few seconds.
+      contains: "Thank you"

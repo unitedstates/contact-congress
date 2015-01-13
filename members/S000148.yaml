@@ -1,103 +1,167 @@
 bioguide: S000148
 contact_form:
-  method: POST
-  action: webformActiondeplist.cfm
+  method: post
+  action: /contact/email-chuck
   steps:
-    - visit: http://www.schumer.senate.gov/Contact/contact_chuck.cfm
-    - fill_in:
-      - name: First
-        selector: "#First"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: Last
-        selector: "#Last"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: Addr1
-        selector: "#Addr1"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: Addr2
-        selector: "#Addr2"
-        value: "$ADDRESS_STREET_2"
-      - name: City
-        selector: "#City"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: Zip
-        selector: "#Zip"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-      - name: Zip
-        selector: "#Zip"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: Phone
-        selector: "#Phone"
-        value: "$PHONE"
-        required: Yes
-      - name: Email
-        selector: "#Email"
-        value: "$EMAIL"
-        required: Yes
-      - name: MSG
-        selector: "#MSG"
-        value: "$MESSAGE"
-        required: Yes
-      - name: SubjectOther
-        selector: "#SubjectOther"
-        value: ""
+    - visit: "http://www.schumer.senate.gov/contact/email-chuck"
     - select:
-      - name: Prefix
-        selector: "#thisForm select[name='Prefix']"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          " Mr. ": "Mr."
-          " Mrs. ": "Mrs."
-          " Ms. ": "Ms."
-          " Mr. and Mrs. ": "Mr. and Mrs."
-          " Dr. ": "Dr."
-          " Dr. and Mrs. ": "Dr. and Mrs."
-          " Reverend ": "Reverend"
-          " Sister ": "Sister"
-          " Pastor ": "Pastor"
-          " The Honorable ": "The Honorable"
-          " Representative ": "Representative"
-          " Senator ": "Senator"
-      - name: Issue
-        selector: "#Issue"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          "Agriculture": "AGRIC/AN"
-          "Banking": "BANKING"
-          "Children": "CHILDREN/ADP"
-          "Consumer Affairs": "CONSUMER AFFAIRS"
-          "Defense": "DEF"
-          "Education": "ED"
-          "Energy/Environment": "EN/ENV"
-          "Foreign Relations": "FR"
-          "Health": "HE"
-          "Emergency Response": "EMERSPON"
-          "Housing/Urban Development": "HOUSI/HUD"
-          "Judiciary": "JUD"
-          "Labor": "LABOR"
-          "Social Security": "SS"
-          "Taxes/Budget": "TAX/BUDGET"
-          "Transportation": "TRAN"
-          "Veterans": "VET"
-          "Welfare/Hunger": "WELF/HUN"
-      - name: Msub
-        selector: "#Subject"
-        value: "Other"
-        required: Yes
-        options: DEPENDENT
+        - name: actions
+          selector: "#actions"
+          value: opinion
+          required: false
+          options:
+            "--Select an Option--": select
+            Share your opinion or comments on bills or other issues: opinion
+            Request a flag to be flown over the Capitol: flag
+            Request help with a federal agency: federal_agency
+    - find:
+        - selector: "#fname"
+    - fill_in:
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: mailing_streetAddress1
+          selector: "#mailing_streetAddress1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: mailing_city
+          selector: "#mailing_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: mailing_zipCode
+          selector: "#mailing_zipCode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: home_phone_number
+          selector: "#home_phone_number"
+          value: $PHONE
+          required: true
+        - name: email_address
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: "#verify_email"
+          value: $EMAIL
+          required: true
+        - name: subjecttext
+          selector: "#subjecttext"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: salutation
+          selector: "#salutation"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Dr.
+        - name: state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "--": "null"
+            AK: AK
+            AL: AL
+            AR: AR
+            AZ: AZ
+            CA: CA
+            CO: CO
+            CT: CT
+            DC: DC
+            DE: DE
+            FL: FL
+            GA: GA
+            HI: HI
+            IA: IA
+            ID: ID
+            IL: IL
+            IN: IN
+            KS: KS
+            KY: KY
+            LA: LA
+            MA: MA
+            MD: MD
+            ME: ME
+            MI: MI
+            MN: MN
+            MO: MO
+            MS: MS
+            MT: MT
+            NC: NC
+            ND: ND
+            NE: NE
+            NH: NH
+            NJ: NJ
+            NM: NM
+            NV: NV
+            NY: NY
+            OH: OH
+            OK: OK
+            OR: OR
+            PA: PA
+            RI: RI
+            SC: SC
+            SD: SD
+            TN: TN
+            TX: TX
+            UT: UT
+            VA: VA
+            VT: VT
+            WA: WA
+            WI: WI
+            WV: WV
+            WY: WY
+        - name: subject
+          selector: "#subject"
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture
+            - Animal Welfare
+            - Banking
+            - Budget
+            - Campaigns and Elections
+            - Children
+            - Civil Rights
+            - Consumer Affairs
+            - Defense and Military
+            - Education
+            - Environment
+            - Federal Emergency Management
+            - Foreign Relations
+            - Health
+            - Homeland Security
+            - Housing
+            - Immigration
+            - Judiciary
+            - Labor
+            - Medicare and Medicaid
+            - Seniors
+            - Social Security
+            - Taxes
+            - Technology
+            - Telecommunications
+            - Transportation
+            - Veterans
+            - Other
     - click_on:
-      - value: Submit
-        selector: "#thisForm input[type='submit']"
+        - value: Send
+          selector: "#side-search-btn"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you"
+      contains: Thank you for contacting Senator Schumer.
