@@ -43,21 +43,11 @@ contact_form:
       selector: "#required-phone"
       value: $PHONE
       required: true
-  - select: 
-    - name: required-prefix
-      selector: "#required-prefix"
-      value: $NAME_PREFIX
+    - name: required-message
+      selector: "#required-message"
+      value: $MESSAGE
       required: true
-      options: 
-        Ms.: Ms.
-        Miss: Miss
-        Mrs.: Mrs.
-        Mr.: Mr.
-        Mr. and Mrs.: Mr. and Mrs.
-        Rev.: Rev.
-        Dr.: Dr.
-        The Honorable: The Honorable
-        Rabbi: Rabbi
+  - select: 
     - name: required-issue
       selector: "#required-issue"
       value: $TOPIC
@@ -103,13 +93,6 @@ contact_form:
         "Women's Issues": WOMEN
         Welfare: WEL
         Other Issues: OTHER
-    - name: required-response
-      selector: "#required-response"
-      value: Y
-      required: true
-      options: 
-        Yes, please contact me: Y
-        No, I wanted to voice my opinion: N
   - click_on: 
     - value: Send Email to Representative Emmer
       selector: "#contactForm #submit"
