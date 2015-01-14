@@ -16,13 +16,12 @@ contact_form:
   - click_on: 
     - value: Go To Next Step
       selector: "#emailForm #submit"
+  - click_on: 
+    - value: Go To Next Step
+      selector: "#emailForm #submit"
   - find: 
     - selector: "#required-prefix"
   - fill_in: 
-    - name: required-prefix
-      selector: "#required-prefix"
-      value: $NAME_PREFIX
-      required: true
     - name: required-first
       selector: "#required-first"
       value: $NAME_FIRST
@@ -52,6 +51,20 @@ contact_form:
       value: $MESSAGE
       required: true
   - select: 
+    - name: required-prefix
+      selector: "#required-prefix"
+      value: $NAME_PREFIX
+      required: true
+      options: 
+        Ms.: Ms.
+        Miss: Miss
+        Mrs.: Mrs.
+        Mr.: Mr.
+        Mr. and Mrs.: Mr. and Mrs.
+        Rev.: Rev.
+        Dr.: Dr.
+        The Honorable: The Honorable
+        Rabbi: Rabbi
     - name: required-issue
       selector: "#required-issue"
       value: $TOPIC
@@ -94,7 +107,7 @@ contact_form:
         Transportation: TRA
         Trade: TRADE
         Veterans: VET
-        Women's Issues: WOMEN
+        "Women's Issues": WOMEN
         Welfare: WEL
         Other Issues: OTHER
     - name: required-response
@@ -104,6 +117,9 @@ contact_form:
       options: 
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
+  - click_on: 
+    - value: Send Email to Representative Bishop
+      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
   - click_on: 
     - value: Send Email to Representative Bishop
       selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"

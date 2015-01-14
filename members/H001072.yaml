@@ -19,10 +19,6 @@ contact_form:
   - find: 
     - selector: "#ctl00_ctl09_FirstName"
   - fill_in: 
-    - name: ctl00$ctl09$PrefixList
-      selector: "#ctl00_ctl09_PrefixList"
-      value: $NAME_PREFIX
-      required: true
     - name: ctl00$ctl09$FirstName
       selector: "#ctl00_ctl09_FirstName"
       value: $NAME_FIRST
@@ -183,7 +179,7 @@ contact_form:
     - value: Submit
       selector: "#ctl00_ctl09_SubmitButton"
   - find: 
-    - selector: span#ctl00_ctl09_ConfirmationText
+    - selector: "span#ctl00_ctl09_ConfirmationText"
       value: Thank you
   success: 
     headers: 
