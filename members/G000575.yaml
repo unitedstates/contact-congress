@@ -115,11 +115,7 @@ contact_form:
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
   - click_on: 
-    - value: Send Email to Representative Graham
-      selector: "#contactForm #submit2"
-  - click_on: 
-    - value: Send Email to Representative Graham
-      selector: "#contactForm #submit2"
+    - selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
   success: 
     headers: 
       status: 200
