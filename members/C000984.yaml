@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
@@ -37,18 +37,6 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
@@ -71,55 +59,54 @@ contact_form:
             Ms.: Ms
             Mrs.: Mrs
             Mr.: Mr
-        - name: required-issue
-          selector: "#required-issue"
+        - name: required-topic
+          selector: "#required-topic"
+          value: Legislation
+          required: true
+          options:
+            Must Select One: blank
+            Legislative Concerns: Legislation
+            Casework Concerns: Casework
+            Scheduling Requests: Scheduling_Requests
+            Tour Requests: Tour_Requests
+        - name: legislation_concerns
+          selector: "#legislation_concerns"
           value: $TOPIC
           required: true
           options:
+            Please select One: " "
             Agriculture: AGR
             Animals: ANI
-            Arts and Humanities: ART
-            Badger Army Ammunition Plant: BAAP
-            Banking and Finance: BAN
-            Budget and Economy: BUD
+            "Arts/Entertainment/Humanities ": ART
+            "Banking\\Economy": BAN
+            "Budget/Appropriations\\Economy": BUD
             Campaign Finance Reform: CAMFIN
             Congress and Elections: CONG
-            District of Columbia--Tours: TOURS
-            Defense and Military: DEF
+            "Defense\\Military": DEF
             Education: EDU
-            Energy: ENG
+            Energy/Nuclear: ENG
             Environment: ENV
             Federal Employees: FED
             Foreign Relations: FOR
             Guns: GUNS
-            Health: HEALTH
-            Housing and Urban Development: HOU
+            Health Issues: HEALTH
             Immigration: IMM
-            Judiciary: JUD
-            Labor: LBR
+            "Judiciary, court issues": JUD
+            Labor Issues: LBR
             LGBT: LGBT
-            Post Office: POS
-            Science and Technology: SCI
-            Senior Citizens: SENIORS
-            Social Security: SOC
+            Postal: POS
+            Telecommunications/Broadcasting/TV: TEC
             Social Services: SOCISERV
-            Taxes: TAX
-            Telecommunications: TEC
+            Tax Issues: TAX
             Transportation: TRANS
-            Trade: TRADE
+            Trade Issues: TRADE
             Veterans: VET
-            "Women's Issues": WOMEN
-            Other Issues: OTHER
-    - check:
-        - name: speech
-          selector: "#speech_0"
-          value: Voice
     - click_on:
         - value: Send Email
           selector: "#submit"
     - find:
-        - selector: "h1#page-title-no-line"
-          value: "Thank You"
+        - value: The following information has been submitted
+          selector: "p"
   success:
     headers:
       status: 200
