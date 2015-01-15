@@ -1,73 +1,72 @@
 bioguide: B001260
 contact_form:
   method: post
-  action: /email-me/
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://buchanan.house.gov/email-me"
+    - visit: "http://buchanan.house.gov/contact"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go To Next Step
+          selector: "#submit"
+    - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+        - name: required-first
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: required-last
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: required-address
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
+        - name: address2
           selector: "#address2"
           value: $ADDRESS_STREET_2
           required: false
-        - name: city
-          selector: "#req_city"
+        - name: required-city
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#req_prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: issue
-          selector: "#req_issue"
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
             Agriculture: AGR
             Defense: DEF
-            Education: EDUC
+            Education: EDU
             Energy: ENE
             Environment: ENV
             Foreign Relations: FR
-            Government Affairs: GOVT
-            Healthcare: HE
+            Government Affairs: GOV
+            Healthcare: HEA
             Medicare: HE_MCARE
             Homeland Security: HOM
             Immigration: IMM
@@ -76,21 +75,21 @@ contact_form:
             Labor and Workforce: LAB
             Service Academy: ACAD
             Social Security: SSEC
-            Tours - Capitol: TOURS
+            Tours - Capital: TOURS
             Tours - White House: WHVIS
-            Transportation: TRANS
-            Trade: TRD
-            " Veterans Issues": VET
+            Transportation: TRA
+            Trade: TRADE
+            Veterans Issues: VET
             "Women's Issues": WOMEN
-            Other: No Issue Code
+            Other Issues: OTHER
     - click_on:
         - value: Send Email
-          selector: "#submitButton"
+          selector: "#submit"
     - find:
-        - selector: "h1"
-          value: "THANK YOU"
+        - value: The following information has been submitted
+          selector: "p"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted.
+      contains: The following information has been submitted
