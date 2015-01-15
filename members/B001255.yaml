@@ -107,7 +107,7 @@ contact_form:
           value: "<AFFL_DEL>Subscribe</AFFL_DEL>"
     - click_on:
         - value: Send Email
-          selector: "#submitButton"
+          selector: "form[action='/contact-me/'] #submitButton"
   success:
     headers:
       status: 200
