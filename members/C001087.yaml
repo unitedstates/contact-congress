@@ -182,6 +182,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit']"
+    - find:
+        - value: sending me
+          selector: "#ctl00_ctl14_ctl00_Text"
   success:
     headers:
       status: 200
