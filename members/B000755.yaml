@@ -117,6 +117,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl14_SubmitButton"
+    - find:
+        - value: Thank you
+          selector: "#ctl00_ctl14_ConfirmationText"
   success:
     headers:
       status: 200
