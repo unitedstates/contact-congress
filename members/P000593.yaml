@@ -91,6 +91,10 @@ contact_form:
         - value: Send Email
           selector: "#mainbodyContentleft form input[type='submit'][value='Send Email']"
     - find:
+        - selector: "#sbutton"
+    - click_on:
+        - selector: "#sbutton input[type='submit'][value='Submit']"
+    - find:
         - selector: "b"
           value: "Thank you"
   success:
