@@ -66,10 +66,6 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#article-content form input[type='submit'][value='Send Email']"
-    - find:
-      - selector: "#sbutton"
-    - click_on:
-      - selector: "#sbutton input[type='submit'][value='Submit']"
   success:
     headers:
       status: 200
