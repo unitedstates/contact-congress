@@ -1,118 +1,185 @@
 bioguide: C001094
 contact_form:
-  method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
-  steps:
-    - visit: "https://cook.house.gov/contact/email-me"
-    - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
-    - find:
-        - selector: "#contactForm"
-    - fill_in:
-        - name: prefix
-          selector: "#prefix"
+   method: post
+   action: "/forms/writeyourrep"
+   steps:
+     - visit: "https://cookforms.house.gov/contact/"
+     - fill_in:
+         - name: zip5
+           selector: ".zipform input[name='zip5']"
+           value: $ADDRESS_ZIP5
+           required: true
+         - name: zip4
+           selector: ".zipform input[name='zip4']"
+           value: $ADDRESS_ZIP4
+           required: true
+     - click_on:
+         - value: Submit
+           selector: ".zipform input[type='submit']"
+     - find:
+         - selector: "#aspnetForm"
+     - fill_in:
+         - name: ctl00$ctl12$FirstName
+           selector: "#ctl00_ctl12_FirstName"
+           value: $NAME_FIRST
+           required: true
+         - name: ctl00$ctl12$LastName
+           selector: "#ctl00_ctl12_LastName"
+           value: $NAME_LAST
+           required: true
+         - name: ctl00$ctl12$Street
+           selector: "#ctl00_ctl12_Street"
+           value: $ADDRESS_STREET
+           required: true
+         - name: ctl00$ctl12$City
+           selector: "#ctl00_ctl12_City"
+           value: $ADDRESS_CITY
+           required: true
+         - name: ctl00$ctl12$Email
+           selector: "#ctl00_ctl12_Email"
+           value: $EMAIL
+           required: true
+         - name: ctl00$ctl12$Phone
+           selector: "#ctl00_ctl12_Phone"
+           value: $PHONE
+           required: true
+         - name: ctl00$ctl12$Subject
+           selector: "#ctl00_ctl12_Subject"
+           value: $SUBJECT
+           required: true
+         - name: ctl00$ctl12$Body
+           selector: "#ctl00_ctl12_Body"
+           value: $MESSAGE
+           required: true
+     - select:
+        - name: ctl00$ctl12$PrefixList
+          selector: "#ctl00_ctl12_PrefixList"
           value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#required-first"
-          value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
-          value: $NAME_LAST
+      	  options:
+            "Mr.": "Mr."
+            "Mrs.": "Mrs."
+            "Honorable.": "Honorable."
+            "Dr.": "Dr."
+            "Ms.": "Ms."
+            "Miss": "Miss"
+      	- name: ctl00$ctl12$State
+          selector: "#ctl00_ctl12_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
-        - name: required-address
-          selector: "#required-address"
-          value: $ADDRESS_STREET
-          required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
-          value: $EMAIL
-          required: true
-        - name: required-phone
-          selector: "#required-phone"
-          value: $PHONE
-          required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
-          required: true
-        - name: required-message
-          selector: "#required-message"
-          value: $MESSAGE
-          required: true
-    - select:
-        - name: required-issue
-          selector: "#required-issue"
+          options:
+            "AL": "AL"
+            "AK": "AK"
+            "AZ": "AZ"
+            "AR": "AR"
+            "CA": "CA"
+            "CO": "CO"
+            "CT": "CT"
+            "DE": "DE"
+            "DC": "DC"
+            "FL": "FL"
+            "GA": "GA"
+            "HI": "HI"
+            "ID": "ID"
+            "IL": "IL"
+            "IN": "IN"
+            "IA": "IA"
+            "KS": "KS"
+            "KY": "KY"
+            "LA": "LA"
+            "ME": "ME"
+            "MD": "MD"
+            "MA": "MA"
+            "MI": "MI"
+            "MN": "MN"
+            "MS": "MS"
+            "MO": "MO"
+            "MT": "MT"
+            "NE": "NE"
+            "NV": "NV"
+            "NH": "NH"
+            "NJ": "NJ"
+            "NM": "NM"
+            "NY": "NY"
+            "NC": "NC"
+            "ND": "ND"
+            "OH": "OH"
+            "OK": "OK"
+            "OR": "OR"
+            "PA": "PA"
+            "RI": "RI"
+            "SC": "SC"
+            "SD": "SD"
+            "TN": "TN"
+            "TX": "TX"
+            "UT": "UT"
+            "VT": "VT"
+            "VA": "VA"
+            "WA": "WA"
+            "WV": "WV"
+            "WI": "WI"
+            "WY": "WY"
+            "AA": "AA"
+            "AE": "AE"
+            "AP": "AP"
+            "FM": "FM"
+            "GU": "GU"
+            "MH": "MH"
+            "MP": "MP"
+            "PR": "PR"
+            "VI": "VI"
+        - name: ctl00$ctl12$IssuesList
+          selector: "#ctl00_ctl12_IssuesList"
           value: $TOPIC
           required: true
           options:
-            Miscellaneous: MISC
-            Casework: CASE
-            No Response Necessary: NRN
-            Agriculture: AGR
-            Banking and Finance: BANK
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            Constitutional Issues: CONST-ISSUES
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
-            Health: HEA
-            Homeland Security: HOM
-            Housing and Urban Development: HUD
-            Immigration: IMM
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            Post Office: POST
-            Science and Technology: SCI
-            Social Issues: SOC
-            Social Security: SSEC
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRADE
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Welfare: WEL
-            Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
+            "None": ""
+            "Agriculture": "72"
+            "Animal Welfare": "9982"
+            "Casework": "14888"
+            "Constitutional Issues": "10055"
+            "Defense": "10012"
+            "Education": "73"
+            "Elections and Campaigns": "10095"
+            "Energy": "10177"
+            "Environment": "14814"
+            "Financial Services": "10219"
+            "Foreign Affairs": "10370"
+            "Government Reform": "10250"
+            "Health": "74"
+            "Homeland Security": "10168"
+            "Housing": "10346"
+            "Immigration": "10360"
+            "Internships": "14892"
+            "Judiciary": "10406"
+            "Labor": "10390"
+            "Media": "14900"
+            "Medicare and Social Security": "10471"
+            "Native Americans": "10424"
+            "Post Office": "14899"
+            "Pro Choice": "14890"
+            "Pro Life": "14891"
+            "Religion": "10039"
+            "Scheduling": "14898"
+            "Science and Technology": "10447"
+            "Social Issues": "10479"
+            "Taxes": "10493"
+            "Telecommunications": "14893"
+            "Tours": "14896"
+            "Trade": "10236"
+            "Transportation": "81"
+            "Veterans": "14897"
+            "Women's Issues": "14902"
+     - check:
+        - name: ctl00$ctl12$ReplyChoice
+          value: Respond
+          selector: "#ctl00_ctl12_ReplyChoice_0"
           required: true
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
-    - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit']"
-  success:
-    headers:
-      status: 200
-    body:
-      contains: "The following information has been submitted:"
+     - click_on:
+         - value: Submit
+           selector: "#ctl00_ctl12_SubmitButton"
+   success:
+     headers:
+       status: 200
+     body:
+       contains: "Thank you for taking the time to write me"
