@@ -1,0 +1,186 @@
+bioguide: C001095
+contact_form:
+  method: post
+  action: /content/contact-tom
+  steps:
+    - visit: "http://www.cotton.senate.gov/content/contact-tom"
+    - fill_in:
+        - name: "submitted[constituent_information][first_name]"
+          selector: "#edit-submitted-constituent-information-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: "submitted[constituent_information][last_name]"
+          selector: "#edit-submitted-constituent-information-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: "submitted[constituent_information][address_1]"
+          selector: "#edit-submitted-constituent-information-address-1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "submitted[constituent_information][city]"
+          selector: "#edit-submitted-constituent-information-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "submitted[constituent_information][zip]"
+          selector: "#edit-submitted-constituent-information-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "submitted[constituent_information][email]"
+          selector: "#edit-submitted-constituent-information-email"
+          value: $EMAIL
+          required: true
+        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
+          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
+          value: $SUBJECT
+          required: true
+        - name: "submitted[message_details][message]"
+          selector: "#edit-submitted-message-details-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: "submitted[constituent_information][prefix]"
+          selector: "#edit-submitted-constituent-information-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mrs.
+            - Reverend
+            - Sister
+            - Pastor
+            - The Honorable
+            - Representative
+            - Senator
+        - name: "submitted[constituent_information][state]"
+          selector: "#edit-submitted-constituent-information-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AA
+            - AE
+            - AP
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+        - name: "submitted[message_details][topic]"
+          selector: "#edit-submitted-message-details-topic"
+          value: $TOPIC
+          required: true
+          options:
+            - Abortion
+            - Adoption
+            - Aging
+            - Agriculture
+            - Animal Welfare
+            - Appropriations
+            - Banking
+            - Campaign Finance
+            - Children
+            - Civil Rights
+            - Commerce
+            - Communications
+            - Congratulations
+            - Congressional Issues
+            - Crime
+            - Defense
+            - Drugs
+            - Economy
+            - Education Higher
+            - Education K through 12
+            - Elections
+            - Energy
+            - Environment
+            - Family
+            - Food Stamps
+            - Foreign Affairs
+            - Gun Control
+            - Health
+            - Homeland Security
+            - Housing
+            - Immigration
+            - Inauguration
+            - Insurance Health
+            - Insurance Other
+            - Interior
+            - Iran
+            - Iraq
+            - Judiciary
+            - Labor
+            - Medicaid
+            - Medicare
+            - Military
+            - NASA
+            - Nutrition
+            - Other
+            - Patents
+            - Pensions
+            - Securities
+            - Small Business
+            - Social Security
+            - Taxes
+            - Tobacco
+            - Trade
+            - Transportation
+            - Veterans
+            - Welfare
+            - "Women's Issues"
+    - click_on:
+        - value: Submit
+          selector: "#webform-client-form-78 input[name='op']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you, your message has been received."
