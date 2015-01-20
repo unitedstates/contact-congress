@@ -44,11 +44,10 @@ contact_form:
     - select:
         - name: state
           selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
-          value: CA
+          value: "CA"
           options:
-            CA: CA
+            "CA": "CA"
         - name: issue
           selector: "#req_issue"
           value: $TOPIC
