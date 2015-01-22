@@ -16,9 +16,6 @@ contact_form:
   - click_on: 
     - value: Go To Next Step
       selector: "#emailForm #submit"
-  - click_on: 
-    - value: Go To Next Step
-      selector: "#emailForm #submit"
   - find: 
     - selector: "#required-prefix"
   - fill_in: 
@@ -117,9 +114,6 @@ contact_form:
       options: 
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
-  - click_on: 
-    - value: Send Email to Representative Jenkins
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
   - click_on: 
     - value: Send Email to Representative Jenkins
       selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
