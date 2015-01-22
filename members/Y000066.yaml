@@ -74,7 +74,6 @@ contact_form:
         Budget and Economy: BUD
         Campaign Finance Reform: CFR
         Congress and Elections: CONG
-        District of Columbia--Tours: TOUR
         Defense and Military: DEF
         Economy: ECON
         Education: EDU
@@ -107,13 +106,13 @@ contact_form:
         "Women's Issues": WOMEN
         Welfare: WEL
         Other Issues: OTHER
-    - name: required-response
-      selector: "#required-response"
-      value: Y
+    - name: email-or-postal
+      selector: "#email-or-postal"
+      value: "Respondviaemail"
       required: true
       options: 
-        Yes, please contact me: Y
-        No, I wanted to voice my opinion: N
+        Please contact me via postal mail: "Respondviau.s.mail"
+        Please contact me via email: Respondviaemail
   - click_on: 
     - value: Send Email to Representative Young
       selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
