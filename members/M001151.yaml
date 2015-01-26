@@ -30,7 +30,7 @@ contact_form:
           value: $ADDRESS_ZIP5
           required: true
         - name: emailaddress
-          selector: "#req_email"
+          selector: ".custom_form #req_email"
           value: $EMAIL
           required: true
         - name: message
@@ -87,7 +87,7 @@ contact_form:
             Other Issues: OTH
     - click_on:
         - value: Send Email
-          selector: "#submitButton"
+          selector: ".custom_form #submitButton"
     - find:
         - selector: "h1"
           value: "THANK YOU"
