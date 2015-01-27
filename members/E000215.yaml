@@ -1,125 +1,113 @@
 bioguide: E000215
 contact_form:
   method: post
-  action: /email-me/
+  action: "/htbin/formproc.pl?/eshoo/wp-content/themes/Eshoo/formfiles/contact.txt&display=/eshoo/wp-content/themes/Eshoo/formfiles/redirect.html&nobase&fpGetVer=2"
   steps:
-    - visit: "https://eshoo.house.gov/email-me/"
+    - visit: "http://eshoo.house.gov/contact/"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: salutation
+          selector: "#atform input[name='salutation']"
+          value: $NAME_PREFIX
+          required: true
+        - name: first_name
+          selector: "#atform input[name='first_name']"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: last_name
+          selector: "#atform input[name='last_name']"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: street_address
+          selector: "#atform input[name='street_address']"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#address2"
+        - name: street_address2
+          selector: "#atform input[name='street_address2']"
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: "#req_city"
+          selector: "#atform input[name='city']"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: zip_code
+          selector: "#atform input[name='zip_code']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: email
+          selector: "#email"
           value: $EMAIL
           required: true
-          options:
-            allows_plus: false
-        - name: phone
-          selector: "#req_phone"
+        - name: verify_email
+          selector: "#atform input[name='verify_email']"
+          value: $EMAIL
+          required: true
+        - name: primary_phone
+          selector: "#atform input[name='primary_phone']"
           value: $PHONE
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: con_message
+          selector: "#atform textarea[name='con_message']"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#req_prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
         - name: state
-          selector: "#req_state"
+          selector: "#atform select[name='state']"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-        - name: issue
-          selector: "#req_issue"
+            Alabama: AL
+            Alaska: AK
+            Arizona: AZ
+            Arkansas: AR
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            Delaware: DE
+            District of Columbia: DC
+            Florida: FL
+            Georgia: GA
+            Hawaii: HI
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Iowa: IA
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Maine: ME
+            Maryland: MD
+            Massachusetts: MA
+            Michigan: MI
+            Minnesota: MN
+            Mississippi: MS
+            Missouri: MO
+            Montana: MT
+            Nebraska: NE
+            Nevada: NV
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            New York: NY
+            North Carolina: NC
+            North Dakota: ND
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Pennsylvania: PA
+            Rhode Island: RI
+            South Carolina: SC
+            South Dakota: SD
+            Tennessee: TN
+            Texas: TX
+            Utah: UT
+            Vermont: VT
+            Virginia: VA
+            Washington: WA
+            West Virginia: WV
+            Wisconsin: WI
+            Wyoming: WY
+        - name: con_issue
+          selector: "#atform select[name='con_issue']"
           value: $TOPIC
           required: true
           options:
@@ -173,25 +161,18 @@ contact_form:
             "Women's Issues": WOMEN
             Academies: ACADEMIES
             Art Contest: ARTCONTEST
-            Casework/Constituent Services: CASEWORK
-            Flags: FLAGS
             Grants: GRANTS
-            "Visiting Washington, D.C. (Tours)": TOURS
             Public Works/Utilities: PUBLICWORKS
             Web Site Comments: WEB
             Miscellaneous/Other: MISCELLANEOUS
-    - uncheck:
-        - name: newsletter
-          selector: "#newsletter"
-          value: "<AFFL>EMAIL.OPTOUTe</AFFL>"
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - value: Submit
+          selector: "#atform input[type='submit'][value='Submit']"
     - find:
-        - selector: "h1"
-          value: "THANK YOU"
+        - value: Form Confirmation
+          selector: "h1.title"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted.
+      contains: Form Confirmation
