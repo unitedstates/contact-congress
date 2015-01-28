@@ -66,11 +66,11 @@ contact_form:
           captcha_id_selector: "#recaptcha_challenge_field"
           value: "$CAPTCHA_SOLUTION"
           required: true
+    - select:
         - name: required-response
           selector: "#required-response"
           value: "Y"
           required: true
-    - select:
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
