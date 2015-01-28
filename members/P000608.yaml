@@ -66,6 +66,10 @@ contact_form:
           captcha_id_selector: "#recaptcha_challenge_field"
           value: "$CAPTCHA_SOLUTION"
           required: true
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
     - select:
         - name: required-issue
           selector: "#required-issue"
@@ -112,10 +116,6 @@ contact_form:
             "Women's Issues": WOMEN
             Welfare: WEL
             Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
-          required: true
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
