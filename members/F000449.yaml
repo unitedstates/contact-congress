@@ -18,52 +18,52 @@ contact_form:
        selector: ".form-100 #submit"
    - fill_in:
      - name: prefix
-       selector: "#prefix"
+       selector: "#contactForm #prefix"
        value: $NAME_PREFIX
        required: false
      - name: required-first
-       selector: "#required-first"
+       selector: "#contactForm #required-first"
        value: $NAME_FIRST
        required: true
      - name: middle
-       selector: "#middle"
+       selector: "#contactForm #middle"
        value: $NAME_MIDDLE
        required: false
      - name: required-last
-       selector: "#required-last"
+       selector: "#contactForm #required-last"
        value: $NAME_LAST
        required: true
      - name: "suffix"
-       selector: "#suffix"
+       selector: "#contactForm #suffix"
        value: $NAME_SUFFIX
        required: false
      - name: required-address
-       selector: "#required-address"
+       selector: "#contactForm #required-address"
        value: $ADDRESS_STREET
        required: true
      - name: address2
-       selector: "#address2"
+       selector: "#contactForm #address2"
        value: $ADDRESS_STREET_2
        required: false
      - name: required-city
-       selector: "#required-city"
+       selector: "#contactForm #required-city"
        value: $ADDRESS_CITY
        required: true
      - name: required-valid-email
-       selector: "#required-valid-email"
+       selector: "#contactForm #required-valid-email"
        value: $EMAIL
        required: true
      - name: required-phone
-       selector: "#required-phone"
+       selector: "#contactForm #required-phone"
        value: $PHONE
        required: true
      - name: required-message
-       selector: "#required-message"
+       selector: "#contactForm #required-message"
        value: $MESSAGE
        required: true
    - select:
      - name: required-issue
-       selector: "#required-issue"
+       selector: "#contactForm #required-issue"
        value: $TOPIC
        required: true
        options:
@@ -95,7 +95,7 @@ contact_form:
          Welfare: WELF
          Other: OTHER
      - name: rquired-response
-       selector: "#required-response"
+       selector: "#contactForm #required-response"
        value: "Y"
        required: true
        options:
@@ -103,7 +103,7 @@ contact_form:
          "No, I wanted to voice my opinion": "N"
    - click_on:
      - value: Send Email
-       selector: "#submit"
+       selector: "#contactForm #submit"
    - find:
      - selector: "h1"
        value: "Email Me - Thank You"
