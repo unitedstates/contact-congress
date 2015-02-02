@@ -1,0 +1,162 @@
+bioguide: E000295
+contact_form:
+  method: post
+  action: /content/contact-joni
+  steps:
+    - visit: "http://www.ernst.senate.gov/content/contact-joni"
+    - fill_in:
+        - name: "submitted[constituent_information][first_name]"
+          selector: "#edit-submitted-constituent-information-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: "submitted[constituent_information][last_name]"
+          selector: "#edit-submitted-constituent-information-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: "submitted[constituent_information][address_1]"
+          selector: "#edit-submitted-constituent-information-address-1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "submitted[constituent_information][city]"
+          selector: "#edit-submitted-constituent-information-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "submitted[constituent_information][zip]"
+          selector: "#edit-submitted-constituent-information-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "submitted[constituent_information][email]"
+          selector: "#edit-submitted-constituent-information-email"
+          value: $EMAIL
+          required: true
+        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
+          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
+          value: $SUBJECT
+          required: true
+        - name: "submitted[message_details][message]"
+          selector: "#edit-submitted-message-details-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: "submitted[constituent_information][prefix]"
+          selector: "#edit-submitted-constituent-information-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mrs.
+            - Reverend
+            - Sister
+            - Pastor
+            - The Honorable
+            - Representative
+            - Senator
+        - name: "submitted[constituent_information][state]"
+          selector: "#edit-submitted-constituent-information-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AA
+            - AE
+            - AP
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+        - name: "submitted[message_details][topic]"
+          selector: "#edit-submitted-message-details-topic"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGR
+            Animal: ANI
+            Banking/Finance: BANKING/FINANCE
+            Budget: BUD
+            Business: BUS
+            Defense: DEF
+            Education: EDU
+            Energy: ENE
+            Environmental: ENV
+            Government Reform: GOV
+            Guns/2nd Amendment: GUNS/2ND AMENDMENT
+            Health: HEA
+            Homeland Security: HOM
+            Housing: HOU
+            Immigration: IMM
+            International Relations: INT
+            Judiciary: JUD
+            Labor: LAB
+            Life/Abortion: LIFE/ABORTION
+            Marriage: MARRIAGE
+            Medicare and Medicaid: MED
+            Other: OTHER
+            Pensions: PENSIONS
+            Seniors and Aging: SEN
+            Spending: SPENDING
+            Social Security: SSEC
+            Taxes: TAX
+            Technology: TECHNOLOGY
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRD
+            Veterans: VET
+            Welfare: WEL
+    - click_on:
+        - value: Submit
+          selector: "#webform-client-form-78 input[name='op']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you, your message has been received."
