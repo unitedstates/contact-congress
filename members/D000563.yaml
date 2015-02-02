@@ -6,47 +6,6 @@ contact_form:
     - visit: "http://www.durbin.senate.gov/public/index.cfm/contact"
     - find:
         - selector: "#field_c665e606-f6be-4edb-a3eb-430518253fb1"
-    - fill_in:
-        - name: field_c665e606-f6be-4edb-a3eb-430518253fb1
-          selector: "#field_c665e606-f6be-4edb-a3eb-430518253fb1"
-          value: $NAME_FIRST
-          required: true
-        - name: field_33204e97-654b-4845-8365-9c0f772da73c
-          selector: "#field_33204e97-654b-4845-8365-9c0f772da73c"
-          value: $NAME_LAST
-          required: true
-        - name: field_94e0df65-340f-4e9e-bb41-d4deb3fc8b0a
-          selector: "#field_94e0df65-340f-4e9e-bb41-d4deb3fc8b0a"
-          value: $ADDRESS_STREET
-          required: true
-        - name: field_a1dfef9b-56a9-4549-a3ca-3da3712e4096
-          selector: "#field_a1dfef9b-56a9-4549-a3ca-3da3712e4096"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: field_d96b4297-0daf-4130-95a9-ba662bee2d86
-          selector: "#field_d96b4297-0daf-4130-95a9-ba662bee2d86"
-          value: $ADDRESS_CITY
-          required: true
-        - name: field_e896bef6-e0a1-4e7c-9d5e-d776a721fecb
-          selector: "#field_e896bef6-e0a1-4e7c-9d5e-d776a721fecb"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: field_8f00acb6-41e5-4c2f-aabe-d8bdb8503393
-          selector: "#field_8f00acb6-41e5-4c2f-aabe-d8bdb8503393"
-          value: $PHONE
-          required: false
-        - name: field_7701ed87-ac1a-4fae-9362-b0d353039aa3
-          selector: "#field_7701ed87-ac1a-4fae-9362-b0d353039aa3"
-          value: $EMAIL
-          required: true
-        - name: field_0662ba25-2f2a-4eb5-aaa8-7d930ef4f81a
-          selector: "#field_0662ba25-2f2a-4eb5-aaa8-7d930ef4f81a"
-          value: $SUBJECT
-          required: false
-        - name: field_ccfdbe3a-7b46-4b3f-b920-20416836d599
-          selector: "#field_ccfdbe3a-7b46-4b3f-b920-20416836d599"
-          value: $MESSAGE
-          required: true
     - select:
         - name: field_64884fcf-9040-4d16-8feb-2535f7504254
           selector: "#field_64884fcf-9040-4d16-8feb-2535f7504254"
@@ -89,6 +48,48 @@ contact_form:
             - Senior Chief Petty Officer
             - Master Chief Petty Officer
             - Specialist
+    - fill_in:
+        - name: field_c665e606-f6be-4edb-a3eb-430518253fb1
+          selector: "#field_c665e606-f6be-4edb-a3eb-430518253fb1"
+          value: $NAME_FIRST
+          required: true
+        - name: field_33204e97-654b-4845-8365-9c0f772da73c
+          selector: "#field_33204e97-654b-4845-8365-9c0f772da73c"
+          value: $NAME_LAST
+          required: true
+        - name: field_94e0df65-340f-4e9e-bb41-d4deb3fc8b0a
+          selector: "#field_94e0df65-340f-4e9e-bb41-d4deb3fc8b0a"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_a1dfef9b-56a9-4549-a3ca-3da3712e4096
+          selector: "#field_a1dfef9b-56a9-4549-a3ca-3da3712e4096"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: field_d96b4297-0daf-4130-95a9-ba662bee2d86
+          selector: "#field_d96b4297-0daf-4130-95a9-ba662bee2d86"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_e896bef6-e0a1-4e7c-9d5e-d776a721fecb
+          selector: "#field_e896bef6-e0a1-4e7c-9d5e-d776a721fecb"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_8f00acb6-41e5-4c2f-aabe-d8bdb8503393
+          selector: "#field_8f00acb6-41e5-4c2f-aabe-d8bdb8503393"
+          value: $PHONE
+          required: false
+        - name: field_7701ed87-ac1a-4fae-9362-b0d353039aa3
+          selector: "#field_7701ed87-ac1a-4fae-9362-b0d353039aa3"
+          value: $EMAIL
+          required: true
+        - name: field_0662ba25-2f2a-4eb5-aaa8-7d930ef4f81a
+          selector: "#field_0662ba25-2f2a-4eb5-aaa8-7d930ef4f81a"
+          value: $SUBJECT
+          required: false
+        - name: field_ccfdbe3a-7b46-4b3f-b920-20416836d599
+          selector: "#field_ccfdbe3a-7b46-4b3f-b920-20416836d599"
+          value: $MESSAGE
+          required: true
+    - select:
         - name: field_a48143db-8960-4136-aa59-a276cae4f2fe
           selector: "#field_a48143db-8960-4136-aa59-a276cae4f2fe"
           value: $TOPIC
