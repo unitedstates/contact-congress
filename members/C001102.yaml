@@ -9,10 +9,6 @@ contact_form:
           selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: true
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
@@ -42,10 +38,6 @@ contact_form:
         - name: zip5
           selector: "#contact input[name='zip5']"
           value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#contact input[name='zip4']"
-          value: $ADDRESS_ZIP4
           required: true
         - name: required-email
           selector: "#contact input[name='required-email']"
@@ -94,12 +86,15 @@ contact_form:
             Welfare: WEBWEL
             Other Issues: WEBOTH
     - check:
-        - name: subscribe
-          selector: "#contact input[name='subscribe']"
-          value: subscribe
+        - name: response
+          selector: "#contact input[name='response']"
+          value: response
     - click_on:
         - value: Send Email
           selector: "#contact input[type='submit'][value='Send Email']"
+    - find: 
+        - selector: "#ctl00_PageLink"
+          value: "THANK YOU"
   success:
     headers:
       status: 200

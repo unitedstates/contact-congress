@@ -5,18 +5,8 @@ contact_form:
   steps:
     - visit: "https://ruiz.house.gov/email-me"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-    - click_on:
-        - value: Go to Form
-          selector: input.button
-    - find:
-        - selector: "#custom_form42"
-    - fill_in:
         - name: firstname
-          selector: "#req_firstname" 
+          selector: "#req_firstname"
           value: $NAME_FIRST
           required: true
         - name: lastname
@@ -27,10 +17,6 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
@@ -39,145 +25,111 @@ contact_form:
           selector: "#req_zip"
           value: $ADDRESS_ZIP5
           required: true
+        - name: zipfour
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
+        - name: subject
+          selector: "#req_subject"
+          value: $SUBJECT
+          required: true
         - name: message
           selector: "#req_message"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-            Other: Other
         - name: state
-          selector: "#req_state"
+          selector: "select[name='state']"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
+            CA: CA
+            CO: CO
+            CT: CT
+            DC: DC
+            DE: DE
+            FL: FL
+            GA: GA
+            HI: HI
+            IA: IA
+            ID: ID
+            IL: IL
+            IN: IN
+            KS: KS
+            KY: KY
+            LA: LA
+            MA: MA
+            MD: MD
+            ME: ME
+            MI: MI
+            MN: MN
+            MO: MO
+            MS: MS
+            MT: MT
+            NC: NC
+            ND: ND
+            NE: NE
+            NH: NH
+            NJ: NJ
+            NM: NM
+            NV: NV
+            NY: NY
+            OH: OH
+            OK: OK
+            OR: OR
+            PA: PA
+            PR: PR
+            RI: RI
+            SC: SC
+            SD: SD
+            TN: TN
+            TX: TX
+            UT: UT
+            VA: VA
+            VT: VT
+            WA: WA
+            WI: WI
+            WV: WV
+            WY: WY
         - name: issue
           selector: "#req_issue"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Animals: AN
-            Arts and Humanities: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
-            Health: HEA
-            Homeland Security: HOM
-            Housing and Urban Development: HUD
-            Immigration: IMM
-            International Relations: INT
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            No Response Necessary: NRN
-            Post Office: POST
-            Science and Technology: SCI
-            Social Issues: SOC
-            Senior Citizens: SENIORS
-            Social Security: SSEC
-            Social Services: SOC.SERVICES
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRADE
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Welfare: WEL
-            Other Issues: OTHER
-    - uncheck:
-        - selector: "#newsletter"
+            Agriculture: WEBAGR
+            Budget: WEBBUD
+            Defense: WEBDEF
+            Education: WEBEDU
+            Energy: WEBENE
+            Environmental: WEBENV
+            Government Issues: WEBGOV
+            Health: WEBHEA
+            Homeland Security: WEBHOM
+            Immigration: WEBIMM
+            International Relations: WEBINT
+            Judicial: WEBJUD
+            Labor: WEBLAB
+            Social Issues: WEBSOC
+            Social Security: WEBSSEC
+            Taxes: WEBTAX
+            Telecommunications: WEBTEL
+            Transportation: WEBTRA
+            Trade: WEBTRADE
+            Veterans: WEBVET
+            Welfare: WEBWEL
+            Other Issues: WEBOTH
     - click_on:
         - value: Send Email
           selector: "#submitButton"
     - find:
         - selector: "h1"
-          value: "Thank you"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted.
+      contains: Thank you for your input.

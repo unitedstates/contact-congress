@@ -1,55 +1,76 @@
 bioguide: B001257
 contact_form:
   method: post
-  action: /email-congressman-bilirakis/
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://bilirakis.house.gov/email-congressman-bilirakis/"
+    - visit: "http://bilirakis.house.gov/email-congressman-bilirakis"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
+        - name: zip4
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
-        - value: Go to Form
-          selector: "#zipauthform input.button"
+        - value: Go To Next Step
+          selector: "#submit"
     - find:
-        - selector: "#custom_form24"
+        - selector: "#prefix"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: required-first
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: required-last
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: required-address
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#req_city"
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phn
-          selector: "#req_phn"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: issue
-          selector: "#req_issue"
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Mr.: "Mr. "
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
@@ -74,18 +95,14 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other: WEBOTH
-    - uncheck:
-        - name: newsletter
-          selector: "#newsletter"
-          value: "<AFFL>EMAIL.OPTIN</AFFL>"
     - click_on:
         - value: Send Email
-          selector: "#submitButton"
+          selector: "#submit"
     - find:
-        - selector: "h1"
-          value: "Thank you"
+        - value: The following information has been submitted
+          selector: "p"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for your correspondence,"
+      contains: The following information has been submitted

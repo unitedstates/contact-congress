@@ -1,51 +1,57 @@
 bioguide: B001243
 contact_form:
-  method: get
-  action: /ContactForm/Email.htm
+  method: post
+  action: ""
   steps:
-    - visit: "https://blackburn.house.gov/contactform/email.htm"
-    - find: 
-        - selector: "#TB_title"
-    - click_on:
-        - selector: "#TB_closeWindowButton"
-    - find:
-        - selector: "form.zipform"
+    - visit: "https://blackburn.house.gov/forms/writeyourrep/"
     - fill_in:
-        - name: required-first
-          selector: "form.zipform input[name='required-first']"
+        - name: ctl00$ctl03$FirstName
+          selector: "#ctl00_ctl03_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "form.zipform input[name='required-last']"
+        - name: ctl00$ctl03$LastName
+          selector: "#ctl00_ctl03_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "form.zipform input[name='required-address']"
+        - name: ctl00$ctl03$Street
+          selector: "#ctl00_ctl03_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "form.zipform input[name='required-city']"
+        - name: ctl00$ctl03$City
+          selector: "#ctl00_ctl03_City"
           value: $ADDRESS_CITY
           required: true
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
+        - name: ctl00$ctl03$Zip
+          selector: "#ctl00_ctl03_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: required-phone
-          selector: "form.zipform input[name='required-phone']"
+        - name: ctl00$ctl03$Phone
+          selector: "#ctl00_ctl03_Phone"
           value: $PHONE
           required: true
-        - name: required-email
-          selector: "form.zipform input[name='required-email']"
+        - name: ctl00$ctl03$Email
+          selector: "#ctl00_ctl03_Email"
           value: $EMAIL
           required: true
-        - name: required-message
-          selector: "form.zipform textarea[name='required-message']"
+        - name: ctl00$ctl03$Subject
+          selector: "#ctl00_ctl03_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl03$Body
+          selector: "#ctl00_ctl03_Body"
           value: $MESSAGE
           required: true
+        - name: ctl00$ctl03$CampaignID
+          selector: "#ctl00_ctl03_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl03$CampaignInfo
+          selector: "#ctl00_ctl03_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
     - select:
-        - name: required-prefix
-          selector: "form.zipform select[name='required-prefix']"
+        - name: ctl00$ctl03$PrefixList
+          selector: "#ctl00_ctl03_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -53,46 +59,46 @@ contact_form:
             - Mrs.
             - Ms.
             - Miss
-        - name: required-state
-          selector: "form.zipform select[name='required-state']"
-          value: TN
+        - name: ctl00$ctl03$State
+          selector: "#ctl00_ctl03_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            - AK
             - AL
-            - AR
+            - AK
             - AZ
+            - AR
             - CA
             - CO
             - CT
-            - DC
             - DE
+            - DC
             - FL
             - GA
             - HI
-            - IA
             - ID
             - IL
             - IN
+            - IA
             - KS
             - KY
             - LA
-            - MA
-            - MD
             - ME
+            - MD
+            - MA
             - MI
             - MN
-            - MO
             - MS
+            - MO
             - MT
-            - NC
-            - ND
             - NE
+            - NV
             - NH
             - NJ
             - NM
-            - NV
             - NY
+            - NC
+            - ND
             - OH
             - OK
             - OR
@@ -103,48 +109,53 @@ contact_form:
             - TN
             - TX
             - UT
-            - VA
             - VT
+            - VA
             - WA
-            - WI
             - WV
+            - WI
             - WY
-        - name: required-issue
-          selector: "form.zipform select[name='required-issue']"
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl03$IssuesList
+          selector: "#ctl00_ctl03_IssuesList"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Budget: BUD
-            Defense: DEF
-            Economy: FINAN
-            Education: ED
-            Energy: E
-            Environment: ENV
-            Foreign Affairs: FA
-            Government Reform: GOVREF
-            Health: HEA
-            Immigration: IM
-            Judiciary: JUD
-            LABOR: LAB
-            Social Issues: SOC
-            Social Security: SS
-            Telecommunications: TEL
-            Taxes: TAX
-            Tours: TOURS
-            Trade: TRADE
-            Transportation: TRANS
-            Veterans: VA
-            Welfare: WELF
-            Other: OTH
+            Agriculture: "43379"
+            Budget: "43380"
+            Defense: "43381"
+            Economy and Job Creation: "4389"
+            Education: "43392"
+            "Energy ": "3784"
+            Environment: "43393"
+            Foreign Affairs: "43383"
+            Government Reform: "43384"
+            Health Care: "3646"
+            Immigration Reform: "3778"
+            Judiciary: "43385"
+            Labor: "43386"
+            Social Issues: "43387"
+            Social Security: "43388"
+            Taxes and Spending: "3652"
+            Telecommunications: "43389"
+            Trade: "43390"
+            Transportation: "43391"
     - click_on:
-        - value: "Send Email"
-          selector: "form.zipform input[type='submit']"
+        - value: Submit
+          selector: "#ctl00_ctl03_SubmitButton"
     - find:
-        - selector: "span#ctl00_PageLink"
-          value: "Thank You"
+        - value: Thank you
+          selector: "#ctl00_ctl03_ConfirmationText"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting my office"
+      contains: Thank you for taking the time to contact me.

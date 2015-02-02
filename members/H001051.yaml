@@ -1,174 +1,130 @@
 bioguide: H001051
 contact_form:
-  method: post
-  action: /email-me/
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://hanna.house.gov/email-me"
+    - visit: "http://hannaforms.house.gov/contact/"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
-        - value: Go to Form
-          selector: "#zipauthform input.button"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#req_firstname"
+        - selector: "#ctl00_ctl13_FirstName"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: ctl00$ctl13$FirstName
+          selector: "#ctl00_ctl13_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: ctl00$ctl13$LastName
+          selector: "#ctl00_ctl13_LastName"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: ctl00$ctl13$Street
+          selector: "#ctl00_ctl13_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#req_city"
+        - name: ctl00$ctl13$City
+          selector: "#ctl00_ctl13_City"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: ctl00$ctl13$Zip
+          selector: "#ctl00_ctl13_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
-        - name: emailaddress
-          selector: "#req_email"
+        - name: ctl00$ctl13$Phone
+          selector: "#ctl00_ctl13_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl13$Email
+          selector: "#ctl00_ctl13_Email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
-        - name: subject
-          selector: "#req_subject"
+        - name: ctl00$ctl13$Subject
+          selector: "#ctl00_ctl13_Subject"
           value: $SUBJECT
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: ctl00$ctl13$Body
+          selector: "#ctl00_ctl13_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
+        - name: ctl00$ctl13$PrefixList
+          selector: "#ctl00_ctl13_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-        - name: issue
-          selector: "#req_issue"
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Dr.
+        - name: ctl00$ctl13$IssuesList
+          selector: "#ctl00_ctl13_IssuesList"
           value: $TOPIC
           required: true
           options:
-            "Agriculture & Food": AG
-            Banking and Finance: BANK
-            Budget: BUDG
-            Defense and Military: MIL
-            Education: ED
-            Energy: EN
-            Environment: ENVR
-            Foreign Relations: FR
-            Government Reform: GOV
-            Health Care: HE
-            Immigration: IM
-            "Jobs & Economy": JOB
-            Labor: LABR
-            Science and Technology: SCIE
-            Second Amendment: SECAMD
-            Senior Citizens: SENR
-            "Social Security & Medicare": SEC
-            Taxes: TAXS
-            Transportation: TRAN
-            Trade: TRAD
-            Veterans: VETR
-            "Women & Children": WOM
-    - uncheck:
-        - selector: "#newsletter"
+            "": "14868"
+            Abortion: "14863"
+            Agriculture: "14819"
+            Animal: "14820"
+            Arts Programming: "14821"
+            Budget and Appropriations: "14822"
+            Consumer Safety Concerns: "14824"
+            Defense: "14825"
+            Economy and Jobs: "14826"
+            Education: "14827"
+            Energy Concerns: "14828"
+            Environment: "14841"
+            Executive Branch Related: "14831"
+            Federal Emergency Management Agency: "14832"
+            Financial Services: "14833"
+            Foreign Affairs: "14834"
+            Fracking: "14830"
+            Government Reform: "14835"
+            Guns: "14836"
+            Health: "14837"
+            Homeland Security: "14838"
+            Housing: "14839"
+            Immigration Concerns: "14840"
+            Intelligence / NSA Matters: "14854"
+            Judiciary: "14856"
+            Labor: "14857"
+            Libraries and Museums: "14858"
+            Medicaid Concerns: "14859"
+            Medicare Concerns: "14860"
+            Native American Issues: "14861"
+            Pensions: "14862"
+            Postal Issues: "14875"
+            Religion: "14864"
+            Science: "14865"
+            Senior Citizens: "14866"
+            Small Business: "14867"
+            TAX - Taxes: "14930"
+            Technology: "14870"
+            Telecommunications: "14871"
+            Trade: "14873"
+            Transportation: "14872"
+            Tricare and DOD Health Concerns: "14874"
+            Veterans: "14876"
+            Welfare and Social Programs: "14877"
+            "Women's Issues": "14878"
+    - check:
+        - name: ctl00$ctl13$ReplyChoice
+          selector: "#ctl00_ctl13_ReplyChoice_0"
+          value: Respond
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - value: Submit
+          selector: "#ctl00_ctl13_SubmitButton"
     - find:
-        - selector: "h1"
-          value: "THANK YOU"
+        - value: Your message has been successfully submitted.
+          selector: "span#ctl00_ctl13_ConfirmationText"
   success:
     headers:
       status: 200

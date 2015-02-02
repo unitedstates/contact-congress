@@ -140,8 +140,11 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submitButton"
+    - find:
+        - value: THANK YOU
+          selector: "h1"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted
+      contains: THANK YOU

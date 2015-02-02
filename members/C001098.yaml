@@ -176,6 +176,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#block5 form input[name='formaction']"
+    - find:
+        - value: "Thank you! Your message has been sent."
+          selector: "p"
   success:
     headers:
       status: 200

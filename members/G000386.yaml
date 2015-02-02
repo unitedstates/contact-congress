@@ -1,66 +1,66 @@
 bioguide: G000386
 contact_form:
   method: post
-  action: /constituents/questions-and-comments
+  action: /form_process/questions-and-comments-thank-you
   steps:
     - visit: "http://www.grassley.senate.gov/constituents/questions-and-comments"
     - fill_in:
-        - name: "submitted[first_name]"
-          selector: "#edit-submitted-first-name"
+        - name: "first"
+          selector: "#first"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[last_name]"
-          selector: "#edit-submitted-last-name"
+        - name: "last"
+          selector: "#last"
           value: $NAME_LAST
           required: true
-        - name: "submitted[address]"
-          selector: "#edit-submitted-address"
+        - name: "addr1"
+          selector: "#addr1"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[address_2]"
-          selector: "#edit-submitted-address-2"
+        - name: "addr2"
+          selector: "#addr2"
           value: $ADDRESS_STREET_2
           required: false
-        - name: "submitted[city]"
-          selector: "#edit-submitted-city"
+        - name: "city"
+          selector: "#city"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[zip]"
-          selector: "#edit-submitted-zip"
+        - name: "zip"
+          selector: "#zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[email]"
-          selector: "#edit-submitted-email"
+        - name: "email"
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: "submitted[home_phone]"
-          selector: "#edit-submitted-home-phone"
+        - name: "phone"
+          selector: "#phone"
           value: $PHONE
           required: false
-        - name: "submitted[subject]"
-          selector: "#edit-submitted-subject"
+        - name: "subject"
+          selector: "#subject"
           value: $SUBJECT
           required: true
-        - name: "submitted[message]"
-          selector: "#edit-submitted-message"
+        - name: "message"
+          selector: "#message"
           value: $MESSAGE
           required: true
     - select:
-        - name: "submitted[prefix]"
-          selector: "#edit-submitted-prefix"
+        - name: "prefix"
+          selector: "#prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "1"
-            Mrs.: "2"
-            Ms.: "3"
-            Miss: "4"
-            Dr.: "5"
-            Rev.: "6"
-            Mr. and Mrs.: "7"
-            Sister: "8"
-        - name: "submitted[state]"
-          selector: "#edit-submitted-state"
+            Mr.: "Mr."
+            Mrs.: "Mrs."
+            Ms.: "Ms."
+            Miss: "Miss"
+            Dr.: "Dr."
+            Rev.: "Rev."
+            Mr. and Mrs.: "Mr. and Mrs."
+            Sister: "Sister"
+        - name: "state"
+          selector: "#state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -124,9 +124,9 @@ contact_form:
             Wyoming: WY
     - click_on:
         - value: Send Message
-          selector: "#edit-submit"
+          selector: "input[type='submit'][value='Send Message']"
   success:
     headers:
       status: 200
     body:
-      contains: Thanks for your submission
+      contains: Thanks you for your submission
