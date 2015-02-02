@@ -57,34 +57,6 @@ contact_form:
           selector: "#input_6_12"
           value: $MESSAGE
           required: true
-    - select:
-        - name: input_9
-          selector: "#input_6_9"
-          value: $TOPIC
-          required: false
-          options:
-            Agriculture: AGRA
-            Animals: AN
-            Banking and Finance: BANK
-            Defense: DEF
-            Education: EDU
-            Elections: CFR
-            Energy/Environment: ENV
-            Foreign Affairs: FOREIGN
-            Guns: GUN
-            Health Care: HEA
-            Labor: LAB
-            Postal Issues: POST
-            Social Issues: SOC
-            Social Security/Medicare: SSEC
-            Taxes: TAX
-            Transportation: TRA
-            Veterans: VET
-            "Women's Issues": WOMEN
-    - check:
-        - name: input_13.1
-          selector: "#choice_6_13_1"
-          value: "I would like to subscribe to Representative Kildee's newsletter"
     - click_on:
         - value: Send Email
           selector: "#gform_submit_button_6"
