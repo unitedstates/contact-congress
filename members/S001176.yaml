@@ -17,43 +17,43 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#ctl00_ctl10_FirstName"
+        - selector: "#ctl00_ctl06_FirstName"
     - fill_in:
-        - name: ctl00$ctl10$FirstName
-          selector: "#ctl00_ctl10_FirstName"
+        - name: ctl00$ctl06$FirstName
+          selector: "#ctl00_ctl06_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl10$LastName
-          selector: "#ctl00_ctl10_LastName"
+        - name: ctl00$ctl06$LastName
+          selector: "#ctl00_ctl06_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl10$Street
-          selector: "#ctl00_ctl10_Street"
+        - name: ctl00$ctl06$Street
+          selector: "#ctl00_ctl06_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl10$City
-          selector: "#ctl00_ctl10_City"
+        - name: ctl00$ctl06$City
+          selector: "#ctl00_ctl06_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl10$Zip
-          selector: "#ctl00_ctl10_Zip"
+        - name: ctl00$ctl06$Zip
+          selector: "#ctl00_ctl06_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl10$Email
-          selector: "#ctl00_ctl10_Email"
+        - name: ctl00$ctl06$Email
+          selector: "#ctl00_ctl06_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl10$Subject
-          selector: "#ctl00_ctl10_Subject"
+        - name: ctl00$ctl06$Subject
+          selector: "#ctl00_ctl06_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl10$Body
-          selector: "#ctl00_ctl10_Body"
+        - name: ctl00$ctl06$Body
+          selector: "#ctl00_ctl06_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl10$PrefixList
-          selector: "#ctl00_ctl10_PrefixList"
+        - name: ctl00$ctl06$PrefixList
+          selector: "#ctl00_ctl06_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -61,8 +61,8 @@ contact_form:
             - Mrs.
             - Dr.
             - Ms.
-        - name: ctl00$ctl10$State
-          selector: "#ctl00_ctl10_State"
+        - name: ctl00$ctl06$State
+          selector: "#ctl00_ctl06_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -126,8 +126,8 @@ contact_form:
             - MP
             - PR
             - VI
-        - name: ctl00$ctl10$IssuesList
-          selector: "#ctl00_ctl10_IssuesList"
+        - name: ctl00$ctl06$IssuesList
+          selector: "#ctl00_ctl06_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -143,12 +143,12 @@ contact_form:
             Taxes and Economy: "120517"
             "Veterans' Affairs": "120518"
     - check:
-        - name: ctl00$ctl10$ReplyChoice
-          selector: "#ctl00_ctl10_ReplyChoice_0"
+        - name: ctl00$ctl06$ReplyChoice
+          selector: "#ctl00_ctl06_ReplyChoice_0"
           value: Respond
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl10_SubmitButton"
+          selector: "#ctl00_ctl06_SubmitButton"
   success:
     headers:
       status: 200
