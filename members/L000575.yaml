@@ -25,6 +25,10 @@ contact_form:
           selector: "#edit-submitted-constituent-information-zip"
           value: $ADDRESS_ZIP5
           required: true
+        - name: "submitted[constituent_information][phone]"
+          selector: "#edit-submitted-constituent-information-phone"
+          value: $PHONE
+          required: false
         - name: "submitted[constituent_information][email]"
           selector: "#edit-submitted-constituent-information-email"
           value: $EMAIL
@@ -63,57 +67,57 @@ contact_form:
             - AA
             - AE
             - AP
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
+            - Alabama
+            - Alaska
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District Of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
         - name: "submitted[message_details][topic]"
           selector: "#edit-submitted-message-details-topic"
           value: $TOPIC
@@ -179,8 +183,11 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#webform-client-form-78 input[name='op']"
+    - find:
+        - value: Thank you
+          selector: "p"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: Thank you
