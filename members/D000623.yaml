@@ -109,6 +109,9 @@ contact_form:
   - click_on: 
     - value: Send Email to Representative DeSaulnier
       selector: "#contactForm #submit"
+  - find:
+    - value: Thank you
+      selector: "p"
   success: 
     headers: 
       status: 200
