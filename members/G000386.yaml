@@ -5,128 +5,127 @@ contact_form:
   steps:
     - visit: "http://www.grassley.senate.gov/constituents/questions-and-comments"
     - fill_in:
-        - name: "first"
+        - name: first
           selector: "#first"
           value: $NAME_FIRST
           required: true
-        - name: "last"
+        - name: last
           selector: "#last"
           value: $NAME_LAST
           required: true
-        - name: "addr1"
+        - name: Email
+          selector: "#email"
+          value: $EMAIL
+          required: false
+        - name: addr1
           selector: "#addr1"
           value: $ADDRESS_STREET
           required: true
-        - name: "addr2"
+        - name: addr2
           selector: "#addr2"
           value: $ADDRESS_STREET_2
           required: false
-        - name: "city"
+        - name: city
           selector: "#city"
           value: $ADDRESS_CITY
           required: true
-        - name: "zip"
+        - name: zip
           selector: "#zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "email"
-          selector: "#email"
-          value: $EMAIL
-          required: true
-        - name: "phone"
+        - name: phone
           selector: "#phone"
           value: $PHONE
           required: false
-        - name: "subject"
+        - name: subject
           selector: "#subject"
           value: $SUBJECT
           required: true
-        - name: "message"
+        - name: message
           selector: "#message"
           value: $MESSAGE
           required: true
     - select:
-        - name: "prefix"
+        - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr."
-            Mrs.: "Mrs."
-            Ms.: "Ms."
-            Miss: "Miss"
-            Dr.: "Dr."
-            Rev.: "Rev."
-            Mr. and Mrs.: "Mr. and Mrs."
-            Sister: "Sister"
-        - name: "state"
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+            - Rev.
+            - Mr. and Mrs.
+            - Sister
+        - name: state
           selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          value: $ADDRESS_STATE_FULL
           required: true
           options:
-            Alabama: AL
-            Alaska: AK
-            American Samoa: AS
-            Arizona: AZ
-            Arkansas: AR
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            Delaware: DE
-            District of Columbia: DC
-            Florida: FL
-            Georgia: GA
-            Guam: GU
-            Hawaii: HI
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Iowa: IA
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Maine: ME
-            Marshall Islands: MH
-            Maryland: MD
-            Massachusetts: MA
-            Michigan: MI
-            Minnesota: MN
-            Mississippi: MS
-            Missouri: MO
-            Montana: MT
-            Nebraska: NE
-            Nevada: NV
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            New York: NY
-            North Carolina: NC
-            North Dakota: ND
-            Northern Marianas Islands: MP
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Palau: PW
-            Pennsylvania: PA
-            Puerto Rico: PR
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Vermont: VT
-            Virgin Islands: VI
-            Virginia: VA
-            Washington: WA
-            West Virginia: WV
-            Wisconsin: WI
-            Wyoming: WY
+            - Alabama
+            - Alaska
+            - Arizona
+            - Arkansas
+            - Armed Forces Asia
+            - Armed Forces Europe
+            - Armed Forces Pacific
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
     - click_on:
         - value: Send Message
-          selector: "input[type='submit'][value='Send Message']"
+          selector: "form.fullform.validate input[type='submit'][value='Send Message']"
+    - find:
+        - selector: "#page-title"
+          value: Thank You
   success:
     headers:
       status: 200
     body:
-      contains: Thanks you for your submission
+      contains: Thank You
