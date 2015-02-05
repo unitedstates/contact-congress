@@ -1,70 +1,28 @@
 bioguide: D000563
 contact_form:
   method: post
-  action: /public/index.cfm/contact
+  action: /contact/email
   steps:
-    - visit: "http://www.durbin.senate.gov/public/index.cfm/contact"
-    - find:
-        - selector: "#field_c665e606-f6be-4edb-a3eb-430518253fb1"
+    - visit: "http://www.durbin.senate.gov/contact/email"
     - select:
-        - name: field_64884fcf-9040-4d16-8feb-2535f7504254
-          selector: "#field_64884fcf-9040-4d16-8feb-2535f7504254"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - Mr. & Mrs.
-            - Ms.
-            - Miss
-            - Dr.
-            - Dr. & Mrs.
-            - Dr. & Mr.
-            - Professor
-            - Sr.
-            - Fr.
-            - Br.
-            - Rev.
-            - Rev. & Mrs.
-            - Rev. & Mr.
-            - Imam
-            - Admiral
-            - Captain
-            - Colonel
-            - Commander
-            - Corporal
-            - First Lieutenant
-            - Lieutenant
-            - General
-            - The Honorable
-            - Major
-            - Major General
-            - Private
-            - PFC
-            - Rabbi
-            - Sergeant
-            - Sergeant Major
-            - Chief Petty Officer
-            - Senior Chief Petty Officer
-            - Master Chief Petty Officer
-            - Specialist
-        - name: field_a48143db-8960-4136-aa59-a276cae4f2fe
-          selector: "#field_a48143db-8960-4136-aa59-a276cae4f2fe"
+        - name: actions
+          selector: "#actions"
           value: $TOPIC
           required: true
           options:
+            "--Select an Option--": select
             Abortion: Abortion
-            Affordable Care Act Stories: ACAStories
+            Affordable Care Act Stories: Affordable Care Act Stories
             Agriculture: Agriculture
             Animal Rights: Animal Rights
-            Banking/Credit: BankingCredit
-            "Budget, Federal": BudgetFederal
-            Business/Commerce: BusinessCommerce
-            Campaign Finance/Elections: Campaign FinanceElections
+            Banking/Credit: Banking/Credit
+            "Budget, Federal": "Budget, Federal"
+            Business/Commerce: Business/Commerce
+            Campaign Finance/Elections: Campaign Finance/Elections
             Children Issues: Children Issues
             Civil Rights and Liberties: Civil Rights and Liberties
-            Crime/Drugs: CrimeDrugs
-            Defense/Military: DefenseMilitary
+            Crime/Drugs: Crime/Drugs
+            Defense/Military: Defense/Military
             Dietary Supplements: Dietary Supplements
             Economy: Economy
             Education: Education
@@ -73,76 +31,278 @@ contact_form:
             Foreign Policy: Foreign Policy
             Guns: Guns
             Health: Health
-            Help with Federal Agency: Help with Federal Agency
             Homeland Security: Homeland Security
             Housing: Housing
             Immigration: Immigration
             Iraq: Iraq
             Judicial Nominations: Judicial Nominations
-            Labor/Employment: LaborEmployment
-            Media/Telecommunications: MediaTelecommunications
+            Labor/Employment: Labor/Employment
+            Media/Telecommunications: Media/Telecommunications
             Medicare: Medicare
             Middle East: Middle East
             Postal Service: Postal Service
-            Social Security/Seniors: Social SecuritySeniors
+            Social Security/Seniors: Social Security/Seniors
             Taxes: Taxes
             Trade: Trade
             Transportation: Transportation
             Veterans: Veterans
             War: War
             Welfare: Welfare
-            "Women's Issues": Womens Issues
+            "Women's Issues": "Women's Issues"
             Other: Other
+    - find:
+        - selector: "#fname"
     - fill_in:
-        - name: field_c665e606-f6be-4edb-a3eb-430518253fb1
-          selector: "#field_c665e606-f6be-4edb-a3eb-430518253fb1"
+        - name: fname
+          selector: "#fname"
           value: $NAME_FIRST
           required: true
-        - name: field_33204e97-654b-4845-8365-9c0f772da73c
-          selector: "#field_33204e97-654b-4845-8365-9c0f772da73c"
+        - name: lname
+          selector: "#lname"
           value: $NAME_LAST
           required: true
-        - name: field_94e0df65-340f-4e9e-bb41-d4deb3fc8b0a
-          selector: "#field_94e0df65-340f-4e9e-bb41-d4deb3fc8b0a"
+        - name: mailing_streetAddress1
+          selector: "#mailing_streetAddress1"
           value: $ADDRESS_STREET
           required: true
-        - name: field_a1dfef9b-56a9-4549-a3ca-3da3712e4096
-          selector: "#field_a1dfef9b-56a9-4549-a3ca-3da3712e4096"
+        - name: mailing_streetAddress2
+          selector: "#mailing_streetAddress2"
           value: $ADDRESS_STREET_2
           required: false
-        - name: field_d96b4297-0daf-4130-95a9-ba662bee2d86
-          selector: "#field_d96b4297-0daf-4130-95a9-ba662bee2d86"
+        - name: mailing_city
+          selector: "#mailing_city"
           value: $ADDRESS_CITY
           required: true
-        - name: field_e896bef6-e0a1-4e7c-9d5e-d776a721fecb
-          selector: "#field_e896bef6-e0a1-4e7c-9d5e-d776a721fecb"
+        - name: mailing_zipCode
+          selector: "#mailing_zipCode"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_8f00acb6-41e5-4c2f-aabe-d8bdb8503393
-          selector: "#field_8f00acb6-41e5-4c2f-aabe-d8bdb8503393"
+        - name: home_phone_number
+          selector: "#home_phone_number"
           value: $PHONE
-          required: false
-        - name: field_7701ed87-ac1a-4fae-9362-b0d353039aa3
-          selector: "#field_7701ed87-ac1a-4fae-9362-b0d353039aa3"
+          required: true
+        - name: email_address
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: field_0662ba25-2f2a-4eb5-aaa8-7d930ef4f81a
-          selector: "#field_0662ba25-2f2a-4eb5-aaa8-7d930ef4f81a"
+        - name: verify_email
+          selector: "#verify_email"
+          value: $EMAIL
+          required: true
+        - name: subjecttext
+          selector: "#subjecttext"
           value: $SUBJECT
-          required: false
-        - name: field_ccfdbe3a-7b46-4b3f-b920-20416836d599
-          selector: "#field_ccfdbe3a-7b46-4b3f-b920-20416836d599"
+          required: true
+        - name: message
+          selector: "#message"
           value: $MESSAGE
           required: true
+    - select:
+        - name: salutation
+          selector: "#salutation"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Professor
+            - Dr.
+            - Father
+            - Sister
+            - Rabbi
+            - Reverend
+            - Air Force - General
+            - Air Force - Lieutenant General
+            - Air Force - Major General
+            - Air Force - Brigadier General
+            - Air Force - Colonel
+            - Air Force - Lieutenant Colonel
+            - Air Force - Major
+            - Air Force - Captain
+            - Air Force - First Lieutenant
+            - Air Force - Second Lieutenant
+            - Air Force - Chief Master Sergeant of the Air Force
+            - Air Force - Command Chief Master Sergeant
+            - Air Force - First Sergeant (E-9)
+            - Air Force - Chief Master Sergeant
+            - Air Force - First Sergeant (E-8)
+            - Air Force - Senior Master Sergeant
+            - Air Force - First Sergeant (E-7)
+            - Air Force - Master Sergeant
+            - Air Force - Technical Sergeant
+            - Air Force - Staff Sergeant
+            - Air Force - Senior Airman
+            - Air Force - Airman First Class
+            - Air Force - Airman
+            - Air Force - Airman Basic
+            - Army - General
+            - Army - Lieutenant General
+            - Army - Major General
+            - Army - Brigadier General
+            - Army - Colonel
+            - Army - Lieutenant Colonel
+            - Army - Major
+            - Army - Captain
+            - Army - First Lieutenant
+            - Army - Second Lieutenant
+            - Army - Chief Warrant Officer - 5
+            - Army - Chief Warrant Officer - 4
+            - Army - Chief Warrant Officer - 3
+            - Army - Chief Warrant Officer - 2
+            - Army - Warrant Officer
+            - Army - Sergeant Major of the Army
+            - Army - Command Sergeant Major
+            - Army - Sergeant Major
+            - Army - First Sergeant
+            - Army - Master Sergeant
+            - Army - Sergeant First Class
+            - Army - Staff Sergeant
+            - Army - Sergeant
+            - Army - Corporal
+            - Army - Specialist
+            - Army - Private First Class
+            - Army - Private (E-2)
+            - Army - Private
+            - Coast Guard - Admiral
+            - Coast Guard - Vice Admiral
+            - "Coast Guard - Rear Admiral, Upper Half"
+            - "Coast Guard - Rear Admiral, Lower Half"
+            - Coast Guard - Captain
+            - Coast Guard - Commander
+            - Coast Guard - Lieutenant Commander
+            - Coast Guard - Lieutenant
+            - Coast Guard - Lieutenant Junior Grade
+            - Coast Guard - Ensign
+            - Coast Guard - Chief Warrant Officer - 4
+            - Coast Guard - Chief Warrant Officer - 3
+            - Coast Guard - Chief Warrant Officer - 2
+            - Coast Guard - Master Chief Petty Officer of the Coast Guard
+            - Coast Guard - Master Chief Petty Officer
+            - Coast Guard - Senior Chief Petty Officer
+            - Coast Guard - Chief Petty Officer
+            - Coast Guard - Petty Officer First Class
+            - Coast Guard - Petty Officer Second Class
+            - Coast Guard - Petty Officer Third Class
+            - Coast Guard - Seaman
+            - Coast Guard - Seaman Apprentice
+            - Coast Guard - Seaman Recruit
+            - Marine Corps - General
+            - Marine Corps - Lieutenant General
+            - Marine Corps - Major General
+            - Marine Corps - Brigadier General
+            - Marine Corps - Colonel
+            - Marine Corps - Lieutenant Colonel
+            - Marine Corps - Major
+            - Marine Corps - Captain
+            - Marine Corps - First Lieutenant
+            - Marine Corps - Second Lieutenant
+            - Marine Corps - Chief Warrant Officer - 5
+            - Marine Corps - Chief Warrant Officer - 4
+            - Marine Corps - Chief Warrant Officer - 3
+            - Marine Corps - Chief Warrant Officer - 2
+            - Marine Corps - Warrant Officer
+            - Marine Corps - Sergeant Major of the Marine Corps
+            - Marine Corps - Sergeant Major
+            - Marine Corps - Master Gunnery Sergeant
+            - Marine Corps - First Sergeant
+            - Marine Corps - Master Sergeant
+            - Marine Corps - Gunnery Sergeant
+            - Marine Corps - Staff Sergeant
+            - Marine Corps - Sergeant
+            - Marine Corps - Corporal
+            - Marine Corps - Lance Corporal
+            - Marine Corps - Private First Class
+            - Marine Corps - Private
+            - Navy - Admiral
+            - Navy - Vice Admiral
+            - "Navy - Rear Admiral, Upper Half"
+            - "Navy - Rear Admiral, Lower Half"
+            - Navy - Captain
+            - Navy - Commander
+            - Navy - Lieutenant Commander
+            - Navy - Lieutenant
+            - Navy - Lieutenant Junior Grade
+            - Navy - Ensign
+            - Navy - Chief Warrant Officer - 4
+            - Navy - Chief Warrant Officer - 3
+            - Navy - Chief Warrant Officer - 2
+            - Navy - Master Chief Petty Officer of the Navy
+            - Navy - Master Chief Petty Officer
+            - Navy - Senior Chief Petty Officer
+            - Navy - Chief Petty Officer
+            - Navy - Petty Officer First Class
+            - Navy - Petty Officer Second Class
+            - Navy - Petty Officer Third Class
+            - Navy - Seaman Apprentice
+            - Navy - Seaman
+            - Navy - Seaman Recruit
+        - name: state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: false
+          options:
+            "--": "null"
+            AK: AK
+            AL: AL
+            AR: AR
+            AZ: AZ
+            CA: CA
+            CO: CO
+            CT: CT
+            DC: DC
+            DE: DE
+            FL: FL
+            GA: GA
+            HI: HI
+            IA: IA
+            ID: ID
+            IL: IL
+            IN: IN
+            KS: KS
+            KY: KY
+            LA: LA
+            MA: MA
+            MD: MD
+            ME: ME
+            MI: MI
+            MN: MN
+            MO: MO
+            MS: MS
+            MT: MT
+            NC: NC
+            ND: ND
+            NE: NE
+            NH: NH
+            NJ: NJ
+            NM: NM
+            NV: NV
+            NY: NY
+            OH: OH
+            OK: OK
+            OR: OR
+            PA: PA
+            RI: RI
+            SC: SC
+            SD: SD
+            TN: TN
+            TX: TX
+            UT: UT
+            VA: VA
+            VT: VT
+            WA: WA
+            WI: WI
+            WV: WV
+            WY: WY
     - click_on:
-        - value: Submit
-          selector: div.buttonHolder input
+        - selector: "#response"
+        - value: Send
+          selector: "#side-search-btn"
     - find:
-        - selector: "p"
-          value: "Thank you"
+        - value: Thank you
+          selector: "p"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting Senator Durbin.
-
+      contains: Thank you
