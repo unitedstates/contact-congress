@@ -53,12 +53,7 @@ contact_form:
     - fill_in:
       - name: captcha_code
         selector: "#captcha_code"
-        captcha_selector: "img.img-polaroid"
-        # There is no id field for matching up the captcha on the backend; rather the solution itself appears in the page
-        # You can get it via a simple dom query from the audio version, conveniently titled with the solution in the filename:
-        #
-        # jQuery('a[href$=".wav"]').attr('href').match(/_([a-z0-9]+)\.wav/)[1]
-        value: "$CAPTCHA_SOLUTION"
+        value: "vc7sr"
         required: Yes
     - select:
       - name: Prefix
