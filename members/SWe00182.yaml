@@ -1,0 +1,51 @@
+bioguide: SWe00182
+contact_form:
+  method: post
+  action: scripts/govmail.php
+  steps:
+    - visit: "http://www.governor.nebraska.gov/mail/govmail.html"
+    - fill_in:
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: comments
+          selector: "#comments"
+          value: $MESSAGE
+          required: true
+    - check:
+        - name: reply
+          selector: "input[type='radio'][name='reply'][value='Yes']"
+          value: "Yes"
+    - click_on:
+        - value: Send Message
+          selector: "form[name='govmail'] input[name='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your Email.

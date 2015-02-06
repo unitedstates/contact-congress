@@ -1,0 +1,65 @@
+bioguide: state_il_gov_bruce_rauner
+contact_form:
+  method: post
+  action: /gov/Pages/ContacttheGovernor.aspx
+  steps:
+    - visit: "https://www2.illinois.gov/gov/Pages/ContacttheGovernor.aspx"
+    - fill_in:
+        - name: ctl00$SPWebPartManager1$g_54549226_8ec6_4af8_9a82_a19ee028d074$FirstName
+          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$SPWebPartManager1$g_54549226_8ec6_4af8_9a82_a19ee028d074$LastName
+          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$SPWebPartManager1$g_54549226_8ec6_4af8_9a82_a19ee028d074$Address
+          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_Address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$SPWebPartManager1$g_54549226_8ec6_4af8_9a82_a19ee028d074$City
+          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$SPWebPartManager1$g_54549226_8ec6_4af8_9a82_a19ee028d074$State
+          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: ctl00$SPWebPartManager1$g_54549226_8ec6_4af8_9a82_a19ee028d074$Zip
+          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$SPWebPartManager1$g_54549226_8ec6_4af8_9a82_a19ee028d074$Email
+          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$SPWebPartManager1$g_54549226_8ec6_4af8_9a82_a19ee028d074$CitizenQuestion
+          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_CitizenQuestion"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$SPWebPartManager1$g_54549226_8ec6_4af8_9a82_a19ee028d074$Subject
+          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_Subject"
+          value: $TOPIC
+          required: true
+          options:
+            (None): "1"
+            Administrative: "2"
+            Arts: "3"
+            Budget/Vendor Payments: "4"
+            Education: "5"
+            Environment / Energy: "6"
+            Finance: "7"
+            Healthcare / Insurance: "8"
+            Labor: "9"
+            Military Affairs: "10"
+            Other: "11"
+            Public Safety: "12"
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_SOIFeedbackSubmit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you.

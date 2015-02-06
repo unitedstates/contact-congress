@@ -1,0 +1,148 @@
+bioguide: SWe00134
+contact_form:
+  method: post
+  action: "http://mn.gov/gov-stat/cgi-bin/TFMail.cgi"
+  steps:
+    - visit: "http://mn.gov/governor/contact-us/form/"
+    - fill_in:
+        - name: PREFIX
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: FIRST
+          selector: "#first"
+          value: $NAME_FIRST
+          required: true
+        - name: LAST
+          selector: "#last"
+          value: $NAME_LAST
+          required: true
+        - name: ADDR1
+          selector: "#address1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: CITY
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ZIP
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: EMAIL
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: SUBJECT
+          selector: "#subject"
+          value: $SUBJECT
+          required: true
+        - name: MSG
+          selector: "#message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: STATE
+          selector: "#STATE"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            Minnesota: MN
+            Alabama: AL
+            Alaska: AK
+            Arizona: AZ
+            Arkansas: AR
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            Deleware: DE
+            Florida: FL
+            Georgia: GA
+            Hawaii: HI
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Iowa: IA
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Maine: ME
+            Maryland: MD
+            Massachusetts: MA
+            Michigan: MI
+            Mississippi: MS
+            Missouri: MO
+            Montana: MT
+            Nebraska: NE
+            Nevada: NV
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            New York: NY
+            North Carolina: NC
+            North Dakota: ND
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Pennsylvania: PA
+            Rhode Island: RI
+            South Carolina: SC
+            South Dakota: SD
+            Tennesee: TN
+            Texas: TX
+            Utah: UT
+            Vermont: VT
+            Virginia: VA
+            Washington: WA
+            West Virginia: WV
+            Wisconsin: WI
+            Wyoming: WY
+        - name: ISSUE1
+          selector: "#required-issue1"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AG
+            Budget: BUD
+            Boy Scout Project: BSP
+            Commerce and Banking: COMM
+            Education Higher: EDHI
+            Education K-12: EDK12
+            Elections: ELE
+            Energy: ENGY
+            Environment: ENV
+            Federal Relations: FED
+            Gambling: GAM
+            Health and Human Services: HHS
+            Health Insurance: HINS
+            Housing: HO
+            Human Rights: HR
+            Jobs and Training: JOBS
+            Labor and Industry: LAI
+            Military Affairs: MA
+            "Public Safety, Crimes": PS
+            Senior Issues: SEN
+            Student Project: STP
+            Taxes: TAX
+            Telecommunications: TEL
+            Transportation and Infrastructure: TRAN
+            Veterans Affairs: VA
+            Others: OTHR
+        - name: RSP
+          selector: "#required-response"
+          value: "YES"
+          required: false
+          options:
+            "NO": "NO"
+            "YES": "YES"
+    - click_on:
+        - value: Submit Information
+          selector: "#contactbutton"
+    - find:
+        - selector: "p"
+          value: "Thank you for contacting the Office of Governor Mark Dayton and the Lt. Governor, Yvonne Prettner Solon. We appreciate your feedback and suggestions about how we, together, can build a better Minnesota. A member of our staff will read your message promptly."
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting the Office

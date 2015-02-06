@@ -1,0 +1,52 @@
+bioguide: SLe000806
+contact_form:
+  method: post
+  action: Holder-Winfield-mailform.php
+  steps:
+    - visit: "http://www.senatedems.state.ct.us/Holder-Winfield-mailform.php"
+    - fill_in:
+        - name: first_name
+          selector: "#first_name"
+          value: $NAME_FIRST
+          required: true
+        - name: last_name
+          selector: "#last_name"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: zip
+          selector: "#zip"
+          value: $ADDRESS_ZIP_PLUS_4
+          required: true
+        - name: sender_email
+          selector: "#sender_email"
+          value: $EMAIL
+          required: true
+        - name: subject_1
+          selector: "#subject_1"
+          value: $SUBJECT
+          required: true
+        - name: message_text
+          selector: "#message_text"
+          value: $MESSAGE
+          required: true
+        - name: security_code
+          selector: "#security_code"
+          captcha_selector: "#security_image"
+          value: $CAPTCHA_SOLUTION
+          required: true
+    - click_on:
+        - value: Send
+          selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time to contact me.

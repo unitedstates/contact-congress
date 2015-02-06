@@ -1,0 +1,55 @@
+bioguide: state_ma_gov_charlie_baker
+contact_form:
+  method: post
+  action: /cgi-bin/massgovmail.cgi
+  steps:
+    - visit: "http://www.mass.gov/governor/constituent-services/contact-governor-office/"
+    - fill_in:
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: zip
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: customeremail.email
+          selector: "form[action='/cgi-bin/massgovmail.cgi'] input[name='customeremail.email']"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#subject"
+          value: $SUBJECT
+          required: true
+        - name: comments
+          selector: "#comments"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form[action='/cgi-bin/massgovmail.cgi'] input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Page not found (error 404)"

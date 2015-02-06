@@ -1,0 +1,47 @@
+bioguide: state_pa_sldu_40_state_sen_mario_scavello
+contact_form:
+  method: POST
+  action: confirm.asp
+  steps:
+    - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=40"
+    - fill_in:
+        - name: txtFirstName
+          selector: "#form1 input[name='txtFirstName']"
+          value: $NAME_FIRST
+          required: true
+        - name: txtLastName
+          selector: "#form1 input[name='txtLastName']"
+          value: $NAME_LAST
+          required: true
+        - name: txtAddress1
+          selector: "#form1 input[name='txtAddress1']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: txtCity
+          selector: "#form1 input[name='txtCity']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: txtState
+          selector: "#form1 input[name='txtState']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: txtZip
+          selector: "#form1 input[name='txtZip']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: txtEmail
+          selector: "#form1 input[name='txtEmail']"
+          value: $EMAIL
+          required: true
+        - name: txtComments
+          selector: "#txtComments"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#bSubmit_input"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting us

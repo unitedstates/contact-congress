@@ -1,0 +1,83 @@
+bioguide: SWe00120
+contact_form:
+  method: post
+  action: /
+  steps:
+    - visit: "http://www.governor.maryland.gov/mail/"
+    - fill_in:
+        - name: firstname
+          selector: "#firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: areacode
+          selector: "#AreaCode"
+          value: $PHONE
+          required: true
+        - name: phoneprefix
+          selector: "[id='prefix#']"
+          value: $PHONE
+          required: true
+        - name: extension
+          selector: "[id='extension#']"
+          value: $PHONE
+          required: true
+        - name: emailaddress
+          selector: "#emailaddress"
+          value: $EMAIL
+          required: true
+        - name: subjectline
+          selector: "[id='subject line']"
+          value: $SUBJECT
+          required: true
+        - name: emailmessage
+          selector: "#emailmessage"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: pickSubject
+          selector: "#pickSubject"
+          value: $TOPIC
+          required: true
+          options:
+            Select one: none
+            Subscribe to Newsletter only: Newsletter Only
+            Disabilities: 8
+            Economic Development: 6
+            Education Issues: 32
+            Energy Issues: 13
+            Environment Issues: 15
+            Health Care Issues: 23
+            "Higher Education   ": 24
+            Public Safety Issues: 37
+            Transportation Issues: 51
+            Veterans Issues: 52
+    - uncheck:
+        - name: subscribe
+          selector: "#Checkbox1"
+    - click_on:
+        - value: Submit
+          selector: "#btnSbt"
+    - find:
+        - selector: "h1"
+          value: "Thanks"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting me.

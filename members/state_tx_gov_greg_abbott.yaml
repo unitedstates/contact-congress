@@ -1,0 +1,149 @@
+bioguide: state_tx_gov_greg_abbott
+contact_form:
+  method: post
+  action: assistance.aspx
+  steps:
+    - visit: "https://gov.texas.gov/contact/contact.aspx"
+    - check:
+        - name: rblPath
+          selector: "#rblPath_0"
+          value: "1"
+    - click_on:
+        - value: Select
+          selector: "#Button1"
+    - find:
+        - selector: "#DropDownList1"
+    - fill_in:
+        - name: txtFirst
+          selector: "#txtFirst"
+          value: $NAME_FIRST
+          required: true
+        - name: txtLast
+          selector: "#txtLast"
+          value: $NAME_LAST
+          required: true
+        - name: txtAddress
+          selector: "#txtAddress"
+          value: $ADDRESS_STREET
+          required: true
+        - name: txtCity
+          selector: "#txtCity"
+          value: $ADDRESS_CITY
+          required: true
+        - name: txtZip
+          selector: "#txtZip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: txtEmail
+          selector: "#txtEmail"
+          value: $EMAIL
+          required: true
+        - name: txtEmail2
+          selector: "#txtEmail2"
+          value: $EMAIL
+          required: true
+        - name: txtMessage
+          selector: "#txtMessage"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: DropDownList1
+          selector: "#DropDownList1"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: "2"
+            Ms.: "3"
+            Mrs.: "1"
+            Miss: "4"
+            Mr. and Mrs.: "11"
+            Dr.: "5"
+            The Honorable: "6"
+            None: "13"
+        - name: Dropdownlist3
+          selector: "#Dropdownlist3"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - FL
+            - GA
+            - HI
+            - IA
+            - ID
+            - IL
+            - IN
+            - KS
+            - KY
+            - LA
+            - MA
+            - MD
+            - ME
+            - MI
+            - MN
+            - MO
+            - MS
+            - MT
+            - NC
+            - ND
+            - NE
+            - NH
+            - NJ
+            - NM
+            - NV
+            - NY
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VA
+            - VI
+            - VT
+            - WA
+            - WI
+            - WV
+            - WY
+        - name: DropDownList2
+          selector: "#DropDownList2"
+          value: $TOPIC
+          required: true
+          options:
+            Texas Tax Relief - Franchise Tax Reduction: "114"
+            Texas Tax Relief - Property Tax Cut: "115"
+            Texas Tax Relief - Refund: "116"
+            Texas Tax Relief - Sales Tax Cut: "117"
+            Texas Tax Relief - Other: "118"
+            Education - Public: "96"
+            Environment: "100"
+            Immigration: "98"
+            Gun Control: "113"
+            Renewable Energy: "90"
+            Transportation: "101"
+            Water Issues: "105"
+            Other: "74"
+    - check:
+        - name: RadioButtonList1
+          selector: "#RadioButtonList1_0"
+          value: "1"
+    - click_on:
+        - value: Send Message
+          selector: "#Button1"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank You for Contacting the Office of the Governor

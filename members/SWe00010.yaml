@@ -1,0 +1,126 @@
+bioguide: SWe00010
+contact_form:
+  method: post
+  action: /contact/index.php
+  steps:
+    - visit: "http://governor.arkansas.gov/contact/index.php"
+    - fill_in:
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: true
+        - name: comments
+          selector: "#comments"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: category
+          selector: "#category_select"
+          value: "28"
+          required: true
+          options:
+            Agriculture: "1"
+            Arts/Museums/History: "2"
+            Business and Commerce: "3"
+            Education: "4"
+            Elections: "5"
+            Environment: "6"
+            FOI Request: "7"
+            Governor: "8"
+            "Governor's Special Projects": "29"
+            Grants: "9"
+            Health and Human Services - Facilities: "10"
+            Health and Human Services - Programs: "11"
+            Health and Human Services - Public Assistance: "12"
+            Health and Human Services - Regulations: "13"
+            Highways/Transportation: "14"
+            Insurance: "15"
+            Law Enforcement: "16"
+            Law Enforcement - Prison and Inmates: "30"
+            Legislation: "18"
+            Licenses and Permits: "19"
+            Local Government/Community: "20"
+            Military/Veterans/Homeland Security: "21"
+            Minority Affairs: "22"
+            Pardons: "35"
+            Policies: "23"
+            Public Safety and Services: "24"
+            Science and Technology: "25"
+            Tourism/Recreation: "26"
+            Workforce: "27"
+            "General Comments, Concerns": "28"
+        - name: prefix
+          selector: "#thisform select[name='prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Capt.
+            - Chancellor
+            - Chief
+            - Col.
+            - Dr.
+            - Eagle Scout
+            - General
+            - Governor
+            - Judge
+            - Lt.
+            - Major
+            - Mayor
+            - Miss
+            - Mr.
+            - Mr. and Mrs.
+            - Mrs.
+            - Ms.
+            - Professor
+            - Pvt.
+            - Representative
+            - Reverend
+            - Senator
+            - Sheriff
+            - Sgt.
+            - Sr.
+            - The Honorable
+            - The Reverend
+    - find:
+        - selector: "select[name='interest']"
+    - select:
+        - name: interest
+          selector: "select[name='interest']"
+          value: "1"
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#thisform input[name='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting the Office of the Governor. A member of our staff will respond to your message soon.

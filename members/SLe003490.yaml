@@ -1,0 +1,47 @@
+bioguide: SLe003490
+contact_form:
+  method: post
+  action: Contact.aspx
+  steps:
+    - visit: "http://www.senate.mo.gov/D13WebApps/Contact.aspx"
+    - fill_in:
+        - name: txtName
+          selector: "#txtName"
+          value: $NAME_FULL
+          required: true
+        - name: txtAddress
+          selector: "#txtAddress"
+          value: $ADDRESS_STREET
+          required: true
+        - name: txtCity
+          selector: "#txtCity"
+          value: $ADDRESS_CITY
+          required: true
+        - name: txtZip
+          selector: "#txtZip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: txtZip4
+          selector: "#txtZip4"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: txtEmail
+          selector: "#txtEmail"
+          value: $EMAIL
+          required: true
+        - name: txtSubject
+          selector: "#txtSubject"
+          value: $SUBJECT
+          required: true
+        - name: txtMessage
+          selector: "#txtMessage"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Send Message
+          selector: "#btnSend"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been sent.

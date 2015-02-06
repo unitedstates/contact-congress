@@ -1,0 +1,121 @@
+bioguide: SWe00094
+contact_form:
+  method: post
+  action: legislation-and-policy-issues
+  steps:
+    - visit: "https://www.governor.ks.gov/serving-kansans/constituent-services/legislation-and-policy-issues"
+    - find:
+        - selector: "#Main_Issues_uxFirstName"
+    - fill_in:
+        - name: ctl00$Main$Issues$uxFirstName
+          selector: "#Main_Issues_uxFirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$Main$Issues$uxLastName
+          selector: "#Main_Issues_uxLastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$Main$Issues$uxEmail
+          selector: "#Main_Issues_uxEmail"
+          value: $EMAIL
+          required: true
+        - name: ctl00$Main$Issues$uxAddress1
+          selector: "#Main_Issues_uxAddress1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$Main$Issues$uxCity
+          selector: "#Main_Issues_uxCity"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$Main$Issues$uxZip
+          selector: "#ctl00_Main_Issues_uxZip"
+          value: "66612"
+          required: true
+        - name: ctl00$Main$Issues$uxPhone
+          selector: "#ctl00_Main_Issues_uxPhone"
+          value: "1111111111"
+          required: true
+        - name: ctl00$Main$Issues$uxMessage
+          selector: "#Main_Issues_uxMessage"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$Main$Issues$RadCaptcha1$CaptchaTextBox
+          selector: "#ctl00_Main_Issues_RadCaptcha1_CaptchaTextBox"
+          captcha_selector: "#ctl00_Main_Issues_RadCaptcha1_CaptchaImageUP"
+          value: $CAPTCHA_SOLUTION
+          required: true
+    - select:
+        - name: ctl00$Main$Issues$uxPrefixList
+          selector: "#Main_Issues_uxPrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+        - name: ctl00$Main$Issues$uxIssueList
+          selector: "#Main_Issues_uxIssueList"
+          value: $TOPIC
+          required: true
+          options:
+            - ABORTION
+            - "AGING  "
+            - "AGRICULTURE  "
+            - ANIMAL CRUELTY
+            - CHILD ABUSE/CINC
+            - CHILD CUSTODY
+            - CHILD SUPPORT
+            - "COMMERCE  "
+            - "CORRECTIONS  "
+            - DCF
+            - DEATH PENALTY
+            - DRUGS- ILLEGAL
+            - ECONOMIC DEVELOPMENT
+            - EDUCATION K-12
+            - EDUCATION- HIGHER ED
+            - EDUCATION-GENERAL
+            - "ENERGY  "
+            - "ENVIRONMENT  "
+            - FEDERAL ISSUES
+            - "HEALTH  "
+            - "HOUSING  "
+            - HUNTING LICENSE
+            - IMMIGRATION
+            - "INSURANCE  "
+            - KANCARE
+            - KIDS LETTERS
+            - "KPERS  "
+            - KS BUDGET
+            - KS HOUSE BILLS
+            - KS SENATE BILLS
+            - "LEGAL  "
+            - LEGISLATION- GENERAL
+            - LOCAL ISSUES
+            - "LOTTERY KS"
+            - MEDICAID REFORM
+            - MEDICAID- GENERAL
+            - MENTAL HEALTH
+            - NATIONAL GUARD
+            - NURSING HOME
+            - "OTHER  "
+            - "PARDON/CLEMENCY  "
+            - "PARKS  "
+            - "RACING & GAMING"
+            - RURAL ISSUES
+            - STATE EMPLOYEES
+            - TAX REFORM
+            - TAXES- GENERAL
+            - "TRANSPORTATION  "
+            - "UNEMPLOYMENT  "
+            - "UTILITIES  "
+            - "VETERANS  "
+            - WORKERS COMPENSATION
+    - click_on:
+        - value: Submit
+          selector: "#Main_Issues_uxSubmitBtn"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting my office

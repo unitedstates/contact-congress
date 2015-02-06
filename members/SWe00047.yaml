@@ -1,0 +1,31 @@
+bioguide: SWe00047
+contact_form:
+  method: post
+  action: /cgi-bin/mailer.php
+  steps:
+    - visit: "http://smu.governor.delaware.gov/cgi-bin/mail.php?contact"
+    - fill_in:
+        - name: formName
+          selector: "#formName"
+          value: $NAME_FULL
+          required: true
+        - name: formAddress
+          selector: "#formAddress"
+          value: $ADDRESS_STREET
+          required: true
+        - name: formEmail
+          selector: "#formEmail"
+          value: $EMAIL
+          required: true
+        - name: formComment
+          selector: "#formComment"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#contact input[name='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your comment/question!"

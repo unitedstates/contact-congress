@@ -1,0 +1,131 @@
+bioguide: SWe00194
+contact_form:
+  method: post
+  action: /cgi-bin/governor/govmail/govmail_1c_new.pl
+  steps:
+    - visit: "http://www.state.nj.us/governor/contact/"
+    - select:
+        - name: selected
+          selector: "select[name='selected']"
+          value: $TOPIC
+          required: true
+          options:
+            Addiction Services: Addiction Services
+            Agriculture: Agriculture
+            Arts and History: Arts and History
+            Children and Families: Children and Families
+            "Child Support / Custody": "Child Support / Custody"
+            Civil Service Commission: Civil Service Commission
+            Corrections: Corrections
+            Developmentaly Disabled: Developmentaly Disabled
+            "Disability / Unemployment": "Disability / Unemployment"
+            Economic Growth: Economic Growth
+            Education: Education
+            Elections: Elections
+            Environment: Environment
+            Health: Health and Senior Services
+            Housing: Housing
+            Human Services: Human Services
+            Insurance: Insurance
+            Invitations: Invitations
+            Labor: Labor
+            Law and Public Safety: Law and Public Safety
+            Lottery: Lottery
+            Mental Health: Mental Health
+            Military Affairs: Military Affairs
+            "NJ FamilyCare / KidCare": "NJ FamilyCare / KidCare"
+            Pensions and Retirements: Pensions and Retirements
+            Public Utilities: Public Utilities
+            "Requesting Proclamations / Special Letter": "Requesting Proclamations / Special Letter"
+            Taxation: Taxation
+            "Transportation / Motor Vehicles": "Transportation / Motor Vehicles"
+            Vital Statistics: Vital Statistics
+    - click_on:
+        - value: Continue...
+          selector: "#govmail input[name='Submit']"
+    - find:
+        - selector: "input[name='submit']"  
+    - select:
+        - name: prefix
+          selector: "select[name='prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Captain: Captain
+            Chief: Chief
+            Councilman: Councilman
+            Councilwoman: Councilwoman
+            Dame: Dame
+            Doctor: Doctor
+            "Dr.": "Dr."
+            "Dr. and Mr.": "Dr. and Mr."
+            "Dr. and Mrs.": "Dr. and Mrs."
+            Father: Father
+            Friend: Friend
+            Friends: Friends
+            Miss: Miss
+            Monsignor: Monsignor
+            "Mr.": "Mr."
+            "Mr. and Mrs.": "Mr. and Mrs."
+            "Mrs.": "Mrs."
+            "Ms.": "Ms."
+            Pastor: Pastor
+            Rabbi: Rabbi
+            "Rev.": "Rev."
+            Reverend: Reverend
+            Sir: Sir
+            Sister: Sister
+            The Honorable: The Honorable
+    - fill_in:
+        - name: first
+          selector: "input[name='first']"
+          value: $NAME_FIRST
+          required: true
+        - name: last
+          selector: "input[name='last']"
+          value: $NAME_LAST
+          required: true
+        - name: address1
+          selector: "input[name='address1']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[name='city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "input[name='zip']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: areacode
+          selector: "input[name='areacode']"
+          value: $PHONE
+          required: true
+        - name: exch
+          selector: "input[name='exch']"
+          value: $PHONE
+          required: true
+        - name: phone
+          selector: "input[name='phone']"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "form[name='govmail'] input[name='email']"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "input[name='subject']"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "input[name='message']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Send Your Message
+          selector: "input[name='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting me.

@@ -1,0 +1,31 @@
+bioguide: state_ar_gov_asa_hutchinson
+contact_form:
+  method: post
+  action: "https://arkansasgov.wufoo.com/embed/z10gjhti00fynaz/def/embedKey=z10gjhti00fynaz249576&entsource=&referrer=http%3Awuslashwuslashgovernor.arkansas.govwuslash&header=hide#public"
+  steps:
+    - visit: "https://arkansasgov.wufoo.com/embed/z10gjhti00fynaz/def/embedKey=z10gjhti00fynaz249576&entsource=&referrer=http%3Awuslashwuslashgovernor.arkansas.govwuslash&header=hide#public"
+    - fill_in:
+        - name: Field9
+          selector: "#Field9"
+          value: $NAME_FIRST
+          required: true
+        - name: Field11
+          selector: "#Field11"
+          value: $NAME_LAST
+          required: true
+        - name: Field3
+          selector: "#Field3"
+          value: $EMAIL
+          required: true
+        - name: Field4
+          selector: "#Field4"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#saveForm"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Great! Thanks for filling out my form!"

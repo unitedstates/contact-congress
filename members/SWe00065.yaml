@@ -1,0 +1,141 @@
+bioguide: SWe00065
+contact_form:
+  method: post
+  action: "EForm.aspx?__cid=FSL_HI_GOV&__fid=100006"
+  steps:
+    - visit: "https://iqconnect.lmhostediq.com/iqextranet/EForm.aspx?__cid=FSL_HI_GOV&__fid=100006"
+    - fill_in:
+        - name: q_6_prefix
+          selector: "#q_6_prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: q_6_first_name
+          selector: "#q_6_first_name"
+          value: $NAME_FIRST
+          required: true
+        - name: q_6_last_name
+          selector: "#q_6_last_name"
+          value: $NAME_LAST
+          required: true
+        - name: q_6_addr_1
+          selector: "#q_6_addr_1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: q_6_city
+          selector: "#q_6_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: q_6_zip
+          selector: "#q_6_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: q_6_email
+          selector: "#q_6_email"
+          value: $EMAIL
+          required: true
+        - name: q_10
+          selector: "#q_10"
+          value: $SUBJECT
+          required: true
+        - name: q_12
+          selector: "#q_12"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: q_6_state
+          selector: "#q_6_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            Alabama: AL
+            Alaska: AK
+            America Samoa: AS
+            Arizona: AZ
+            Arkansas: AR
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            D.C.: D.C.
+            Delaware: DE
+            Federated States of Micronesia: FM
+            Florida: FL
+            Foreign Correspondence: FC
+            Georgia: GA
+            Guam: GU
+            Hawaii: HI
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Iowa: IA
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Maine: ME
+            Marshall Islands: MH
+            Maryland: MD
+            Massachusetts: MA
+            Michigan: MI
+            Minnesota: MN
+            Mississippi: MS
+            Missouri: MO
+            Montana: MT
+            Nebraska: NE
+            Nevada: NV
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            New York: NY
+            North Carolina: NC
+            North Dakota: ND
+            Northern Mariana Islands: MP
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Palau: PW
+            Pennsylvania: PA
+            Puerto Rico: PR
+            Rhode Island: RI
+            South Carolina: SC
+            South Dakota: SD
+            Tennessee: TN
+            Texas: TX
+            Trust Territory: TT
+            Utah: UT
+            Vermont: VT
+            Virgin Islands: VI
+            Virginia: VA
+            Washington: WA
+            West Virginia: WV
+            Wisconsin: WI
+            Wyoming: WY
+        - name: q_8
+          selector: "#q_8"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture Issues: AGRICULTURE
+            Budget/Economy: ECON.BUDGET
+            Development: DEVELOP.MISC
+            Education: EDU
+            Environment: ENVIRONMENT
+            Early Learning: GOV.EOEL
+            Healthcare Transformation: GOV.HEALTH
+            House Legislation: LEG.HI.HB
+            Senate Legislation: LEG.HI.SB
+            Native Hawaiian Affairs: NATIVE_HI
+            Recreation/Sports: RECREATION
+            Tourism: TOURISM
+            Transportation: TRANS
+            Other: OTHER
+    - click_on:
+        - value: Submit
+          selector: "#btn_submit"
+    - wait:
+        - value: 5
+    - find:
+        - selector: "#lbl_header_html"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Mahalo for contacting Governor Abercrombie and his staff. "

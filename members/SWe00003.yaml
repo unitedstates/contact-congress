@@ -1,0 +1,80 @@
+bioguide: SWe00003
+contact_form:
+  method: post
+  action: contact.aspx
+  steps:
+    - visit: "http://216.226.177.218/forms/contact.aspx"
+    - fill_in:
+        - name: ctl00$ContentPlaceHolder1$FIRST_NAME
+          selector: "#ctl00_ContentPlaceHolder1_FIRST_NAME"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ContentPlaceHolder1$LAST_NAME
+          selector: "#ctl00_ContentPlaceHolder1_LAST_NAME"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ContentPlaceHolder1$EMAILADDR
+          selector: "#ctl00_ContentPlaceHolder1_EMAILADDR"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ContentPlaceHolder1$PHONE1
+          selector: "#ctl00_ContentPlaceHolder1_PHONE1"
+          value: $PHONE
+          required: true
+        - name: ctl00$ContentPlaceHolder1$PHONE2
+          selector: "#ctl00_ContentPlaceHolder1_PHONE2"
+          value: $PHONE
+          required: true
+        - name: ctl00$ContentPlaceHolder1$PHONE3
+          selector: "#ctl00_ContentPlaceHolder1_PHONE3"
+          value: $PHONE
+          required: true
+        - name: ctl00$ContentPlaceHolder1$STREET_ADDRESS
+          selector: "#ctl00_ContentPlaceHolder1_STREET_ADDRESS"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ContentPlaceHolder1$CITY
+          selector: "#ctl00_ContentPlaceHolder1_CITY"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ContentPlaceHolder1$STATE
+          selector: "#ctl00_ContentPlaceHolder1_STATE"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: ctl00$ContentPlaceHolder1$ZIP_CODE
+          selector: "#ctl00_ContentPlaceHolder1_ZIP_CODE"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ContentPlaceHolder1$COMMENTS
+          selector: "#ctl00_ContentPlaceHolder1_COMMENTS"
+          value: $MESSAGE
+          required: true
+        - name: recaptcha_response_field
+          selector: "#recaptcha_response_field"
+          captcha_selector: "#recaptcha_image img"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+    - click_on:
+       - selector: "#ctl00_ContentPlaceHolder1_PREFIX_chzn"
+    - wait:
+       - value: 1
+    - click_on:
+       - selector: "#ctl00_ContentPlaceHolder1_PREFIX_chzn .chzn-results li[data-option-array-index='1']"
+    - wait:
+       - value: 1
+    - click_on:
+       - selector: "#ctl00_ContentPlaceHolder1_EMAIL_ISSUE_chzn"
+    - wait:
+       - value: 1
+    - click_on:
+       - selector: "#ctl00_ContentPlaceHolder1_EMAIL_ISSUE_chzn .chzn-results li[data-option-array-index='22']"
+    - wait:
+       - value: 1
+    - click_on:
+        - value: Email This Form
+          selector: "#ctl00_ContentPlaceHolder1_btnEmail"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your email has been submitted.

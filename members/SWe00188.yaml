@@ -1,0 +1,47 @@
+bioguide: SWe00188
+contact_form:
+  method: POST
+  action: comments.asp
+  steps:
+    - visit: "http://www4.egov.nh.gov/nhgovernor/comments.asp"
+    - fill_in:
+        - name: firstname
+          selector: "#firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#lastname"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: comments
+          selector: "#comments"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Send Comments
+          selector: "#Submit1"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: The Governor has received your email.

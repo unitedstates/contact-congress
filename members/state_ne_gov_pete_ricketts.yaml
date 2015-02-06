@@ -1,0 +1,34 @@
+bioguide: state_ne_gov_pete_ricketts
+contact_form:
+  method: post
+  action: contact.php
+  steps:
+    - visit: "http://www.governor.nebraska.gov/contact/contact.php"
+    - fill_in:
+        - name: name
+          selector: "#name"
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: true
+        - name: comments
+          selector: "#comments"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "button[type='submit']"
+    - find:
+        - selector: "h2"
+          value: "Thank You!"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank You!

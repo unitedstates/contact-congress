@@ -1,0 +1,43 @@
+bioguide: state_ca_sldl_15_state_rep_tony_thurmond
+contact_form:
+  method: post
+  action: ContactPopupSubmit.php
+  steps:
+    - visit: "https://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=AD15"
+    - fill_in:
+        - name: txtFirstName
+          selector: "#txtFirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: txtLastName
+          selector: "#txtLastName"
+          value: $NAME_LAST
+          required: true
+        - name: txtAddress
+          selector: "#txtAddress"
+          value: $ADDRESS_STREET
+          required: true
+        - name: txtCity
+          selector: "#txtCity"
+          value: $ADDRESS_CITY
+          required: true
+        - name: txtZip
+          selector: "#txtZip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: txtEmail
+          selector: "#txtEmail"
+          value: $EMAIL
+          required: true
+        - name: jv_text
+          selector: "#ContactForm textarea[name='jv_text']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#submitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been received - Thank You

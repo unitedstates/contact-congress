@@ -1,0 +1,76 @@
+bioguide: SWe00074
+contact_form:
+  method: post
+  action: webform.cfm
+  steps:
+    - visit: "http://gov.idaho.gov/ourgov/contact.html"
+    - fill_in:
+        - name: firstname
+          selector: "#msgcontact input[name='firstname']"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#msgcontact input[name='lastname']"
+          value: $NAME_LAST
+          required: true
+        - name: address1
+          selector: "#msgcontact input[name='address1']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#msgcontact input[name='city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#msgcontact input[name='zip']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#msgcontact input[name='email']"
+          value: $EMAIL
+          required: true
+        - name: messagebody
+          selector: "#msgcontact textarea[name='messagebody']"
+          value: $MESSAGE
+          required: true
+        - name: recaptcha_response_field
+          selector: "#recaptcha_response_field"
+          captcha_selector: "#recaptcha_image img"
+          value: "$CAPTCHA_SOLUTION"
+    - select:
+        - name: issue
+          selector: "#msgcontact select[name='issue']"
+          value: $TOPIC
+          required: true
+          options:
+            "--------- Select One --------": retry
+            Agriculture: AG
+            Boards and Commissions: BOARDS_COMMISSIONS
+            Commerce: COMMERCE
+            Correction: CORRECTION
+            Drug Policy: ODP
+            Education: EDU
+            Finance: DOF
+            Fish and Game: FG
+            Health and Welfare: HW
+            Idaho State Police: ISP
+            Industrial Commission: INDUSTRIAL_COMMISSION
+            Insurance: INSURANCE
+            Labor: LABOR
+            Military: MILITARY
+            Natural Resources: NAT
+            Parks and Recreation: PARKS
+            Pardons and Parole: PARDONS_AND_PAROLE
+            Occupational Licenses: IBOL
+            Taxes: TAX
+            Transportation: TRAN
+            Veteran Services: VET
+            Other: OTHER
+    - click_on:
+        - value: Submit
+          selector: "#msgcontact input[name='submit_button']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting Governor Otter's office. You submitted the following information:"

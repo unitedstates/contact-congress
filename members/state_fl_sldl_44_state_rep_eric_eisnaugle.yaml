@@ -1,0 +1,37 @@
+bioguide: state_fl_sldl_44_state_rep_eric_eisnaugle
+contact_form:
+  method: post
+  action: "emailrepresentative.aspx?MemberId=4449&SessionId=64"
+  steps:
+    - visit: "http://www.myfloridahouse.gov/sections/representatives/emailrepresentative.aspx?MemberId=4449&SessionId=64"
+    - fill_in:
+        - name: ctl00$ContentPlaceHolder1$txtName
+          selector: "#ContentPlaceHolder1_txtName"
+          value: $NAME_FULL
+          required: true
+        - name: ctl00$ContentPlaceHolder1$txtEmailAddress
+          selector: "#ContentPlaceHolder1_txtEmailAddress"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ContentPlaceHolder1$txtCity
+          selector: "#ContentPlaceHolder1_txtCity"
+          value: $ADDRESS_CITY
+          required: true
+    - click_on:
+        - value: Continue
+          selector: "#ContentPlaceHolder1_btnSubmitSenderAttri"
+    - find:
+        - selector: "#ContentPlaceHolder1_txtMessage"
+    - fill_in:
+        - name: ctl00$ContentPlaceHolder1$txtMessage
+          selector: "#ContentPlaceHolder1_txtMessage"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Send E-mail
+          selector: "#ContentPlaceHolder1_btnSubmit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: E-mail has been successfully sent.
