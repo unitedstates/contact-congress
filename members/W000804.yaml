@@ -1,110 +1,123 @@
 bioguide: W000804
 contact_form:
-  method: post
-  action: /contact-form/
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://wittman.house.gov/contact-form/"
+    - visit: "http://robwittmanforms.house.gov/contact/"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
     - click_on:
-        - selector: "input[type=submit][value='Go to Form']"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#req_firstname"
+        - selector: "#ctl00_ctl20_FirstName"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: ctl00$ctl20$FirstName
+          selector: "#ctl00_ctl20_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: ctl00$ctl20$LastName
+          selector: "#ctl00_ctl20_LastName"
           value: $NAME_LAST
           required: true
-        - name: address
-          selector: "#req_address"
+        - name: ctl00$ctl20$Street
+          selector: "#ctl00_ctl20_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#req_city"
+        - name: ctl00$ctl20$City
+          selector: "#ctl00_ctl20_City"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: ctl00$ctl20$Zip
+          selector: "#ctl00_ctl20_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: emailaddress
-          selector: "#req_email"
-          value: $EMAIL
-          required: true
-        - name: phone
-          selector: "#req_phone"
+        - name: ctl00$ctl20$Phone
+          selector: "#ctl00_ctl20_Phone"
           value: $PHONE
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: ctl00$ctl20$Email
+          selector: "#ctl00_ctl20_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl20$Subject
+          selector: "#ctl00_ctl20_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl20$Body
+          selector: "#ctl00_ctl20_Body"
           value: $MESSAGE
           required: true
+        - name: ctl00$ctl20$CampaignID
+          selector: "#ctl00_ctl20_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl20$CampaignInfo
+          selector: "#ctl00_ctl20_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
     - select:
-        - name: prefix
-          selector: "#req_prefix"
+        - name: ctl00$ctl20$PrefixList
+          selector: "#ctl00_ctl20_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: issue
-          selector: "#req_issue"
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+            - Hon.
+            - Rev.
+            - Rabbi
+            - Ambassador
+            - Colonel
+        - name: ctl00$ctl20$IssuesList
+          selector: "#ctl00_ctl20_IssuesList"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGRI
-            Animal Welfare: ANML
-            Budget and Spending: BUD
-            Capitol/White House Tour: TOUR
-            Defense: DEF
-            Economy and Jobs: ECON
-            Education: EDU
-            Energy: ENR
-            Environment: ENV
-            Federal Workforce: FEDWF
-            Flag Request: FLAG
-            International Relations: INT
-            Government Reform: GOV
-            Health Care: HLTH
-            Help with Federal Agency: CASE
-            Immigration: IMM
-            Judiciary: JUD
-            Labor: LABOR
-            Meet with Rob: SCHEDULE
-            National Security: NS
-            Science: SCI
-            Second Amendment: GUNS
-            Social Issues: SOC
-            Social Security: SS
-            Telecommunications: TELE
-            Tax: TAX
-            Transportation: TRANS
-            Veterans: VET
-            Other: OTH
-    - uncheck:
-        - name: newsletter
-          selector: "#newsletter"
-          value: SUBSCRIBE
+            Agriculture and Food: "127371"
+            Animals: "127366"
+            Budget and Spending: "127383"
+            Defense: "127375"
+            Economy and Jobs: "127382"
+            Education: "127370"
+            Energy: "127172"
+            Environment: "126811"
+            Families: "127141"
+            Federal Workforce: "127384"
+            Government Reform: "127386"
+            Health Care: "127369"
+            Help with a Federal Agency: "127381"
+            Immigration: "126991"
+            International Affairs: "126981"
+            Judiciary: "127372"
+            Labor: "126961"
+            National Security: "127374"
+            Science: "127378"
+            Second Amendment: "127376"
+            Social Issues: "127377"
+            Social Security: "126869"
+            Taxation: "126859"
+            Telecommunications: "127379"
+            Transportation and Public Works: "127368"
+            Veterans: "127385"
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - value: Submit
+          selector: "#ctl00_ctl20_SubmitButton"
     - find:
-        - selector: "h1"
-          value: "THANK YOU"
+        - value: Thank you
+          selector: "#ctl00_ctl20_ConfirmationText"
   success:
     headers:
       status: 200
     body:
-      contains: Your email has been successfully submitted.
+      contains: Thank you
