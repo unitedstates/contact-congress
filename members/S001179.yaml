@@ -83,7 +83,8 @@ contact_form:
         - value: Send Email
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
     - find:
-        - selector: "#ctl00_ctl14_ctl00_Text"
+        - selector: "span"
+          value: Thank you
   success:
     headers:
       status: 200

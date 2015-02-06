@@ -1,73 +1,60 @@
 bioguide: T000463
 contact_form:
-  method: get
-  action: /Contact/ContactForm.htm
+  method: post
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
     - visit: "http://turner.house.gov/contact/"
     - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "form.zipform input[name='zip4']"
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
+        - value: Go To Next Step
+          selector: "#emailForm input[name='submit']"
     - find:
-        - selector: "#ctl00_ctl10_ctl00_Text"
+        - selector: "#required-prefix"
     - fill_in:
         - name: required-first
-          selector: "#ctl00_ctl10_ctl00_Text input[name='required-first']"
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#ctl00_ctl10_ctl00_Text input[name='required-last']"
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#ctl00_ctl10_ctl00_Text input[name='required-address']"
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
         - name: required-city
-          selector: "#ctl00_ctl10_ctl00_Text input[name='required-city']"
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: zip5
-          selector: "#ctl00_ctl10_ctl00_Text input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#ctl00_ctl10_ctl00_Text input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: false
-        - name: required-email
-          selector: "#ctl00_ctl10_ctl00_Text input[name='required-email']"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: required-message
-          selector: "#ctl00_ctl10_ctl00_Text textarea[name='required-message']"
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-prefix
-          selector: "#ctl00_ctl10_ctl00_Text select[name='required-prefix']"
+        - name: prefix
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
             Mr.: Mr
-            Ms.: Ms
             Mrs.: Mrs
-        - name: required-state
-          selector: "#ctl00_ctl10_ctl00_Text select[name='required-state']"
-          value: OH
-          required: true
-          options: []
+            Ms.: Ms
         - name: required-issue
-          selector: "#ctl00_ctl10_ctl00_Text select[name='required-issue']"
-          value: $TOPIC
+          selector: "#required-issue"
+          value: $SUBJECT
           required: true
           options:
             Agriculture: WEBAG
@@ -92,9 +79,12 @@ contact_form:
             Veterans Affairs: WEBVET
     - click_on:
         - value: Send Email
-          selector: "#ctl00_ctl10_ctl00_Text form input[type='submit'][value='Send Email']"
+          selector: "#contactForm input[name='submit']"
+    - find:
+        - value: Thank You
+          selector: "h1"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your correspondence
+      contains: Thank You

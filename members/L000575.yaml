@@ -25,6 +25,10 @@ contact_form:
           selector: "#edit-submitted-constituent-information-zip"
           value: $ADDRESS_ZIP5
           required: true
+        - name: "submitted[constituent_information][phone]"
+          selector: "#edit-submitted-constituent-information-phone"
+          value: $PHONE
+          required: false
         - name: "submitted[constituent_information][email]"
           selector: "#edit-submitted-constituent-information-email"
           value: $EMAIL
@@ -179,8 +183,11 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#webform-client-form-78 input[name='op']"
+    - find:
+        - value: Thank you
+          selector: "p"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: Thank you
