@@ -1,0 +1,41 @@
+bioguide: SLe001680
+contact_form:
+  method: POST
+  action: /forms/feedbacks
+  steps:
+    - visit: "http://www.ilhousegop.org/contactjesiel"
+    - fill_in:
+        - name: "feedback[content]"
+          selector: "#feedback_content"
+          value: $MESSAGE
+          required: true
+        - name: "feedback[first_name]"
+          selector: "#feedback_first_name"
+          value: $NAME_FIRST
+          required: true
+        - name: "feedback[last_name]"
+          selector: "#feedback_last_name"
+          value: $NAME_LAST
+          required: true
+        - name: "feedback[email]"
+          selector: "#feedback_email"
+          value: $EMAIL
+          required: true
+    - uncheck:
+        - name: "feedback[email_opt_in]"
+          selector: "#feedback_email_opt_in"
+          value: "1"
+        - name: "feedback[mobile_opt_in]"
+          selector: "#feedback_mobile_opt_in"
+          value: "1"
+    - click_on:
+        - value: Send message
+          selector: "form.ajaxForm.feedback_form input[name='commit']"
+    - find:
+        - selector: "h2"
+          value: "Latest News"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Latest News"

@@ -1,0 +1,77 @@
+bioguide: state_az_gov_doug_ducey
+contact_form:
+  method: post
+  action: "/governor/form/contact-governor-ducey"
+  steps:
+    - visit: "http://www.azgovernor.gov/governor/form/contact-governor-ducey"
+    - check:
+        - name: "submitted[reason]"
+          selector: "#edit-submitted-reason-2"
+          value: "Comment"
+    - fill_in:
+        - name: "submitted[first_name]"
+          selector: "#edit-submitted-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: "submitted[last_name]"
+          selector: "#edit-submitted-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: "submitted[email_address]"
+          selector: "#edit-submitted-email-address"
+          value: $EMAIL
+          required: true
+        - name: "submitted[zip_code]"
+          selector: "#edit-submitted-zip-code"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "submitted[topic]"
+          selector: "#edit-submitted-topic"
+          value: $SUBJECT
+          required: true
+        - name: "submitted[comments]"
+          selector: "#edit-submitted-comments"
+          value: $MESSAGE
+          required: true
+        - name: recaptcha_response_field
+          selector: "#recaptcha_response_field"
+          captcha_selector: "#recaptcha_challenge_image"
+          value: $CAPTCHA_SOLUTION
+          required: true
+    - select:
+        - name: "submitted[salutation]"
+          selector: "#edit-submitted-salutation"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: "Mr."
+            Ms.: "Ms."
+            Mrs.: "Mrs."
+            Dr.: "Dr."
+        - name: "submitted[subject]"
+          selector: "#edit-submitted-subject"
+          value: $TOPIC
+          required: true
+          options:
+            Budget: "Budget"
+            "Inmate & Corrections Dept": "Inmate &amp; Corrections Dept"
+            "DCS Dept of Child Safety (Formerly CPS)": "DCS Dept of Child Safety (Formerly CPS)"
+            "DES Dept of Economic Security": "DES Dept of Economic Security"
+            "Education": "Education"
+            "Health & Healthcare": "Health &amp; Healthcare "
+            "Immigration & Border": "Immigration &amp; Border"
+            "Legislation (Bills)": "Legislation (Bills)"
+            "Motor Vehicle": "Motor Vehicle"
+            "Recognition, Photo & Other Request": "Recognition, Photo &amp; Other Request"
+            "Senior Issues": "Senior Issues"
+            "Taxes": "Taxes"
+            "Veterans & Military": "Veterans &amp; Military"
+            "Other": "Other"
+    - click_on:
+        - value: Send Email
+          selector: ".webform-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting Governor Ducey. Your email has been sent."

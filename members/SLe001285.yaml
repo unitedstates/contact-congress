@@ -1,0 +1,145 @@
+bioguide: SLe001285
+contact_form:
+  method: post
+  action: /apps/afss/afss2
+  steps:
+    - visit: "http://www.in.gov/legislative/senate_democrats/homepages/s33/575.htm"
+    - fill_in:
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#last_name"
+          value: $NAME_LAST
+          required: true
+        - name: mailing_streetAddress1
+          selector: "#mailing_streetAddress1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: mailing_city
+          selector: "#mailing_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: mailing_zipCode
+          selector: "#mailing_zipCode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#email_address"
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: "#verify_email"
+          value: $EMAIL
+          required: true
+        - name: phone_number
+          selector: "#phone_number"
+          value: $PHONE
+          required: false
+        - name: email_subject
+          selector: "#email_subject"
+          value: $SUBJECT
+          required: true
+        - name: comments
+          selector: "#contactForm textarea[name='comments']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: salutation
+          selector: "#salutation"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "--": "null"
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr.: Dr.
+            Prof.: Prof.
+            Senator: Senator
+            Gov.: Gov.
+            Congressman: Congressman
+            Hon.: Hon.
+            Fr.: Fr.
+            Sister: Sister
+            Rabbi: Rabbi
+            Reverend: Reverend
+            Admiral: Admiral
+            Commander: Commander
+            Colonel: Colonel
+            General: General
+            Lieutenant: Lieutenant
+            Lt. Col.: Lt. Col.
+            LCDR: LCDR
+            Major: Major
+            Private: Private
+            Sergeant: Sergeant
+            Petty Officer: Petty Officer
+        - name: state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "--": "null"
+            AK: AK
+            AL: AL
+            AR: AR
+            AZ: AZ
+            CA: CA
+            CO: CO
+            CT: CT
+            DC: DC
+            DE: DE
+            FL: FL
+            GA: GA
+            HI: HI
+            IA: IA
+            ID: ID
+            IL: IL
+            IN: IN
+            KS: KS
+            KY: KY
+            LA: LA
+            MA: MA
+            MD: MD
+            ME: ME
+            MI: MI
+            MN: MN
+            MO: MO
+            MS: MS
+            MT: MT
+            NC: NC
+            ND: ND
+            NE: NE
+            NH: NH
+            NJ: NJ
+            NM: NM
+            NV: NV
+            NY: NY
+            OH: OH
+            OK: OK
+            OR: OR
+            PA: PA
+            RI: RI
+            SC: SC
+            SD: SD
+            TN: TN
+            TX: TX
+            UT: UT
+            VA: VA
+            VT: VT
+            WA: WA
+            WI: WI
+            WV: WV
+            WY: WY
+    - click_on:
+        - value: Send My Comments
+          selector: "#contactForm input[type='submit'][value='Send My Comments']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your comments, we will get back to you as soon as possible."

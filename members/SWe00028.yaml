@@ -1,0 +1,98 @@
+bioguide: SWe00028
+contact_form:
+  method: post
+  action: webmail.php
+  steps:
+    - visit: "https://govnews.ca.gov/gov39mail/mail.php"
+    - fill_in:
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+    - select:
+        - name: subject
+          selector: "#subject"
+          value: $TOPIC
+          required: true
+          options:
+            "--": "1"
+            Animal Issues/Concerns: "6154"
+            Attorney General: "5511"
+            Caltrans: "5541"
+            Child Protective Services: "38184"
+            Child Support Services: "56644"
+            Consumer Affairs Issues/Concerns: "22912"
+            DIR - Workers Compensation: "38182"
+            DMV Issues/Concerns: "6286"
+            Education Issues/Concerns: "6159"
+            Employment Development Department: "5653"
+            Energy Issues/Concerns: "40848"
+            Environment Issues/Concerns: "6151"
+            Fair Employment and Housing: "5680"
+            "Food & Ag Issues/Concerns": "6298"
+            Franchise Tax Board Issues/Concerns: "6287"
+            Gun Control: "38193"
+            "Health & Human Services Agency": "5734"
+            High Speed Rail: "5743"
+            Immigration Issues/Concerns: "5997"
+            Inspector General: "29174"
+            Insurance Issues/Concerns: "5773"
+            Labor and Workforce Development Agency: "38192"
+            Legislation Issues/Concerns: "6157"
+            Medi-Cal Issues/Concerns: "5824"
+            OTHER: "1"
+            Pardon - Request: "44283"
+            Parole - Governors Review: "54336"
+            Parole Issues/Concerns: "38196"
+            Press Office: "34661"
+            Prison Issues/Concerns: "41011"
+            Public Records Request: "38183"
+            Public Utilities Commission: "38195"
+            Request - Commemorative Message from the Governor: "38197"
+            Request - Contribution/Donation: "5585"
+            Request - General: "34805"
+            Small Business Issues/Concerns: "32380"
+            State Foreclosure Assistance: "49360"
+            Student Correspondence: "5784"
+            Teacher Credentialing Issues/Concerns: "6301"
+            UC/CSU Issues/Concerns: "6096"
+            Veteran Issues/Concerns: "38188"
+            Water - Conservation Suggestion: "54536"
+            Water Issues/Concerns: "6127"
+    - check:
+        - name: comment
+          selector: "input[type='radio'][name='comment'][value='opinion']"
+          value: opinion
+        - name: reply
+          selector: "#reply"
+          value: "1"
+    - click_on:
+        - value: Continue
+          selector: "form.content input[name='Submit']"
+    - find:
+        - selector: "textarea[name='message']"
+    - fill_in:
+        - name: message
+          selector: "form.content textarea[name='message']"
+          value: $MESSAGE
+          required: true
+    - check:
+        - name: position
+          selector: "input[type='radio'][name='position'][value='2']"
+          value: "2"
+    - click_on:
+        - value: Send Email
+          selector: "form.content input[name='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: EMAIL COMPLETE

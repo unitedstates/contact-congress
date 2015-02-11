@@ -1,0 +1,42 @@
+bioguide: SWe00053
+contact_form:
+  method: post
+  action: "/contact-gov-scott/email-the-governor/#wpcf7-f9753-p238-o1"
+  steps:
+    - visit: "http://www.flgov.com/contact-gov-scott/email-the-governor/"
+    - fill_in:
+        - name: name
+          selector: "form.wpcf7-form input[name='name']"
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: "form.wpcf7-form input[name='email']"
+          value: $EMAIL
+          required: true
+        - name: zip
+          selector: "form.wpcf7-form input[name='zip']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: subject
+          selector: "form.wpcf7-form input[name='subject']"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "form.wpcf7-form textarea[name='message']"
+          value: $MESSAGE
+          required: true
+        - name: captcha-943
+          selector: "form.wpcf7-form input[name='captcha-943']"
+          captcha_selector: "form .wpcf7-captchac"
+          value: $CAPTCHA_SOLUTION
+          required: true
+    - click_on:
+        - value: Send
+          selector: input.wpcf7-form-control.wpcf7-submit
+    - find:
+        - selector: ".wpcf7-mail-sent-ok"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message was sent successfully. Thanks.

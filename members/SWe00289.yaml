@@ -1,0 +1,83 @@
+bioguide: SWe00289
+contact_form:
+  method: post
+  action: /es/governor/
+  steps:
+    - visit: "https://fortress.wa.gov/es/governor/"
+    - fill_in:
+        - name: Msg
+          selector: "#Msg"
+          value: $MESSAGE
+          required: true
+        - name: First
+          selector: "#First"
+          value: $NAME_FIRST
+          required: true
+        - name: Last
+          selector: "#Last"
+          value: $NAME_LAST
+          required: true
+        - name: Addr1
+          selector: "#Addr1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: City
+          selector: "#City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: Zip
+          selector: "#Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: Email
+          selector: "#Email"
+          value: $EMAIL
+          required: true
+    - select:
+        - name: Subject
+          selector: "#Subject"
+          value: $TOPIC
+          required: true
+          options:
+            - 2013 BILLS
+            - Agriculture
+            - Animals
+            - Budget
+            - Budget Idea
+            - Casinos
+            - Commerce/Business
+            - Economic Development
+            - Education/Schools
+            - Emergency Preparedness
+            - Employment
+            - Energy
+            - Environment
+            - Health Care
+            - Housing
+            - Immigration
+            - "L&I"
+            - Legal/Crime/Law Enforcement
+            - Legislation
+            - Licensing
+            - Marriage Equality
+            - Mortgage/Loans/Banking/Forclosure
+            - Natural Resources
+            - Parks and Recreation
+            - Social Services
+            - Sports
+            - Taxes
+            - Transportation
+            - Tribal
+            - Unemployment Assistance
+            - Utilities
+            - Veterans
+            - Weapons
+            - Other
+    - click_on:
+        - value: Submit
+          selector: "#oneColumn form input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message was sent

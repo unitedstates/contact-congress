@@ -1,0 +1,115 @@
+bioguide: SWe00266
+contact_form:
+  method: post
+  action: contact.aspx
+  steps:
+    - visit: "https://governor.state.tx.us/contact/contact.aspx"
+    - check:
+        - name: rblPath
+          selector: "#rblPath_0"
+          value: "1"
+    - click_on:
+        - value: Select
+          selector: "#Button1"
+    - find:
+        - selector: "#txtFirst"
+    - fill_in:
+        - name: txtFirst
+          selector: "#txtFirst"
+          value: $NAME_FIRST
+          required: true
+        - name: txtLast
+          selector: "#txtLast"
+          value: $NAME_LAST
+          required: true
+        - name: txtAddress
+          selector: "#txtAddress"
+          value: $ADDRESS_STREET
+          required: true
+        - name: txtCity
+          selector: "#txtCity"
+          value: $ADDRESS_CITY
+          required: true
+        - name: txtZip
+          selector: "#txtZip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: txtEmail
+          selector: "#txtEmail"
+          value: $EMAIL
+          required: true
+        - name: txtEmail2
+          selector: "#txtEmail2"
+          value: $EMAIL
+          required: true
+        - name: txtMessage
+          selector: "#txtMessage"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: DropDownList1
+          selector: "#DropDownList1"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "-- Select Prefix --": "0"
+            Mr.: "2"
+            Ms.: "3"
+            Mrs.: "1"
+            Miss: "4"
+            Mr. and Mrs.: "11"
+            Dr.: "5"
+            The Honorable: "6"
+            Ambassador: "8"
+            The Most Reverend: "14"
+            The Reverend: "12"
+            None: "13"
+            Colonel: "15"
+            Lieutenant Colonel: "16"
+            Master Sergeant: "17"
+            Sergeant: "18"
+            Senior Master Sergeant: "19"
+            Technical Sergeant: "20"
+            Commander: "21"
+            Captain: "22"
+            Major: "23"
+            Chief Master Sergeant: "24"
+            Lieutenant: "25"
+            Sergeant First Class: "26"
+            Staff Sergeant: "30"
+            Brigadier General: "28"
+            Lieutenant General: "29"
+            Sergeant Major: "31"
+            Major General: "32"
+            Lieutenant Commander: "33"
+        - name: DropDownList2
+          selector: "#DropDownList2"
+          value: $TOPIC
+          required: true
+          options:
+            "-- Select Issue --": "0"
+            Texas Tax Relief - Franchise Tax Reduction: "114"
+            Texas Tax Relief - Property Tax Cut: "115"
+            Texas Tax Relief - Refund: "116"
+            Texas Tax Relief - Sales Tax Cut: "117"
+            Texas Tax Relief - Other: "118"
+            Education - Public: "96"
+            Environment: "100"
+            Gun Control: "113"
+            Immigration: "98"
+            Renewable Energy: "90"
+            Transportation: "101"
+            Water Issues: "105"
+            Other: "74"
+    - check:
+        - name: RadioButtonList1
+          selector: "#RadioButtonList1_0"
+          value: "1"
+    - click_on:
+        - value: Send Message
+          selector: "#Button1"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "If you do not receive a confirmation e-mail within five minutes"

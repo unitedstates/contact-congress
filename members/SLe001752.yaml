@@ -1,0 +1,80 @@
+bioguide: SLe001752
+contact_form:
+  method: post
+  action: "http://senatornapoleonharris.com/index.php/contact-us"
+  steps:
+    - visit: "http://senatornapoleonharris.com/index.php/contact-us"
+    - fill_in:
+        - name: "form[firstName]"
+          selector: "#firstName"
+          value: $NAME_FIRST
+          required: true
+        - name: "form[lastName]"
+          selector: "#lastName"
+          value: $NAME_LAST
+          required: true
+        - name: "form[address]"
+          selector: "#address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "form[city]"
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "form[state]"
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: "form[zipCode]"
+          selector: "#zipCode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "form[email]"
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: "form[essay1]"
+          selector: "#essay1"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: "form[issue][]"
+          selector: "#issue"
+          value: $TOPIC
+          required: true
+          options:
+            - "--Choose a topic--"
+            - 2nd Amendment Issues
+            - Agriculture
+            - Budget
+            - Consumer Issues
+            - Economic Development
+            - Education
+            - Employment
+            - Energy
+            - Environment
+            - Federal Issues
+            - Healthcare
+            - Housing
+            - Human Rights
+            - Licensing
+            - Local Government
+            - Natural Resources
+            - Other
+            - Pensions
+            - Public Safety
+            - Public Utilities
+            - Seniors
+            - Taxes
+            - Transportation
+            - Veterans
+    - click_on:
+        - value: Send
+          selector: "#Send"
+    - find:
+        - selector: "input[name='continue']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your submission

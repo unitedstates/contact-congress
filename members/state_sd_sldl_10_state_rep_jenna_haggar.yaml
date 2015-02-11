@@ -1,0 +1,32 @@
+bioguide: state_sd_sldl_10_state_rep_jenna_haggar
+contact_form:
+  method: post
+  action: "LegislatorEmail.aspx?MemberID=797&Session=2014"
+  steps:
+    - visit: "http://legis.sd.gov/Contact/LegislatorEmail.aspx?MemberID=797&Session=2014"
+    - fill_in:
+        - name: ctl00$ContentPlaceHolder1$txtFrom
+          selector: "#ContentPlaceHolder1_txtFrom"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ContentPlaceHolder1$txtSubject
+          selector: "#ContentPlaceHolder1_txtSubject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ContentPlaceHolder1$txtMessage
+          selector: "#ContentPlaceHolder1_txtMessage"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$ContentPlaceHolder1$txtInput
+          selector: "#ContentPlaceHolder1_txtInput"
+          captcha_selector: "#ContentPlaceHolder1_ImgCaptcha"
+          value: $CAPTCHA_SOLUTION
+          required: true
+    - click_on:
+        - value: Send Message
+          selector: "#ContentPlaceHolder1_btnSend"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: You are almost done

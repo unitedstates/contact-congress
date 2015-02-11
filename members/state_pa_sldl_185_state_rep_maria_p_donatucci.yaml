@@ -1,0 +1,60 @@
+bioguide: state_pa_sldl_185_state_rep_maria_p_donatucci
+contact_form:
+  method: POST
+  action: confirm.asp
+  steps:
+    - visit: "http://www.pahouse.com/contact/viaLDPC.asp?district=185"
+    - fill_in:
+        - name: txtFirstName
+          selector: "#theForm input[name='txtFirstName']"
+          value: $NAME_FIRST
+          required: true
+        - name: txtLastName
+          selector: "#theForm input[name='txtLastName']"
+          value: $NAME_LAST
+          required: true
+        - name: txtAddress1
+          selector: "#theForm input[name='txtAddress1']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: txtCity
+          selector: "#theForm input[name='txtCity']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: txtState
+          selector: "#theForm input[name='txtState']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: txtZip
+          selector: "#theForm input[name='txtZip']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: txtEmail
+          selector: "#theForm input[name='txtEmail']"
+          value: $EMAIL
+          required: true
+        - name: txtSubject
+          selector: "#theForm input[name='txtSubject']"
+          value: $SUBJECT
+          required: true
+        - name: txtMsg
+          selector: "#theForm textarea[name='txtMsg']"
+          value: $MESSAGE
+          required: true
+    - uncheck:
+        - name: EmailAlertCHECK
+          selector: "#EmailAlertCHECK"
+          value: "2"
+    - click_on:
+        - value: Send
+          selector: "#theForm input[name='B1']"
+    - find:
+        - selector: "form[name='f1']"
+    - click_on:
+        - value: Send this message.
+          selector: "form[name='f1'] input[name='B1']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you.

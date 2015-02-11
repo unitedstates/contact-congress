@@ -1,0 +1,69 @@
+bioguide: SWe00017
+contact_form:
+  method: post
+  action: Contact_Thanks.asp
+  steps:
+    - visit: "http://www.azgovernor.gov/Contact.asp"
+    - fill_in:
+        - name: FirstName
+          selector: "#FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: LastName
+          selector: "#LastName"
+          value: $NAME_LAST
+          required: true
+        - name: Email
+          selector: "#Email"
+          value: $EMAIL
+          required: true
+        - name: Zip
+          selector: "#Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: Topic
+          selector: "#Topic"
+          value: $SUBJECT
+          required: true
+        - name: Message
+          selector: "#Message"
+          value: $MESSAGE
+          required: true
+        - name: CaptchaCode
+          selector: "#CaptchaCode"
+          captcha_selector: "#frmContactGov_CaptchaImage"
+          value: $CAPTCHA_SOLUTION
+          required: true
+    - select:
+        - name: Subject
+          selector: "#Subject"
+          value: $TOPIC
+          required: true
+          options:
+            - Select a Subject from the list
+            - Budget
+            - "Inmate & Corrections Dept"
+            - DCS Dept of Child Safety (Formerly CPS)
+            - DES Dept of Economic Security
+            - Education
+            - "Health & Healthcare "
+            - "Immigration & Border"
+            - Legislation (Bills)
+            - "Motor Vehicle "
+            - "Recognition, Photo & Other Request"
+            - Senior Issues
+            - Taxes
+            - "Veterans & Military"
+            - Other
+    - check:
+        - name: Assistance
+          selector: "#radio2"
+          value: Making a Comment
+    - click_on:
+        - value: Submit
+          selector: "#ProcessForm"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for filling out the Governor's Contact form. We appreciate your contacting the Governor's Office."

@@ -1,0 +1,36 @@
+bioguide: SLe002223
+contact_form:
+  method: post
+  action: /contact
+  steps:
+    - visit: "http://www.reggie4ky.com/contact"
+    - fill_in:
+        - name: name
+          selector: "#edit-name"
+          value: $NAME_FULL
+          required: true
+        - name: mail
+          selector: "#edit-mail"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#edit-subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#edit-message"
+          value: $MESSAGE
+          required: true
+        - name: captcha_response
+          selector: "#edit-captcha-response"
+          captcha_selector: ".captcha_image"
+          value: $CAPTCHA_SOLUTION
+          required: true
+    - click_on:
+        - value: Send e-mail
+          selector: "#edit-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "THANK YOU!"
