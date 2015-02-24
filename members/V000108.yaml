@@ -15,7 +15,7 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: "#emailForm #submit"
     - find:
         - selector: "#contactForm"
     - fill_in:
@@ -44,7 +44,7 @@ contact_form:
           value: $ADDRESS_CITY
           required: true
         - name: required-valid-email
-          selector: "#required-valid-email"
+          selector: "#contactForm #required-valid-email"
           value: $EMAIL
           required: true
         - name: phone
@@ -61,7 +61,7 @@ contact_form:
           required: true
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#contactForm #submit"
   success:
     headers:
       status: 200
