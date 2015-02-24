@@ -1,106 +1,160 @@
 bioguide: R000053
 contact_form:
-  method: post
-  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://rangel.house.gov/contact-me/email-me"
+    - visit: "https://rangelforms.house.gov/contact/"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#submit"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#contactForm"
+        - selector: "#ctl00_ctl23_FirstName"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#required-first"
+        - name: ctl00$ctl23$FirstName
+          selector: "#ctl00_ctl23_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: ctl00$ctl23$LastName
+          selector: "#ctl00_ctl23_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: ctl00$ctl23$Street
+          selector: "#ctl00_ctl23_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "#required-city"
+        - name: ctl00$ctl23$City
+          selector: "#ctl00_ctl23_City"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
-          value: $EMAIL
+        - name: ctl00$ctl23$Zip
+          selector: "#ctl00_ctl23_Zip"
+          value: $ADDRESS_ZIP5
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: ctl00$ctl23$Phone
+          selector: "#ctl00_ctl23_Phone"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
+        - name: ctl00$ctl23$Email
+          selector: "#ctl00_ctl23_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl23$Subject
+          selector: "#ctl00_ctl23_Subject"
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: ctl00$ctl23$Body
+          selector: "#ctl00_ctl23_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
+        - name: ctl00$ctl23$PrefixList
+          selector: "#ctl00_ctl23_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+        - name: ctl00$ctl23$State
+          selector: "#ctl00_ctl23_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl23$IssuesList
+          selector: "#ctl00_ctl23_IssuesList"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AG
-            Animals: ANML
-            Arts and Humanities: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CF
-            Congress and Elections: CMPN
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Federal Employees: OTH
-            Guns: GCR
-            Health: HLTH
-            Housing and Urban Development: HOUSE
-            Immigration: IMM
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: JUD
-            Post Office: OTH
-            Science and Technology: SCI
-            Senior Citizens: OTH
-            Social Security: SS
-            Social Services: OTH
-            Taxes: TAX
-            Telecommunications: TELE
-            Transportation: TRAN
-            Trade: TD
-            Veterans: VET
-            "Women's Issues": WOM
-            Other Issues: OTH
+            Civil Rights: "10055"
+            Cost Accessible Housing: "10346"
+            Economy: "10135"
+            Education: "73"
+            Employment: "10390"
+            Energy: "10177"
+            Environment: "14814"
+            Foreign Policy: "10370"
+            Health Care: "74"
+            Immigration: "10360"
+            Justice: "14946"
+            Medicare and Social Security: "14945"
+            Taxation: "10493"
+            The War in Iraq: "14944"
+            Veterans: "14947"
+            Working Class Families: "10209"
     - click_on:
-        - value: Send Email
-          selector: "#submit"
-    - find:
-        - selector: "h1"
-          value: "Email Me - Thank You"
+        - value: Submit
+          selector: "#ctl00_ctl23_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: I am committed to creating the most open and accessible communication with my constituents and appreciate your comments and questions through my website.
