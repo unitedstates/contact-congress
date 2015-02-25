@@ -17,47 +17,43 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#aspnetForm"
+        - selector: "#ctl00_ctl17_PrefixList"
     - fill_in:
-        - name: ctl00$ctl14$FirstName
-          selector: "#ctl00_ctl14_FirstName"
+        - name: ctl00$ctl17$FirstName
+          selector: "#ctl00_ctl17_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl14$LastName
-          selector: "#ctl00_ctl14_LastName"
+        - name: ctl00$ctl17$LastName
+          selector: "#ctl00_ctl17_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl14$Street
-          selector: "#ctl00_ctl14_Street"
+        - name: ctl00$ctl17$Street
+          selector: "#ctl00_ctl17_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl14$City
-          selector: "#ctl00_ctl14_City"
+        - name: ctl00$ctl17$City
+          selector: "#ctl00_ctl17_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl14$Zip
-          selector: "#ctl00_ctl14_Zip"
+        - name: ctl00$ctl17$Zip
+          selector: "#ctl00_ctl17_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl14$Phone
-          selector: "#ctl00_ctl14_Phone"
-          value: $PHONE
-          required: false
-        - name: ctl00$ctl14$Email
-          selector: "#ctl00_ctl14_Email"
+        - name: ctl00$ctl17$Email
+          selector: "#ctl00_ctl17_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl14$Subject
-          selector: "#ctl00_ctl14_Subject"
+        - name: ctl00$ctl17$Subject
+          selector: "#ctl00_ctl17_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl14$Body
-          selector: "#ctl00_ctl14_Body"
+        - name: ctl00$ctl17$Body
+          selector: "#ctl00_ctl17_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl14$PrefixList
-          selector: "#ctl00_ctl14_PrefixList"
+        - name: ctl00$ctl17$PrefixList
+          selector: "#ctl00_ctl17_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -75,8 +71,8 @@ contact_form:
             - Mayor
             - President
             - The Honorable
-        - name: ctl00$ctl14$State
-          selector: "#ctl00_ctl14_State"
+        - name: ctl00$ctl17$State
+          selector: "#ctl00_ctl17_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -141,17 +137,14 @@ contact_form:
             - PR
             - VI
     - check:
-        - name: ctl00$ctl14$ReplyChoice
-          selector: "#ctl00_ctl14_ReplyChoice_0"
+        - name: ctl00$ctl17$ReplyChoice
+          selector: "#ctl00_ctl17_ReplyChoice_0"
           value: Respond
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl14_SubmitButton"
-    - find:
-        - selector: "span#ctl00_ctl14_ConfirmationText"
-          value: "Thank you"
+          selector: "#ctl00_ctl17_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to write me
+      contains: Thank you for taking the time to write me.
