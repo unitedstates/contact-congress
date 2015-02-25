@@ -1,7 +1,7 @@
 bioguide: L000571
 contact_form:
   method: get
-  action: /Contact/ContactForm.htm
+  action: /forms/writeyourrep/
   steps:
     - visit: "http://lummis.house.gov/contact/"
     - fill_in:
@@ -12,7 +12,7 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
-    - find:
+    - find: 
         - selector: "#ctl00_ctl09_FirstName"
     - fill_in:
         - name: ctl00$ctl09$FirstName
@@ -48,15 +48,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl09$PrefixList
-          selector: "#ctl00_ctl09_PrefixList"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - Dr.
-            - Ms.
         - name: ctl00$ctl09$State
           selector: "#ctl00_ctl09_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
