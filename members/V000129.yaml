@@ -13,55 +13,43 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#aspnetForm"
+        - selector: "#ctl00_ctl15_PrefixList"
     - fill_in:
-        - name: ctl00$ctl14$FirstName
-          selector: "#ctl00_ctl14_FirstName"
+        - name: ctl00$ctl15$FirstName
+          selector: "#ctl00_ctl15_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl14$LastName
-          selector: "#ctl00_ctl14_LastName"
+        - name: ctl00$ctl15$LastName
+          selector: "#ctl00_ctl15_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl14$Street
-          selector: "#ctl00_ctl14_Street"
+        - name: ctl00$ctl15$Street
+          selector: "#ctl00_ctl15_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl14$City
-          selector: "#ctl00_ctl14_City"
+        - name: ctl00$ctl15$City
+          selector: "#ctl00_ctl15_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl14$Zip
-          selector: "#ctl00_ctl14_Zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: ctl00$ctl14$Phone
-          selector: "#ctl00_ctl14_Phone"
+        - name: ctl00$ctl15$Phone
+          selector: "#ctl00_ctl15_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl14$Email
-          selector: "#ctl00_ctl14_Email"
+        - name: ctl00$ctl15$Email
+          selector: "#ctl00_ctl15_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl14$Subject
-          selector: "#ctl00_ctl14_Subject"
+        - name: ctl00$ctl15$Subject
+          selector: "#ctl00_ctl15_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl14$Body
-          selector: "#ctl00_ctl14_Body"
+        - name: ctl00$ctl15$Body
+          selector: "#ctl00_ctl15_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl14$CampaignID
-          selector: "#ctl00_ctl14_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl14$CampaignInfo
-          selector: "#ctl00_ctl14_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
-        - name: ctl00$ctl14$PrefixList
-          selector: "#ctl00_ctl14_PrefixList"
+        - name: ctl00$ctl15$PrefixList
+          selector: "#ctl00_ctl15_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -71,13 +59,76 @@ contact_form:
             - Miss
             - Dr.
             - Mr. and Mrs.
+        - name: ctl00$ctl15$State
+          selector: "#ctl00_ctl15_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl14_SubmitButton"
-    - find:
-        - selector: "#ctl00_ctl14_ConfirmationText"
+          selector: "#ctl00_ctl15_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for taking the time to contact me"
+      contains: Thank you for taking the time to contact me.
