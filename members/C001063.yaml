@@ -1,57 +1,45 @@
 bioguide: C001063
 contact_form:
   method: post
-  action: "default.aspx"
+  action: default.aspx
   steps:
     - visit: "https://cuellar.house.gov/forms/writeyourrep/default.aspx"
     - fill_in:
-        - name: ctl00$ctl10$FirstName
-          selector: "#ctl00_ctl10_FirstName"
+        - name: ctl00$ctl11$FirstName
+          selector: "#ctl00_ctl11_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl10$LastName
-          selector: "#ctl00_ctl10_LastName"
+        - name: ctl00$ctl11$LastName
+          selector: "#ctl00_ctl11_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl10$Street
-          selector: "#ctl00_ctl10_Street"
+        - name: ctl00$ctl11$Street
+          selector: "#ctl00_ctl11_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl10$City
-          selector: "#ctl00_ctl10_City"
+        - name: ctl00$ctl11$City
+          selector: "#ctl00_ctl11_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl10$Zip
-          selector: "#ctl00_ctl10_Zip"
+        - name: ctl00$ctl11$Zip
+          selector: "#ctl00_ctl11_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl10$Phone
-          selector: "#ctl00_ctl10_Phone"
-          value: $PHONE
-          required: false
-        - name: ctl00$ctl10$Email
-          selector: "#ctl00_ctl10_Email"
+        - name: ctl00$ctl11$Email
+          selector: "#ctl00_ctl11_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl10$Subject
-          selector: "#ctl00_ctl10_Subject"
+        - name: ctl00$ctl11$Subject
+          selector: "#ctl00_ctl11_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl10$Body
-          selector: "#ctl00_ctl10_Body"
+        - name: ctl00$ctl11$Body
+          selector: "#ctl00_ctl11_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl10$CampaignID
-          selector: "#ctl00_ctl10_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl10$CampaignInfo
-          selector: "#ctl00_ctl10_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
-        - name: ctl00$ctl10$PrefixList
-          selector: "#ctl00_ctl10_PrefixList"
+        - name: ctl00$ctl11$PrefixList
+          selector: "#ctl00_ctl11_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -63,8 +51,8 @@ contact_form:
             - Judge
             - The Honorable
             - "Mr. & Mrs."
-        - name: ctl00$ctl10$State
-          selector: "#ctl00_ctl10_State"
+        - name: ctl00$ctl11$State
+          selector: "#ctl00_ctl11_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -128,79 +116,11 @@ contact_form:
             - MP
             - PR
             - VI
-        - name: ctl00$ctl10$IssuesList
-          selector: "#ctl00_ctl10_IssuesList"
-          value: $TOPIC
-          required: true
-          options:
-            2010 Census: "8272"
-            Abortion: "5210"
-            Agriculture: "3836"
-            Animal Welfare: "5211"
-            Appropriations: "4813"
-            Banking: "5212"
-            Border & Homeland Security: "3833"
-            Budget: "5213"
-            Campaign Reform: "5216"
-            Census: "107333"
-            Children: "5214"
-            Civil Liberties: "5215"
-            Contraception: "107337"
-            Debt: "107338"
-            Defense: "5217"
-            Disability: "5218"
-            Drugs: "5219"
-            Economy: "107339"
-            Energy: "5220"
-            Energy Independence: "3998"
-            Environmental Issues: "107332"
-            Ethics: "5221"
-            Faith Based Organizations: "3999"
-            Financial Services: "3997"
-            Flood Information: "14782"
-            Food Safety: "107340"
-            Foreign Affairs: "5223"
-            Gay Rights: "107341"
-            Guns: "5224"
-            Health Care: "3834"
-            Healthcare Research: "107342"
-            Housing: "5225"
-            Immigration: "5226"
-            Intel: "107336"
-            Jobs and Economy: "9903"
-            Judiciary: "5227"
-            Keeping Communties Safe: "3994"
-            Labor: "5228"
-            MedicAid: "5231"
-            MediCare: "5230"
-            Military: "5229"
-            Native Americans: "5232"
-            Other - Not Listed: "5237"
-            Postal: "5233"
-            Reducing the Debt: "9896"
-            Science/Technology: "107334"
-            Seniors: "5235"
-            Seniors & Medicare: "3839"
-            Small Business: "5234"
-            Social Security: "107344"
-            Supporting Veterans: "3827"
-            Tax Relief: "3830"
-            Telecommunications: "107335"
-            Trade: "3829"
-            Transportation: "3828"
-            Veteran Affairs: "107331"
-            Water Resources Development Act of 2010: "8397"
-            Welfare: "107345"
-            Women's Issues: "5236"
-    - check:
-        - name: ctl00$ctl10$ReplyChoice
-          selector: "#ctl00_ctl10_ReplyChoice_0"
-          value: Respond
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl10_SubmitButton"
+          selector: "#ctl00_ctl11_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office
+      contains: Thank you for contacting my office.
