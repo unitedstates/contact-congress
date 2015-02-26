@@ -54,7 +54,7 @@ contact_form:
             Ms.: Ms
         - name: required-issue
           selector: "#required-issue"
-          value: $SUBJECT
+          value: $TOPIC
           required: true
           options:
             Agriculture: WEBAG
@@ -80,11 +80,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
-    - find:
-        - value: Thank You
-          selector: "h1"
   success:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: "The following information has been submitted:"
