@@ -1,106 +1,137 @@
 bioguide: G000565
 contact_form:
-  method: post
-  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://gosar.house.gov/contact-me/email-me"
+    - visit: "http://paulgosar.house.gov/contact/"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#submit"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#contactForm"
+        - selector: "#ctl00_ctl24_FirstName"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#required-first"
+        - name: ctl00$ctl24$FirstName
+          selector: "#ctl00_ctl24_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: ctl00$ctl24$LastName
+          selector: "#ctl00_ctl24_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: ctl00$ctl24$Street
+          selector: "#ctl00_ctl24_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
+        - name: ctl00$ctl24$City
+          selector: "#ctl00_ctl24_City"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: ctl00$ctl24$Zip
+          selector: "#ctl00_ctl24_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl24$Email
+          selector: "#ctl00_ctl24_Email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
-        - name: required-subject
-          selector: "#required-subject"
+        - name: ctl00$ctl24$Subject
+          selector: "#ctl00_ctl24_Subject"
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: ctl00$ctl24$Body
+          selector: "#ctl00_ctl24_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
-          value: $TOPIC
+        - name: ctl00$ctl24$PrefixList
+          selector: "#ctl00_ctl24_PrefixList"
+          value: $NAME_PREFIX
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Economy and Jobs: WEBECON
-            Education: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            Government Reform: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            International Relations: WEBINT
-            Judicial: WEBJUD
-            Labor: WEBLAB
-            Medicare and Medicaid: WEBMED
-            Natural Resources and Mining: WEBNAT
-            Social Security: WEBSSEC
-            Taxes: WEBTAX
-            Telecommunications: WEBTEL
-            Trade: WEBTRADE
-            Transportation and Infrastructure: WEBTRA
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other Issues: WEBOTH
-    - check:
-        - name: response
-          selector: "#response_0"
-          value: "Yes"
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Rev.
+            - Dr.
+        - name: ctl00$ctl24$State
+          selector: "#ctl00_ctl24_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
     - click_on:
-        - value: Send Email
-          selector: "#submit"
-    - find:
-        - selector: "h1#page-title-no-line"
-          value: "Thank You"
+        - value: Submit
+          selector: "#ctl00_ctl24_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank You"
+      contains: Thank you for taking the time to write me.
