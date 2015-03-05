@@ -1,44 +1,55 @@
-﻿bioguide: SWe00283
+bioguide: state_wi_gov_scott_walker
 contact_form:
   method: post
   action: default.aspx
   steps:
-    - visit: "http://governor.vermont.gov/contact-us/opinion"
+    - visit: "http://www.wisgov.state.wi.us/Contact-Us"
     - fill_in:
         - name: firstName
-          selector: "#edit-submitted-FIRST"
+          selector: "#edit-submitted-contact-information-first-name"
           value: $NAME_FIRST
           required: true
         - name: lastName
-          selector: "#edit-submitted-LAST"
+          selector: "#edit-submitted-contact-information-last-name"
           value: $NAME_LAST
+        - name: phone
+          selector: "#edit-submitted-contact-information-phone-number"
+          value: $PHONE
           required: true
         - name: email
-          selector: "#edit-submitted-EMAIL"
+          selector: "#edit-submitted-contact-information-email"
           value: $EMAIL
           required: true
-        - name: street1
-          selector: "#edit-submitted-ADDR1"
+        - name: street
+          selector: "#edit-submitted-address-info-address-line-1"
           value: $ADDRESS_STREET
-          required: true
         - name: street2
-          selector: "#edit-submitted-ADDR2"
+          selector: "#edit-submitted-address-info-address-line-2"
           value: $ADDRESS_STREET_2
         - name: city
-          selector: "#edit-submitted-CITY"
+          selector: "#edit-submitted-address-info-city"
           value: $ADDRESS_CITY
           required: true
-        - name: phoneHyphens
-          selector: "#edit-submitted-PHONE"
-          value: $PHONE_HYPHENS
+        - name: zip
+          selector: "#edit-submitted-address-info-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: subject
+          selector: "#edit-submitted-main-content-section-subject"
+          value: $SUBJECT
           required: true
         - name: message
-          selector: "#edit-submitted-MSG"
+          selector: "#edit-submitted-main-content-section-message"
           value: $MESSAGE
+          required: true
+        - name: captcha
+          selector: "#edit-captcha-response"
+          captcha_selector: "div.captcha > img"
+          value: $CAPTCHA_SOLUTION
           required: true
     - select:
         - name: stateFull
-          selector: "#edit-submitted-STATE"
+          selector: "#edit-submitted-address-info-state"
           value: $ADDRESS_STATE_FULL
           required: true
           options:
@@ -100,49 +111,6 @@ contact_form:
             - "WV": "West Virginia"
             - "WI": "Wisconsin"
             - "WY": "Wyoming"
-        - name: topic
-          selector: "#edit-submitted-ISSUE"
-          value: $TOPIC
-          required: true
-          options:
-            - "Abortion": "Abortion"
-            - "Agriculture": "Agriculture"
-            - "ATVs": "ATVs"
-            - "Broadband": "Broadband"
-            - "Budget": "Budget"
-            - "Corrections": "Corrections"
-            - "Courts": "Courts"
-            - "Death with Dignity": "Death with Dignity"
-            - "Economy": "Economy"
-            - "Education": "Education"
-            - "Emergency Management": "Emergency Management"
-            - "Energy": "Energy"
-            - "Environment": "Environment"
-            - "Flooding": "Flooding"
-            - "Government Operations": "Government Operations"
-            - "Gun Control": "Gun Control"
-            - "Health Care": "Health Care"
-            - "Human Services": "Human Services"
-            - "Immigration": "Immigration"
-            - "Marijuana": "Marijuana"
-            - "Natural Resources": "Natural Resources"
-            - "Public Safety": "Public Safety"
-            - "Scheduling Request": "Scheduling Request"
-            - "Taxes": "Taxes"
-            - "Technology": "Technology"
-            - "Thank You": "Thank You"
-            - "Town Meetings": "Town Meetings"
-            - "Transportation": "Transportation"
-            - "UVM": "UVM"
-            - "Veterans": "Veterans"
-            - "Wildlife": "Wildlife"
-            - "Wind Energy": "Wind Energy"
-            - "Yankee Nuclear": "Yankee Nuclear"
-            - "Other": "Other"
-    - check:
-        - name: subscribe
-          selector: "#edit-submitted-affl-1"
-          value: email
     - click_on:
         - value: Submit
           selector: "#edit-submit"
@@ -150,4 +118,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Your submission has been received by Governor Peter Shumlin
+      contains: "Thank you for your message"

@@ -10,117 +10,256 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Addiction Services: Addiction Services
-            Agriculture: Agriculture
-            Arts and History: Arts and History
-            Children and Families: Children and Families
-            "Child Support / Custody": "Child Support / Custody"
-            Civil Service Commission: Civil Service Commission
-            Corrections: Corrections
-            Developmentaly Disabled: Developmentaly Disabled
-            "Disability / Unemployment": "Disability / Unemployment"
-            Economic Growth: Economic Growth
-            Education: Education
-            Elections: Elections
-            Environment: Environment
-            Health: Health and Senior Services
-            Housing: Housing
-            Human Services: Human Services
-            Insurance: Insurance
-            Invitations: Invitations
-            Labor: Labor
-            Law and Public Safety: Law and Public Safety
-            Lottery: Lottery
-            Mental Health: Mental Health
-            Military Affairs: Military Affairs
-            "NJ FamilyCare / KidCare": "NJ FamilyCare / KidCare"
-            Pensions and Retirements: Pensions and Retirements
-            Public Utilities: Public Utilities
-            "Requesting Proclamations / Special Letter": "Requesting Proclamations / Special Letter"
-            Taxation: Taxation
-            "Transportation / Motor Vehicles": "Transportation / Motor Vehicles"
-            Vital Statistics: Vital Statistics
+            - "Addiction Services": "Addiction Services"
+            - "Agriculture": "Agriculture"
+            - "Arts and History": "Arts and History"
+            - "Banking": "Banking"
+            - "Birth/Death Certificates": "Birth/Death Certificates"
+            - "Business": "Business"
+            - "Children and Families": "Children and Families"
+            - "Child Support": "Child Support"
+            - "Civil Service Commission": "Civil Service Commission"
+            - "Consumer Affairs": "Consumer Affairs"
+            - "Corrections": "Corrections"
+            - "Developmental Disabilities": "Developmental Disabilities"
+            - "Division on Elections": "Division on Elections"
+            - "Education": "Education"
+            - "Environment": "Environment"
+            - "Family Care/Medicaid": "Family Care/Medicaid"
+            - "Health": "Health"
+            - "Housing": "Housing"
+            - "Human Services": "Human Services"
+            - "Insurance": "Insurance"
+            - "Invitations/Scheduling": "Invitations/Scheduling"
+            - "Labor": "Labor"
+            - "Law and Public Safety": "Law and Public Safety"
+            - "Licensing Boards": "Licensing Boards"
+            - "Lottery": "Lottery"
+            - "Mental Health Services": "Mental Health Services"
+            - "Military and Veterans Affairs": "Military and Veterans Affairs"
+            - "Pensions and Retirements": "Pensions and Retirements"
+            - "Public Utilities": "Public Utilities"
+            - "Requesting Proclamations / Special Letter": "Requesting Proclamations / Special Letter"
+            - "Superstorm Sandy/CDBG": "Superstorm Sandy/CDBG"
+            - "Taxation": "Taxation"
+            - "Temporary Disability": "Temporary Disability"
+            - "Transportation / Motor Vehicles": "Transportation / Motor Vehicles"
+            - "Unclaimed Property": "Unclaimed Property"
+            - "Unemployment": "Unemployment"
     - click_on:
         - value: Continue...
           selector: "#govmail input[name='Submit']"
     - find:
-        - selector: "input[name='submit']"  
+        - selector: "input[name='submit']"
     - select:
-        - name: prefix
-          selector: "select[name='prefix']"
-          value: $NAME_PREFIX
+        - name: sub-topic
+          selector: "select[name='SubTopics']"
+          value: $SUBTOPIC1
           required: true
           options:
-            Captain: Captain
-            Chief: Chief
-            Councilman: Councilman
-            Councilwoman: Councilwoman
-            Dame: Dame
-            Doctor: Doctor
-            "Dr.": "Dr."
-            "Dr. and Mr.": "Dr. and Mr."
-            "Dr. and Mrs.": "Dr. and Mrs."
-            Father: Father
-            Friend: Friend
-            Friends: Friends
-            Miss: Miss
-            Monsignor: Monsignor
-            "Mr.": "Mr."
-            "Mr. and Mrs.": "Mr. and Mrs."
-            "Mrs.": "Mrs."
-            "Ms.": "Ms."
-            Pastor: Pastor
-            Rabbi: Rabbi
-            "Rev.": "Rev."
-            Reverend: Reverend
-            Sir: Sir
-            Sister: Sister
-            The Honorable: The Honorable
+            - "Abuse": "--Abuse"
+            - "Active Services": "--Active Services"
+            - "Adoption/Foster Care": "--Adoption/Foster Care"
+            - "Affordable Housing": "--Affordable Housing"
+            - "Alcoholic Beverage Control": "--Alcoholic Beverage Control"
+            - "Animal Health": "--Animal Health"
+            - "Assistance/LIHEAP": "--Assistance/LIHEAP"
+            - "Auto Insurance": "--Auto Insurance"
+            - "Building Inspections/Violations": "--Building Inspections/Violations"
+            - "Business": "--Business"
+            - "Casino Control": "--Casino Control"
+            - "Childcare Centers": "--Childcare Centers"
+            - "Civil Rights": "--Civil Rights"
+            - "Clean Energy": "--Clean Energy"
+            - "Correctional Facilities": "--Correctional Facilities"
+            - "Division on Women": "--Division on Women"
+            - "Domestic Violence": "--Domestic Violence"
+            - "EZ Pass": "--EZ Pass"
+            - "Family Health/Nutrition": "--Family Health/Nutrition"
+            - "Farmland Preservation": "--Farmland Preservation"
+            - "Financial Aid": "--Financial Aid"
+            - "Fish and Wildlife": "--Fish and Wildlife"
+            - "Flooding": "--Flooding"
+            - "Health Insurance": "--Health Insurance"
+            - "Homeland Security": "--Homeland Security"
+            - "Homeowners Insurance": "--Homeowners Insurance"
+            - "Homestead Rebate": "--Homestead Rebate"
+            - "Hospital Issues": "--Hospital Issues"
+            - "Inheritance Tax": "--Inheritance Tax"
+            - "Jersey Fresh": "--Jersey Fresh"
+            - "K-12": "--K-12"
+            - "Lifeline": "--Lifeline"
+            - "Miscellaneous Public Safety": "--Miscellaneous Public Safety"
+            - "Motor Vehicle Commission": "--Motor Vehicle Commission"
+            - "N.J. Colleges and Universities": "--N.J. Colleges and Universities"
+            - "National Guard and Reserves": "--National Guard and Reserves"
+            - "NJ Transit": "--NJ Transit"
+            - "Nursing Homes": "--Nursing Homes"
+            - "Open Space": "--Open Space"
+            - "Other Education Issues": "--Other Education Issues"
+            - "PAAD/Senior Gold": "--PAAD/Senior Gold"
+            - "Pardons and Clemency": "--Pardons and Clemency"
+            - "Parks and Forests": "--Parks and Forests"
+            - "Parkway Authorities": "--Parkway Authorities"
+            - "Parole Board": "--Parole Board"
+            - "Pollution and Contamination": "--Pollution and Contamination"
+            - "Property Tax": "--Property Tax"
+            - "PTR (Senior Freeze)": "--PTR (Senior Freeze)"
+            - "Residence": "--Residence"
+            - "Roadway Construction": "--Roadway Construction"
+            - "Sales Tax": "--Sales Tax"
+            - "Senior Programs": "--Senior Programs"
+            - "Shutoffs": "--Shutoffs"
+            - "Special Education": "--Special Education"
+            - "State Highways and Routes": "--State Highways and Routes"
+            - "State Income Tax": "--State Income Tax"
+            - "Teacher Certification": "--Teacher Certification"
+            - "Telephone/Water, Gas and Electric Rates": "--Telephone/Water, Gas and Electric Rates"
+            - "Veterans Affairs": "--Veterans Affairs"
+            - "Welfare/Food Stamps": "--Welfare/Food Stamps"
     - fill_in:
-        - name: first
+        - name: firstName
           selector: "input[name='first']"
           value: $NAME_FIRST
           required: true
-        - name: last
+        - name: lastName
           selector: "input[name='last']"
           value: $NAME_LAST
           required: true
-        - name: address1
+        - name: street
           selector: "input[name='address1']"
           value: $ADDRESS_STREET
           required: true
+        - name: street2
+          selector: "input[name='address2']"
+          value: $ADDRESS_STREET_2
         - name: city
           selector: "input[name='city']"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
+        - name: zip5
           selector: "input[name='zip']"
           value: $ADDRESS_ZIP5
-          required: true
-        - name: areacode
+        - name: phoneAreaCode
           selector: "input[name='areacode']"
-          value: $PHONE
+          value: $PHONE_AREA_CODE
           required: true
-        - name: exch
+        - name: phoneExchange
           selector: "input[name='exch']"
-          value: $PHONE
+          value: $PHONE_EXCHANGE_CODE
           required: true
-        - name: phone
+        - name: phoneNumber
           selector: "input[name='phone']"
-          value: $PHONE
+          value: $PHONE_SUBSCRIBER_NUMBER
           required: true
         - name: email
-          selector: "form[name='govmail'] input[name='email']"
+          selector: "input[name='email']"
           value: $EMAIL
-          required: true
         - name: subject
           selector: "input[name='subject']"
           value: $SUBJECT
           required: true
         - name: message
-          selector: "input[name='message']"
+          selector: "textarea[name='message']"
           value: $MESSAGE
           required: true
+    - select: 
+        - name: prefix
+          selector: "select[name='prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - "Captain": "Captain"
+            - "Chief": "Chief"
+            - "Councilman": "Councilman"
+            - "Councilwoman": "Councilwoman"
+            - "Dame": "Dame"
+            - "Doctor": "Doctor"
+            - "Dr.": "Dr."
+            - "Dr. and Mr.": "Dr. and Mr."
+            - "Dr. and Mrs.": "Dr. and Mrs."
+            - "Father": "Father"
+            - "Friend": "Friend"
+            - "Friends": "Friends"
+            - "Miss": "Miss"
+            - "Monsignor": "Monsignor"
+            - "Mr.": "Mr."
+            - "Mr. and Mrs.": "Mr. and Mrs."
+            - "Mrs.": "Mrs."
+            - "Ms.": "Ms."
+            - "Pastor": "Pastor"
+            - "Rabbi": "Rabbi"
+            - "Rev.": "Rev."
+            - "Reverend": "Reverend"
+            - "Sir": "Sir"
+            - "Sister": "Sister"
+            - "The Honorable": "The Honorable"
+        - name: stateFull
+          selector: "select[name='state']"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            - "NJ": "New Jersey"
+            - "DE": "Delaware"
+            - "NY": "New York"
+            - "PA": "Pennsylvania"
+            - "AL": "Alabama"
+            - "AK": "Alaska"
+            - "AZ": "Arizona"
+            - "AR": "Arkansas"
+            - "CA": "California"
+            - "CO": "Colorado"
+            - "CT": "Connecticut"
+            - "DC": "Dist. of Col."
+            - "DE": "Delaware"
+            - "FL": "Florida"
+            - "GA": "Georgia"
+            - "HI": "Hawaii"
+            - "ID": "Idaho"
+            - "IL": "Illinois"
+            - "IN": "Indiana"
+            - "IA": "Iowa"
+            - "KS": "Kansas"
+            - "KY": "Kentucky"
+            - "LA": "Louisiana"
+            - "ME": "Maine"
+            - "MD": "Maryland"
+            - "MA": "Massachusetts"
+            - "MI": "Michigan"
+            - "MN": "Minnesota"
+            - "MO": "Missouri"
+            - "MS": "Mississippi"
+            - "MT": "Montana"
+            - "NE": "Nebraska"
+            - "NV": "Nevada"
+            - "NH": "New Hampshire"
+            - "NM": "New Mexico"
+            - "NY": "New York"
+            - "NC": "North Carolina"
+            - "ND": "North Dakota"
+            - "OH": "Ohio"
+            - "OK": "Oklahoma"
+            - "OR": "Oregon"
+            - "PA": "Pennsylvania"
+            - "RI": "Rhode Island"
+            - "SC": "South Carolina"
+            - "SD": "South Dakota"
+            - "TN": "Tennessee"
+            - "TX": "Texas"
+            - "UT": "Utah"
+            - "VT": "Vermont"
+            - "VA": "Virginia"
+            - "WA": "Washington"
+            - "WV": "West Virginia"
+            - "WI": "Wisconsin"
+            - "WY": "Wyoming"
+            - "AS": "American Samoa"
+            - "FM": "Fed. States Micronesia"
+            - "GU": "Guam"
+            - "MH": "Marshall Islands"
+            - "MP": "North Mariana Is."
+            - "PR": "Puerto Rico"
+            - "VI": "Virgin Islands"
     - click_on:
         - value: Send Your Message
           selector: "input[name='submit']"
@@ -128,4 +267,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me.
+      contains: Thank you for contacting me

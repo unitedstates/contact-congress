@@ -4,69 +4,76 @@ contact_form:
   action: "/governor/form/contact-governor-ducey"
   steps:
     - visit: "http://www.azgovernor.gov/governor/form/contact-governor-ducey"
-    - check:
-        - name: "submitted[reason]"
-          selector: "#edit-submitted-reason-2"
-          value: "Comment"
     - fill_in:
-        - name: "submitted[first_name]"
+        - name: firstName
           selector: "#edit-submitted-first-name"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[last_name]"
+        - name: lastName
           selector: "#edit-submitted-last-name"
           value: $NAME_LAST
           required: true
-        - name: "submitted[email_address]"
+        - name: email
           selector: "#edit-submitted-email-address"
           value: $EMAIL
           required: true
-        - name: "submitted[zip_code]"
+        - name: phone
+          selector: "#edit-submitted-phone-number"
+          value: $PHONE
+        - name: street
+          selector: "#edit-submitted-street-address"
+          value: $ADDRESS_STREET
+        - name: city
+          selector: "#edit-submitted-city"
+          value: $ADDRESS_CITY
+        - name: zip5
           selector: "#edit-submitted-zip-code"
           value: $ADDRESS_ZIP5
-          required: true
-        - name: "submitted[topic]"
+        - name: subject
           selector: "#edit-submitted-topic"
           value: $SUBJECT
-          required: true
-        - name: "submitted[comments]"
+        - name: message
           selector: "#edit-submitted-comments"
           value: $MESSAGE
           required: true
-        - name: recaptcha_response_field
+        - name: captcha
           selector: "#recaptcha_response_field"
           captcha_selector: "#recaptcha_challenge_image"
           value: $CAPTCHA_SOLUTION
           required: true
     - select:
-        - name: "submitted[salutation]"
+        - name: prefix
           selector: "#edit-submitted-salutation"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr."
-            Ms.: "Ms."
-            Mrs.: "Mrs."
-            Dr.: "Dr."
-        - name: "submitted[subject]"
+            - "Mr.": "Mr."
+            - "Ms.": "Ms."
+            - "Mrs.": "Mrs."
+            - "Dr.": "Dr."
+        - name: topic
           selector: "#edit-submitted-subject"
           value: $TOPIC
           required: true
           options:
-            Budget: "Budget"
-            "Inmate & Corrections Dept": "Inmate &amp; Corrections Dept"
-            "DCS Dept of Child Safety (Formerly CPS)": "DCS Dept of Child Safety (Formerly CPS)"
-            "DES Dept of Economic Security": "DES Dept of Economic Security"
-            "Education": "Education"
-            "Health & Healthcare": "Health &amp; Healthcare "
-            "Immigration & Border": "Immigration &amp; Border"
-            "Legislation (Bills)": "Legislation (Bills)"
-            "Motor Vehicle": "Motor Vehicle"
-            "Recognition, Photo & Other Request": "Recognition, Photo &amp; Other Request"
-            "Senior Issues": "Senior Issues"
-            "Taxes": "Taxes"
-            "Veterans & Military": "Veterans &amp; Military"
-            "Other": "Other"
+            - "Budget": "Budget"
+            - "Inmate &amp; Corrections Dept": "Inmate & Corrections Dept"
+            - "DCS Dept of Child Safety (Formerly CPS)": "DCS Dept of Child Safety (Formerly CPS)"
+            - "DES Dept of Economic Security": "DES Dept of Economic Security"
+            - "Education": "Education"
+            - "Health &amp; Healthcare": "Health & Healthcare "
+            - "Immigration &amp; Border": "Immigration & Border"
+            - "Legislation (Bills)": "Legislation (Bills)"
+            - "Motor Vehicle": "Motor Vehicle"
+            - "Recognition, Photo &amp; Other Request": "Recognition, Photo & Other Request"
+            - "Senior Issues": "Senior Issues"
+            - "Taxes": "Taxes"
+            - "Veterans &amp; Military": "Veterans & Military"
+            - "Other": "Other"
+    - check:
+        - name: comment
+          selector: "#edit-submitted-reason-2"
+          value: "Comment"
     - click_on:
         - value: Send Email
           selector: ".webform-submit"
@@ -74,4 +81,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting Governor Ducey. Your email has been sent."
+      contains: "Your email has been sent"

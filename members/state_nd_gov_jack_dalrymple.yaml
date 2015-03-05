@@ -1,0 +1,35 @@
+bioguide: state_nd_gov_jack_dalrymple
+contact_form:
+  method: post
+  action: default.aspx
+  steps:
+    - visit: "http://governor.nd.gov/contact-us"
+    - wait:
+       - value: 5
+    - fill_in:
+        - name: fullName
+          selector: "#edit-submitted-name"
+          value: $NAME_FULL
+        - name: subject
+          selector: "#edit-submitted-subject"
+          value: $SUBJECT
+          required: true
+        - name: email
+          selector: "#edit-submitted-e-mail-address"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#edit-submitted-phone-number"
+          value: $PHONE
+        - name: message
+          selector: "#edit-submitted-comments"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#edit-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting"

@@ -1,0 +1,65 @@
+bioguide: state_ky_gov_steve_beshear
+contact_form:
+  method: post
+  action: contact.aspx
+  steps:
+    - visit: http://governor.ky.gov/Pages/contact.aspx
+    - fill_in:
+        - name: ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtFirstName
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtFirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtLastName
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtLastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtAddress1
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtAddress1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtAddress2
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtAddress2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtCity
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtCity"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtZip
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtZip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtPhone
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtPhone"
+          value: $PHONE
+          required: true
+        - name: ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtEmail
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtEmail"
+          value: $EMAIL
+          required: true
+        - name: ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtSubject
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtSubject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtComment
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtComment"
+          value: $MESSAGE
+          required: true
+        - name: ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtCaptchaResponse
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_txtCaptchaResponse"
+          captcha_selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_captchaChallenge_updatePanelCaptcha img"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+    - select:    
+        - name: ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_ddlState
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_ddlState"
+          value: $ADDRESS_STATE_FULL
+          required: Yes
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl23_g_8e1c41eb_79cf_4daa_9215_438e8c69ac03_btnSubmit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting Governor Beshear. We appreciate you taking the time to share your thoughts."

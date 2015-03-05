@@ -1,0 +1,48 @@
+bioguide: state_me_gov_paul_lepage
+contact_form:
+  method: post
+  action: http://www.maine.gov/cgi-bin/formproc-v2/cntswan/gov_share_views
+  steps:
+    - visit: http://www.maine.gov/governor/lepage/citizen_services/ideas-suggestions.shtml
+    - fill_in:
+      - name: name
+        selector: "#name"
+        value: $NAME_FIRST
+        required: Yes
+      - name: lname
+        selector: "#lname"
+        value: $NAME_LAST
+        required: Yes
+      - name: email
+        selector: "#email"
+        value: $EMAIL
+        required: Yes
+      - name: phone
+        selector: "#phone"
+        value: $PHONE
+        required: No
+      - name: street
+        selector: "#street"
+        value: $ADDRESS_STREET
+        required: No
+      - name: city
+        selector: "#city"
+        value: $ADDRESS_CITY
+        required: No
+      - name: state
+        selector: "#state"
+        value: $ADDRESS_STATE_FULL
+        required: No
+      - name: zip
+        selector: "#zip"
+        value: $ADDRESS_ZIP5
+        required: No
+      - name: comments
+        selector: "#comments"
+        value: $MESSAGE
+        required: Yes
+    - click_on:
+      - selector: "#Submit"
+  success:
+    body:
+      contains: "Your message has been sent successfully. Thank you."

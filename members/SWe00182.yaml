@@ -1,17 +1,17 @@
 bioguide: SWe00182
 contact_form:
   method: post
-  action: scripts/govmail.php
+  action: contact.php
   steps:
-    - visit: "http://www.governor.nebraska.gov/mail/govmail.html"
+    - visit: "http://www.governor.nebraska.gov/contact/contact.php"
     - fill_in:
-        - name: fname
-          selector: "#fname"
-          value: $NAME_FIRST
+        - name: name
+          selector: "#name"
+          value: $NAME_FULL
           required: true
-        - name: lname
-          selector: "#lname"
-          value: $NAME_LAST
+        - name: email
+          selector: "#email"
+          value: $EMAIL
           required: true
         - name: address
           selector: "#address"
@@ -21,31 +21,90 @@ contact_form:
           selector: "#city"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#zip"
+        - name: zipcode
+          selector: "#zipcode"
           value: $ADDRESS_ZIP5
-          required: true
-        - name: email
-          selector: "#email"
-          value: $EMAIL
           required: true
         - name: phone
           selector: "#phone"
           value: $PHONE
-          required: false
+          required: true
         - name: comments
           selector: "#comments"
           value: $MESSAGE
           required: true
-    - check:
-        - name: reply
-          selector: "input[type='radio'][name='reply'][value='Yes']"
-          value: "Yes"
+    - select:
+        - name: state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AK
+            - AL
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - FL
+            - GA
+            - HI
+            - IA
+            - ID
+            - IL
+            - IN
+            - KS
+            - KY
+            - LA
+            - MA
+            - MD
+            - ME
+            - MI
+            - MN
+            - MO
+            - MS
+            - MT
+            - NC
+            - ND
+            - NE
+            - NH
+            - NJ
+            - NM
+            - NV
+            - NY
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VA
+            - VT
+            - WA
+            - WI
+            - WV
+            - WY
+        - name: subject_query
+          selector: "#subject_query"
+          value: $TOPIC
+          required: true
+          options:
+            - Elections
+            - Notary
+            - Lobbyist
+            - Comment
+            - Other
     - click_on:
-        - value: Send Message
-          selector: "form[name='govmail'] input[name='Submit']"
+        - value: Submit
+          selector: "button[type='Submit']"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your Email.
+      contains: Thank you for contacting the Governor

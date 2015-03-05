@@ -1,0 +1,148 @@
+bioguide: state_mi_gov_rick_snyder
+contact_form:
+  method: post
+  action: default.aspx
+  steps:
+    - visit: "https://somgovweb.state.mi.us/GovRelations/ShareOpinion.aspx"
+    - fill_in:
+        - name: prefix
+          selector: "#ctl00_Content_OpinionPrefix"
+          value: $NAME_PREFIX
+          required: true      
+        - name: firstName
+          selector: "#ctl00_Content_OpinionFirstName"
+          value: $NAME_FIRST
+          required: true    
+        - name: lastName
+          selector: "#ctl00_Content_OpinionLastName"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#ctl00_Content_OpinionAddress"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#ctl00_Content_OpinionCity"
+          value: $ADDRESS_CITY
+          required: true 
+        - name: zip
+          selector: "#ctl00_Content_OpinionZipCode"
+          value: $ADDRESS_ZIP5
+          required: true                                      
+        - name: phone
+          selector: "#ctl00_Content_OpinionPhone"
+          value: $PHONE
+        - name: email
+          selector: "#ctl00_Content_OpinionEmail"
+          value: $EMAIL
+          required: true            
+        - name: message
+          selector: "#ctl00_Content_OpinionText"
+          value: $MESSAGE
+          required: true
+        - name: captcha
+          selector: "#ctl00_Content_RadCaptcha1_CaptchaTextBox"
+          captcha_selector: "img#ctl00_Content_RadCaptcha1_CaptchaImageUP"
+          value: $CAPTCHA_SOLUTION
+          required: true  
+    - select:
+        - name: topic       
+          selector: "#ctl00_Content_OpinionIssue"
+          value: $TOPIC
+          required: true
+          options:  
+            - "406a7fcf-2d5b-e211-9168-00219b8d8c68": "* 2015 State Budget Proposal"
+            - "8b34f42f-6c78-e311-a0c9-00219b8d8c68": "* 2015 State of the State Address"
+            - "885f987d-7d9b-e111-b2cb-00219b8d8c68": "* Abortion"
+            - "78b0d2d4-3e5b-e211-9168-00219b8d8c68": "* Affordable Care Act"
+            - "a8ae875a-245b-e211-9168-00219b8d8c68": "* Agriculture"
+            - "6d712412-7131-e111-b4af-00219b8d8c66": "* Education"
+            - "67c0381e-2667-e211-8ed4-00219b8d8c68": "* Electoral College"
+            - "ac63d167-6105-e111-9f74-00219b8d8c66": "* Emergency Manager Law"
+            - "3d95f4d3-fe89-e411-947f-00219b8d8c68": "* Energy and the Environment"
+            - "9174d32e-33af-e111-90cf-00219b8d8c68": "* Ethics &amp; Campaign Finance Reform"
+            - "a48df34a-78e5-e211-8fbb-00219b8d8c68": "* Fireworks"
+            - "ba34eb7d-235b-e211-9168-00219b8d8c68": "* Freedom-to-Work Law"
+            - "20674245-3d39-e011-bfcb-00219b8d8c66": "* Gas Prices"
+            - "23b731ba-7431-e111-b4af-00219b8d8c66": "* General Comments"
+            - "3fd97c62-6369-e211-8ed4-00219b8d8c68": "* Great Lakes"
+            - "2a621f32-fd45-e211-8e57-00219b8d8c68": "* Gun Legislation"
+            - "23a6eaf4-7031-e111-b4af-00219b8d8c66": "* Health &amp; Wellness"
+            - "4fb29f8e-7131-e111-b4af-00219b8d8c66": "* Ideas &amp; Suggestions"
+            - "15cc884f-3d39-e011-bfcb-00219b8d8c66": "* Immigration"
+            - "90b3a092-285b-e211-9168-00219b8d8c68": "* Jobs &amp; Economy"
+            - "c238711a-285b-e211-9168-00219b8d8c68": "* Law &amp; Public Safety"
+            - "e32ac82e-0667-e211-8ed4-00219b8d8c68": "* Medicaid"
+            - "a77f6c49-7631-e111-b4af-00219b8d8c66": "* Mental Health"
+            - "55a36375-7231-e111-b4af-00219b8d8c66": "* New International Trade Crossing (NITC)"
+            - "6c48c7d2-9aeb-e011-aa08-00219b8d8c66": "* No-Fault Auto Insurance"
+            - "1f2eb027-7631-e111-b4af-00219b8d8c66": "* Other / Unknown"
+            - "c56ea783-2b49-e111-bd20-00219b8d8c66": "* Road &amp; Infrastructure Funding"
+            - "dd9b07af-7131-e111-b4af-00219b8d8c66": "* State Employee Assistance"
+            - "e32c1bd1-7431-e111-b4af-00219b8d8c66": "* Taxation"
+            - "99615267-0472-e211-97b8-00219b8d8c68": "* Veteran Services"
+            - "bff62df2-7331-e111-b4af-00219b8d8c66": "* Welfare Reform"
+        - name: stateFull         
+          selector: "#ctl00_Content_OpinionState"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            - "AL": "Alabama"
+            - "AK": "Alaska"
+            - "AZ": "Arizona"
+            - "AR": "Arkansas"
+            - "CA": "California"
+            - "CO": "Colorado"
+            - "CT": "Connecticut"
+            - "DE": "Delaware"
+            - "DC": "District of Columbia"
+            - "FL": "Florida"
+            - "GA": "Georgia"
+            - "HI": "Hawaii"
+            - "ID": "Idaho"
+            - "IL": "Illinois"
+            - "IN": "Indiana"
+            - "IA": "Iowa"
+            - "KS": "Kansas"
+            - "KY": "Kentucky"
+            - "LA": "Louisiana"
+            - "ME": "Maine"
+            - "MD": "Maryland"
+            - "MA": "Massachusetts"
+            - "MI": "Michigan"
+            - "MN": "Minnesota"
+            - "MS": "Mississippi"
+            - "MO": "Missouri"
+            - "MT": "Montana"
+            - "NE": "Nebraska"
+            - "NV": "Nevada"
+            - "NH": "New Hampshire"
+            - "NJ": "New Jersey"
+            - "NM": "New Mexico"
+            - "NY": "New York"
+            - "NC": "North Carolina"
+            - "ND": "North Dakota"
+            - "OH": "Ohio"
+            - "OK": "Oklahoma"
+            - "OR": "Oregon"
+            - "PA": "Pennsylvania"
+            - "RI": "Rhode Island"
+            - "SC": "South Carolina"
+            - "SD": "South Dakota"
+            - "TN": "Tennessee"
+            - "TX": "Texas"
+            - "UT": "Utah"
+            - "VT": "Vermont"
+            - "VA": "Virginia"
+            - "WA": "Washington"
+            - "WV": "West Virginia"
+            - "WI": "Wisconsin"
+            - "WY": "Wyoming"     
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_Content_btnSubmit" 
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "your request has been submitted"

@@ -1,0 +1,123 @@
+bioguide: state_ok_gov_mary_fallin
+contact_form:
+  method: post
+  action: default.aspx
+  steps:
+    - visit: "https://www.ok.gov/triton/modules/formbuilder/form.php?form_id=4883e0a85cc03029a102eeb2f155a68ea43d5ccd9bb7ffe1672dd0c72382d0b9"
+    - fill_in:
+        - name: fullName
+          selector: "#Name"
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: "#Email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#Phone"
+          value: $PHONE
+        - name: street
+          selector: "#Address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#Zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: subject
+          selector: "#Subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#Message"
+          value: $MESSAGE
+          required: true
+        - name: captcha
+          selector: "#captcha"
+          captcha_selector: "div#captcha_image > img"
+          value: $CAPTCHA_SOLUTION
+          required: true
+    - select:
+        - name: stateAbbrev
+          selector: "#"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - "AA": "AA"
+            - "AE": "AE"
+            - "AK": "AK"
+            - "AL": "AL"
+            - "AO": "AO"
+            - "AP": "AP"
+            - "AR": "AR"
+            - "AS": "AS"
+            - "AZ": "AZ"
+            - "CA": "CA"
+            - "CO": "CO"
+            - "CT": "CT"
+            - "DC": "DC"
+            - "DE": "DE"
+            - "FL": "FL"
+            - "GA": "GA"
+            - "GU": "GU"
+            - "HI": "HI"
+            - "IA": "IA"
+            - "ID": "ID"
+            - "IL": "IL"
+            - "IN": "IN"
+            - "JP": "JP"
+            - "KS": "KS"
+            - "KY": "KY"
+            - "LA": "LA"
+            - "MA": "MA"
+            - "MD": "MD"
+            - "ME": "ME"
+            - "MI": "MI"
+            - "MN": "MN"
+            - "MO": "MO"
+            - "MP": "MP"
+            - "MS": "MS"
+            - "MT": "MT"
+            - "NC": "NC"
+            - "ND": "ND"
+            - "NE": "NE"
+            - "NH": "NH"
+            - "NJ": "NJ"
+            - "NM": "NM"
+            - "NV": "NV"
+            - "NY": "NY"
+            - "OH": "OH"
+            - "OK": "OK"
+            - "OR": "OR"
+            - "PA": "PA"
+            - "PR": "PR"
+            - "RI": "RI"
+            - "SC": "SC"
+            - "SD": "SD"
+            - "TN": "TN"
+            - "TX": "TX"
+            - "UE": "UE"
+            - "UT": "UT"
+            - "VA": "VA"
+            - "VI": "VI"
+            - "VT": "VT"
+            - "WA": "WA"
+            - "WI": "WI"
+            - "WV": "WV"
+            - "WY": "WY"
+        - name: response
+          selector: "#Reply_requested"
+          value: Yes
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[name='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your form has been submitted successfully"

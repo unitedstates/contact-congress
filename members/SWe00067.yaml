@@ -1,0 +1,164 @@
+bioguide: SWe00067
+contact_form:
+  method: post
+  action: https://governor.iowa.gov/constituent-services/register-opinion#wpcf7-f4-p2286-o1
+  steps:
+    - visit: https://governor.iowa.gov/constituent-services/register-opinion
+    - click_on:
+      - selector: "[name=first_name]"
+    - fill_in:
+      - name: first_name
+        selector: "[name=first_name]"
+        value: $NAME_FIRST
+        required: Yes
+    - click_on:
+      - selector: "[name=last_name]"
+    - fill_in:
+      - name: last_name
+        selector: "[name=last_name]"
+        value: $NAME_LAST
+        required: Yes
+    - click_on:
+      - selector: "[name=email]"
+    - fill_in:    
+      - name: email
+        selector: "[name=email]"
+        value: $EMAIL
+        required: Yes
+    - click_on:
+      - selector: "[name=street1]"
+    - fill_in:
+      - name: street1
+        selector: "[name=street1]"
+        value: $ADDRESS_STREET
+        required: Yes
+    - click_on:
+      - selector: "[name=street2]"
+    - fill_in:
+      - name: street2
+        selector: "[name=street2]"
+        value: $ADDRESS_STREET_2
+        required: No
+    - click_on:
+      - selector: "[name=city]"
+    - fill_in:
+      - name: city
+        selector: "[name=city]"
+        value: $ADDRESS_CITY
+        required: Yes
+    - click_on:
+      - selector: "[name=state]"
+    - select:    
+      - name: state
+        selector: "[name=state]"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: Yes
+    - click_on:
+      - selector: "[name=zip]"
+    - fill_in:
+      - name: zip
+        selector: "[name=zip]"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: phone
+        selector: "[name=phone]"
+        value: $PHONE
+        required: Yes
+    - click_on:
+      - selector: "#topic"
+    - select:
+      - name: Topic
+        selector: "#topic"
+        value: $TOPIC
+        required: Yes
+        options:
+          - "---"
+          - Abortion
+          - Agriculture
+          - Alternative Energy (Wind, Ethanol)
+          - Animal Rights
+          - Birthday (80+ years)
+          - Boards and Commissions
+          - Child Abuse/DHS
+          - Child Support
+          - Children/Family/Adoption
+          - Civil Rights
+          - Clemency/Pardon
+          - Conference and Convention Letter Requests
+          - Corrections
+          - Drivers License
+          - Drugs- Illegal
+          - Drugs- Prescription
+          - Eagle Scout/Scouting
+          - Economic Development
+          - Education - Higher
+          - Education - K through 12
+          - Education - Preschool
+          - Eminent Domain
+          - Environment
+          - Federal Government
+          - Flag Requests
+          - Gambling
+          - Gasoline
+          - Guns
+          - Health and Human Services
+          - Housing
+          - Immigration
+          - Insurance - Health
+          - Insurance - Other
+          - Internships
+          - Iowa Workforce Development
+          - IPERS
+          - Jobs
+          - Judiciary
+          - Labor
+          - Legal
+          - Legislation
+          - Local Issues
+          - Medicaid - Budget Cuts
+          - Medicaid - General
+          - Medicare - Federal
+          - Military Retirement Letter
+          - National Guard
+          - Natural Resources/Conservation
+          - Nursing Home
+          - Other
+          - Public Safety
+          - Revenue
+          - Small Business
+          - Smoking Ban
+          - Social Security/Aging
+          - Budget
+          - State Economy
+          - State Employees
+          - Tax - Corporate
+          - Tax - Federal
+          - Tax - Income
+          - Tax - Property
+          - Taxes
+          - Tourism
+          - Transportation
+          - Utilities
+          - Veterans
+          - Wedding Anniversary (50+ Years)
+          - Welfare/Food Stamps
+          - Worker's Compensation
+    - fill_in:
+      - name: message
+        selector: "[name=message]"
+        value: $MESSAGE
+        required: Yes
+      - name: captcha_response
+        selector: "[name=security-question]"
+        captcha_selector: ".wpcf7-captcha-security-question"
+        value: $CAPTCHA_SOLUTION
+        required: true
+    - wait:
+      - value: 5
+    - click_on:
+      - selector: ".wpcf7-submit"
+    - wait:
+      - value: 5
+  success:
+    body:
+      contains: "Your message was sent successfully. Thanks."

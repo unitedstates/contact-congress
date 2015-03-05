@@ -1,15 +1,19 @@
 bioguide: state_md_gov_larry_hogan
 contact_form:
   method: post
-  action: ""
+  action: default.aspx
   steps:
-    - visit: "http://governor.maryland.gov/mail/default.asp"
+    - visit: "http://www.governor.maryland.gov/mail/"
     - fill_in:
-        - name: firstname
+        - name: prefix
+          selector: "#Prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: firstName
           selector: "#firstname"
           value: $NAME_FIRST
           required: true
-        - name: lastname
+        - name: lastName
           selector: "#lastname"
           value: $NAME_LAST
           required: true
@@ -25,50 +29,60 @@ contact_form:
           selector: "#state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
-        - name: zipcode
+        - name: zip5
           selector: "#zipcode"
           value: $ADDRESS_ZIP5
           required: true
-        - name: areacode
+        - name: zip4
+          selector: "#zip+4"
+          value: $ADDRESS_ZIP4
+        - name: phoneAreaCode
           selector: "#AreaCode"
-          value: $PHONE
+          value: $PHONE_AREA_CODE
           required: true
-        - name: phoneprefix
+        - name: phoneExchange
           selector: "input[name='phoneprefix']"
-          value: $PHONE
+          value: $PHONE_EXCHANGE_CODE
           required: true
-        - name: extension
+        - name: phoneNumber
           selector: "input[name='extension']"
-          value: $PHONE
+          value: $PHONE_SUBSCRIBER_NUMBER
           required: true
-        - name: emailaddress
+        - name: email
           selector: "#emailaddress"
           value: $EMAIL
           required: true
-        - name: subjectline
+        - name: orgName
+          selector: "#Organizationname"
+          value: $ORG_NAME
+        - name: subject
           selector: "input[name='subjectline']"
           value: $SUBJECT
           required: true
-        - name: emailmessage
+        - name: message
           selector: "#emailmessage"
           value: $MESSAGE
           required: true
     - select:
-        - name: pickSubject
+        - name: topic
           selector: "#pickSubject"
           value: $TOPIC
           required: true
           options:
-            Disabilities: "8"
-            Economic Development: "6"
-            Education Issues: "32"
-            Energy Issues: "13"
-            Environment Issues: "15"
-            Health Care Issues: "23"
-            Higher Education   : "24"
-            Public Safety Issues: "37"
-            Transportation Issues: "51"
-            Veterans Issues: "52"
+            - "Constituent Services": "Constituent Services"
+            - "8": "Disabilities"
+            - "6": "Economic Development"
+            - "32": "Education Issues"
+            - "13": "Energy Issues"
+            - "15": "Environment Issues"
+            - "General Comments": "General Comments"
+            - "General Complaint": "General Complaint"
+            - "23": "Health Care Issues"
+            - "24": "Higher Education   "
+            - "Legislative Issues": "Legislative Issues"
+            - "37": "Public Safety Issues"
+            - "51": "Transportation Issues"
+            - "52": "Veterans Issues"
     - click_on:
         - value: Submit
           selector: "#btnSbt"
@@ -76,4 +90,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank you for Writing..."
+      contains: "will review your message"

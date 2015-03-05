@@ -1,26 +1,171 @@
 bioguide: state_ar_gov_asa_hutchinson
 contact_form:
   method: post
-  action: "https://arkansasgov.wufoo.com/embed/z10gjhti00fynaz/def/embedKey=z10gjhti00fynaz249576&entsource=&referrer=http%3Awuslashwuslashgovernor.arkansas.govwuslash&header=hide#public"
+  action: default.aspx
   steps:
-    - visit: "https://arkansasgov.wufoo.com/embed/z10gjhti00fynaz/def/embedKey=z10gjhti00fynaz249576&entsource=&referrer=http%3Awuslashwuslashgovernor.arkansas.govwuslash&header=hide#public"
+    - visit: "https://arkansasgov.wufoo.com/embed/z10gjhti00fynaz/def/embedKey=z10gjhti00fynaz526447&entsource=&referrer=&header=hide#public"
     - fill_in:
-        - name: Field9
+        - name: firstName
           selector: "#Field9"
           value: $NAME_FIRST
           required: true
-        - name: Field11
+        - name: lastName
           selector: "#Field11"
           value: $NAME_LAST
           required: true
-        - name: Field3
+        - name: street
+          selector: "#Field13"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#Field14"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#Field16"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
           selector: "#Field3"
           value: $EMAIL
           required: true
-        - name: Field4
+        - name: phoneAreaCode
+          selector: "#Field17"
+          value: $PHONE_AREA_CODE
+          required: true
+        - name: phoneExchange
+          selector: "#Field17-1"
+          value: $PHONE_EXCHANGE_CODE
+          required: true
+        - name: phoneNumber
+          selector: "#Field17-2"
+          value: $PHONE_SUBSCRIBER_NUMBER
+          required: true
+        - name: message
           selector: "#Field4"
           value: $MESSAGE
+    - select:
+        - name: topic
+          selector: "#Field7"
+          value: $TOPIC
           required: true
+          options:
+            - "Agriculture": "Agriculture"
+            - "Arts/Museums/History": "Arts/Museums/History"
+            - "Business and Commerce": "Business and Commerce"
+            - "Courts\\Criminal Justice": "Courts\\Criminal Justice"
+            - "Education": "Education"
+            - "Elections": "Elections"
+            - "Environment": "Environment"
+            - "FOI Request": "FOI Request"
+            - "Governor's Special Projects": "Governor's Special Projects"
+            - "Grants": "Grants"
+            - "Health and Human Services": "Health and Human Services"
+            - "Highways/Transportation": "Highways/Transportation"
+            - "Insurance": "Insurance"
+            - "Jails - City/County": "Jails - City/County"
+            - "Law Enforcement/Police": "Law Enforcement/Police"
+            - "Legislation": "Legislation"
+            - "Licenses and Permits": "Licenses and Permits"
+            - "Local Government/Community": "Local Government/Community"
+            - "Minority Affairs": "Minority Affairs"
+            - "Pardons": "Pardons"
+            - "Policies": "Policies"
+            - "Prisons and Inmates": "Prisons and Inmates"
+            - "Public Safety and Services": "Public Safety and Services"
+            - "Request Letter from Governor": "Request Letter from Governor"
+            - "Retirement Systems": "Retirement Systems"
+            - "Science and Technology": "Science and Technology"
+            - "Tourism/Recreation": "Tourism/Recreation"
+            - "Workforce": "Workforce"
+            - "General Comments, Concerns": "General Comments, Concerns"
+        - name: prefix
+          selector: "#Field8"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - "Capt.": "Capt."
+            - "Chancellor": "Chancellor"
+            - "Chief": "Chief"
+            - "Col.": "Col."
+            - "Dr.": "Dr."
+            - "Eagle Scout": "Eagle Scout"
+            - "General": "General"
+            - "Governor": "Governor"
+            - "Judge": "Judge"
+            - "Lt.": "Lt."
+            - "Major": "Major"
+            - "Mayor": "Mayor"
+            - "Miss": "Miss"
+            - "Mr.": "Mr."
+            - "Mr. and Mrs.": "Mr. and Mrs."
+            - "Mrs.": "Mrs."
+            - "Ms.": "Ms."
+            - "Professor": "Professor"
+            - "Pvt.": "Pvt."
+            - "Representative": "Representative"
+            - "Reverend": "Reverend"
+            - "Senator": "Senator"
+            - "Sheriff": "Sheriff"
+            - "Sgt.": "Sgt."
+            - "Sr.": "Sr."
+            - "The Honorable": "The Honorable"
+            - "The Reverend": "The Reverend"
+        - name: stateAbbrev
+          selector: "#Field25"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - "AL": "AL"
+            - "AK": "AK"
+            - "AZ": "AZ"
+            - "AR": "AR"
+            - "CA": "CA"
+            - "CO": "CO"
+            - "CT": "CT"
+            - "DE": "DE"
+            - "FL": "FL"
+            - "GA": "GA"
+            - "HI": "HI"
+            - "ID": "ID"
+            - "IL": "IL"
+            - "IN": "IN"
+            - "IA": "IA"
+            - "KS": "KS"
+            - "KY": "KY"
+            - "LA": "LA"
+            - "ME": "ME"
+            - "MD": "MD"
+            - "MA": "MA"
+            - "MI": "MI"
+            - "MN": "MN"
+            - "MS": "MS"
+            - "MO": "MO"
+            - "MT": "MT"
+            - "NE": "NE"
+            - "NV": "NV"
+            - "NH": "NH"
+            - "NJ": "NJ"
+            - "NM": "NM"
+            - "NY": "NY"
+            - "NC": "NC"
+            - "ND": "ND"
+            - "OH": "OH"
+            - "OK": "OK"
+            - "OR": "OR"
+            - "PA": "PA"
+            - "RI": "RI"
+            - "SC": "SC"
+            - "SD": "SD"
+            - "TN": "TN"
+            - "TX": "TX"
+            - "UT": "UT"
+            - "VT": "VT"
+            - "VA": "VA"
+            - "WA": "WA"
+            - "WV": "WV"
+            - "WI": "WI"
+            - "WY": "WY"
     - click_on:
         - value: Submit
           selector: "#saveForm"
@@ -28,4 +173,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Great! Thanks for filling out my form!"
+      contains: Thank you for contacting

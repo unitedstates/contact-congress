@@ -30,11 +30,11 @@ contact_form:
           value: $PHONE
           required: true
         - name: phoneprefix
-          selector: "[id='prefix#']"
+          selector: "#prefix#"
           value: $PHONE
           required: true
         - name: extension
-          selector: "[id='extension#']"
+          selector: "#extension#"
           value: $PHONE
           required: true
         - name: emailaddress
@@ -42,7 +42,7 @@ contact_form:
           value: $EMAIL
           required: true
         - name: subjectline
-          selector: "[id='subject line']"
+          selector: "#subject line"
           value: $SUBJECT
           required: true
         - name: emailmessage
@@ -55,21 +55,17 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Select one: none
-            Subscribe to Newsletter only: Newsletter Only
-            Disabilities: 8
-            Economic Development: 6
-            Education Issues: 32
-            Energy Issues: 13
-            Environment Issues: 15
-            Health Care Issues: 23
-            "Higher Education   ": 24
-            Public Safety Issues: 37
-            Transportation Issues: 51
-            Veterans Issues: 52
-    - uncheck:
-        - name: subscribe
-          selector: "#Checkbox1"
+            "Select one": none
+            "Disabilities": 8
+            "Economic Development": 6
+            "Education Issues": 32
+            "Energy Issues": 13
+            "Environment Issues": 15
+            "Health Care Issues": 23
+            "Higher Education": 24
+            "Public Safety Issues": 37
+            "Transportation Issues": 51
+            "Veterans Issues": 52
     - click_on:
         - value: Submit
           selector: "#btnSbt"

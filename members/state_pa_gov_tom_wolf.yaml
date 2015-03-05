@@ -1,0 +1,161 @@
+bioguide: state_pa_gov_tom_wolf
+contact_form:
+  method: post
+  action: default.aspx
+  steps:
+    - visit: "http://extportlets.pa.gov/PublishedContactForm/Default.aspx"
+    - fill_in:
+        - name: firstName
+          selector: "#txtFirstName2"
+          value: $NAME_FIRST
+          required: true
+        - name: lastName
+          selector: "#txtLastName2"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#txtStreetAddress2"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#txtCity2"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#txtZipCode2"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#txtEMail2"
+          value: $EMAIL
+          required: true
+        - name: confirmEmail
+          selector: "#txtEMailConfirm2"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#txtPhoneNumber2"
+          value: $PHONE_PARENTHESES
+        - name: message
+          selector: "#txtComments2"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#ddlPrefix2"
+          value: NAME_PREFIX
+          required: true
+          options:
+            - "1": "Mrs."
+            - "2": "Ms."
+            - "3": "Miss"
+            - "4": "Mr. and Mrs."
+            - "5": "Dr."
+            - "6": "Prof."
+            - "7": "Senator"
+            - "8": "Gov."
+            - "9": "Congressman"
+            - "10": "Hon."
+            - "11": "Fr."
+            - "12": "Sister"
+            - "13": "Rabbi"
+            - "14": "Reverend"
+            - "15": "Admiral"
+            - "16": "Commander"
+            - "17": "Colonel"
+            - "18": "General"
+            - "19": "Lieutenant"
+            - "20": "Lt. Col."
+            - "21": "LCDR"
+            - "22": "Major"
+            - "23": "Private"
+            - "24": "Sergeant"
+        - name: stateAbbrev
+          selector: "#ddlState2"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - "0": "AL"
+            - "1": "AK"
+            - "2": "AZ"
+            - "3": "AR"
+            - "4": "CA"
+            - "5": "CO"
+            - "6": "CT"
+            - "7": "DE"
+            - "8": "FL"
+            - "9": "GA"
+            - "10": "HI"
+            - "11": "ID"
+            - "12": "IL"
+            - "13": "IN"
+            - "14": "IA"
+            - "15": "KS"
+            - "16": "KY"
+            - "17": "LA"
+            - "18": "ME"
+            - "19": "MD"
+            - "20": "MA"
+            - "21": "MI"
+            - "22": "MN"
+            - "23": "MS"
+            - "24": "MO"
+            - "25": "MT"
+            - "26": "NE"
+            - "27": "NV"
+            - "28": "NH"
+            - "29": "NJ"
+            - "30": "NM"
+            - "31": "NY"
+            - "32": "NC"
+            - "33": "ND"
+            - "34": "OH"
+            - "35": "OK"
+            - "36": "OR"
+            - "37": "PA"
+            - "38": "RI"
+            - "39": "SC"
+            - "40": "SD"
+            - "41": "TN"
+            - "42": "TX"
+            - "43": "UT"
+            - "44": "VT"
+            - "45": "VA"
+            - "46": "WA"
+            - "47": "WV"
+            - "48": "WI"
+            - "49": "WY"
+        - name: topic
+          selector: "#ddlCommentSubject"
+          value: $TOPIC
+          required: true
+          options:
+            - "d475e9e1-2511-e111-a99f-005056a50206": "Aging"
+            - "d675e9e1-2511-e111-a99f-005056a50206": "Banking"
+            - "d875e9e1-2511-e111-a99f-005056a50206": "Budget"
+            - "da75e9e1-2511-e111-a99f-005056a50206": "Commerce"
+            - "dc75e9e1-2511-e111-a99f-005056a50206": "Courts and Law"
+            - "de75e9e1-2511-e111-a99f-005056a50206": "Economy"
+            - "e075e9e1-2511-e111-a99f-005056a50206": "Education"
+            - "e275e9e1-2511-e111-a99f-005056a50206": "Energy"
+            - "e475e9e1-2511-e111-a99f-005056a50206": "Environment"
+            - "e675e9e1-2511-e111-a99f-005056a50206": "Gaming"
+            - "e875e9e1-2511-e111-a99f-005056a50206": "General Government"
+            - "ea75e9e1-2511-e111-a99f-005056a50206": "Healthcare"
+            - "f475e9e1-2511-e111-a99f-005056a50206": "Human Services"
+            - "ec75e9e1-2511-e111-a99f-005056a50206": "Insurance"
+            - "ee75e9e1-2511-e111-a99f-005056a50206": "Legislation"
+            - "f075e9e1-2511-e111-a99f-005056a50206": "Military"
+            - "f275e9e1-2511-e111-a99f-005056a50206": "Other"
+            - "1974c2bf-f8df-e111-aae9-005056a500f9": "Policy"
+            - "f675e9e1-2511-e111-a99f-005056a50206": "Taxes"
+            - "f875e9e1-2511-e111-a99f-005056a50206": "Transportation"
+            - "fc75e9e1-2511-e111-a99f-005056a50206": "Website Feedback"
+    - click_on:
+        - value: Submit
+          selector: "#btnSubmit2"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been received"

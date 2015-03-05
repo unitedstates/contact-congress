@@ -1,0 +1,86 @@
+bioguide: state_ak_gov_bill_walker
+contact_form:
+  method: post
+  action: "/Walker/contact/email-the-governor.html#wb_1428"
+  steps:
+    - visit: "http://gov.alaska.gov/Walker/contact/email-the-governor.html"
+    - select:
+      - name: field483[]
+        selector: "#field483"
+        value: $NAME_PREFIX
+        required: true
+        options:
+          - Mr.
+          - Ms.          
+          - Mrs.
+      - name: field493[]          
+        selector: "#field493"
+        value: $TOPIC
+        required: true
+        options:
+          - Administration
+          - Choose Respect - Ending Domestic Violence and Sexual Assault in Alaska
+          - Corrections
+          - Economic Growth / Opportunity
+          - Education
+          - Environment
+          - Fish & Game
+          - Health
+          - Jobs
+          - Kids
+          - Labor
+          - Military Affairs
+          - Natural Resources
+          - Oil and Gas
+          - Other
+          - Public Safety
+          - Revenue
+          - Rural Affairs
+          - Seniors
+          - Tourism
+          - Transportation
+    - fill_in:
+      - name: field485
+        selector: "#field485"
+        value: $NAME_FIRST
+        required: true    
+      - name: field486
+        selector: "#field486"
+        value: $NAME_LAST
+        required: true
+      - name: field487
+        selector: "#field487"
+        value: $ADDRESS_STREET
+        required: true
+      - name: field488
+        selector: "#field488"
+        value: $ADDRESS_CITY
+        required: true 
+      - name: field489
+        selector: "#field489"
+        value: $ADDRESS_STATE_FULL
+        required: true
+      - name: field490
+        selector: "#field490"
+        value: $ADDRESS_ZIP5
+        required: true                                      
+      - name: field491
+        selector: "#field491"
+        value: $PHONE
+        required: true      
+      - name: field492
+        selector: "#field492"
+        value: $EMAIL
+        required: true            
+      - name: field494
+        selector: "#field494"
+        value: $MESSAGE
+        required: true
+    - click_on:
+      - value: Send Email to the Governor!
+        selector: "#content input[name='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your email submission has been processed successfully."

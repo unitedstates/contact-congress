@@ -1,42 +1,41 @@
 bioguide: SWe00017
 contact_form:
   method: post
-  action: Contact_Thanks.asp
+  action: http://azgovernor.gov/governor/form/contact-governor-ducey
   steps:
-    - visit: "http://www.azgovernor.gov/Contact.asp"
+    - visit: "http://azgovernor.gov/governor/form/contact-governor-ducey"
     - fill_in:
         - name: FirstName
-          selector: "#FirstName"
+          selector: "#edit-submitted-first-name"
           value: $NAME_FIRST
           required: true
         - name: LastName
-          selector: "#LastName"
+          selector: "#edit-submitted-last-name"
           value: $NAME_LAST
           required: true
         - name: Email
-          selector: "#Email"
+          selector: "#edit-submitted-email-address"
           value: $EMAIL
           required: true
         - name: Zip
-          selector: "#Zip"
+          selector: "#edit-submitted-zip-code"
           value: $ADDRESS_ZIP5
           required: true
         - name: Topic
-          selector: "#Topic"
+          selector: "#edit-submitted-topic"
           value: $SUBJECT
-          required: true
         - name: Message
-          selector: "#Message"
+          selector: "#edit-submitted-comments"
           value: $MESSAGE
           required: true
         - name: CaptchaCode
-          selector: "#CaptchaCode"
-          captcha_selector: "#frmContactGov_CaptchaImage"
+          selector: ".recaptcha_input_area"
+          captcha_selector: "#recaptcha_challenge_image"
           value: $CAPTCHA_SOLUTION
           required: true
     - select:
         - name: Subject
-          selector: "#Subject"
+          selector: "#edit-submitted-subject"
           value: $TOPIC
           required: true
           options:
@@ -55,10 +54,21 @@ contact_form:
             - Taxes
             - "Veterans & Military"
             - Other
+        - name: Salutation
+          selector: "#edit-submitted-salutation"
+          value: $NAME_PREFIX
+          required: true
+            "Mr."
+            "Ms."
+            "Mrs."
+            "Dr."
+        - name: State
+          selector:
+          value: $ADDRESS_STATE_FULL
     - check:
-        - name: Assistance
-          selector: "#radio2"
-          value: Making a Comment
+        - name: Comment
+          selector: "#edit-submitted-reason-2"
+          value: Comment
     - click_on:
         - value: Submit
           selector: "#ProcessForm"
