@@ -1,121 +1,165 @@
 bioguide: B001230
 contact_form:
-  method: POST
-  action: http://www.baldwin.senate.gov/contact
+  method: post
+  action: /contact
   steps:
-    - visit: http://www.baldwin.senate.gov/contact
+    - visit: "http://www.baldwin.senate.gov/contact"
     - select:
-      - name: subject
-        selector: "#subject"
-        value: $TOPIC
-        required: Yes
-        options:
-          - Aging and Retirement
-          - Agriculture
-          - Armed Services and Defense
-          - "Arts & Humanities"
-          - Banking
-          - Budget
-          - Congress and Elections
-          - Economy and Jobs
-          - Education
-          - Energy
-          - Environment
-          - Federal Employees
-          - Foreign Relations
-          - Government Contracting
-          - Gun Safety
-          - Healthcare
-          - Homeland Security
-          - Housing
-          - Immigration
-          - Judiciary
-          - Labor
-          - LGBT Issues
-          - Native Americans
-          - Natural Resources
-          - Patents/Intellectual Property
-          - Pensions
-          - Postal Service
-          - Science and Technology
-          - Small Business
-          - Social Security
-          - Sports
-          - Taxes
-          - Telecommunication
-          - Trade
-          - Transportation
-          - Veterans
-          - Womens Issues
-    - find:  # waits for dom element to appear before proceeding
-      - selector: "#continue-form fieldset:nth-child(1)"
+        - name: topic
+          selector: "#topic"
+          value: opinion
+          required: true
+          options:
+            Help with a federal agency: federal_agency
+            Share your comments or opinion on legislation: opinion
+            Schedule a meeting or invite to an event: meeting
+            "Request a tour in Washington, D.C.": tours
+            Apply for an internship or academy nomination: students
+            Request a flag to be flown over the Capitol: flags
+    - find:
+        - selector: "#message"
     - fill_in:
-      - name: fname
-        selector: "#fname"
-        value: $NAME_FIRST
-        required: Yes
-      - name: lname
-        selector: "#lname"
-        value: $NAME_LAST
-        required: Yes
-      - name: mailing_streetAddress1
-        selector: "#mailing_streetAddress1"
-        value: $ADDRESS_STREET
-        required: Yes
-      - name: mailing_streetAddress2
-        selector: "#mailing_streetAddress2"
-        value: $ADDRESS_STREET_2
-      - name: mailing_city
-        selector: "#mailing_city"
-        value: $ADDRESS_CITY
-        required: Yes
-      - name: mailing_zipCode
-        selector: "#mailing_zipCode"
-        value: $ADDRESS_ZIP5
-        required: Yes
-      - name: home_phone_number
-        selector: "#home_phone_number"
-        value: $PHONE
-      - name: work_phone_number
-        selector: "#work_phone_number"
-        value: $PHONE_WORK
-      - name: email
-        selector: "#email"
-        value: $EMAIL
-        required: Yes
-      - name: verify_email
-        selector: "#verify_email"
-        value: $EMAIL
-        required: Yes
-      - name: message
-        selector: "#message"
-        value: $MESSAGE
-        required: Yes
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: mailing_streetAddress1
+          selector: "#mailing_streetAddress1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: mailing_streetAddress2
+          selector: "#mailing_streetAddress2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: mailing_city
+          selector: "#mailing_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: mailing_zipCode
+          selector: "#mailing_zipCode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email_address
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: "#verify_email"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: salutation
-        selector: "#salutation"
-        value: $NAME_PREFIX
-        required: Yes
-        options:
-          - Mr.
-          - Ms.
-          - Mrs.
-          - Mr. and Mrs.
-          - Dr.
-      - name: state
-        selector: "#state"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
-        options: US_STATES
-    - check:
-      - name: response
-        selector: "#response_y"
-        value: "Y"
+        - name: state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "--": "null"
+            AK: AK
+            AL: AL
+            AR: AR
+            AZ: AZ
+            CA: CA
+            CO: CO
+            CT: CT
+            DC: DC
+            DE: DE
+            FL: FL
+            GA: GA
+            HI: HI
+            IA: IA
+            ID: ID
+            IL: IL
+            IN: IN
+            KS: KS
+            KY: KY
+            LA: LA
+            MA: MA
+            MD: MD
+            ME: ME
+            MI: MI
+            MN: MN
+            MO: MO
+            MS: MS
+            MT: MT
+            NC: NC
+            ND: ND
+            NE: NE
+            NH: NH
+            NJ: NJ
+            NM: NM
+            NV: NV
+            NY: NY
+            OH: OH
+            OK: OK
+            OR: OR
+            PA: PA
+            RI: RI
+            SC: SC
+            SD: SD
+            TN: TN
+            TX: TX
+            UT: UT
+            VA: VA
+            VT: VT
+            WA: WA
+            WI: WI
+            WV: WV
+            WY: WY
+        - name: subject
+          selector: "#subject"
+          value: $TOPIC
+          required: true
+          options:
+            - Aging and Retirement
+            - Agriculture
+            - Armed Services and Defense
+            - "Arts & Humanities"
+            - Banking
+            - Budget
+            - Congress and Elections
+            - Economy and Jobs
+            - Education
+            - Energy
+            - Environment
+            - Federal Employees
+            - Foreign Relations
+            - Government Contracting and Federal Grants
+            - Gun Safety
+            - Healthcare
+            - Homeland Security
+            - Housing
+            - Immigration
+            - Judiciary
+            - Labor
+            - LGBT Issues
+            - Native Americans
+            - Natural Resources
+            - Patents/Intellectual Property
+            - Pensions
+            - Postal Service
+            - Science and Technology
+            - Small Business
+            - Social Security
+            - Sports
+            - Taxes
+            - Telecommunication
+            - Trade
+            - Transportation
+            - Veterans
+            - "Womens Issues "
     - click_on:
-      - value: Send
-        selector: "#side-search-btn"
+        - value: Send
+          selector: "#side-search-btn"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Thank you for contacting me.
