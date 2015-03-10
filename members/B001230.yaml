@@ -158,6 +158,8 @@ contact_form:
     - click_on:
         - value: Send
           selector: "#side-search-btn"
+    - wait:
+        - value: 1
     - find:
         - selector: "p"
           value: "Thank you for contacting me."
