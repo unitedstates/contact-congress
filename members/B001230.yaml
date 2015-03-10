@@ -158,6 +158,9 @@ contact_form:
     - click_on:
         - value: Send
           selector: "#side-search-btn"
+    - find:
+        - selector: "p"
+          value: "Thank you for contacting me."
   success:
     headers:
       status: 200
