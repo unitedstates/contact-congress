@@ -133,6 +133,9 @@ contact_form:
     - click_on:
       - value: Submit
         selector: ".normal-input[name=Submit]"
+    - find:
+      - selector: "div.note p"
+        value: "Thank you! Your message has been sent."
   success:
     headers:
       status: 200
