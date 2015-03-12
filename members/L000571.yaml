@@ -3,7 +3,7 @@ contact_form:
   method: get
   action: /forms/writeyourrep/
   steps:
-    - visit: "http://lummis.house.gov/contact/"
+    - visit: "https://lummis.house.gov/contact/"
     - fill_in:
         - name: zip5
           selector: "form.zipform input[name='zip5']"
@@ -116,6 +116,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl09_SubmitButton"
+    - find:
+        - selector: "span#ctl00_ctl09_ConfirmationText"
+          value: "Thank you for sending me your email."
   success:
     headers:
       status: 200
