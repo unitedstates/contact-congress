@@ -1,9 +1,9 @@
-bioguide: SWe00231
+bioguide: state_or_gov_kate_brown
 contact_form:
   method: post
-  action: /gov/Pages/ShareYourOpinion.aspx
+  action: /gov/Pages/share-your-opinion.aspx
   steps:
-    - visit: "http://www.oregon.gov/gov/Pages/ShareYourOpinion.aspx"
+    - visit: "http://www.oregon.gov/gov/Pages/share-your-opinion.aspx"
     - fill_in:
         - name: First Name
           selector: "#aspnetForm input[name='First Name']"
@@ -129,4 +129,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting Governor
+      contains: Thank you for contacting
