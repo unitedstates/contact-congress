@@ -31,6 +31,7 @@ contact_form:
       - name: phone_number
         selector: "#phone_number"
         value: "$PHONE"
+        required: No
       - name: email
         selector: "#email_address"
         value: "$EMAIL"
@@ -288,6 +289,9 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "#side-search-btn"
+    - find:
+      - value: "Thank You"
+        selector: "h1"
   success:
     headers:
       status: 200
