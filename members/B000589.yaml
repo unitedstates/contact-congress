@@ -57,6 +57,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#main form input[type='submit'][value='Submit']"
+    - find:
+        - value: "You've contacted the John Boehner office!"
+        - selector: "title"
   success:
     headers:
       status: 200
