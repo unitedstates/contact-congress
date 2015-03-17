@@ -5,32 +5,43 @@ contact_form:
   steps:
     - visit: "http://gov.idaho.gov/ourgov/contact.html"
     - fill_in:
-        - name: firstname
-          selector: "#msgcontact input[name='firstname']"
+        - name: firstName
+          selector: "#firstNameTextbox"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#msgcontact input[name='lastname']"
+        - name: lastName
+          selector: "#lastNameTextbox"
           value: $NAME_LAST
           required: true
-        - name: address1
-          selector: "#msgcontact input[name='address1']"
+        - name: street1
+          selector: "#mailAddTextbox"
           value: $ADDRESS_STREET
           required: true
+        - name: street2
+          selector: "#mailAdd2Textbox"
+          value: $ADDRESS_STREET_2
         - name: city
-          selector: "#msgcontact input[name='city']"
+          selector: "#cityTextbox"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#msgcontact input[name='zip']"
+        - name: zip5
+          selector: "#zipTextbox"
           value: $ADDRESS_ZIP5
           required: true
+        - name: phoneAreaCode
+          selector: "#phacTextbox"
+          value: $PHONE_AREA_CODE
+        - name: phoneExchange
+          selector: "#phpreTextbox"
+        - name: phoneNumber
+          selector: "#phlineTextbox"
+          value: $PHONE_SUBSCRIBER_NUMBER
         - name: email
-          selector: "#msgcontact input[name='email']"
+          selector: "#emailTextbox"
           value: $EMAIL
           required: true
-        - name: messagebody
-          selector: "#msgcontact textarea[name='messagebody']"
+        - name: message
+          selector: "#messageTextbox"
           value: $MESSAGE
           required: true
         - name: recaptcha_response_field
@@ -38,39 +49,104 @@ contact_form:
           captcha_selector: "#recaptcha_image img"
           value: "$CAPTCHA_SOLUTION"
     - select:
-        - name: issue
-          selector: "#msgcontact select[name='issue']"
+        - name: prefix
+          selector: "#"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - "Mr.": "Mr."
+            - "Mrs.": "Mrs."
+            - "Ms.": "Ms."
+            - "Dr.": "Dr."
+            - "Mr. & Mrs.": "Mr. & Mrs."
+        - name: stateFull
+          selector: "#txtState"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            - "AL": "Alabama"
+            - "AK": "Alaska"
+            - "AZ": "Arizona"
+            - "AR": "Arkansas"
+            - "CA": "California"
+            - "CO": "Colorado"
+            - "CT": "Connecticut"
+            - "DE": "Delaware"
+            - "DC": "District of Columbia"
+            - "FL": "Florida"
+            - "GA": "Georgia"
+            - "HI": "Hawaii"
+            - "ID": "Idaho"
+            - "IL": "Illinois"
+            - "IN": "Indiana"
+            - "IA": "Iowa"
+            - "KS": "Kansas"
+            - "KY": "Kentucky"
+            - "LA": "Louisiana"
+            - "ME": "Maine"
+            - "MD": "Maryland"
+            - "MA": "Massachusetts"
+            - "MI": "Michigan"
+            - "MN": "Minnesota"
+            - "MS": "Mississippi"
+            - "MO": "Missouri"
+            - "MT": "Montana"
+            - "NE": "Nebraska"
+            - "NV": "Nevada"
+            - "NH": "New Hampshire"
+            - "NJ": "New Jersey"
+            - "NM": "New Mexico"
+            - "NY": "New York"
+            - "NC": "North Carolina"
+            - "ND": "North Dakota"
+            - "OH": "Ohio"
+            - "OK": "Oklahoma"
+            - "OR": "Oregon"
+            - "PA": "Pennsylvania"
+            - "RI": "Rhode Island"
+            - "SC": "South Carolina"
+            - "SD": "South Dakota"
+            - "TN": "Tennessee"
+            - "TX": "Texas"
+            - "UT": "Utah"
+            - "VT": "Vermont"
+            - "VA": "Virginia"
+            - "WA": "Washington"
+            - "WV": "West Virginia"
+            - "WI": "Wisconsin"
+            - "WY": "Wyoming"
+        - name: topic
+          selector: "#topicDropDown"
           value: $TOPIC
           required: true
           options:
-            "--------- Select One --------": retry
-            Agriculture: AG
-            Boards and Commissions: BOARDS_COMMISSIONS
-            Commerce: COMMERCE
-            Correction: CORRECTION
-            Drug Policy: ODP
-            Education: EDU
-            Finance: DOF
-            Fish and Game: FG
-            Health and Welfare: HW
-            Idaho State Police: ISP
-            Industrial Commission: INDUSTRIAL_COMMISSION
-            Insurance: INSURANCE
-            Labor: LABOR
-            Military: MILITARY
-            Natural Resources: NAT
-            Parks and Recreation: PARKS
-            Pardons and Parole: PARDONS_AND_PAROLE
-            Occupational Licenses: IBOL
-            Taxes: TAX
-            Transportation: TRAN
-            Veteran Services: VET
-            Other: OTHER
+            - "AG": "Agriculture"
+            - "BOARDS_COMMISSIONS": "Boards and Commissions"
+            - "COMMERCE": "Commerce"
+            - "CORRECTION": "Correction"
+            - "ODP": "Drug Policy"
+            - "EDU": "Education"
+            - "DOF": "Finance"
+            - "FG": "Fish and Game"
+            - "HW": "Health and Welfare"
+            - "ISP": "Idaho State Police"
+            - "INDUSTRIAL_COMMISSION": "Industrial Commission"
+            - "INSURANCE": "Insurance"
+            - "LABOR": "Labor"
+            - "MILITARY": "Military"
+            - "NAT": "Natural Resources"
+            - "PARKS": "Parks and Recreation"
+            - "PARDONS_AND_PAROLE": "Pardons and Parole"
+            - "IBOL": "Occupational Licenses"
+            - "TAX": "Taxes"
+            - "TRAN": "Transportation"
+            - "VET": "Veteran Services"
+            - "OTHER": "Other"
     - click_on:
         - value: Submit
-          selector: "#msgcontact input[name='submit_button']"
+          selector: "#submitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting Governor Otter's office. You submitted the following information:"
+      contains: "Your email has been forwarded to the appropriate group"
