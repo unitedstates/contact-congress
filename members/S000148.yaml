@@ -160,6 +160,9 @@ contact_form:
     - click_on:
         - value: Send
           selector: "#side-search-btn"
+    - find:
+        - value: "Thank You for Your Email"
+          selector: "h1.main_page_title"
   success:
     headers:
       status: 200
