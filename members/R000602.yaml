@@ -87,13 +87,6 @@ contact_form:
         Veterans: WEBVET
         Welfare: WEBWEL
         Other Issues: WEBOTH
-    - name: required-response
-      selector: "input[type='radio'][name='required-response'][value='Y']"
-      value: Y
-      required: true
-      options: 
-        I would like a response to my message.: Y
-        I just want Kathleen to know my thoughts.: N
   - click_on: 
     - value: Send Email
       selector: "#contact input[type='submit'][value='Send Email']"
