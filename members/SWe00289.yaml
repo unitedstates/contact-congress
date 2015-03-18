@@ -5,74 +5,160 @@ contact_form:
   steps:
     - visit: "https://fortress.wa.gov/es/governor/"
     - fill_in:
-        - name: Msg
-          selector: "#Msg"
-          value: $MESSAGE
-          required: true
-        - name: First
+        - name: firstName
           selector: "#First"
           value: $NAME_FIRST
           required: true
-        - name: Last
+        - name: lastName
           selector: "#Last"
           value: $NAME_LAST
           required: true
-        - name: Addr1
+        - name: street1
           selector: "#Addr1"
           value: $ADDRESS_STREET
           required: true
-        - name: City
+        - name: street2
+          selector: "#Addr2"
+          value: $ADDRESS_STREET_2
+        - name: city
           selector: "#City"
           value: $ADDRESS_CITY
           required: true
-        - name: Zip
+        - name: zip5
           selector: "#Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: Email
+        - name: email
           selector: "#Email"
           value: $EMAIL
           required: true
+        - name: message
+          selector: "#Msg"
+          value: $MESSAGE
+          required: true
     - select:
-        - name: Subject
-          selector: "#Subject"
+        - name: stateFull
+          selector: "#State"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            - "9227f6f4-cf63-e411-8d8b-005056ba7b6d": "Washington"
+            - "1827f6f4-cf63-e411-8d8b-005056ba7b6d": "Alabama"
+            - "1a27f6f4-cf63-e411-8d8b-005056ba7b6d": "Alaska"
+            - "9a27f6f4-cf63-e411-8d8b-005056ba7b6d": "Alberta"
+            - "1c27f6f4-cf63-e411-8d8b-005056ba7b6d": "American Samoa"
+            - "1e27f6f4-cf63-e411-8d8b-005056ba7b6d": "Arizona"
+            - "2027f6f4-cf63-e411-8d8b-005056ba7b6d": "Arkansas"
+            - "2227f6f4-cf63-e411-8d8b-005056ba7b6d": "Armed Forces Africa"
+            - "2427f6f4-cf63-e411-8d8b-005056ba7b6d": "Armed Forces Americas (except Canada)"
+            - "2627f6f4-cf63-e411-8d8b-005056ba7b6d": "Armed Forces Canada"
+            - "2827f6f4-cf63-e411-8d8b-005056ba7b6d": "Armed Forces Europe"
+            - "2a27f6f4-cf63-e411-8d8b-005056ba7b6d": "Armed Forces Middle East"
+            - "2c27f6f4-cf63-e411-8d8b-005056ba7b6d": "Armed Forces Pacific"
+            - "9c27f6f4-cf63-e411-8d8b-005056ba7b6d": "British Columbia"
+            - "2e27f6f4-cf63-e411-8d8b-005056ba7b6d": "California"
+            - "3027f6f4-cf63-e411-8d8b-005056ba7b6d": "Colorado"
+            - "3227f6f4-cf63-e411-8d8b-005056ba7b6d": "Connecticut"
+            - "3427f6f4-cf63-e411-8d8b-005056ba7b6d": "Delaware"
+            - "3627f6f4-cf63-e411-8d8b-005056ba7b6d": "District of Columbia"
+            - "3827f6f4-cf63-e411-8d8b-005056ba7b6d": "Federated States of Micronesia"
+            - "3a27f6f4-cf63-e411-8d8b-005056ba7b6d": "Florida"
+            - "3c27f6f4-cf63-e411-8d8b-005056ba7b6d": "Georgia"
+            - "3e27f6f4-cf63-e411-8d8b-005056ba7b6d": "Guam"
+            - "4027f6f4-cf63-e411-8d8b-005056ba7b6d": "Hawaii"
+            - "4227f6f4-cf63-e411-8d8b-005056ba7b6d": "Idaho"
+            - "4427f6f4-cf63-e411-8d8b-005056ba7b6d": "Illinois"
+            - "4627f6f4-cf63-e411-8d8b-005056ba7b6d": "Indiana"
+            - "4827f6f4-cf63-e411-8d8b-005056ba7b6d": "Iowa"
+            - "4a27f6f4-cf63-e411-8d8b-005056ba7b6d": "Kansas"
+            - "4c27f6f4-cf63-e411-8d8b-005056ba7b6d": "Kentucky"
+            - "4e27f6f4-cf63-e411-8d8b-005056ba7b6d": "Louisiana"
+            - "5027f6f4-cf63-e411-8d8b-005056ba7b6d": "Maine"
+            - "9e27f6f4-cf63-e411-8d8b-005056ba7b6d": "Manitoba"
+            - "5227f6f4-cf63-e411-8d8b-005056ba7b6d": "Marshall Islands"
+            - "5427f6f4-cf63-e411-8d8b-005056ba7b6d": "Maryland"
+            - "5627f6f4-cf63-e411-8d8b-005056ba7b6d": "Massachusetts"
+            - "5827f6f4-cf63-e411-8d8b-005056ba7b6d": "Michigan"
+            - "5a27f6f4-cf63-e411-8d8b-005056ba7b6d": "Minnesota"
+            - "5c27f6f4-cf63-e411-8d8b-005056ba7b6d": "Mississippi"
+            - "5e27f6f4-cf63-e411-8d8b-005056ba7b6d": "Missouri"
+            - "6027f6f4-cf63-e411-8d8b-005056ba7b6d": "Montana"
+            - "6227f6f4-cf63-e411-8d8b-005056ba7b6d": "Nebraska"
+            - "6427f6f4-cf63-e411-8d8b-005056ba7b6d": "Nevada"
+            - "a027f6f4-cf63-e411-8d8b-005056ba7b6d": "New Brunswick"
+            - "6627f6f4-cf63-e411-8d8b-005056ba7b6d": "New Hampshire"
+            - "6827f6f4-cf63-e411-8d8b-005056ba7b6d": "New Jersey"
+            - "6a27f6f4-cf63-e411-8d8b-005056ba7b6d": "New Mexico"
+            - "6c27f6f4-cf63-e411-8d8b-005056ba7b6d": "New York"
+            - "a227f6f4-cf63-e411-8d8b-005056ba7b6d": "Newfoundland/Labrador"
+            - "6e27f6f4-cf63-e411-8d8b-005056ba7b6d": "North Carolina"
+            - "7027f6f4-cf63-e411-8d8b-005056ba7b6d": "North Dakota"
+            - "7227f6f4-cf63-e411-8d8b-005056ba7b6d": "Northern Mariana Islands"
+            - "a427f6f4-cf63-e411-8d8b-005056ba7b6d": "Northwest Territory"
+            - "a627f6f4-cf63-e411-8d8b-005056ba7b6d": "Nova Scotia"
+            - "a827f6f4-cf63-e411-8d8b-005056ba7b6d": "Nunavut Territory"
+            - "7427f6f4-cf63-e411-8d8b-005056ba7b6d": "Ohio"
+            - "7627f6f4-cf63-e411-8d8b-005056ba7b6d": "Oklahoma"
+            - "aa27f6f4-cf63-e411-8d8b-005056ba7b6d": "Ontario"
+            - "7827f6f4-cf63-e411-8d8b-005056ba7b6d": "Oregon"
+            - "7a27f6f4-cf63-e411-8d8b-005056ba7b6d": "Palau"
+            - "7c27f6f4-cf63-e411-8d8b-005056ba7b6d": "Pennsylvania"
+            - "ac27f6f4-cf63-e411-8d8b-005056ba7b6d": "Prince Edward Island"
+            - "7e27f6f4-cf63-e411-8d8b-005056ba7b6d": "Puerto Rico"
+            - "ae27f6f4-cf63-e411-8d8b-005056ba7b6d": "Quebec"
+            - "8027f6f4-cf63-e411-8d8b-005056ba7b6d": "Rhode Island"
+            - "b027f6f4-cf63-e411-8d8b-005056ba7b6d": "Saskatchewan"
+            - "8227f6f4-cf63-e411-8d8b-005056ba7b6d": "South Carolina"
+            - "8427f6f4-cf63-e411-8d8b-005056ba7b6d": "South Dakota"
+            - "8627f6f4-cf63-e411-8d8b-005056ba7b6d": "Tennessee"
+            - "8827f6f4-cf63-e411-8d8b-005056ba7b6d": "Texas"
+            - "8a27f6f4-cf63-e411-8d8b-005056ba7b6d": "Utah"
+            - "8c27f6f4-cf63-e411-8d8b-005056ba7b6d": "Vermont"
+            - "8e27f6f4-cf63-e411-8d8b-005056ba7b6d": "Virgin Islands"
+            - "9027f6f4-cf63-e411-8d8b-005056ba7b6d": "Virginia"
+            - "9427f6f4-cf63-e411-8d8b-005056ba7b6d": "West Virginia"
+            - "9627f6f4-cf63-e411-8d8b-005056ba7b6d": "Wisconsin"
+            - "9827f6f4-cf63-e411-8d8b-005056ba7b6d": "Wyoming"
+            - "b227f6f4-cf63-e411-8d8b-005056ba7b6d": "Yukon Territory"
+        - name: topic
+          selector: "#SelectedSubject"
           value: $TOPIC
           required: true
           options:
-            - 2013 BILLS
-            - Agriculture
-            - Animals
-            - Budget
-            - Budget Idea
-            - Casinos
-            - Commerce/Business
-            - Economic Development
-            - Education/Schools
-            - Emergency Preparedness
-            - Employment
-            - Energy
-            - Environment
-            - Health Care
-            - Housing
-            - Immigration
-            - "L&I"
-            - Legal/Crime/Law Enforcement
-            - Legislation
-            - Licensing
-            - Marriage Equality
-            - Mortgage/Loans/Banking/Forclosure
-            - Natural Resources
-            - Parks and Recreation
-            - Social Services
-            - Sports
-            - Taxes
-            - Transportation
-            - Tribal
-            - Unemployment Assistance
-            - Utilities
-            - Veterans
-            - Weapons
-            - Other
+            - "1b440443-d263-e411-8d8b-005056ba7b6d": "Agriculture"
+            - "1373e4b0-8eb7-e411-87cd-005056ba1e27": "Animals"
+            - "2b73e4b0-8eb7-e411-87cd-005056ba1e27": "Budget"
+            - "3973e4b0-8eb7-e411-87cd-005056ba1e27": "Commerce/Business/Economic Development"
+            - "4973e4b0-8eb7-e411-87cd-005056ba1e27": "DEL"
+            - "7373e4b0-8eb7-e411-87cd-005056ba1e27": "Education/Schools"
+            - "7973e4b0-8eb7-e411-87cd-005056ba1e27": "Emergency Preparedness"
+            - "27440443-d263-e411-8d8b-005056ba7b6d": "Energy"
+            - "29440443-d263-e411-8d8b-005056ba7b6d": "Environment"
+            - "b373e4b0-8eb7-e411-87cd-005056ba1e27": "FEDSTATE"
+            - "4d440443-d263-e411-8d8b-005056ba7b6d": "Gun Control"
+            - "2b440443-d263-e411-8d8b-005056ba7b6d": "Health Care"
+            - "2d440443-d263-e411-8d8b-005056ba7b6d": "Housing"
+            - "e773e4b0-8eb7-e411-87cd-005056ba1e27": "Immigration"
+            - "e973e4b0-8eb7-e411-87cd-005056ba1e27": "Initiative"
+            - "cb440443-d263-e411-8d8b-005056ba7b6d": "Labor and Industries"
+            - "fb73e4b0-8eb7-e411-87cd-005056ba1e27": "Legal/Crime/Law Enforcement"
+            - "fd73e4b0-8eb7-e411-87cd-005056ba1e27": "Legislative Bills and Comments"
+            - "ff73e4b0-8eb7-e411-87cd-005056ba1e27": "Licensing"
+            - "5d440443-d263-e411-8d8b-005056ba7b6d": "Marijuana"
+            - "39440443-d263-e411-8d8b-005056ba7b6d": "Mortgage/Loans/Banking/Foreclosure"
+            - "3b440443-d263-e411-8d8b-005056ba7b6d": "Natural Resources"
+            - "4f440443-d263-e411-8d8b-005056ba7b6d": "Other"
+            - "3d440443-d263-e411-8d8b-005056ba7b6d": "Parks and Recreation"
+            - "203ff019-aebb-e411-87cd-005056ba1e27": "Public Health"
+            - "61440443-d263-e411-8d8b-005056ba7b6d": "Scheduling Request"
+            - "3f440443-d263-e411-8d8b-005056ba7b6d": "Social Services"
+            - "41440443-d263-e411-8d8b-005056ba7b6d": "Taxes"
+            - "43440443-d263-e411-8d8b-005056ba7b6d": "Transportation"
+            - "45440443-d263-e411-8d8b-005056ba7b6d": "Tribal"
+            - "47440443-d263-e411-8d8b-005056ba7b6d": "Unemployment Assistance"
+            - "49440443-d263-e411-8d8b-005056ba7b6d": "Utilities"
+            - "67440443-d263-e411-8d8b-005056ba7b6d": "Veterans"
+            - "31440443-d263-e411-8d8b-005056ba7b6d": "Workers' Compensation"
     - click_on:
         - value: Submit
           selector: "#oneColumn form input[type='submit'][value='Submit']"
