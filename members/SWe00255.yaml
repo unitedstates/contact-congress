@@ -3,44 +3,51 @@ contact_form:
   method: post
   action: email.aspx
   steps:
-    - visit: "http://sd.gov/gov/email.aspx"
+    - visit: "http://sd.gov/govmail/email.aspx"
     - fill_in:
-        - name: txtFname
+        - name: firstName
           selector: "#txtFname"
           value: $NAME_FIRST
           required: true
-        - name: txtLname
+        - name: lastName
           selector: "#txtLname"
           value: $NAME_LAST
           required: true
-        - name: txtStAddress
+        - name: street1
           selector: "#txtStAddress"
           value: $ADDRESS_STREET
           required: true
-        - name: txtCity
+        - name: city
           selector: "#txtCity"
           value: $ADDRESS_CITY
           required: true
-        - name: txtState
+        - name: stateAbbrev
           selector: "#txtState"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
-        - name: txtZIP
+        - name: zip5
           selector: "#txtZIP"
           value: $ADDRESS_ZIP5
           required: true
-        - name: txtEmail
+        - name: email
           selector: "#txtEmail"
           value: $EMAIL
           required: true
-        - name: txtDesc
+        - name: phone
+          selector: "#txtHomePhone"
+          value: $PHONE
+        - name: subject
           selector: "#txtDesc"
           value: $SUBJECT
           required: true
-        - name: txtMessage
+        - name: message
           selector: "#txtMessage"
           value: $MESSAGE
           required: true
+    - check:
+        - name: response
+          selector: "#radResponse2"
+          value: radResponse2
     - click_on:
         - value: Submit
           selector: "#btnEmail"
