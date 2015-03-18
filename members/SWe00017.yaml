@@ -58,12 +58,13 @@ contact_form:
           selector: "#edit-submitted-salutation"
           value: $NAME_PREFIX
           required: true
-            "Mr."
-            "Ms."
-            "Mrs."
-            "Dr."
+          options:
+            - "Mr."
+            - "Ms."
+            - "Mrs."
+            - "Dr."
         - name: State
-          selector:
+          selector: "#edit-submitted-state"
           value: $ADDRESS_STATE_FULL
     - check:
         - name: Comment
