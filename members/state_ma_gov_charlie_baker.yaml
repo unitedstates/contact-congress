@@ -5,18 +5,21 @@ contact_form:
   steps:
     - visit: "http://www.mass.gov/governor/constituent-services/contact-governor-office/"
     - fill_in:
-        - name: fname
+        - name: firstName
           selector: "#fname"
           value: $NAME_FIRST
           required: true
-        - name: lname
+        - name: lastName
           selector: "#lname"
           value: $NAME_LAST
           required: true
-        - name: address
+        - name: street
           selector: "#address"
           value: $ADDRESS_STREET
           required: true
+        - name: street2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
         - name: city
           selector: "#city"
           value: $ADDRESS_CITY
@@ -25,7 +28,7 @@ contact_form:
           selector: "#state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
-        - name: zip
+        - name: zip5
           selector: "#zip"
           value: $ADDRESS_ZIP5
           required: true
@@ -33,15 +36,15 @@ contact_form:
           selector: "#phone"
           value: $PHONE
           required: false
-        - name: customeremail.email
-          selector: "form[action='/cgi-bin/massgovmail.cgi'] input[name='customeremail.email']"
+        - name: email
+          selector: "customeremail.email"
           value: $EMAIL
           required: true
         - name: subject
           selector: "#subject"
           value: $SUBJECT
           required: true
-        - name: comments
+        - name: message
           selector: "#comments"
           value: $MESSAGE
           required: true
@@ -52,4 +55,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Page not found (error 404)"
+      contains: "Thank you for sharing your thoughts"
