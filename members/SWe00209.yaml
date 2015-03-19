@@ -5,52 +5,109 @@ contact_form:
   steps:
     - visit: "http://www.governor.ny.gov/contact/GovernorContactForm.php"
     - fill_in:
-        - name: first_name
+        - name: firstName
           selector: "#first_name"
           value: $NAME_FIRST
           required: true
-        - name: last_name
+        - name: lastName
           selector: "#last_name"
           value: $NAME_LAST
           required: true
-        - name: primary_email
-          selector: "#primary_email"
+        - name: email
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: primary_address_1
+        - name: street
           selector: "#primary_address_1"
           value: $ADDRESS_STREET
           required: true
-        - name: primary_city
-          selector: "#primary_city"
+        - name: city
+          selector: "#edit-submitted-city"
           value: $ADDRESS_CITY
           required: true
-        - name: primary_zip
+        - name: zip5
           selector: "#primary_zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: subject
           selector: "#subject"
           value: $SUBJECT
-          required: true
-        - name: govemail
+        - name: message
           selector: "#govemail"
-          value: $EMAIL
-          required: true
-        - name: security_answer
-          selector: "#security_answer"
           value: $MESSAGE
           required: true
     - select:
-        - name: iaddress
+        - name: prefix
           selector: "#iaddress"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - "Mr. & Mrs."
+            - "Mr.": "Mr."
+            - "Ms.": "Ms."
+            - "Mrs.": "Mrs."
+            - "Mr. & Mrs.": "Mr. & Mrs."
+        - name: stateFull
+          selector: "#primary_state"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            - "AL": "Alabama"
+            - "AK": "Alaska"
+            - "AZ": "Arizona"
+            - "AR": "Arkansas"
+            - "CA": "California"
+            - "CO": "Colorado"
+            - "CT": "Connecticut"
+            - "DE": "Delaware"
+            - "DC": "District of Columbia"
+            - "FL": "Florida"
+            - "GA": "Georgia"
+            - "GU": "Guam"
+            - "HI": "Hawaii"
+            - "ID": "Idaho"
+            - "IL": "Illinois"
+            - "IN": "Indiana"
+            - "IA": "Iowa"
+            - "KS": "Kansas"
+            - "KY": "Kentucky"
+            - "LA": "Louisiana"
+            - "ME": "Maine"
+            - "MH": "Marshall Islands"
+            - "MD": "Maryland"
+            - "MA": "Massachusetts"
+            - "MI": "Michigan"
+            - "MN": "Minnesota"
+            - "MS": "Mississippi"
+            - "MO": "Missouri"
+            - "MT": "Montana"
+            - "NE": "Nebraska"
+            - "NV": "Nevada"
+            - "NH": "New Hampshire"
+            - "NJ": "New Jersey"
+            - "NM": "New Mexico"
+            - "NY": "New York"
+            - "NC": "North Carolina"
+            - "ND": "North Dakota"
+            - "MP": "Northern Marianas Islands"
+            - "OH": "Ohio"
+            - "OK": "Oklahoma"
+            - "OR": "Oregon"
+            - "PW": "Palau"
+            - "PA": "Pennsylvania"
+            - "PR": "Puerto Rico"
+            - "RI": "Rhode Island"
+            - "SC": "South Carolina"
+            - "SD": "South Dakota"
+            - "TN": "Tennessee"
+            - "TX": "Texas"
+            - "UT": "Utah"
+            - "VT": "Vermont"
+            - "VI": "Virgin Islands"
+            - "VA": "Virginia"
+            - "WA": "Washington"
+            - "WV": "West Virginia"
+            - "WI": "Wisconsin"
+            - "WY": "Wyoming"
         - name: topic
           selector: "#topic"
           value: $TOPIC
@@ -110,10 +167,10 @@ contact_form:
             - World Trade Center
             - Other
     - click_on:
-        - value: Submit Form
-          selector: "#editCitizenForm input[type='submit'][value='Submit Form']"
+        - value: Submit
+          selector: ".webform-submit"
   success:
     headers:
       status: 200
     body:
-      contains: "your e-mail has been received"
+      contains: your e-mail has been received
