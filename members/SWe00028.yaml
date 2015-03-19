@@ -18,7 +18,7 @@ contact_form:
           value: $EMAIL
           required: true
     - select:
-        - name: subject
+        - name: topic
           selector: "#subject"
           value: $TOPIC
           required: true
@@ -80,6 +80,9 @@ contact_form:
     - find:
         - selector: "textarea[name='message']"
     - fill_in:
+        - name: subject
+          selector: "input[name='newsubject']"
+          value: $SUBJECT  
         - name: message
           selector: "form.content textarea[name='message']"
           value: $MESSAGE
