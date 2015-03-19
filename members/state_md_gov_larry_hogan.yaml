@@ -25,16 +25,16 @@ contact_form:
           selector: "#city"
           value: $ADDRESS_CITY
           required: true
-        - name: state
+        - name: stateFull
           selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          value: $ADDRESS_STATE_FULL
           required: true
         - name: zip5
           selector: "#zipcode"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip+4"
+          selector: "input[name$='4']"
           value: $ADDRESS_ZIP4
         - name: phoneAreaCode
           selector: "#AreaCode"
