@@ -5,27 +5,30 @@ contact_form:
   steps:
     - visit: "http://www.governor.nc.gov/contact/email-pat"
     - fill_in:
-        - name: "submitted[first_name]"
+        - name: firstName
           selector: "#edit-submitted-first-name"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[last_name]"
+        - name: lastName
           selector: "#edit-submitted-last-name"
           value: $NAME_LAST
           required: true
-        - name: "submitted[email]"
+        - name: email
           selector: "#edit-submitted-email"
           value: $EMAIL
           required: true
-        - name: "submitted[message]"
+        - name: phone
+          selector: "#edit-submitted-phone"
+          value: $PHONE
+        - name: message
           selector: "#edit-submitted-message"
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: "#edit-submit"
+          selector: ".webform-submit"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your submission has been received."
+      contains: "your submission has been received"
