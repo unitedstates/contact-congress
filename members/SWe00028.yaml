@@ -80,13 +80,13 @@ contact_form:
     - find:
         - selector: "textarea[name='message']"
     - fill_in:
-        - name: subject
-          selector: "input[name='newsubject']"
-          value: $SUBJECT  
         - name: message
           selector: "form.content textarea[name='message']"
           value: $MESSAGE
           required: true
+        - name: subject
+          selector: "input[name='newsubject']"
+          value: $SUBJECT 
     - check:
         - name: position
           selector: "input[type='radio'][name='position'][value='2']"
