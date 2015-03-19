@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: default.aspx
   steps:
-    - visit: "https://rigov.wufoo.com/embed/p1n4723z1b79aft/def/embedKey=p1n4723z1b79aft109022&entsource=&referrer="
+    - visit: "https://rigov.wufoo.com/embed/p1n4723z1b79aft/def/embedKey=p1n4723z1b79aft109022"
     - fill_in:
         - name: firstName
           selector: "#Field1"
@@ -30,12 +30,12 @@ contact_form:
           selector: "#Field120"
           value: $ADDRESS_ZIP5
         - name: message
-          selector: "#"
+          selector: "#Field118"
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: "#Field118"
+          selector: "#saveForm"
   success:
     headers:
       status: 200
