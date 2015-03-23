@@ -4,147 +4,175 @@ contact_form:
   action: webform.cfm
   steps:
     - visit: "http://gov.idaho.gov/ourgov/contact.html"
-    - fill_in:
-        - name: firstName
-          selector: "#firstNameTextbox"
-          value: $NAME_FIRST
-          required: true
-        - name: lastName
-          selector: "#lastNameTextbox"
-          value: $NAME_LAST
-          required: true
-        - name: street1
-          selector: "#mailAddTextbox"
-          value: $ADDRESS_STREET
-          required: true
-        - name: street2
-          selector: "#mailAdd2Textbox"
-          value: $ADDRESS_STREET_2
-        - name: city
-          selector: "#cityTextbox"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zip5
-          selector: "#zipTextbox"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: phoneAreaCode
-          selector: "#phacTextbox"
-          value: $PHONE_AREA_CODE
-        - name: phoneExchange
-          selector: "#phpreTextbox"
-        - name: phoneNumber
-          selector: "#phlineTextbox"
-          value: $PHONE_SUBSCRIBER_NUMBER
-        - name: email
-          selector: "#emailTextbox"
-          value: $EMAIL
-          required: true
-        - name: message
-          selector: "#messageTextbox"
-          value: $MESSAGE
-          required: true
-        - name: recaptcha_response_field
-          selector: "#recaptcha_response_field"
-          captcha_selector: "#recaptcha_image img"
-          value: "$CAPTCHA_SOLUTION"
-    - select:
-        - name: prefix
-          selector: "#"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - "Mr.": "Mr."
-            - "Mrs.": "Mrs."
-            - "Ms.": "Ms."
-            - "Dr.": "Dr."
-            - "Mr. & Mrs.": "Mr. & Mrs."
-        - name: stateFull
-          selector: "#txtState"
-          value: $ADDRESS_STATE_FULL
-          required: true
-          options:
-            - "AL": "Alabama"
-            - "AK": "Alaska"
-            - "AZ": "Arizona"
-            - "AR": "Arkansas"
-            - "CA": "California"
-            - "CO": "Colorado"
-            - "CT": "Connecticut"
-            - "DE": "Delaware"
-            - "DC": "District of Columbia"
-            - "FL": "Florida"
-            - "GA": "Georgia"
-            - "HI": "Hawaii"
-            - "ID": "Idaho"
-            - "IL": "Illinois"
-            - "IN": "Indiana"
-            - "IA": "Iowa"
-            - "KS": "Kansas"
-            - "KY": "Kentucky"
-            - "LA": "Louisiana"
-            - "ME": "Maine"
-            - "MD": "Maryland"
-            - "MA": "Massachusetts"
-            - "MI": "Michigan"
-            - "MN": "Minnesota"
-            - "MS": "Mississippi"
-            - "MO": "Missouri"
-            - "MT": "Montana"
-            - "NE": "Nebraska"
-            - "NV": "Nevada"
-            - "NH": "New Hampshire"
-            - "NJ": "New Jersey"
-            - "NM": "New Mexico"
-            - "NY": "New York"
-            - "NC": "North Carolina"
-            - "ND": "North Dakota"
-            - "OH": "Ohio"
-            - "OK": "Oklahoma"
-            - "OR": "Oregon"
-            - "PA": "Pennsylvania"
-            - "RI": "Rhode Island"
-            - "SC": "South Carolina"
-            - "SD": "South Dakota"
-            - "TN": "Tennessee"
-            - "TX": "Texas"
-            - "UT": "Utah"
-            - "VT": "Vermont"
-            - "VA": "Virginia"
-            - "WA": "Washington"
-            - "WV": "West Virginia"
-            - "WI": "Wisconsin"
-            - "WY": "Wyoming"
-        - name: topic
-          selector: "#topicDropDown"
-          value: $TOPIC
-          required: true
-          options:
-            - "AG": "Agriculture"
-            - "BOARDS_COMMISSIONS": "Boards and Commissions"
-            - "COMMERCE": "Commerce"
-            - "CORRECTION": "Correction"
-            - "ODP": "Drug Policy"
-            - "EDU": "Education"
-            - "DOF": "Finance"
-            - "FG": "Fish and Game"
-            - "HW": "Health and Welfare"
-            - "ISP": "Idaho State Police"
-            - "INDUSTRIAL_COMMISSION": "Industrial Commission"
-            - "INSURANCE": "Insurance"
-            - "LABOR": "Labor"
-            - "MILITARY": "Military"
-            - "NAT": "Natural Resources"
-            - "PARKS": "Parks and Recreation"
-            - "PARDONS_AND_PAROLE": "Pardons and Parole"
-            - "IBOL": "Occupational Licenses"
-            - "TAX": "Taxes"
-            - "TRAN": "Transportation"
-            - "VET": "Veteran Services"
-            - "OTHER": "Other"
+    - wait:
+      - value: 1
+    - iframe:
+      - name: iframe1
+        selector: "[title='recaptcha widget']"
     - click_on:
-        - value: Submit
-          selector: "#submitButton"
+      - value: recaptcha
+        selector: ".recaptcha-checkbox"
+    - iframe:
+      - name: parent1
+        back: true
+    - wait:
+      - value: 1
+    - iframe:
+      - name: iframe2
+        selector: "[title='recaptcha challenge']"
+    - fill_in:
+      - name: recaptcha_response_field
+        captcha_selector: "img[alt='reCAPTCHA challenge image']"
+        value: $CAPTCHA_SOLUTION
+        selector: "#default-response"
+    - click_on:
+      - value: recaptchaSubmit
+        selector: "#recaptcha-verify-button"
+    - iframe:
+      - name: parent2
+        back: true
+    - fill_in:
+      - name: firstName
+        selector: "#firstNameTextbox"
+        value: $NAME_FIRST
+        required: true
+      - name: lastName
+        selector: "#lastNameTextbox"
+        value: $NAME_LAST
+        required: true
+      - name: street1
+        selector: "#mailAddTextbox"
+        value: $ADDRESS_STREET
+        required: true
+      - name: street2
+        selector: "#mailAdd2Textbox"
+        value: $ADDRESS_STREET_2
+      - name: city
+        selector: "#cityTextbox"
+        value: $ADDRESS_CITY
+        required: true
+      - name: zip5
+        selector: "#zipTextbox"
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: phoneAreaCode
+        selector: "#phacTextbox"
+        value: $PHONE_AREA_CODE
+      - name: phoneExchange
+        selector: "#phpreTextbox"
+        value: $PHONE_EXCHANGE_CODE
+      - name: phoneNumber
+        selector: "#phlineTextbox"
+        value: $PHONE_SUBSCRIBER_NUMBER
+      - name: email
+        selector: "#emailTextbox"
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: "#messageTextbox"
+        value: $MESSAGE
+        required: true
+      - name: recaptcha_response_field
+        selector: "#recaptcha_response_field"
+        captcha_selector: ".rc-defaultchallenge-payload > img"
+        value: "$CAPTCHA_SOLUTION"
+    - select:
+      - name: prefix
+        selector: "#prefixDropDown"
+        value: $NAME_PREFIX
+        required: true
+        options:
+          - "Mr.": "Mr."
+          - "Mrs.": "Mrs."
+          - "Ms.": "Ms."
+          - "Dr.": "Dr."
+          - "Mr. & Mrs.": "Mr. & Mrs."
+      - name: stateFull
+        selector: "#stateDropDown"
+        value: $ADDRESS_STATE_FULL
+        required: true
+        options:
+          - "AL": "Alabama"
+          - "AK": "Alaska"
+          - "AZ": "Arizona"
+          - "AR": "Arkansas"
+          - "CA": "California"
+          - "CO": "Colorado"
+          - "CT": "Connecticut"
+          - "DE": "Delaware"
+          - "DC": "District of Columbia"
+          - "FL": "Florida"
+          - "GA": "Georgia"
+          - "HI": "Hawaii"
+          - "ID": "Idaho"
+          - "IL": "Illinois"
+          - "IN": "Indiana"
+          - "IA": "Iowa"
+          - "KS": "Kansas"
+          - "KY": "Kentucky"
+          - "LA": "Louisiana"
+          - "ME": "Maine"
+          - "MD": "Maryland"
+          - "MA": "Massachusetts"
+          - "MI": "Michigan"
+          - "MN": "Minnesota"
+          - "MS": "Mississippi"
+          - "MO": "Missouri"
+          - "MT": "Montana"
+          - "NE": "Nebraska"
+          - "NV": "Nevada"
+          - "NH": "New Hampshire"
+          - "NJ": "New Jersey"
+          - "NM": "New Mexico"
+          - "NY": "New York"
+          - "NC": "North Carolina"
+          - "ND": "North Dakota"
+          - "OH": "Ohio"
+          - "OK": "Oklahoma"
+          - "OR": "Oregon"
+          - "PA": "Pennsylvania"
+          - "RI": "Rhode Island"
+          - "SC": "South Carolina"
+          - "SD": "South Dakota"
+          - "TN": "Tennessee"
+          - "TX": "Texas"
+          - "UT": "Utah"
+          - "VT": "Vermont"
+          - "VA": "Virginia"
+          - "WA": "Washington"
+          - "WV": "West Virginia"
+          - "WI": "Wisconsin"
+          - "WY": "Wyoming"
+      - name: topic
+        selector: "#topicDropDown"
+        value: $TOPIC
+        required: true
+        options:
+          - "AG": "Agriculture"
+          - "BOARDS_COMMISSIONS": "Boards and Commissions"
+          - "COMMERCE": "Commerce"
+          - "CORRECTION": "Correction"
+          - "ODP": "Drug Policy"
+          - "EDU": "Education"
+          - "DOF": "Finance"
+          - "FG": "Fish and Game"
+          - "HW": "Health and Welfare"
+          - "ISP": "Idaho State Police"
+          - "INDUSTRIAL_COMMISSION": "Industrial Commission"
+          - "INSURANCE": "Insurance"
+          - "LABOR": "Labor"
+          - "MILITARY": "Military"
+          - "NAT": "Natural Resources"
+          - "PARKS": "Parks and Recreation"
+          - "PARDONS_AND_PAROLE": "Pardons and Parole"
+          - "IBOL": "Occupational Licenses"
+          - "TAX": "Taxes"
+          - "TRAN": "Transportation"
+          - "VET": "Veteran Services"
+          - "OTHER": "Other"
+    - click_on:
+      - value: Submit
+        selector: "#submitButton"
   success:
     headers:
       status: 200
