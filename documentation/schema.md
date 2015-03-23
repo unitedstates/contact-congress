@@ -66,7 +66,7 @@ The value of a visit step is just a `string` url.
 
 ### iframe
 
-The purpose of this is to access elements on a form that may be embedded in an iframe. Using the selector, you can switch the frame of the browser to the given iframe.
+The purpose of this is to access elements on a form that may be embedded in an iframe. Using the selector, you can switch the frame of the browser to the given iframe. Using the boolean "back" you can return to the parent frame instead of entering a new iframe
 
 ### find
 
