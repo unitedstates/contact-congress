@@ -88,6 +88,7 @@ The value of a fill_in step can be a single field, or a list of hashes defining 
     field.
 - `required` (ironically, optional): This field will be present if a field *must* 
     be filled out with a value in order for the form to be valid.
+- `wysiwyg` (optional): This field will be present if a field is a wysiwyg, such as ckeditor or tinymce. They cannot be filled in the same way as a typical textbox.
 
 **A note on CAPTCHAs**
 
