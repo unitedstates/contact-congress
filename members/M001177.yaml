@@ -18,6 +18,8 @@ contact_form:
           selector: "#emailForm input[name='submit']"
     - find:
         - selector: "#prefix"
+    - wait:
+        - value: 1
     - fill_in:
         - name: required-first
           selector: "#contactForm input[name='required-first']"
