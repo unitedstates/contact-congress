@@ -4,6 +4,8 @@ contact_form:
   action: http://www.risch.senate.gov/public/index.cfm?p=Email
   steps:
     - visit: http://www.risch.senate.gov/public/index.cfm?p=Email
+    - wait:
+      - value: 1
     - fill_in:
       - name: field_5b32fe1c-2b47-4f0e-87c1-e658f39d899d
         selector: "#field_5b32fe1c-2b47-4f0e-87c1-e658f39d899d"
