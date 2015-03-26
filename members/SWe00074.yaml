@@ -22,7 +22,7 @@ contact_form:
         selector: "[title='recaptcha challenge']"
     - fill_in:
       - name: recaptcha_response_field
-        captcha_selector: "img[alt='reCAPTCHA challenge image']"
+        captcha_selector: "body img"
         value: $CAPTCHA_SOLUTION
         selector: "#default-response"
     - click_on:
@@ -72,10 +72,6 @@ contact_form:
         selector: "#messageTextbox"
         value: $MESSAGE
         required: true
-      - name: recaptcha_response_field
-        selector: "#recaptcha_response_field"
-        captcha_selector: ".rc-defaultchallenge-payload > img"
-        value: "$CAPTCHA_SOLUTION"
     - select:
       - name: prefix
         selector: "#prefixDropDown"
