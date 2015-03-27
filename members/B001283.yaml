@@ -5,45 +5,45 @@ contact_form:
   steps:
     - visit: "https://bridenstineforms.house.gov/forms/writeyourrep/"
     - fill_in:
-        - name: ctl00$ctl11$FirstName
-          selector: "#ctl00_ctl11_FirstName"
+        - name: ctl00$ctl15$FirstName
+          selector: "#ctl00_ctl15_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl11$LastName
-          selector: "#ctl00_ctl11_LastName"
+        - name: ctl00$ctl15$LastName
+          selector: "#ctl00_ctl15_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl11$Street
-          selector: "#ctl00_ctl11_Street"
+        - name: ctl00$ctl15$Street
+          selector: "#ctl00_ctl15_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl11$City
-          selector: "#ctl00_ctl11_City"
+        - name: ctl00$ctl15$City
+          selector: "#ctl00_ctl15_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl11$Zip
-          selector: "#ctl00_ctl11_Zip"
+        - name: ctl00$ctl15$Zip
+          selector: "#ctl00_ctl15_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl11$Phone
-          selector: "#ctl00_ctl11_Phone"
+        - name: ctl00$ctl15$Phone
+          selector: "#ctl00_ctl15_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl11$Email
-          selector: "#ctl00_ctl11_Email"
+        - name: ctl00$ctl15$Email
+          selector: "#ctl00_ctl15_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl11$Subject
-          selector: "#ctl00_ctl11_Subject"
+        - name: ctl00$ctl15$Subject
+          selector: "#ctl00_ctl15_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl11$Body
-          selector: "#ctl00_ctl11_Body"
+        - name: ctl00$ctl15$Body
+          selector: "#ctl00_ctl15_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl11$PrefixList
-          selector: "#ctl00_ctl11_PrefixList"
+        - name: ctl00$ctl15$PrefixList
+          selector: "#ctl00_ctl15_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -53,8 +53,8 @@ contact_form:
             - Ms.
             - Ambassador
             - Reverend
-        - name: ctl00$ctl11$IssuesList
-          selector: "#ctl00_ctl11_IssuesList"
+        - name: ctl00$ctl15$IssuesList
+          selector: "#ctl00_ctl15_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -99,15 +99,14 @@ contact_form:
             Water Resources Development: "65925"
             White House Tour: "115843"
     - check:
-        - name: ctl00$ctl11$ReplyChoice
-          selector: "#ctl00_ctl11_ReplyChoice_0"
+        - name: ctl00$ctl15$ReplyChoice
+          selector: "#ctl00_ctl15_ReplyChoice_0"
           value: Respond
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl11_SubmitButton"
+          selector: "#ctl00_ctl15_SubmitButton"
   success:
     headers:
       status: 200
     body:
       contains: Thank you
-
