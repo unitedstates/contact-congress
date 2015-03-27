@@ -188,6 +188,8 @@ contact_form:
     - click_on:
         - value: Send
           selector: "input[value='Send']"
+    - wait:
+        - value: 1
     - find:
         - selector: ".headline"
   success:
