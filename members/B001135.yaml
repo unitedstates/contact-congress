@@ -4,6 +4,21 @@ contact_form:
   action: /contact/email
   steps:
     - visit: "http://www.burr.senate.gov/contact/email"
+    - select:
+        - name: actions
+          selector: "#actions"
+          value: opinion
+          required: true
+          options:
+            "--Select an Option--": select
+            Send an email to comment on legislation: opinion
+            Help with a Federal Agency: Help with a Federal Agency
+            Scheduling Requests: Scheduling Requests
+            Office Locations: Office Locations
+    - wait:
+        - value: 1
+    - find:
+        - selector: "#fname"
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -46,16 +61,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: actions
-          selector: "#actions"
-          value: opinion
-          required: true
-          options:
-            "--Select an Option--": select
-            Send an email to comment on legislation: opinion
-            Help with a Federal Agency: Help with a Federal Agency
-            Scheduling Requests: Scheduling Requests
-            Office Locations: Office Locations
         - name: salutation
           selector: "#salutation"
           value: $NAME_PREFIX
