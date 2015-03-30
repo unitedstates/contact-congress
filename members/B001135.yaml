@@ -273,6 +273,8 @@ contact_form:
     - click_on:
         - value: Send
           selector: "#side-search-btn"
+    - find:
+        - selector: ".headline"
   success:
     headers:
       status: 200
