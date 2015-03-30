@@ -61,6 +61,55 @@ contact_form:
             - Mrs.
             - Dr.
             - Ms.
+        - name: ctl00$ctl09$IssuesList
+          selector: "#ctl00_ctl09_IssuesList"
+          value: $TOPIC
+          required: false
+          options:
+            Abortion: "120471"
+            Agriculture: "8383"
+            Animal Rights: "120472"
+            Appropriations: "120473"
+            Arts and Humanities: "120474"
+            Banking and Finance: "12245"
+            Budget: "120476"
+            Campaign Finance and Election Reform: "120477"
+            Commerce and Business: "120478"
+            Congress: "120479"
+            Consumer Protection: "120480"
+            Crime: "120481"
+            Drug Abuse: "120482"
+            Economy : "8302"
+            Education: "4652"
+            Endangered Species and Wildlife: "120483"
+            Energy: "5258"
+            Environment: "120497"
+            Ethics Reform: "120498"
+            Fiscal Responsibility: "13377"
+            Foreign Affairs: "120484"
+            Government Operations: "120485"
+            Guns: "120486"
+            Healthcare: "5209"
+            Homeland Security and Intelligence: "120487"
+            Housing: "5020"
+            Immigration: "5021"
+            Judiciary: "120488"
+            Labor: "120489"
+            Medicaid: "120490"
+            Medicare: "120491"
+            National Defense and Military: "5018"
+            Native American Issues: "120492"
+            Postal Issues: "120493"
+            Public Lands and Natural Resources: "5022"
+            Science and Technology: "120499"
+            Small Businesses: "5023"
+            Social Security and Medicare: "42739"
+            Taxes: "41587"
+            Telecommunications: "120494"
+            Trade: "120495"
+            Transportation and Infrastructure: "4647"
+            Veterans: "5024"
+            Welfare: "120496"
         - name: ctl00$ctl09$State
           selector: "#ctl00_ctl09_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -129,6 +178,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl09_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl09_ConfirmationText"
   success:
     headers:
       status: 200
