@@ -90,10 +90,6 @@ contact_form:
         - name: rsp
           selector: "input[type='radio'][name='rsp'][value='yes']"
           value: "yes"
-    - uncheck:
-        - name: subscribe
-          selector: "form.zipform[name='contact'] input[name='subscribe']"
-          value: subscribe
     - click_on:
         - value: Send Email
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
