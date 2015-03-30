@@ -1,21 +1,9 @@
 bioguide: S001177
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  action: "/contact-me/email-me-zip-authenticated"
   steps:
-    - visit: "http://sablan.house.gov/email-me"
-    - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go To Next Step
-          selector: "#node-1417 form.validate.wsbform input[name='submit']"
+    - visit: "https://sablan.house.gov/contact-me/email-me-zip-authenticated"
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -41,14 +29,18 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
         - name: required-valid-email
-          selector: "#node-1418 form.validate.wsbform input[name='required-valid-email']"
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: phone
           selector: "#phone"
           value: $PHONE
-          required: true
+          required: false
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -106,7 +98,7 @@ contact_form:
             "No": "No"
     - click_on:
         - value: Send Email
-          selector: "#node-1418 form.validate.wsbform input[name='submit']"
+          selector: "#submit[value='Send Email']"
   success:
     headers:
       status: 200
