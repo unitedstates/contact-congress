@@ -1,168 +1,108 @@
 bioguide: S001185
-contact_form:
+contact_form: 
   method: post
-  action: /email-me/
-  steps:
-    - visit: "https://sewell.house.gov/email-me"
-    - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
-          value: $NAME_FIRST
-          required: true
-        - name: lastname
-          selector: "#req_lastname"
-          value: $NAME_LAST
-          required: true
-        - name: street
-          selector: "#req_street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#req_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#custom_form60 input[name='emailaddress']"
-          value: $EMAIL
-          required: true
-        - name: subject
-          selector: "#req_subject"
-          value: $SUBJECT
-          required: true
-        - name: message
-          selector: "#req_message"
-          value: $MESSAGE
-          required: true
-    - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-        - name: issue
-          selector: "#req_issue"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: AG
-            Arts and Humanities: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            Defense and Military: DEF
-            Education: ED
-            Energy: EN
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Health: HE
-            Immigration: IM
-            Judiciary: JUD
-            Labor: LAB
-            Science and Technology: SCI
-            Senior Citizens: SENIORS
-            Social Security: SS
-            Social Services: SOC.SERVICES
-            Taxes: TAX
-            Telecommunications: COMM
-            Transportation: TRAN
-            Trade: TRD
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Other Issues: OTHER
-        - name: response
-          selector: "#req_response"
-          value: "Y"
-          required: true
-          options:
-            I would like a response: "Y"
-            I do not need a response: "N"
-    - click_on:
-        - value: Send Email
-          selector: "#submitButton"
-    - find:
-        - selector: "h1"
-          value: "THANK YOU"
-  success:
-    headers:
+  action: /htbin/formproc/email-me.txt%26display%3D/contact/email-me/email-me-thank-you%26nobase%26fpGetVer%3D2
+  steps: 
+  - visit: https://sewell.house.gov/contact/email-me
+  - fill_in: 
+    - name: required-zip5
+      selector: "#required-zip5"
+      value: $ADDRESS_ZIP5
+      required: true
+    - name: zip4
+      selector: "#zip4"
+      value: $ADDRESS_ZIP4
+      required: true
+  - click_on: 
+    - value: Go To Next Step
+      selector: "#g2gform #submit"
+  - find: 
+    - selector: "#prefix"
+  - fill_in: 
+    - name: prefix
+      selector: "#prefix"
+      value: $NAME_PREFIX
+      required: false
+    - name: required-first
+      selector: "#required-first"
+      value: $NAME_FIRST
+      required: true
+    - name: required-last
+      selector: "#required-last"
+      value: $NAME_LAST
+      required: true
+    - name: required-address
+      selector: "#required-address"
+      value: $ADDRESS_STREET
+      required: true
+    - name: required-city
+      selector: "#required-city"
+      value: $ADDRESS_CITY
+      required: true
+    - name: required-valid-email
+      selector: "#required-valid-email"
+      value: $EMAIL
+      required: true
+    - name: required-phone
+      selector: "#phone"
+      value: $PHONE
+      required: false
+    - name: required-subject
+      selector: "#required-subject"
+      value: $SUBJECT
+      required: true
+    - name: required-message
+      selector: "#required-message"
+      value: $MESSAGE
+      required: true
+  - select: 
+    - name: required-issue
+      selector: "#required-issue"
+      value: $TOPIC
+      required: true
+      options: 
+        Agriculture: AGR
+        Arts and Humanities: ART
+        Banking and Finance: BANK
+        Budget and Economy: BUD
+        Campaign Finance Reform: CFR
+        Congress and Elections: CONG
+        Defense and Military: DEF
+        Education: EDU
+        Energy: ENE
+        Environment: ENV
+        Federal Employees: FED
+        Foreign Relations: FR
+        Government Reform: GOV
+        Guns: GUN
+        Health: HEA
+        Immigration: IMM
+        Judiciary: JUD
+        Labor: LAB
+        Science and Technology: SCI
+        Social Issues: SOC
+        Senior Citizens: SENIORS
+        Social Security: SSEC
+        Social Services: SOC.SERVICES
+        Taxes: TAX
+        Telecommunications: TEL
+        Transportation: TRA
+        Trade: TRADE
+        Veterans: VET
+        Women's Issues: WOMEN
+        Other Issues: OTHER
+    - name: required-response
+      selector: "#required-response"
+      value: Y
+      required: true
+      options: 
+        Yes, please contact me: Y
+        No, I wanted to voice my opinion: N
+  - click_on: 
+    - value: Send Email
+      selector: "#contactForm[action='/htbin/formproc/email-me.txt%26display%3D/contact/email-me/email-me-thank-you%26nobase%26fpGetVer%3D2'] #submit"
+  success: 
+    headers: 
       status: 200
-    body:
-      contains: Your request has been successfully submitted.
+    body: 
+      contains: The following information has been submitted
