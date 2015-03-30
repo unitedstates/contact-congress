@@ -101,6 +101,10 @@ contact_form:
        options:
          "Yes, please contact me": "Y"
          "No, I wanted to voice my opinion": "N"
+   - check:
+     - name: FortReport
+       selector: "#subscribe"
+       value: "No"
    - click_on:
      - value: Send Email
        selector: "#contactForm #submit"
@@ -111,4 +115,4 @@ contact_form:
    headers:
      status: 200
    body:
-     contains: "The following information has been submitted:"
+     contains: "I appreciate hearing from you"
