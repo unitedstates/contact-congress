@@ -1,53 +1,56 @@
-bioguide: F000444
+bioguide: yamlflake
 contact_form:
   method: post
   action: webformActionIQV2.cfm
   steps:
     - visit: "http://www.flake.senate.gov/contact.cfm"
+    - click_on:
+        - value: Skip
+          selector: ".popup-container form .skip"
     - fill_in:
         - name: firstName
-          selector: "#firstName"
+          selector: "#field_6f2ba101-f309-4d6d-94df-6e3a1c86ad7d"
           value: $NAME_FIRST
           required: true
         - name: lastName
-          selector: "#lastName"
+          selector: "#field_a25e1505-6d87-455e-9f4a-524c8394129a"
           value: $NAME_LAST
           required: true
         - name: Address1
-          selector: "#Address1"
+          selector: "#field_c7a1518e-cd55-43d5-a88f-2e64293bee0c"
           value: $ADDRESS_STREET
           required: true
         - name: Address2
-          selector: "#Address2"
+          selector: "#field_50badb9d-9ca8-4474-ba7d-4a1ebf3bdd38"
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: "#city"
+          selector: "#field_7ecda6cf-a296-474b-a788-3791f6aca3aa"
           value: $ADDRESS_CITY
           required: true
         - name: zip
-          selector: "#zip"
+          selector: "#field_6a483fd1-64eb-47c4-842f-35e8e9fa3b71"
           value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector: "#phone"
+          selector: "#field_5eddfd5f-d667-43c1-9db0-ae36e2814cc3"
           value: $PHONE
           required: true
         - name: email
-          selector: "#email"
+          selector: "#field_7e770959-172a-4c9d-8720-67a027916b7d"
           value: $EMAIL
           required: true
         - name: messageSubject
-          selector: "#messageSubject"
+          selector: "#field_73afa19a-4375-49c3-b145-a618657c8ee8"
           value: $SUBJECT
           required: true
         - name: MessageBody
-          selector: "#thisForm textarea[name='MessageBody']"
+          selector: "#field_11c08db8-4bd8-4cb6-bcc5-bcc5f4eb85b4"
           value: $MESSAGE
           required: true
     - select:
         - name: Prefix
-          selector: "#thisForm select[name='Prefix']"
+          selector: "#field_fad36bbe-38f4-44c4-a418-1a7149fe811b"
           value: $NAME_PREFIX
           required: true
           options:
@@ -64,7 +67,7 @@ contact_form:
             " Representative ": Representative
             " Senator ": Senator
         - name: State
-          selector: "#thisForm select[name='State']"
+          selector: "#field_b2e8657c-e546-42d7-97a6-baff33e85780"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -124,76 +127,49 @@ contact_form:
             "West Virginia ": WV
             "Wisconsin ": WI
             "Wyoming ": WY
-        - name: Subject
-          selector: "#thisForm select[name='Subject']"
+        - name: Topic
+          selector: "#field_bf07744f-fc8c-45c9-b660-5be4f2aa0b7e"
           value: $TOPIC
           required: true
           options:
-            "\n\t\t\t\t\t\t\tAbortion\n\t\t\t\t\t\t": Abortion
-            "\n\t\t\t\t\t\t\tAging\n\t\t\t\t\t\t": Aging
-            "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": Agriculture
-            "\n\t\t\t\t\t\t\tAnimal Welfare\n\t\t\t\t\t\t": Animal Welfare
-            "\n\t\t\t\t\t\t\tAppropriations\n\t\t\t\t\t\t": Appropriations
-            "\n\t\t\t\t\t\t\tBanking\n\t\t\t\t\t\t": Banking
-            "\n\t\t\t\t\t\t\tBudget/Economy\n\t\t\t\t\t\t": Budget/Economy
-            "\n\t\t\t\t\t\t\tCampaign Finance\n\t\t\t\t\t\t": Campaign Finance
-            "\n\t\t\t\t\t\t\tChildren\n\t\t\t\t\t\t": Children
-            "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": Civil Rights
-            "\n\t\t\t\t\t\t\tCommerce\n\t\t\t\t\t\t": Commerce
-            "\n\t\t\t\t\t\t\tCommunications\n\t\t\t\t\t\t": Communications
-            "\n\t\t\t\t\t\t\tCongratulations\n\t\t\t\t\t\t": Congratulations
-            "\n\t\t\t\t\t\t\tCongressional Issues\n\t\t\t\t\t\t": Congressional Issues
-            "\n\t\t\t\t\t\t\tCrime\n\t\t\t\t\t\t": Crime
-            "\n\t\t\t\t\t\t\tDefense\n\t\t\t\t\t\t": Defense
-            "\n\t\t\t\t\t\t\tDrugs\n\t\t\t\t\t\t": Drugs
-            "\n\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t": Economy
-            "\n\t\t\t\t\t\t\tEducation Higher\n\t\t\t\t\t\t": Education Higher
-            "\n\t\t\t\t\t\t\tEducation K through 12\n\t\t\t\t\t\t": Education K through 12
-            "\n\t\t\t\t\t\t\tElections\n\t\t\t\t\t\t": Elections
-            "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": Energy
-            "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": Environment
-            "\n\t\t\t\t\t\t\tFamily\n\t\t\t\t\t\t": Family
-            "\n\t\t\t\t\t\t\tFood Stamps\n\t\t\t\t\t\t": Food Stamps
-            "\n\t\t\t\t\t\t\tForeign Affairs\n\t\t\t\t\t\t": Foreign Affairs
-            "\n\t\t\t\t\t\t\tGun Control\n\t\t\t\t\t\t": Gun Control
-            "\n\t\t\t\t\t\t\tHealth\n\t\t\t\t\t\t": Health
-            "\n\t\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t\t": Homeland Security
-            "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": Housing
-            "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": Immigration
-            "\n\t\t\t\t\t\t\tInauguration\n\t\t\t\t\t\t": Inauguration
-            "\n\t\t\t\t\t\t\tInsurance Health\n\t\t\t\t\t\t": Insurance Health
-            "\n\t\t\t\t\t\t\tInsurance Other\n\t\t\t\t\t\t": Insurance Other
-            "\n\t\t\t\t\t\t\tInterior\n\t\t\t\t\t\t": Interior
-            "\n\t\t\t\t\t\t\tInternships\n\t\t\t\t\t\t": Internships
-            "\n\t\t\t\t\t\t\tIran\n\t\t\t\t\t\t": Iran
-            "\n\t\t\t\t\t\t\tIraq\n\t\t\t\t\t\t": Iraq
-            "\n\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t": Judiciary
-            "\n\t\t\t\t\t\t\tLabor\n\t\t\t\t\t\t": Labor
-            "\n\t\t\t\t\t\t\tMedicaid\n\t\t\t\t\t\t": Medicaid
-            "\n\t\t\t\t\t\t\tMedicare\n\t\t\t\t\t\t": Medicare
-            "\n\t\t\t\t\t\t\tMilitary\n\t\t\t\t\t\t": Military
-            "\n\t\t\t\t\t\t\tNASA\n\t\t\t\t\t\t": NASA
-            "\n\t\t\t\t\t\t\tNutrition\n\t\t\t\t\t\t": Nutrition
-            "\n\t\t\t\t\t\t\tOther\n\t\t\t\t\t\t": Other
-            "\n\t\t\t\t\t\t\tPatents\n\t\t\t\t\t\t": Patents
-            "\n\t\t\t\t\t\t\tPensions\n\t\t\t\t\t\t": Pensions
-            "\n\t\t\t\t\t\t\tSecurities\n\t\t\t\t\t\t": Securities
-            "\n\t\t\t\t\t\t\tSmall Business\n\t\t\t\t\t\t": Small Business
-            "\n\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t": Social Security
-            "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": Taxes
-            "\n\t\t\t\t\t\t\tTobacco\n\t\t\t\t\t\t": Tobacco
-            "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": Trade
-            "\n\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t": Transportation
-            "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": Veterans
-            "\n\t\t\t\t\t\t\tWelfare\n\t\t\t\t\t\t": Welfare
-            "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
+            "Animal Rights": Animal Rights
+            "Agriculture": Agriculture
+            "Banking and Finance": Banking and Finance
+            "Commerce": Commerce
+            "Budget/Government Spending": Budget/Government Spending
+            "Civil Rights": Civil Rights
+            "Defense and Military": Defense and Military
+            "Education": Education
+            "Energy": Energy
+            "Environment": Environment
+            "Foreign Affairs": Foreign Affairs
+            "Government Reform": Government Reform
+            "Guns/Second Amendment": Guns/Second Amendment
+            "Healthcare": Healthcare
+            "Help with Federal Agencies": Help with Federal Agencies
+            "Homeland Security": Homeland Security
+            "Housing": Housing
+            "Immigration": Immigration
+            "Intelligence": Intelligence
+            "Judiciary": Judiciary
+            "Labor": Labor
+            "Life": Life
+            "Native American": Native American
+            "Other": Other
+            "Postal Service": Postal Service
+            "Small Business": Small Business
+            "Social Security": Social Security
+            "Tax": Tax
+            "Telecom": Telecom
+            "Trade": Trade
+            "Transportation": Transportation
+            "Veterans Issues": Veterans Issues
+            "Welfare": Welfare
     - click_on:
         - value: Submit
-          selector: "#thisForm input[type='submit'][value='Submit']"
-    - find:
-        - selector: "div[align=center]"
+          selector: "#form_c689cd15-96e7-40a7-bf1a-12cdb1863af9 input[type='submit'][value='Submit']"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you!"
+      contains: "Thank you for contacting me to share your concerns and opinions"
