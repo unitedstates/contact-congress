@@ -3,47 +3,51 @@ contact_form:
   method: post
   action: default.aspx
   steps:
-    - visit: "https://gowdy.house.gov/forms/writeyourrep/default.aspx"
+    - visit: "https://gowdy.house.gov/forms/writeyourrep"
     - fill_in:
-        - name: ctl00$ctl11$FirstName
-          selector: "#ctl00_ctl11_FirstName"
+        - name: FirstName
+          selector: "#ctl00_ctl07_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl11$LastName
-          selector: "#ctl00_ctl11_LastName"
+        - name: LastName
+          selector: "#ctl00_ctl07_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl11$Street
-          selector: "#ctl00_ctl11_Street"
+        - name: Street
+          selector: "#ctl00_ctl07_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl11$City
-          selector: "#ctl00_ctl11_City"
+        - name: City
+          selector: "#ctl00_ctl07_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl11$Zip
-          selector: "#ctl00_ctl11_Zip"
+        - name: Zip
+          selector: "#ctl00_ctl07_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl11$Phone
-          selector: "#ctl00_ctl11_Phone"
+        - name: Phone
+          selector: "#ctl00_ctl07_Phone"
           value: $PHONE
           required: false
-        - name: ctl00$ctl11$Email
-          selector: "#ctl00_ctl11_Email"
+        - name: Email
+          selector: "#ctl00_ctl07_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl11$Subject
-          selector: "#ctl00_ctl11_Subject"
+        - name: Twitter
+          selector: "#ctl00_ctl07_Twitter"
+          value: $TWITTER
+          required: true
+        - name: Subject
+          selector: "#ctl00_ctl07_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl11$Body
-          selector: "#ctl00_ctl11_Body"
+        - name: Body
+          selector: "#ctl00_ctl07_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl11$PrefixList
-          selector: "#ctl00_ctl11_PrefixList"
+        - name: PrefixList
+          selector: "#ctl00_ctl07_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -106,12 +110,12 @@ contact_form:
             - LCDR
             - LT
             - LTJG
-        - name: ctl00$ctl11$IssuesList
-          selector: "#ctl00_ctl11_IssuesList"
+        - name: IssuesList
+          selector: "#ctl00_ctl07_IssuesList"
           value: $TOPIC
           required: true
           options:
-            "": "17691"
+            "None": ""
             2nd Amendment: "44663"
             Agriculture and Food: "18254"
             Animals: "18249"
@@ -155,15 +159,14 @@ contact_form:
             Veterans Affairs: "17687"
             Water Resources Development: "17704"
     - check:
-        - name: ctl00$ctl11$ReplyChoice
-          selector: "#ctl00_ctl11_ReplyChoice_0"
+        - name: ReplyChoice
+          selector: "#ctl00_ctl07_ReplyChoice_0"
           value: Respond
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl11_SubmitButton"
+          selector: "#ctl00_ctl07_SubmitButton"
   success:
     headers:
       status: 200
     body:
       contains: Thank you
-
