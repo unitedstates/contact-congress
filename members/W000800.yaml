@@ -5,6 +5,20 @@ contact_form:
   steps:
     - visit: "https://welch.house.gov/email-me"
     - fill_in:
+        - name: required-zip5
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Go To Form
+          selector: "#zipauthform input[type='submit']"
+    - find :
+        - selector: "#custom_form70"
+    - fill_in:
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
@@ -43,9 +57,9 @@ contact_form:
           required: true
     - select:
         - name: prefix
-          selector: "#req_prefix"
+          selector: "#prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
           options:
             - Mr.
             - Mrs.
