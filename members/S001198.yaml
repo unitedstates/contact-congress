@@ -29,6 +29,10 @@ contact_form:
           selector: "#edit-submitted-constituent-information-email"
           value: $EMAIL
           required: true
+        - name: phone
+          selector: "#edit-submitted-constituent-information-phone"
+          value: $PHONE_HYPHENS
+          required: true
         - name: "submitted[message_details][please_type_the_subject_of_your_message]"
           selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
           value: $SUBJECT
