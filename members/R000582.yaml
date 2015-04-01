@@ -16,16 +16,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
-  success:
-    headers:
-      status: 200
-    body:
-      contains: "Send Me An Email"
-contact_form:
-  method: post
-  action: /submit-contact.aspx
-  steps:
-    - visit: "https://roe.house.gov/contact/contactform.htm?zip5=37813&zip4=1659"
+    - find:
+        - selector: "#ctl00_PageLink"
+          value: "Contact Form"
     - fill_in:
         - name: required-first
           selector: "form[name='contact'] input[name='required-first']"
