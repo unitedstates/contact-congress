@@ -33,12 +33,16 @@ contact_form:
           selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
+        - name: PHONE
+          selector: "#PHONE"
+          value: $PHONE
+          required: false
         - name: required-EMAILADDRESS
           selector: "#required-EMAILADDRESS"
           value: $EMAIL
           required: true
         - name: Message
-          selector: "#Message"
+          selector: "#required-Message"
           value: $MESSAGE
           required: true
     - select:
