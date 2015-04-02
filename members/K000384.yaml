@@ -61,6 +61,9 @@ contact_form:
           - "Transportation & Infrastructure"
           - "Womens Issues"
           - "Workforce & Labor"
+    - click_on:
+      - value: Clicksomewhere
+        selector: "#contact-sam-main"
     - find:  # waits for dom element to appear before proceeding
       - selector: "#continue-form fieldset #prefname"
     - fill_in:
@@ -208,5 +211,5 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: THANK YOU
+      contains: "Thanks for taking the time to share your thoughts with me"
       # matches: "thank you, [a-z\. ]+ for contacting"
