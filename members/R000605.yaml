@@ -55,127 +55,46 @@ contact_form:
             - The Honorable
             - Representative
             - Senator
-        - name: "submitted[constituent_information][state]"
-          selector: "#edit-submitted-constituent-information-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AA
-            - AE
-            - AP
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
         - name: "submitted[message_details][topic]"
           selector: "#edit-submitted-message-details-topic"
           value: $TOPIC
           required: true
           options:
-            - Abortion
-            - Adoption
             - Aging
             - Agriculture
-            - Animal Welfare
-            - Appropriations
-            - Banking
-            - Campaign Finance
-            - Children
-            - Civil Rights
-            - Commerce
-            - Communications
-            - Congratulations
-            - Congressional Issues
-            - Crime
-            - Defense
-            - Drugs
+            - "Banking, Housing, and Urban Affairs"
+            - Budget
+            - "Crime, Drugs, and Law Enforcement"
+            - Cyber Security
             - Economy
-            - Education Higher
-            - Education K through 12
-            - Elections
-            - Energy
-            - Environment
-            - Family
-            - Food Stamps
+            - Education
+            - "Energy & Environment"
+            - Environmental Protection Agency and Army Corp. of Engineers
+            - Family Issues
+            - Flag Request
             - Foreign Affairs
-            - Gun Control
             - Health
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Inauguration
-            - Insurance Health
-            - Insurance Other
-            - Interior
-            - Iran
-            - Iraq
-            - Judiciary
+            - Help with a Federal Agency
+            - Interior and National Parks
+            - Judicial
             - Labor
-            - Medicaid
-            - Medicare
-            - Military
+            - Life Issues
+            - Medicare and Medicaid
+            - Military and Defense
             - NASA
-            - Nutrition
+            - Native American Policy
             - Other
-            - Patents
-            - Pensions
-            - Securities
+            - Scheduling Request - D.C.
+            - Scheduling Request - SD
+            - "Science, Technology, and Telecom"
+            - Second Amendment
             - Small Business
             - Social Security
             - Taxes
-            - Tobacco
+            - Tour Requests
             - Trade
             - Transportation
             - Veterans
-            - Welfare
-            - "Women's Issues"
     - click_on:
         - value: Submit
           selector: "#webform-client-form-78 input[name='op']"
