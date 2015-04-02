@@ -23,38 +23,29 @@ contact_form:
           - "Election Reform"
           - "Energy"
           - "Environment"
-          - "Flag Requests"
           - "Foreign Affairs"
           - "Gun Violence & Second Amendment Rights"
-          - "Housing"
-          - "Immigration"
-          - "Inauguration Ticket Request"
           - "Infrastructure"
           - "Intellectual Property"
-          - "Internships"
           - "Judicial Nominations"
           - "Judiciary"
           - "Labor"
           - "Medicaid"
-          - "Medicare"
           - "Online Privacy"
           - "Other"
-          - "Passport"
           - "Pensions"
           - "Postal Issues"
-          - "Scheduling Request"
-          - "Schools, Students and Teachers"
           - "Science and Technology"
           - "Senior Issues"
-          - "Social Security"
           - "Sports"
-          - "Student Loans"
           - "Telecommunications"
           - "Trade"
           - "Transportation"
-          - "Visiting Washington"
+    - click_on:
+      - value: Clicksomewhere
+        selector: "#contact-sam-main"
     - find:
-      - selector: "#continue-form"
+      - selector: "#fname"
     - fill_in:
       - name: fname
         selector: "#fname"
@@ -120,10 +111,6 @@ contact_form:
         value: "CT"  # only accepts mail from constituents
         required: Yes
         options: US_STATES_AND_TERRITORIES
-    - uncheck:
-      - name: no_response
-        selector: "#no_response"
-        value: Yes
     - wait:
       - value: 1
     - click_on:
@@ -137,4 +124,3 @@ contact_form:
       status: 200
     body:
       contains: "Thank you again for writing"
-
