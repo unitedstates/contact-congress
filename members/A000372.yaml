@@ -39,10 +39,6 @@ contact_form:
           selector: "#ctl00_ctl16_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl16$Phone
-          selector: "#ctl00_ctl16_Phone"
-          value: $PHONE
-          required: true
         - name: ctl00$ctl16$Email
           selector: "#ctl00_ctl16_Email"
           value: $EMAIL
@@ -56,8 +52,17 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: ctl00$ctl16$PrefixList
+          selector: "#ctl00_ctl16_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
         - name: ctl00$ctl16$IssuesList
-          selector: "ctl00_ctl16_IssuesList"
+          selector: "#ctl00_ctl16_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -95,80 +100,6 @@ contact_form:
             Taxation: "10493"
             Transportation and Public Works: "81"
             Water Resources Development: "10528"
-        - name: ctl00$ctl16$PrefixList
-          selector: "#ctl00_ctl16_PrefixList"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - Dr.
-            - Ms.
-        - name: ctl00$ctl16$State
-          selector: "#ctl00_ctl16_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - AA
-            - AE
-            - AP
-            - FM
-            - GU
-            - MH
-            - MP
-            - PR
-            - VI
     - check:
         - name: ctl00$ctl16$ReplyChoice
           selector: "#ctl00_ctl16_ReplyChoice_0"
@@ -176,11 +107,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl16_SubmitButton"
-    - find:
-        - value: "Write Your Rep"
-          selector: "#ctl00_PageLink"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to write me.
+      contains: Thank you for taking the time to write me. I carefully consider the views of my constituents as I serve in Washington.
