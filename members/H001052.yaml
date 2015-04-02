@@ -38,7 +38,7 @@ contact_form:
           value: $ADDRESS_CITY
           required: true
         - name: required-valid-email
-          selector: "#required-valid-email"
+          selector: "#node-138 form.validate.wsbform input[name='required-valid-email']"
           value: $EMAIL
           required: true
         - name: phone
@@ -104,4 +104,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: EMAIL ME - THANK YOU
+      contains: "The following information has been submitted"
