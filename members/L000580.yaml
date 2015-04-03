@@ -1,26 +1,10 @@
 bioguide: L000580
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "/htbin/formproc/email-me.txt%26display%3D/contact/email-me/email-me-thank-you%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://lujangrisham.house.gov/contact/email-me"
+    - visit: "http://lujangrisham.house.gov/contact"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
-    - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -36,6 +20,18 @@ contact_form:
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
           required: true
         - name: required-valid-email
           selector: "#required-valid-email"
@@ -80,18 +76,15 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "Y"
-          required: false
+          required: true
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
-    - find:
-        - value: Thank You
-          selector: "#page-title"
   success:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: "The following information has been submitted:"
