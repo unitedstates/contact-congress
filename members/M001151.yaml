@@ -6,7 +6,7 @@ contact_form:
     - visit: "https://murphy.house.gov/contact-me"
     - fill_in:
         - name: firstname
-          selector: "#req_firstname"
+          selector: "input.fn"
           value: $NAME_FIRST
           required: true
         - name: lastname
@@ -30,7 +30,7 @@ contact_form:
           value: $ADDRESS_ZIP5
           required: true
         - name: emailaddress
-          selector: ".custom_form #req_email"
+          selector: "input.eml"
           value: $EMAIL
           required: true
         - name: message
@@ -87,7 +87,7 @@ contact_form:
             Other Issues: OTH
     - click_on:
         - value: Send Email
-          selector: ".custom_form #submitButton"
+          selector: "input[value='Send Email']"
     - find:
         - selector: "h1"
           value: "THANK YOU"
@@ -95,4 +95,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: THANK YOU
+      contains: "Your message has been successfully submitted"
