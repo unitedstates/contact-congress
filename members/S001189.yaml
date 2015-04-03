@@ -42,7 +42,7 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: false
         - name: required-valid-email
-          selector: "#custom_form24 #req_email"
+          selector: "input.eml"
           value: $EMAIL
           required: true
         - name: phone
@@ -153,7 +153,7 @@ contact_form:
             Other Issues: OTH
     - click_on:
         - value: Send Email
-          selector: "#custom_form24 #submitButton"
+          selector: "input[value='Send Email']"
     - find:
         - selector: "h1"
           value: "Thank you"
