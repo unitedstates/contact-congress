@@ -25,7 +25,7 @@ contact_form:
         value: "$ADDRESS_CITY"
         required: Yes
       - name: zip
-        selector: "#contact_form #zip"
+        selector: "input[id='zip'][maxlength='10']"
         value: "$ADDRESS_ZIP5"
         required: Yes
       - name: phone
@@ -33,7 +33,7 @@ contact_form:
         value: "$PHONE"
         required: Yes
       - name: email
-        selector: "#contact_form #email"
+        selector: "input[id='email'][size='40']"
         value: "$EMAIL"
         required: Yes
       - name: vemail
