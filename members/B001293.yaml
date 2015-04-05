@@ -13,9 +13,8 @@ contact_form:
       selector: "#zip4"
       value: $ADDRESS_ZIP4
       required: true
-  - click_on: 
-    - value: Go To Next Step
-      selector: "#emailForm #submit"
+  - click_on:
+      selector: "button#submit"
   - find: 
     - selector: "#required-prefix"
   - fill_in: 
