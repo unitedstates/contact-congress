@@ -4,6 +4,19 @@ contact_form:
   action: /email-me/
   steps:
     - visit: "https://welch.house.gov/email-me"
+    - find_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - selector: "#zipauthform input[type='submit'][value='Go to Form']"
+    - find:
+        - selector: "#req_firstname"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -24,6 +37,10 @@ contact_form:
         - name: zipcode
           selector: "#req_zip"
           value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
           required: true
         - name: emailaddress
           selector: "#req_email"
