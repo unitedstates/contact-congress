@@ -44,12 +44,9 @@ contact_form:
           selector: "#field_B3A39EB2-8C50-4FEE-B213-38108B884D37"
           value: $MESSAGE
           required: true
-    - find:
-        - selector: "#captcha_38AFC425-4C4C-44C3-B74B-1BFDDBBB3AE6_container img[height='50']"
-    - fill_in:
         - name: captcha_38AFC425-4C4C-44C3-B74B-1BFDDBBB3AE6
-          selector: "#captcha_38AFC425-4C4C-44C3-B74B-1BFDDBBB3AE6"
-          captcha_selector: "#captcha_38AFC425-4C4C-44C3-B74B-1BFDDBBB3AE6_container img[height='50']"
+          selector: "#recaptcha_response_field"
+          captcha_selector: "#recaptcha_challenge_image"
           value: $CAPTCHA_SOLUTION
           required: true
     - select:
