@@ -7,14 +7,14 @@ contact_form:
     - fill_in:
       - name: zip5
         required: true
-        selector: "form.zipform input[name="zip5"]"
+        selector: "form.zipform input[name='zip5']"
         value: $ADDRESS_ZIP5
       - name: zip4
         required: true
-        selector: "form.zipform input[name="zip4"]"
+        selector: "form.zipform input[name='zip4']"
         value: $ADDRESS_ZIP4
     - click_on:
-      - selector: "form.zipform input[type="submit"][value="Submit"]"
+      - selector: "form.zipform input[type='submit'][value='Submit']"
         value: Submit
     - fill_in:
       - name: ctl00$ctl16$FirstName
