@@ -20,6 +20,7 @@ contact_form:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
+          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -32,10 +33,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -75,4 +72,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: "The following information has been submitted:"
