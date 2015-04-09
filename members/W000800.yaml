@@ -4,7 +4,7 @@ contact_form:
   action: /email-me/
   steps:
     - visit: "https://welch.house.gov/email-me"
-    - find_in:
+    - fill_in:
         - name: zipcode
           selector: "#zipcode"
           value: $ADDRESS_ZIP5
@@ -14,7 +14,8 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - selector: "#zipauthform input[type='submit'][value='Go to Form']"
+        - value: Go to Form
+          selector: input.button
     - find:
         - selector: "#req_firstname"
     - fill_in:
@@ -34,14 +35,6 @@ contact_form:
           selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -50,78 +43,6 @@ contact_form:
           selector: "#req_message"
           value: $MESSAGE
           required: true
-    - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Dr.
-            - Rev.
-            - Prof.
-            - Maj.
-            - Col.
-            - Fr.
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
     - click_on:
         - value: Send Email
           selector: "#submitButton"
