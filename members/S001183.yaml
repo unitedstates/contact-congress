@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
+    - wait:
+        - value: 2
     - find:
         - selector: "#ctl00_ctl16_FirstName"
     - fill_in:
