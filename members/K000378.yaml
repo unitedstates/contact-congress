@@ -137,6 +137,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl13_SubmitButton"
+    - find:
+        - selector: "span#ctl00_ctl13_ConfirmationText"
+          value: "Thank you for taking the time to write me. The views of 16th district residents are invaluable to my work in Congress."
   success:
     headers:
       status: 200
