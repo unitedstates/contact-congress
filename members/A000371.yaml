@@ -18,6 +18,8 @@ contact_form:
       selector: "#emailForm #submit"
   - find: 
     - selector: "#required-prefix"
+  - wait:
+    - value: 1
   - fill_in: 
     - name: required-first
       selector: "#required-first"
