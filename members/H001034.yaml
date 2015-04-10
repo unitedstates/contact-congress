@@ -68,6 +68,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
+    - find:
+        - value: "Email Me - Thank You"
+          selector: "#page-title"
   success:
     headers:
       status: 200
