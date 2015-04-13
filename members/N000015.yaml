@@ -33,10 +33,6 @@ contact_form:
           selector: "#rightinner2 form input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#rightinner2 form input[name='required-state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
         - name: required-zip5
           selector: "#rightinner2 form input[name='required-zip5']"
           value: $ADDRESS_ZIP5
@@ -79,6 +75,10 @@ contact_form:
             " Veterans Issues": VETERANS
             "Women's Issues": WOMEN
             Other: OTHER
+    - choose:
+      - name: required-response
+        selector: "form input[name='required-response']"
+        value: Y
     - click_on:
         - value: Submit
           selector: "#rightinner2 form input[type='submit'][value='Submit']"
