@@ -35,7 +35,7 @@ contact_form:
         - name: field_f80f60a1-095a-4e5d-9946-91e5d9fe422d
           selector: "#field_f80f60a1-095a-4e5d-9946-91e5d9fe422d"
           value: $PHONE
-          required: true
+          required: false
         - name: field_f7677061-8f71-4136-b3b2-ed7bcc421d95
           selector: "#field_f7677061-8f71-4136-b3b2-ed7bcc421d95"
           value: $EMAIL
@@ -98,6 +98,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.primaryAction
+    - wait:
+        - value: 1
   success:
     headers:
       status: 200
