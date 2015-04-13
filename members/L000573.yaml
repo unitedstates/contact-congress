@@ -1,109 +1,97 @@
 bioguide: L000573
 contact_form:
-  method: POST
-  action: https://labradorforms.house.gov/email-me
+  method: post
+  action: /email-me/
   steps:
-    - visit: https://labradorforms.house.gov/email-me
-    - select:
-      - name: prefix
-        selector: "#req_prefix"
-        value: $NAME_PREFIX
-        required: true
-        options:
-          Mr.: "Mr. "
-          Mrs.: Mrs.
-          Ms.: Ms.
-          Miss: Miss
-          Dr.: Dr.
-          Hon.: Hon.
-          Rev.: Rev.
-          Rabbi: Rabbi
+    - visit: "https://labradorforms.house.gov/email-me"
     - fill_in:
-      - name: firstname
-        selector: "#req_firstname"
-        value: $NAME_FIRST
-        required: Yes
-      - name: lastname
-        selector: "#req_lastname"
-        value: $NAME_LAST
-        required: Yes
-      - name: street
-        selector: "#req_street"
-        value: $ADDRESS_STREET
-        required: Yes
-      - name: city
-        selector: "#req_city"
-        value: $ADDRESS_CITY
-        required: Yes
+        - name: firstname
+          selector: "#req_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#req_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#req_street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#req_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#req_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: emailaddress
+          selector: "#req_email"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "#req_message"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: state
-        selector: "#req_state"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
-        options:
-          "ID" : "ID"
-    - fill_in:
-      - name: zip
-        selector: "#req_zip"
-        value: $ADDRESS_ZIP5
-        required: Yes
-      - name: zipfour
-        selector: "#zip2"
-        value: $ADDRESS_ZIP4
-        required: Yes
-      - name: emailaddress
-        selector: "#req_email"
-        value: $EMAIL
-        required: Yes
-    - select:
-      - name: subject
-        selector: "#req_subject"
-        value: $TOPIC
-        required: Yes
-        options:
-          "Constituent Service" : "CASE"
-          "Grant Requests" : "GRANT"
-          "Agriculture" : "AGRI"
-          "Budget" : "BUD"
-          "Defense" : "DEF"
-          "Education/Labor" : "EDU"
-          "Energy" : "ENR"
-          "Environment" : "ENV"
-          "International" : "FAFF"
-          "Government Reform" : "GOV"
-          "Health Care" : "HLTH"
-          "Homeland Security" : "HSEC"
-          "Immigration" : "IMM"
-          "Judiciary" : "JUD"
-          "Social Issues" : "SOCIAL"
-          "Social Security" : "SOC"
-          "Telecommunications" : "TELE"
-          "Taxes and Trade" : "TAX"
-          "Transportation" : "TRANS"
-          "Veterans" : "VET"
-          "Welfare" : "WEL"
-          "Other" : "OTH"
-    - fill_in:
-      - name: message
-        selector: "#req_message"
-        value: $MESSAGE
-        required: Yes
-    - select:
-      - name: response
-        selector: "#req_response"
-        value: "Y"
-        required: Yes
-        options:
-          "I do not need a response." : "N"
-          "I would like a response." : "Y"
+        - name: prefix
+          selector: "#req_prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: "Mr. "
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
+        - name: state
+          selector: "#req_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            ID: ID
+        - name: subject
+          selector: "#req_subject"
+          value: $TOPIC
+          required: true
+          options:
+            Constituent Service: CASE
+            Grant Requests: GRANT
+            Agriculture: AGRI
+            Budget: BUD
+            Defense: DEF
+            Education/Labor: EDU
+            Energy: ENR
+            Environment: ENV
+            International: FAFF
+            Government Reform: GOV
+            Health Care: HLTH
+            Homeland Security: HSEC
+            Immigration: IMM
+            Judiciary: JUD
+            Social Issues: SOCIAL
+            Social Security: SOC
+            Telecommunications: TELE
+            Taxes and Trade: TAX
+            Transportation: TRANS
+            Veterans: VET
+            Welfare: WEL
+            Other: OTH
+        - name: response
+          selector: "#req_response"
+          value: "ii"
+          required: false
+          options:
+            I do not need a response.: "i"
+            I would like a response.: "ii"
     - click_on:
-      - value: Submit
-        selector: "#submitButton"
-    - find:
-      - selector: "h1"
-        value: "Thank you"
+        - value: Submit
+          selector: "#submitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank"
+      contains: Thank you for submitting your information.
