@@ -242,10 +242,8 @@ contact_form:
             "Transportation": "Transportation"
             "Veterans": "Veterans"
             "Women's Rights/Choice": "Women"
-    - uncheck: 
-        - name: subscribe
-          selector: "#subscribe"
     - click_on:
+        - selector: "label[for='subscribe']"
         - value: Submit
           selector: "form#3572B654-E248-A5D9-D70B-8968CF7308EC input[type='submit'][value='Submit']"
     - find:
