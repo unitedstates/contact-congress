@@ -19,10 +19,6 @@ contact_form:
     - find:
         - selector: "#contactForm"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -49,16 +45,16 @@ contact_form:
           required: true
         - name: phone1
           selector: "#phone1"
-          value: $PHONE_PARENTHESES
-          required: false
+          value: $PHONE_AREA_CODE
+          required: true
         - name: phone2
           selector: "#phone2"
-          value: $PHONE_PARENTHESES
-          required: false
+          value: $PHONE_EXCHANGE_CODE
+          required: true
         - name: phone3
           selector: "#phone3"
-          value: $PHONE_PARENTHESES
-          required: false
+          value: $PHONE_SUBSCRIBER_NUMBER
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -68,6 +64,20 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - "Ms."
+            - "Miss"
+            - "Mrs."
+            - "Mr."
+            - "Mr. and Mrs."
+            - "Rev."
+            - "Dr."
+            - "The Honorable"
+            - "Rabbi"
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -97,6 +107,13 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other Issues: WEBOTH
+        - name: response
+          selector: "#required-response"
+          value: Y
+          required: true
+          options:
+            - "Y"
+            - "N"
     - click_on:
         - value: Send Email
           selector: "#submit"
