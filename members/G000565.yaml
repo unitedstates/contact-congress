@@ -62,76 +62,13 @@ contact_form:
             - Ms.
             - Rev.
             - Dr.
-        - name: ctl00$ctl24$State
-          selector: "#ctl00_ctl24_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - AA
-            - AE
-            - AP
-            - FM
-            - GU
-            - MH
-            - MP
-            - PR
-            - VI
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl24_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl24_ConfirmationText"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to write me.
+      contains: Thank you for taking the time to write me. I carefully consider the views of Arizona residents as I serve the 4th District.
