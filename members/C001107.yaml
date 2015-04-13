@@ -17,50 +17,51 @@ contact_form:
     - value: Submit
       selector: form.zipform input[type='submit']
   - find: 
-    - selector: "#ctl00_ctl09_FirstName"
+    - selector: "#ctl00_ctl14_FirstName"
   - fill_in: 
-    - name: ctl00$ctl09$FirstName
-      selector: "#ctl00_ctl09_FirstName"
+    - name: ctl00$ctl14$FirstName
+      selector: "#ctl00_ctl14_FirstName"
       value: $NAME_FIRST
       required: true
-    - name: ctl00$ctl09$LastName
-      selector: "#ctl00_ctl09_LastName"
+    - name: ctl00$ctl14$LastName
+      selector: "#ctl00_ctl14_LastName"
       value: $NAME_LAST
       required: true
-    - name: ctl00$ctl09$Street
-      selector: "#ctl00_ctl09_Street"
+    - name: ctl00$ctl14$Street
+      selector: "#ctl00_ctl14_Street"
       value: $ADDRESS_STREET
       required: true
-    - name: ctl00$ctl09$City
-      selector: "#ctl00_ctl09_City"
+    - name: ctl00$ctl14$City
+      selector: "#ctl00_ctl14_City"
       value: $ADDRESS_CITY
       required: true
-    - name: ctl00$ctl09$Zip
-      selector: "#ctl00_ctl09_Zip"
+    - name: ctl00$ctl14$Zip
+      selector: "#ctl00_ctl14_Zip"
       value: $ADDRESS_ZIP5
       required: true
-    - name: ctl00$ctl09$Email
-      selector: "#ctl00_ctl09_Email"
+    - name: ctl00$ctl14$Email
+      selector: "#ctl00_ctl14_Email"
       value: $EMAIL
       required: true
-    - name: ctl00$ctl09$Phone
-      selector: "#ctl00_ctl09_Phone"
+    - name: ctl00$ctl14$Phone
+      selector: "#ctl00_ctl14_Phone"
       value: $PHONE
       required: true
-    - name: ctl00$ctl09$Body
-      selector: "#ctl00_ctl09_Body"
+    - name: ctl00$ctl14$Body
+      selector: "#ctl00_ctl14_Body"
       value: $MESSAGE
-    - name: ctl00$ctl09$Subject
-      selector: "#ctl00_ctl09_Subject"
+      required: true
+    - name: ctl00$ctl14$Subject
+      selector: "#ctl00_ctl14_Subject"
       value: $SUBJECT
       required: true
   - choose: 
-    - name: ctl00$ctl09$ReplyChoice
-      selector: "#ctl00_ctl09_ReplyChoice_0"
+    - name: ctl00$ctl14$ReplyChoice
+      selector: "#ctl00_ctl14_ReplyChoice_0"
       value: Respond
   - select: 
-    - name: ctl00$ctl09$PrefixList
-      selector: "#ctl00_ctl09_PrefixList"
+    - name: ctl00$ctl14$PrefixList
+      selector: "#ctl00_ctl14_PrefixList"
       value: $NAME_PREFIX
       required: true
       options: 
@@ -68,8 +69,10 @@ contact_form:
       - Mrs.
       - Ms.
       - Dr.
-    - name: ctl00$ctl09$State
-      selector: "#ctl00_ctl09_State"
+      - Sr.
+      - Sra.
+    - name: ctl00$ctl14$State
+      selector: "#ctl00_ctl14_State"
       value: $ADDRESS_STATE_POSTAL_ABBREV
       required: true
       options: 
@@ -133,8 +136,8 @@ contact_form:
       - MP
       - PR
       - VI
-    - name: ctl00$ctl09$IssuesList
-      selector: "#ctl00_ctl09_IssuesList"
+    - name: ctl00$ctl14$IssuesList
+      selector: "#ctl00_ctl14_IssuesList"
       value: $TOPIC
       required: true
       options: 
@@ -173,13 +176,13 @@ contact_form:
         Transportation and Public Works: "81"
         Water Resources Development: "10528"
   - uncheck: 
-    - name: ctl00$ctl09$SubscribeChoice
-      selector: "#ctl00_ctl09_SubscribeChoice"
+    - name: ctl00$ctl14$SubscribeChoice
+      selector: "#ctl00_ctl14_SubscribeChoice"
   - click_on: 
     - value: Submit
-      selector: "#ctl00_ctl09_SubmitButton"
+      selector: "#ctl00_ctl14_SubmitButton"
   - find: 
-    - selector: "span#ctl00_ctl09_ConfirmationText"
+    - selector: "span#ctl00_ctl14_ConfirmationText"
       value: Thank you
   success: 
     headers: 
