@@ -53,10 +53,6 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: AZ
-          required: true
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
@@ -121,8 +117,8 @@ contact_form:
             Other Issues: OTHER
         - name: required-response
           selector: "#required-response"
-          value: "TRUE"
-          required: false
+          value: "Y"
+          required: true
           options:
             "Yes, please contact me": "TRUE"
             "No, I wanted to voice my opinion": "FALSE"
