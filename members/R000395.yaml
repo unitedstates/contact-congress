@@ -25,6 +25,10 @@ contact_form:
           selector: "form.contactForm.zipform[name='contact'] input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
+        - name: phone
+          selector: "form.contactForm.zipform[name='contact'] input[name='phone']"
+          value: $PHONE
+          required: true
         - name: required-email
           selector: "form.contactForm.zipform[name='contact'] input[name='required-email']"
           value: $EMAIL
