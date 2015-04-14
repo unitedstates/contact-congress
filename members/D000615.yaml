@@ -17,12 +17,8 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - find:
-        - selector: "#contactForm"
+        - selector: "#required-prefix"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -35,10 +31,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -49,16 +41,16 @@ contact_form:
           required: true
         - name: phone1
           selector: "#phone1"
-          value: $PHONE_PARENTHESES
-          required: false
+          value: $PHONE
+          required: true
         - name: phone2
           selector: "#phone2"
-          value: $PHONE_PARENTHESES
-          required: false
+          value: $PHONE
+          required: true
         - name: phone3
           selector: "#phone3"
-          value: $PHONE_PARENTHESES
-          required: false
+          value: $PHONE
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -68,6 +60,20 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -97,14 +103,19 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other Issues: WEBOTH
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: false
+          options:
+            "": Please select a response
+            "Yes": "Y"
+            "No": "N"
     - click_on:
         - value: Send Email
           selector: "#submit"
-    - find:
-        - selector: "h1#page-title-no-line"
-          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:" 
+      contains: "The following information has been submitted:"
