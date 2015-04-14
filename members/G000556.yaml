@@ -111,8 +111,10 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submit"
+    - wait:
+      - value: 15
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me
+      contains: Press Releases
