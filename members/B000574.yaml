@@ -127,8 +127,11 @@ contact_form:
     - click_on:
         - value: Send Message
           selector: "#int-left form input[type='submit'][value='Send Message']"
+    - wait:
+      - value: 15
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your correspondence
+      contains: Voting Record
+
