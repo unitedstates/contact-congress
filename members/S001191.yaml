@@ -5,45 +5,48 @@ contact_form:
   steps:
     - visit: https://sinemaforms.house.gov/forms/writeyourrep/
     - fill_in: # has hidden inputs: ID, CampaignInfo, DeliveryAgent, DeliveryAgentContact, Organization, OrganizationContact, OrganizationDescription
-      - name: "ctl00$ctl22$CampaignID"
-        selector: "#ctl00_ctl22_CampaignID"
+      - name: "ctl00$ctl23$CampaignID"
+        selector: "#ctl00_ctl23_CampaignID"
         value: $CAMPAIGN_UUID
-      - name: "ctl00$ctl22$OrganizationContact"
-        selector: "#ctl00_ctl22_OrganizationContact"
+        required: false
+      - name: "ctl00$ctl23$OrganizationContact"
+        selector: "#ctl00_ctl23_OrganizationContact"
         value: $ORG_URL
-      - name: "ctl00$ctl22$Organization"
-        selector: "#ctl00_ctl22_Organization"
+        required: false
+      - name: "ctl00$ctl23$Organization"
+        selector: "#ctl00_ctl23_Organization"
         value: $ORG_NAME
-      - name: "ctl00$ctl22$FirstName"
-        selector: "#ctl00_ctl22_FirstName"
+        required: false
+      - name: "ctl00$ctl23$FirstName"
+        selector: "#ctl00_ctl23_FirstName"
         value: $NAME_FIRST
         required: Yes
-      - name: "ctl00$ctl22$LastName"
-        selector: "#ctl00_ctl22_LastName"
+      - name: "ctl00$ctl23$LastName"
+        selector: "#ctl00_ctl23_LastName"
         value: $NAME_LAST
         required: Yes
-      - name: "ctl00$ctl22$Street"
-        selector: "#ctl00_ctl22_Street"
+      - name: "ctl00$ctl23$Street"
+        selector: "#ctl00_ctl23_Street"
         value: $ADDRESS_STREET
         required: Yes
-      - name: "ctl00$ctl22$City"
-        selector: "#ctl00_ctl22_City"
+      - name: "ctl00$ctl23$City"
+        selector: "#ctl00_ctl23_City"
         value: $ADDRESS_CITY
         required: Yes
-      - name: "ctl00$ctl22$Zip"
-        selector: "#ctl00_ctl22_Zip"
+      - name: "ctl00$ctl23$Zip"
+        selector: "#ctl00_ctl23_Zip"
         value: $ADDRESS_ZIP5
         required: Yes
-      - name: "ctl00$ctl22$Phone"
-        selector: "#ctl00_ctl22_Phone"
+      - name: "ctl00$ctl23$Phone"
+        selector: "#ctl00_ctl23_Phone"
         value: $PHONE
-      - name: "ctl00$ctl22$Email"
-        selector: "#ctl00_ctl22_Email"
+      - name: "ctl00$ctl23$Email"
+        selector: "#ctl00_ctl23_Email"
         value: $EMAIL
         required: Yes
     - select:
-      - name: "ctl00$ctl22$PrefixList"
-        selector: "#ctl00_ctl22_PrefixList"
+      - name: "ctl00$ctl23$PrefixList"
+        selector: "#ctl00_ctl23_PrefixList"
         value: $NAME_PREFIX
         required: Yes
         options:
@@ -51,8 +54,8 @@ contact_form:
           - "Mrs."
           - "Dr."
           - "Ms."
-      - name: "ctl00$ctl22$State"
-        selector: "#ctl00_ctl22_State"
+      - name: "ctl00$ctl23$State"
+        selector: "#ctl00_ctl23_State"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
         options: # missing a few territories
@@ -116,61 +119,53 @@ contact_form:
           - "MP"
           - "PR"
           - "VI"
-      - name: "ctl00$ctl22$IssuesList"
-        selector: "#ctl00_ctl22_IssuesList"
+      - name: "ctl00$ctl23$IssuesList"
+        selector: "#ctl00_ctl23_IssuesList"
         value: $TOPIC
         options:
-          "Agriculture and Food": "96144"
-          "Animals": "96139"
-          "Armed Forces and National Security": "96109"
-          "Arts, Culture, Religion": "96082"
-          "Civil Rights and Liberties, Minority Issues": "96066"
-          "Commerce": "96048"
-          "Congress": "96026"
-          "Crime and Law Enforcement": "96013"
-          "Economics and Public Finance": "95987"
+          "None": ""
+          "Agriculture": "96144"
+          "Animal Protection": "96139"
+          "Defense": "96109"
+          "Earned Benefits": "95646"
           "Education": "96143"
-          "Emergency Management": "95954"
           "Energy": "95945"
           "Environment": "95584"
-          "Families": "95914"
-          "Finance and Financial Sector": "95904"
-          "Foreign Trade and International Finance": "95887"
-          "Government Operations and Politics": "95873"
-          "Health Care": "96142"
-          "Housing and Community Development": "95778"
+          "Financial Services": "96041"
+          "Foreign Affairs": "95887"
+          "Government Reform": "95873"
+          "Healthcare": "96142"
+          "Homeland Security": "95987"
+          "Housing": "95778"
           "Immigration": "95764"
-          "International Affairs": "95754"
-          "Labor and Employment": "95734"
-          "Law": "95718"
+          "Judiciary": "95718"
+          "Labor": "96044"
           "Native Americans": "95700"
-          "Public Lands and Natural Resources": "95693"
-          "Science, Technology, Communications": "95678"
-          "Social Sciences and History": "95654"
-          "Social Welfare": "95646"
-          "Sports and Recreation": "95640"
-          "Taxation": "95632"
-          "Transportation and Public Works": "96141"
-          "Water Resources Development": "95597"
+          "Natural Resources": "96033"
+          "Science": "95678"
+          "Taxes": "95632"
+          "Trade": "95654"
+          "Transportation and Infrastructure": "96141"
+          "Women's Issues": "95914"
     - choose:
-      - name: "ctl00$ctl22$ReplyChoice"
-        selector: "#ctl00_ctl22_ReplyChoice_0"
+      - name: "ctl00$ctl23$ReplyChoice"
+        selector: "#ctl00_ctl23_ReplyChoice_0"
         value: "Respond"
         required: Yes
     - fill_in:
-      - name: "ctl00_ctl22_Subject"
-        selector: "#ctl00_ctl22_Subject"
+      - name: "ctl00_ctl23_Subject"
+        selector: "#ctl00_ctl23_Subject"
         value: $SUBJECT
         required: true
-      - name: "ctl00$ctl22$Body"
-        selector: "#ctl00_ctl22_Body"
+      - name: "ctl00$ctl23$Body"
+        selector: "#ctl00_ctl23_Body"
         value: $MESSAGE
         required: true
     - click_on:
       - value: "Submit"
-        selector: "input[name='ctl00$ctl22$SubmitButton']"
+        selector: "input[name='ctl00$ctl23$SubmitButton']"
     - find:
-      - selector: "span#ctl00_ctl22_ConfirmationText"
+      - selector: "span#ctl00_ctl23_ConfirmationText"
         value: "Thank you"
   success:
     headers:
