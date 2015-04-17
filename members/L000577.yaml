@@ -77,6 +77,9 @@ contact_form:
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"
+    - find:
+      - selector: "h2"
+        value: "Thank you for contacting me.*"
   success:
     headers:
       status: 200
