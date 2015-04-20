@@ -1,28 +1,10 @@
 bioguide: D000622
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "https://forms.house.gov/htbin/formproc_za/duckworth/webforms/issue_subscribe_parm.txt&form=/duckworth/webforms/issue_subscribe_verify.html"
   steps:
-    - visit: "https://duckworth.house.gov/contact/email-me"
+    - visit: "https://forms.house.gov/duckworth/webforms/email-me.shtml"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
-    - find:
-        - selector: "#contactForm"
-    - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -35,13 +17,21 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
           required: true
         - name: required-valid-email
           selector: "#required-valid-email"
@@ -67,15 +57,15 @@ contact_form:
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
-    - uncheck:
+    - click_on:
         - name: subscribe
           selector: "#subscribe"
           value: Email.Optin
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: Thank you for contacting me through my website.
