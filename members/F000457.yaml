@@ -118,10 +118,13 @@ contact_form:
           "\n\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t": "Telecommunications"
           "\n\t\t\t\t\t\tTransportation\n\t\t\t\t\t": "Transportation"
           "\n\t\t\t\t\t\tVeterans\n\t\t\t\t\t": "Veterans"
-    - find:
-      - selector: "#SubSubject"
+    - wait:
+      - value: 1
+    - click_on:
+      - value: Submit
+        selector: "#thisForm input[title='Submit']"
     - select:
-        - name: subsubject
+        - name: SubSubject
           selector: "#SubSubject"
           value: $SUBTOPIC1
           required: true
@@ -228,10 +231,8 @@ contact_form:
       - name: receiveUpdates
         selector: "#receiveUpdates"
         value: yes
-    - wait:
-      - value: 1
-    - click_on:
-      - value: Submit
+      - name: Submit
+        value: Submit
         selector: "#thisForm input[title='Submit']"
     - find:
       - selector: "p"
