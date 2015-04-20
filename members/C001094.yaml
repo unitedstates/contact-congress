@@ -1,118 +1,144 @@
 bioguide: C001094
 contact_form:
-  method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://cook.house.gov/contact/email-me"
+    - visit: "http://cookforms.house.gov/contact/"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#contactForm"
+        - selector: "#ctl00_ctl12_FirstName"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#required-first"
+        - name: ctl00$ctl12$FirstName
+          selector: "#ctl00_ctl12_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: ctl00$ctl12$LastName
+          selector: "#ctl00_ctl12_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: ctl00$ctl12$Street
+          selector: "#ctl00_ctl12_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
+        - name: ctl00$ctl12$City
+          selector: "#ctl00_ctl12_City"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
-          value: $EMAIL
+        - name: ctl00$ctl12$Zip
+          selector: "#ctl00_ctl12_Zip"
+          value: $ADDRESS_ZIP5
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: ctl00$ctl12$Phone
+          selector: "#ctl00_ctl12_Phone"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
+        - name: ctl00$ctl12$Email
+          selector: "#ctl00_ctl12_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl12$Subject
+          selector: "#ctl00_ctl12_Subject"
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: ctl00$ctl12$Body
+          selector: "#ctl00_ctl12_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
-          value: $TOPIC
+        - name: ctl00$ctl12$PrefixList
+          selector: "#ctl00_ctl12_PrefixList"
+          value: $NAME_PREFIX
           required: true
           options:
-            Miscellaneous: MISC
-            Casework: CASE
-            No Response Necessary: NRN
-            Agriculture: AGR
-            Banking and Finance: BANK
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            Constitutional Issues: CONST-ISSUES
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
-            Health: HEA
-            Homeland Security: HOM
-            Housing and Urban Development: HUD
-            Immigration: IMM
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            Post Office: POST
-            Science and Technology: SCI
-            Social Issues: SOC
-            Social Security: SSEC
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRADE
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Welfare: WEL
-            Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
+            - Mr.
+            - Mrs.
+            - Honorable.
+            - Dr.
+            - Ms.
+            - Miss
+        - name: ctl00$ctl12$State
+          selector: "#ctl00_ctl12_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit']"
+        - value: Submit
+          selector: "#ctl00_ctl12_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl12_ConfirmationText"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank you for taking the time to write me.
