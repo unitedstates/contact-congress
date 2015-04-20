@@ -1,124 +1,100 @@
 bioguide: R000602
 contact_form: 
   method: post
-  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
+  action: /contact/contactform.htm
   steps: 
   - visit: https://kathleenrice.house.gov/contact
   - fill_in: 
-    - name: required-zip5
-      selector: "#required-zip5"
+    - name: zip5
+      selector: "form.zipform input[name='zip5']"
       value: $ADDRESS_ZIP5
       required: true
     - name: zip4
-      selector: "#zip4"
+      selector: "form.zipform input[name='zip4']"
       value: $ADDRESS_ZIP4
       required: true
   - click_on: 
-    - value: Go To Next Step
-      selector: "#emailForm #submit"
+    - value: Submit
+      selector: "form.zipform input[type='submit'][value='Submit']"
   - find: 
-    - selector: "#required-prefix"
-  - fill_in: 
+    - selector: "#contact input[name='required-prefix']"
+  - fill_in:
+    - name: required-prefix
+      selector: "#contact input[name='required-prefix']"
+      value: $NAME_PREFIX
+      required: true
     - name: required-first
-      selector: "#required-first"
+      selector: "#contact input[name='required-first']"
       value: $NAME_FIRST
       required: true
     - name: required-last
-      selector: "#required-last"
+      selector: "#contact input[name='required-last']"
       value: $NAME_LAST
       required: true
     - name: required-address
-      selector: "#required-address"
+      selector: "#contact input[name='required-address']"
       value: $ADDRESS_STREET
       required: true
     - name: required-city
-      selector: "#required-city"
+      selector: "#contact input[name='required-city']"
       value: $ADDRESS_CITY
       required: true
-    - name: required-valid-email
-      selector: "#required-valid-email"
+    - name: zip5
+      selector: "#contact input[name='zip5']"
+      value: $ADDRESS_ZIP5
+      required: true
+    - name: zip4
+      selector: "#contact input[name='zip4']"
+      value: $ADDRESS_ZIP4
+      required: true
+    - name: required-email
+      selector: "#contact input[name='required-email']"
       value: $EMAIL
       required: true
-    - name: required-phone
-      selector: "#required-phone"
+    - name: phone
+      selector: "#contact input[name='phone']"
       value: $PHONE
       required: true
     - name: required-message
-      selector: "#required-message"
+      selector: "#contact textarea[name='required-message']"
       value: $MESSAGE
       required: true
   - select: 
-    - name: required-prefix
-      selector: "#required-prefix"
-      value: $NAME_PREFIX
-      required: true
-      options: 
-        Ms.: Ms.
-        Miss: Miss
-        Mrs.: Mrs.
-        Mr.: Mr.
-        Mr. and Mrs.: Mr. and Mrs.
-        Rev.: Rev.
-        Dr.: Dr.
-        The Honorable: The Honorable
-        Rabbi: Rabbi
     - name: required-issue
-      selector: "#required-issue"
+      selector: "#subject"
       value: $TOPIC
       required: true
-      options: 
-        Agriculture: AGR
-        Animals: AN
-        Arts and Humanities: ART
-        Banking and Finance: BANK
-        Budget and Economy: BUD
-        Campaign Finance Reform: CFR
-        Congress and Elections: CONG
-        District of Columbia--Tours: TOUR
-        Defense and Military: DEF
-        Economy: ECON
-        Education: EDU
-        Energy: ENE
-        Environment: ENV
-        Federal Employees: FED
-        Foreign Relations: FR
-        Government Reform: GOV
-        Guns: GUN
-        Health: HEA
-        Homeland Security: HOM
-        Housing and Urban Development: HUD
-        Immigration: IMM
-        International Relations: INT
-        Judiciary: JUD
-        Labor: LAB
-        LGBT: LGBT
-        No Response Necessary: NRN
-        Post Office: POST
-        Science and Technology: SCI
-        Social Issues: SOC
-        Senior Citizens: SENIORS
-        Social Security: SSEC
-        Social Services: SOC.SERVICES
-        Taxes: TAX
-        Telecommunications: TEL
-        Transportation: TRA
-        Trade: TRADE
-        Veterans: VET
-        "Women's Issues": WOMEN
-        Welfare: WEL
-        Other Issues: OTHER
-    - name: required-response
-      selector: "#required-response"
-      value: Y
-      required: true
-      options: 
-        Yes, please contact me: Y
-        No, I wanted to voice my opinion: N
+      options:
+        Agriculture: WEBAGR
+        Budget: WEBBUD
+        Defense: WEBDEF
+        Education: WEBEDU
+        Energy: WEBENE
+        Environmental: WEBENV
+        Government Issues: WEBGOV
+        Health: WEBHEA
+        Homeland Security: WEBHOM
+        Immigration: WEBIMM
+        International Relations: WEBINT
+        Judicial: WEBJUD
+        Labor: WEBLAB
+        Social Issues: WEBSOC
+        Social Security: WEBSSEC
+        Taxes: WEBTAX
+        Telecommunications: WEBTEL
+        Transportation: WEBTRA
+        Trade: WEBTRADE
+        Veterans: WEBVET
+        Welfare: WEBWEL
+        Other Issues: WEBOTH
   - click_on: 
-    - value: Send Email to Representative Rice
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
+    - value: Send Email
+      selector: "#contact input[type='submit'][value='Send Email']"
+  - find:
+    - value: Thank You
+      selector: "span#ctl00_PageLink"
   success: 
     headers: 
       status: 200
     body: 
-      contains: your message has been sent
+      contains: Your form has been successfully submitted.
