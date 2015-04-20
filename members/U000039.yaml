@@ -136,6 +136,8 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "#contact_form input[src='/images/btn-submit.gif']"
+    - find:
+      - selector: ".notice"
   success:
     headers:
       status: 200
