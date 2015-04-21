@@ -19,10 +19,6 @@ contact_form:
     - find:
         - selector: "#prefix"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -60,6 +56,21 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Miss
+            - Mrs.
+            - Dr.
+            - Reverend
+            - Rabbi
+            - The Honorable
+            - Dean
+            - Professor
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
