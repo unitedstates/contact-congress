@@ -15,7 +15,7 @@ contact_form:
       required: true
   - click_on: 
     - value: Go To Next Step
-      selector: "#emailForm #submit"
+      selector: "form[id='emailForm'] button[id='submit']"
   - find: 
     - selector: "#required-prefix"
   - fill_in:
@@ -36,7 +36,7 @@ contact_form:
       value: $ADDRESS_CITY
       required: true
     - name: required-valid-email
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #required-valid-email"
+      selector: "form[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] input[id='required-valid-email']"
       value: $EMAIL
       required: true
     - name: required-phone
@@ -116,7 +116,7 @@ contact_form:
         No, I wanted to voice my opinion: N
   - click_on: 
     - value: Send Email to Representative Russell
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
+      selector: "form[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] button[id='submit']"
   success: 
     headers: 
       status: 200
