@@ -1,0 +1,55 @@
+bioguide: KYL000025
+contact_form:
+  method: post
+  action: S011.aspx
+  steps:
+    - visit: "http://www.lrc.ky.gov/Messages/S011.aspx"
+    - fill_in:
+        - name: firstname
+          selector: "#First_Name"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#Last_Name"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "#State"
+          value: $ADDRESS_STATE_FULL
+          required: true
+        - name: zipcode
+          selector: "#Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: emailaddress
+          selector: "#Email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#Subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#Message"
+          value: $MESSAGE
+          required: true
+        - name: spam
+          selector: "#TextBoxQ"
+          value: $PHONE
+          required: true
+    - click_on:
+        - value: Send Message
+          selector: "#SubmitForm"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been sent
