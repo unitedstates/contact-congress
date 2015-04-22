@@ -5,9 +5,9 @@ contact_form:
   steps:
     - visit: "http://www.paul.senate.gov/connect/email-rand"
     - wait:
-      - value: 2
+        - value: 2
     - find:
-      - selector: "#input-35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD"
+        - selector: "#input-35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD"
     - fill_in:
         - name: input_35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD
           selector: "#input-35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD"
@@ -227,12 +227,18 @@ contact_form:
             - Telecommunications
             - Transportation
             - Veterans Issues
+    - find:
+        - selector: ".recaptcha-checkbox-checkmark"
+    - click_on:
+        - selector: ".recaptcha-checkbox-checkmark"
+    - wait:
+        - value: 3
     - click_on:
         - value: Submit
           selector: input.btn
     - find:
-      - selector: "#form-3572B654-E248-A5D9-D70B-8968CF7308EC p"
-        value: "Thank you for submitting your request. You should hear from the office soon."
+        - selector: "#form-3572B654-E248-A5D9-D70B-8968CF7308EC p"
+          value: "Thank you for submitting your request. You should hear from the office soon."
   success:
     headers:
       status: 200
