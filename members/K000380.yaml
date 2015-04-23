@@ -9,7 +9,6 @@ contact_form:
           selector: "#input_6_1"
           value: $ADDRESS_ZIP5
           required: true
-    - select: []
     - click_on:
         - value: Go To Next Step
           selector: "#gform_next_button_6_2"
@@ -52,12 +51,13 @@ contact_form:
           selector: "#input_6_12"
           value: $MESSAGE
           required: true
-    - select: []
     - click_on:
+        - value: Go To Next Step
+          selector: "#gform_next_button_6_2"
         - value: Send Email
           selector: "#gform_submit_button_6"
   success:
     headers:
       status: 200
     body:
-      contains: Thanks for contacting us!
+      contains: "Thanks for contacting us! We will get in touch with you shortly."
