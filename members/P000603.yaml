@@ -6,6 +6,25 @@ contact_form:
     - visit: "http://www.paul.senate.gov/connect/email-rand"
     - wait:
       - value: 2
+    - iframe:
+      - name: iframe1
+        selector: "div.g-recaptcha div div iframe[src^='https://www.google.com']"
+    - fill_in:
+      - name: recaptcha_response_field
+        captcha_selector: "html body div.fbc-payload > img"
+        value: $CAPTCHA_SOLUTION
+        selector: "#response"
+        required: true
+    - click_on:
+      - value: recaptchaSubmit
+        selector: "div.fbc-button-verify > input"
+    - copy_paste:
+      - name: copy_captcha_cpde
+        copy_selector: "div.fbc-verification-token > textarea"
+        paste_selector: "#g-recaptcha-response"
+    - iframe:
+      - name: parent1
+        back: true
     - find:
       - selector: "#input-35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD"
     - fill_in:
