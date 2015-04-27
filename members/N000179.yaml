@@ -17,7 +17,7 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - find:
-        - selector: "#contactForm"
+        - selector: "form[name='contactForm']"
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -59,6 +59,12 @@ contact_form:
           selector: "#required-message"
           value: $MESSAGE
           required: true
+        - name: recaptcha_response_field
+          selector: "#recaptcha_response_field"
+          captcha_selector: "img#recaptcha_challenge_image"
+          captcha_id_selector: "#recaptcha_challenge_field"
+          value: $CAPTCHA_SOLUTION
+          required: true
     - select:
         - name: required-issue
           selector: "#required-issue"
@@ -91,10 +97,10 @@ contact_form:
             Other Issues: OTHER
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "div.formboxL #submit"
     - find:
-        - selector: "h1"
-          value: "THANK YOU"
+        - selector: "p"
+          value: "The following information has been submitted:"
   success:
     headers:
       status: 200
