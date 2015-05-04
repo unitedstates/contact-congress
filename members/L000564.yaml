@@ -1,7 +1,7 @@
 bioguide: L000564
 contact_form:
-  method: post
-  action: /contact-form/
+  method: get
+  action: /forms/writeyourrep/
   steps:
     - visit: "http://douglamborn.house.gov/contact/leave-a-comment.htm"
     - fill_in:
@@ -17,53 +17,54 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#ctl00_ctl13_FirstName"
+        - selector: "#ctl00_ctl04_FirstName"
     - fill_in:
-        - name: ctl00$ctl13$FirstName
-          selector: "#ctl00_ctl13_FirstName"
+        - name: ctl00$ctl04$FirstName
+          selector: "#ctl00_ctl04_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl13$LastName
-          selector: "#ctl00_ctl13_LastName"
+        - name: ctl00$ctl04$LastName
+          selector: "#ctl00_ctl04_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl13$Street
-          selector: "#ctl00_ctl13_Street"
+        - name: ctl00$ctl04$Street
+          selector: "#ctl00_ctl04_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl13$City
-          selector: "#ctl00_ctl13_City"
+        - name: ctl00$ctl04$City
+          selector: "#ctl00_ctl04_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl13$Zip
-          selector: "#ctl00_ctl13_Zip"
+        - name: ctl00$ctl04$Zip
+          selector: "#ctl00_ctl04_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl13$Phone
-          selector: "#ctl00_ctl13_Phone"
+        - name: ctl00$ctl04$Phone
+          selector: "#ctl00_ctl04_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl13$Email
-          selector: "#ctl00_ctl13_Email"
+        - name: ctl00$ctl04$Email
+          selector: "#ctl00_ctl04_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl13$Subject
-          selector: "#ctl00_ctl13_Subject"
+        - name: ctl00$ctl04$Subject
+          selector: "#ctl00_ctl04_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl13$Body
-          selector: "#ctl00_ctl13_Body"
+        - name: ctl00$ctl04$Body
+          selector: "#ctl00_ctl04_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl13$PrefixList
-          selector: "#ctl00_ctl13_PrefixList"
+        - name: ctl00$ctl04$PrefixList
+          selector: "#ctl00_ctl04_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Mrs.
             - Ms.
+            - Dr.
             - 1LT
             - 1SG
             - 1st Lt
@@ -157,105 +158,11 @@ contact_form:
             - TSgt
             - VADM
             - WO1
-        - name: ctl00$ctl13$State
-          selector: "#ctl00_ctl13_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - AA
-            - AE
-            - AP
-            - FM
-            - GU
-            - MH
-            - MP
-            - PR
-            - VI
-        - name: ctl00$ctl13$IssuesList
-          selector: "#ctl00_ctl13_IssuesList"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture and Food: "72"
-            Budget: "14828"
-            Defense and Military: "10012"
-            Economy: "14819"
-            Education: "73"
-            Energy: "10177"
-            Environment: "14814"
-            Finance: "10219"
-            Foreign Relations: "10370"
-            Government Reform: "14820"
-            Health: "74"
-            Homeland Security: "14821"
-            Immigration: "10360"
-            Judicial: "14822"
-            Labor: "10390"
-            Second Amendment Rights: "14823"
-            Social Issues and Traditional Values: "14824"
-            Social Security and Medicare: "14825"
-            Taxes: "10493"
-            Telecommunications: "14826"
-            Transportation: "81"
-            Veterans: "14827"
-            Water: "10528"
-            Welfare: "10479"
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl13_SubmitButton"
+          selector: "#ctl00_ctl04_SubmitButton"
     - find:
-        - selector: "#ctl00_ctl13_ConfirmationText"
+        - selector: "#ctl00_ctl04_ConfirmationText"
   success:
     headers:
       status: 200
