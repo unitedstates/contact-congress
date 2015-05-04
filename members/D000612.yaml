@@ -90,6 +90,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contactForm #submit"
+    - find:
+        - selector: "p"
+          value: "The following information has been submitted:"
   success:
     headers:
       status: 200
