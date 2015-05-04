@@ -140,6 +140,8 @@ many of which are common to most steps:
     the `value` is one of the following, `options` can be specified accordingly:
   - `$EMAIL`: `allows_plus: true` or `allows_plus: false`, depending on if the form
       allows a plus sign in the `email` field.
+- `max_length` (optional): This field will be present if a field has a maximum length. 
+    It's very useful where max length is only enforced server-side.
 
 **A note on CAPTCHAs**
 
