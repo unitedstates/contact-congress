@@ -20,7 +20,7 @@ contact_form:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -33,22 +33,14 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
@@ -71,34 +63,34 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Abortion: "Abortion"
-            Agriculture: "Agriculture"
-            Banking and Finance: "Banking and Finance"
-            Budget: "Budget"
-            Defense and Military: "Defense and Military"
-            Economy and Job Creation: "Economy and Job Creation"
-            Education: "Education"
-            Energy: "Energy"
-            Environment: "Environment"
-            Foreign Relations: "Foreign Relations"
-            Health: "Health"
-            Homeland Security: "Homeland Security"
-            Immigration: "Immigration"
-            Judiciary: "Judiciary"
-            Labor: "Labor"
-            Science and Technology: "Science and Technology"
-            Social Issues: "Social Issues"
-            Social Security: "Social Security"
-            Social Services: "Social Services"
-            Taxes: "Taxes"
-            Telecommunications: "Telecommunications"
-            Transportation: "Transportation"
-            Trade: "Trade"
-            Veterans: "Veterans"
-            Other: "Other"
+            Abortion: " "
+            Agriculture: " "
+            Banking and Finance: " "
+            Budget: " "
+            Defense and Military: " "
+            Economy and Job Creation: " "
+            Education: " "
+            Energy: " "
+            Environment: " "
+            Foreign Relations: " "
+            Health: " "
+            Homeland Security: " "
+            Immigration: " "
+            Judiciary: " "
+            Labor: " "
+            Science and Technology: " "
+            Social Issues: " "
+            Social Security: " "
+            Social Services: " "
+            Taxes: " "
+            Telecommunications: " "
+            Transportation: " "
+            Trade: " "
+            Veterans: " "
+            Other: " "
         - name: required-response
           selector: "#required-response"
-          value: "Y"
+          value: "N"
           required: true
           options:
             "Yes, please contact me": "Y"
@@ -110,4 +102,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Please take time to fill out my online survey so I may better know your thoughts on certain issues
+      contains: ""
