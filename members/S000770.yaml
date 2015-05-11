@@ -44,12 +44,6 @@ contact_form:
         selector: ".input-textarea"
         value: "$MESSAGE"
         required: Yes
-    - select:
-      - name: State
-        selector: ".input-select"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
     - click_on:
       - value: Submit
         selector: "#sf-submit"
