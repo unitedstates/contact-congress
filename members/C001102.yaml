@@ -52,12 +52,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: required-state
-          selector: "#contact select[name='required-state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            FL: FL
         - name: required-issue
           selector: "#subject"
           value: $TOPIC
