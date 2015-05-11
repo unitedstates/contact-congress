@@ -105,6 +105,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
+    - find:
+        - value: "The following information has been submitted:"
+          selector: "p"
   success:
     headers:
       status: 200
