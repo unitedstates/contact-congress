@@ -17,7 +17,7 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#ctl00_ctl08_PrefixList"
+        - selector: "#aspnetForm"
     - fill_in:
         - name: ctl00$ctl08$FirstName
           selector: "#ctl00_ctl08_FirstName"
@@ -37,7 +37,7 @@ contact_form:
           required: true
         - name: ctl00$ctl08$Zip
           selector: "#ctl00_ctl08_Zip"
-          value: $ADDRESS_ZIP4
+          value: $ADDRESS_ZIP5
           required: true
         - name: ctl00$ctl08$Phone
           selector: "#ctl00_ctl08_Phone"
@@ -133,7 +133,7 @@ contact_form:
         - name: ctl00$ctl08$IssuesList
           selector: "#ctl00_ctl08_IssuesList"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture and Food: "75151"
             Animals: "75146"
@@ -169,8 +169,8 @@ contact_form:
             Water Resources Development: "74604"
     - check:
         - name: ctl00$ctl08$ReplyChoice
-          selector: "#ctl00_ctl08_ReplyChoice_1"
-          value: Comment
+          selector: "#ctl00_ctl08_ReplyChoice_0"
+          value: Respond
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl08_SubmitButton"
@@ -178,4 +178,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: Thank you for taking the time to write me.

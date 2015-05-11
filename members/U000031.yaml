@@ -6,16 +6,16 @@ contact_form:
     - visit: "http://upton.house.gov/contact/zipauth.htm"
     - fill_in:
         - name: zip5
-          selector: "form.zipform.parent-active input[name='zip5']"
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "form.zipform.parent-active input[name='zip4']"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
         - value: Submit
-          selector: "form.zipform.parent-active input[type='submit'][value='Submit']"
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - find: 
         - selector: "form.zipform[name='contact']"
     - fill_in:

@@ -32,7 +32,7 @@ contact_form:
         - name: required-address
           selector: "#required-address"
           value: $ADDRESS_STREET
-          required: false
+          required: true
         - name: address2
           selector: "#address2"
           value: $ADDRESS_STREET_2
@@ -97,6 +97,10 @@ contact_form:
             Veterans: VET
             "Women's Issues": WOMEN
             Other Issues: OTHER
+    - check:
+        - name: ResponseRequired
+          selector: "#node-138 form.validate.wsbform input[name='ResponseRequired']"
+          value: ResponseRequired
     - click_on:
         - value: Send Email
           selector: "#submit"
@@ -104,4 +108,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: EMAIL ME - THANK YOU

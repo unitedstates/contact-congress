@@ -4,23 +4,6 @@ contact_form:
   action: /contact
   steps:
     - visit: "http://www.mikulski.senate.gov/contact"
-    - select:
-        - name: actions
-          selector: "#actions"
-          value: opinion
-          required: false
-          options:
-            "--Select an Option--": select
-            Request help with a federal agency: federal_agency
-            Request a meeting with Senator Mikulski or staff: meeting
-            "Request a tour of the Capitol, White House, or other DC landmark": tour
-            Request a flag to be flown over the Capitol: flag
-            Request a greeting or commemorative message: message
-            Share your opinion or comments on bills or other issues: opinion
-    - wait:
-        - value: 2
-    - find:
-        - selector: "#fname"
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -50,6 +33,10 @@ contact_form:
           selector: "#home_phone_number"
           value: $PHONE
           required: false
+        - name: work_phone_number
+          selector: "#work_phone_number"
+          value: $PHONE
+          required: false
         - name: email_address
           selector: "#email"
           value: $EMAIL
@@ -63,6 +50,18 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: actions
+          selector: "#actions"
+          value: opinion
+          required: true
+          options:
+            "--Select an Option--": select
+            Request help with a federal agency: federal_agency
+            Request a meeting with Senator Mikulski or staff: meeting
+            "Request a tour of the Capitol, White House, or other DC landmark": tour
+            Request a flag to be flown over the Capitol: flag
+            Request a greeting or commemorative message: message
+            Share your opinion or comments on bills or other issues: opinion
         - name: salutation
           selector: "#salutation"
           value: $NAME_PREFIX
@@ -185,10 +184,13 @@ contact_form:
             - Trade
             - Transportation
             - Veterans
+    - check:
+        - name: response
+          selector: "#response_y"
+          value: "Y"
     - click_on:
-        - selector: "#side-search-btn"
-    - find:
-        - selector: ".headline"
+        - value: Send
+          selector: "#side-search-btn"
   success:
     headers:
       status: 200
