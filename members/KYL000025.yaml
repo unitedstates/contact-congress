@@ -41,10 +41,17 @@ contact_form:
           selector: "#Message"
           value: $MESSAGE
           required: true
-        - name: spam
-          selector: "#TextBoxQ"
-          value: $PHONE
-          required: true
+    - question:
+        - name: qna
+          question_selector: "#LabelQ"
+          answer_selector: "#TextBoxQ"
+          pairs:
+            - q: "Is ice hot or cold?"
+              a: "cold"
+            - q: "Is fire hot or cold?"
+              a: "hot"
+            - q: "Is water wet or dry?"
+              a: "wet"
     - click_on:
         - value: Send Message
           selector: "#SubmitForm"
