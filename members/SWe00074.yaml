@@ -5,32 +5,25 @@ contact_form:
   steps:
     - visit: "http://gov.idaho.gov/ourgov/contact.html"
     - wait:
-      - value: 1
-    - iframe:
-      - name: iframe1
-        selector: "[title='recaptcha widget']"
-    - click_on:
-      - value: recaptcha
-        selector: ".recaptcha-checkbox"
-    - iframe:
-      - name: parent1
-        back: true
-    - wait:
       - value: 2
     - iframe:
-      - name: iframe2
-        selector: "[title='recaptcha challenge']"
+      - name: iframe1
+        selector: "div.g-recaptcha div div iframe[src^='https://www.google.com']"
     - fill_in:
       - name: recaptcha_response_field
-        captcha_selector: "body img"
+        captcha_selector: "html body div.fbc-payload > img"
         value: $CAPTCHA_SOLUTION
-        selector: "#default-response"
+        selector: "#response"
         required: true
     - click_on:
       - value: recaptchaSubmit
-        selector: "#recaptcha-verify-button"
+        selector: "div.fbc-button-verify > input"
+    - copy_paste:
+      - name: copy_captcha_cpde
+        copy_selector: "div.fbc-verification-token > textarea"
+        paste_selector: "#g-recaptcha-response"
     - iframe:
-      - name: parent2
+      - name: parent1
         back: true
     - fill_in:
       - name: firstName
