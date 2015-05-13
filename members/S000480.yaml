@@ -1,185 +1,118 @@
 bioguide: S000480
 contact_form:
   method: post
-  action: /contact-louise/
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://louise.house.gov/contact-louise"
+    - visit: "https://louise.house.gov/contact/email-louise"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
+        - name: zip4
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go to Form
-          selector: "#zipauthform input.button"
+        - value: Go To Next Step
+          selector: "#submit"
+    - find:
+        - selector: "#required-first"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: required-first
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: required-last
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: required-address
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#req_city"
+        - name: required-city
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#req_phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
           required: true
-        - name: subject
-          selector: "#req_subject"
-          value: $SUBJECT
-          required: true
-        - name: message
-          selector: "#req_message"
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
+        - name: required-prefix
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
             Ms.: Ms.
             Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
+            Mrs.: Mrs.
+            Mr.: "Mr."
+            "Mr. and Mrs.": "Mr. and Mrs."
             Rev.: Rev.
+            Dr.: Dr.
+            "The Honorable": "The Honorable"
             Rabbi: Rabbi
-            Other: Other
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-        - name: issue
-          selector: "#req_issue"
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            - Agriculture
-            - Animal Rights
-            - Appropriations
-            - "Arts & Humanities"
-            - Budget
-            - Choice
-            - Community Safety
-            - "Defense & Military"
-            - Education
-            - "Energy & Environment"
-            - Financial Services
-            - Foreign Affairs
-            - Government Reform and Oversight
-            - Health
-            - "Homeland Security & Border Issues"
-            - House Administration
-            - Housing
-            - Immigration
-            - Judiciary
-            - Labor
-            - Native Americans
-            - "Science & Technology"
-            - Small Business
-            - Social Security
-            - Taxes
-            - Telecommunications
-            - Trade
-            - Transportation
-            - Veterans Affairs
-            - Poverty
-            - "Women's Issues"
-    - check:
-        - name: response
-          selector: "input[type='radio'][name='response'][value='Yes']"
-          value: "Yes"
-        - name: updates
-          selector: "input[type='radio'][name='updates'][value='No']"
-          value: "No"
+            Agriculture: AGR
+            "Animal Rights": AN
+            "Arts and Humanities": ART
+            Budget: BUD
+            Business: "business"
+            "Community Safety": community
+            "Defense and Military": DEF
+            "Disability Rights": disability
+            "Economy": ECON
+            "Education": EDU
+            "Energy & Environment": energy
+            "Financial Services": financial
+            "Foreign Affairs": FR
+            "Government Reform": GOV
+            Health: HEA
+            "Homeland Security": HOM
+            Housing: HUD
+            Immigration: IMM
+            Judiciary: JUD
+            Labor: LAB
+            "Native Americans": native
+            Poverty: poverty
+            "Reproductive Rights": reproductive
+            "Science and Technology": SCI
+            "Social Security": "Social Security"
+            Taxes: TAX
+            Telecommunications: TEL
+            Trade: TRADE
+            Transportation: TRA
+            Veterans: VET
+            "Women's Issues": WOMEN
+            "Other Issue": OTHER
+        - name: required-response
+          selector: "#required-response"
+          value: Y
+          required: true
+          options: 
+            Yes, please contact me: Y
+            No, I wanted to voice my opinion: N
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - value: Send Email to Representative Slaughter
+          selector: "#submit"
     - find:
-        - selector: "h1"
-          value: "Thank you"
+        - selector: ".data"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your email
+      contains: Thank you
