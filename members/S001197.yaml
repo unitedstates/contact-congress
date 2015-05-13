@@ -1,45 +1,46 @@
 bioguide: S001197
 contact_form:
   method: post
-  action: /content/contact-ben
+  action: /public/index.cfm/email-ben
   steps:
-    - visit: "http://www.sasse.senate.gov/content/contact-ben"
+    - visit: "http://www.sasse.senate.gov/public/index.cfm/email-ben"
     - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
+        - name: "field_8B37EAA4-2FC8-4F36-A6B6-F3414A7A9AA5"
+          selector: "#field_8B37EAA4-2FC8-4F36-A6B6-F3414A7A9AA5"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
+        - name: "field_70D11ACD-1BB0-4DB0-B12E-670C8FDC9590"
+          selector: "#field_70D11ACD-1BB0-4DB0-B12E-670C8FDC9590"
           value: $NAME_LAST
           required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
+        - name: "field_93686B46-A6D1-4977-A951-81396A4E94CA"
+          selector: "#field_93686B46-A6D1-4977-A951-81396A4E94CA"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
+        - name: "field_664E68C6-1D34-46D1-B232-496B48DAB108"
+          selector: "#field_664E68C6-1D34-46D1-B232-496B48DAB108"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
+        - name: "field_EFE8B729-6D88-4FAF-94C4-EEA0383D403A"
+          selector: "#field_EFE8B729-6D88-4FAF-94C4-EEA0383D403A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
+        - name: phone
+          selector: "#field_2515A2B7-E9CD-40F8-8135-64CC47B8A7B5"
+          value: $PHONE
+          required: false
+        - name: "field_9023DC4C-36F1-4E2B-B5F1-5173345C1A56"
+          selector: "#field_9023DC4C-36F1-4E2B-B5F1-5173345C1A56"
           value: $EMAIL
           required: true
-        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
-          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
-          value: $SUBJECT
-          required: true
-        - name: "submitted[message_details][message]"
-          selector: "#edit-submitted-message-details-message"
+        - name: "field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4"
+          selector: "#field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4"
           value: $MESSAGE
           required: true
+          max_length: 500
     - select:
-        - name: "submitted[constituent_information][prefix]"
-          selector: "#edit-submitted-constituent-information-prefix"
+        - name: "field_2647C301-6F8A-4A2F-A7AD-6AB2BA694E46"
+          selector: "#field_2647C301-6F8A-4A2F-A7AD-6AB2BA694E46"
           value: $NAME_PREFIX
           required: true
           options:
@@ -55,8 +56,8 @@ contact_form:
             - The Honorable
             - Representative
             - Senator
-        - name: "submitted[constituent_information][state]"
-          selector: "#edit-submitted-constituent-information-state"
+        - name: "field_7CAD42BE-FB65-469B-B185-CF437B32E985"
+          selector: "#field_7CAD42BE-FB65-469B-B185-CF437B32E985"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -114,73 +115,69 @@ contact_form:
             - WV
             - WI
             - WY
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
+        - name: "field_2B460AD9-C6A4-4448-B9A5-58A73BE3F005"
+          selector: "#field_2B460AD9-C6A4-4448-B9A5-58A73BE3F005"
           value: $TOPIC
           required: true
           options:
             - Abortion
             - Adoption
-            - Aging
             - Agriculture
             - Animal Welfare
             - Appropriations
             - Banking
+            - Budget
             - Campaign Finance
             - Children
             - Civil Rights
             - Commerce
             - Communications
             - Congratulations
-            - Congressional Issues
             - Crime
             - Defense
             - Drugs
             - Economy
-            - Education Higher
-            - Education K through 12
-            - Elections
+            - Education
             - Energy
+            - Entitlements
             - Environment
+            - Export-Import Bank
             - Family
+            - Flood Insurance
             - Food Stamps
             - Foreign Affairs
-            - Gun Control
+            - Guns
             - Health
             - Homeland Security
             - Housing
             - Immigration
             - Inauguration
-            - Insurance Health
-            - Insurance Other
-            - Interior
-            - Iran
-            - Iraq
+            - Intellectual Property
             - Judiciary
             - Labor
             - Medicaid
             - Medicare
-            - Military
+            - Miscellaneous
+            - Monetary Policy
             - NASA
             - Nutrition
-            - Other
             - Patents
             - Pensions
+            - Postal Issue
+            - Regulatory Reform
             - Securities
             - Small Business
+            - Social Issues
             - Social Security
             - Taxes
-            - Tobacco
             - Trade
             - Transportation
             - Veterans
-            - Welfare
-            - "Women's Issues"
     - click_on:
         - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
+          selector: "input.btn-primary"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: "Thank you"
