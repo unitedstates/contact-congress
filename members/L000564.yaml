@@ -17,47 +17,47 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#ctl00_ctl13_FirstName"
+        - selector: "#ctl00_ctl04_FirstName"
     - fill_in:
-        - name: ctl00$ctl13$FirstName
-          selector: "#ctl00_ctl13_FirstName"
+        - name: ctl00$ctl04$FirstName
+          selector: "#ctl00_ctl04_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl13$LastName
-          selector: "#ctl00_ctl13_LastName"
+        - name: ctl00$ctl04$LastName
+          selector: "#ctl00_ctl04_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl13$Street
-          selector: "#ctl00_ctl13_Street"
+        - name: ctl00$ctl04$Street
+          selector: "#ctl00_ctl04_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl13$City
-          selector: "#ctl00_ctl13_City"
+        - name: ctl00$ctl04$City
+          selector: "#ctl00_ctl04_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl13$Zip
-          selector: "#ctl00_ctl13_Zip"
+        - name: ctl00$ctl04$Zip
+          selector: "#ctl00_ctl04_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl13$Phone
-          selector: "#ctl00_ctl13_Phone"
+        - name: ctl00$ctl04$Phone
+          selector: "#ctl00_ctl04_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl13$Email
-          selector: "#ctl00_ctl13_Email"
+        - name: ctl00$ctl04$Email
+          selector: "#ctl00_ctl04_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl13$Subject
-          selector: "#ctl00_ctl13_Subject"
+        - name: ctl00$ctl04$Subject
+          selector: "#ctl00_ctl04_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl13$Body
-          selector: "#ctl00_ctl13_Body"
+        - name: ctl00$ctl04$Body
+          selector: "#ctl00_ctl04_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl13$PrefixList
-          selector: "#ctl00_ctl13_PrefixList"
+        - name: ctl00$ctl04$PrefixList
+          selector: "#ctl00_ctl04_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -157,8 +157,8 @@ contact_form:
             - TSgt
             - VADM
             - WO1
-        - name: ctl00$ctl13$State
-          selector: "#ctl00_ctl13_State"
+        - name: ctl00$ctl04$State
+          selector: "#ctl00_ctl04_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -222,8 +222,8 @@ contact_form:
             - MP
             - PR
             - VI
-        - name: ctl00$ctl13$IssuesList
-          selector: "#ctl00_ctl13_IssuesList"
+        - name: ctl00$ctl04$IssuesList
+          selector: "#ctl00_ctl04_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -253,7 +253,7 @@ contact_form:
             Welfare: "10479"
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl13_SubmitButton"
+          selector: "#ctl00_ctl04_SubmitButton"
   success:
     headers:
       status: 200
