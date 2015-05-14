@@ -1,7 +1,7 @@
 bioguide: R000409
 contact_form:
   method: post
-  action: the url
+  action:
   steps:
     - visit: "https://rohrabacher.house.gov/contact/email-me"
     - fill_in:
@@ -93,9 +93,6 @@ contact_form:
            - Defense
            - Request for Assistance
            - Other
-    - click_on:
-        - value: Click to select
-          selector: li.ideal-select-item-selected
     - click_on:
         - selector: button.ideal-button
   success:
