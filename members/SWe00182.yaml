@@ -1,108 +1,75 @@
 bioguide: SWe00182
 contact_form:
   method: post
-  action: contact.php
+  action: https://www.nebraska.gov/simpleMail/advanced.cgi
   steps:
-    - visit: "http://www.governor.nebraska.gov/contact/contact.php"
+    - visit: "https://governor.nebraska.gov/contact-form"
+    - wait:
+      - value: 2
+    - iframe:
+      - name: iframe1
+        selector: "div.g-recaptcha div div iframe[src^='https://www.google.com']"
     - fill_in:
-        - name: name
-          selector: "#name"
-          value: $NAME_FULL
+      - name: recaptcha_response_field
+        captcha_selector: "html body div.fbc-payload > img"
+        value: $CAPTCHA_SOLUTION
+        selector: "#response"
+        required: true
+    - click_on:
+      - value: recaptchaSubmit
+        selector: "div.fbc-button-verify > input"
+    - copy_paste:
+      - name: copy_captcha_cpde
+        copy_selector: "div.fbc-verification-token > textarea"
+        paste_selector: "#g-recaptcha-response"
+    - iframe:
+      - name: parent1
+        back: true
+    - fill_in:
+        - name: fname
+          selector: "input[id='01_fname']"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "input[id='02_lname']"
+          value: $NAME_LAST
           required: true
         - name: email
-          selector: "#email"
+          selector: "input[id='03_email']"
           value: $EMAIL
           required: true
         - name: address
-          selector: "#address"
+          selector: "input[id='04_address']"
           value: $ADDRESS_STREET
-          required: true
+          required: false
         - name: city
-          selector: "#city"
+          selector: "input[id='05_city']"
           value: $ADDRESS_CITY
           required: true
         - name: zipcode
-          selector: "#zipcode"
+          selector: "input[id='07_zipcode']"
           value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector: "#phone"
+          selector: "input[id='08_phone']"
           value: $PHONE
           required: true
         - name: comments
-          selector: "#comments"
+          selector: "textarea[id='10_comments']"
           value: $MESSAGE
           required: true
     - select:
         - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          selector: "select[id='06_state']"
+          value: $ADDRESS_STATE_FULL
           required: true
           options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-        - name: subject_query
-          selector: "#subject_query"
-          value: $TOPIC
-          required: true
-          options:
-            - Elections
-            - Notary
-            - Lobbyist
-            - Comment
-            - Other
+            - Nebraska
     - click_on:
+        - value: hideModal
+          selector: "#cookieModal"
         - value: Submit
-          selector: "button[type='Submit']"
+          selector: "#mySubmitButton"
   success:
     headers:
       status: 200
