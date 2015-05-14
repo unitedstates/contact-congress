@@ -1,50 +1,57 @@
 bioguide: SWe00010
 contact_form:
   method: post
-  action: /contact/index.php
+  action: https://arkansasgov.wufoo.com/embed/z10gjhti00fynaz/def/embedKey=z10gjhti00fynaz760205&entsource=&referrer=http%3Awuslashwuslashgovernor.arkansas.govwuslash&header=hide#public
   steps:
-    - visit: "http://governor.arkansas.gov/contact/index.php"
+    - visit: "http://governor.arkansas.gov/contact-info"
+    - iframe:
+      - name: parent1
+        selector: "iframe[class='wufoo-form-container']"
     - fill_in:
         - name: fname
-          selector: "#fname"
+          selector: "#Field9"
           value: $NAME_FIRST
           required: true
         - name: lname
-          selector: "#lname"
+          selector: "#Field11"
           value: $NAME_LAST
           required: true
         - name: address
-          selector: "#address"
+          selector: "#Field13"
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: "#city"
+          selector: "#Field14"
           value: $ADDRESS_CITY
           required: true
-        - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
         - name: zipcode
-          selector: "#zipcode"
+          selector: "#Field16"
           value: $ADDRESS_ZIP5
           required: true
         - name: email
-          selector: "#email"
+          selector: "#Field3"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
+        - name: phone1
+          selector: "#Field17"
+          value: $PHONE_AREA_CODE
+          required: true
+        - name: phone2
+          selector: "#Field17-1"
+          value: $PHONE_EXCHANGE_CODE
+          required: true
+        - name: phone3
+          selector: "#Field17-2"
+          value: $PHONE_SUBSCRIBER_NUMBER
           required: true
         - name: comments
-          selector: "#comments"
+          selector: "#Field4"
           value: $MESSAGE
           required: true
     - select:
         - name: category
-          selector: "#category_select"
-          value: "28"
+          selector: "#Field7"
+          value: "General"
           required: true
           options:
             Agriculture: "1"
@@ -78,7 +85,7 @@ contact_form:
             Workforce: "27"
             "General Comments, Concerns": "28"
         - name: prefix
-          selector: "#thisform select[name='prefix']"
+          selector: "#Field8"
           value: $NAME_PREFIX
           required: true
           options:
@@ -109,18 +116,23 @@ contact_form:
             - Sr.
             - The Honorable
             - The Reverend
-    - find:
-        - selector: "select[name='interest']"
-    - select:
-        - name: interest
-          selector: "select[name='interest']"
-          value: "1"
+        - name: state
+          selector: "#Field25"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
+          options:
+            - AR
     - click_on:
         - value: Submit
-          selector: "#thisform input[name='Submit']"
+          selector: "#saveForm"
+    - iframe:
+      - name: parent1
+        back: true
+    - iframe:
+      - name: parent1
+        selector: "iframe[class='wufoo-form-container']"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting the Office of the Governor. A member of our staff will respond to your message soon.
+      contains: Thank you for contacting
