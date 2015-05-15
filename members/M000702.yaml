@@ -4,6 +4,23 @@ contact_form:
   action: /contact
   steps:
     - visit: "http://www.mikulski.senate.gov/contact"
+    - select:
+        - name: actions
+          selector: "#actions"
+          value: opinion
+          required: false
+          options:
+            "--Select an Option--": select
+            Request help with a federal agency: federal_agency
+            Request a meeting with Senator Mikulski or staff: meeting
+            "Request a tour of the Capitol, White House, or other DC landmark": tour
+            Request a flag to be flown over the Capitol: flag
+            Request a greeting or commemorative message: message
+            Share your opinion or comments on bills or other issues: opinion
+    - wait:
+        - value: 2
+    - find:
+        - selector: "#fname"
     - fill_in:
         - name: fname
           selector: "#fname"
