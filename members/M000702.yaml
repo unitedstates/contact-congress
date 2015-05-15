@@ -67,18 +67,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: actions
-          selector: "#actions"
-          value: opinion
-          required: true
-          options:
-            "--Select an Option--": select
-            Request help with a federal agency: federal_agency
-            Request a meeting with Senator Mikulski or staff: meeting
-            "Request a tour of the Capitol, White House, or other DC landmark": tour
-            Request a flag to be flown over the Capitol: flag
-            Request a greeting or commemorative message: message
-            Share your opinion or comments on bills or other issues: opinion
         - name: salutation
           selector: "#salutation"
           value: $NAME_PREFIX
