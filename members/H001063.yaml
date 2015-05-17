@@ -1,26 +1,22 @@
 bioguide: H001063
 contact_form:
   method: post
-  action: "/htbin/formproc/email-me.txt&display=/contact-me/email-me-thankyou&nobase&fpGetVer=2"
+  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
   steps:
     - visit: "https://hahn.house.gov/contact-me/email-me"
     - fill_in:
-      - name: required-zip5
-        selector: "#required-zip5"
-        value: $ADDRESS_ZIP5
-        required: true
-      - name: zip4
-        selector: "#zip4"
-        value: $ADDRESS_ZIP4
-        required: true
-    - click_on:
-      - value: "Go To Next Step"
-        selector: ".formboxL #submit"
-    - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
           required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: "#submit"
+    - fill_in:
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -40,10 +36,6 @@ contact_form:
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
-          required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
         - name: required-valid-email
           selector: "#required-valid-email"
@@ -93,7 +85,7 @@ contact_form:
             Science and Technology: SCI
             Senior Citizens: SENIORS
             Social Security: SS
-            Social Services: SOC.SERVICES
+            Social Services: SOC_SERVICES
             Taxes: TAX
             Telecommunications: COMM
             Transportation: TRAN

@@ -50,6 +50,10 @@ contact_form:
           selector: "#home_phone_number"
           value: $PHONE
           required: false
+        - name: work_phone_number
+          selector: "#work_phone_number"
+          value: $PHONE
+          required: false
         - name: email_address
           selector: "#email"
           value: $EMAIL
@@ -185,10 +189,13 @@ contact_form:
             - Trade
             - Transportation
             - Veterans
+    - check:
+        - name: response
+          selector: "#response_y"
+          value: "Y"
     - click_on:
-        - selector: "#side-search-btn"
-    - find:
-        - selector: ".headline"
+        - value: Send
+          selector: "#side-search-btn"
   success:
     headers:
       status: 200
