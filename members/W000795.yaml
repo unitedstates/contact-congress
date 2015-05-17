@@ -1,228 +1,125 @@
 bioguide: W000795
 contact_form:
   method: post
-  action: default.aspx
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://joewilsonforms.house.gov/forms/writeyourrep/default.aspx"
+    - visit: "https://joewilson.house.gov/contact/email-me
     - fill_in:
-        - name: ctl00$ctl09$FirstName
-          selector: "#ctl00_ctl09_FirstName"
-          value: $NAME_FIRST
-          required: true
-        - name: ctl00$ctl09$LastName
-          selector: "#ctl00_ctl09_LastName"
-          value: $NAME_LAST
-          required: true
-        - name: ctl00$ctl09$Street
-          selector: "#ctl00_ctl09_Street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: ctl00$ctl09$City
-          selector: "#ctl00_ctl09_City"
-          value: $ADDRESS_CITY
-          required: true
-        - name: ctl00$ctl09$Zip
-          selector: "#ctl00_ctl09_Zip"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl09$Phone
-          selector: "#ctl00_ctl09_Phone"
-          value: $PHONE
-          required: false
-        - name: ctl00$ctl09$Email
-          selector: "#ctl00_ctl09_Email"
-          value: $EMAIL
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
           required: true
-        - name: ctl00$ctl09$Subject
-          selector: "#ctl00_ctl09_Subject"
-          value: $SUBJECT
-          required: true
-        - name: ctl00$ctl09$Body
-          selector: "#ctl00_ctl09_Body"
-          value: $MESSAGE
-          required: true
-        - name: ctl00$ctl09$CampaignID
-          selector: "#ctl00_ctl09_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl09$CampaignInfo
-          selector: "#ctl00_ctl09_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
-    - select:
-        - name: ctl00$ctl09$PrefixList
-          selector: "#ctl00_ctl09_PrefixList"
+    - click_on:
+        - value: "Go To Next Step"
+          selector: "#submit"
+    - find:
+        - name: "required-prefix"
+          selector: "#required-prefix"
+    - fill_in:
+        - name: required-prefix
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
-          options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Master
-            - 1LT
-            - 1SGT
-            - 2LT
-            - Acting Director
-            - Admiral
-            - Agent
-            - Ambassador
-            - "ATTN:"
-            - BG
-            - Bishop
-            - Brigadier
-            - Brigadier General
-            - Cadet
-            - Captain
-            - Chairman
-            - Chairwoman
-            - Chaplain
-            - Chief
-            - Chief Deputy Coroner
-            - Chief Engineer
-            - Chief Master Sergeant
-            - Chief Petty Officer
-            - CMSgt
-            - CSM
-            - Coach
-            - Colonel
-            - Colonel (Ret.) and Mrs.
-            - Commander
-            - Commissioner
-            - Congressman
-            - Congresswoman
-            - Corporal
-            - Corpsman
-            - CPT
-            - CSM
-            - CTSRN
-            - CW2
-            - CW4
-            - CW5
-            - Deputy Commissioner
-            - Deputy
-            - Director
-            - Director General
-            - Doctor
-            - Dr.
-            - Dr. and Mr.
-            - Dr. and Mrs.
-            - Dr. and Ms.
-            - Eagle Scout
-            - Elder
-            - Emperor
-            - Father
-            - First Sergeant
-            - FSEFN
-            - General
-            - Governor
-            - The Honorable
-            - The Honorable and Mrs.
-            - The Honorable and Mr.
-            - Investigator
-            - IT3
-            - Judge Advocate
-            - Lance CorporalMaster
-            - LCDR
-            - Lieutenant
-            - Lieutenant Colonel
-            - LTC
-            - LtCol
-            - LTG
-            - LtGen
-            - Major General
-            - Major
-            - Master Chief
-            - Master Sergeant
-            - Master Gunnery Sergeant
-            - MGySgt
-            - Mayor
-            - Miss
-            - The Most Reverend
-            - Mr. and Mrs.
-            - Mr. Speaker
-            - Mr.
-            - Mrs.
-            - Ms.
-            - MSG
-            - MSgt.
-            - Navy Counselor Chief
-            - NCC
-            - Officer
-            - Pastor
-            - Petty Officer
-            - PFC
-            - Post Commander
-            - President
-            - President and Mrs.
-            - Principal
-            - Professor
-            - Rabbi
-            - Ranger
-            - Rear Admiral
-            - Representative
-            - The Reverend
-            - Reverend Doctor
-            - The Reverend and Mr.
-            - The Reverend and Mrs.
-            - Right Reverend
-            - RP3
-            - Secretary
-            - Senator
-            - Sergeant
-            - Sergeant Major
-            - SFC
-            - SGT
-            - SH
-            - Sir
-            - SN
-            - SPC
-            - Speaker
-            - Special Agent
-            - SSG
-            - SSgt
-            - STG1(SW)
-            - Vice Admiral
-        - name: ctl00$ctl09$IssuesList
-          selector: "#ctl00_ctl09_IssuesList"
+          max_length: 10
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+          max_length: 100
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+          max_length: 100
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+          max_length: 100
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+          max_length: 100
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+          max_length: 100
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+          max_length: 80
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            "- LEGISLATION I have Sponsored and Co-Sponsored -": "139"
-            2nd District Concerns: "110"
-            Agriculture: "89"
-            Bulgaria Caucus: "106"
-            Economy and Jobs: "27227"
-            "Education ": "90"
-            Energy: "108"
-            Faith-Based Initiatives: "93"
-            Firefighters: "142"
-            Foreign Affairs: "27228"
-            Health Care: "91"
-            Immigration: "24031"
-            "Immigration: Protecting America's Borders": "27226"
-            India Caucus: "105"
-            International Relations: "1925"
-            National Defense: "103"
-            National Security: "92"
-            Other: "25411"
-            Our Veterans: "140"
-            Prescription Drugs: "88"
-            Second Amendment: "95"
-            Social Security: "1342"
-            Tax Relief: "96"
-            Transportation: "107"
-            Victory In Iraq Caucus: "1926"
-            War on Terror: "100"
-            Welfare Reform: "109"
+            "Agriculture": "AGR"
+            "Animals": "AN"
+            "Arts and Humanities": "ART"
+            "Banking and Finance": "BANK"
+            "Budget and Economy": "BUD"
+            "Campaign Finance Reform": "CFR"
+            "Congress and Elections": "CONG"
+            "District of Columbia--Tours": "TOUR"
+            "Defense and Military": "DEF"
+            "Economy": "ECON"
+            "Education": "EDU"
+            "Energy": "ENE"
+            "Environment": "ENV"
+            "Federal Employees": "FED"
+            "Foreign Relations": "FR"
+            "Government Reform": "GOV"
+            "Guns": "GUN"
+            "Health": "HEA"
+            "Homeland Security": "HOM"
+            "Housing and Urban Development": "HUD"
+            "Immigration": "IMM"
+            "International Relations": "INT"
+            "Judiciary": "JUD"
+            "Labor": "LAB"
+            "LGBT": "LGBT"
+            "No Response Necessary": "NRN"
+            "Post Office": "POST"
+            "Science and Technology": "SCI"
+            "Social Issues": "SOC"
+            "Senior Citizens": "SENIORS"
+            "Social Security": "SSEC"
+            "Social Services": "SOC.SERVICES"
+            "Taxes": "TAX"
+            "Telecommunications": "TEL"
+            "Transportation": "TRA"
+            "Trade": "TRADE"
+            "Veterans": "VET"
+            "Women's Issues": "WOMEN"
+            "Welfare": "WEL"
+            "Other Issues": "OTHER"
+        - name: required-response
+          selector: "#required-response"
+          value: Y
+          required: true
+          options: 
+            Yes, please contact me: Y
+            No, I wanted to voice my opinion: N
     - click_on:
-        - value: Submit
-          selector: "#ctl00_ctl09_SubmitButton"
+        - value: "Send Email"
+          selector: "#submit"
     - find:
-        - selector: "span#ctl00_ctl09_ConfirmationText"
-          value: "Thanks"
+        - selector: "p"
+          value: "The following information has been submitted:"
   success:
     headers:
       status: 200
     body:
-      contains: Thanks for your input. 
-
+      contains: The following information has been submitted 
