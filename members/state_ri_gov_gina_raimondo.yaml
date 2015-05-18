@@ -3,39 +3,39 @@ contact_form:
   method: post
   action: default.aspx
   steps:
-    - visit: "https://rigov.wufoo.com/embed/p1n4723z1b79aft/def/embedKey=p1n4723z1b79aft109022"
+    - visit: "http://www.governor.ri.gov/contact/"
     - fill_in:
         - name: firstName
-          selector: "#Field1"
+          selector: "#firstname"
           value: $NAME_FIRST
           required: true
         - name: lastName
-          selector: "#Field2"
+          selector: "#lastname"
           value: $NAME_LAST
           required: true
         - name: email
-          selector: "#Field4"
+          selector: "#email"
           value: $EMAIL
           required: true
         - name: phoneAreaCode
-          selector: "#Field3"
+          selector: "#area"
           value: $PHONE_AREA_CODE
         - name: phoneExchange
-          selector: "#Field3-1"
+          selector: "#exchange"
           value: $PHONE_EXCHANGE_CODE
         - name: phoneNumber
-          selector: "#Field3-2"
+          selector: "#phnum"
           value: $PHONE_SUBSCRIBER_NUMBER
         - name: zip5
-          selector: "#Field120"
+          selector: "#zip"
           value: $ADDRESS_ZIP5
         - name: message
-          selector: "#Field118"
+          selector: "#message"
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: "#saveForm"
+          selector: "#submitcontact"
   success:
     headers:
       status: 200
