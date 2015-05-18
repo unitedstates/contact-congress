@@ -1,97 +1,96 @@
 bioguide: A000055
 contact_form:
   method: POST
-  action: "http://aderholt.house.gov/email-me2/"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: http://aderholt.house.gov/email-me2/
+    - visit: "https://aderholt.house.gov/contact-robert"
     - fill_in:
-      - name: zipcode
-        selector: "#zipcode"
+      - name: required-zip5
+        selector: "#required-zip5"
         value: $ADDRESS_ZIP5
-        required: Yes
-      - name: zipfour
-        selector: "#zipfour"
+        required: true
+      - name: zip4
+        selector: "#zip4"
         value: $ADDRESS_ZIP4
+        required: true
     - click_on:
-      - value: "Go to Form" 
-        selector: "#zipauthform input[type=submit]"
+      - value: "Go To Next Step" 
+        selector: "#submit"
     - find: 
-      - selector: "#custom_form18"
+      - selector: "#required-prefix"
     - fill_in:
-      - name: firstname
-        selector: "#req_firstname"
+      - name: required-first
+        selector: "#required-first"
         value: $NAME_FIRST
-        required: Yes
-      - name: lastname
-        selector: "#req_lastname"
+        required: true
+      - name: required-last
+        selector: "#required-last"
         value: $NAME_LAST
-        required: Yes
-      - name: street
-        selector: "#req_street"
+        required: true
+      - name: required-address
+        selector: "#required-address"
         value: $ADDRESS_STREET
-        required: Yes
-      - name: street2
-        selector: "#address2"
-        value: $ADDRESS_STREET_2
-      - name: city
-        selector: "#req_city"
+        required: true
+      - name: required-city
+        selector: "#required-city"
         value: $ADDRESS_CITY
-        required: Yes
-      - name: emailaddress
-        selector: "#req_email" 
+        required: true
+      - name: required-valid-email
+        selector: "#required-valid-email"
         value: $EMAIL
-        required: Yes
-      - name: phone
-        selector: "#phone"
+        required: true
+      - name: required-phone
+        selector: "#required-phone"
         value: $PHONE
-      - name: message
-        selector: "#req_message"
+        required: true
+      - name: required-message
+        selector: "#required-message"
         value: $MESSAGE
-        required: Yes
+        required: true
     - select:
-      - name: prefix
-        selector: "#prefix"
+      - name: required-prefix
+        selector: "#required-prefix"
         value: $NAME_PREFIX
-        required: Yes
-        options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Miss"
-          - "Dr."
-          - "Hon."
-          - "Rev."
-          - "Rabbi"
-      - name: issue
-        selector: "#req_issue"
+        required: true
+        options: 
+          Ms.: Ms.
+          Miss: Miss
+          Mrs.: Mrs.
+          Mr.: Mr.
+          Mr. and Mrs.: Mr. and Mrs.
+          Rev.: Rev.
+          Dr.: Dr.
+          The Honorable: The Honorable
+          Rabbi: Rabbi
+      - name: required-issue
+        selector: "#required-issue"
         value: $TOPIC
-        required: Yes
-        options:
-          "Agriculture": "WEBAGR"
-          "Budget": "WEBBUD"
-          "Defense": "WEBDEF"
-          "Education and Labor": "WEBEDU"
-          "Energy": "WEBENE"
-          "Environmental": "WEBENV"
-          "International Relations": "WEBINT"
-          "Government Reform": "WEBGOV"
-          "Health": "WEBHEA"
-          "Homeland Security": "WEBHOM"
-          "Immigration": "WEBIMM"
-          "Judiciary": "WEBJUD"
-          "Social Issues": "WEBSOC"
-          "Social Security": "WEBSSEC"
-          "Telecommunications": "WEBTEL"
-          "Taxes and Trade": "WEBTAX"
-          "Transportation": "WEBTRA"
-          "Veterans": "WEBVET"
-          "Welfare": "WEBWEL"
-          "Other": "WEBOTH"
+        required: true
+        options: 
+          "Agriculture": "AGR"
+          "Budget": "BUD"
+          "Defense": "DEF"
+          "Education and Labor": "EDU"
+          "Energy": "ENE"
+          "Environment": "ENV"
+          "Government Reform": "GOV"
+          "Health": "HEA"
+          "Homeland Security": "HOM"
+          "Immigration": "IMM"
+          "International Relations": "INT"
+          "Judiciary": "JUD"
+          "Social Issues": "SOC"
+          "Taxes": "TAX"
+          "Telecommunications": "TEL"
+          "Transportation": "TRA"
+          "Veterans": "VET"
+          "Welfare": "WEL"
+          "Other Issue": "OTHER"
     - click_on:
-      - value: "Send Email"
-        selector: "#submitButton"
+      - value: "Send Email to Representative Aderholt"
+        selector: "#submit"
   success: 
     headers:
       status: 200
     body:
-      contains: "Thank you"
+      contains: "your message has been sent"
