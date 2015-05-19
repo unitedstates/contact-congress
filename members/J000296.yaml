@@ -1,9 +1,9 @@
 bioguide: J000296
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "http://jolly.house.gov/htbin/formproc_za.pl?/jolly/zip-auth.txt&form=contact_jolly.html"
   steps:
-    - visit: "https://jolly.house.gov/contact/email-me"
+    - visit: "http://jolly.house.gov/contact/"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
