@@ -108,8 +108,11 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
+    - find:
+        - value: "Thank you for contacting us. We will review your submission and get back to you as soon as possible."
+          selector: p
   success:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: Thank you for contacting us
