@@ -11,15 +11,15 @@ contact_form:
       - name: field_d9d438fc-cf81-44b8-915b-5bff36c9c025
         selector: "#field_d9d438fc-cf81-44b8-915b-5bff36c9c025"
         value: $NAME_FIRST
-        required: Yes
+        required: true
       - name: field_83e1f87a-3924-48b3-ae00-115adc633ae9
         selector: "#field_83e1f87a-3924-48b3-ae00-115adc633ae9"
         value: $NAME_LAST
-        required: Yes
+        required: true
       - name: field_51d627cb-d6ca-44c8-bc60-6ee5ebb42bc8
         selector: "#field_51d627cb-d6ca-44c8-bc60-6ee5ebb42bc8"
         value: $ADDRESS_STREET
-        required: Yes
+        required: true
       - name: field_2182c802-8c04-470b-965a-2b3524fd44fa
         selector: "#field_2182c802-8c04-470b-965a-2b3524fd44fa"
         value: $ADDRESS_STREET_2
@@ -37,23 +37,23 @@ contact_form:
       - name: field_8c4a91ac-459d-41dd-b577-43769d4f5798
         selector: "#field_8c4a91ac-459d-41dd-b577-43769d4f5798"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: field_1fcd0a32-c2b6-40e7-9d3f-18de98bf7997
         selector: "#field_1fcd0a32-c2b6-40e7-9d3f-18de98bf7997"
         value: $MESSAGE
         options:
           max_length: 2000
-        required: Yes
+        required: true
     - select:
       - name: field_30614977-cee4-4a77-ba62-10169d06445b
         selector: "#field_30614977-cee4-4a77-ba62-10169d06445b"
         value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
+        required: true
         options: US_STATES_AND_TERRITORIES
       - name: field_ff576494-50ce-42fc-aff0-a14f510dc4d8
         selector: "#field_ff576494-50ce-42fc-aff0-a14f510dc4d8"
         value: $TOPIC
-        required: Yes
+        required: true
         options:
           - Abortion
           - Agriculture
