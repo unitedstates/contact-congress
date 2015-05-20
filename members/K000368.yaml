@@ -22,6 +22,10 @@ contact_form:
           selector: "#emailForm input[name='submit']"
     - find:
         - selector: "#required-prefix"
+    - click_on:
+        - selector: "#close-enews-popup"
+    - wait:
+        - value: 1
     - fill_in:
         - name: required-prefix
           selector: "#required-prefix"
