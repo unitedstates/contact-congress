@@ -6,6 +6,10 @@ contact_form:
     - visit: "https://walorski.house.gov/contact/email-me"
     - find:
         - selector: "#emailForm"
+    - click_on:
+        - selector: "#close-enews-popup"
+    - wait:
+        - value: 1
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
