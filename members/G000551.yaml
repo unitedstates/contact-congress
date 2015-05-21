@@ -3,21 +3,7 @@ contact_form:
   method: post
   action: /email-raul/
   steps:
-    - visit: "https://grijalvaforms.house.gov/email-raul"
-    - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go to Form
-          selector: input.button
-    - find:
-        - selector: "#custom_form42"
+    - visit: "https://grijalva.house.gov/email-raul"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -31,33 +17,17 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#custom_form42 input[name='street2']"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
+        - name: zipcode
           selector: "#req_zip"
           value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip2"
-          value: $ADDRESS_ZIP4
           required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
-          required: true
-        - name: phone
-          selector: "#custom_form42 input[name='phone']"
-          value: $PHONE
-          required: false
-        - name: subject
-          selector: "#req_subject"
-          value: $SUBJECT
           required: true
         - name: message
           selector: "#req_message"
@@ -65,7 +35,7 @@ contact_form:
           required: true
     - select:
         - name: prefix
-          selector: "#req_prefix"
+          selector: "#prefix"
           value: $NAME_PREFIX
           required: true
           options:
@@ -77,25 +47,41 @@ contact_form:
             Hon.: Hon.
             Rev.: Rev.
             Rabbi: Rabbi
-        - name: response
-          selector: "#req_response"
-          value: "Y"
+            Other: Other
+        - name: issue
+          selector: "#req_issue"
+          value: $TOPIC
           required: true
           options:
-            I do not need a response.: "N"
-            I would like a response.: "Y"
-        - name: newsletter
-          selector: "#req_newsletter"
-          value: NOTSUBSCRIBING
-          required: true
-          options:
-            "Yes": SUBSCRIBE
-            "No": NOTSUBSCRIBING
+            "Agriculture": "AGRICULTURE"
+            "Budget": "BUDGET"
+            "Defense": "DEFENSE"
+            "Education": "EDUCATION"
+            "Energy": "ENERGY"
+            "Environmental": "ENVIRONMENT"
+            "Foreign Affairs": "FOREIGN_AFFAIRS"
+            "Government Issues": "GOVERNMENTAL_AFFAIRS"
+            "Health": "HEALTHCARE"
+            "Homeland Security": "HSA"
+            "Immigration": "IMMIGRATION"
+            "International Relations": "FOREIGN_AFFAIRS"
+            "Judicial": "JUD"
+            "Labor": "LABOR"
+            "Social Security": "SOCIAL_SECURITY"
+            "Taxes": "TAX"
+            "Telecommunications": "TECHNOLOGY"
+            "Transportation": "TRANSPORTATION"
+            "Trade": "TRADE"
+            "Veterans": "VETERANS_AFFAIRS"
+            "Welfare": "WELFARE"
+            "Other Issues": "OTHER"
     - click_on:
-        - value: Submit
+        - value: Send Email
           selector: "#submitButton"
+    - wait:
+        - value: 1
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted
+      contains: "Your message has been successfully submitted! We will get in touch as soon as possible."
