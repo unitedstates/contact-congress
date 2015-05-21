@@ -15,7 +15,7 @@ contact_form:
       required: true
   - click_on: 
     - value: Go To Next Step
-      selector: "form[id='emailForm'] button[id='submit']"
+      selector: "form[action='/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2'] button[id='submit']"
   - find: 
     - selector: "#required-prefix"
   - fill_in:
