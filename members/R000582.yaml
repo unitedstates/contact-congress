@@ -16,16 +16,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
-  success:
-    headers:
-      status: 200
-    body:
-      contains: "Send Me An Email"
-contact_form:
-  method: post
-  action: /submit-contact.aspx
-  steps:
-    - visit: "https://roe.house.gov/contact/contactform.htm?zip5=37813&zip4=1659"
+    - find:
+        - selector: "form[name='contact'] input[name='required-first']"
     - fill_in:
         - name: required-first
           selector: "form[name='contact'] input[name='required-first']"
@@ -46,15 +38,15 @@ contact_form:
         - name: zip5
           selector: "form[name='contact'] input[name='zip5']"
           value: $ADDRESS_ZIP5
-          required: false
+          required: true
         - name: zip4
           selector: "form[name='contact'] input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: phone
           selector: "form[name='contact'] input[name='phone']"
           value: $PHONE
-          required: false
+          required: true
         - name: required-email
           selector: "form[name='contact'] input[name='required-email']"
           value: $EMAIL
@@ -73,12 +65,6 @@ contact_form:
             - Mrs.
             - Dr.
             - Ms.
-        - name: required-state
-          selector: "form[name='contact'] select[name='required-state']"
-          value: TN
-          required: false
-          options:
-            TN: TN
         - name: required-issue
           selector: "form[name='contact'] select[name='required-issue']"
           value: $TOPIC
@@ -112,4 +98,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for sending me your email.
+      contains: "Thank you for sending me your email."
