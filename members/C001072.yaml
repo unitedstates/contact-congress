@@ -17,12 +17,8 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - find:
-        - selector: "#prefix"
+        - selector: "#required-prefix"
     - fill_in:
-        - name: prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -60,6 +56,20 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -114,12 +124,9 @@ contact_form:
             "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
-    - find:
-        - selector: .field-item.even
-          value: The following information has been submitted
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: your message has been sent
