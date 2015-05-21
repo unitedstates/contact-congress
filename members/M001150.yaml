@@ -15,7 +15,7 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit[value='Go To Next Step']"
+          selector: "input[value='Go To Next Step']"
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -46,7 +46,7 @@ contact_form:
           value: $PHONE
           required: true
         - name: required-valid-email
-          selector: "#contactForm #required-valid-email"
+          selector: "input[placeholder='Email']"
           value: $EMAIL
           required: true
         - name: required-subject
@@ -102,7 +102,7 @@ contact_form:
             Other Issues: OTHER
     - click_on:
         - value: Send Email
-          selector: "#submit[value='Send Email']"
+          selector: "input[value='Send Email']"
   success:
     headers:
       status: 200
