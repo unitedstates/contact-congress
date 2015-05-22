@@ -22,7 +22,7 @@ contact_form:
           value: $NAME_FIRST
           required: true
         - name: lastname
-          selector: "#req_lastname"
+          selector: "form[action='/contact-me/'] #req_lastname"
           value: $NAME_LAST
           required: true
         - name: street
