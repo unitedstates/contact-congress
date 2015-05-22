@@ -19,10 +19,6 @@ contact_form:
     - find:
         - selector: "#custom_form17"
     - fill_in:
-        - name: ZIPVALIDATED
-          selector: "#custom_form17 input[name='ZIPVALIDATED']"
-          value: "true"
-          required: false
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
@@ -111,11 +107,11 @@ contact_form:
             Other: OTHER
         - name: response
           selector: "#req_response"
-          value: "Y"
+          value: "ii"
           required: false
           options:
-            I do not need a response.: "N"
-            I would like a response.: "Y"
+            I do not need a response.: "i"
+            I would like a response.: "ii"
     - click_on:
         - value: Submit
           selector: "#submitButton"
