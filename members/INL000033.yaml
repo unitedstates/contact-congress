@@ -1,0 +1,89 @@
+bioguide: INL000033
+contact_form:
+  method: post
+  action: /senatorcontact/#wpcf7-f1245-p1246-o1
+  steps:
+    - visit: "http://indianasenatedemocrats.org/senatorcontact/"
+    - fill_in:
+        - name: firstname
+          selector: "input[name='Firstname']"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "input[name='Lastname']"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "input[name='Address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[name='City']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "input[name='State']"
+          value: $ADDRESS_STATE_FULL
+          required: true
+        - name: zip
+          selector: "input[name='Zip']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "input[name='Email']" 
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "input[name='Phone']"
+          value: $PHONE
+          required: false
+        - name: subject
+          selector: "input[name='Subject']"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "textarea[name='Message']"
+          value: $MESSAGE
+          required: true
+    - select:
+      - name: senator
+        selector: "select[name='Senator']"
+        value: "Senator Randolph (District 2)"
+        required: Yes
+        options: 
+         - Senator Arnold (District 8)
+         - Senator Breaux (District 34)
+         - Senator Broden (District 10)
+         - Senator Lanane (District 25)
+         - Senator Mrvan (District 1)
+         - Senator Randolph (District 2)
+         - Senator Rogers (District 3)
+         - Senator Stoops (District 40)
+         - Senator Tallian (District 4)
+         - Senator Taylor (District 33)
+      - name: prefix
+        selector: "select[name='Salutation']"
+        value: "$NAME_PREFIX"
+        required: No
+        options: 
+         - Mr.
+         - Ms.
+         - Mrs.
+         - Dr.
+    - fill_in:
+        - name: captcha
+          selector: ".wpcf7-captchar"
+          captcha_selector: ".wpcf7-captchac"
+          captcha_id_selector: "input[name='_wpcf7_captcha_challenge_captcha-748']"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+    - click_on:
+        - value: Concerntype
+          selector: "input[type='checkbox'][value='Legislative Concerns']"
+        - value: Submit
+          selector: "input[type='submit'][value='Send']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been received

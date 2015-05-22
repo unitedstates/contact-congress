@@ -1,0 +1,43 @@
+bioguide: WIL000594
+contact_form:
+  method: post
+  action: /assembly/81/considine/contact-me/
+  steps:
+    - visit: "http://legis.wisconsin.gov/assembly/81/considine/contact-me/"
+    - fill_in:
+        - name: fname
+          selector: "input[id='5ad746a7-f0a8-44c5-ac0a-498d6c2abf75']"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "input[id='51d7362b-192c-48cd-a4fc-bc953d521134']"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "input[id='0e1bebef-6462-4f3e-bafb-f88dc06bdc6d']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: citystatezip
+          selector: "input[id='12490dff-213e-488a-e0ba-87b6f552346f']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: phone
+          selector: "input[id='6ccbc0fb-e404-4408-b274-23dbe4221d91']"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "input[id='22f665ef-6397-468b-b617-9f15bc3380e9']"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "textarea[id='df863463-0004-43ef-933e-de34c175e499']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting me

@@ -1,0 +1,39 @@
+bioguide: WIL000461
+contact_form:
+  method: post
+  action: Contact.aspx
+  steps:
+    - visit: "http://legis.wisconsin.gov/assembly/jacque/Pages/Contact.aspx"
+    - fill_in:
+        - name: message
+          selector: "#legis-cf-comments"
+          value: $MESSAGE
+          required: true
+        - name: email
+          selector: "#legis-cf-email"
+          value: $EMAIL
+          required: true
+        - name: name
+          selector: "#legis-cf-name"
+          value: $NAME_FULL
+          required: true
+        - name: address
+          selector: "#legis-cf-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: citystatezip
+          selector: "#legis-cf-city-state"
+          value: $ADDRESS_CITY
+          required: true
+        - name: phone
+          selector: "#legis-cf-phone"
+          value: $PHONE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: ".legis-email-submit-btn"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Form submitted successfully

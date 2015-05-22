@@ -1,0 +1,39 @@
+bioguide: WIL000589
+contact_form:
+  method: post
+  action: /senate/17/marklein/contact/
+  steps:
+    - visit: "http://legis.wisconsin.gov/senate/17/marklein/contact/"
+    - fill_in:
+        - name: name
+          selector: "#d3c70554-f566-4fc3-8bd7-e750b91bd87d"
+          value: $NAME_FULL
+          required: true
+        - name: address
+          selector: "input[id='4843fa7c-8c6e-4622-bcdb-f035090ec7a1']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[id='4c66f7e4-536b-422d-a29c-90369ee6d6f8']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "input[id='57fb3928-e47e-475c-9e0c-1bdf9df2ba1a']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "input[id='556ffd44-9d1a-472c-8bbb-375de761904a']"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "textarea[id='40e41500-46c2-4209-af8c-2765c3fd427f']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Wisconsin State Capitol

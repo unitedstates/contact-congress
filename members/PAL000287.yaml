@@ -1,0 +1,59 @@
+bioguide: PAL000287
+contact_form:
+  method: post
+  action: /contact.aspx
+  steps:
+    - visit: "http://www.legis.state.pa.us/cfdocs/legis/home/member_information/ContactMember.cfm?district=085"
+    - fill_in:
+        - name: fname
+          selector: "#ctl00_cphContent_txtFirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#ctl00_cphContent_txtLastName"
+          value: $NAME_LAST
+          required: true
+        - name: phone
+          selector: "#ctl00_cphContent_txtHomePhone"
+          value: $PHONE
+          required: false
+        - name: email
+          selector: "#ctl00_cphContent_txtEmail"
+          value: $EMAIL
+          required: true
+        - name: address
+          selector: "#ctl00_cphContent_txtAddress"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#ctl00_cphContent_txtCity"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#ctl00_cphContent_txtZip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: message
+          selector: "#ctl00_cphContent_txtActionRequest"
+          value: $MESSAGE
+          required: true
+        - name: recaptcha_response_field
+          selector: "#ctl00_cphContent_RadCaptcha1_CaptchaTextBox"
+          captcha_selector: "#ctl00_cphContent_RadCaptcha1_CaptchaImageUP"
+          value: $CAPTCHA_SOLUTION
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#ctl00_cphContent_ddlStates"
+          value: PA
+          required: true
+          options:
+           - PA
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_cphContent_btnSubmit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your web submission

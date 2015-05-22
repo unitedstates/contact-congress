@@ -1,0 +1,35 @@
+bioguide: IAL000017
+contact_form:
+  method: post
+  action: 
+  steps:
+    - visit: "http://www.senate.iowa.gov/senator/dotzler/contact/send-email/"
+    - fill_in:
+        - name: name
+          selector: "input[name='your-name']"
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: "input[name='your-email']" 
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "input[name='your-subject']"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "textarea[name='your-message']"
+          value: $MESSAGE
+          required: true
+        - name: captcha
+          selector: ".wpcf7-captchar"
+          captcha_selector: ".wpcf7-captchac"
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Send']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message was sent successfully

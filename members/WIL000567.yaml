@@ -1,0 +1,43 @@
+bioguide: WIL000567
+contact_form:
+  method: post
+  action: /senate/09/LeMahieu/contact-devin/
+  steps:
+    - visit: "http://legis.wisconsin.gov/senate/09/LeMahieu/contact-devin/"
+    - fill_in:
+        - name: name
+          selector: "input[id='bb18d8f1-0b16-4400-a11f-b17b03269cdb']"
+          value: $NAME_FULL
+          required: true
+        - name: address
+          selector: "input[id='342e25ac-a482-4a38-8eb4-8b5e7cd5b308']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[id='626b8e27-bf5a-4015-8f9f-a851d3ef9cb6']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "input[id='c6ea50ff-9f1c-4947-9653-bf03a282dc14']"
+          value: $ADDRESS_STATE_FULL
+          required: false
+        - name: zip
+          selector: "input[id='9e372cb6-fa27-4c9a-e450-df2fc80c58b5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "input[id='fa63d8f3-0cf6-4504-b40e-3deab0ec61b1']"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "textarea[id='5a31c909-314f-4146-bda0-3e38f3fee5b0']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

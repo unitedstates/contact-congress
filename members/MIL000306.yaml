@@ -1,0 +1,55 @@
+bioguide: MIL000306
+contact_form:
+  method: post
+  action: ima_form_post.asp
+  steps:
+    - visit: "http://www.senate.michigan.gov/ima_form.asp?name=comment37&form_path=e:/webforms/rep"
+    - fill_in:
+        - name: prefix
+          selector: "input[name='prefix']"
+          value: $NAME_PREFIX
+          required: false
+        - name: fname
+          selector: "input[name='first_name']"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "input[name='last_name']"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "input[name='street_address']" 
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[name='city']" 
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "input[name='zip_5']" 
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "input[name='phone']"
+          value: $PHONE
+          required: false
+        - name: email
+          selector: "input[name='email']"
+          value: $EMAIL
+          required: false
+        - name: subject
+          selector: "input[name='subject']"
+          value: $SUBJECT
+          required: false
+        - name: message
+          selector: "textarea[name='message']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit Form']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your request has been sent

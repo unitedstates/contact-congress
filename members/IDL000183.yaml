@@ -1,0 +1,59 @@
+bioguide: IDL000183
+contact_form:
+  method: post
+  action: contactmembersformaction.cfm
+  steps:
+    - visit: "http://legislature.idaho.gov/about/contactmembersform.cfm?ID=2066"
+    - fill_in:
+        - name: name
+          selector: "input[name='name']"
+          value: $NAME_FULL
+          required: true
+        - name: address
+          selector: "input[name='address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[name='city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "input[name='state']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: false
+        - name: zip
+          selector: "input[name='zip']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: area
+          selector: "input[name='phac']"
+          value: $PHONE_AREA_CODE
+          required: false
+        - name: exchange
+          selector: "input[name='phpre']"
+          value: $PHONE_EXCHANGE_CODE
+          required: false
+        - name: subscriber
+          selector: "input[name='phline']"
+          value: $PHONE_SUBSCRIBER_NUMBER
+          required: false
+        - name: email
+          selector: "input[name='email']"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "input[name='subject']"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "textarea[name='message']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Continue
+          selector: "input[value='Submit Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your comments have been emailed to

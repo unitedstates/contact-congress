@@ -1,0 +1,68 @@
+bioguide: PAL000043
+contact_form:
+  method: post
+  action:
+  steps:
+    - visit: "http://www.senatorward.com/contact-me/"
+    - iframe:
+      - name: parent1
+        selector: "iframe[src^='http://wpcontact.pasenategop.com']"
+    - wait:
+      - value: 5
+    - fill_in:
+        - name: fname
+          selector: "input[id='txtFirstname']"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#txtLastname"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "#txtEmail"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#txtPhone"
+          value: $PHONE_PARENTHESES
+          required: true
+        - name: address
+          selector: "#txtAddress1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#txtAddress2"
+          value: $ADDRESS_STREET_2
+          required: true
+        - name: city
+          selector: "#txtCity"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#txtZip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: subject
+          selector: "#txtSubject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#txtComments"
+          value: $MESSAGE
+          required: true
+    - wait:
+      - value: 5
+    - click_on:
+        - value: Submit
+          selector: "#bSubmit_input"
+    - iframe:
+      - name: parent1
+        back: true
+    - iframe:
+      - name: parent1
+        selector: "iframe[src^='http://wpcontact.pasenategop.com']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting us

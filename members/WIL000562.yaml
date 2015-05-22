@@ -1,0 +1,39 @@
+bioguide: WIL000562
+contact_form:
+  method: post
+  action: /assembly/57/stuck/contact-form/
+  steps:
+    - visit: "http://legis.wisconsin.gov/assembly/57/stuck/contact-form/"
+    - fill_in:
+        - name: name
+          selector: "input[id='b3b8c0f0-ddad-4315-8f93-11b29ebe717e']"
+          value: $NAME_FULL
+          required: true
+        - name: address
+          selector: "input[id='06eda53b-980e-4ebe-a8ee-e9b953783fac']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[id='4804fcd7-4fe8-4886-a090-62ef7f35df7a']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "input[id='f8c73e08-d471-406f-a673-e1c910bc9b66']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "input[id='a3ff89e8-2a7e-4abb-8c53-35f7e8952eef']"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "textarea[id='13155b31-ac36-44bf-a073-5cecb6ff6228']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Wisconsin State Capitol

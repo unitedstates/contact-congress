@@ -1,0 +1,43 @@
+bioguide: WIL000591
+contact_form:
+  method: post
+  action: /assembly/59/kremer/contact-me/
+  steps:
+    - visit: "http://legis.wisconsin.gov/assembly/59/kremer/contact-me/"
+    - fill_in:
+        - name: name
+          selector: "input[id='8158dc83-4143-4d5b-8770-f4d298b943ce']"
+          value: $NAME_FULL
+          required: true
+        - name: phone
+          selector: "input[id='61a58e75-0ec7-421b-fe10-e454d498d803']"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "input[id='f52f77ed-db9a-4e02-b619-77ea64543f39']"
+          value: $EMAIL
+          required: true
+        - name: address
+          selector: "input[id='ea343b07-a918-4f99-ecf2-a8bd80667606']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[id='39f98741-51a6-4aaa-afa8-4498998663df']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "input[id='3f3aae8f-034b-4365-aedd-f7b3887e0722']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: message
+          selector: "textarea[id='e21fc7b8-a9e9-47e9-a0b9-33e07f659c22']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

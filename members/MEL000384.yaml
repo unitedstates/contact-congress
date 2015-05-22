@@ -1,0 +1,33 @@
+bioguide: MEL000384
+contact_form:
+  method: post
+  action: Contact.aspx
+  steps:
+    - visit: "http://www.mainesenate.org/contact-us/contact-senator-valentino/"
+    - fill_in:
+        - name: name
+          selector: "input[name='your-name']"
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: "input[name='your-email']"
+          value: $EMAIL
+          required: true
+        - name: zip
+          selector: "input[name='your-subject']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: message
+          selector: "textarea[name='your-message']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Send']"
+    - find:
+        - selector: ".wpcf7-mail-sent-ok"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message was sent successfully

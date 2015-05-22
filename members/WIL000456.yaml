@@ -1,0 +1,27 @@
+bioguide: WIL000456
+contact_form:
+  method: post
+  action: /senate/25/bewley/contact/
+  steps:
+    - visit: "http://legis.wisconsin.gov/senate/25/bewley/contact/"
+    - fill_in:
+        - name: name
+          selector: "input[id='bb18d8f1-0b16-4400-a11f-b17b03269cdb']"
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: "input[id='fa63d8f3-0cf6-4504-b40e-3deab0ec61b1']"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "textarea[id='5a31c909-314f-4146-bda0-3e38f3fee5b0']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

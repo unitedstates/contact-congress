@@ -1,0 +1,47 @@
+bioguide: WIL000450
+contact_form:
+  method: post
+  action: Contact-Senator-Moulton.aspx
+  steps:
+    - visit: "http://legis.wisconsin.gov/senate/moulton/Pages/Contact-Senator-Moulton.aspx"
+    - fill_in:
+        - name: fname
+          selector: "#legis-cf-name-first"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#legis-cf-name-last"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#legis-cf-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: citystatezip
+          selector: "#legis-cf-city-state"
+          value: $ADDRESS_CITY
+          required: true
+        - name: phone
+          selector: "#legis-cf-phone"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#legis-cf-email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#legis-cf-subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#legis-cf-message"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: ".legis-email-submit-btn"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for visiting

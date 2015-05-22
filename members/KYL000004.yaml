@@ -1,0 +1,70 @@
+bioguide: KYL000004
+contact_form:
+  method: post
+  action: S034.aspx
+  steps:
+    - visit: "http://www.lrc.ky.gov/Messages/S034.aspx"
+    - fill_in:
+        - name: prefix
+          selector: "#Title"
+          value: $NAME_PREFIX
+          required: true
+        - name: fname
+          selector: "#First_Name"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#Last_Name"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "#State"
+          value: $ADDRESS_STATE_FULL
+          required: true
+        - name: zip
+          selector: "#Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#Phone"
+          value: $PHONE
+          required: false
+        - name: email
+          selector: "#Email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#Subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#Message"
+          value: $MESSAGE
+          required: true
+    - question:
+        - name: qna
+          question_selector: "#LabelQ"
+          answer_selector: "#TextBoxQ"
+          pairs:
+            - q: "Is ice hot or cold?"
+              a: "cold"
+            - q: "Is fire hot or cold?"
+              a: "hot"
+            - q: "Is water wet or dry?"
+              a: "wet"
+    - click_on:
+        - value: Submit
+          selector: "#SubmitForm"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: message has been sent

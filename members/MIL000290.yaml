@@ -1,0 +1,45 @@
+bioguide: MIL000290
+contact_form:
+  method: post
+  action: #contact-form-31860
+  steps:
+    - visit: "http://gophouse.org/representatives/southeast/kcrawford/contact/"
+    - fill_in:
+        - name: name
+          selector: "input[id='31860-name']"
+          value: $NAME_FULL
+          required: true
+        - name: address
+          selector: "input[id='31860-street-address']" 
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[id='31860-city']" 
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "input[id='31860-zip']" 
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "input[id='31860-email']" 
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "input[id='31860-phone-number']"
+          value: $PHONE
+          required: true
+        - name: message
+          selector: "textarea[id='contact-form-comment-31860-message']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Send']"
+    - wait:
+        - value: 1
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been successfully sent

@@ -1,0 +1,57 @@
+bioguide: TXL000349
+contact_form:
+  method: post
+  action: http://www.senate.state.tx.us/bin/distemail-csrf.php
+  steps:
+    - visit: "http://www.senate.state.tx.us/75r/senate/members/dist11/dist11.htm#form"
+    - fill_in:
+        - name: emailaddress
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail-csrf.php'] #sender"
+          value: $EMAIL
+          required: true
+        - name: firstname
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail-csrf.php'] #fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail-csrf.php'] #lname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail-csrf.php'] #address1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail-csrf.php'] #address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail-csrf.php'] #city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail-csrf.php'] #state"
+          value: $ADDRESS_STATE_FULL
+          required: true
+        - name: zipcode
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail-csrf.php'] #zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: subject
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail-csrf.php'] #subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail-csrf.php'] #message"
+          value: $MESSAGE
+          required: true
+    - wait:
+        - value: 1
+    - click_on:
+        - value: Send Message
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail-csrf.php'] input[type='submit'][value='SEND MESSAGE']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: The information you supplied has been successfully delivered

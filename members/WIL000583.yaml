@@ -1,0 +1,35 @@
+bioguide: WIL000583
+contact_form:
+  method: post
+  action: /assembly/19/brostoff/contact-me/
+  steps:
+    - visit: "http://legis.wisconsin.gov/assembly/19/brostoff/contact-me/"
+    - fill_in:
+        - name: fname
+          selector: "#be1b77f9-e436-44ef-97b7-28778c66ff79"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#c2434ebb-7f56-44a7-bbe4-942467d3e758"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#febfc176-e418-47a7-8cd5-fa188c79f6dc"
+          value: $ADDRESS_STREET
+          required: true
+        - name: email
+          selector: "#ce108137-ce3e-4385-99a8-7ef3ac137792"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "textarea[id='7136e106-d559-4f87-a9ed-2e189ec810dc']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

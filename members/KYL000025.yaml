@@ -5,15 +5,19 @@ contact_form:
   steps:
     - visit: "http://www.lrc.ky.gov/Messages/S011.aspx"
     - fill_in:
-        - name: firstname
+        - name: prefix
+          selector: "#Title"
+          value: $NAME_PREFIX
+          required: true
+        - name: fname
           selector: "#First_Name"
           value: $NAME_FIRST
           required: true
-        - name: lastname
+        - name: lname
           selector: "#Last_Name"
           value: $NAME_LAST
           required: true
-        - name: street
+        - name: address
           selector: "#Street"
           value: $ADDRESS_STREET
           required: true
@@ -25,11 +29,15 @@ contact_form:
           selector: "#State"
           value: $ADDRESS_STATE_FULL
           required: true
-        - name: zipcode
+        - name: zip
           selector: "#Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: emailaddress
+        - name: phone
+          selector: "#Phone"
+          value: $PHONE
+          required: false
+        - name: email
           selector: "#Email"
           value: $EMAIL
           required: true
@@ -53,10 +61,10 @@ contact_form:
             - q: "Is water wet or dry?"
               a: "wet"
     - click_on:
-        - value: Send Message
+        - value: Submit
           selector: "#SubmitForm"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been sent
+      contains: message has been sent

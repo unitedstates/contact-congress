@@ -1,0 +1,43 @@
+bioguide: CTL000297
+contact_form:
+  method: post
+  action: feedout.php
+  steps:
+    - visit: "http://www.housedems.ct.gov/Rosario/contact.asp"
+    - fill_in:
+        - name: name
+          selector: "#nameis"
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: "input[name='visitormail'][size='40']"
+          value: $EMAIL
+          required: true
+        - name: address
+          selector: "#address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "#state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: zip
+          selector: "#Contact #zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: message
+          selector: "#comments"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form[id='Contact'] input[type='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting me

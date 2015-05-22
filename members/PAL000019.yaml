@@ -1,0 +1,56 @@
+bioguide: PAL000019
+contact_form:
+  method: post
+  action: /contact-me/email-me#usermessage4a
+  steps:
+    - visit: "http://senatorhughes.com/contact-me/email-me"
+    - fill_in:
+        - name: fname
+          selector: "#cf4_field_1"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#cf4_field_2"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#cf4_field_3"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#cf4_field_4"
+          value: $ADDRESS_STREET_2
+          required: true
+        - name: city
+          selector: "#cf4_field_5"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#cf4_field_7"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#cf4_field_8"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#cf4_field_9"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "#cf4_field_10"
+          value: $MESSAGE
+          required: true
+        - name: captcha
+          selector: "#cforms_captcha4"
+          captcha_selector: "#cf_captcha_img4"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#sendbutton4"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank You
