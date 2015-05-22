@@ -6,64 +6,62 @@ contact_form:
   - visit: https://buddycarter.house.gov/contact
   - fill_in: 
     - name: required-zip5
-      selector: "#required-zip5"
+      selector: "input[name='zip5']"
       value: $ADDRESS_ZIP5
       required: true
     - name: zip4
-      selector: "#zip4"
+      selector: "input[name='zip4']"
       value: $ADDRESS_ZIP4
       required: true
   - click_on: 
     - value: Go To Next Step
-      selector: "#emailForm #submit"
+      selector: "input[value='Submit']"
   - find: 
-    - selector: "#required-prefix"
-  - fill_in: 
+    - selector: "input[name='required-prefix']"
+  - fill_in:
+    - name: prefix
+      selector: "input[name='required-prefix']"
+      value: $NAME_PREFIX
+      required: true
     - name: required-first
-      selector: "#required-first"
+      selector: "input[name='required-first']"
       value: $NAME_FIRST
       required: true
     - name: required-last
-      selector: "#required-last"
+      selector: "input[name='required-last']"
       value: $NAME_LAST
       required: true
     - name: required-address
-      selector: "#required-address"
+      selector: "input[name='required-address']"
       value: $ADDRESS_STREET
       required: true
     - name: required-city
-      selector: "#required-city"
+      selector: "input[name='required-city']"
       value: $ADDRESS_CITY
       required: true
+    - name: zip
+      selector: "input[name='zip5']"
+      value: $ADDRESS_ZIP5
+      required: true
+    - name: zip4
+      selector: "input[name='zip4']"
+      value: $ADDRESS_ZIP4
+      required: true
     - name: required-valid-email
-      selector: "#required-valid-email"
+      selector: "input[name='required-email']"
       value: $EMAIL
       required: true
-    - name: required-phone
-      selector: "#required-phone"
+    - name: phone
+      selector: "input[name='phone']"
       value: $PHONE
-      required: true
+      required: false
     - name: required-message
-      selector: "#required-message"
+      selector: "textarea[name='required-message']"
       value: $MESSAGE
       required: true
   - select: 
-    - name: required-prefix
-      selector: "#required-prefix"
-      value: $NAME_PREFIX
-      required: true
-      options: 
-        Ms.: Ms.
-        Miss: Miss
-        Mrs.: Mrs.
-        Mr.: Mr.
-        Mr. and Mrs.: Mr. and Mrs.
-        Rev.: Rev.
-        Dr.: Dr.
-        The Honorable: The Honorable
-        Rabbi: Rabbi
     - name: required-issue
-      selector: "#required-issue"
+      selector: "select[name='required-issue']"
       value: $TOPIC
       required: true
       options: 
@@ -107,18 +105,15 @@ contact_form:
         "Women's Issues": WOMEN
         Welfare: WEL
         Other Issues: OTHER
-    - name: required-response
-      selector: "#required-response"
-      value: Y
-      required: true
-      options: 
-        Yes, please contact me: Y
-        No, I wanted to voice my opinion: N
-  - click_on: 
-    - value: Send Email to Representative Carter
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
+  - click_on:
+    - value: Yes
+      selector: "input[value='Yes'][name='response']"
+    - value: Send Email
+      selector: "input[value='Send Email'][type='submit']"
+    - value: Send Email
+      selector: "input[value='Send Email'][type='submit']"
   success: 
     headers: 
       status: 200
     body: 
-      contains: your message has been sent
+      contains: Your form has been successfully submitted
