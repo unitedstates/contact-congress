@@ -15,7 +15,7 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm #submit"
+          selector: "input[value='Go To Next Step']"
     - find:
         - selector: "#contactForm"
     - fill_in:
@@ -89,7 +89,7 @@ contact_form:
             Other Issues: WEBOTH
     - click_on:
         - value: Send Email
-          selector: "#contactForm #submit"
+          selector: "input[value='Send Email']"
   success:
     headers:
       status: 200
