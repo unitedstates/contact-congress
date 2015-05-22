@@ -1,0 +1,83 @@
+bioguide: FLL000025
+contact_form:
+  method: post
+  action: /_Email
+  steps:
+    - visit: "https://www.flsenate.gov/Senators/s35"
+    - click_on:
+        - value: Contact
+          selector: ".contactSenator"
+    - wait:
+        - value: 5
+    - fill_in:
+        - name: message
+          selector: "#Comment"
+          value: $MESSAGE
+          required: true
+        - name: fname
+          selector: "#FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#LastName"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "#EmailAddress"
+          value: $EMAIL
+          required: true
+        - name: address
+          selector: "#MailingAddress"
+          value: $ADDRESS_STREET
+          required: false
+        - name: city
+          selector: "#City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#Telephone"
+          value: $PHONE
+          required: false
+    - select:
+        - name: topic
+          selector: "#Topic"
+          value: Other
+          required: true
+          options:
+           - Child Welfare
+           - Education
+           - Environment and Natural Resources
+           - Health Care
+           - Jobs and the Economy
+           - Public Safety
+           - State Budget
+           - Other
+        - name: response
+          selector: "#WayToRespond"
+          value: Email
+          required: true
+          options:
+           - Email
+           - Telephone
+           - Postal Mail
+           - No Response Needed
+    - math:
+        - name: math_qna
+          question_selector: "label[for='math-test']"
+          answer_selector: "#math-test"
+    - click_on:
+        - value: Unsub
+          selector: "#ReceiveUpdates"
+        - value: Submit
+          selector: "#submitEmailForm"
+    - wait:
+        - value: 5
+  success:
+    headers:
+      status: 200
+    body:
+      contains: message has been sent

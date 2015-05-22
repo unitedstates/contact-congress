@@ -1,0 +1,54 @@
+bioguide: INL000058
+contact_form:
+  method: post
+  action: index.php
+  steps:
+    - visit: "http://www.indianahouserepublicans.com/forms/contact-your-representative/?formField_Representative=Rep.%20Robert%20Behning%20%28HD%2091%29"
+    - fill_in:
+        - name: name
+          selector: "#IDFormField_First_Name_0"
+          value: $NAME_FIRST
+          required: true
+        - name: name
+          selector: "#IDFormField_Last_Name_0"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "#IDFormField_Email_0" 
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#IDFormField_Phone_0"
+          value: $PHONE
+          required: false
+        - name: address
+          selector: "#IDFormField_Address_0"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#IDFormField_City_0"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#IDFormField_Zip_0"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: message
+          selector: "#IDFormField_Comments_0"
+          value: $MESSAGE
+          required: true
+    - fill_in:
+        - name: captcha
+          selector: "#recaptcha_response_field"
+          captcha_selector: "#recaptcha_challenge_image"
+          captcha_id_selector: "#recaptcha_challenge_field"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form[id='form'] button[type='submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been received

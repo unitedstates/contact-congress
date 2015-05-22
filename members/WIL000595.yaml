@@ -1,0 +1,33 @@
+bioguide: WIL000595
+contact_form:
+  method: post
+  action: /assembly/45/spreitzer/share-your-thoughts/
+  steps:
+    - visit: "http://legis.wisconsin.gov/assembly/45/spreitzer/share-your-thoughts/"
+    - fill_in:
+        - name: name
+          selector: "input[id='f5679156-8d89-44ef-b8e6-7b6b7f7dc928']"
+          value: $NAME_FULL
+          required: true
+        - name: addresscityzip
+          selector: "input[id='42345a62-73c5-40d1-9b5b-bf4894a0590b']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: email
+          selector: "input[id='88ad3e7b-8969-497e-8ba4-bdce26a69a77']"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "textarea[id='94214ea5-78a3-4b9a-81d1-7b14989f1e3c']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Unsubscribe
+          selector: "input[id='818b88aa-5dae-40f0-a55f-4cdc6e2f281e']"
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

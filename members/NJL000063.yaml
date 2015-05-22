@@ -1,0 +1,40 @@
+bioguide: NJL000063
+contact_form:
+  method: post
+  action: SelectMun.asp
+  steps:
+    - visit: "http://tomkean.senatenj.com/contact.php"
+    - fill_in:
+        - name: name
+          selector: "input[name='your-name']"
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: "input[name='your-email']"
+          value: $EMAIL
+          required: true
+        - name: city
+          selector: "input[name='your-town']" 
+          value: $ADDRESS_CITY
+          required: true
+        - name: subject
+          selector: "input[name='your-subject']"
+          value: $SUBJECT
+          required: false
+        - name: message
+          selector: "textarea[name='your-message']"
+          value: $MESSAGE
+          required: true
+        - name: captcha
+          selector: "#recaptcha_response_field"
+          captcha_selector: "#recaptcha_challenge_image"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+    - click_on:
+        - value: Submit
+          selector: ".wpcf7-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message was sent successfully

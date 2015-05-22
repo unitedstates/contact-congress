@@ -1,0 +1,45 @@
+bioguide: CTL000103
+contact_form:
+  method: post
+  action: 
+  steps:
+    - visit: "http://ctsenaterepublicans.com/contact-chapin/"
+    - fill_in:
+        - name: name
+          selector: "input[name='first_name']"
+          value: $NAME_FIRST
+          required: true
+        - name: name
+          selector: "input[name='last_name']"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: ".wpcf7-validates-as-email"
+          value: $EMAIL
+          required: true
+        - name: address
+          selector: "input[name='mailing_address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[name='town']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "input[name='zip']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: message
+          selector: "textarea[name='question']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: unsubscribe
+          selector: "input[type='checkbox'][value='Yes']"
+        - value: Submit
+          selector: ".wpcf7-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message was sent successfully

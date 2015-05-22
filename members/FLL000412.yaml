@@ -1,0 +1,67 @@
+bioguide: FLL000412
+contact_form:
+  method: post
+  action: emailrepresentative.aspx?MemberId=4619&LegislativeTermId=86
+  steps:
+    - visit: "http://www.myfloridahouse.gov/Sections/Representatives/emailrepresentative.aspx?MemberId=4619&LegislativeTermId=86"
+    - fill_in:
+        - name: name
+          selector: "#ctl00_ContentPlaceHolder1_txtName"
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: "#ctl00_ContentPlaceHolder1_txtEmailAddress"
+          value: $EMAIL
+          required: true
+        - name: address
+          selector: "#ctl00_ContentPlaceHolder1_txtAddress"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#ctl00_ContentPlaceHolder1_txtAddress2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#ctl00_ContentPlaceHolder1_txtCity"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "#ctl00_ContentPlaceHolder1_txtState"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: false
+        - name: zip
+          selector: "#ctl00_ContentPlaceHolder1_txtZip"
+          value: $ADDRESS_ZIP5
+          required: false
+        - name: zip4
+          selector: "#ctl00_ContentPlaceHolder1_txtZip2"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: area
+          selector: "#ctl00_ContentPlaceHolder1_txtAreaCode"
+          value: $PHONE_AREA_CODE
+          required: false
+        - name: exchange
+          selector: "#ctl00_ContentPlaceHolder1_txtPhone"
+          value: $PHONE_EXCHANGE_CODE
+          required: false
+        - name: subscriber
+          selector: "#ctl00_ContentPlaceHolder1_txtPhone2"
+          value: $PHONE_SUBSCRIBER_NUMBER
+          required: false
+    - click_on:
+        - value: Continue
+          selector: "#ctl00_ContentPlaceHolder1_btnSubmitSenderAttri"
+    - fill_in:
+        - name: message
+          selector: "#ctl00_ContentPlaceHolder1_txtMessage"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Continue
+          selector: "#ctl00_ContentPlaceHolder1_btnSubmit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: E-mail has been successfully sent

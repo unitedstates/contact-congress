@@ -1,0 +1,55 @@
+bioguide: MIL000018
+contact_form:
+  method: post
+  action: 
+  steps:
+    - visit: "http://senatedems.com/warren/contact/"
+    - fill_in:
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "#email" 
+          value: $EMAIL
+          required: true
+        - name: address
+          selector: "#address" 
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#city" 
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#zip" 
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: subject
+          selector: "#subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: DoNotSubscribe
+          selector: "#subscribe"
+        - value: Submit
+          selector: "input[type='submit'][value='Send']"
+    - find:
+        - selector: ".alert-info"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Message sent

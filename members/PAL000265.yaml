@@ -1,0 +1,70 @@
+bioguide: PAL000265
+contact_form:
+  method: post
+  action: /contact/#usermessage5a
+  steps:
+    - visit: "http://www.senatorblake.com/contact/"
+    - fill_in:
+        - name: fname
+          selector: "#cf5_field_3"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#cf5_field_4"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#cf5_field_5"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#cf5_field_6"
+          value: $ADDRESS_STREET_2
+          required: true
+        - name: city
+          selector: "#cf5_field_7"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#cf5_field_9"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#cf5_field_10"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#cf5_field_11"
+          value: $PHONE
+          required: true
+        - name: message
+          selector: "#cf5_field_12"
+          value: $MESSAGE
+          required: true
+        - name: captcha
+          selector: "#cforms_captcha5"
+          captcha_selector: "#cf_captcha_img5"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+    - select:
+        - name: issue
+          selector: "#cf5_field_1"
+          value: "Other"
+        - name: prefix
+          selector: "#cf5_field_2"
+          value: $NAME_PREFIX
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+            - Hon.
+    - click_on:
+        - value: Submit
+          selector: "#sendbutton5"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: taking the time to email me your comments

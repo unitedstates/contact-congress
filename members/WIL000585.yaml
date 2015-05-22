@@ -1,0 +1,35 @@
+bioguide: WIL000585
+contact_form:
+  method: post
+  action: /assembly/70/vandermeer/contact-me/
+  steps:
+    - visit: "http://legis.wisconsin.gov/assembly/70/vandermeer/contact-me/"
+    - fill_in:
+        - name: name
+          selector: "input[id='affa8598-8937-4c45-b712-e669460aab5b']"
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: "input[id='a14d21df-bbc0-4b71-b9fb-3766ff6c1a2f']"
+          value: $EMAIL
+          required: true
+        - name: streetcityzip
+          selector: "input[id='73368fe5-2894-4c31-a58d-638258f1c2af']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: phone
+          selector: "input[id='61edcd64-cb2f-4962-931a-2df73e30717f']"
+          value: $PHONE
+          required: true
+        - name: message
+          selector: "textarea[id='bd7b83dc-3d3b-4ac6-bd09-73c9b6aaf646']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

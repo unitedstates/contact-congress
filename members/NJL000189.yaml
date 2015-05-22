@@ -1,0 +1,71 @@
+bioguide: NJL000189
+contact_form:
+  method: post
+  action: SelectMun.asp
+  steps:
+    - visit: "http://www.njleg.state.nj.us/Selectmun.asp"
+    - select:
+        - name: Municipality
+          selector: "#DistrictDD"
+          value: Alloway (District 3)
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#senddata"
+        - value: Submit
+          selector: "#checkbox3"
+        - value: Submit
+          selector: "#senddata"
+    - fill_in:
+        - name: fname
+          selector: "input[name='FirstName']"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "input[name='LastName']"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "input[name='Address']" 
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[name='City']" 
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "input[name='ZipCode']" 
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone1
+          selector: "input[name='Phone1']"
+          value: $PHONE
+          required: false
+        - name: phone2
+          selector: "input[name='Phone2']"
+          value: $PHONE
+          required: false
+        - name: phone3
+          selector: "input[name='Phone3']"
+          value: $PHONE
+          required: false
+        - name: email
+          selector: "input[name='email']"
+          value: $EMAIL
+          required: false
+        - name: subject
+          selector: "input[name='ESubject']"
+          value: $SUBJECT
+          required: false
+        - name: message
+          selector: "textarea[name='Message']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='button'][value='Submit Email']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message was successfully sent

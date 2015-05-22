@@ -1,0 +1,55 @@
+bioguide: NYL000212
+contact_form:
+  method: post
+  action: http://assembly.state.ny.us/mem/Anthony-Brindisi/send_mail
+  steps:
+    - visit: "http://assembly.state.ny.us/mem/Anthony-Brindisi/contact"
+    - fill_in:
+        - name: fname
+          selector: "input[name='form_fname']"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "input[name='form_lname']"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "input[name='form_addr1']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "input[name='form_addr2']"
+          value: $ADDRESS_STREET_2
+          required: true
+        - name: city
+          selector: "input[name='form_city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "input[name='form_zip']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "input[name='form_phone']"
+          value: $PHONE
+          required: false
+        - name: email
+          selector: "input[name='form_email']"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "input[name='form_subject']"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "textarea[name='form_message']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[name='form_submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your submission

@@ -1,0 +1,65 @@
+bioguide: WAL000008
+contact_form:
+  method: post
+  action: /pbc/memberEmail/29/0
+  steps:
+    - visit: "https://app.leg.wa.gov/pbc/memberEmail/29/0"
+    - fill_in:
+        - name: street
+          selector: "#Address_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#Address_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "#Address_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: zipcode
+          selector: "#Address_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+    - click_on:
+        - value: Validate address
+          selector: "#ValidateAddressButton"
+    - fill_in:
+        - name: firstname
+          selector: "#FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#LastName"
+          value: $NAME_LAST
+          required: true
+        - name: emailaddress
+          selector: "#Email"
+          value: $EMAIL
+          required: true
+        - name: confirmemailaddress
+          selector: "#ConfirmEmail"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#PhoneNumber"
+          value: $PHONE
+          required: false
+        - name: subject
+          selector: "#CommentSubject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#Comment"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Response requested
+          selector: "#ResponseRequested_True"
+        - value: Send
+          selector: "#FormSubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: The following message was sent to

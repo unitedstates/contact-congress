@@ -1,0 +1,55 @@
+bioguide: TXL000473
+contact_form:
+  method: post
+  action: http://www.senate.state.tx.us/bin/distemail.php
+  steps:
+    - visit: "http://www.senate.state.tx.us/75r/senate/members/dist6/dist6.htm#form"
+    - fill_in:
+        - name: emailaddress
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #sender"
+          value: $EMAIL
+          required: true
+        - name: firstname
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #lname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #address1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #state"
+          value: $ADDRESS_STATE_FULL
+          required: true
+        - name: zipcode
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: subject
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #message"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Send Message
+          selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] input[type='submit'][value='SEND MESSAGE']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time

@@ -1,0 +1,63 @@
+bioguide: NYL000006
+contact_form:
+  method: post
+  action: /senator/john-j-bonacic/contact
+  steps:
+    - visit: "http://www.nysenate.gov/senator/john-j-bonacic/contact"
+    - fill_in:
+        - name: fname
+          selector: "#edit-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#edit-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "#edit-from-email"
+          value: $EMAIL
+          required: true
+        - name: address
+          selector: "#edit-guest-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#edit-guest-address2"
+          value: $ADDRESS_STREET_2
+          required: true
+        - name: city
+          selector: "#edit-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#edit-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#edit-phone"
+          value: $PHONE
+          required: false
+        - name: subject
+          selector: "#edit-subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#edit-message"
+          value: $MESSAGE
+          required: true
+        - name: recaptcha_response_field
+          selector: "#recaptcha_response_field"
+          captcha_selector: "img#recaptcha_challenge_image"
+          captcha_id_selector: "#recaptcha_challenge_field"
+          value: $CAPTCHA_SOLUTION
+          required: true
+    - click_on:
+        - value: Reg2VoteYes
+          selector: "#edit-voteregistered-Registered-at-this-Address"
+        - value: Submit
+          selector: "#edit-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: The message has been sent

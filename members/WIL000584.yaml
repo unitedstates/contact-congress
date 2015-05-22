@@ -1,0 +1,43 @@
+bioguide: WIL000584
+contact_form:
+  method: post
+  action: /assembly/78/subeck/contact/
+  steps:
+    - visit: "http://legis.wisconsin.gov/assembly/78/subeck/contact/"
+    - fill_in:
+        - name: name
+          selector: "#a08e9c3e-fd4b-4eef-a452-f65d285880bd"
+          value: $NAME_FULL
+          required: true
+        - name: address
+          selector: "input[id='9b1ef8ae-7dbc-49d2-9321-81946bb348e2']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[id='db85b45f-4c9c-4269-81d9-182db12e6e72']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "input[id='cead964a-05c9-4665-a9ec-061ca923c340']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "input[id='26e21136-96ed-44a5-87c4-d4c8c20f002f']"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "input[id='5974fdb2-cfdc-4d9b-b176-cf489936257b']"
+          value: $PHONE
+          required: true
+        - name: message
+          selector: "textarea[id='2c3d1886-f9b1-4873-8b52-398816338709']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

@@ -1,0 +1,78 @@
+bioguide: UTL000110
+contact_form:
+  method: post
+  action: http://www.utah.gov/formprocessor/index.uii
+  steps:
+    - visit: "http://senate.utah.gov/contact/index.html"
+    - fill_in:
+        - name: name
+          selector: "#name"
+          value: $NAME_FULL
+          required: true
+        - name: address
+          selector: "#yourAddress"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
+    - select:
+      - name: legislator
+        selector: "#senator"
+        value: "Weiler, Todd"
+        required: false
+        options:
+          - Adams, J. Stuart
+          - Bramble, Curtis S.
+          - Christensen, Allen M.
+          - Dabakis, Jim
+          - Davis, Gene
+          - Dayton, Margaret
+          - Escamilla, Luz
+          - Harper, Wayne A.
+          - Henderson, Deidre M.
+          - Hillyard, Lyle W.
+          - Hinkins, David P.
+          - Iwamoto, Jani
+          - Jackson, Alvin B.
+          - Jenkins, Scott K.
+          - Knudson, Peter C.
+          - Madsen, Mark B.
+          - Mayne, Karen
+          - Millner, Ann
+          - Niederhauser, Wayne L.
+          - Okerlund, Ralph
+          - Osmond, Aaron
+          - Shiozawa, Brian E.
+          - Stephenson, Howard A.
+          - Stevenson, Jerry W.
+          - Thatcher, Daniel W.
+          - Urquhart, Stephen H.
+          - Van Tassell, Kevin T.
+          - Vickers, Evan J.
+          - Weiler, Todd
+    - click_on:
+        - value: Submit
+          selector: "#form-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your form has been submitted successfully

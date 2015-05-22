@@ -1,0 +1,48 @@
+bioguide: MDL000620
+contact_form:
+  method: post
+  action: frmMain.aspx?pid=sponpage&tab=subject6&id=Atterbeary01&stab=01&ys=2015RS&poptype=contact&popid=Atterbeary01
+  steps:
+    - visit: "http://mgaleg.maryland.gov/webmga/frmMain.aspx?pid=sponpage&tab=subject6&id=Atterbeary01&stab=01&ys=2015RS&poptype=contact&popid=Atterbeary01"
+    - fill_in:
+        - name: FirstName
+          selector: "#ctlContactLegislator_txtName"
+          value: $NAME_FULL
+          required: true
+        - name: phone
+          selector: "#ctlContactLegislator_txtPhoneNumber"
+          value: "$PHONE"
+          required: true
+        - name: Address
+          selector: "#ctlContactLegislator_txtAddress"
+          value: $ADDRESS_STREET
+          required: true
+        - name: City
+          selector: "#ctlContactLegislator_txtCity"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ZipCode
+          selector: "#ctlContactLegislator_txtZipCode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: Email
+          selector: "#ctlContactLegislator_txtEmail"
+          value: $EMAIL
+          required: true
+        - name: Subject
+          selector: "#ctlContactLegislator_txtSubject"
+          value: $SUBJECT
+          required: true
+        - name: Message
+          selector: "#ctlContactLegislator_txtMessage"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - selector: "#ctlContactLegislator_cmdSubmit"
+    - find:
+        - selector: "#lblSentTo"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "The following information was sent to"

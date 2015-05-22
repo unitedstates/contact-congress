@@ -1,0 +1,47 @@
+bioguide: INL000259
+contact_form:
+  method: post
+  action: 
+  steps:
+    - visit: "http://indianahousedemocrats.org/contact-melanie-wright"
+    - fill_in:
+        - name: name
+          selector: "#text1"
+          value: $NAME_FULL
+          required: true
+        - name: address
+          selector: "#text2"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#text3"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#text4"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#text5"
+          value: $PHONE
+          required: false
+        - name: email
+          selector: "#text4" 
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#text10"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#textarea8"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#button9"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been received

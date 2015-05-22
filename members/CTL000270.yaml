@@ -1,0 +1,49 @@
+bioguide: CTL000270
+contact_form:
+  method: post
+  action: 
+  steps:
+    - visit: "http://cthousegop.com/contact-gayle-mulligan/"
+    - fill_in:
+        - name: name
+          selector: "input[name='first-name']"
+          value: $NAME_FIRST
+          required: true
+        - name: name
+          selector: "input[name='last-name']"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "input[name='your-email']"
+          value: $EMAIL
+          required: true
+        - name: address
+          selector: "input[name='YourAddress']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[name='YourTown']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: subject
+          selector: "input[name='your-subject']"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "textarea[name='your-message']"
+          value: $MESSAGE
+          required: true
+        - name: captcha
+          selector: ".wpcf7-captchar"
+          captcha_selector: ".wpcf7-captchac"
+          captcha_id_selector: "input[name='_wpcf7_captcha_challenge_captcha-449']"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+    - click_on:
+        - value: Submit
+          selector: ".wpcf7-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message was sent successfully

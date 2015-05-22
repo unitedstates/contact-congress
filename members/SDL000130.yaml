@@ -1,0 +1,32 @@
+bioguide: SDL000130
+contact_form:
+  method: post
+  action: LegislatorEmail.aspx?MemberID=795&Session=2015
+  steps:
+    - visit: "http://legis.sd.gov/Contact/LegislatorEmail.aspx?MemberID=795&Session=2015"
+    - fill_in:
+        - name: email
+          selector: "#ContentPlaceHolder1_txtFrom"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#ContentPlaceHolder1_txtSubject"
+          value: $SUBJECT
+          required: false
+        - name: message
+          selector: "#ContentPlaceHolder1_txtMessage"
+          value: $MESSAGE
+          required: true
+        - name: captcha
+          selector: "#ContentPlaceHolder1_txtInput"
+          captcha_selector: "#ContentPlaceHolder1_ImgCaptcha"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#ContentPlaceHolder1_btnSend"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: A Confirmation email has been sent

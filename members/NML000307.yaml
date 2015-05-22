@@ -1,0 +1,45 @@
+bioguide: NML000307
+contact_form:
+  method: post
+  action: /forms/feedbacks
+  steps:
+    - visit: "http://www.nmhousedems.com/bealquin"
+    - fill_in:
+        - name: message
+          selector: "#feedback_content"
+          value: $MESSAGE
+          required: true
+        - name: fname
+          selector: "#feedback_first_name"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#feedback_last_name"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "#feedback_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#feedback_mobile_number"
+          value: $PHONE
+          required: false
+        - name: address
+          selector: "#feedback_submitted_address"
+          value: $ADDRESS_STREET
+          required: true
+    - click_on:
+        - value: unsub1
+          selector: "#feedback_email_opt_in"
+        - value: unsub2
+          selector: "#feedback_mobile_opt_in"
+        - value: Submit
+          selector: ".submit-button"
+    - wait:
+        - value: 2
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

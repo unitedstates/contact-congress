@@ -1,0 +1,74 @@
+bioguide: PAL000277
+contact_form:
+  method: post
+  action: 
+  steps:
+    - visit: "http://www.pahouse.com/194/Contact/"
+    - fill_in:
+        - name: fname
+          selector: "#input-page-ContactForm-fName"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#input-page-ContactForm-lName"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#input-page-ContactForm-Address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#input-page-ContactForm-City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: email
+          selector: "#input-page-ContactForm-Email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#input-page-ContactForm-Phone"
+          value: $PHONE
+          required: false
+        - name: zip
+          selector: "#input-page-ContactForm-Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: subject
+          selector: "#input-page-ContactForm-Subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#input-page-ContactForm-Message"
+          value: $MESSAGE
+          required: true
+    - wait:
+        - value: 2
+    - iframe:
+        - name: iframe1
+          selector: "div.g-recaptcha div div iframe[src^='https://www.google.com']"
+    - fill_in:
+        - name: recaptcha_response_field
+          captcha_selector: "html body div.fbc-payload > img"
+          value: $CAPTCHA_SOLUTION
+          selector: "#response"
+          required: true
+    - click_on:
+        - value: recaptchaSubmit
+          selector: "div.fbc-button-verify > input"
+    - copy_paste:
+        - name: copy_captcha_cpde
+          copy_selector: "div.fbc-verification-token > textarea"
+          paste_selector: "#g-recaptcha-response"
+    - iframe:
+        - name: parent1
+          back: true
+    - click_on:
+        - value: Submit
+          selector: "#pageContactForm-submit"
+    - wait:
+        - value: 2
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your feedback has been sent

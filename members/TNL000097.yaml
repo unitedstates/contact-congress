@@ -1,0 +1,105 @@
+bioguide: TNL000097
+contact_form:
+  method: post
+  action: //www.tngopsenate.com/contact/#FSContact1
+  steps:
+    - visit: "http://www.tngopsenate.com/contact/#FSContact1"
+    - fill_in:
+        - name: fname
+          selector: "#fscf_f_name1"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#fscf_l_name1"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "#fscf_email1"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#fscf_field1_5"
+          value: $PHONE
+          required: true
+        - name: phone2
+          selector: "#fscf_field1_6"
+          value: $PHONE
+          required: true
+        - name: address
+          selector: "#fscf_field1_7"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#fscf_field1_8"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "#fscf_field1_9"
+          value: $ADDRESS_STATE_FULL
+          required: true
+        - name: zip
+          selector: "#fscf_field1_10"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: country
+          selector: "#fscf_field1_11"
+          value: "United States"
+          required: true
+        - name: message
+          selector: "#fscf_field1_14"
+          value: $MESSAGE
+          required: true
+        - name: captcha
+          selector: "#fscf_captcha_code1"
+          captcha_selector: "#fscf_captcha_image1"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+    - select:
+      - name: prefix
+        selector: "#fscf_field1_4"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+          - MR
+          - MISS
+          - DR
+          - MRS
+          - MS
+      - name: legislator
+        selector: "#fscf_field1_12"
+        value: "Sen. Frank Niceley"
+        required: Yes
+        options:
+          - Lt. Gov. Ron Ramsey
+          - Sen. Becky Massey
+          - Sen. Bill Ketron
+          - Sen. Bo Watson
+          - Sen. Brian Kelsey
+          - Sen. Dolores Gresham
+          - Sen. Doug Overbey
+          - Sen. Ferrell Haile
+          - Sen. Frank Niceley
+          - Sen. Jack Johnson
+          - Sen. Janice Bowling
+          - Sen. Jim Summerville
+          - Sen. Jim Tracy
+          - Sen. Joey Hensley
+          - Sen. John Stevens
+          - Sen. Ken Yager
+          - Sen. Mae Beavers
+          - Sen. Mark Green
+          - Sen. Mark Norris
+          - Sen. Mike Bell
+          - Sen. Randy McNally
+          - Sen. Rusty Crowe
+          - Sen. Steve Southerland
+          - Sen. Steven Dickerson
+          - Sen. Todd Gardenhire
+    - click_on:
+        - value: Submit
+          selector: "#fscf_submit1"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been sent

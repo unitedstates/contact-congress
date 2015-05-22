@@ -1,0 +1,39 @@
+bioguide: WIL000471
+contact_form:
+  method: post
+  action: /assembly/31/loudenbeck/contact/
+  steps:
+    - visit: "http://legis.wisconsin.gov/assembly/31/loudenbeck/contact/"
+    - fill_in:
+        - name: name
+          selector: "input[id='a325d1cb-617c-4022-9341-a845e63463f0']"
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: "input[id='3b11ba26-a1c5-4de8-9c95-2ece49a39423']"
+          value: $EMAIL
+          required: true
+        - name: address
+          selector: "input[id='c1ef35bc-b8d7-47cb-bdef-decb0ecbcabf']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "input[id='34d792d5-bbc8-45ec-bb59-8dbef4e9b5be']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: phone
+          selector: "input[id='f06b9249-fdbb-44d4-b574-15867a3938e0']"
+          value: $PHONE
+          required: true
+        - name: message
+          selector: "textarea[id='d742f4f0-b4bf-44c0-bbd8-3a92f38dcf73']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

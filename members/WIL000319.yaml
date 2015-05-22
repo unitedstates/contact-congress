@@ -1,0 +1,43 @@
+bioguide: WIL000319
+contact_form:
+  method: post
+  action: Contact.aspx
+  steps:
+    - visit: "http://legis.wisconsin.gov/senate/darling/pages/Email-Senator-Darling.aspx"
+    - fill_in:
+        - name: email
+          selector: "#legis-es-email"
+          value: $EMAIL
+          required: true
+        - name: name
+          selector: "#legis-es-name"
+          value: $NAME_FULL
+          required: true
+        - name: address
+          selector: "#legis-es-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: citystatezip
+          selector: "#legis-es-city-state"
+          value: $ADDRESS_CITY
+          required: true
+        - name: subject
+          selector: "#legis-es-phone"
+          value: $PHONE
+          required: true
+        - name: subject
+          selector: "#legis-es-subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "textarea[name='Legis-message']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: ".legis-email-submit-btn"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Dear Friend

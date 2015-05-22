@@ -1,0 +1,51 @@
+bioguide: ILL000057
+contact_form:
+  method: post
+  action: /Contact/ContactForm.aspx
+  steps:
+    - visit: "http://www.senatordavesyverson.com/Contact/ContactForm.aspx"
+    - fill_in:
+        - name: firstname
+          selector: "#dnn_ctr1397_Main_txtFirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#dnn_ctr1397_Main_txtLastName"
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: "#dnn_ctr1397_Main_txtAddress"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#dnn_ctr1397_Main_txtCityTown"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#dnn_ctr1397_Main_txtZip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#dnn_ctr1397_Main_txtFrom"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#dnn_ctr1397_Main_txtSubject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#dnn_ctr1397_Main_txtComments"
+          value: $MESSAGE
+          required: true
+        - name: phone
+          selector: "#dnn_ctr1397_Main_txtPhone"
+          value: $PHONE
+          required: false
+    - click_on:
+        - value: Submit
+          selector: "#dnn_ctr1397_Main_btnSubmit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting us
