@@ -6,7 +6,7 @@ contact_form:
     - visit: "https://murphy.house.gov/contact-me"
     - fill_in:
         - name: firstname
-          selector: "#req_firstname"
+          selector: ".custom_form #req_firstname"
           value: $NAME_FIRST
           required: true
         - name: lastname
