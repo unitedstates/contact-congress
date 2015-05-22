@@ -64,6 +64,9 @@ contact_form:
           "Veterans": "VET"
           "Visiting DC": "Tour"
           "Welfare": "WEL"
+    - click_on:
+      - value: Click
+        selector: "#contact-sam-main"
     - find:
       - selector: "#continue-form"
     - fill_in:
@@ -188,11 +191,6 @@ contact_form:
       - name: mailing_state
         selector: "#mailing_state"
         value: "IN"
-        required: Yes
-    - check:
-      - name: response
-        selector: "#response_y"
-        value: Yes
         required: Yes
     - click_on:
       - value: Submit
