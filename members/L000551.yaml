@@ -17,47 +17,47 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#ctl00_ctl23_PrefixList"
+        - selector: "#ctl00_ctl30_PrefixList"
     - fill_in:
-        - name: ctl00$ctl23$FirstName
-          selector: "#ctl00_ctl23_FirstName"
+        - name: ctl00$ctl30$FirstName
+          selector: "#ctl00_ctl30_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl23$LastName
-          selector: "#ctl00_ctl23_LastName"
+        - name: ctl00$ctl30$LastName
+          selector: "#ctl00_ctl30_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl23$Street
-          selector: "#ctl00_ctl23_Street"
+        - name: ctl00$ctl30$Street
+          selector: "#ctl00_ctl30_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl23$City
-          selector: "#ctl00_ctl23_City"
+        - name: ctl00$ctl30$City
+          selector: "#ctl00_ctl30_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl23$Zip
-          selector: "#ctl00_ctl23_Zip"
+        - name: ctl00$ctl30$Zip
+          selector: "#ctl00_ctl30_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl23$Phone
-          selector: "#ctl00_ctl23_Phone"
+        - name: ctl00$ctl30$Phone
+          selector: "#ctl00_ctl30_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl23$Email
-          selector: "#ctl00_ctl23_Email"
+        - name: ctl00$ctl30$Email
+          selector: "#ctl00_ctl30_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl23$Subject
-          selector: "#ctl00_ctl23_Subject"
+        - name: ctl00$ctl30$Subject
+          selector: "#ctl00_ctl30_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl23$Body
-          selector: "#ctl00_ctl23_Body"
+        - name: ctl00$ctl30$Body
+          selector: "#ctl00_ctl30_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl23$PrefixList
-          selector: "#ctl00_ctl23_PrefixList"
+        - name: ctl00$ctl30$PrefixList
+          selector: "#ctl00_ctl30_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -68,7 +68,7 @@ contact_form:
             - Miss.
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl23_SubmitButton"
+          selector: "#ctl00_ctl30_SubmitButton"
   success:
     headers:
       status: 200
