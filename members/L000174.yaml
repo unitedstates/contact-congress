@@ -1,198 +1,131 @@
 bioguide: L000174
 contact_form:
-  method: POST
+  method: post
   action: "https://www.leahy.senate.gov/contact/"
   steps:
-    - visit: https://www.leahy.senate.gov/contact/
+    - visit: "https://www.leahy.senate.gov/contact/"
     - fill_in:
-      - name: fname
-        selector: "#fname"
-        value: $NAME_FIRST
-        required: Yes
-      - name: lname
-        selector: "#lname"
-        value: $NAME_LAST
-        required: Yes
-      - name: mailing_streetAddress1
-        selector: "#mailing_streetAddress1"
-        value: $ADDRESS_STREET
-        required: Yes
-      - name: mailing_streetAddress2
-        selector: "#mailing_streetAddress2"
-        value: $ADDRESS_STREET_2
-      - name: mailing_city
-        selector: "#mailing_city"
-        value: $ADDRESS_CITY
-        required: Yes
-      - name: mailing_zipCode
-        selector: "#mailing_zipCode"
-        value: $ADDRESS_ZIP5
-        required: Yes
-      - name: email
-        selector: "#email_address"
-        value: $EMAIL
-        required: Yes
-      - name: verify_email
-        selector: "#verify_email"
-        value: $EMAIL
-        required: Yes
-      - name: message
-        selector: "#message"
-        value: $MESSAGE
-        required: Yes
-      - name: phone_number
-        selector: "#phone_number"
-        value: $PHONE
+        - name: input_36F9116D-5056-A066-6055-B856B7975A8D
+          selector: "#input-36F9116D-5056-A066-6055-B856B7975A8D"
+          value: $NAME_FIRST
+          required: true
+        - name: input_36F9168F-5056-A066-6010-D50B3E4EA5CA
+          selector: "#input-36F9168F-5056-A066-6010-D50B3E4EA5CA"
+          value: $NAME_LAST
+          required: true
+        - name: input_36D0D7B4-5056-A066-604B-C5784DE1329E
+          selector: "#input-36D0D7B4-5056-A066-604B-C5784DE1329E"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_36D0D8E1-5056-A066-6088-B0E287342B26
+          selector: "#input-36D0D8E1-5056-A066-6088-B0E287342B26"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_36D0DA1C-5056-A066-605E-9CA59C0D0E35
+          selector: "#input-36D0DA1C-5056-A066-605E-9CA59C0D0E35"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_36D667AA-5056-A066-6035-8576D66D00F9
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: input_36D6681A-5056-A066-60DC-988EFD5753D6
+          selector: "#input-36D6681A-5056-A066-60DC-988EFD5753D6"
+          value: $EMAIL
+          required: true
+        - name: input_36D95985-5056-A066-6035-E42D9CB11A0E
+          selector: "#input-36D95985-5056-A066-6035-E42D9CB11A0E"
+          value: $PHONE
+          required: true
+        - name: input_36E62F57-5056-A066-60BF-78ADF9F5676E
+          selector: "#input-36E62F57-5056-A066-60BF-78ADF9F5676E"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: salutation
-        selector: "#salutation"
-        value: $NAME_PREFIX
-        required: Yes
-        options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Miss"
-          - "Mr. and Mrs."
-          - "Dr."
-          - "Dr. and Mrs."
-          - "Dr. and Mr."
-          - "Mr. and Mr."
-          - "Mrs. and Mrs."
-          - "Ms. and Ms."
-          - "Prof."
-          - "Senator"
-          - "Gov."
-          - "Congressman"
-          - "Congresswoman"
-          - "Hon."
-          - "Fr."
-          - "Sister"
-          - "Rabbi"
-          - "Reverend"
-          - "Pastor"
-          - "Admiral"
-          - "Vice Admiral"
-          - "Rear Admiral (upper half)"
-          - "Rear Admiral (lower half)"
-          - "Captain"
-          - "Commander"
-          - "Lieutenant Commander"
-          - "Lieutenant"
-          - "Lieutenant, Junior Grade"
-          - "Ensign"
-          - "Master Chief Petty Officer"
-          - "Senior Chief Petty Officer"
-          - "Chief Petty Officer"
-          - "Petty Officer First Class"
-          - "Petty Officer Second Class"
-          - "Petty Officer Third Class"
-          - "Seaman"
-          - "Seaman Apprentice"
-          - "Seaman Recruit"
-          - "Chief Warrant Officer"
-          - "Warrant Officer"
-          - "Sergeant Major"
-          - "Master Gunnery Sgt"
-          - "First Sergeant"
-          - "Master Sergeant"
-          - "Gunnery Sergeant"
-          - "Staff Sergeant"
-          - "Sergeant First Class"
-          - "Technical Sergeant"
-          - "Sergeant"
-          - "Corporal"
-          - "Lance Corporal"
-          - "Private First Class"
-          - "Private"
-          - "General"
-          - "Lieutenant General"
-          - "Major General"
-          - "Brigadier General"
-          - "Colonel"
-          - "Lieutenant Colonel"
-          - "Major"
-          - "First Lieutenant"
-          - "Second Lieutenant"
-          - "Chief Master Sergeant of the Air Force"
-          - "Command  Chief Master Sergeant"
-          - "Chief Master Sergeant"
-          - "Senior Master Sergeant"
-          - "Senior Airman"
-          - "Airman First Class"
-          - "Airman"
-      - name: state
-        selector: "#state"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
-        options: US_STATES
-      - name: subject
-        selector: "#subject"
-        value: $TOPIC
-        required: Yes
-        options:
-          - "Assistance with a personal matter regarding a federal agency"
-          - "Afghanistan"
-          - "Agriculture"
-          - "Animals"
-          - "Arts & Humanities"
-          - "Auto Industry"
-          - "Banking & Financial Services"
-          - "Budget"
-          - "Business & Commerce"
-          - "Civil Rights"
-          - "Climate Change"
-          - "Crime"
-          - "Dairy"
-          - "Defense/Military"
-          - "Detainee Treatment"
-          - "Disability Issues"
-          - "Drones"
-          - "Economy"
-          - "Education"
-          - "Elections & Voting Rights"
-          - "Employment, Labor & Pensions"
-          - "Energy"
-          - "Environment"
-          - "Foreign Policy"
-          - "Fuel/Gas Prices"
-          - "Gun Control & Second Amendment Rights"
-          - "Health Care Reform"
-          - "Health/Disease"
-          - "Homeland Security"
-          - "Housing"
-          - "Hurricane Irene"
-          - "Immigration"
-          - "Judicial Nominations"
-          - "Keystone Pipeline"
-          - "Law Enforcement"
-          - "Medicare/Medicaid"
-          - "Other"
-          - "Patents & Copyright"
-          - "Prescription Drugs"
-          - "Political Parties and Campaign Finance Reform"
-          - "Privacy"
-          - "Telecommunications"
-          - "Science & Technology"
-          - "Seniors"
-          - "Small Business"
-          - "Social Security"
-          - "Space/NASA"
-          - "Taxation"
-          - "Trade"
-          - "Transportation"
-          - "Truth Commission"
-          - "Veterans Affairs"
-          - "Violence Against Women Act"
-          - "Human Services & Welfare"
-          - "Women & Children"
-          - "Request an appointment"
-          - "Send a Thank You"
+        - name: input_36C9576F-5056-A066-6022-2CCEB276F085
+          selector: "#salutations"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Miss
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mrs.
+            - Dr. and Mr.
+            - Mr. and Mr.
+            - Mrs. and Mrs.
+            - Ms. and Ms.
+            - Other
+        - name: input_36E22353-5056-A066-60EA-9A7BCE98E4DD
+          selector: "#issue"
+          value: $TOPIC
+          required: true
+          options:
+            Assistance with a personal matter regarding a federal agency: CASE - SORT
+            Afghanistan: AFGHANISTAN
+            Agriculture: AGRICULTURE
+            Animals: AN
+            "Arts & Humanities": ARTS
+            Auto Industry: AUTO INDUSTRY
+            "Banking & Financial Services": BANK
+            Budget: BUDGET GENERAL
+            "Business & Commerce": BUS
+            Civil Rights: CIVIL_RIGHTS
+            Climate Change: CLIMATE CHANGE
+            Crime: CRIME
+            Dairy: DAIRY
+            Defense/Military: DEFENSE/MILITARY
+            Detainee Treatment: TORTURE
+            Disability Issues: DISABILITIES
+            Drones: DRONES
+            Economy: ECONOMY
+            Education: ED
+            "Elections & Voting Rights": ELECTION
+            "Employment, Labor & Pensions": LAB
+            Energy: EN
+            Environment: ENVIRONMENT
+            Foreign Policy: FR
+            Fuel/Gas Prices: FOSSIL FUELS
+            Genetically Engineered Food (GMOs): GENETICENGINEERING
+            "Gun Control & Second Amendment Rights": GUN CONTROL
+            Health Care Reform: HEALTH CARE REFORM
+            Health/Disease: HEALTH/DISEASE
+            Homeland Security: HLS
+            Housing: HOUSING
+            Hurricane Irene: FEMA
+            Immigration: IMMIGRATION
+            Judicial Nominations: NOMINATIONS
+            Keystone Pipeline: ENVIRONMENT
+            Law Enforcement: LAW ENFORCEMENT
+            Medicare/Medicaid: MEDICARE
+            Other: OTHER
+            "Patents & Copyright": COPYRIGHT
+            Prescription Drugs: PRESCRIPTION DRUGS
+            Political Parties and Campaign Finance Reform: POLITICS
+            Privacy: PRIVACY
+            "Science & Technology": TECHNOLOGY
+            Seniors: SENIORS
+            Small Business: SMALL BUSINESS
+            Social Security: SS
+            Space/NASA: NASA
+            Taxation: TAX
+            Telecommunications: TELECOMM
+            Trade: TRD
+            Transportation: TRANS - GENERAL
+            Veterans Affairs: VETERANS
+            Violence Against Women Act: VAWA
+            "Human Services & Welfare": HMS
+            "Women & Children": WOMEN
+            Request an appointment: SCHEDULING
+            Send a Thank You: THANK(FAN MAIL)
     - click_on:
-      - value: Send My Comments
-        selector: "form#contact-form input[class='rollover']"
+        - value: Submit
+          selector: input.btn
   success:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: Thank you for contacting Senator Leahy.
