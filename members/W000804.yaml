@@ -55,14 +55,6 @@ contact_form:
           selector: "#ctl00_ctl13_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl13$CampaignID
-          selector: "#ctl00_ctl13_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl13$CampaignInfo
-          selector: "#ctl00_ctl13_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
         - name: ctl00$ctl13$PrefixList
           selector: "#ctl00_ctl13_PrefixList"
@@ -79,38 +71,11 @@ contact_form:
             - Rabbi
             - Ambassador
             - Colonel
-            - "Consul General"
-        - name: ctl00$ctl13$IssuesList
-          selector: "#ctl00_ctl13_IssuesList"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture and Food: "127371"
-            Animals: "127366"
-            Budget and Spending: "127383"
-            Defense: "127375"
-            Economy and Jobs: "127382"
-            Education: "127370"
-            Energy: "127172"
-            Environment: "126811"
-            Families: "127141"
-            Federal Workforce: "127384"
-            Government Reform: "127386"
-            Health Care: "127369"
-            Help with a Federal Agency: "127381"
-            Immigration: "126991"
-            International Affairs: "126981"
-            Judiciary: "127372"
-            Labor: "126961"
-            National Security: "127374"
-            Science: "127378"
-            Second Amendment: "127376"
-            Social Issues: "127377"
-            Social Security: "126869"
-            Taxation: "126859"
-            Telecommunications: "127379"
-            Transportation and Public Works: "127368"
-            Veterans: "127385"
+            - Consul General
+    - check:
+        - name: ctl00$ctl13$ReplyChoice
+          selector: "#ctl00_ctl13_ReplyChoice_0"
+          value: Respond
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl13_SubmitButton"
@@ -121,4 +86,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Your email has been successfully submitted.
