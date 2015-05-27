@@ -1,38 +1,44 @@
-bioguide: SWe00036
+bioguide: state_co_gov_john_hickenlooper
 contact_form:
   method: post
   action: /Correspondence/WebformPage
   steps:
     - visit: "http://stateofco.force.com/Correspondence?type=Share%20Your%20Opinion&amp;retUrl=http://www.colorado.gov/govhdir/confirm/share-opinion.html"
     - fill_in:
-        - name: j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:0:j_id70
+        - name: firstName
           selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:0:j_id70']"
           value: $NAME_FIRST
           required: true
-        - name: j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:1:j_id70
+        - name: lastname
           selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:1:j_id70']"
           value: $NAME_LAST
           required: true
-        - name: j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:2:j_id70
+        - name: email
           selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:2:j_id70']"
           value: $EMAIL
           required: true
-        - name: j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:4:j_id70
+        - name: address
           selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:4:j_id70']"
           value: $ADDRESS_STREET
           required: true
-        - name: j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:6:j_id70
+        - name: city
           selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:6:j_id70']"
           value: $ADDRESS_CITY
           required: true
-        - name: j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:8:j_id70
+        - name: zip
           selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:8:j_id70']"
           value: $ADDRESS_ZIP5
           required: true
     - select:
-        - name: j_id0:j_id2:j_id3:j_id4:j_id11:j_id16
+        - name: county
+          selector: "select[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:9:j_id70']"
+          value: Adams
+          required: true
+          options:
+            - Adams
+        - name: topic
           selector: "select[name='j_id0:j_id2:j_id3:j_id4:j_id11:j_id16']"
-          value: "Other"
+          value: $TOPIC
           required: true
           options:
             Attorney General: "AG"
@@ -62,17 +68,27 @@ contact_form:
             Other: "Other"
             Secretary of State: "SoS"
             Treasury: "Treasury"
-        - name: j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:9:j_id70
-          selector: "select[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:9:j_id70']"
-          value: Out of State
+    - wait:
+        - value: 5
+    - click_on:
+        - value: Click
+          selector: ".webform_title"
+    - wait:
+        - value: 5
+    - select:
+        - name: subtopic
+          selector: "select[name='j_id0:j_id2:j_id3:j_id4:j_id20:j_id25']"
+          value: $SUBTOPIC1
           required: true
+          options:
+            - Other
     - fill_in:
-        - name: j_id0:j_id2:j_id3:j_id4:j_id39:j_id42:0:j_id48
+        - name: subject
           selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id39:j_id42:0:j_id48']"
           value: $SUBJECT
           required: true
     - fill_in:
-        - name: j_id0:j_id2:j_id3:j_id4:j_id39:j_id42:1:j_id48
+        - name: message
           selector: "textarea[name='j_id0:j_id2:j_id3:j_id4:j_id39:j_id42:1:j_id48']"
           value: $MESSAGE
           required: true
