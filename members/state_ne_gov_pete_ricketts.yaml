@@ -1,110 +1,77 @@
 bioguide: state_ne_gov_pete_ricketts
 contact_form:
   method: post
-  action: contact.php
+  action: https://www.nebraska.gov/simpleMail/advanced.cgi
   steps:
-    - visit: "http://www.governor.nebraska.gov/contact/contact.php"
+    - visit: "https://governor.nebraska.gov/contact-form"
+    - wait:
+      - value: 2
+    - iframe:
+      - name: iframe1
+        selector: "div.g-recaptcha div div iframe[src^='https://www.google.com']"
     - fill_in:
-        - name: name
-          selector: "#name"
-          value: $NAME_FULL
+      - name: recaptcha_response_field
+        captcha_selector: "html body div.fbc-payload > img"
+        value: $CAPTCHA_SOLUTION
+        selector: "#response"
+        required: true
+    - click_on:
+      - value: recaptchaSubmit
+        selector: "div.fbc-button-verify > input"
+    - copy_paste:
+      - name: copy_captcha_cpde
+        copy_selector: "div.fbc-verification-token > textarea"
+        paste_selector: "#g-recaptcha-response"
+    - iframe:
+      - name: parent1
+        back: true
+    - fill_in:
+        - name: fname
+          selector: "input[id='01_fname']"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "input[id='02_lname']"
+          value: $NAME_LAST
           required: true
         - name: email
-          selector: "#email"
+          selector: "input[id='03_email']"
           value: $EMAIL
           required: true
-        - name: street
-          selector: "#address"
+        - name: address
+          selector: "input[id='04_address']"
           value: $ADDRESS_STREET
+          required: false
         - name: city
-          selector: "#city"
+          selector: "input[id='05_city']"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#zipcode"
+        - name: zipcode
+          selector: "input[id='07_zipcode']"
           value: $ADDRESS_ZIP5
+          required: true
         - name: phone
-          selector: "#phone"
+          selector: "input[id='08_phone']"
           value: $PHONE
           required: true
-        - name: message
-          selector: "#comments"
+        - name: comments
+          selector: "textarea[id='10_comments']"
           value: $MESSAGE
           required: true
     - select:
-        - name: stateFull
-          selector: "#state"
+        - name: state
+          selector: "select[id='06_state']"
           value: $ADDRESS_STATE_FULL
           required: true
           options:
-            - "AL": "Alabama"
-            - "AK": "Alaska"
-            - "AZ": "Arizona"
-            - "AR": "Arkansas"
-            - "CA": "California"
-            - "CO": "Colorado"
-            - "CT": "Connecticut"
-            - "DE": "Delaware"
-            - "FL": "Florida"
-            - "GA": "Georgia"
-            - "HI": "Hawaii"
-            - "ID": "Idaho"
-            - "IL": "Illinois"
-            - "IN": "Indiana"
-            - "IA": "Iowa"
-            - "KS": "Kansas"
-            - "KY": "Kentucky"
-            - "LA": "Louisiana"
-            - "ME": "Maine"
-            - "MD": "Maryland"
-            - "MA": "Massachusetts"
-            - "MI": "Michigan"
-            - "MN": "Minnesota"
-            - "MS": "Mississippi"
-            - "MO": "Missouri"
-            - "MT": "Montana"
-            - "NE": "Nebraska"
-            - "NV": "Nevada"
-            - "NH": "New Hampshire"
-            - "NJ": "New Jersey"
-            - "NM": "New Mexico"
-            - "NY": "New York"
-            - "NC": "North Carolina"
-            - "ND": "North Dakota"
-            - "OH": "Ohio"
-            - "OK": "Oklahoma"
-            - "OR": "Oregon"
-            - "PA": "Pennsylvania"
-            - "RI": "Rhode Island"
-            - "SC": "South Carolina"
-            - "SD": "South Dakota"
-            - "TN": "Tennessee"
-            - "TX": "Texas"
-            - "UT": "Utah"
-            - "VT": "Vermont"
-            - "VA": "Virginia"
-            - "WA": "Washington"
-            - "WV": "West Virginia"
-            - "WI": "Wisconsin"
-            - "WY": "Wyoming"
-        - name: topic
-          selector: "#subject_query"
-          value: $TOPIC
-          required: true
-          options:
-            - "Elections": "Elections"
-            - "Notary": "Notary"
-            - "Lobbyist"
-            - "Comment"
-            - "Other"  
+            - Nebraska
     - click_on:
+        - value: hideModal
+          selector: "#cookieModal"
         - value: Submit
-          selector: "button[type='submit']"
-    - find:
-        - selector: "h2"
-          value: "Your message has been successfully sent"
+          selector: "#mySubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank You!
+      contains: Thank you for contacting the Governor
