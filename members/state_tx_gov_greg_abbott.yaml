@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: assistance.aspx
   steps:
-    - visit: "https://gov.texas.gov/contact/contact.aspx"
+    - visit: "https://gov.texas.gov/contact/assistance.aspx"
     - check:
         - name: rblPath
           selector: "#rblPath_0"
@@ -12,7 +12,7 @@ contact_form:
         - value: Select
           selector: "#Button1"
     - find:
-        - selector: "#DropDownList1"
+        - selector: "#txtFirst"
     - fill_in:
         - name: txtFirst
           selector: "#txtFirst"
@@ -52,6 +52,7 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
+            "-- Select Prefix --": "0"
             Mr.: "2"
             Ms.: "3"
             Mrs.: "1"
@@ -59,69 +60,34 @@ contact_form:
             Mr. and Mrs.: "11"
             Dr.: "5"
             The Honorable: "6"
+            Ambassador: "8"
+            The Most Reverend: "14"
+            The Reverend: "12"
             None: "13"
-        - name: Dropdownlist3
-          selector: "#Dropdownlist3"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VA
-            - VI
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
+            Colonel: "15"
+            Lieutenant Colonel: "16"
+            Master Sergeant: "17"
+            Sergeant: "18"
+            Senior Master Sergeant: "19"
+            Technical Sergeant: "20"
+            Commander: "21"
+            Captain: "22"
+            Major: "23"
+            Chief Master Sergeant: "24"
+            Lieutenant: "25"
+            Sergeant First Class: "26"
+            Staff Sergeant: "30"
+            Brigadier General: "28"
+            Lieutenant General: "29"
+            Sergeant Major: "31"
+            Major General: "32"
+            Lieutenant Commander: "33"
         - name: DropDownList2
           selector: "#DropDownList2"
           value: $TOPIC
           required: true
           options:
+            "-- Select Issue --": "0"
             Texas Tax Relief - Franchise Tax Reduction: "114"
             Texas Tax Relief - Property Tax Cut: "115"
             Texas Tax Relief - Refund: "116"
@@ -129,8 +95,8 @@ contact_form:
             Texas Tax Relief - Other: "118"
             Education - Public: "96"
             Environment: "100"
-            Immigration: "98"
             Gun Control: "113"
+            Immigration: "98"
             Renewable Energy: "90"
             Transportation: "101"
             Water Issues: "105"
@@ -146,4 +112,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You for Contacting the Office of the Governor
+      contains: "If you do not receive a confirmation e-mail within five minutes"
