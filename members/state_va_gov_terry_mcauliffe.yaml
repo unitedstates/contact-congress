@@ -1,0 +1,72 @@
+bioguide: state_va_gov_terry_mcauliffe
+contact_form:
+  method: post
+  action: "/communityrelations/form/email"
+  steps:
+    - visit: https://solutions.virginia.gov/communityrelations/form/email
+    - fill_in:
+      - name: title
+        selector: "#RequestedByTitle"
+        value: $NAME_PREFIX
+        required: false
+      - name: firstname
+        selector: "#RequestedByFirstName"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: "#RequestedByLastName"
+        value: $NAME_LAST
+        required: true
+      - name: street
+        selector: "#RequestedByStreetAddress"
+        value: $ADDRESS_STREET
+        required: true
+      - name: city
+        selector: "#RequestedByCity"
+        value: $ADDRESS_CITY
+        required: true
+      - name: zip
+        selector: "#RequestedByZipCode"
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: emailaddress
+        selector: "#RequestedByEmail" 
+        value: $EMAIL
+        required: true
+      - name: subject
+        selector: "#MessageSubject"
+        value: $SUBJECT
+        required: true
+      - name: message
+        selector: "#MessageBody"
+        value: $MESSAGE
+        required: true
+    - select:
+      - name: topic
+        selector: "#IssueCode"
+        value: $TOPIC
+        required: false
+        options:
+          "": "General Inquiry"
+          "CT": "Commerce and Trade, Secretary of"
+          "EDU": "Education, Secretary of"
+          "FIN": "Finance, Secretary of"
+          "HHR": "Health and Human Resources, Secretary of"
+          "NR": "Natural Resources, Secretary of"
+          "PSHS": "Public Safety and Homeland Security, Secretary of"
+          "AD": "Secretary of Administration"
+          "AGR": "Secretary of Agriculture"
+          "SOC": "Secretary of Commonwealth"
+          "TECH": "Technology, Secretary of"
+          "TRAN": "Transportation, Secretary of"
+          "VDA": "Veterans Defense Affairs, Secretary of"
+    - click_on:
+      - value: "Response Required"
+        selector: "input[id='ResponseRequired'][value='Yes']"
+      - value: Submit
+        selector: "input[type='submit'][value='Submit']"
+  success: 
+    headers:
+      status: 200
+    body:
+      contains: "request has been sent"
