@@ -6,69 +6,56 @@ contact_form:
     - visit: "http://gov.idaho.gov/ourgov/contact.html"
     - wait:
       - value: 2
-    - iframe:
-      - name: iframe1
-        selector: "div.g-recaptcha div div iframe[src^='https://www.google.com']"
     - fill_in:
-      - name: recaptcha_response_field
-        captcha_selector: "html body div.fbc-payload > img"
+      - name: recaptcha
+        captcha_selector: "#recaptcha_challenge_image"
         value: $CAPTCHA_SOLUTION
-        selector: "#response"
+        selector: "#recaptcha_response_field"
         required: true
-    - click_on:
-      - value: recaptchaSubmit
-        selector: "div.fbc-button-verify > input"
-    - copy_paste:
-      - name: copy_captcha_cpde
-        copy_selector: "div.fbc-verification-token > textarea"
-        paste_selector: "#g-recaptcha-response"
-    - iframe:
-      - name: parent1
-        back: true
     - fill_in:
       - name: firstName
-        selector: "#firstNameTextbox"
+        selector: "input[name='firstname']"
         value: $NAME_FIRST
         required: true
       - name: lastName
-        selector: "#lastNameTextbox"
+        selector: "input[name='lastname']"
         value: $NAME_LAST
         required: true
       - name: street1
-        selector: "#mailAddTextbox"
+        selector: "input[name='address1']"
         value: $ADDRESS_STREET
         required: true
       - name: street2
-        selector: "#mailAdd2Textbox"
+        selector: "input[name='address2']"
         value: $ADDRESS_STREET_2
       - name: city
-        selector: "#cityTextbox"
+        selector: "input[name='city']"
         value: $ADDRESS_CITY
         required: true
       - name: zip5
-        selector: "#zipTextbox"
+        selector: "input[name='zip']"
         value: $ADDRESS_ZIP5
         required: true
       - name: phoneAreaCode
-        selector: "#phacTextbox"
+        selector: "input[name='contactPhoneAC']"
         value: $PHONE_AREA_CODE
       - name: phoneExchange
-        selector: "#phpreTextbox"
+        selector: "input[name='contactphonepre']"
         value: $PHONE_EXCHANGE_CODE
       - name: phoneNumber
-        selector: "#phlineTextbox"
+        selector: "input[name='contactPhoneLINE']"
         value: $PHONE_SUBSCRIBER_NUMBER
       - name: email
-        selector: "#emailTextbox"
+        selector: "input[name='email']"
         value: $EMAIL
         required: true
       - name: message
-        selector: "#messageTextbox"
+        selector: "textarea[name='messagebody']"
         value: $MESSAGE
         required: true
     - select:
       - name: prefix
-        selector: "#prefixDropDown"
+        selector: "select[name='prefix']"
         value: $NAME_PREFIX
         required: true
         options:
@@ -78,7 +65,7 @@ contact_form:
           - "Dr.": "Dr."
           - "Mr. & Mrs.": "Mr. & Mrs."
       - name: stateFull
-        selector: "#stateDropDown"
+        selector: "#state"
         value: $ADDRESS_STATE_FULL
         required: true
         options:
@@ -134,7 +121,7 @@ contact_form:
           - "WI": "Wisconsin"
           - "WY": "Wyoming"
       - name: topic
-        selector: "#topicDropDown"
+        selector: "select[name='issue']"
         value: $TOPIC
         required: true
         options:
@@ -162,7 +149,7 @@ contact_form:
           - "OTHER": "Other"
     - click_on:
       - value: Submit
-        selector: "#submitButton"
+        selector: "input[name='submit_button']"
   success:
     headers:
       status: 200
