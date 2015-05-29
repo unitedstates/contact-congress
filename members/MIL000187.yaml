@@ -1,0 +1,50 @@
+bioguide: MIL000187
+contact_form:
+  method: post
+  action: /contact-rep-banks
+  steps:
+    - visit: "http://housedems.com/contact-rep-banks/"
+    - fill_in:
+        - name: name
+          selector: "#edit-submitted-name"
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: "#edit-submitted-email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#edit-submitted-phone"
+          value: $PHONE
+          required: true
+        - name: address
+          selector: "#edit-submitted-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#edit-submitted-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: subject
+          selector: "#edit-submitted-subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#edit-submitted-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: message
+          selector: "#edit-submitted-state"
+          value: "Michigan"
+          required: true
+    - wait:
+      - value: 5
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 302
+    body:
+      contains: form
