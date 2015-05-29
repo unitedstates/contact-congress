@@ -1,74 +1,123 @@
 bioguide: S001156
 contact_form:
   method: POST
-  action: "/htbin/formproc_za/lindasanchez/webforms/issue_subscribe_parm.txt&form=/lindasanchez/webforms/issue_subscribe_verify.htm"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://forms.house.gov/lindasanchez/webforms/issue_subscribe.htm"
+    - visit: "https://lindasanchez.house.gov/contact"
     - fill_in:
-        - name: required-first
-          selector: "#article-content form input[name='required-first']"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "#article-content form input[name='required-last']"
-          value: $NAME_LAST
-          required: true
-        - name: required-address
-          selector: "#article-content form input[name='required-address']"
-          value: $ADDRESS_STREET
-          required: true
-        - name: required-city
-          selector: "#article-content form input[name='required-city']"
-          value: $ADDRESS_CITY
-          required: true
         - name: zip5
-          selector: "#article-content form input[name='zip5']"
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#article-content form input[name='zip4']"
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
+    - click_on:
+        - value: Next Step
+          selector: "#submit"
+    - fill_in:
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
         - name: required-email
-          selector: "#article-content form input[name='required-email']"
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#article-content form input[name='phone']"
+          selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-message
-          selector: "#article-content form textarea[name='required-message']"
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
         - name: required-prefix
-          selector: "#article-content form select[name='required-prefix']"
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
             - Ms.
-            - Dr.
+            - Miss.
             - Mrs.
-            - Miss
-            - Hon.
-            - Prof
-        - name: required-state
-          selector: "#article-content form select[name='required-state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
+        - name: topic
+          selector: "#required-issue"
+          value: $TOPIC
           required: true
-          options: []
-    - check:
-        - name: required-newsletter
-          selector: "input[type='radio'][name='required-newsletter'][value='noAction']"
-          value: noAction
+          options:
+            - Agriculture
+            - Animals
+            - Arts and Humanities
+            - Banking and Finance
+            - Budget and Economy
+            - Help With a Federal Agency
+            - Campaign Finance Reform
+            - Congress and Elections
+            - Defense and Military
+            - Economy
+            - Education
+            - Energy
+            - Environment
+            - Federal Employees
+            - Foreign Relations
+            - Government Reform
+            - Guns
+            - Health
+            - Homeland Security
+            - Housing and Urban Development
+            - Immigration
+            - International Relations
+            - Judiciary
+            - Labor
+            - LGBT
+            - No Response Necessary
+            - Post Office
+            - Science and Technology
+            - Social Issues
+            - Senior Citizens
+            - Social Security
+            - Social Services
+            - Taxes
+            - Telecommunications
+            - Tours
+            - Transportation
+            - Trade
+            - Veterans
+            - Women's Issues
+            - Welfare
+            - Other Issue
+        - name: response
+          selector: "#required-response"
+          value: Y
+          required: true
+          options:
+            - Y
+            - N
     - click_on:
         - value: Send Email
-          selector: "#article-content form input[type='submit'][value='Send Email']"
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: be sent
-      
+      contains: your message has been sent
