@@ -1,122 +1,67 @@
 bioguide: S001197
 contact_form:
   method: post
-  action: /public/index.cfm/email-ben
+  action: ""
   steps:
     - visit: "http://www.sasse.senate.gov/public/index.cfm/email-ben"
     - fill_in:
-        - name: "field_8B37EAA4-2FC8-4F36-A6B6-F3414A7A9AA5"
+        - name: field_8B37EAA4-2FC8-4F36-A6B6-F3414A7A9AA5
           selector: "#field_8B37EAA4-2FC8-4F36-A6B6-F3414A7A9AA5"
           value: $NAME_FIRST
           required: true
-        - name: "field_70D11ACD-1BB0-4DB0-B12E-670C8FDC9590"
+        - name: field_70D11ACD-1BB0-4DB0-B12E-670C8FDC9590
           selector: "#field_70D11ACD-1BB0-4DB0-B12E-670C8FDC9590"
           value: $NAME_LAST
           required: true
-        - name: "field_93686B46-A6D1-4977-A951-81396A4E94CA"
+        - name: field_93686B46-A6D1-4977-A951-81396A4E94CA
           selector: "#field_93686B46-A6D1-4977-A951-81396A4E94CA"
           value: $ADDRESS_STREET
           required: true
-        - name: "field_664E68C6-1D34-46D1-B232-496B48DAB108"
+        - name: field_664E68C6-1D34-46D1-B232-496B48DAB108
           selector: "#field_664E68C6-1D34-46D1-B232-496B48DAB108"
           value: $ADDRESS_CITY
           required: true
-        - name: "field_EFE8B729-6D88-4FAF-94C4-EEA0383D403A"
+        - name: field_EFE8B729-6D88-4FAF-94C4-EEA0383D403A
           selector: "#field_EFE8B729-6D88-4FAF-94C4-EEA0383D403A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
+        - name: field_2515A2B7-E9CD-40F8-8135-64CC47B8A7B5
           selector: "#field_2515A2B7-E9CD-40F8-8135-64CC47B8A7B5"
           value: $PHONE
-          required: false
-        - name: "field_9023DC4C-36F1-4E2B-B5F1-5173345C1A56"
+          required: true
+        - name: field_9023DC4C-36F1-4E2B-B5F1-5173345C1A56
           selector: "#field_9023DC4C-36F1-4E2B-B5F1-5173345C1A56"
           value: $EMAIL
           required: true
-        - name: "field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4"
+        - name: field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4
           selector: "#field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4"
           value: $MESSAGE
+          required: false
+        - name: captcha_95CD8B31-5184-42D1-B156-FBC53AE06B99
+          selector: "input#captcha_95CD8B31-5184-42D1-B156-FBC53AE06B99"
+          captcha_selector: "#captcha_95CD8B31-5184-42D1-B156-FBC53AE06B99_container img"
+          captcha_id_selector: "#captcha_95CD8B31-5184-42D1-B156-FBC53AE06B99_hash"
+          value: "$CAPTCHA_SOLUTION"
           required: true
-          options:
-            max_length: 500
     - select:
-        - name: "field_2647C301-6F8A-4A2F-A7AD-6AB2BA694E46"
+        - name: field_2647C301-6F8A-4A2F-A7AD-6AB2BA694E46
           selector: "#field_2647C301-6F8A-4A2F-A7AD-6AB2BA694E46"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mrs.
-            - Reverend
-            - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
-        - name: "field_7CAD42BE-FB65-469B-B185-CF437B32E985"
-          selector: "#field_7CAD42BE-FB65-469B-B185-CF437B32E985"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AA
-            - AE
-            - AP
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-        - name: "field_2B460AD9-C6A4-4448-B9A5-58A73BE3F005"
+            Mr.: Mr
+            Mrs.: Mrs
+            Ms.: Ms
+            Mr. and Mrs.: Mr and Mrs
+            Dr.: Dr
+            Dr. and Mrs.: Dr and Mrs
+            Reverend: Reverend
+            Sister: Sister
+            Pastor: Pastor
+            The Honorable: The Honorable
+            Representative: Representative
+            Senator: Senator
+        - name: field_2B460AD9-C6A4-4448-B9A5-58A73BE3F005
           selector: "#field_2B460AD9-C6A4-4448-B9A5-58A73BE3F005"
           value: $TOPIC
           required: true
@@ -176,9 +121,9 @@ contact_form:
             - Veterans
     - click_on:
         - value: Submit
-          selector: "input.btn-primary"
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you"
+      contains: "Thank you!"
