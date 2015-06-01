@@ -38,8 +38,15 @@ contact_form:
           selector: "#edit-submitted-state"
           value: "Michigan"
           required: true
-    - wait:
-      - value: 5
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+    - fill_in:
+        - name: captcha
+          selector: "#edit-mollom-captcha"
+          captcha_selector: ".mollom-image-captcha img"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
     - click_on:
         - value: Submit
           selector: "input[type='submit'][value='Submit']"
