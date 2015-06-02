@@ -180,6 +180,8 @@ contact_form:
     - iframe:
       - name: iframe1
         selector: "iframe[src='https://apps.cio.ny.gov/apps/widgets/nys-connects/contactForm.cfm']"
+    - find:
+      - selector: ".pane-gov-contact-confirmation-message"
   success:
     headers:
       status: 200
