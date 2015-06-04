@@ -16,7 +16,7 @@ contact_form:
         - name: phone
           selector: "#ctl00_cphContent_txtHomePhone"
           value: $PHONE
-          required: false
+          required: true
         - name: email
           selector: "#ctl00_cphContent_txtEmail"
           value: $EMAIL
@@ -37,11 +37,6 @@ contact_form:
           selector: "#ctl00_cphContent_txtActionRequest"
           value: $MESSAGE
           required: true
-        - name: recaptcha_response_field
-          selector: "#ctl00_cphContent_RadCaptcha1_CaptchaTextBox"
-          captcha_selector: "#ctl00_cphContent_RadCaptcha1_CaptchaImageUP"
-          value: $CAPTCHA_SOLUTION
-          required: true
     - select:
         - name: required-issue
           selector: "#ctl00_cphContent_ddlStates"
@@ -56,4 +51,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for your web submission
+      contains: Thank you for reaching out to us
