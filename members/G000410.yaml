@@ -112,10 +112,9 @@ contact_form:
         - value: Send Email
           selector: "#submit"
     - find:
-        - selector: "h1#page-title-no-line"
-          value: "Thank You"
+        - selector: "span.data"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "Thank you"
