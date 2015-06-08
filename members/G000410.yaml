@@ -56,17 +56,20 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
+        - name: required-prefix
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: Mr.
-            Mrs.: Mrs.
             Ms.: Ms.
-            Miss.: Miss.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            "Mr. and Mrs.": "Mr. and Mrs."
             Rev.: Rev.
             Dr.: Dr.
+            "The Honorable": "The Honorable"
+            Rabbi: Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
