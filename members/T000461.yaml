@@ -49,6 +49,12 @@ contact_form:
           selector: "textarea[name='MSG']"
           value: $MESSAGE
           required: true
+        - name: captcha
+          selector: "#captcha"
+          captcha_selector: "img[height='75'][width='363']"
+          captcha_id_selector: "input[name='captcha_check']"
+          value: $CAPTCHA_SOLUTION
+          required: true
     - select:
         - name: PREFIX
           selector: "select[name='PREFIX']"
