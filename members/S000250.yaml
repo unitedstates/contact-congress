@@ -37,6 +37,9 @@ contact_form:
           selector: "#field_6AA78EC6-51E3-4F22-BF51-73BEB2668029"
           value: $MESSAGE
           required: true
+    - wait:
+        - value: 1
+    - fill_in:
         - name: recaptcha_response_field
           selector: "#recaptcha_response_field"
           captcha_selector: "img#recaptcha_challenge_image"
