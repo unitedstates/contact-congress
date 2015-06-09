@@ -68,8 +68,10 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl18_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl18_ConfirmationText"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to write me. I carefully consider the views of my constituents as I serve you in the United States House of Representatives.
+      contains: Thank you for taking the time to write me.
