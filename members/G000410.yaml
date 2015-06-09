@@ -44,11 +44,11 @@ contact_form:
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
-          selector: "#required-subject"
+          selector: "input[name='required-subject']"
           value: $SUBJECT
           required: true
         - name: required-message
@@ -57,7 +57,7 @@ contact_form:
           required: true
     - select:
         - name: prefix
-          selector: "#prefix"
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
@@ -115,4 +115,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "your message has been sent"
