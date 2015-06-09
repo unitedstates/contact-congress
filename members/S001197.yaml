@@ -37,10 +37,10 @@ contact_form:
           selector: "#field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4"
           value: $MESSAGE
           required: false
-        - name: captcha_95CD8B31-5184-42D1-B156-FBC53AE06B99
-          selector: "input#captcha_95CD8B31-5184-42D1-B156-FBC53AE06B99"
-          captcha_selector: "#captcha_95CD8B31-5184-42D1-B156-FBC53AE06B99_container img"
-          captcha_id_selector: "#captcha_95CD8B31-5184-42D1-B156-FBC53AE06B99_hash"
+        - name: captcha
+          selector: "#recaptcha_response_field"
+          captcha_selector: "#recaptcha_challenge_image"
+          captcha_id_selector: "#recaptcha_challenge_field"
           value: "$CAPTCHA_SOLUTION"
           required: true
     - select:
