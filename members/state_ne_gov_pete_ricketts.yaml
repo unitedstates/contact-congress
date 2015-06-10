@@ -66,12 +66,12 @@ contact_form:
           options:
             - Nebraska
     - click_on:
-        - value: hideModal
-          selector: "#cookieModal"
         - value: Submit
           selector: "#mySubmitButton"
+    - wait:
+        - value: 2
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting the Governor
+      contains: Thank you, your request was successfully submitted
