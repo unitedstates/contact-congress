@@ -1,77 +1,122 @@
 bioguide: state_il_gov_bruce_rauner
 contact_form:
   method: post
-  action: /gov/Pages/ContacttheGovernor.aspx
+  action: /gov/ContactUs/Pages/VoiceAnOpinion.aspx
   steps:
-    - visit: "http://www2.illinois.gov/gov/Pages/ContacttheGovernor.aspx"
+    - visit: "http://www.illinois.gov/gov/ContactUs/Pages/VoiceAnOpinion.aspx"
     - fill_in:
         - name: firstName
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_FirstName"
+          selector: "#ctl00_m_g_3a01d56e_b68a_485b_a7d3_43e25d8506d3_First_x0020_Name"
           value: $NAME_FIRST
           required: true
         - name: lastName
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_LastName"
+          selector: "#ctl00_m_g_3a01d56e_b68a_485b_a7d3_43e25d8506d3_Last_x0020_Name"
           value: $NAME_LAST
           required: true
         - name: phone
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_Phone"
+          selector: "#ctl00_m_g_3a01d56e_b68a_485b_a7d3_43e25d8506d3_Phone"
           value: $PHONE
           required: true
         - name: street1
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_Address"
+          selector: "#ctl00_m_g_3a01d56e_b68a_485b_a7d3_43e25d8506d3_Address"
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_City"
+          selector: "#ctl00_m_g_3a01d56e_b68a_485b_a7d3_43e25d8506d3_City"
           value: $ADDRESS_CITY
           required: true
-        - name: stateAbbrev
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
         - name: zip5
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_Zip"
+          selector: "#ctl00_m_g_3a01d56e_b68a_485b_a7d3_43e25d8506d3_Zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: email
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_Email"
+          selector: "#ctl00_m_g_3a01d56e_b68a_485b_a7d3_43e25d8506d3_Email"
           value: $EMAIL
           required: true
-        - name: organization
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_CitizenRequest"
-          value: $ORG_NAME
         - name: message
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_CitizenQuestion"
+          selector: "#ctl00_m_g_3a01d56e_b68a_485b_a7d3_43e25d8506d3_Comment"
           value: $MESSAGE
           required: true
     - select:
         - name: prefix
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_PrefixName"
+          selector: "#ctl00_m_g_3a01d56e_b68a_485b_a7d3_43e25d8506d3_Prefix_x0020_Name"
           value: $NAME_PREFIX
           options:
             - "Mr.": "Mr."
             - "Mrs.": "Mrs."
             - "Ms.": "Ms."
+        - name: position
+          selector: "#ctl00_m_g_3a01d56e_b68a_485b_a7d3_43e25d8506d3_Position"
+          value: "None"
+          required: true
+          options:
+            - Support
+            - Oppose
+            - None
         - name: topic
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_Subject"
+          selector: "#ctl00_m_g_3a01d56e_b68a_485b_a7d3_43e25d8506d3_Subject"
           value: $TOPIC
           required: true
           options:
-            - "2": "Administrative"
-            - "3": "Arts"
-            - "4": "Budget/Vendor Payments"
-            - "5": "Education"
-            - "6": "Environment / Energy"
-            - "7": "Finance"
-            - "8": "Healthcare / Insurance"
-            - "9": "Labor"
-            - "10": "Military Affairs"
-            - "11": "Other"
-            - "12": "Public Safety"
+            - "1497": "After School Program Funding"
+            - "1498": "Agriculture Education Funding"
+            - "1500": "Animal Cruelty and Testing"
+            - "1502": "Bobcat Hunting"
+            - "1503": "Body Cameras for Law Enforcement"
+            - "1504": "Clean Energy Jobs"
+            - "1505": "Closure of Juvenile Correctional Facilities"
+            - "1506": "Closure of State Museums"
+            - "1510": "Concealed Carry"
+            - "1512": "Death Penalty"
+            - "1513": "Developmentally Disabled Programs Funding"
+            - "1514": "Early Intervention Programs"
+            - "1516": "Education Policy Reform"
+            - "1518": "Film Tax Credits"
+            - "1519": "Fracking"
+            - "1520": "Funding for Amtrak Train Services"
+            - "1521": "Funding for Domestic Violence Programs"
+            - "1523": "Funding for Energy Assistance Programs"
+            - "1524": "Funding for Nursing Homes"
+            - "1529": "Gambling Expansion"
+            - "1530": "Gas Prices"
+            - "1531": "Gun Control"
+            - "1539": "Healthcare Reform"
+            - "1540": "High Speed Rail"
+            - "1541": "Higher Education Funding"
+            - "1542": "Homeless Services"
+            - "1543": "IDOT South Suburban/Peotone Airport"
+            - "1545": "Immigration Reform"
+            - "1546": "Independent Maps"
+            - "1547": "Infrastructure Funding"
+            - "1551": "Medicaid Reductions"
+            - "1552": "Medical Marijuana"
+            - "1553": "Mental Health Funding"
+            - "1554": "Minimum Wage Increase"
+            - "1556": "Pension Reform"
+            - "1557": "Prison Reform"
+            - "1558": "Property Tax Freeze"
+            - "1560": "Public Education Funding "
+            - "1561": "Public Transit Funding"
+            - "1562": "Renewable Energy "
+            - "1563": "Right to Work"
+            - "1571": "Social Services Budget Cuts"
+            - "1572": "State Income Tax"
+            - "1573": "Supportive Housing"
+            - "1574": "Tax Reform"
+            - "1575": "Term Limits"
+            - "1578": "the Governor’s Proposed Budget Reductions"
+            - "1576": "The Governor's Job Performance"
+            - "1581": "Updating the Illinois Communications Law"
+            - "1582": "Vehicle Emissions Testing"
+            - "1583": "Welfare Reform"
+            - "1584": "Workers Compensation Reform"
+            - "1585": "Youth Program Funding"
+            - "36": "(Other - Subject not listed)"
     - click_on:
         - value: Submit
-          selector: "#ctl00_SPWebPartManager1_g_54549226_8ec6_4af8_9a82_a19ee028d074_SOIFeedbackSubmit"
+          selector: "#ctl00_m_g_3a01d56e_b68a_485b_a7d3_43e25d8506d3_SOIFeedbackSubmit"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been sent
+      contains: Your message has been received
