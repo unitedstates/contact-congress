@@ -3,7 +3,7 @@ contact_form:
   method: get
   action: /forms/writeyourrep/
   steps:
-    - visit: "http://robwittmanforms.house.gov/contact/"
+    - visit: "http://wittman.house.gov/contact/"
     - fill_in:
         - name: zip5
           selector: "form.zipform input[name='zip5']"
@@ -112,6 +112,8 @@ contact_form:
             Transportation and Public Works: "127368"
             Veterans: "127385"
     - click_on:
+        - value: Response
+          selector: "#ctl00_ctl13_ReplyChoice_0"
         - value: Submit
           selector: "#ctl00_ctl13_SubmitButton"
     - find:
