@@ -4,64 +4,199 @@ contact_form:
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
     - visit: "https://takano.house.gov/contact/email-me"
+    - wait:
+      - value: 3
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip
+          selector: "#zipcode"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+        - value: Next
+          selector: ".formheader"
+    - wait:
+      - value: 3
     - find:
-        - selector: "#contactForm"
+        - selector: "#continue-form"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
-          selector: "#required-first"
+          selector: "#input-FE907558-4040-F985-52CD-A091B0824193"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#required-last"
+          selector: "#input-FE9075B7-4040-F985-52CD-A0525C2E82C2"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#required-address"
+          selector: "#input-35E2030D-0BE0-C6C3-F685-66EAF2C47AD2"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
-          selector: "#required-city"
+          selector: "#input-35F31A1A-E58A-4DBB-3443-57763D9F57B3"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: "#input-3629D55A-D2E7-5DF0-4EC9-CF7353DD9A7D"
           value: $EMAIL
           required: true
         - name: required-phone
-          selector: "#required-phone"
+          selector: "#input-FEC5D18B-4040-F985-52CD-3C63B47160DF"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
-          required: true
         - name: required-message
-          selector: "#required-message"
+          selector: "#input-36466B2D-9324-A3EC-8F49-33D7F83F9C08"
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: "#input-FE90751D-4040-F985-52CD-49B043A1EC15"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "Mr.": "Mr."
+            "Ms.": "Ms."
+            "Mrs.": "Mrs."
+            "Professor": "Professor"
+            "Dr.": "Dr."
+            "Father": "Father"
+            "Sister": "Sister"
+            "Rabbi": "Rabbi"
+            "Reverend": "Reverend"
+            "General": "Air Force - General"
+            "Lieutenant General": "Air Force - Lieutenant General"
+            "Major General": "Air Force - Major General"
+            "Brigadier General": "Air Force - Brigadier General"
+            "Colonel": "Air Force - Colonel"
+            "Lieutenant Colonel": "Air Force - Lieutenant Colonel"
+            "Major": "Air Force - Major"
+            "Captain": "Air Force - Captain"
+            "First Lieutenant": "Air Force - First Lieutenant"
+            "Second Lieutenant": "Air Force - Second Lieutenant"
+            "Chief Master Sergeant of the Air Force": "Air Force - Chief Master Sergeant of the Air Force"
+            "Command Chief Master Sergeant": "Air Force - Command Chief Master Sergeant"
+            "First Sergeant (E-9)": "Air Force - First Sergeant (E-9)"
+            "Chief Master Sergeant": "Air Force - Chief Master Sergeant"
+            "First Sergeant (E-8)": "Air Force - First Sergeant (E-8)"
+            "Senior Master Sergeant": "Air Force - Senior Master Sergeant"
+            "First Sergeant (E-7)": "Air Force - First Sergeant (E-7)"
+            "Master Sergeant": "Air Force - Master Sergeant"
+            "Technical Sergeant": "Air Force - Technical Sergeant"
+            "Staff Sergeant": "Air Force - Staff Sergeant"
+            "Senior Airman": "Air Force - Senior Airman"
+            "Airman First Class": "Air Force - Airman First Class"
+            "Airman": "Air Force - Airman"
+            "Airman Basic": "Air Force - Airman Basic"
+            "General": "Army - General"
+            "Lieutenant General": "Army - Lieutenant General"
+            "Major General": "Army - Major General"
+            "Brigadier General": "Army - Brigadier General"
+            "Colonel": "Army - Colonel"
+            "Lieutenant Colonel": "Army - Lieutenant Colonel"
+            "Major": "Army - Major"
+            "Captain": "Army - Captain"
+            "First Lieutenant": "Army - First Lieutenant"
+            "Second Lieutenant": "Army - Second Lieutenant"
+            "Chief Warrant Officer - 5": "Army - Chief Warrant Officer - 5"
+            "Chief Warrant Officer - 4": "Army - Chief Warrant Officer - 4"
+            "Chief Warrant Officer - 3": "Army - Chief Warrant Officer - 3"
+            "Chief Warrant Officer - 2": "Army - Chief Warrant Officer - 2"
+            "Warrant Officer": "Army - Warrant Officer"
+            "Sergeant Major of the Army": "Army - Sergeant Major of the Army"
+            "Command Sergeant Major": "Army - Command Sergeant Major"
+            "Sergeant Major": "Army - Sergeant Major"
+            "First Sergeant": "Army - First Sergeant"
+            "Master Sergeant": "Army - Master Sergeant"
+            "Sergeant First Class": "Army - Sergeant First Class"
+            "Staff Sergeant": "Army - Staff Sergeant"
+            "Sergeant": "Army - Sergeant"
+            "Corporal": "Army - Corporal"
+            "Specialist": "Army - Specialist"
+            "Private First Class": "Army - Private First Class"
+            "Private (E-2)": "Army - Private (E-2)"
+            "Private": "Army - Private"
+            "Admiral": "Coast Guard - Admiral"
+            "Vice Admiral": "Coast Guard - Vice Admiral"
+            "Rear Admiral, Upper Half": "Coast Guard - Rear Admiral, Upper Half"
+            "Rear Admiral, Lower Half": "Coast Guard - Rear Admiral, Lower Half"
+            "Captain": "Coast Guard - Captain"
+            "Commander": "Coast Guard - Commander"
+            "Lieutenant Commander": "Coast Guard - Lieutenant Commander"
+            "Lieutenant": "Coast Guard - Lieutenant"
+            "Lieutenant Junior Grade": "Coast Guard - Lieutenant Junior Grade"
+            "Ensign": "Coast Guard - Ensign"
+            "Chief Warrant Officer - 4": "Coast Guard - Chief Warrant Officer - 4"
+            "Chief Warrant Officer - 3": "Coast Guard - Chief Warrant Officer - 3"
+            "Chief Warrant Officer - 2": "Coast Guard - Chief Warrant Officer - 2"
+            "Master Chief Petty Officer of the Coast Guard": "Coast Guard - Master Chief Petty Officer of the Coast Guard"
+            "Master Chief Petty Officer": "Coast Guard - Master Chief Petty Officer"
+            "Senior Chief Petty Officer": "Coast Guard - Senior Chief Petty Officer"
+            "Chief Petty Officer": "Coast Guard - Chief Petty Officer"
+            "Petty Officer First Class": "Coast Guard - Petty Officer First Class"
+            "Petty Officer Second Class": "Coast Guard - Petty Officer Second Class"
+            "Petty Officer Third Class": "Coast Guard - Petty Officer Third Class"
+            "Seaman": "Coast Guard - Seaman"
+            "Seaman Apprentice": "Coast Guard - Seaman Apprentice"
+            "Seaman Recruit": "Coast Guard - Seaman Recruit"
+            "General": "Marine Corps - General"
+            "Lieutenant General": "Marine Corps - Lieutenant General"
+            "Major General": "Marine Corps - Major General"
+            "Brigadier General": "Marine Corps - Brigadier General"
+            "Colonel": "Marine Corps - Colonel"
+            "Lieutenant Colonel": "Marine Corps - Lieutenant Colonel"
+            "Major": "Marine Corps - Major"
+            "Captain": "Marine Corps - Captain"
+            "First Lieutenant": "Marine Corps - First Lieutenant"
+            "Second Lieutenant": "Marine Corps - Second Lieutenant"
+            "Chief Warrant Officer - 5": "Marine Corps - Chief Warrant Officer - 5"
+            "Chief Warrant Officer - 4": "Marine Corps - Chief Warrant Officer - 4"
+            "Chief Warrant Officer - 3": "Marine Corps - Chief Warrant Officer - 3"
+            "Chief Warrant Officer - 2": "Marine Corps - Chief Warrant Officer - 2"
+            "Warrant Officer": "Marine Corps - Warrant Officer"
+            "Sergeant Major of the Marine Corps": "Marine Corps - Sergeant Major of the Marine Corps"
+            "Sergeant Major": "Marine Corps - Sergeant Major"
+            "Master Gunnery Sergeant": "Marine Corps - Master Gunnery Sergeant"
+            "First Sergeant": "Marine Corps - First Sergeant"
+            "Master Sergeant": "Marine Corps - Master Sergeant"
+            "Gunnery Sergeant": "Marine Corps - Gunnery Sergeant"
+            "Staff Sergeant": "Marine Corps - Staff Sergeant"
+            "Sergeant": "Marine Corps - Sergeant"
+            "Corporal": "Marine Corps - Corporal"
+            "Lance Corporal": "Marine Corps - Lance Corporal"
+            "Private First Class": "Marine Corps - Private First Class"
+            "Private": "Marine Corps - Private"
+            "Admiral": "Navy - Admiral"
+            "Vice Admiral": "Navy - Vice Admiral"
+            "Rear Admiral, Upper Half": "Navy - Rear Admiral, Upper Half"
+            "Rear Admiral, Lower Half": "Navy - Rear Admiral, Lower Half"
+            "Captain": "Navy - Captain"
+            "Commander": "Navy - Commander"
+            "Lieutenant Commander": "Navy - Lieutenant Commander"
+            "Lieutenant": "Navy - Lieutenant"
+            "Lieutenant Junior Grade": "Navy - Lieutenant Junior Grade"
+            "Ensign": "Navy - Ensign"
+            "Chief Warrant Officer - 4": "Navy - Chief Warrant Officer - 4"
+            "Chief Warrant Officer - 3": "Navy - Chief Warrant Officer - 3"
+            "Chief Warrant Officer - 2": "Navy - Chief Warrant Officer - 2"
+            "Master Chief Petty Officer of the Navy": "Navy - Master Chief Petty Officer of the Navy"
+            "Master Chief Petty Officer": "Navy - Master Chief Petty Officer"
+            "Senior Chief Petty Officer": "Navy - Senior Chief Petty Officer"
+            "Chief Petty Officer": "Navy - Chief Petty Officer"
+            "Petty Officer First Class": "Navy - Petty Officer First Class"
+            "Petty Officer Second Class": "Navy - Petty Officer Second Class"
+            "Petty Officer Third Class": "Navy - Petty Officer Third Class"
+            "Seaman Apprentice": "Navy - Seaman Apprentice"
+            "Seaman": "Navy - Seaman"
+            "Seaman Recruit": "Navy - Seaman Recruit"
+        - name: phone-type
+          selector: "#input-FEC5D1BC-4040-F985-52CD-9D43179522B8"
+          value: "V"
+          required: true
         - name: required-issue
-          selector: "#required-issue"
+          selector: "#input-FEEEC32B-4040-F985-52CD-303955B5D15D"
           value: $TOPIC
           required: true
           options:
@@ -106,15 +241,16 @@ contact_form:
             Welfare: WEL
             Other Issues: OTHER
         - name: required-response
-          selector: "#required-response"
+          selector: "#input-7244B1CA-5056-BE32-8188-4FFD3A19F87D"
           value: "Y"
-          required: false
+          required: true
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: "input[type='submit'][value='Submit']"
+    - wait:
+      - value: 5
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
-
+      contains: Thank you for contacting
