@@ -1,0 +1,105 @@
+bioguide: K000388
+contact_form: 
+  method: post
+  action:
+  steps: 
+  - visit: https://trentkellyforms.house.gov/forms/writeyourrep/
+  - fill_in: 
+    - name: FirstName
+      selector: "#ctl00_ctl29_FirstName"
+      value: $NAME_FIRST
+      required: true
+    - name: LastName
+      selector: "#ctl00_ctl29_LastName"
+      value: $NAME_LAST
+      required: true
+    - name: Street
+      selector: "#ctl00_ctl29_Street"
+      value: $ADDRESS_STREET
+      required: true
+    - name: City
+      selector: "#ctl00_ctl29_City"
+      value: $ADDRESS_CITY
+      required: true
+    - name: Zip
+      selector: "#ctl00_ctl29_Zip"
+      value: $ADDRESS_ZIP5
+      required: true
+    - name: Email
+      selector: "#ctl00_ctl29_Email"
+      value: $EMAIL
+      required: true
+    - name: Phone
+      selector: "#ctl00_ctl29_Phone"
+      value: $PHONE
+      required: false
+    - name: Message
+      selector: "#ctl00_ctl29_Body"
+      value: $MESSAGE
+      required: true
+    - name: Subject
+      selector: "#ctl00_ctl29_Subject"
+      value: $SUBJECT
+      required: true
+  - choose: 
+    - name: ReplyChoice
+      selector: "#ctl00_ctl29_ReplyChoice_0"
+      value: Respond
+  - select: 
+    - name: Prefix
+      selector: "#ctl00_ctl29_PrefixList"
+      value: $NAME_PREFIX
+      required: true
+      options: 
+      - Mr.
+      - Mrs.
+      - Ms.
+      - Dr.
+    - name: Topic
+      selector: "#ctl00_ctl29_IssuesList"
+      value: $TOPIC
+      required: true
+      options: 
+        "": "None"
+        "14886": "Advocacy"
+        "72": "Agriculture and Food"
+        "9982": "Animals"
+        "10012": "Armed Forces and National Security"
+        "10039": "Arts, Culture, Religion"
+        "10055": "Civil Rights and Liberties, Minority Issues"
+        "10073": "Commerce"
+        "10095": "Congress"
+        "10109": "Crime and Law Enforcement"
+        "10135": "Economics and Public Finance"
+        "73": "Education"
+        "10168": "Emergency Management"
+        "10177": "Energy"
+        "14814": "Environmental Protection"
+        "10209": "Families"
+        "10219": "Finance and Financial Sector"
+        "10236": "Foreign Trade and International Finance"
+        "10250": "Government Operations and Politics"
+        "74": "Health"
+        "10346": "Housing and Community Development"
+        "10360": "Immigration"
+        "10370": "International Affairs"
+        "10390": "Labor and Employment"
+        "10406": "Law"
+        "10424": "Native Americans"
+        "14873": "Private Legislation"
+        "10432": "Public Lands and Natural Resources"
+        "10447": "Science, Technology, Communications"
+        "10471": "Social Sciences and History"
+        "10479": "Social Welfare"
+        "10485": "Sports and Recreation"
+        "10493": "Taxation"
+        "81": "Transportation and Public Works"
+        "10528": "Water Resources Development"
+  - click_on: 
+    - value: Submit
+      selector: "#ctl00_ctl29_SubmitButton"
+  success: 
+    headers: 
+      status: 200
+    body: 
+      contains: Thank you for taking the time to write me
