@@ -120,6 +120,30 @@ contact_form:
             - WI
             - WV
             - WY
+        - name: issue
+          selector: "#req_issue"
+          value: $TOPIC
+          required: true
+          options:
+            "Agriculture": "AGR"
+            "Defense and Homeland Security": "DEF"
+            "Education Policy": "EDU"
+            "Energy and the Environment": "ENV"
+            "Government Oversight": "GOV"
+            "Gun Control Policy": "GUN"
+            "Healthcare and Retirement": "HEA"
+            "Immigration": "IMM"
+            "Judicial": "JUD"
+            "Labor": "LABOR"
+            "Science, Technology, Telecommunications, and Space": "SCIENCE"
+            "Social, Judicial, and Civil Rights Policy": "SOC"
+            "Economic and Tax Policy": "ECO"
+            "Transportation and Infrastructure": "TRAN"
+            "International Affairs and Trade": "INTL"
+            "Veterans Affairs": "VET"
+            "Welfare": "WEL"
+            "Casework": "CASEWORK"
+            "Other Issues": "MISC"
         - name: response
           selector: "#response"
           value: "Yes"
