@@ -47,7 +47,7 @@ contact_form:
           required: true
     - click_on:
         - value: Submit
-          selector: "input[name='form_submit']"
+          selector: "input[type='SUBMIT'][value='Send Message']"
   success:
     headers:
       status: 200
