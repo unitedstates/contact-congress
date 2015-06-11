@@ -1,120 +1,259 @@
 bioguide: T000472 
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "https://takano.house.gov/contact/email-me"
   steps:
     - visit: "https://takano.house.gov/contact/email-me"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: "input_36021752-DBB4-99CD-0DF8-775968CFD2C5"
+          selector: "#zipcode"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+        - selector: "h1.main_page_title"
     - find:
-        - selector: "#contactForm"
+        - selector: "#input-FE90751D-4040-F985-52CD-49B043A1EC15"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#required-first"
+        - name: "input_FE907558-4040-F985-52CD-A091B0824193"
+          selector: "#input-FE907558-4040-F985-52CD-A091B0824193"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: "input_FE9075B7-4040-F985-52CD-A0525C2E82C2"
+          selector: "#input-FE9075B7-4040-F985-52CD-A0525C2E82C2"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: "input_35E2030D-0BE0-C6C3-F685-66EAF2C47AD2"
+          selector: "#input-35E2030D-0BE0-C6C3-F685-66EAF2C47AD2"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
+        - name: "input_35F31A1A-E58A-4DBB-3443-57763D9F57B3"
+          selector: "#input-35F31A1A-E58A-4DBB-3443-57763D9F57B3"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: "input_3626C40E-B571-4595-8A61-4D52E0AAD553"
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: "input_3629D55A-D2E7-5DF0-4EC9-CF7353DD9A7D"
+          selector: "#input-3629D55A-D2E7-5DF0-4EC9-CF7353DD9A7D"
+          value: $EMAIL
+          required: true
+        - name: "input_FEC5D18B-4040-F985-52CD-3C63B47160DF"
+          selector: "#input-FEC5D18B-4040-F985-52CD-3C63B47160DF"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
-          required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: "input_36466B2D-9324-A3EC-8F49-33D7F83F9C08"
+          selector: "#input-36466B2D-9324-A3EC-8F49-33D7F83F9C08"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
+        - name: "input_FE90751D-4040-F985-52CD-49B043A1EC15"
+          selector: "#input-FE90751D-4040-F985-52CD-49B043A1EC15"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "Mr.": "Mr."
+            "Ms.": "Ms."
+            "Mrs.": "Mrs."
+            "Professor": "Professor"
+            "Dr.": "Dr."
+            "Father": "Father"
+            "Sister": "Sister"
+            "Rabbi": "Rabbi"
+            "Reverend": "Reverend"
+            "Air Force - General": "General"
+            "Air Force - Lieutenant General": "Lieutenant General"
+            "Air Force - Major General": "Major General"
+            "Air Force - Brigadier General": "Brigadier General"
+            "Air Force - Colonel": "Colonel"
+            "Air Force - Lieutenant Colonel": "Lieutenant Colonel"
+            "Air Force - Major": "Major"
+            "Air Force - Captain": "Captain"
+            "Air Force - First Lieutenant": "First Lieutenant"
+            "Air Force - Second Lieutenant": "Second Lieutenant"
+            "Air Force - Chief Master Sergeant of the Air Force": "Chief Master Sergeant of the Air Force"
+            "Air Force - Command Chief Master Sergeant": "Command Chief Master Sergeant"
+            "Air Force - First Sergeant (E-9)": "First Sergeant (E-9)"
+            "Air Force - Chief Master Sergeant": "Chief Master Sergeant"
+            "Air Force - First Sergeant (E-8)": "First Sergeant (E-8)"
+            "Air Force - Senior Master Sergeant": "Senior Master Sergeant"
+            "Air Force - First Sergeant (E-7)": "First Sergeant (E-7)"
+            "Air Force - Master Sergeant": "Master Sergeant"
+            "Air Force - Technical Sergeant": "Technical Sergeant"
+            "Air Force - Staff Sergeant": "Staff Sergeant"
+            "Air Force - Senior Airman": "Senior Airman"
+            "Air Force - Airman First Class": "Airman First Class"
+            "Air Force - Airman": "Airman"
+            "Air Force - Airman Basic": "Airman Basic"
+            "Army - General": "General"
+            "Army - Lieutenant General": "Lieutenant General"
+            "Army - Major General": "Major General"
+            "Army - Brigadier General": "Brigadier General"
+            "Army - Colonel": "Colonel"
+            "Army - Lieutenant Colonel": "Lieutenant Colonel"
+            "Army - Major": "Major"
+            "Army - Captain": "Captain"
+            "Army - First Lieutenant": "First Lieutenant"
+            "Army - Second Lieutenant": "Second Lieutenant"
+            "Army - Chief Warrant Officer - 5": "Chief Warrant Officer - 5"
+            "Army - Chief Warrant Officer - 4": "Chief Warrant Officer - 4"
+            "Army - Chief Warrant Officer - 3": "Chief Warrant Officer - 3"
+            "Army - Chief Warrant Officer - 2": "Chief Warrant Officer - 2"
+            "Army - Warrant Officer": "Warrant Officer"
+            "Army - Sergeant Major of the Army": "Sergeant Major of the Army"
+            "Army - Command Sergeant Major": "Command Sergeant Major"
+            "Army - Sergeant Major": "Sergeant Major"
+            "Army - First Sergeant": "First Sergeant"
+            "Army - Master Sergeant": "Master Sergeant"
+            "Army - Sergeant First Class": "Sergeant First Class"
+            "Army - Staff Sergeant": "Staff Sergeant"
+            "Army - Sergeant": "Sergeant"
+            "Army - Corporal": "Corporal"
+            "Army - Specialist": "Specialist"
+            "Army - Private First Class": "Private First Class"
+            "Army - Private (E-2)": "Private (E-2)"
+            "Army - Private": "Private"
+            "Coast Guard - Admiral": "Admiral"
+            "Coast Guard - Vice Admiral": "Vice Admiral"
+            "Coast Guard - Rear Admiral, Upper Half": "Rear Admiral, Upper Half"
+            "Coast Guard - Rear Admiral, Lower Half": "Rear Admiral, Lower Half"
+            "Coast Guard - Captain": "Captain"
+            "Coast Guard - Commander": "Commander"
+            "Coast Guard - Lieutenant Commander": "Lieutenant Commander"
+            "Coast Guard - Lieutenant": "Lieutenant"
+            "Coast Guard - Lieutenant Junior Grade": "Lieutenant Junior Grade"
+            "Coast Guard - Ensign": "Ensign"
+            "Coast Guard - Chief Warrant Officer - 4": "Chief Warrant Officer - 4"
+            "Coast Guard - Chief Warrant Officer - 3": "Chief Warrant Officer - 3"
+            "Coast Guard - Chief Warrant Officer - 2": "Chief Warrant Officer - 2"
+            "Coast Guard - Master Chief Petty Officer of the Coast Guard": "Master Chief Petty Officer of the Coast Guard"
+            "Coast Guard - Master Chief Petty Officer": "Master Chief Petty Officer"
+            "Coast Guard - Senior Chief Petty Officer": "Senior Chief Petty Officer"
+            "Coast Guard - Chief Petty Officer": "Chief Petty Officer"
+            "Coast Guard - Petty Officer First Class": "Petty Officer First Class"
+            "Coast Guard - Petty Officer Second Class": "Petty Officer Second Class"
+            "Coast Guard - Petty Officer Third Class": "Petty Officer Third Class"
+            "Coast Guard - Seaman": "Seaman"
+            "Coast Guard - Seaman Apprentice": "Seaman Apprentice"
+            "Coast Guard - Seaman Recruit": "Seaman Recruit"
+            "Marine Corps - General": "General"
+            "Marine Corps - Lieutenant General": "Lieutenant General"
+            "Marine Corps - Major General": "Major General"
+            "Marine Corps - Brigadier General": "Brigadier General"
+            "Marine Corps - Colonel": "Colonel"
+            "Marine Corps - Lieutenant Colonel": "Lieutenant Colonel"
+            "Marine Corps - Major": "Major"
+            "Marine Corps - Captain": "Captain"
+            "Marine Corps - First Lieutenant": "First Lieutenant"
+            "Marine Corps - Second Lieutenant": "Second Lieutenant"
+            "Marine Corps - Chief Warrant Officer - 5": "Chief Warrant Officer - 5"
+            "Marine Corps - Chief Warrant Officer - 4": "Chief Warrant Officer - 4"
+            "Marine Corps - Chief Warrant Officer - 3": "Chief Warrant Officer - 3"
+            "Marine Corps - Chief Warrant Officer - 2": "Chief Warrant Officer - 2"
+            "Marine Corps - Warrant Officer": "Warrant Officer"
+            "Marine Corps - Sergeant Major of the Marine Corps": "Sergeant Major of the Marine Corps"
+            "Marine Corps - Sergeant Major": "Sergeant Major"
+            "Marine Corps - Master Gunnery Sergeant": "Master Gunnery Sergeant"
+            "Marine Corps - First Sergeant": "First Sergeant"
+            "Marine Corps - Master Sergeant": "Master Sergeant"
+            "Marine Corps - Gunnery Sergeant": "Gunnery Sergeant"
+            "Marine Corps - Staff Sergeant": "Staff Sergeant"
+            "Marine Corps - Sergeant": "Sergeant"
+            "Marine Corps - Corporal": "Corporal"
+            "Marine Corps - Lance Corporal": "Lance Corporal"
+            "Marine Corps - Private First Class": "Private First Class"
+            "Marine Corps - Private": "Private"
+            "Navy - Admiral": "Admiral"
+            "Navy - Vice Admiral": "Vice Admiral"
+            "Navy - Rear Admiral, Upper Half": "Rear Admiral, Upper Half"
+            "Navy - Rear Admiral, Lower Half": "Rear Admiral, Lower Half"
+            "Navy - Captain": "Captain"
+            "Navy - Commander": "Commander"
+            "Navy - Lieutenant Commander": "Lieutenant Commander"
+            "Navy - Lieutenant": "Lieutenant"
+            "Navy - Lieutenant Junior Grade": "Lieutenant Junior Grade"
+            "Navy - Ensign": "Ensign"
+            "Navy - Chief Warrant Officer - 4": "Chief Warrant Officer - 4"
+            "Navy - Chief Warrant Officer - 3": "Chief Warrant Officer - 3"
+            "Navy - Chief Warrant Officer - 2": "Chief Warrant Officer - 2"
+            "Navy - Master Chief Petty Officer of the Navy": "Master Chief Petty Officer of the Navy"
+            "Navy - Master Chief Petty Officer": "Master Chief Petty Officer"
+            "Navy - Senior Chief Petty Officer": "Senior Chief Petty Officer"
+            "Navy - Chief Petty Officer": "Chief Petty Officer"
+            "Navy - Petty Officer First Class": "Petty Officer First Class"
+            "Navy - Petty Officer Second Class": "Petty Officer Second Class"
+            "Navy - Petty Officer Third Class": "Petty Officer Third Class"
+            "Navy - Seaman Apprentice": "Seaman Apprentice"
+            "Navy - Seaman": "Seaman"
+            "Navy - Seaman Recruit": "Seaman Recruit"
+        - name: "input_FEC5D1BC-4040-F985-52CD-9D43179522B8"
+          selector: "#input-FEC5D1BC-4040-F985-52CD-9D43179522B8"
+          value: voice
+          required: true
+          options:
+            "Voice": "voice"
+            "VP": "VP"
+            "TTD": "TTD"
+        - name: "input_FEEEC32B-4040-F985-52CD-303955B5D15D"
+          selector: "#input-FEEEC32B-4040-F985-52CD-303955B5D15D"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Animals: AN
-            Arts and Humanities: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
-            Health: HEA
-            Homeland Security: HOM
-            Housing and Urban Development: HUD
-            Immigration: IMM
-            International Relations: INT
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            No Response Necessary: NRN
-            Post Office: POST
-            Science and Technology: SCI
-            Social Issues: SOC
-            Senior Citizens: SENIORS
-            Social Security: SSEC
-            Social Services: SOC.SERVICES
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRADE
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Welfare: WEL
-            Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
+            "Agriculture": "AGR"
+            "Animals": "ANML"
+            "Arts and Humanities": "Arts"
+            "Banking and Finance": "Banking and Finance"
+            "Budget and Economy": "BUD"
+            "Campaign Finance Reform": "Campaign Finance Ref"
+            "Congress and Elections": "Congress and Elect"
+            "District of Columbia -- Tours": "Tours DC"
+            "Defense and Military": "DEF"
+            "Economy": "ECON"
+            "Education": "EDU"
+            "Energy": "ENE"
+            "Environment": "ENV"
+            "Federal Employees": "Federal Employees"
+            "Foreign Relations": "Foreign Relations"
+            "Government Reform": "GOV"
+            "Guns": "GUN"
+            "Health": "HEA"
+            "Homeland Security": "HOM"
+            "Housing and Urban Development": "HOUS"
+            "Immigration": "IMM"
+            "International Relations": "INT"
+            "Judiciary": "JUD"
+            "Labor": "LAB"
+            "LGBT": "LGBT"
+            "No Response Necessary": "NRN"
+            "Post Office": "Post Office"
+            "Science and Technology": "Science and Tech"
+            "Social Issues": "SOC"
+            "Senior Citizens": "Seniors"
+            "Social Security": "SSEC"
+            "Social Services": "SE"
+            "Taxes": "TAX"
+            "Telecommunications": "TEL"
+            "Transportation": "TRA"
+            "Trade": "TRADE"
+            "Veterans": "VET"
+            "Women's Rights": "WOM"
+            "Welfare": "WEL"
+            "Other Issues": "OTHER"
+        - name: "input_7244B1CA-5056-BE32-8188-4FFD3A19F87D"
+          selector: "#input-7244B1CA-5056-BE32-8188-4FFD3A19F87D"
           value: "Y"
           required: true
+          options:
+            "Yes": "Y"
+            "No": "N"
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit']"
+        - value: Submit
+          selector: "form#3572B654-E248-A5D9-D70B-8968CF7308EC input[type='submit']"
+    - find:
+        - value: Thank You
+          selector: "h2"
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
-
+      contains: "Thank you for contacting Congressman Mark Takano"
