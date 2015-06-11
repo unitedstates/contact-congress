@@ -56,6 +56,9 @@ contact_form:
     - click_on:
         - value: Response requested
           selector: "#ResponseRequested_True"
+    - wait:
+      - value: 2
+    - click_on:
         - value: Send
           selector: "#FormSubmitButton"
   success:
