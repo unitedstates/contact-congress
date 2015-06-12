@@ -39,6 +39,8 @@ contact_form:
           required: true
     - click_on:
         - selector: "#ctlContactLegislator_cmdSubmit"
+    - wait:
+        - value: 2
     - find:
         - selector: "#lblSentTo"
   success:
