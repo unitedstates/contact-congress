@@ -64,6 +64,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submit"
+    - wait:
+        - value: 2
   success:
     headers:
       status: 200
