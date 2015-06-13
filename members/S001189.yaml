@@ -28,9 +28,9 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: required-valid-email
-          selector: "#custom_form24 #req_email"
+          selector: "#custom_form44 #req_email"
           value: $EMAIL
           required: true
         - name: phone
@@ -141,7 +141,7 @@ contact_form:
             Other Issues: OTH
     - click_on:
         - value: Send Email
-          selector: "#custom_form24 #submitButton"
+          selector: "#custom_form44 #submitButton"
     - find:
         - selector: "h1"
           value: "Thank you"
