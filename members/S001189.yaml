@@ -139,6 +139,16 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other Issues: OTH
+        - name: response
+          selector: "#req_response"
+          value: Y
+          required: true
+          options:
+            "Yes, I would like a response": "Y"
+            "No, I do not need a response but want to voice my opinion.": "N"
+    - choose:
+        - name: enewssign
+          selector: "#enewsno"
     - click_on:
         - value: Send Email
           selector: "#custom_form44 #submitButton"
