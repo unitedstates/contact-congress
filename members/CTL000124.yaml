@@ -17,10 +17,6 @@ contact_form:
           selector: "#address"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#city"
-          value: $ADDRESS_CITY
-          required: true
         - name: state
           selector: "#state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -33,6 +29,181 @@ contact_form:
           selector: "#comments"
           value: $MESSAGE
           required: true
+    - select:
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+          options:
+            - Andover
+            - Ansonia
+            - Ashford
+            - Avon
+            - Barkhamsted
+            - Beacon Falls
+            - Berlin
+            - Bethany
+            - Bethel
+            - Bethlehem
+            - Bloomfield 
+            - Bolton
+            - Bozrah
+            - Branford
+            - Bridgeport
+            - Bridgewater
+            - Bristol
+            - Brookfield
+            - Brooklyn
+            - Burlington
+            - Canaan
+            - Canterbury
+            - Canton
+            - Chaplin
+            - Cheshire
+            - Chester
+            - Clinton
+            - Colchester
+            - Colebrook
+            - Columbia
+            - Cornwall
+            - Coventry
+            - Cromwell
+            - Danbury
+            - Darien
+            - Deep River
+            - Derby
+            - Durham
+            - East Granby
+            - East Haddam 
+            - East Hampton
+            - East Hartford
+            - East Haven
+            - East Lyme
+            - East Windsor
+            - Eastford
+            - Easton
+            - Ellington
+            - Enfield
+            - Essex
+            - Fairfield
+            - Farmington
+            - Franklin
+            - Glastonbury
+            - Goshen
+            - Granby
+            - Greenwich
+            - Griswold
+            - Groton
+            - Guilford
+            - Haddam
+            - Hamden
+            - Hampton 
+            - Hartford
+            - Hartland
+            - Harwinton
+            - Hebron
+            - Kent
+            - Killingly
+            - Killingworth
+            - Lebanon 
+            - Ledyard
+            - Lisbon 
+            - Litchfield
+            - Lyme
+            - Madison
+            - Manschester
+            - Mansfield
+            - Meriden
+            - Middlebury
+            - Middlefield
+            - Middletown
+            - Milford
+            - Monroe
+            - Montville
+            - Morris
+            - Naugatuck
+            - Newington
+            - Newtown
+            - New Britain
+            - New Canaan
+            - New Fairfield
+            - New Hartford
+            - New Haven
+            - New London
+            - New Milford
+            - Norfolk
+            - North Branford
+            - North Canaan
+            - North Haven
+            - North Stonington
+            - Norwalk
+            - Norwich
+            - Old Lyme
+            - Old Saybrook
+            - Orange
+            - Oxford
+            - Plainfield
+            - Plainville
+            - Plymouth
+            - Pomfret
+            - Portland
+            - Preston
+            - Prospect 
+            - Putnam
+            - Redding
+            - Ridgefield
+            - Rocky Hill
+            - Roxbury
+            - Salem
+            - Salisbury
+            - Scotland 
+            - Seymour
+            - Sharon
+            - Shelton
+            - Sherman
+            - Simsbury
+            - Somers
+            - South Windsor
+            - Southbury
+            - Southington
+            - Sprague
+            - Stafford
+            - Stamford
+            - Sterling
+            - Stonington
+            - Stratford
+            - Suffield
+            - Thomaston
+            - Thompson
+            - Tolland
+            - Torrington
+            - Trumbull
+            - Union
+            - Vernon
+            - Voluntown
+            - Wallingford
+            - Warren
+            - Washington
+            - Waterbury
+            - Waterford
+            - Watertown
+            - West Hartford
+            - West Haven
+            - Westbrook
+            - Weston
+            - Westport
+            - Wethersfield
+            - Willington
+            - Wilton
+            - Winchester
+            - Windham
+            - Windsor
+            - Windsor Locks
+            - Wolcott
+            - Woodbridge
+            - Woodbury
+            - Woodstock
+            - Other
     - click_on:
         - value: Submit
           selector: "form[id='Contact'] input[type='submit']"
