@@ -21,13 +21,11 @@ contact_form:
           selector: "textarea[name='your-message']"
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: ".wpcf7-captchar"
-          captcha_selector: ".wpcf7-captchac"
-          required: true
     - click_on:
         - value: Submit
-          selector: "input[type='submit'][value='Send']"
+          selector: ".wpcf7-submit"
+    - wait:
+        - value: 5
   success:
     headers:
       status: 200
