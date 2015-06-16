@@ -139,7 +139,16 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other Issues: OTH
+        - name: response-required
+          selector: "#req_response"
+          value: Y
+          required: true
+          options:
+            - Y
+            - N
     - click_on:
+        - value: Subscribe
+          selector: "#enewsno"
         - value: Send Email
           selector: "input[value='Send Email']"
     - find:
