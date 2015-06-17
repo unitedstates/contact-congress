@@ -20,6 +20,14 @@ contact_form:
         - name: address2
           selector: "#contactform_ADDRESS2"
           value: $ADDRESS_STREET_2
+    - select:
+      - name: state
+        selector: "#contactform_STATE"
+        value: $ADDRESS_STATE_FULL
+        required: Yes
+        options:
+          - South Carolina
+    - fill_in:
         - name: city
           selector: "#contactform_CITY"
           value: $ADDRESS_CITY
@@ -53,13 +61,6 @@ contact_form:
           captcha_selector: "#captcha"
           value: "$CAPTCHA_SOLUTION"
           required: true
-    - select:
-      - name: state
-        selector: "#contactform_STATE"
-        value: $ADDRESS_STATE_FULL
-        required: Yes
-        options:
-          - South Carolina
     - click_on:
         - value: Submit
           selector: "#contactform_sendbutton"
