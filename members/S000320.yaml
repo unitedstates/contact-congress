@@ -5,69 +5,57 @@ contact_form:
   steps:
     - visit: http://www.shelby.senate.gov/public/index.cfm/emailsenatorshelby
     - fill_in:
-      - name: field_25884fea-c5d5-4b0b-9c27-15f4bacfc56f
-        selector: "#field_25884fea-c5d5-4b0b-9c27-15f4bacfc56f"
+      - name: prefix
+        selector: "#field_25884FEA-C5D5-4B0B-9C27-15F4BACFC56F"
         value: "$NAME_PREFIX"
         required: Yes
-      - name: field_d7adeb21-90a5-424c-a235-db096d07b1d2
-        selector: "#field_d7adeb21-90a5-424c-a235-db096d07b1d2"
+      - name: firstname
+        selector: "#field_D7ADEB21-90A5-424C-A235-DB096D07B1D2"
         value: "$NAME_FIRST"
         required: Yes
-      - name: field_8b8dfdf2-72a5-4788-a6a4-7c2dbd2d2568
-        selector: "#field_8b8dfdf2-72a5-4788-a6a4-7c2dbd2d2568"
+      - name: lastname
+        selector: "#field_8B8DFDF2-72A5-4788-A6A4-7C2DBD2D2568"
         value: "$NAME_LAST"
         required: Yes
-      - name: field_747dfd27-739c-44c4-b324-442107db7766
-        selector: "#field_747dfd27-739c-44c4-b324-442107db7766"
+      - name: address
+        selector: "#field_747DFD27-739C-44C4-B324-442107DB7766"
         value: "$ADDRESS_STREET"
         required: Yes
-      - name: field_29c06860-fada-4ed8-ae41-b833b60ff548
-        selector: "#field_29c06860-fada-4ed8-ae41-b833b60ff548"
+      - name: street2
+        selector: "#field_29C06860-FADA-4ED8-AE41-B833B60FF548"
         value: "$ADDRESS_STREET_2"
-      - name: field_e16290c2-1a9b-4f39-80d9-02f4a566d765
-        selector: "#field_e16290c2-1a9b-4f39-80d9-02f4a566d765"
+      - name: city
+        selector: "#field_E16290C2-1A9B-4F39-80D9-02F4A566D765"
         value: "$ADDRESS_CITY"
         required: Yes
-      - name: field_f03896a0-75f1-4062-be69-7dd97923a577
-        selector: "#field_f03896a0-75f1-4062-be69-7dd97923a577"
+      - name: zip
+        selector: "#field_F03896A0-75F1-4062-BE69-7DD97923A577"
         value: "$ADDRESS_ZIP5"
         required: Yes
-      - name: field_4e018ebc-52fb-452e-ac80-b5e34c3a3d9d
-        selector: "#field_4e018ebc-52fb-452e-ac80-b5e34c3a3d9d"
-        value: "$PHONE"
-      - name: field_199927b5-622b-4458-ab9d-8fa18ba24ee1
-        selector: "#field_199927b5-622b-4458-ab9d-8fa18ba24ee1"
+      - name: phone
+        selector: "#field_4E018EBC-52FB-452E-AC80-B5E34C3A3D9D"
         value: "$PHONE"
         required: Yes
-      - name: field_07cfc8ea-5b3c-47cc-b8ec-a6da08c19a9d
-        selector: "#field_07cfc8ea-5b3c-47cc-b8ec-a6da08c19a9d"
+      - name: email
+        selector: "#field_07CFC8EA-5B3C-47CC-B8EC-A6DA08C19A9D"
         value: "$EMAIL"
         required: Yes
-      - name: field_4d8403a8-273c-4280-ae1e-3d764fe53d83
-        selector: "#field_4d8403a8-273c-4280-ae1e-3d764fe53d83"
-        value: "$SUBJECT"
-        required: Yes
-      - name: field_4d8403a8-273c-4280-ae1e-3d764fe53d83
-        selector: "#field_4d8403a8-273c-4280-ae1e-3d764fe53d83"
+      - name: message
+        selector: "#field_4D8403A8-273C-4280-AE1E-3D764FE53D83"
         value: "$MESSAGE"
         required: Yes
     - wait:
       - value: 1
     - fill_in:
-      - name: captcha_28f3334f-5551-4423-a1b9-b5f136dab92d
-        selector: "#captcha_28f3334f-5551-4423-a1b9-b5f136dab92d"
-        captcha_selector: "form.uniForm .multiField img[height='50']"
-        captcha_id_selector: "#captcha_28f3334f-5551-4423-a1b9-b5f136dab92d_hash"
+      - name: captcha
+        selector: "#captcha_28F3334F-5551-4423-A1B9-B5F136DAB92D"
+        captcha_selector: ".multiField img[height='50']"
+        captcha_id_selector: "#captcha_28F3334F-5551-4423-A1B9-B5F136DAB92D_hashh"
         value: "$CAPTCHA_SOLUTION"
         required: Yes
     - select:
-      - name: field_9dfbe2b9-0da8-4afd-a731-5fb2fd1c07be
-        selector: "#field_9dfbe2b9-0da8-4afd-a731-5fb2fd1c07be"
-        value: "$ADDRESS_STATE_FULL"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: field_7c977d17-0a1a-464d-80ca-135d0abbfdd1
-        selector: "#field_7c977d17-0a1a-464d-80ca-135d0abbfdd1"
+      - name: topic
+        selector: "#field_7C977D17-0A1A-464D-80CA-135D0ABBFDD1"
         value: "$TOPIC"
         required: Yes
         options:
