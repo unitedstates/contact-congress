@@ -1,27 +1,39 @@
 bioguide: WIL000593
 contact_form:
   method: post
-  action: /senate/21/wanggaard/contact/
+  action: /senate/21/wanggaard/request-assistance/
   steps:
-    - visit: "http://legis.wisconsin.gov/senate/21/wanggaard/contact/"
+    - visit: "http://legis.wisconsin.gov/senate/21/wanggaard/request-assistance/"
     - fill_in:
-        - name: name
-          selector: "input[id='bb18d8f1-0b16-4400-a11f-b17b03269cdb']"
-          value: $NAME_FULL
-          required: true
         - name: email
-          selector: "input[id='fa63d8f3-0cf6-4504-b40e-3deab0ec61b1']"
+          selector: "input[id='5e190b99-d25f-4d0a-ebd7-1a8db4458abe']"
           value: $EMAIL
           required: true
+        - name: name
+          selector: "input[id='283fa884-0337-487b-9c1a-22ec7e705ac9']"
+          value: $NAME_FULL
+          required: true
+        - name: address
+          selector: "input[id='e6478e3c-4c68-4b61-ab05-b8cb96b0e720']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: citystatezip
+          selector: "input[id='b2e9e2a2-afec-40ad-cbc8-63d8e2a6bc9e']"
+          value: $ADDRESS_CITY_STATE_ZIP
+          required: true
+        - name: phone
+          selector: "input[id='ae7ef6e7-2c8e-4631-e37c-019f9964217a']"
+          value: $PHONE
+          required: true
         - name: message
-          selector: "textarea[id='5a31c909-314f-4146-bda0-3e38f3fee5b0']"
+          selector: "textarea[id='19f183d6-bbc1-475e-f090-6acf1187aa35']"
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: "input[type='submit'][value='Submit']"
+          selector: "input[type='submit'][value='Submit Case']"
   success:
     headers:
-      status: 200
+      status: 302
     body:
-      contains: Thank you
+      contains: Wisconsin State Capitol
