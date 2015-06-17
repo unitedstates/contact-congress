@@ -1,0 +1,52 @@
+bioguide: MNL000516
+contact_form:
+  method: post
+  action: /members/member_emailform.php?mem_id=1205&ls=89
+  usePhantomJsLogging: true
+  steps:
+    - visit: "http://www.senate.mn/members/member_emailform.php?mem_id=1205&ls="
+    - fill_in:
+        - name: fname
+          selector: "#form_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#form_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#form_Street1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#form_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "#form_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: zip
+          selector: "#form_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#form_Email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#form_Subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#form_Message"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit Information']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been successfully sent
