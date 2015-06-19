@@ -8,48 +8,48 @@ contact_form:
       - name: first_name
         selector: "#edit-submitted-contact-information-first-name"
         value: $NAME_FIRST
-        required: Yes
+        required: true
       - name: last_name
         selector: "#edit-submitted-contact-information-last-name"
         value: $NAME_LAST
-        required: Yes   
+        required: true   
       - name: email
         selector: "#edit-submitted-contact-information-email"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: street1
         selector: "#edit-submitted-contact-information-address-1"
         value: $ADDRESS_STREET
-        required: Yes
+        required: true
       - name: street2
         selector: "#edit-submitted-contact-information-address-2"
         value: $ADDRESS_STREET_2
-        required: No
+        required: false
       - name: city
         selector: "#edit-submitted-contact-information-city"
         value: $ADDRESS_CITY
-        required: Yes
+        required: true
     - select:    
       - name: state
         selector: "#edit-submitted-contact-information-state"
         value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
+        required: true
     - fill_in:
       - name: zip
         selector: "#edit-submitted-contact-information-zip"
         value: $ADDRESS_ZIP5
-        required: Yes
+        required: true
       - name: phone
         selector: "#edit-submitted-contact-information-phone"
         value: $PHONE
-        required: Yes
+        required: true
     - wait:
       - value: 5
     - select:
       - name: Topic
         selector: "#edit-submitted-message-message-subject"
         value: $TOPIC
-        required: Yes
+        required: true
         options:
           - "---"
           - Abortion
@@ -126,7 +126,7 @@ contact_form:
       - name: message
         selector: "#edit-submitted-message-message"
         value: $MESSAGE
-        required: Yes
+        required: true
     - wait:
       - value: 5
     - click_on:
