@@ -54,6 +54,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#gform_submit_button_6"
+    - find:
+        - selector: "#gform_confirmation_message_6"
   success:
     headers:
       status: 200
