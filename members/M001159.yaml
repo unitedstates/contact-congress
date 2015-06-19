@@ -1,105 +1,59 @@
 bioguide: M001159
 contact_form:
   method: post
-  action: /write-to-cathy1/
+  action: "/contact/#gf_11"
   steps:
-    - visit: "https://mcmorrisforms.house.gov/write-to-cathy1"
+    - visit: "http://mcmorris.house.gov/contact/"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
+        - name: input_16
+          selector: "#input_11_16"
           value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go to Form
-          selector: input.button
+        - value: Next
+          selector: "#gform_next_button_11_17"
+    - find:
+        - selector: "#input_11_15"
     - fill_in:
-        - name: prefix
-          selector: "#custom_form55 input[name='prefix']"
-          value: $NAME_PREFIX
-          required: false
-        - name: firstname
-          selector: "#req_firstname"
-          value: $NAME_FIRST
+        - name: input_15
+          selector: "#input_11_15"
+          value: $SUBJECT
           required: true
-        - name: lastname
-          selector: "#req_lastname"
-          value: $NAME_LAST
-          required: true
-        - name: street
-          selector: "#req_street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: street2
-          selector: "#custom_form55 input[name='street2']"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#req_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zip
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip2"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: input_3
+          selector: "#input_11_3"
           value: $EMAIL
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: input_2
+          selector: "#input_11_2"
           value: $MESSAGE
           required: true
-    - select:
-        - name: subject
-          selector: "#req_subject"
-          value: $TOPIC
+        - name: input_5
+          selector: "#input_11_5"
+          value: $NAME_FIRST
           required: true
-          options:
-            Agriculture: AGRICULTURE
-            Banking: BANKING
-            Budget: BUDGET
-            Congressional Process: ADMINISTRATION
-            Constitutional Issues: CONSTITUTIONAL ISSUE
-            "Crime & Drugs": CRIME
-            "Defense & Military": DEFENSE
-            "Economy & Taxes": ECONOMY
-            Education: EDUCATION
-            Energy: ENERGY
-            "Environment & Resources": ENVIRONMENT
-            Ethics: ETHICS
-            Faith-Based Initiative: FAITH BASED
-            "Family & Life Issues": FAMILY
-            Healthcare: HEALTH CARE
-            Homeland Security: HOMELAND SECURITY
-            Housing: HOUSING
-            Immigration: IMMIGRATION
-            International Affairs: INTERNATIONAL AFFAIR
-            Jobs: ECONOMY
-            Labor Issues: LABOR/OSHA
-            Social Security: SOCIAL SECURITY
-            Telecommunications: TELECOMMUNICATIONS
-            Trade: TRADE
-            Transportation: TRANSPORTATION
-            Veterans Issues: VETERANS
-            Womens Issues: WOMENS ISSUES
-            Other Issues: MISCELLANOUS
-    - uncheck:
-        - name: aff1
-          selector: "#nlSubscribe"
-          value: "<AFFL>DL-GENERALNEWSLETTER</AFFL>"
+        - name: input_7
+          selector: "#input_11_7"
+          value: $NAME_LAST
+          required: true
+        - name: input_9
+          selector: "#input_11_9"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_11
+          selector: "#input_11_11"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_13
+          selector: "#input_11_13"
+          value: $ADDRESS_ZIP5
+          required: true
     - click_on:
         - value: Submit
-          selector: "#submitButton"
+          selector: "#gform_submit_button_11"
+    - find:
+        - selector: "#gform_confirmation_message_11"
   success:
     headers:
       status: 200
     body:
-      contains: pleasure to serve
+      contains: Thanks for contacting us! We will get in touch with you shortly.
