@@ -106,13 +106,11 @@ contact_form:
             Others: GEN
     - click_on:
         - value: Send Email
-          selector: "#contact input[type='submit'][value='Send Email']"
-    - find:
-        - selector: "span#ctl00_PageLink"
-          value: "Thank You"
+          selector: "input[type='submit'][value='Send Email']"
+    - wait:
+        - value: 4
   success:
     headers:
       status: 200
     body:
-      contains: Thank
-
+      contains: Thank you for sending
