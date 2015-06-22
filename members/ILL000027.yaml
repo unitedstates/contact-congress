@@ -1,93 +1,113 @@
-bioguide: ILL000027
+bioguide: J000296
 contact_form:
   method: post
-  action: http://www.senatordavekoehler.com/index.php/contact-us
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "http://www.senatordavekoehler.com/index.php/contact-us"
+    - visit: "https://jolly.house.gov/contact/email-me"
+    - fill_in:
+        - name: zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Next Step
+          selector: "#submit"
     - fill_in:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
           required: true
-        - name: name
-          selector: "input[id='firstName'][size='40']"
+        - name: required-first
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: name
-          selector: "input[id='lastName'][size='40']"
+        - name: required-last
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
-        - name: address
-          selector: "#address"
+        - name: required-address
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#city"
+        - name: address2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: zip
-          selector: "#zipCode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
-        - name: email
-          selector: "#email"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: message
-          selector: "#essay1"
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: ".rsform-captcha-box"
-          captcha_selector: ".rsform-block img"
-          captcha_id_selector: ""
-          value: "$CAPTCHA_SOLUTION"
-          required: true
     - select:
-        - name: Topic
-          selector: "#issue"
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-           - 2nd Amendment Issues
-           - Agriculture
-           - Budget
-           - Consumer Issues
-           - Economic Development
-           - Education
-           - Employment
-           - Energy
-           - Environment
-           - Federal Issues
-           - Healthcare
-           - Housing
-           - Human Rights
-           - Licensing
-           - Local Government
-           - Natural Resources
-           - Other
-           - Pensions
-           - Public Safety
-           - Public Utilities
-           - Seniors
-           - Taxes
-           - Transportation
-           - Veterans
+            Agriculture: AGR
+            Animals: AN
+            Arts and Humanities: ART
+            Banking and Finance: BANK
+            Budget and Economy: BUD
+            Campaign Finance Reform: CFR
+            Congress and Elections: CONG
+            District of Columbia--Tours: TOUR
+            Defense and Military: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
+            Environment: ENV
+            Federal Employees: FED
+            Foreign Relations: FR
+            Government Reform: GOV
+            Guns: GUN
+            Health: HEA
+            Homeland Security: HOM
+            Housing and Urban Development: HUD
+            Immigration: IMM
+            International Relations: INT
+            Judiciary: JUD
+            Labor: LAB
+            LGBT: LGBT
+            No Response Necessary: NRN
+            Post Office: POST
+            Science and Technology: SCI
+            Social Issues: SOC
+            Senior Citizens: SENIORS
+            Social Security: SSEC
+            Social Services: SOC.SERVICES
+            Taxes: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRADE
+            Veterans: VET
+            "Women's Issues": WOMEN
+            Welfare: WEL
+            Other Issues: OTHER
     - click_on:
-        - value: Submit
-          selector: "#Send"
-    - find:
-      - selector: "input[name='continue']"
+        - value: Send Email
+          selector: "#contactForm input[name='submit']"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your submission
+      contains: Thank you for contacting us
