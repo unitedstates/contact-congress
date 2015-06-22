@@ -18,6 +18,8 @@ contact_form:
             Share your opinion or comments on bills or other issues: opinion
     - click_on:
         - selector: "#contact-sam-main"
+    - wait:
+        - value: 5
     - find:
       - selector: "#fname"
     - fill_in:
@@ -249,6 +251,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "input[type='submit'][value='Submit']"
+    - wait:
+        - value: 5
     - find:
         - selector: "h1"
           value: "Thank You"
