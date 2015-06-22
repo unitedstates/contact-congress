@@ -5,6 +5,18 @@ contact_form:
   steps:
     - visit: "https://jolly.house.gov/contact/email-me"
     - fill_in:
+        - name: zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Next Step
+          selector: "#submit"
+    - fill_in:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
