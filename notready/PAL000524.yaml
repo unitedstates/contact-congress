@@ -1,44 +1,40 @@
-bioguide: PAL000213
+bioguide: PAL000524
 contact_form:
   method: post
   action: 
   steps:
-    - visit: "http://www.pahouse.com/Sabatina/Contact/"
+    - visit: "http://www.senatorsabatina.com/contact/"
     - fill_in:
         - name: fname
-          selector: "#input-page-ContactForm-fName"
+          selector: "#field_qh4icy3"
           value: $NAME_FIRST
           required: true
         - name: lname
-          selector: "#input-page-ContactForm-lName"
+          selector: "#field_ocfup13"
           value: $NAME_LAST
           required: true
         - name: address
-          selector: "#input-page-ContactForm-Address"
+          selector: "#field_lhp9xi"
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: "#input-page-ContactForm-City"
+          selector: "#field_kxtn3a"
           value: $ADDRESS_CITY
           required: true
         - name: email
-          selector: "#input-page-ContactForm-Email"
+          selector: "#field_29yf4d3"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#input-page-ContactForm-Phone"
+          selector: "#field_9v7lwg"
           value: $PHONE
           required: false
         - name: zip
-          selector: "#input-page-ContactForm-Zip"
+          selector: "#field_fimmek"
           value: $ADDRESS_ZIP5
           required: true
-        - name: subject
-          selector: "#input-page-ContactForm-Subject"
-          value: $SUBJECT
-          required: true
         - name: message
-          selector: "#input-page-ContactForm-Message"
+          selector: "#field_9jv0r13"
           value: $MESSAGE
           required: true
     - wait:
@@ -64,11 +60,11 @@ contact_form:
           back: true
     - click_on:
         - value: Submit
-          selector: "#pageContactForm-submit"
+          selector: "input[type='submit'][value='Submit']"
     - wait:
         - value: 2
   success:
     headers:
       status: 200
     body:
-      contains: Your feedback has been sent
+      contains: Thank you for contacting me
