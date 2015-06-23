@@ -122,6 +122,11 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
+    - wait:
+        - value: 5
+    - click_on:
+        - value: Submit
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
