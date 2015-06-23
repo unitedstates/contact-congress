@@ -15,6 +15,14 @@ contact_form:
           value: "o"
           required: true
     - fill_in:
+        - name: captcha
+          selector: "#RadCaptcha3_CaptchaTextBox"
+          captcha_selector: "#RadCaptcha3_CaptchaImage"
+          value: $CAPTCHA_SOLUTION
+          required: true
+    - wait:
+      - value: 5
+    - fill_in:
         - name: fname
           selector: "input[id='txtFirstname']"
           value: $NAME_FIRST
