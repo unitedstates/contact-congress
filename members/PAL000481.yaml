@@ -3,10 +3,7 @@ contact_form:
   method: post
   action:
   steps:
-    - visit: "http://www.senatorscavello.com/contact/"
-    - iframe:
-      - name: parent1
-        selector: "iframe[src^='http://wpcontact.pasenategop.com']"
+    - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=40"
     - wait:
       - value: 5
     - fill_in:
@@ -59,12 +56,6 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#bSubmit_input"
-    - iframe:
-      - name: parent1
-        back: true
-    - iframe:
-      - name: parent1
-        selector: "iframe[src^='http://wpcontact.pasenategop.com']"
   success:
     headers:
       status: 200

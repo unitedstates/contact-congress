@@ -3,10 +3,7 @@ contact_form:
   method: post
   action: /contact#usermessage2a
   steps:
-    - visit: "http://www.senatoraument.com/contact/"
-    - iframe:
-      - name: parent1
-        selector: "iframe[src^='http://wpcontact.pasenategop.com']"
+    - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=36"
     - wait:
       - value: 5
     - select:
@@ -69,12 +66,6 @@ contact_form:
           selector: "#bSubmit_input"
         - value: Submit
           selector: "#bSubmit_input"
-    - iframe:
-      - name: parent1
-        back: true
-    - iframe:
-      - name: parent1
-        selector: "iframe[src^='http://wpcontact.pasenategop.com']"
   success:
     headers:
       status: 200
