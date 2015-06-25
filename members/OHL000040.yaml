@@ -1,9 +1,9 @@
-bioguide: OHL000306
+bioguide: OHL000040
 contact_form:
   method: post
-  action: "../members/member-contact-submission?id=77"
+  action: "../members/member-contact-submission?id=25"
   steps:
-    - visit: "http://www.ohiohouse.gov/tim-schaffer/contact"
+    - visit: "http://www.ohiosenate.gov/senate/yuko/contact"
     - fill_in:
         - name: tbxFirstName
           selector: "#tbxFirstName"
@@ -41,15 +41,36 @@ contact_form:
           required: true
           selector: "#tbxLineNumber"
           value: "$PHONE_SUBSCRIBER_NUMBER"
-        - name: tbxSubject
-          selector: "#tbxSubject"
-          value: $SUBJECT
-          required: true
         - name: tbxMessage
           selector: "#tbxMessage"
           value: $MESSAGE
           required: true
     - select:
+        - name: ddlSubject
+          selector: "select[name='ddlSubject']"
+          value: $TOPIC
+          required: true
+          options:
+            "Agriculture": "Agriculture"
+            "Animals and Wildlife": "Animals and Wildlife"
+            "Budget and Finance": "Budget and Finance"
+            "Criminal Justice and Prison": "Criminal Justice and Prison"
+            "Education": "Education"
+            "Elections": "Elections"
+            "Energy": "Energy"
+            "Government Oversight and Reform": "Government Oversight and Reform"
+            "Health, Human Services and Aging": "Health, Human Services and Aging"
+            "Highways and Transportation": "Highways and Transportation"
+            "Insurance and Financial Institutions": "Insurance and Financial Institutions"
+            "Jobs and Economic Development": "Jobs and Economic Development"
+            "Labor": "Labor"
+            "Local Government": "Local Government"
+            "Natural Resources": "Natural Resources"
+            "Public Safety": "Public Safety"
+            "Public Utilities": "Public Utilities"
+            "State Government": "State Government"
+            "Veterans Affairs": "Veterans Affairs"
+            "Other": "Other"
         - name: ddlState
           selector: "#ddlState"
           value: $ADDRESS_STATE_POSTAL_ABBREV
