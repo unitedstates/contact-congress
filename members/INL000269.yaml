@@ -1,33 +1,17 @@
-bioguide: INL000257
+bioguide: INL000269
 contact_form:
   method: post
   action: index.php
   steps:
-    - visit: "http://www.indianasenaterepublicans.com/forms/contact-a-senator/?formField_senator=s6"
+    - visit: "http://www.indianahouserepublicans.com/forms/contact-your-representative/?formField_Representative=Rep.%20Mike%20Braun%20%28HD%2063%29"
     - fill_in:
-        - name: firstname
+        - name: name
           selector: "#IDFormField_First_Name_0"
           value: $NAME_FIRST
           required: true
-        - name: lastname
+        - name: name
           selector: "#IDFormField_Last_Name_0"
           value: $NAME_LAST
-          required: true
-        - name: address
-          selector: "#IDFormField_Address_0"
-          value: $ADDRESS_STREET
-          required: true
-        - name: city
-          selector: "#IDFormField_City_0"
-          value: $ADDRESS_CITY
-          required: true
-        - name: state
-          selector: "#IDFormField_State_0"
-          value: $ADDRESS_STATE_FULL
-          required: true
-        - name: zip
-          selector: "#IDFormField_Zip_0"
-          value: $ADDRESS_ZIP5
           required: true
         - name: email
           selector: "#IDFormField_Email_0" 
@@ -36,25 +20,23 @@ contact_form:
         - name: phone
           selector: "#IDFormField_Phone_0"
           value: $PHONE
+          required: false
+        - name: address
+          selector: "#IDFormField_Address_0"
+          value: $ADDRESS_STREET
           required: true
-        - name: subject
-          selector: "#IDFormField_subject_0"
-          value: $SUBJECT
+        - name: city
+          selector: "#IDFormField_City_0"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#IDFormField_Zip_0"
+          value: $ADDRESS_ZIP5
           required: true
         - name: message
           selector: "#IDFormField_Comments_0"
           value: $MESSAGE
           required: true
-    - select:
-      - name: prefix
-        selector: "#IDFormField_Prefix_0"
-        value: "$NAME_PREFIX"
-        required: No
-        options: 
-         - Dr
-         - Mr
-         - Mrs
-         - Ms
     - fill_in:
         - name: captcha
           selector: "#recaptcha_response_field"
@@ -64,9 +46,9 @@ contact_form:
           required: true
     - click_on:
         - value: Submit
-          selector: "button[type='submit']"
+          selector: "form[id='form'] button[type='submit']"
   success:
     headers:
       status: 200
     body:
-      contains: Submission Accepted
+      contains: Your message has been received
