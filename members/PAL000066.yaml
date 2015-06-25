@@ -1,9 +1,9 @@
-bioguide: PAL000481
+bioguide: PAL000066
 contact_form:
   method: post
-  action:
+  action: /contact#usermessage2a
   steps:
-    - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=40"
+    - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=50"
     - wait:
       - value: 5
     - fill_in:
@@ -60,4 +60,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: the time you took
+      contains: Thank you for contacting us

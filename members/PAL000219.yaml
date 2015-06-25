@@ -1,15 +1,16 @@
-bioguide: PAL000509
+bioguide: PAL000219
 contact_form:
   method: post
-  action: /contact#usermessage2a
+  action:
   steps:
-    - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=36"
+    - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=40"
     - wait:
       - value: 5
-    - select:
-        - name: issue
-          selector: "#ddlIssue_Input"
-          value: "o"
+    - fill_in:
+        - name: captcha
+          selector: "#RadCaptcha3_CaptchaTextBox"
+          captcha_selector: "#RadCaptcha3_CaptchaImageUP"
+          value: $CAPTCHA_SOLUTION
           required: true
     - wait:
       - value: 5
@@ -38,9 +39,6 @@ contact_form:
           selector: "#txtAddress2"
           value: $ADDRESS_STREET_2
           required: false
-    - wait:
-      - value: 5
-    - fill_in:
         - name: city
           selector: "#txtCity"
           value: $ADDRESS_CITY
@@ -58,10 +56,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#bSubmit_input"
-        - value: Submit
-          selector: "#bSubmit_input"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting us
+      contains: the time you took

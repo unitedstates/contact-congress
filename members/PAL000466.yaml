@@ -1,9 +1,9 @@
-bioguide: PAL000489
+bioguide: PAL000466
 contact_form:
   method: post
   action: /contact.aspx
   steps:
-    - visit: "http://www.legis.state.pa.us/cfdocs/legis/home/member_information/ContactMember.cfm?district=146"
+    - visit: "http://www.legis.state.pa.us/cfdocs/legis/home/member_information/ContactMember.cfm?district=073"
     - fill_in:
         - name: fname
           selector: "#ctl00_cphContent_txtFirstName"
@@ -56,4 +56,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for your web submission
+      contains: ""
