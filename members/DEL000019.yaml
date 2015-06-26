@@ -1,0 +1,43 @@
+bioguide: DEL000019
+contact_form:
+  method: POST
+  action: "http://www.desenatedems.com/ajax/apps/formSubmitAjax.php"
+  steps:
+    - visit: http://www.desenatedems.com/david-p-sokola.html
+    - fill_in:
+      - name: firstname
+        selector: "#input-626887877321285764"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: "#input-626887877321285764-1"
+        value: $NAME_LAST
+        required: true
+      - name: emailaddress
+        selector: "#input-287818571625737831" 
+        value: $EMAIL
+        required: true
+      - name: confirmemailaddress
+        selector: "#input-143204037494800726" 
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: "#input-151152667453266348"
+        value: $MESSAGE
+        required: true
+    - select:
+      - name: subscribe
+        selector: ".form-select"
+        value: "I"
+        required: true
+        options:
+          - "Yes, please sign me up for Caucus emails!"
+          - "I prefer not to receive email from the Senate Democrats at this time"
+    - click_on:
+      - value: Submit
+        selector: ".wsite-button-inner"
+  success: 
+    headers:
+      status: 200
+    body:
+      contains: "Your information has been submitted"

@@ -1,0 +1,43 @@
+bioguide: DEL000014
+contact_form:
+  method: POST
+  action: "http://www.desenatedems.com/ajax/apps/formSubmitAjax.php"
+  steps:
+    - visit: http://www.desenatedems.com/robert-i-marshall.html
+    - fill_in:
+      - name: firstname
+        selector: "#input-765236699222506263"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: "#input-765236699222506263-1"
+        value: $NAME_LAST
+        required: true
+      - name: emailaddress
+        selector: "#input-424373882827211101" 
+        value: $EMAIL
+        required: true
+      - name: confirmemailaddress
+        selector: "#input-815331832393882763" 
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: "#input-999776807987650369"
+        value: $MESSAGE
+        required: true
+    - select:
+      - name: subscribe
+        selector: ".form-select"
+        value: "I"
+        required: true
+        options:
+          - "Yes, please sign me up for Caucus emails!"
+          - "I prefer not to receive email from the Senate Democrats at this time"
+    - click_on:
+      - value: Submit
+        selector: ".wsite-button-inner"
+  success: 
+    headers:
+      status: 200
+    body:
+      contains: "Your information has been submitted"

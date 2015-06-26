@@ -1,0 +1,55 @@
+bioguide: DEL000011
+contact_form:
+  method: POST
+  action: "http://www.desenatedems.com/ajax/apps/formSubmitAjax.php"
+  steps:
+    - visit: http://www.desenatedems.com/margaret-rose-henry-majority-whip.html
+    - fill_in:
+      - name: firstname
+        selector: "#input-982690958225119445"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: "#input-982690958225119445-1"
+        value: $NAME_LAST
+        required: true
+      - name: emailaddress
+        selector: "#input-578438075551815575" 
+        value: $EMAIL
+        required: true
+      - name: confirmemailaddress
+        selector: "#input-724418401653132020" 
+        value: $EMAIL
+        required: true
+      - name: phone1
+        selector: "#input-130249342750153108" 
+        value: $PHONE_AREA_CODE
+        required: true
+      - name: phone2
+        selector: "#input-130249342750153108-1" 
+        value: $PHONE_EXCHANGE_CODE
+        required: true
+      - name: phone3
+        selector: "#input-130249342750153108-2" 
+        value: $PHONE_SUBSCRIBER_NUMBER
+        required: true
+      - name: message
+        selector: "#input-417267938951666188"
+        value: $MESSAGE
+        required: true
+    - select:
+      - name: subscribe
+        selector: ".form-select"
+        value: "I"
+        required: true
+        options:
+          - "Yes, please sign me up for Caucus emails!"
+          - "I prefer not to receive email from the Senate Democrats at this time"
+    - click_on:
+      - value: Submit
+        selector: ".wsite-button-inner"
+  success: 
+    headers:
+      status: 200
+    body:
+      contains: "Your information has been submitted"

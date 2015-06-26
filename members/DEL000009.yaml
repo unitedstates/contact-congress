@@ -1,0 +1,43 @@
+bioguide: DEL000009
+contact_form:
+  method: POST
+  action: "http://www.desenatedems.com/ajax/apps/formSubmitAjax.php"
+  steps:
+    - visit: http://www.desenatedems.com/bruce-c-ennis.html
+    - fill_in:
+      - name: firstname
+        selector: "#input-244245987466585685"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: "#input-244245987466585685-1"
+        value: $NAME_LAST
+        required: true
+      - name: emailaddress
+        selector: "#input-263211431449674373" 
+        value: $EMAIL
+        required: true
+      - name: confirmemailaddress
+        selector: "#input-932235059136932941" 
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: "#input-982718339446031635"
+        value: $MESSAGE
+        required: true
+    - select:
+      - name: subscribe
+        selector: ".form-select"
+        value: "I"
+        required: true
+        options:
+          - "Yes, please sign me up for Caucus emails!"
+          - "I prefer not to receive email from the Senate Democrats at this time"
+    - click_on:
+      - value: Submit
+        selector: ".wsite-button-inner"
+  success: 
+    headers:
+      status: 200
+    body:
+      contains: "Your information has been submitted"

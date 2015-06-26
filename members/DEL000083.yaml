@@ -1,0 +1,55 @@
+bioguide: DEL000083
+contact_form:
+  method: POST
+  action: "http://www.desenatedems.com/ajax/apps/formSubmitAjax.php"
+  steps:
+    - visit: http://www.desenatedems.com/bryan-townsend.html
+    - fill_in:
+      - name: firstname
+        selector: "#input-156968349750442372"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: "#input-156968349750442372-1"
+        value: $NAME_LAST
+        required: true
+      - name: emailaddress
+        selector: "#input-217446283743303914" 
+        value: $EMAIL
+        required: true
+      - name: confirmemailaddress
+        selector: "#input-331315442337300299" 
+        value: $EMAIL
+        required: true
+      - name: phone1
+        selector: "#input-617471095962006928" 
+        value: $PHONE_AREA_CODE
+        required: true
+      - name: phone2
+        selector: "#input-617471095962006928-1" 
+        value: $PHONE_EXCHANGE_CODE
+        required: true
+      - name: phone3
+        selector: "#input-617471095962006928-2" 
+        value: $PHONE_SUBSCRIBER_NUMBER
+        required: true
+      - name: message
+        selector: "#input-373262579114842069"
+        value: $MESSAGE
+        required: true
+    - select:
+      - name: subscribe
+        selector: ".form-select"
+        value: "I"
+        required: true
+        options:
+          - "Yes, please sign me up for Caucus emails!"
+          - "I prefer not to receive email from the Senate Democrats at this time"
+    - click_on:
+      - value: Submit
+        selector: ".wsite-button-inner"
+  success: 
+    headers:
+      status: 200
+    body:
+      contains: "Your information has been submitted"
