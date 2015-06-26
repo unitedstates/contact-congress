@@ -35,14 +35,6 @@ contact_form:
           selector: "#contact input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
-        - name: zip5
-          selector: "#contact input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: false
-        - name: zip4
-          selector: "#contact input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: required-email
           selector: "#contact input[name='required-email']"
           value: $EMAIL
@@ -50,11 +42,11 @@ contact_form:
         - name: phone
           selector: "#contact input[name='phone']"
           value: $PHONE
-          required: false
+          required: true
         - name: required-message
           selector: "#contact textarea[name='required-message']"
           value: $MESSAGE
-          required: false
+          required: true
     - select:
         - name: required-prefix
           selector: "#contact select[name='required-prefix']"
