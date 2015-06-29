@@ -6,39 +6,31 @@ contact_form:
     - visit: "http://www.senatormattsmith.com/contact"
     - fill_in:
         - name: fname
-          selector: "#cf5_field_2"
+          selector: "#cf2_field_2"
           value: $NAME_FIRST
           required: true
         - name: lname
-          selector: "#cf5_field_3"
+          selector: "#cf2_field_3"
           value: $NAME_LAST
           required: true
         - name: address
-          selector: "#cf5_field_4"
+          selector: "#cf2_field_4"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#cf5_field_5"
-          value: $ADDRESS_STREET_2
-          required: true
         - name: city
-          selector: "#cf5_field_6"
+          selector: "#cf2_field_6"
           value: $ADDRESS_CITY
           required: true
         - name: zip
-          selector: "#cf5_field_8"
+          selector: "#cf2_field_8"
           value: $ADDRESS_ZIP5
           required: true
         - name: email
-          selector: "#cf5_field_9"
+          selector: "#cf2_field_9"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#cf5_field_10"
-          value: $PHONE
-          required: true
         - name: message
-          selector: "#cf5_field_11"
+          selector: "#cf2_field_11"
           value: $MESSAGE
           required: true
     - select:
@@ -54,7 +46,7 @@ contact_form:
             - Hon.
     - click_on:
         - value: Submit
-          selector: "#sendbutton5"
+          selector: "#sendbutton2"
   success:
     headers:
       status: 200
