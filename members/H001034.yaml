@@ -1,53 +1,20 @@
 bioguide: H001034
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "/htbin/formproc/email-me.txt%26display%3D/connect/voice-opinion/voice-opinion-form/thank-you%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "http://honda.house.gov/contact"
+    - visit: "https://honda.house.gov/connect/voice-opinion/voice-opinion-form"
+    - select:
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, I want to receive a response from Mike Honda": "Y"
+            "No, I do not want to receive a response from Mike Honda": "N"
+    - wait:
+        - value: 5
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
-    - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-        - name: required-first
-          selector: "#required-first"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "#required-last"
-          value: $NAME_LAST
-          required: true
-        - name: required-address
-          selector: "#required-address"
-          value: $ADDRESS_STREET
-          required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: required-valid-email
-          selector: "#contactForm input[name='required-valid-email']"
-          value: $EMAIL
-          required: true
-        - name: required-phone
-          selector: "#required-phone"
-          value: $PHONE
-          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -56,29 +23,40 @@ contact_form:
           selector: "#required-message"
           value: $MESSAGE
           required: true
-    - select:
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+        - name: required-first
+          selector: "#first"
+          value: $NAME_FIRST
           required: true
-          options:
-            "Yes, I want Mike to respond to my email.": "Y"
-            "No, I do not want Mike to respond to my email.": "N"
-        - name: required-purpose
-          selector: "#required-purpose"
-          value: $TOPIC
+        - name: required-last
+          selector: "#last"
+          value: $NAME_LAST
           required: true
-          options:
-            Give my opinion: CON.OPINION
-            Ask for help: CON.ASSIST
-            Invite Mike: CON.INVITE
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: Email.Optin
+        - name: required-valid-email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: required-address
+          selector: "#address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#state"
+          value: $ADDRESS_STATE_FULL
+          required: true
+        - name: required-zip
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: "#submit"
   success:
     headers:
       status: 200
