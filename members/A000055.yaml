@@ -8,11 +8,11 @@ contact_form:
       - name: zipcode
         selector: "#required-zip5"
         value: $ADDRESS_ZIP5
-        required: Yes
+        required: true
       - name: zipfour
         selector: "#zip4"
         value: $ADDRESS_ZIP4
-        required: Yes
+        required: true
     - click_on:
       - value: "Go to Form" 
         selector: "#submit"
@@ -22,38 +22,36 @@ contact_form:
       - name: firstname
         selector: "#required-first"
         value: $NAME_FIRST
-        required: Yes
+        required: true
       - name: lastname
         selector: "#required-last"
         value: $NAME_LAST
-        required: Yes
+        required: true
       - name: street
         selector: "#required-address"
         value: $ADDRESS_STREET
-        required: Yes
-      - name: street2
-        selector: "#address2"
-        value: $ADDRESS_STREET_2
+        required: true
       - name: city
         selector: "#required-city"
         value: $ADDRESS_CITY
-        required: Yes
+        required: true
       - name: emailaddress
         selector: "#required-valid-email" 
         value: $EMAIL
-        required: Yes
+        required: true
       - name: phone
         selector: "#required-phone"
         value: $PHONE
+        required: true
       - name: message
         selector: "#required-message"
         value: $MESSAGE
-        required: Yes
+        required: true
     - select:
       - name: prefix
         selector: "#required-prefix"
         value: $NAME_PREFIX
-        required: Yes
+        required: true
         options:
           - "Ms."
           - "Miss"
@@ -67,7 +65,7 @@ contact_form:
       - name: issue
         selector: "#required-issue"
         value: $TOPIC
-        required: Yes
+        required: true
         options:
           "Agriculture": "AGR"
           "Budget": "BUD"
