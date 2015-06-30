@@ -1,9 +1,9 @@
 bioguide: state_nc_gov_pat_mccrory
 contact_form:
   method: post
-  action: /contact/email-pat
+  action: /contact/email-governor
   steps:
-    - visit: "http://www.governor.nc.gov/contact/email-pat"
+    - visit: "http://governor.nc.gov/contact/email-governor"
     - fill_in:
         - name: firstName
           selector: "#edit-submitted-first-name"
@@ -17,18 +17,19 @@ contact_form:
           selector: "#edit-submitted-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#edit-submitted-phone"
-          value: $PHONE
         - name: message
           selector: "#edit-submitted-message"
           value: $MESSAGE
           required: true
+    - math:
+        - name: math_qna
+          question_selector: "span[class='field-prefix']"
+          answer_selector: "#edit-captcha-response"
     - click_on:
         - value: Submit
-          selector: ".webform-submit"
+          selector: "#edit-submit"
   success:
     headers:
       status: 200
     body:
-      contains: "your submission has been received"
+      contains: "Your message has been received"
