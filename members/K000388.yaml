@@ -6,48 +6,48 @@ contact_form:
   - visit: https://trentkellyforms.house.gov/forms/writeyourrep/
   - fill_in: 
     - name: FirstName
-      selector: "#ctl00_ctl12_FirstName"
+      selector: "#ctl00_ctl15_FirstName"
       value: $NAME_FIRST
       required: true
     - name: LastName
-      selector: "#ctl00_ctl12_LastName"
+      selector: "#ctl00_ctl15_LastName"
       value: $NAME_LAST
       required: true
     - name: Street
-      selector: "#ctl00_ctl12_Street"
+      selector: "#ctl00_ctl15_Street"
       value: $ADDRESS_STREET
       required: true
     - name: City
-      selector: "#ctl00_ctl12_City"
+      selector: "#ctl00_ctl15_City"
       value: $ADDRESS_CITY
       required: true
     - name: Zip
-      selector: "#ctl00_ctl12_Zip"
+      selector: "#ctl00_ctl15_Zip"
       value: $ADDRESS_ZIP5
       required: true
     - name: Email
-      selector: "#ctl00_ctl12_Email"
+      selector: "#ctl00_ctl15_Email"
       value: $EMAIL
       required: true
     - name: Phone
-      selector: "#ctl00_ctl12_Phone"
+      selector: "#ctl00_ctl15_Phone"
       value: $PHONE
       required: false
     - name: Message
-      selector: "#ctl00_ctl12_Body"
+      selector: "#ctl00_ctl15_Body"
       value: $MESSAGE
       required: true
     - name: Subject
-      selector: "#ctl00_ctl12_Subject"
+      selector: "#ctl00_ctl15_Subject"
       value: $SUBJECT
       required: true
   - choose: 
     - name: ReplyChoice
-      selector: "#ctl00_ctl12_ReplyChoice_0"
+      selector: "#ctl00_ctl15_ReplyChoice_0"
       value: Respond
   - select: 
     - name: Prefix
-      selector: "#ctl00_ctl12_PrefixList"
+      selector: "#ctl00_ctl15_PrefixList"
       value: $NAME_PREFIX
       required: true
       options: 
@@ -56,7 +56,7 @@ contact_form:
       - Ms.
       - Dr.
     - name: Topic
-      selector: "#ctl00_ctl12_IssuesList"
+      selector: "#ctl00_ctl15_IssuesList"
       value: $TOPIC
       required: true
       options:
@@ -85,7 +85,7 @@ contact_form:
         "14897": Veterans
   - click_on: 
     - value: Submit
-      selector: "#ctl00_ctl12_SubmitButton"
+      selector: "#ctl00_ctl15_SubmitButton"
   success: 
     headers: 
       status: 200
