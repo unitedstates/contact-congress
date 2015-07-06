@@ -1,0 +1,31 @@
+bioguide: DCL000009
+contact_form:
+  method: post
+  action: http://www.jackevans.org/
+  steps:
+    - visit: "http://www.jackevans.org/contact/"
+    - fill_in:
+        - name: fname
+          selector: "input[name='first_name']"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "input[name='last_name']"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "input[name='email']"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "textarea[name='message']"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thanks for getting in touch with us
