@@ -5,83 +5,29 @@ contact_form:
   steps:
     - visit: "http://www.senatormartinsandoval.com/index.php/contact-us"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: name
-          selector: "input[id='firstName'][size='40']"
-          value: $NAME_FIRST
+          selector: "#contact_name"
+          value: $NAME_FULL
           required: true
-        - name: name
-          selector: "input[id='lastName'][size='40']"
-          value: $NAME_LAST
-          required: true
-        - name: address
-          selector: "#address"
-          value: $ADDRESS_STREET
-          required: true
-        - name: city
-          selector: "#city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: zip
-          selector: "#zipCode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
         - name: email
-          selector: "#email"
+          selector: "#contact_email"
           value: $EMAIL
           required: true
+        - name: subject
+          selector: "#contact_subject"
+          value: $SUBJECT
+          required: true
         - name: message
-          selector: "#essay1"
+          selector: "#contact_text"
           value: $MESSAGE
           required: true
-    - select:
-        - name: Topic
-          selector: "#issue"
-          value: $TOPIC
-          required: true
-          options:
-           - 2nd Amendment Issues
-           - Agriculture
-           - Budget
-           - Consumer Issues
-           - Economic Development
-           - Education
-           - Employment
-           - Energy
-           - Environment
-           - Federal Issues
-           - Healthcare
-           - Housing
-           - Human Rights
-           - Licensing
-           - Local Government
-           - Natural Resources
-           - Other
-           - Pensions
-           - Public Safety
-           - Public Utilities
-           - Seniors
-           - Taxes
-           - Transportation
-           - Veterans
+    - wait:
+        - value: 5
     - click_on:
         - value: Submit
-          selector: "#Send"
-    - find:
-      - selector: "input[name='continue']"
+          selector: "button[type='submit']"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your submission
+      contains: Thank you for your e-mail
