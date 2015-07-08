@@ -1,0 +1,184 @@
+bioguide: state_pa_gov_tom_wolf
+contact_form:
+  method: post
+  action:
+  steps:
+    - visit: "https://governor.pa.gov/contact/"
+    - wait:
+      - value: 2
+    - iframe:
+      - name: iframe1
+        selector: "div.g-recaptcha div div iframe[src^='https://www.google.com']"
+    - fill_in:
+      - name: recaptcha_response_field
+        captcha_selector: "html body div.fbc-payload > img"
+        value: $CAPTCHA_SOLUTION
+        selector: "#response"
+        required: true
+    - click_on:
+      - value: recaptchaSubmit
+        selector: "div.fbc-button-verify > input"
+    - copy_paste:
+      - name: copy_captcha_cpde
+        copy_selector: "div.fbc-verification-token > textarea"
+        paste_selector: "#g-recaptcha-response"
+    - iframe:
+      - name: parent1
+        back: true
+    - fill_in:
+        - name: firstName
+          selector: "#name_first"
+          value: $NAME_FIRST
+          required: true
+        - name: lastName
+          selector: "#name_last"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: confirmEmail
+          selector: "input[data-equalto='email']"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "#msg_content"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: county
+          selector: "#county"
+          value: $ADDRESS_COUNTY
+          required: true
+          options:
+            - "e81e8498-2311-e111-a99f-005056a50206": Adams
+            - "ea1e8498-2311-e111-a99f-005056a50206": Allegheny
+            - "ec1e8498-2311-e111-a99f-005056a50206": Armstrong
+            - "ee1e8498-2311-e111-a99f-005056a50206": Beaver
+            - "f01e8498-2311-e111-a99f-005056a50206": Bedford
+            - "f21e8498-2311-e111-a99f-005056a50206": Berks
+            - "f41e8498-2311-e111-a99f-005056a50206": Blair
+            - "f61e8498-2311-e111-a99f-005056a50206": Bradford
+            - "f81e8498-2311-e111-a99f-005056a50206": Bucks
+            - "fa1e8498-2311-e111-a99f-005056a50206": Butler
+            - "fc1e8498-2311-e111-a99f-005056a50206": Cambria
+            - "fe1e8498-2311-e111-a99f-005056a50206": Cameron
+            - "001f8498-2311-e111-a99f-005056a50206": Carbon
+            - "021f8498-2311-e111-a99f-005056a50206": Centre
+            - "041f8498-2311-e111-a99f-005056a50206": Chester
+            - "061f8498-2311-e111-a99f-005056a50206": Clarion
+            - "081f8498-2311-e111-a99f-005056a50206": Clearfield
+            - "0a1f8498-2311-e111-a99f-005056a50206": Clinton
+            - "0c1f8498-2311-e111-a99f-005056a50206": Columbia
+            - "0e1f8498-2311-e111-a99f-005056a50206": Crawford
+            - "101f8498-2311-e111-a99f-005056a50206": Cumberland
+            - "141f8498-2311-e111-a99f-005056a50206": Dauphin
+            - "161f8498-2311-e111-a99f-005056a50206": Delaware
+            - "181f8498-2311-e111-a99f-005056a50206": Elk
+            - "1a1f8498-2311-e111-a99f-005056a50206": Erie
+            - "1c1f8498-2311-e111-a99f-005056a50206": Fayette
+            - "1e1f8498-2311-e111-a99f-005056a50206": Forest
+            - "201f8498-2311-e111-a99f-005056a50206": Franklin
+            - "221f8498-2311-e111-a99f-005056a50206": Fulton
+            - "241f8498-2311-e111-a99f-005056a50206": Greene
+            - "261f8498-2311-e111-a99f-005056a50206": Huntingdon
+            - "281f8498-2311-e111-a99f-005056a50206": Indiana
+            - "2a1f8498-2311-e111-a99f-005056a50206": Jefferson
+            - "2c1f8498-2311-e111-a99f-005056a50206": Juniata
+            - "2e1f8498-2311-e111-a99f-005056a50206": Lackawanna
+            - "301f8498-2311-e111-a99f-005056a50206": Lancaster
+            - "321f8498-2311-e111-a99f-005056a50206": Lawrence
+            - "341f8498-2311-e111-a99f-005056a50206": Lebanon
+            - "361f8498-2311-e111-a99f-005056a50206": Lehigh
+            - "381f8498-2311-e111-a99f-005056a50206": Luzerne
+            - "3a1f8498-2311-e111-a99f-005056a50206": Lycoming
+            - "3c1f8498-2311-e111-a99f-005056a50206": McKean
+            - "3e1f8498-2311-e111-a99f-005056a50206": Mercer
+            - "401f8498-2311-e111-a99f-005056a50206": Mifflin
+            - "421f8498-2311-e111-a99f-005056a50206": Monroe
+            - "441f8498-2311-e111-a99f-005056a50206": Montgomery
+            - "461f8498-2311-e111-a99f-005056a50206": Montour
+            - "481f8498-2311-e111-a99f-005056a50206": Northampton
+            - "4a1f8498-2311-e111-a99f-005056a50206": Northumberland
+            - "4c1f8498-2311-e111-a99f-005056a50206": Perry
+            - "4e1f8498-2311-e111-a99f-005056a50206": Philadelphia
+            - "501f8498-2311-e111-a99f-005056a50206": Pike
+            - "521f8498-2311-e111-a99f-005056a50206": Potter
+            - "541f8498-2311-e111-a99f-005056a50206": Schuylkill
+            - "561f8498-2311-e111-a99f-005056a50206": Snyder
+            - "581f8498-2311-e111-a99f-005056a50206": Somerset
+            - "5a1f8498-2311-e111-a99f-005056a50206": Sullivan
+            - "5c1f8498-2311-e111-a99f-005056a50206": Susquehanna
+            - "5e1f8498-2311-e111-a99f-005056a50206": Tioga
+            - "601f8498-2311-e111-a99f-005056a50206": Union
+            - "621f8498-2311-e111-a99f-005056a50206": Venango
+            - "641f8498-2311-e111-a99f-005056a50206": Warren
+            - "661f8498-2311-e111-a99f-005056a50206": Washington
+            - "681f8498-2311-e111-a99f-005056a50206": Wayne
+            - "6a1f8498-2311-e111-a99f-005056a50206": Westmoreland
+            - "6c1f8498-2311-e111-a99f-005056a50206": Wyoming
+            - "6e1f8498-2311-e111-a99f-005056a50206": Yor
+        - name: topic
+          selector: "#msg_sub"
+          value: $TOPIC
+          required: true
+          options:
+            - "d475e9e1-2511-e111-a99f-005056a50206": Aging
+            - "4bed4800-9fd4-e411-bc6e-005056a500f9": Agriculture
+            - "fd769d21-a0d4-e411-bc6e-005056a500f9": Attorney General
+            - "9ed8c616-9fd4-e411-bc6e-005056a500f9": Auditor General
+            - "d675e9e1-2511-e111-a99f-005056a50206": Banking and Securities
+            - "a7e43b37-9fd4-e411-bc6e-005056a500f9": Board of Pardons
+            - "51bca75c-9fd4-e411-bc6e-005056a500f9": Community and Economic Development
+            - "b312887d-9fd4-e411-bc6e-005056a500f9": Conservation and Natural Resources
+            - "6283fb8c-9fd4-e411-bc6e-005056a500f9": Corrections
+            - "e075e9e1-2511-e111-a99f-005056a50206": Education
+            - "36062ea2-9fd4-e411-bc6e-005056a500f9": Emergency Management Agency
+            - "e475e9e1-2511-e111-a99f-005056a50206": Environmental Protection
+            - "79a7b0db-9fd4-e411-bc6e-005056a500f9": Fish and Boat Commission
+            - "e875e9e1-2511-e111-a99f-005056a50206": Game Commission
+            - "a19aa57b-6fe7-e411-af5d-005056a500f9": Governor’s Budget FY15-16
+            - "8993e032-a2d4-e411-bc6e-005056a500f9": Greetings/Proclamations/Letters
+            - "ea75e9e1-2511-e111-a99f-005056a50206": Health
+            - "f475e9e1-2511-e111-a99f-005056a50206": Human Services
+            - "2e2dbe42-a0d4-e411-bc6e-005056a500f9": Inspector General
+            - "ec75e9e1-2511-e111-a99f-005056a50206": Insurance
+            - "01390824-7208-e511-9c63-005056a500f9": Invite the Governor
+            - "5e159ae9-82e5-e111-9427-005056a500d4": Labor & Industry
+            - "ee75e9e1-2511-e111-a99f-005056a50206": Legislation
+            - "f075e9e1-2511-e111-a99f-005056a50206": Military and Veteran Affairs
+            - "cd5fc726-6de1-e111-9427-005056a500d4": Office of General Counsel
+            - "d875e9e1-2511-e111-a99f-005056a50206": Office of the Budget
+            - "1974c2bf-f8df-e111-aae9-005056a500f9": Policy
+            - "9c9ac3a2-a0d4-e411-bc6e-005056a500f9": Probation and Parole
+            - "fa75e9e1-2511-e111-a99f-005056a50206": Public Utility Commission
+            - "60b5c8d2-9c43-e211-8652-005056a500d4": Revenue
+            - "c1d8fd75-71e7-e411-af5d-005056a500f9": Right to Know Request
+            - "dd0a5113-a1d4-e411-bc6e-005056a500f9": State
+            - "1ef37f24-a1d4-e411-bc6e-005056a500f9": State Police
+            - "f875e9e1-2511-e111-a99f-005056a50206": Transportation
+            - "1ff37f24-a1d4-e411-bc6e-005056a500f9": Treasury
+            - "90c1a930-a1d4-e411-bc6e-005056a500f9": Turnpike
+            - "f275e9e1-2511-e111-a99f-005056a50206": Web Other
+            - "9195bc84-6fe7-e411-af5d-005056a500f9": Youth Educational Resources
+    - click_on:
+        - value: Submit
+          selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your feedback has been forwarded to the appropriate party"
