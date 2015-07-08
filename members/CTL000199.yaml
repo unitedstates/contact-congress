@@ -34,9 +34,15 @@ contact_form:
           value: $MESSAGE
           required: true
         - name: captcha
-          selector: ".wpcf7-captchar"
-          captcha_selector: ".wpcf7-captchac"
-          captcha_id_selector: "input[name='_wpcf7_captcha_challenge_captcha-449']"
+          selector: "input[name='captcha-551']"
+          captcha_selector: ".wpcf7-captcha-captcha-551"
+          captcha_id_selector: "input[name='_wpcf7_captcha_challenge_captcha-551']"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+        - name: captcha
+          selector: "input[name='captcha-267']"
+          captcha_selector: ".wpcf7-captcha-captcha-267"
+          captcha_id_selector: "input[name='_wpcf7_captcha_challenge_captcha-267']"
           value: "$CAPTCHA_SOLUTION"
           required: true
     - click_on:
