@@ -9,10 +9,6 @@ contact_form:
           selector: "#nameis"
           value: $NAME_FULL
           required: true
-        - name: email
-          selector: "input[name='visitormail'][size='40']"
-          value: $EMAIL
-          required: true
         - name: address
           selector: "#address"
           value: $ADDRESS_STREET
@@ -21,21 +17,21 @@ contact_form:
           selector: "#city"
           value: $ADDRESS_CITY
           required: true
-        - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
         - name: zip
-          selector: "#Contact #zip"
+          selector: ".city-state-zip"
           value: $ADDRESS_ZIP5
           required: true
+        - name: email
+          selector: "input[type='email']"
+          value: $EMAIL
+          required: true
         - name: message
-          selector: "#comments"
+          selector: "textarea[rows='4']"
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: "form[id='Contact'] input[type='submit']"
+          selector: "input[type='submit'][value='Submit']"
   success:
     headers:
       status: 200
