@@ -41,7 +41,9 @@ a subset of [Capybara methods](http://rubydoc.info/github/jnicklas/capybara/mast
     buttons.
 - [`click_on`](#click_on) Clicking a link or `button`, most likely to submit a 
     `form`.
+- [`remove`](#remove) Removes DOM element
 - [`recaptcha`](#recaptcha) Handles reCAPTCHA V2
+
 
 **success**
 
@@ -92,6 +94,10 @@ The value of a fill_in step can be a single field, or a list of hashes defining 
 - `max_length` (optional): This field will be present if a field has a maximum length. 
     It's very useful where max length is only enforced server-side.
 - `wysiwyg` (optional): This field will be present if a field is a wysiwyg, such as ckeditor or tinymce. They cannot be filled in the same way as a typical textbox.
+
+### remove
+Removes DOM element from page.
+- `selector`: Selector for the DOM element to remove
 
 ### recaptcha
 
