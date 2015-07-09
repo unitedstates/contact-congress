@@ -41,6 +41,7 @@ a subset of [Capybara methods](http://rubydoc.info/github/jnicklas/capybara/mast
     buttons.
 - [`click_on`](#click_on) Clicking a link or `button`, most likely to submit a 
     `form`.
+- [`recaptcha`](#recaptcha) Handles reCAPTCHA V2
 
 **success**
 
@@ -92,7 +93,23 @@ The value of a fill_in step can be a single field, or a list of hashes defining 
     It's very useful where max length is only enforced server-side.
 - `wysiwyg` (optional): This field will be present if a field is a wysiwyg, such as ckeditor or tinymce. They cannot be filled in the same way as a typical textbox.
 
-**A note on CAPTCHAs**
+### recaptcha
+
+Clicks the reCAPTCHA checkbox to open the challenge, then fetchs either the image or audio challenge (depending on configuration).
+- `grid_selector`: Selector for the element that contains the grid of 3x3 images
+- `img_selector`: Selector the the 3x3 grid image
+- `phrase_selector`: Selector for the element that contains the challenge phrase
+- `phrase_selector_fallback`: Selector the element that contains the challenge phrase. Used to handle case when there is not a canonical image with the phrase, because that causes the selector to change.
+- `audio_selector`: Selector for the download link for the audio file
+- `audio_response_selector`: Selector for the response to the audio challenge
+- `audio_switch_selector`: Selector for the button to switch between image and audio challenges 
+- `checkbox_iframe_selector`: Selector for IFrame that contains the initial checkbox (to begin reCAPTCHA)
+- `checkbox_selector`: Selector for checkbox to click to begin reCAPTCHA
+- `main_iframe_selector`: Selector for IFrame that contains main challenge content
+- `verify_selector`: Selector for the verify button, to submit reCAPTCHA
+- `type`: Optional value, either `image` or `audio` to pick which challenge type to use. Defaults to `image`
+
+**A note on CAPTCHAs (besides reCAPTCHA V2)**
 
 Contact forms may present a captcha challenge, which of course is difficult to deal with in an automated fashion. CAPTCHAs should be handled as `fill_in` fields with the variable `$CAPTCHA_SOLUTION` as the value. These fields should also describe a `captcha_selector` key for retrieving the captcha image and returning it to a solver of the implementer's choosing.
 
