@@ -115,6 +115,23 @@ Clicks the reCAPTCHA checkbox to open the challenge, then fetchs either the imag
 - `verify_selector`: Selector for the verify button, to submit reCAPTCHA
 - `type`: Optional value, either `image` or `audio` to pick which challenge type to use. Defaults to `image`
 
+For **all** challenges, the following selectors are **required**:
+- `checkbox_iframe_selector`
+- `checkbox_selector`
+- `main_iframe_selector`
+- `verify_selector`
+
+For **image** challenges, the following selectors are also **required**:
+- `grid_selector`
+- `img_selector`
+- `phrase_selector`
+- `phrase_selector_fallback`
+
+For **audio** challenges, the following selectors are also **required**:
+- `audio_selector`
+- `audio_response_selector`
+- `audio_switch_selector`
+
 **A note on CAPTCHAs (besides reCAPTCHA V2)**
 
 Contact forms may present a captcha challenge, which of course is difficult to deal with in an automated fashion. CAPTCHAs should be handled as `fill_in` fields with the variable `$CAPTCHA_SOLUTION` as the value. These fields should also describe a `captcha_selector` key for retrieving the captcha image and returning it to a solver of the implementer's choosing.
