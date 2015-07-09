@@ -3,65 +3,47 @@ contact_form:
   method: post
   action: /email-mick/
   steps:
-    - visit: "https://mulvaney.house.gov/email-mick/"
-    - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go to Form
-          selector: "#zipauthform input.button"
-    - find:
-        - selector: "#custom_form24"
+    - visit: "https://mulvaneyforms.house.gov/forms/writeyourrep/default.aspx/"
     - fill_in:
         - name: firstname
-          selector: "#req_firstname"
+          selector: "#ctl00_ctl06_FirstName"
           value: $NAME_FIRST
           required: true
         - name: lastname
-          selector: "#req_lastname"
+          selector: "#ctl00_ctl06_LastName"
           value: $NAME_LAST
           required: true
         - name: street
-          selector: "#req_street"
+          selector: "#ctl00_ctl06_Street"
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: "#req_city"
+          selector: "#ctl00_ctl06_City"
           value: $ADDRESS_CITY
           required: true
         - name: zipcode
-          selector: "#req_zip"
+          selector: "#ctl00_ctl06_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
-          value: $EMAIL
-          required: true
         - name: phone
-          selector: "#req_phone"
+          selector: "#ctl00_ctl06_Phone"
           value: $PHONE
           required: true
+        - name: emailaddress
+          selector: "#ctl00_ctl06_Email"
+          value: $EMAIL
+          required: true
         - name: subject
-          selector: "#subject"
+          selector: "#ctl00_ctl06_Subject"
           value: $SUBJECT
           required: true
         - name: message
-          selector: "#req_message"
+          selector: "#ctl00_ctl06_Body"
           value: $MESSAGE
           required: true
     - select:
         - name: prefix
-          selector: "#req_prefix"
+          selector: "#ctl00_ctl06_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -74,67 +56,10 @@ contact_form:
             - Maj.
             - Col.
             - Fr.
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
         - name: issue
-          selector: "#req_issue"
+          selector: "#ctl00_ctl06_IssuesList"
           value: $TOPIC
-          required: true
+          required: false
           options:
             Agriculture: "18822"
             Animals: "18817"
@@ -182,21 +107,13 @@ contact_form:
             Veterans Affairs: "18255"
             Volunteer: "24098"
             Water Resources Development: "18272"
-        - name: response
-          selector: "#response"
-          value: "Yes"
-          required: false
-          options:
-            "Yes, I would like a response.": "Yes"
-            "No, I just want you to know my thoughts.": "No"
     - click_on:
+        - value: Respond
+          selector: "#ctl00_ctl06_ReplyChoice_0"
         - value: Send Email
-          selector: "#submitButton"
-    - find:
-        - selector: "div#centerbox"
-          value: "Thank you"
+          selector: "#ctl00_ctl06_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your e-mail submission
+      contains: Thank you for your message
