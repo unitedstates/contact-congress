@@ -124,6 +124,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn
+    - find:
+        - selector: h2
+          value: Thank You
   success:
     headers:
       status: 200
