@@ -1,104 +1,76 @@
 bioguide: P000034
 contact_form:
-  method: post
-  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://pallone.house.gov/contact-me/email-me"
+    - visit: "https://palloneforms.house.gov/contact/email/"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#submit"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#contactForm"
+        - selector: "#ctl00_ctl21_FirstName"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#required-first"
+        - name: ctl00$ctl21$FirstName
+          selector: "#ctl00_ctl21_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: ctl00$ctl21$LastName
+          selector: "#ctl00_ctl21_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: ctl00$ctl21$Street
+          selector: "#ctl00_ctl21_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
+        - name: ctl00$ctl21$City
+          selector: "#ctl00_ctl21_City"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: ctl00$ctl21$Zip
+          selector: "#ctl00_ctl21_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl21$Email
+          selector: "#ctl00_ctl21_Email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
-        - name: required-message
-          selector: "#required-message"
+        - name: ctl00$ctl21$Subject
+          selector: "#ctl00_ctl21_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl21$Body
+          selector: "#ctl00_ctl21_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
-          value: $TOPIC
+        - name: ctl00$ctl21$PrefixList
+          selector: "#ctl00_ctl21_PrefixList"
+          value: $NAME_PREFIX
           required: true
           options:
-            Academy Applicants: Academy_Applicants
-            Agriculture: Agriculture
-            Animal Rights: Animal_Rights
-            Arts: Arts
-            Budget: Budget
-            Casework: Casework
-            Civil Rights: Civil_Rights
-            Defense and Military: Defense_and_Military
-            Education: Education
-            Election Reform: Election_Reform
-            Energy: Energy
-            Environment: Environment
-            Flags: Flags
-            Foreign Affairs: Foreign_Affairs
-            Government Reform: Government_Reform
-            Health: Health
-            Housing: Housing
-            Immigration: Immigration
-            Judiciary: Judiciary
-            Labor: Labor
-            Small Business: Small_Business
-            Social Security: Social_Security
-            Taxes: Taxes
-            Telecommunications: Telecommunications
-            Tours: Tours
-            Trade: Trade
-            Transportation: Transportation
-            "Veterans' Affairs": Veterans_Affairs
-            Other - Not Listed: Other
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
+            - Capt.
     - check:
-        - name: required-RadioGroup1
-          selector: "#RadioGroup1_0"
-          value: "Y"
+        - name: ctl00$ctl21$ReplyChoice
+          selector: "#ctl00_ctl21_ReplyChoice_0"
+          value: Respond
     - click_on:
-        - value: Send Email
-          selector: "#submit"
+        - value: Submit
+          selector: "#ctl00_ctl21_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank you for your comments.
