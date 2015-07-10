@@ -1,49 +1,47 @@
 bioguide: H001034
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "/htbin/formproc/email-me.txt%26display%3D/connect/voice-opinion/voice-opinion-form/thank-you%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "http://honda.house.gov/contact"
+    - visit: "https://honda.house.gov/connect/voice-opinion/voice-opinion-form"
+    - select:
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, I want Mike to respond to my email.": "Y"
+            "No, I do not want Mike to respond to my email.": "N"
+    - find:
+        - selector: "#first"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
-    - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
-        - name: required-first
-          selector: "#required-first"
+        - name: first
+          selector: "#first"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: last
+          selector: "#last"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: address
+          selector: "#address"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "#required-city"
+        - name: city
+          selector: "#city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#contactForm input[name='required-valid-email']"
-          value: $EMAIL
+        - name: state
+          selector: "#state"
+          value: "$ADDRESS_STATE_POSTAL_ABBREV"
           required: true
-        - name: required-phone
-          selector: "#required-phone"
-          value: $PHONE
+        - name: zip5
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
           required: true
         - name: required-subject
           selector: "#required-subject"
@@ -53,23 +51,11 @@ contact_form:
           selector: "#required-message"
           value: $MESSAGE
           required: true
-    - select:
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
-          required: true
-          options:
-            "Yes, I want Mike to respond to my email.": "Y"
-            "No, I do not want Mike to respond to my email.": "N"
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: Email.Optin
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit']"
+        - value: "Send to Mike"
+          selector: "#submit"
     - find:
-        - value: "Email Me - Thank You"
+        - value: "Voice Opinion - Thank You"
           selector: "#page-title"
   success:
     headers:
