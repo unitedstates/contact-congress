@@ -50,10 +50,6 @@ contact_form:
           selector: "#home_phone_number"
           value: $PHONE
           required: false
-        - name: work_phone_number
-          selector: "#work_phone_number"
-          value: $PHONE
-          required: false
         - name: email_address
           selector: "#email"
           value: $EMAIL
@@ -194,8 +190,8 @@ contact_form:
           selector: "#response_y"
           value: "Y"
     - fill_in:
-        - name: verify_email
-          selector: "#verify_email"
+        - name: work_phone_number
+          selector: "#work_phone_number"
           value: "\n"
     - find:
         - value: Thank you
