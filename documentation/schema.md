@@ -58,6 +58,7 @@ a subset of [Capybara methods](http://rubydoc.info/github/jnicklas/capybara/mast
     `form`.
 - [`wait`](#wait): **Experimental.** Indicates that the
     specified time interval should pass before proceeding.
+- [`javascript`](#javascript): Execute some javascript on current page
 
 **success**
 
@@ -199,6 +200,13 @@ that should be waited before performing the next action.
 
 _This step is not to be confused with the `wait` option under `find`, which
 denotes the maximum time that should pass while waiting for an element to appear._
+
+### javascript
+
+The `value` key determines what javascript to execute in this step. Note that
+this instruction should only be used sparingly. It is better to mimic user
+behavior as closely as possible, but if there is no way to proceed with normal
+ux steps, this instruction may be used.
 
 ---
 
