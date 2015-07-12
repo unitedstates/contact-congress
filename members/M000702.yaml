@@ -189,10 +189,8 @@ contact_form:
         - name: response
           selector: "#response_y"
           value: "Y"
-    - fill_in:
-        - name: work_phone_number
-          selector: "#work_phone_number"
-          value: "\r\n"
+    - javascript:
+        - value: "document.querySelector('form#contactForm').submit();"
     - find:
         - value: Thank you
           selector: p
