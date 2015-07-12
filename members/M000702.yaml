@@ -193,9 +193,10 @@ contact_form:
         - name: response
           selector: "#response_y"
           value: "Y"
-    - click_on:
-        - value: Send
-          selector: "#side-search-btn"
+    - fill_in:
+        - name: verify_email
+          selector: "#verify_email"
+          value: "\n"
     - find:
         - value: Thank you
           selector: p
