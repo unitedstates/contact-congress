@@ -4,6 +4,9 @@ contact_form:
   action: "/embed.php"
   steps:
     - visit: "http://governor.hawaii.gov/contact-us/contact-the-governor/"
+    - iframe:
+      - name: iframe1
+        selector: "iframe[src='https://oimtforms.ehawaii.gov/embed.php?id=1468']"
     - fill_in:
         - name: first_name
           selector: "#element_1_2"
