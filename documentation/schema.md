@@ -106,6 +106,8 @@ Clicks the reCAPTCHA checkbox to open the challenge, then fetchs either the imag
 - `img_selector`: Selector the the 3x3 grid image
 - `phrase_selector`: Selector for the element that contains the challenge phrase
 - `phrase_selector_fallback`: Selector the element that contains the challenge phrase. Used to handle case when there is not a canonical image with the phrase, because that causes the selector to change.
+- `simple_img_selector`: Selector for image, in the event a simple reCAPTCHA challenge is presented
+- `simple_textbox_selector`: Select for textbox, in the event a simple reCAPTCHA challenge is presented
 - `audio_selector`: Selector for the download link for the audio file
 - `audio_response_selector`: Selector for the response to the audio challenge
 - `audio_switch_selector`: Selector for the button to switch between image and audio challenges 
@@ -113,19 +115,22 @@ Clicks the reCAPTCHA checkbox to open the challenge, then fetchs either the imag
 - `checkbox_selector`: Selector for checkbox to click to begin reCAPTCHA
 - `main_iframe_selector`: Selector for IFrame that contains main challenge content
 - `verify_selector`: Selector for the verify button, to submit reCAPTCHA
-- `type`: Optional value, either `image` or `audio` to pick which challenge type to use. Defaults to `image`
+- `types`: Array value, containing `image` and/or `audio`, to indicate which challenge types the yaml supports
 
 For **all** challenges, the following selectors are **required**:
 - `checkbox_iframe_selector`
 - `checkbox_selector`
 - `main_iframe_selector`
 - `verify_selector`
+- `types`
 
 For **image** challenges, the following selectors are also **required**:
 - `grid_selector`
 - `img_selector`
 - `phrase_selector`
 - `phrase_selector_fallback`
+-  `simple_img_selector` -- needed to support simple reCAPTCHA challenges
+-  `simple_textbox_selector` -- needed to support simple reCAPTCHA challenges
 
 For **audio** challenges, the following selectors are also **required**:
 - `audio_selector`
