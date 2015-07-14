@@ -64,8 +64,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#contactform_sendbutton"
+    - wait:
+        - value: 10
   success:
     headers:
       status: 200
     body:
-      contains: Message Sent
