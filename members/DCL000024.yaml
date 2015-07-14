@@ -1,0 +1,41 @@
+bioguide: DCL000024
+contact_form:
+  method: post
+  action: /forms/feedbacks
+  steps:
+    - visit: "http://www.charlesallenward6.com/constituent-services"
+    - fill_in:
+        - name: name
+          selector: "#feedback_first_name"
+          value: $NAME_FIRST
+          required: true
+        - name: name
+          selector: "#feedback_last_name"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "#feedback_email"
+          value: $EMAIL
+          required: true
+        - name: address
+          selector: "#feedback_submitted_address"
+          value: $ADDRESS_CITY_STATE_ZIP
+          required: true
+        - name: message
+          selector: "#feedback_content"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Unsub
+          selector: "#feedback_email_opt_in"
+        - value: Private
+          selector: "#feedback_is_private"
+        - value: Submit
+          selector: "input[type='submit'][value='Send']"
+    - wait:
+        - value: 10
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Hi
