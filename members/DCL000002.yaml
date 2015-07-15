@@ -1,0 +1,47 @@
+bioguide: DCL000002
+contact_form:
+  method: post
+  action: https://docs.google.com/forms/d/1iTfp3gZfP1ppVJDP9Q4BLfKP0_eEaxDYwxl_ANkanUw/formResponse
+  steps:
+    - visit: "https://docs.google.com/forms/d/1iTfp3gZfP1ppVJDP9Q4BLfKP0_eEaxDYwxl_ANkanUw/viewform"
+    - fill_in:
+        - name: FirstName
+          selector: "#entry_1000000"
+          value: $NAME_FIRST
+          required: true
+        - name: LastName
+          selector: "#entry_1000001"
+          value: $NAME_LAST
+          required: true
+        - name: Email
+          selector: "#entry_1000002"
+          value: $EMAIL
+          required: true
+        - name: Address
+          selector: "#entry_1000004"
+          value: $ADDRESS_STREET
+          required: true
+        - name: City
+          selector: "#entry_1000005"
+          value: $ADDRESS_CITY
+          required: true
+        - name: State
+          selector: "#entry_1000006"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: Zip
+          selector: "#entry_1000007"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: Message
+          selector: "#entry_1000008"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#ss-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your response has been recorded.
