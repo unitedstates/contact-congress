@@ -1,55 +1,55 @@
 bioguide: state_wy_gov_matt_mead
 contact_form:
   method: post
-  action: /contact-us/#wpcf7-f11382-p221-o1
+  action: https://docs.google.com/forms/d/1W3isJW03nRFK-lxsqyFGuQq5HoHs7WcgyZ4nF_nmeYQ/formResponse
   steps:
-    - visit: "http://governor.wyo.gov/contact-us/"
+    - visit: "https://docs.google.com/forms/d/1W3isJW03nRFK-lxsqyFGuQq5HoHs7WcgyZ4nF_nmeYQ/viewform"
     - fill_in:
         - name: FirstName
-          selector: ".FirstName input"
+          selector: "#entry_1535239074"
           value: $NAME_FIRST
           required: true
         - name: LastName
-          selector: ".LastName input"
+          selector: "#entry_1880037389"
           value: $NAME_LAST
           required: true
         - name: Address
-          selector: ".Address input"
+          selector: "#entry_1553778991"
           value: $ADDRESS_STREET
           required: true
         - name: City
-          selector: ".City input"
+          selector: "#entry_136714539"
           value: $ADDRESS_CITY
           required: true
         - name: State
-          selector: ".State input"
+          selector: "#entry_622234953"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
         - name: Zip
-          selector: ".Zip input"
+          selector: "#entry_2097195641"
           value: $ADDRESS_ZIP5
           required: true
         - name: Email
-          selector: ".Email input"
+          selector: "#entry_1531306201"
           value: $EMAIL
           required: true
         - name: Phone
-          selector: ".Phone input"
+          selector: "#entry_1246537198"
           value: $PHONE
           required: true
         - name: Subject
-          selector: ".Subject input"
+          selector: "#entry_1086040925"
           value: $SUBJECT
           required: true
         - name: Message
-          selector: ".Message textarea"
+          selector: "#entry_1786983745"
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: ".btn-send"
+          selector: "#ss-submit"
   success:
     headers:
       status: 200
     body:
-      contains: Your message was sent successfully. Thanks.
+      contains: Your response has been recorded.
