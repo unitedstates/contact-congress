@@ -11,57 +11,41 @@ contact_form:
         required: Yes
         options:
           - "Abortion Rights"
-          - "Academy Nominations"
           - "Agriculture"
           - "Animal Welfare"
           - "Banking and Finance"
           - "Budget"
           - "Child Care and Welfare"
           - "Civil Rights"
-          - "Consumer Affairs"
           - "Defense"
           - "Disability"
           - "Economy"
           - "Election Reform"
           - "Energy"
           - "Environment"
-          - "Federal Funding"
           - "Flag Requests"
           - "Foreign Affairs"
-          - "Greeting Requests"
           - "Gun Violence & Second Amendment Rights"
-          - "Health Care"
-          - "Help with a Federal Agency"
           - "Housing"
           - "Immigration"
-          - "Inauguration Ticket Request"
           - "Infrastructure"
           - "Intellectual Property"
-          - "Internships"
           - "Judicial Nominations"
           - "Judiciary"
           - "Labor"
           - "Medicaid"
           - "Medicare"
-          - "Military_1"
           - "Online Privacy"
           - "Other"
-          - "Passport"
           - "Pensions"
           - "Postal Issues"
-          - "Scheduling Request"
-          - "Schools, Students and Teachers"
           - "Science and Technology"
           - "Senior Issues"
           - "Social Security"
           - "Sports"
-          - "Student Loans"
-          - "Taxes"
           - "Telecommunications"
           - "Trade"
           - "Transportation"
-          - "Veterans"
-          - "Visiting Washington"
     - find:
       - selector: "#continue-form"
     - fill_in:
@@ -124,20 +108,21 @@ contact_form:
           - "Dr."
           - "Dr. and Mrs."
           - "Dr. and Mr."
-      - name: mailing_state
-        selector: "#mailing_state"
-        value: "CT"  # only accepts mail from constituents
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
     - uncheck:
       - name: no_response
         selector: "#no_response"
         value: Yes
+    - wait:
+      - value: 1
     - click_on:
       - value: Submit
         selector: "#side-search-btn"
+    - find:
+      - selector: "h1"
+        value: "Thank You"
   success:
     headers:
       status: 200
     body:
       contains: "Thank you again for writing"
+

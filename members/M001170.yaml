@@ -1,67 +1,208 @@
 bioguide: M001170
 contact_form:
   method: post
-  action: /?p=contact
+  action: /contact
   steps:
-    - visit: "http://www.mccaskill.senate.gov/?p=contact"
+    - visit: "http://www.mccaskill.senate.gov/contact#contactForm"
+    - click_on:
+        - selector: "a[href='#contactForm']"
     - fill_in:
-        - name: prefix
-          selector: "#gen-fieldid-1"
-          value: $NAME_PREFIX
-          required: true
-        - name: firstName
-          selector: "#gen-fieldid-3"
+        - name: fname
+          selector: "#fname"
           value: $NAME_FIRST
           required: true
-        - name: lastName
-          selector: "#gen-fieldid-5"
+        - name: lname
+          selector: "#lname"
           value: $NAME_LAST
           required: true
-        - name: email
-          selector: "#gen-fieldid-7"
-          value: $EMAIL
-          required: true
-        - name: addr1
-          selector: "#gen-fieldid-9"
+        - name: mailing_streetAddress1
+          selector: "#mailing_streetAddress1"
           value: $ADDRESS_STREET
           required: true
-        - name: addr2
-          selector: "#gen-fieldid-11"
+        - name: mailing_streetAddress2
+          selector: "#mailing_streetAddress2"
           value: $ADDRESS_STREET_2
           required: false
-        - name: city
-          selector: "#gen-fieldid-13"
+        - name: mailing_city
+          selector: "#mailing_city"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#gen-fieldid-17"
+        - name: mailing_zipCode
+          selector: "#mailing_zipCode"
           value: $ADDRESS_ZIP5
           required: true
+        - name: email_address
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: "#verify_email"
+          value: $EMAIL
+          required: true
         - name: phone_h
-          selector: "#gen-fieldid-19"
+          selector: "#phone_h"
           value: $PHONE
           required: false
-        - name: phone_b
-          selector: "#gen-fieldid-21"
+        - name: phone_w
+          selector: "#phone_w"
           value: $PHONE
           required: false
         - name: subject
-          selector: "#gen-fieldid-25"
+          selector: "#subject"
           value: $SUBJECT
           required: true
-        - name: msg
-          selector: "#gen-fieldid-27"
+        - name: message
+          selector: "#message"
           value: $MESSAGE
-          required: false
+          required: true
     - select:
-        - name: state
-          selector: "#gen-fieldid-15"
+        - name: salutation
+          selector: "#salutation"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Professor
+            - Dr.
+            - Father
+            - Sister
+            - Rabbi
+            - Reverend
+            - Air Force - General
+            - Air Force - Lieutenant General
+            - Air Force - Major General
+            - Air Force - Brigadier General
+            - Air Force - Colonel
+            - Air Force - Lieutenant Colonel
+            - Air Force - Major
+            - Air Force - Captain
+            - Air Force - First Lieutenant
+            - Air Force - Second Lieutenant
+            - Air Force - Chief Master Sergeant of the Air Force
+            - Air Force - Command Chief Master Sergeant
+            - Air Force - First Sergeant (E-9)
+            - Air Force - Chief Master Sergeant
+            - Air Force - First Sergeant (E-8)
+            - Air Force - Senior Master Sergeant
+            - Air Force - First Sergeant (E-7)
+            - Air Force - Master Sergeant
+            - Air Force - Technical Sergeant
+            - Air Force - Staff Sergeant
+            - Air Force - Senior Airman
+            - Air Force - Airman First Class
+            - Air Force - Airman
+            - Air Force - Airman Basic
+            - Army - General
+            - Army - Lieutenant General
+            - Army - Major General
+            - Army - Brigadier General
+            - Army - Colonel
+            - Army - Lieutenant Colonel
+            - Army - Major
+            - Army - Captain
+            - Army - First Lieutenant
+            - Army - Second Lieutenant
+            - Army - Chief Warrant Officer - 5
+            - Army - Chief Warrant Officer - 4
+            - Army - Chief Warrant Officer - 3
+            - Army - Chief Warrant Officer - 2
+            - Army - Warrant Officer
+            - Army - Sergeant Major of the Army
+            - Army - Command Sergeant Major
+            - Army - Sergeant Major
+            - Army - First Sergeant
+            - Army - Master Sergeant
+            - Army - Sergeant First Class
+            - Army - Staff Sergeant
+            - Army - Sergeant
+            - Army - Corporal
+            - Army - Specialist
+            - Army - Private First Class
+            - Army - Private (E-2)
+            - Army - Private
+            - Coast Guard - Admiral
+            - Coast Guard - Vice Admiral
+            - "Coast Guard - Rear Admiral, Upper Half"
+            - "Coast Guard - Rear Admiral, Lower Half"
+            - Coast Guard - Captain
+            - Coast Guard - Commander
+            - Coast Guard - Lieutenant Commander
+            - Coast Guard - Lieutenant
+            - Coast Guard - Lieutenant Junior Grade
+            - Coast Guard - Ensign
+            - Coast Guard - Chief Warrant Officer - 4
+            - Coast Guard - Chief Warrant Officer - 3
+            - Coast Guard - Chief Warrant Officer - 2
+            - Coast Guard - Master Chief Petty Officer of the Coast Guard
+            - Coast Guard - Master Chief Petty Officer
+            - Coast Guard - Senior Chief Petty Officer
+            - Coast Guard - Chief Petty Officer
+            - Coast Guard - Petty Officer First Class
+            - Coast Guard - Petty Officer Second Class
+            - Coast Guard - Petty Officer Third Class
+            - Coast Guard - Seaman
+            - Coast Guard - Seaman Apprentice
+            - Coast Guard - Seaman Recruit
+            - Marine Corps - General
+            - Marine Corps - Lieutenant General
+            - Marine Corps - Major General
+            - Marine Corps - Brigadier General
+            - Marine Corps - Colonel
+            - Marine Corps - Lieutenant Colonel
+            - Marine Corps - Major
+            - Marine Corps - Captain
+            - Marine Corps - First Lieutenant
+            - Marine Corps - Second Lieutenant
+            - Marine Corps - Chief Warrant Officer - 5
+            - Marine Corps - Chief Warrant Officer - 4
+            - Marine Corps - Chief Warrant Officer - 3
+            - Marine Corps - Chief Warrant Officer - 2
+            - Marine Corps - Warrant Officer
+            - Marine Corps - Sergeant Major of the Marine Corps
+            - Marine Corps - Sergeant Major
+            - Marine Corps - Master Gunnery Sergeant
+            - Marine Corps - First Sergeant
+            - Marine Corps - Master Sergeant
+            - Marine Corps - Gunnery Sergeant
+            - Marine Corps - Staff Sergeant
+            - Marine Corps - Sergeant
+            - Marine Corps - Corporal
+            - Marine Corps - Lance Corporal
+            - Marine Corps - Private First Class
+            - Marine Corps - Private
+            - Navy - Admiral
+            - Navy - Vice Admiral
+            - "Navy - Rear Admiral, Upper Half"
+            - "Navy - Rear Admiral, Lower Half"
+            - Navy - Captain
+            - Navy - Commander
+            - Navy - Lieutenant Commander
+            - Navy - Lieutenant
+            - Navy - Lieutenant Junior Grade
+            - Navy - Ensign
+            - Navy - Chief Warrant Officer - 4
+            - Navy - Chief Warrant Officer - 3
+            - Navy - Chief Warrant Officer - 2
+            - Navy - Master Chief Petty Officer of the Navy
+            - Navy - Master Chief Petty Officer
+            - Navy - Senior Chief Petty Officer
+            - Navy - Chief Petty Officer
+            - Navy - Petty Officer First Class
+            - Navy - Petty Officer Second Class
+            - Navy - Petty Officer Third Class
+            - Navy - Seaman Apprentice
+            - Navy - Seaman
+            - Navy - Seaman Recruit
+        - name: mailing_state
+          selector: "#mailing_state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            - AA
-            - AE
-            - AP
+            - APO AP
+            - APO AE
+            - APO AA
             - Alabama
             - Alaska
             - Arizona
@@ -113,70 +254,55 @@ contact_form:
             - West Virginia
             - Wisconsin
             - Wyoming
-        - name: topics
-          selector: "#gen-fieldid-23"
+        - name: topic
+          selector: "#topic"
           value: $TOPIC
           required: true
           options:
-            Select....: notopic
-            Academy Nominations: Academy Nominations
-            Active Duty Military Issues: Active Duty Military Issues
-            Aging: Aging
+            Adoption/Childcare: Adoption
             Agriculture: Agriculture
-            Animal Rights: Animal Rights
-            Aviation: Aviation
-            Banking: Banking
-            Budget: Budget
-            Energy: Energy
+            Animal Welfare: Animal Welfare
+            Banking/Treasury: Banking
             Campaign Finance: Campaign Finance
-            Choice: Choice
             Civil Rights: Civil Rights
-            Commerce: Commerce
             Consumer Protection: Consumer Protection
-            Contracting: Contracting
-            Crime: Crime
-            Defense: Defense
-            Disability Assistance: Disability Assistance
-            Disaster Assistance: Disaster Assistance
-            Economy: Economy
-            Education: Education
-            Environment: Environment
-            Employment: Employment
-            Ethics: Ethics
-            Federal Employees: Federal Employees
-            Fiscal Responsibility: Fiscal Responsibility
-            Foreign Affairs: Foreign Affairs
-            Foreclosures: Foreclosures
+            Defense/Active Military: Defense
+            Economy/Budget: Economy
+            Education/Student Loans: Education
+            Environment/Energy: Environment
+            Federal Emergency Management Agency: FEMA
+            Foreign Relations: Foreign Relations
             Government Accountability: Government Accountability
             Healthcare: Healthcare
             Homeland Security: Homeland Security
-            Housing: Housing
+            Housing and Urban Development: Housing
             Immigration: Immigration
             Intelligence: Intelligence
-            Justice System: Justice System
-            Labor: Labor
+            Interior: Interior
+            IRS/Federal Taxes: IRS
+            Justice/Crime: Justice
+            Labor/Federal Employment: Labor
             Medicare: Medicare
             Other: Other
-            Passports: Passports
+            Passports/State Department: Passports
             Postal: Postal
-            Prescription Drugs: Prescription Drugs
             Science: Science
+            Seniors: Seniors
             Small Business: Small Business
             Social Security: Social Security
-            Stem Cell Research: Stem Cell Research
-            Student Loans: Student Loans
-            Taxes: Taxes
-            Technology: Technology
-            Telecommunications: Telecommunications
+            Telecommunications/Technology: Telecommunications
             Trade: Trade
             Transportation: Transportation
             Veterans: Veterans
-            Women: Women
+            "Women's Rights/Choice": Women
     - click_on:
         - value: Submit
-          selector: "#block6 form input[name='formaction']"
+          selector: "#side-search-btn"
+    - find:
+        - selector: "h2"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "Your message has been sent! Thank you."
+      contains: Thank you for contacting me.

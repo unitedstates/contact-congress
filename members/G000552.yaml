@@ -3,7 +3,7 @@ contact_form:
   method: get
   action: /Contact/ContactForm.htm
   steps:
-    - visit: "http://gohmert.house.gov/contact/"
+    - visit: "http://gohmert.house.gov/contact/" 
     - fill_in:
         - name: zip5
           selector: "form.zipform input[name='zip5']"
@@ -26,7 +26,7 @@ contact_form:
         - name: required-last
           selector: "form[name='contact'] input[name='required-last']"
           value: $NAME_LAST
-          required: false
+          required: true
         - name: required-address
           selector: "form[name='contact'] input[name='required-address']"
           value: $ADDRESS_STREET
@@ -80,6 +80,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "form[name='contact'] input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "span#ctl00_PageLink"
+          value: "Thank You"
   success:
     headers:
       status: 200

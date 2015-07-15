@@ -47,11 +47,6 @@ contact_form:
         value: "$MESSAGE"
         required: Yes
     - select:
-      - name: field_f062734c-8f9c-4e35-8a6d-e8c120afcdf8
-        selector: "#field_f062734c-8f9c-4e35-8a6d-e8c120afcdf8"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
       - name: field_f33b2309-b7af-40ca-aaf8-e40952fff259
         selector: "#field_f33b2309-b7af-40ca-aaf8-e40952fff259"
         value: "$TOPIC"
@@ -65,11 +60,10 @@ contact_form:
           "Education and Labor": "EDU"
           "Energy": "ENE"
           "Environmental": "ENV"
-          "Governmental Reform": "GOV"
+          "Foreign Relations": "INT"
           "Health": "HEA"
           "Homeland Security": "HOM"
           "Immigration": "IMM"
-          "International Relations": "INT"
           "Judiciary": "JUD"
           "Social Issues": "SOC"
           "Social Security": "SSEC"
@@ -78,9 +72,13 @@ contact_form:
           "Transportation": "TRA"
           "Veterans": "VET"
           "Welfare": "WEL"
+          "Other": "OTH"
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"
+    - find:
+      - selector: "span"
+        value: "THANK YOU!"
   success:
     headers:
       status: 200

@@ -34,6 +34,7 @@ contact_form:
       - name: field_e4cde960-384d-4aed-ba80-2e2be81190e6
         selector: "#field_e4cde960-384d-4aed-ba80-2e2be81190e6"
         value: "$PHONE"
+        required: Yes
       - name: field_c3e69c90-7d25-46bb-afd5-1f126572e8a7
         selector: "#field_c3e69c90-7d25-46bb-afd5-1f126572e8a7"
         value: "$EMAIL"
@@ -47,17 +48,11 @@ contact_form:
         value: "$MESSAGE"
         required: Yes
     - select:
-      - name: field_0e17a2a5-90f2-490e-9f1c-0b940ef4f4b2
-        selector: "#field_0e17a2a5-90f2-490e-9f1c-0b940ef4f4b2"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
       - name: field_30da42c5-f1dd-4674-8c1d-6e047a20a190
         selector: "#field_30da42c5-f1dd-4674-8c1d-6e047a20a190"
         value: "$TOPIC"
         required: Yes
         options:
-          - "noSelect"
           - "Agriculture"
           - "Banking"
           - "Budget"

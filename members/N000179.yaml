@@ -17,12 +17,8 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - find:
-        - selector: "#contactForm"
+        - selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -35,10 +31,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -47,10 +39,6 @@ contact_form:
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -58,6 +46,15 @@ contact_form:
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
+          required: true
+    - wait:
+        - value: 1
+    - fill_in:
+        - name: recaptcha_response_field
+          selector: "input#recaptcha_response_field"
+          captcha_selector: "img#recaptcha_challenge_image"
+          captcha_id_selector: "input#recaptcha_challenge_field"
+          value: "$CAPTCHA_SOLUTION"
           required: true
     - select:
         - name: required-issue
@@ -76,6 +73,7 @@ contact_form:
             Foreign Affairs: FR
             Gun Control: GUNS
             Health: HE
+            Human Rights: HUM
             Housing: HUD
             Immigration: IM
             Other: GEN
@@ -90,8 +88,11 @@ contact_form:
             "Women's Issues": WOMEN
             Other Issues: OTHER
     - click_on:
-        - value: Send Email
-          selector: "#submit"
+        - value: Submit
+          selector: ".form-100 #submit"
+    - find:
+        - selector: "p"
+          value: "The following information has been submitted:"
   success:
     headers:
       status: 200

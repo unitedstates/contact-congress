@@ -1,114 +1,164 @@
 bioguide: S001141
 contact_form:
-  method: POST
-  action: "index.cfm?FuseAction=ConstituentServices.ContactSubmitNew&CFID=63425015&CFTOKEN=50685883"
+  method: post
   steps:
-    - visit: http://www.sessions.senate.gov/public/index.cfm?FuseAction=ConstituentServices.ContactMe
+    - visit: "http://www.sessions.senate.gov/public/index.cfm/contact-jeff"
     - fill_in:
-      - name: firstName
-        selector: "form[name='ContactForm'] input[name='firstName']"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: lastName
-        selector: "form[name='ContactForm'] input[name='lastName']"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: address1
-        selector: "form[name='ContactForm'] input[name='address1']"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: address2
-        selector: "form[name='ContactForm'] input[name='address2']"
-        value: "$ADDRESS_STREET_2"
-      - name: city
-        selector: "form[name='ContactForm'] input[name='city']"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: zipCode
-        selector: "form[name='ContactForm'] input[name='zipCode']"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: homePhone
-        selector: "form[name='ContactForm'] input[name='homePhone']"
-        value: "$PHONE"
-        required: Yes
-      - name: workPhone
-        selector: "form[name='ContactForm'] input[name='workPhone']"
-        value: "$PHONE"
-      - name: email
-        selector: "form[name='ContactForm'] input[name='email']"
-        value: "$EMAIL"
-        required: Yes
-      - name: message
-        selector: "#myMessage"
-        value: "$MESSAGE"
-        required: Yes
-      - name: captcha_validate
-        selector: "form[name='ContactForm'] input[name='captcha_validate']"
-        captcha_selector: "form[name='ContactForm'] img[alt='Captcha Image']"
-        captcha_id_selector: "form[name='ContactForm'] input[name='captcha_hash']"
-        value: "$CAPTCHA_SOLUTION"
+        - name: field_E9248DDC-11F4-4DE9-88B4-99001F9AE060
+          selector: "#field_E9248DDC-11F4-4DE9-88B4-99001F9AE060"
+          value: $NAME_PREFIX
+          required: true
+        - name: field_167AEF38-2BD6-44BA-8479-D909391621E7
+          selector: "#field_167AEF38-2BD6-44BA-8479-D909391621E7"
+          value: $NAME_FIRST
+          required: true
+        - name: field_8B7DD1C8-3D94-444B-BEA6-4258DECFD4EC
+          selector: "#field_8B7DD1C8-3D94-444B-BEA6-4258DECFD4EC"
+          value: $NAME_LAST
+          required: true
+        - name: field_7DB3FF6A-2F65-4D43-ABF4-680539C7BA75
+          selector: "#field_7DB3FF6A-2F65-4D43-ABF4-680539C7BA75"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_8CD623D7-CB2D-430C-83A7-1CA9A7129846
+          selector: "#field_8CD623D7-CB2D-430C-83A7-1CA9A7129846"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: field_E593F17A-C054-4D4A-B381-E0175E24FCAC
+          selector: "#field_E593F17A-C054-4D4A-B381-E0175E24FCAC"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_15359281-466F-478C-B0F7-DDFF7BFFA673
+          selector: "#field_15359281-466F-478C-B0F7-DDFF7BFFA673"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_D2C674B1-D063-4CFE-8343-AB54CE3A149D
+          selector: "#field_D2C674B1-D063-4CFE-8343-AB54CE3A149D"
+          value: $PHONE
+          required: true
+        - name: field_3B7CE7B1-6B05-4745-AFEE-5E72B1527D70
+          selector: "#field_3B7CE7B1-6B05-4745-AFEE-5E72B1527D70"
+          value: $EMAIL
+          required: true
+        - name: field_B3A39EB2-8C50-4FEE-B213-38108B884D37
+          selector: "#field_B3A39EB2-8C50-4FEE-B213-38108B884D37"
+          value: $MESSAGE
+          required: true
+          max_length: 4000
+    - wait:
+        - value: 1
+    - fill_in:
+        - name: recaptcha_response_field
+          selector: "input#recaptcha_response_field"
+          captcha_selector: "img#recaptcha_challenge_image"
+          captcha_id_selector: "input#recaptcha_challenge_field"
+          value: $CAPTCHA_SOLUTION
+          required: true
     - select:
-      - name: prefix
-        selector: "form[name='ContactForm'] select[name='prefix']"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          " Mr. ": "Mr."
-          " Mrs. ": "Mrs."
-          " Ms. ": "Ms."
-          " Dr. ": "Dr."
-      - name: state
-        selector: "form[name='ContactForm'] select[name='state']"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: Subject
-        selector: ".select"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          "Abortion": "ABOR"
-          "Agriculture": "AGR"
-          "Animals": "ANIMAL-GEN"
-          "Banking": "BANKING"
-          "Boy Scouts": "BOY SCOUTS"
-          "Budget": "BUDGET"
-          "Campaign Reform": "ELECTIONS"
-          "Defense/Military/Veterans": "DEFENSE"
-          "Disaster Relief": "DISASTER REL"
-          "Education": "EDUC"
-          "Energy": "ENER"
-          "Environment": "ENV"
-          "Foreign Affairs": "FAFF"
-          "Gay Marriage": "GAYMAR"
-          "Grants": "GRANT-INFO"
-          "Gun Control": "GUN"
-          "Health": "HEALTH"
-          "Homeland Security": "HOMESEC"
-          "Immigration": "IMMIG"
-          "Internet Freedom": "PIRACY"
-          "Jobs and the Economy": "JOBS"
-          "Judiciary": "JUDIC"
-          "Labor": "LABOR"
-          "Medicare/Medicaid": "MEDICARE"
-          "Military Academy Nominations": "ACADEMY"
-          "NASA/Space Exploration": "NASA"
-          "Post Office": "POSTAL"
-          "Religious Freedoms": "RELIGION"
-          "Social Security": "SSA"
-          "Taxes": "TAX"
-          "Trade": "TRADE"
-          "Technology": "TECHNOLOGY"
-          "Transportation": "TRANS"
-          "War": "DEFENSE"
-          "Welfare": "WELFARE"
-          "Other": "Other"
+        - name: field_7B4F29DC-E2DD-4162-8DCA-665DFD02E53D
+          selector: "#field_7B4F29DC-E2DD-4162-8DCA-665DFD02E53D"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "AA ": AA
+            "AE ": AE
+            "AP ": AP
+            Alabama: AL
+            Alaska: AK
+            Arizona: AZ
+            Arkansas: AR
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            Delaware: DE
+            District of Columbia: DC
+            Florida: FL
+            Georgia: GA
+            Hawaii: HI
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Iowa: IA
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Maine: ME
+            Maryland: MD
+            Massachusetts: MA
+            Michigan: MI
+            Minnesota: MN
+            Mississippi: MS
+            Missouri: MO
+            Montana: MT
+            Nebraska: NE
+            Nevada: NV
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            New York: NY
+            North Carolina: NC
+            North Dakota: ND
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Pennsylvania: PA
+            Rhode Island: RI
+            South Carolina: SC
+            South Dakota: SD
+            Tennessee: TN
+            Texas: TX
+            Utah: UT
+            Vermont: VT
+            Virginia: VA
+            Washington: WA
+            West Virginia: WV
+            Wisconsin: WI
+            Wyoming: WY
+        - name: field_9FC33321-74A4-4940-8082-C5B5CEA8202B
+          selector: "#field_9FC33321-74A4-4940-8082-C5B5CEA8202B"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: ABOR
+            Agriculture: AGR
+            Animals: ANIMAL-GEN
+            Banking: BANKING
+            Boy Scouts: BOY SCOUTS
+            Budget: BUDGET
+            Campaign Reform: CAMPAIGN REFORM
+            "Defense/Military/Veterans,War": DEFENSE
+            Disaster Relief: DISASTER REL
+            Education: EDUC
+            Energy: ENER
+            Environment: ENV
+            Foreign Affairs: FOREIGN AFFAIRS
+            Gay Marriage: GAYMAR
+            Gun Control: GUN
+            Health: HEALTH
+            Homeland Security: HOMESEC
+            Immigration: IMMIG
+            Internet Freedom: INTERNET FREEDOM
+            Jobs and the Economy: JOBS
+            Labor: LABOR
+            Medicare/Medicaid: MEDICARE
+            NASA/Space Exploration: NASA
+            Post Office: POSTAL
+            Religious Freedoms: RELIGION
+            Social Security: SSA
+            Taxes: TAX
+            Trade: TRADE
+            Technology: TECHNOLOGY
+            Transportation: TRANS
+            Telecommunications: TELECOM
+            United Nations: UNITED NATIONS
+            Obamacare: OBAMACARE
+            "Women's Issues": WOMENS ISSUES
+            Other: Other
     - click_on:
-      - value: Submit
-        selector: ".buttonContact:nth-child(2)"
+        - value: Submit
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting my office"
+      contains: Thank

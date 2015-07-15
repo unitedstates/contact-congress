@@ -25,7 +25,7 @@ contact_form:
           required: true
         - name: required-address
           selector: "form input[name='required-address']"
-          value: $NAME_FULL
+          value: $ADDRESS_STREET
           required: true
         - name: required-city
           selector: "form input[name='required-city']"
@@ -161,6 +161,9 @@ contact_form:
     - click_on:
         - value: Send Message
           selector: "form input[name='WR_Submit']"
+    - find:
+        - selector: "span"
+          value: "Thank You"
   success:
     headers:
       status: 200

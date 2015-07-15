@@ -1,48 +1,62 @@
 bioguide: S001150
 contact_form:
-  method: post
-  action: /email-congressman-schiff1/
+  method: post 
+  action: /contact/
   steps:
-    - visit: "https://schiff.house.gov/email-congressman-schiff1"
+    - visit: "https://schiff.house.gov/contact"
+    - select:
+        - name: subject
+          selector: "#subject"
+          value: opinion
+          required: true
+          options:
+            Get Help: request
+            Federal Agency Help: federal_agency
+            Request a flag to be flown over the Capitol flag: flag
+            Request a greeting or commemorative message message: message
+            Schedule a Meeting: meeting
+            Share your opinion or comments on bills or other issues: opinion
+    - wait:
+        - value: 2
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: fname
+          selector: "#fname"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: lname
+          selector: "#lname"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: address1
+          selector: "#address1"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
+        - name: address2
           selector: "#address2"
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: "#req_city"
+          selector: "#city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: zip
+          selector: "#zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
-        - name: emailaddress
-          selector: "#req_email"
+        - name: phonenumber
+          selector: "#phonenumber"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
+        - name: "input_3629D55A-D2E7-5DF0-4EC9-CF7353DD9A7D"
+          selector: "#input-3629D55A-D2E7-5DF0-4EC9-CF7353DD9A7D"
+          value: $EMAIL
+          required: true
         - name: message
-          selector: "#req_message"
+          selector: "#message"
           value: $MESSAGE
           required: true
     - select:
@@ -51,63 +65,192 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: issue
-          selector: "#req_issue"
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Professor
+            - Dr.
+            - Father
+            - Sister
+            - Rabbi
+            - Reverend
+            - Air Force - General
+            - Air Force - Lieutenant General
+            - Air Force - Major General
+            - Air Force - Brigadier General
+            - Air Force - Colonel
+            - Air Force - Lieutenant Colonel
+            - Air Force - Major
+            - Air Force - Captain
+            - Air Force - First Lieutenant
+            - Air Force - Second Lieutenant
+            - Air Force - Chief Master Sergeant of the Air Force
+            - Air Force - Command Chief Master Sergeant
+            - Air Force - First Sergeant (E-9)
+            - Air Force - Chief Master Sergeant
+            - Air Force - First Sergeant (E-8)
+            - Air Force - Senior Master Sergeant
+            - Air Force - First Sergeant (E-7)
+            - Air Force - Master Sergeant
+            - Air Force - Technical Sergeant
+            - Air Force - Staff Sergeant
+            - Air Force - Senior Airman
+            - Air Force - Airman First Class
+            - Air Force - Airman
+            - Air Force - Airman Basic
+            - Army - General
+            - Army - Lieutenant General
+            - Army - Major General
+            - Army - Brigadier General
+            - Army - Colonel
+            - Army - Lieutenant Colonel
+            - Army - Major
+            - Army - Captain
+            - Army - First Lieutenant
+            - Army - Second Lieutenant
+            - Army - Chief Warrant Officer - 5
+            - Army - Chief Warrant Officer - 4
+            - Army - Chief Warrant Officer - 3
+            - Army - Chief Warrant Officer - 2
+            - Army - Warrant Officer
+            - Army - Sergeant Major of the Army
+            - Army - Command Sergeant Major
+            - Army - Sergeant Major
+            - Army - First Sergeant
+            - Army - Master Sergeant
+            - Army - Sergeant First Class
+            - Army - Staff Sergeant
+            - Army - Sergeant
+            - Army - Corporal
+            - Army - Specialist
+            - Army - Private First Class
+            - Army - Private (E-2)
+            - Army - Private
+            - Coast Guard - Admiral
+            - Coast Guard - Vice Admiral
+            - "Coast Guard - Rear Admiral, Upper Half"
+            - "Coast Guard - Rear Admiral, Lower Half"
+            - Coast Guard - Captain
+            - Coast Guard - Commander
+            - Coast Guard - Lieutenant Commander
+            - Coast Guard - Lieutenant
+            - Coast Guard - Lieutenant Junior Grade
+            - Coast Guard - Ensign
+            - Coast Guard - Chief Warrant Officer - 4
+            - Coast Guard - Chief Warrant Officer - 3
+            - Coast Guard - Chief Warrant Officer - 2
+            - Coast Guard - Master Chief Petty Officer of the Coast Guard
+            - Coast Guard - Master Chief Petty Officer
+            - Coast Guard - Senior Chief Petty Officer
+            - Coast Guard - Chief Petty Officer
+            - Coast Guard - Petty Officer First Class
+            - Coast Guard - Petty Officer Second Class
+            - Coast Guard - Petty Officer Third Class
+            - Coast Guard - Seaman
+            - Coast Guard - Seaman Apprentice
+            - Coast Guard - Seaman Recruit
+            - Marine Corps - General
+            - Marine Corps - Lieutenant General
+            - Marine Corps - Major General
+            - Marine Corps - Brigadier General
+            - Marine Corps - Colonel
+            - Marine Corps - Lieutenant Colonel
+            - Marine Corps - Major
+            - Marine Corps - Captain
+            - Marine Corps - First Lieutenant
+            - Marine Corps - Second Lieutenant
+            - Marine Corps - Chief Warrant Officer - 5
+            - Marine Corps - Chief Warrant Officer - 4
+            - Marine Corps - Chief Warrant Officer - 3
+            - Marine Corps - Chief Warrant Officer - 2
+            - Marine Corps - Warrant Officer
+            - Marine Corps - Sergeant Major of the Marine Corps
+            - Marine Corps - Sergeant Major
+            - Marine Corps - Master Gunnery Sergeant
+            - Marine Corps - First Sergeant
+            - Marine Corps - Master Sergeant
+            - Marine Corps - Gunnery Sergeant
+            - Marine Corps - Staff Sergeant
+            - Marine Corps - Sergeant
+            - Marine Corps - Corporal
+            - Marine Corps - Lance Corporal
+            - Marine Corps - Private First Class
+            - Marine Corps - Private
+            - Navy - Admiral
+            - Navy - Vice Admiral
+            - "Navy - Rear Admiral, Upper Half"
+            - "Navy - Rear Admiral, Lower Half"
+            - Navy - Captain
+            - Navy - Commander
+            - Navy - Lieutenant Commander
+            - Navy - Lieutenant
+            - Navy - Lieutenant Junior Grade
+            - Navy - Ensign
+            - Navy - Chief Warrant Officer - 4
+            - Navy - Chief Warrant Officer - 3
+            - Navy - Chief Warrant Officer - 2
+            - Navy - Master Chief Petty Officer of the Navy
+            - Navy - Master Chief Petty Officer
+            - Navy - Senior Chief Petty Officer
+            - Navy - Chief Petty Officer
+            - Navy - Petty Officer First Class
+            - Navy - Petty Officer Second Class
+            - Navy - Petty Officer Third Class
+            - Navy - Seaman Apprentice
+            - Navy - Seaman
+            - Navy - Seaman Recruit
+        - name: topic
+          selector: "#topic"
           value: $TOPIC
           required: true
           options:
-            Abortion and Family Planning: AB
+            Adoption/Childcare: AB
             Agriculture: AG
-            Animals: AN
+            Animal Welfare: AN
             Armenian Issues: ARM
             Arts and Entertainment: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Business and Industry: BUS
-            Campaign Finance and Elections: CF
-            Children and Families: CHILD
+            Banking/Treasury: BANK
+            Campaign Finance: CF
             Civil Rights: CIV
-            Consumer Affairs: CONSUMER
-            Defense: DEF
-            Education: ED
-            Energy: ENERGY
-            Environment: ENV
+            Consumer Protection: CONSUMER
+            Defense/Active Military: DEF
+            Economy/Budget: BUD
+            Education/Student Loans: ED
+            Environment/Energy: ENV
             Foreign Relations: FR
-            Health Care: HE
+            Government Accountability: GOV
+            Healthcare: HE
             Homeland Security: HLS
-            Housing and Real Estate: HOUSING
-            Human Rights: HR
+            Housing and Urban Development: HOUSING
             Immigration: IMM
-            Criminal Justice and Judiciary: JUD
-            "Labor, Retirement and Pensions": LAB
+            Intelligence: INTEL
+            Interior: ENV
+            IRS/Federal Taxes: TAX
+            Justice/Crime: JUD
+            Labor/Federal Employment: LAB
             LGBT: LGBT
             Medicare: HE.MCARE
-            Postal Issues: POST
-            Religion: REL
-            "Science, Technology and Space": SCI
+            State Department: FP
+            Postal: POST
+            Science: SCI
+            Seniors: SS
+            Small Business: BUS
             Social Security: SS
-            Taxes: TAX
-            Telecommunications and the Internet: TEL
+            Telecommunications/Technology: TEL
+            Trade: TRAN
             Transportation: TRAN
-            Trade: TRD
             Veterans: VET
-    - check:
-        - name: subscribe
-          selector: "input[type='radio'][name='subscribe'][value='ADMIN.UNSUBSCRIBE']"
-          value: ADMIN.UNSUBSCRIBE
+            "Women's Rights/Choice": AB
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - selector: "label[for='subscribe']"
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit']"
+    - find:
+        - selector: "h2"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for writing to me."
+      contains: "Thank you for contacting Adam Schiff."

@@ -1,40 +1,44 @@
 bioguide: M001177
 contact_form:
   method: post
-  action: "https://mcclintockforms.house.gov/htbin/formproc.pl?/mcclintock/forms/contact_form_file.txt&display=/mcclintock/forms/contact-thankyou.shtml&nobase"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://mcclintockforms.house.gov/forms/contact-form.shtml"
+    - visit: "http://mcclintock.house.gov/contact/email-me"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: "#emailForm input[name='submit']"
+    - find:
+        - selector: "#prefix"
+    - wait:
+        - value: 1
+    - fill_in:
         - name: required-first
-          selector: "#required-first"
+          selector: "#contactForm input[name='required-first']"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#required-last"
+          selector: "#contactForm input[name='required-last']"
           value: $NAME_LAST
           required: true
         - name: required-address
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
         - name: required-valid-email
-          selector: "#required-valid-email"
+          selector: "#contactForm input[name='required-valid-email']"
           value: $EMAIL
           required: true
         - name: required-phone
@@ -45,12 +49,17 @@ contact_form:
           selector: "#message"
           value: $MESSAGE
           required: true
-    - select: []
+        - name: recaptcha_response_field
+          selector: "#recaptcha_response_field"
+          captcha_selector: "img#recaptcha_challenge_image"
+          captcha_id_selector: "#recaptcha_challenge_field"
+          value: $CAPTCHA_SOLUTION
+          required: true
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit2']"
+          selector: "#contactForm input[name='submit']"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: The following information has been submitted

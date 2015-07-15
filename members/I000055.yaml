@@ -8,6 +8,7 @@ contact_form:
       - name: field_ab86600e-030c-4da2-8f14-396a3e48191c
         selector: "#field_ab86600e-030c-4da2-8f14-396a3e48191c"
         value: $NAME_PREFIX
+        required: true
       - name: field_22a9d1cc-bfe4-45f4-aa29-1f4d2585d826
         selector: "#field_22a9d1cc-bfe4-45f4-aa29-1f4d2585d826"
         value: $NAME_FIRST
@@ -43,16 +44,12 @@ contact_form:
         selector: "#field_6dce4fee-bdb8-4dad-9496-d121f71a4bd9"
         value: $SUBJECT
         required: Yes
+        max_length: 100
       - name: field_4bbb4940-5fa9-43e1-9f05-0a9eb169c378
         selector: "#field_4bbb4940-5fa9-43e1-9f05-0a9eb169c378"
         value: $MESSAGE
-        maxlength: 10000
+        max_length: 10000
     - select:
-      - name: field_69395e1d-910c-43ca-bd6c-43c2ec98a586
-        selector: "#field_69395e1d-910c-43ca-bd6c-43c2ec98a586"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        reqired: Yes
-        options: US_STATES_AND_TERRITORIES
       - name: field_158b2b90-6381-4626-beeb-7b43c917be66
         selector: "#field_158b2b90-6381-4626-beeb-7b43c917be66"
         value: $TOPIC

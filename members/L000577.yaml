@@ -39,12 +39,8 @@ contact_form:
         selector: "#field_f346ae03-8294-4f38-b762-fce94ed239af"
         value: "$MESSAGE"
         required: Yes
+        max_length: 5000
     - select:
-      - name: field_99a9d53f-bc16-428f-8d09-a237c733995d
-        selector: "#field_99a9d53f-bc16-428f-8d09-a237c733995d"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
       - name: field_7572e5ca-9879-4ab3-9c06-24514d6b57f4
         selector: "#field_7572e5ca-9879-4ab3-9c06-24514d6b57f4"
         value: "$TOPIC"
@@ -77,6 +73,9 @@ contact_form:
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"
+    - find:
+      - selector: "h2"
+        value: "Thank you for contacting me.*"
   success:
     headers:
       status: 200

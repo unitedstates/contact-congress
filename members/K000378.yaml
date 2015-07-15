@@ -1,112 +1,149 @@
 bioguide: K000378
 contact_form:
-  method: post
-  action: /email-adam/
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://kinzinger.house.gov/email-adam"
+    - visit: "http://kinzinger.house.gov/contact/"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go to Form
-          selector: input.button
-    - find:
-        - selector: "#custom_form7"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - wait:
+        - value: 1
+    - find: 
+        - selector: "#ctl00_ctl13_FirstName"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: ctl00$ctl13$FirstName
+          selector: "#ctl00_ctl13_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: ctl00$ctl13$LastName
+          selector: "#ctl00_ctl13_LastName"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: ctl00$ctl13$Street
+          selector: "#ctl00_ctl13_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#custom_form7 input[name='street2']"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#req_city"
+        - name: ctl00$ctl13$City
+          selector: "#ctl00_ctl13_City"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: ctl00$ctl13$Zip
+          selector: "#ctl00_ctl13_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zip2"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
-          value: $EMAIL
-          required: true
-        - name: phone
-          selector: "#req_phone"
+        - name: ctl00$ctl13$Phone
+          selector: "#ctl00_ctl13_Phone"
           value: $PHONE
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: ctl00$ctl13$Email
+          selector: "#ctl00_ctl13_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl13$Subject
+          selector: "#ctl00_ctl13_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl13$Body
+          selector: "#ctl00_ctl13_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#req_prefix"
+        - name: ctl00$ctl13$PrefixList
+          selector: "#ctl00_ctl13_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: subject
-          selector: "#req_subject"
-          value: $TOPIC
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss.
+            - Dr.
+            - Hon.
+            - Rev.
+            - Rabbi
+        - name: ctl00$ctl13$State
+          selector: "#ctl00_ctl13_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            Constituent Services: CASE
-            Grant Requests: GRANT
-            Agriculture: AGRI
-            Budget: BUD
-            Defense: DEF
-            Economy: ECON
-            Education/Labor: EDU
-            Energy: ENR
-            Environment: ENV
-            International: FOR
-            Government Reform: GOV
-            Health Care: HLTH
-            Homeland Security: HSEC
-            Immigration: IMM
-            Jobs: JOBS
-            Judiciary: JUD
-            Social Issues: FAM
-            Social Security: SOC
-            Telecommunications: TELE
-            Taxes and Trade: TAX
-            Transportation: TRANS
-            Veterans: VET
-            Welfare: WEL
-            Other: OTH
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
     - click_on:
         - value: Submit
-          selector: "#submitButton"
+          selector: "#ctl00_ctl13_SubmitButton"
+    - find:
+        - selector: "span#ctl00_ctl13_ConfirmationText"
+          value: "Thank you for taking the time to write me. The views of 16th district residents are invaluable to my work in Congress."
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting your information.
+      contains: Thank you for taking the time to write me.

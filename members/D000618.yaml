@@ -1,156 +1,128 @@
 bioguide: D000618
 contact_form:
   method: post
-  action: /email-me/
+  action: "http://www.daines.senate.gov/connect/email-steve"
   steps:
-    - visit: "https://daines.house.gov/email-me"
+    - visit: "http://www.daines.senate.gov/connect/email-steve"
     - find:
-        - selector: "#custom_form42"
+        - selector: "#actiontog"
+    - select:
+        - name: "input_AE7457DD-4040-F985-52CD-B99385041C51"
+          selector: "#actiontog"
+          value: "opinion"
+          required: true
+          options:
+            "Share your opinions or comment on legislation or issues": "opinion"
+    - find:
+        - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: "input_AB59F0AE-4040-F985-52CD-AA63153C7925"
+          selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: "input_AB59F0ED-4040-F985-52CD-265D9CF13F5E"
+          selector: "#input-AB59F0ED-4040-F985-52CD-265D9CF13F5E"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: "input_AB5B6829-4040-F985-52CD-BF81DCC1F57D"
+          selector: "#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#req_city"
+        - name: "input_AB5B6875-4040-F985-52CD-909541CB4B6C"
+          selector: "#input-AB5B6875-4040-F985-52CD-909541CB4B6C"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: "input_AB5B68B4-4040-F985-52CD-269A4338D057"
+          selector: "#input-AB5B68B4-4040-F985-52CD-269A4338D057"
           value: $ADDRESS_ZIP5
           required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: "input_AB67BC2F-4040-F985-52CD-007A86DA4D47"
+          selector: "#input-AB67BC2F-4040-F985-52CD-007A86DA4D47"
+          value: $PHONE
+          required: true
+        - name: "input_AB721CC4-4040-F985-52CD-76D1474A55F4"
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
-        - name: message
-          selector: "#req_message"
+        - name: "input_AB721CE8-4040-F985-52CD-9E550E8A76AA"
+          selector: "#input-AB721CE8-4040-F985-52CD-9E550E8A76AA"
+          value: $EMAIL
+          required: true
+        - name: "input_ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
+          selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
+        - name: "input_AB59F08A-4040-F985-52CD-7633AA11C65E"
+          selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-            Other: Other
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-        - name: issue
-          selector: "#req_issue"
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Professor
+            - Dr.
+            - Father
+            - Sister
+            - Rabbi
+            - Reverend
+        - name: "input_AB8156A0-4040-F985-52CD-49CE65770EFC"
+          selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Budget: BUD
-            Defense: DEF
-            Education: EDU
-            Energy: ENE
-            Environmental: ENV
-            Government Issues: GOV
-            Health: HEA
-            Homeland Security: HOM
-            Immigration: IMM
-            International Relations: INT
-            Judicial: JUD
-            Labor: LAB
-            Social Issues: SOC
-            Social Security: SSEC
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRADE
-            Veterans: VET
-            Welfare: WEL
-            Other Issues: OTH
-    - uncheck:
-        - name: newsletter
-          selector: "#newsletter"
-          value: "1"
+            "Adoption": "Adoption"
+            "Aging": "Aging"
+            "Agriculture": "Agriculture"
+            "Animal Welfare": "Animal Welfare"
+            "Banking / Securities": "Banking / Securities"
+            "Budget / Appropriations": "Budget / Appropriations"
+            "Children": "Children"
+            "Civil Rights": "Civil Rights"
+            "Congressional Issues": "Congressional Issues"
+            "Crime": "Crime"
+            "Defense": "Defense"
+            "Drugs": "Drugs"
+            "Economy": "Economy"
+            "Education Higher": "Education Higher"
+            "Education K through 12": "Education K through 12"
+            "Elections": "Elections"
+            "Energy / Natural Resources": "Energy / Natural Resources"
+            "Environment": "Environment"
+            "Foreign Affairs": "Foreign Affairs"
+            "Government Reform": "Government Reform"
+            "Healthcare": "Healthcare"
+            "Housing": "Housing"
+            "Immigration": "Immigration"
+            "Judiciary": "Judiciary"
+            "Labor": "Labor"
+            "Life Issues": "Life Issues"
+            "Medicaid / Medicare": "Medicaid / Medicare"
+            "Montana Values": "Montana Values"
+            "NASA": "NASA"
+            "Nutrition": "Nutrition"
+            "Other": "Other"
+            "Patents": "Patents"
+            "Pensions": "Pensions"
+            "Second Amendment": "Second Amendment"
+            "Small Business": "Small Business"
+            "Social Security": "Social Security"
+            "Taxes": "Taxes"
+            "Telecommunications": "Telecommunications"
+            "Trade / Commerce": "Trade / Commerce"
+            "Transportation": "Transportation"
+            "Veterans": "Veterans"
+            "Welfare": "Welfare"
+            "Women's Issues": "Women's Issues"
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - value: Submit
+          selector: "input.btn"
+    - find:
+        - selector: "h1"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting me!"
+      contains: "Thank you for submitting your request to our office."

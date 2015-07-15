@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
@@ -38,11 +38,11 @@ contact_form:
         - name: zip5
           selector: "#contact input[name='zip5']"
           value: $ADDRESS_ZIP5
-          required: true
+          required: false
         - name: zip4
           selector: "#contact input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
         - name: required-email
           selector: "#contact input[name='required-email']"
           value: $EMAIL
@@ -50,7 +50,7 @@ contact_form:
         - name: phone
           selector: "#contact input[name='phone']"
           value: $PHONE
-          required: false
+          required: true
         - name: required-message
           selector: "#contact textarea[name='required-message']"
           value: $MESSAGE
@@ -71,56 +71,40 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            - "Agriculture"
-            - "Animals"
-            - "Appointments"
-            - "Appropriations"
-            - "Art"
-            - "Banking"
-            - "Budget"
-            - "Children"
-            - "Civil Rights"
-            - "Civil Service"
-            - "Congress"
-            - "Courts"
-            - "Crime/Gun Control"
-            - "Economy"
-            - "Defense/War"
-            - "Drugs"
-            - "Education"
-            - "Elections/Voting"
-            - "Energy"
-            - "Environment"
-            - "Foreign Affairs"
-            - "Gay/Lesbian Issues"
-            - "Health"
-            - "Housing"
-            - "Immigration"
-            - "Jobs"
-            - "Labor"
-            - "Medicare/Medicaid"
-            - "Military/Armed Services"
-            - "Native Americans"
-            - "Passports"
-            - "Politics "
-            - "Post Office"
-            - "Poverty"
-            - "President"
-            - "Science"
-            - "Small Business"
-            - "Social Security"
-            - "Space/NASA"
-            - "Taxation "
-            - "Technology"
-            - "Telecommunications"
-            - "Telephone town hall"
-            - "Terrorism"
-            - "Trade/Commerce"
-            - "Transportation"
-            - "Veterans Affairs"
-            - "Welfare/Poverty"
-            - "Women’s Issues"
-            - "Other Issue"
+            Agriculture: AGR
+            Animals: ANIM
+            Arts: ARTS
+            Banking and Finance: FIN.BANK
+            Budget: BUD
+            Constitutional Law: CONST.LAW
+            Criminal Law: CRI.LAW
+            Defense: DEF
+            Economy: ECON
+            Education: EDU
+            Employment: EMPLOY
+            Elections: ELEC.CAMP
+            Energy: ENE
+            Environment: ENV
+            Foreign Affairs: FOR
+            Health Care: HEA.CARE
+            Homeland Security: HOM
+            Housing: HOU
+            Human Rights: HUMAN RIGHTS
+            Immigration: IMM
+            Intel Property: IP.PAT.COPY
+            Judiciary: JUD
+            Natural Resources: NAT.RES
+            Science: SCI.NASA
+            Seniors Issues: SEN
+            Social Security: SOC
+            Tax: TAX
+            Technology: TECH
+            Telecommunications: TELE.INT
+            Trade: TRD
+            Transportation: TRN
+            Veterans: VET
+            Womens Issues: WOM
+            Other Issue: OTHER
     - click_on:
         - value: Send Email
           selector: "#contact input[type='submit'][value='Send Email']"

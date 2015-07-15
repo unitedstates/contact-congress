@@ -1,111 +1,137 @@
 bioguide: H001036
 contact_form:
-  method: post
-  action: "https://hensarling.house.gov/htbin/formproc_za.pl?/hensarling/zip-auth.txt&form=/contact/email-me-zip-authenticated.shtml&nobase&fpGetVer=2&fpGetVer=2"
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://hensarling.house.gov/contact/email-me.shtml"
+    - visit: "https://hensarlingforms.house.gov/contact/"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#Submit"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "form.validate[name='contactForm']"
+        - selector: "#ctl00_ctl20_FirstName"
     - fill_in:
-        - name: required-firstname
-          selector: "#required-firstname"
+        - name: ctl00$ctl20$FirstName
+          selector: "#ctl00_ctl20_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-lastname
-          selector: "#required-lastname"
+        - name: ctl00$ctl20$LastName
+          selector: "#ctl00_ctl20_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address1
-          selector: "#required-address1"
+        - name: ctl00$ctl20$Street
+          selector: "#ctl00_ctl20_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
+        - name: ctl00$ctl20$City
+          selector: "#ctl00_ctl20_City"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: ctl00$ctl20$Zip
+          selector: "#ctl00_ctl20_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl20$Phone
+          selector: "#ctl00_ctl20_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl20$Email
+          selector: "#ctl00_ctl20_Email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
-        - name: required-messagebody
-          selector: "#required-messagebody"
+        - name: ctl00$ctl20$Subject
+          selector: "#ctl00_ctl20_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl20$Body
+          selector: "#ctl00_ctl20_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
+        - name: ctl00$ctl20$State
+          selector: "#ctl00_ctl20_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - "Mr & Mrs."
-            - Ms.
-            - Dr.
-        - name: required-subject
-          selector: "#subject"
-          value: $TOPIC
-          required: true
-          options:
-            Abortion: ABR
-            Aging / Seniors: SOC
-            Agriculture: AGR
-            Arts / Humanities: ART
-            Banking / Finance: BNK
-            Budget: BUD
-            Civil Rights: CIV
-            Commerce: CMR
-            Communications / Technology: TCM
-            Defense: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENR
-            Environment: ENV
-            Financial Services: FIN
-            Foreign Affairs: FRN
-            Health: HEL
-            Housing: HUD
-            Human Services: HHS
-            Immigration: IMM
-            Interior: INT
-            Judiciary: JUD
-            Labor: LAB
-            Science / Space: SCI
-            Social Security: SOC
-            Taxes: TAX
-            Trade: TRD
-            Transportation: TRN
-            Veterans: VET
-            Other: OTHER
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
     - check:
-        - name: required-forums
-          selector: "#forums_x"
-          value: No Change
+        - name: ctl00$ctl20$ReplyChoice
+          selector: "#ctl00_ctl20_ReplyChoice_1"
+          value: Comment
     - click_on:
-        - value: Send Message
-          selector: "form.validate[name='contactForm'] input[name='submit']"
+        - value: Submit
+          selector: "#ctl00_ctl20_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl20_ConfirmationText"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank you for contacting me.

@@ -26,7 +26,7 @@ contact_form:
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: "#mainbodyContentleft form input[name='zip5']"
+          selector: "#mainbodyContentleft form input[name='required-zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
@@ -90,8 +90,11 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#mainbodyContentleft form input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "b"
+          value: "Thank you"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting me through my website. As your Representative in Congress, it is vital to have this flow of communication. "
+      contains: "Thank you for contacting me through my website"

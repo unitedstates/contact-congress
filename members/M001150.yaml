@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
   steps:
-    - visit: "https://candicemiller.house.gov/contact-me"
+    - visit: "https://candicemiller.house.gov/contact/email-me"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -12,10 +12,10 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: "#submit[value='Go To Next Step']"
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -32,7 +32,7 @@ contact_form:
         - name: required-address
           selector: "#required-address"
           value: $ADDRESS_STREET
-          required: false
+          required: true
         - name: address2
           selector: "#address2"
           value: $ADDRESS_STREET_2
@@ -41,26 +41,14 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
           required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: required-valid-email
-          selector: "#required-valid-email"
+          selector: "#contactForm #required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -70,10 +58,13 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
         - name: required-issue
           selector: "#required-issue"
           value: OTHER
-          required: false
+          required: true
           options:
             Agriculture: AG
             Animals: AN
@@ -111,7 +102,7 @@ contact_form:
             Other Issues: OTHER
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#submit[value='Send Email']"
   success:
     headers:
       status: 200

@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "http://www.casey.senate.gov/contact"
+    - visit: "http://www.casey.senate.gov/contact/"
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -152,6 +152,71 @@ contact_form:
             - GEN
             - ADM
             - Gen
+        - name: mailing_state
+          selector: "#mailing_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - APO AA
+            - APO AE
+            - APO AP
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - DPO AA
+            - DPO AE
+            - DPO AP
+            - FL
+            - FPO AA
+            - FPO AE
+            - FPO AP
+            - GA
+            - HI
+            - IA
+            - ID
+            - IL
+            - IN
+            - KS
+            - KY
+            - LA
+            - MA
+            - MD
+            - ME
+            - MI
+            - MN
+            - MO
+            - MS
+            - MT
+            - NC
+            - ND
+            - NE
+            - NH
+            - NJ
+            - NM
+            - NV
+            - NY
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VA
+            - VT
+            - WA
+            - WI
+            - WV
+            - WY
         - name: mailing_county
           selector: "#mailing_county"
           value: $ADDRESS_COUNTY
@@ -231,17 +296,13 @@ contact_form:
           options:
             Abortion and Family Planning: Abortion
             Aging: Aging
-            Animals: Agriculture
+            Animals/Conservation/Farming/Forestry/Public Lands: Agriculture
             Arts and Humanities: Arts and Humanities
             Banking: Banking
-            Budget: Budget
-            Census: Budget
+            Budget/Census: Budget
             Children and Youth: Children and Youth
             Cloning and Stem Cell Research: Abortion
-            Crime and Criminal Justice: Criminal Justice
-            Conservation: Agriculture
             Defense and the Military: Armed Services
-            Diplomatic Relations: Foreign Relations
             Disability: Disabilities
             Domestic Violence: Domestic Violence
             Education: Education
@@ -249,11 +310,8 @@ contact_form:
             Energy: Energy
             Environment: Environment
             Ethics and Clean Government: Ethics and Clean Government
-            Farming: Agriculture
-            Firearms: Criminal Justice
-            Forestry: Agriculture
-            Foreign Relations: Foreign Relations
-            Global Health and Poverty: Foreign Relations
+            Crime and Criminal Justice/Firearms: Criminal Justice
+            Diplomatic Relations/Foreign Relations/Global Health and Poverty/Iraq/Middle East: Foreign Relations
             Health Care: Healthcare
             Health Insurance: Health Insurance
             Health IT (Electronic Medical Records): Health IT
@@ -261,7 +319,6 @@ contact_form:
             Housing and Homelessness: Housing and Homelessness
             Immigration: Immigration
             Intelligence: Intelligence
-            Iraq/Middle East: Foreign Relations
             Judiciary: Judiciary
             Labor and Jobs: Jobs and Labor
             LGBT Issues: LGBT Issues
@@ -272,7 +329,6 @@ contact_form:
             Pensions: Pensions
             Poverty and TANF: TANF Welfare Reform
             Prescription Drugs: FDA/Drugs
-            Public Lands: Agriculture
             Science and Technology: Science and Technology
             Small Business: Small Business
             Social Security: Social Security
@@ -284,7 +340,7 @@ contact_form:
     - click_on:
         - value: Send
           selector: "#side-search-btn"
-  success:
+  success: 
     headers:
       status: 200
     body:

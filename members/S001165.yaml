@@ -2,7 +2,7 @@ bioguide: S001165
 contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact-me/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
-  steps:
+  steps: 
     - visit: "https://sires.house.gov/contact-me/email-me"
     - fill_in:
         - name: required-zip5
@@ -12,15 +12,21 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
-    - fill_in:
+    - select:
         - name: prefix
-          selector: "#prefix"
+          selector: "#required-prefix"
           value: $NAME_PREFIX
-          required: false
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+    - fill_in:
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -104,6 +110,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
+    - find:
+        - selector: "h1#page-title"
+          value: "Thank You"
   success:
     headers:
       status: 200

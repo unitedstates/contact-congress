@@ -27,7 +27,7 @@ contact_form:
           required: true
         - name: phone
           selector: "#phone"
-          value: $PHONE_PARENTHESES
+          value: $PHONE
           required: true
         - name: email
           selector: "#email"
@@ -77,7 +77,7 @@ contact_form:
             - Technical Sergeant
         - name: State
           selector: "#State"
-          value: $ADDRESS_STATE_FULL
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
             "----Military---- ": " "
@@ -137,11 +137,10 @@ contact_form:
             "Wisconsin ": WI
             "Wyoming ": WY
         - name: Subject
-          selector: "form.-validate-form.form-contact[name='thisForm'] select[name='Subject']"
+          selector: "select[name='Subject']"
           value: $TOPIC
           required: true
           options:
-            "\n\t\t\t\t\t\t\t\t\t\t\tAcademy Nominations\n\t\t\t\t\t\t\t\t\t\t": Academy Nominations
             "\n\t\t\t\t\t\t\t\t\t\t\tAgriculture and Nutrition\n\t\t\t\t\t\t\t\t\t\t": Agriculture and Nutrition
             "\n\t\t\t\t\t\t\t\t\t\t\tAnimal Welfare\n\t\t\t\t\t\t\t\t\t\t": Animal Welfare
             "\n\t\t\t\t\t\t\t\t\t\t\tArmed Services\n\t\t\t\t\t\t\t\t\t\t": Armed Services
@@ -160,7 +159,6 @@ contact_form:
             "\n\t\t\t\t\t\t\t\t\t\t\tGrants\n\t\t\t\t\t\t\t\t\t\t": Grants
             "\n\t\t\t\t\t\t\t\t\t\t\tGuns and Crime\n\t\t\t\t\t\t\t\t\t\t": Guns and Crime
             "\n\t\t\t\t\t\t\t\t\t\t\tHealthcare\n\t\t\t\t\t\t\t\t\t\t": Healthcare
-            "\n\t\t\t\t\t\t\t\t\t\t\tHelp with Federal Government\n\t\t\t\t\t\t\t\t\t\t": Help with Federal Government
             "\n\t\t\t\t\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t\t\t\t\t": Housing
             "\n\t\t\t\t\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t\t\t\t\t": Immigration
             "\n\t\t\t\t\t\t\t\t\t\t\tJobs and Labor\n\t\t\t\t\t\t\t\t\t\t": Jobs and Labor
@@ -181,8 +179,11 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.-validate-form.form-contact[name='thisForm'] input[name='Submit']"
+        - value: Submit
+          selector: "form.-validate-form.form-contact[name='thisForm'] input[name='Submit']"
     - find:
-        - selector: "#block4.block.block-contact h2"
+        - selector: "h2"
+          value: "Thank you!"
   success:
     headers:
       status: 200

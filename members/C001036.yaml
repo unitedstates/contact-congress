@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
@@ -38,7 +38,7 @@ contact_form:
         - name: required-address
           selector: "#required-address"
           value: $ADDRESS_STREET
-          required: false
+          required: true
         - name: address2
           selector: "#address2"
           value: $ADDRESS_STREET_2
@@ -112,6 +112,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submit"
+    - find:
+        - selector: "h1#page-title-no-line"
+          value: "Thank You"
   success:
     headers:
       status: 200

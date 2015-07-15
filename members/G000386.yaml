@@ -1,71 +1,75 @@
 bioguide: G000386
 contact_form:
-  method: POST
-  action: http://www.grassley.senate.gov/contact/contact.cfm
+  method: post
+  action: /form_process/questions-and-comments-thank-you
   steps:
-    - visit: http://www.grassley.senate.gov/contact/contact.cfm
+    - visit: "http://www.grassley.senate.gov/constituents/questions-and-comments"
     - fill_in:
-      - name: firstName
-        selector: "#firstName"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: lastName
-        selector: "#lastName"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: streetAddress
-        selector: "#streetAddress"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: address2
-        selector: "p:nth-child(16) input"
-        value: "$ADDRESS_STREET_2"
-      - name: city
-        selector: "#city"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: state
-        selector: "#state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-      - name: zipCode
-        selector: "#zipCode"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: homePhone
-        selector: "p:nth-child(27) input"
-        value: "$PHONE"
-      - name: fromEmail
-        selector: "#fromEmail"
-        value: "$EMAIL"
-        required: Yes
-      - name: messageBody
-        selector: "#messageBody"
-        value: "$MESSAGE"
-        required: Yes
-      # Below input is a honeypot. Id changes but name doesn't seem to.
-      - name: formfield1234567894
-        selector: "input[name='formfield1234567894']"
-        value: ""
+        - name: first
+          selector: "#first"
+          value: $NAME_FIRST
+          required: true
+        - name: last
+          selector: "#last"
+          value: $NAME_LAST
+          required: true
+        - name: Email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - selector: "#email2"
+          value: $EMAIL
+          required: true
+        - name: addr1
+          selector: "#addr1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: addr2
+          selector: "#addr2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
+        - name: subject
+          selector: "#subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#message"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: prefix
-        selector: "select"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Miss"
-          - "Dr."
-          - "Rev."
-          - "Mr. and Mrs."
-          - "Sister"
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+            - Rev.
+            - Mr. and Mrs.
+            - Sister
     - click_on:
-      - value: Submit
-        selector: "input.button"
+        - value: Send Message
+          selector: "form.fullform.validate input[type='submit'][value='Send Message']"
+    - find:
+        - selector: "#page-title"
+          value: Thank You
   success:
     headers:
       status: 200
     body:
-      contains: "Your message has been sent"
+      contains: Thank You

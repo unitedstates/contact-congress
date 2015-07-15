@@ -4,56 +4,54 @@ contact_form:
   action: http://www.sanders.senate.gov/contact/comment
   steps:
     - visit: http://www.sanders.senate.gov/contact/comment
+    - wait:
+      - value: 2
+    - click_on:
+      - selector: "a.cerabox-close"
     - select:
       - name: subject
         selector: "#subject"
-        value: "$TOPIC"
-        required: Yes
+        value: $TOPIC
+        required: true
         options:
-          - "Academy Nominations"
-          - "Agriculture"
-          - "Animal Rights"
-          - "Appropriations"
-          - "Arts & Humanities"
-          - "Banking & Financial Services"
-          - "Budget"
-          - "Business and Commerce"
-          - "Campaign/Election Reform"
-          - "Casework"
-          - "Census"
-          - "Consumer Protection"
-          - "Defense and Military"
-          - "Economic Development"
-          - "Education"
-          - "Energy"
-          - "Environment"
-          - "Ethics Reform"
-          - "Flag Requests"
-          - "Foreign Relations"
-          - "Grant Letters"
-          - "Guns"
-          - "Healthcare"
-          - "Homeland Security"
-          - "Housing and Urban Affairs"
-          - "Immigration"
-          - "Insurance Problems"
-          - "Interior"
-          - "Intelligence"
-          - "Judiciary"
-          - "Labor"
-          - "Nutrition"
-          - "Other"
-          - "Postal Service"
-          - "Science and Innovation"
-          - "Seniors"
-          - "Social Issues"
-          - "Taxes"
-          - "Technology and Telecom"
-          - "Tour Requests"
-          - "Trade"
-          - "Transportation"
-          - "Veterans"
-          - "Women and Children"
+          Agriculture: AG
+          Animal Rights: ANRTS
+          Appropriations: APPROPS
+          "Arts & Humanities": ARTS
+          "Banking & Financial Services": BANK
+          Budget: BGT
+          Business and Commerce: BIZ
+          Campaign/Election Reform: CAMPAIGN FINANCE
+          Consumer Protection: BANK
+          Defense and Military: DEF
+          Economic Development: ECON
+          Education: ED
+          Energy: EN
+          Environment: ENV
+          Ethics Reform: ETH
+          Foreign Relations: FR
+          Guns: GUNS
+          Healthcare: HEALTH CARE
+          Homeland Security: DHS
+          Housing and Urban Affairs: HUD
+          Immigration: IMMG
+          Insurance Problems: HEALTH CARE
+          Interior: MISC
+          Intelligence: JUD
+          Judiciary: JUD
+          Labor: LABOR
+          Nutrition: FDA
+          Other: MISC
+          Postal Service: POSTAL
+          Science and Innovation: SCI
+          Seniors: SENIORS
+          Social Issues: ECON
+          Taxes: TAXES
+          Technology and Telecom: TELECOM AND TECH
+          Trade: TRADE
+          Transportation: TRANS
+          Veterans: VET
+          Women and Children: WOMEN
     - find:
       - selector: "#fname"
     - fill_in:
@@ -173,11 +171,6 @@ contact_form:
           - "Senior Airman"
           - "Airman First Class"
           - "Airman"
-      - name: state
-        selector: "#state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
     - check:
       - name: response
         selector: "#response_y"
@@ -186,6 +179,9 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "#side-search-btn"
+    - find:
+      - selector: "h2"
+        value: "Thank You"
   success:
     headers:
       status: 200

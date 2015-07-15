@@ -44,12 +44,12 @@ contact_form:
         - name: required-message
           selector: "#contact textarea[name='required-message']"
           value: $MESSAGE
-          required: false
+          required: true
     - select:
         - name: required-issue
           selector: "#subject"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: WEBAGR
             Budget: WEBBUD
@@ -73,10 +73,6 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other Issues: WEBOTH
-    - check:
-        - name: response
-          selector: "input[type='radio'][name='response'][value='Y']"
-          value: "Y"
     - click_on:
         - value: Send Email
           selector: "#contact input[type='submit'][value='Send Email']"
@@ -84,4 +80,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank you for sending me your email. "
+      contains: THANK YOU

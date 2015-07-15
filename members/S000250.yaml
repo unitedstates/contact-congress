@@ -1,7 +1,7 @@
 bioguide: S000250
 contact_form:
   method: post
-  action: /index.cfm/contact-form
+  action: ""
   steps:
     - visit: "https://sessions.house.gov/index.cfm/contact-form"
     - fill_in:
@@ -17,10 +17,6 @@ contact_form:
           selector: "#field_EA33F802-15C8-4F9A-A675-8EAB7A78ED76"
           value: $ADDRESS_STREET
           required: true
-        - name: field_E4607099-C302-4E4E-9C6E-C8DCF96E0480
-          selector: "#field_E4607099-C302-4E4E-9C6E-C8DCF96E0480"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: field_B9C5E239-A5AA-4230-BF87-61B6AB8DE59A
           selector: "#field_B9C5E239-A5AA-4230-BF87-61B6AB8DE59A"
           value: $ADDRESS_CITY
@@ -41,15 +37,19 @@ contact_form:
           selector: "#field_6AA78EC6-51E3-4F22-BF51-73BEB2668029"
           value: $MESSAGE
           required: true
+    - wait:
+        - value: 1
+    - fill_in:
         - name: recaptcha_response_field
           selector: "#recaptcha_response_field"
-          captcha_selector: "#recaptcha_img img"
+          captcha_selector: "img#recaptcha_challenge_image"
           captcha_id_selector: "#recaptcha_challenge_field"
-          value: "$CAPTCHA_SOLUTION"
+          value: $CAPTCHA_SOLUTION
+          required: true
     - select:
         - name: field_A39C3195-9A18-4E92-B084-184DAD78C31D
           selector: "#field_A39C3195-9A18-4E92-B084-184DAD78C31D"
-          value: $ADDRESS_STATE_FULL
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
             Alabama: AL
@@ -140,5 +140,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you
-
+      contains: Thank you for your email.

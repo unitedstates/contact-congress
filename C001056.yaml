@@ -1,0 +1,165 @@
+bioguide: C001056
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.cornyn.senate.gov/public/index.cfm?p=ContactForm"
+    - fill_in:
+        - name: FirstName
+          selector: "#FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: LastName
+          selector: "#LastName"
+          value: $NAME_LAST
+          required: true
+        - name: Address1
+          selector: "#Address1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: Address2
+          selector: "#Address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: City
+          selector: "#City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ZipCode
+          selector: "#ZipCode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: PhoneNumber
+          selector: "#PhoneNumber"
+          value: $PHONE
+          required: false
+        - name: EmailAddress
+          selector: "#EmailAddress"
+          value: $EMAIL
+          required: true
+        - name: Message
+          selector: "#Message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: Prefix
+          selector: "#Prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mr.
+            - Dr. and Mrs.
+            - Reverend
+            - Sister
+            - Pastor
+        - name: State
+          selector: "#State"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            - "----Military----"
+            - AA
+            - AE
+            - AP
+            - "----States----"
+            - Alabama
+            - Alaska
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+        - name: Topic
+          selector: "#Topic"
+          value: $TOPIC
+          required: true
+          options:
+            - Abortion
+            - Agriculture
+            - Arts and Humanities
+            - Banking
+            - Budget
+            - Communications
+            - Crime/Law Enforcement
+            - Defense
+            - Education
+            - Election Reform
+            - Energy
+            - Environment
+            - Finance
+            - Firearms
+            - Foreign Affairs
+            - Government Operations/Affairs
+            - Healthcare
+            - Homeland Security
+            - Housing
+            - Immigration
+            - Interior
+            - Judiciary
+            - Labor
+            - Medicare
+            - Religion
+            - Small Business
+            - Social Security
+            - Taxes/Economy
+            - Trade
+            - Transportation
+            - Veterans
+            - Welfare
+    - click_on:
+        - value: Submit
+          selector: input.primaryAction
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting Senator John Cornyn's office."

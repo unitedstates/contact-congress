@@ -5,6 +5,20 @@ contact_form:
   steps:
     - visit: "https://hoyer.house.gov/email-steny"
     - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go to Form
+          selector: "#zipauthform input.button"
+    - find:
+        - selector: "#req_firstname"
+    - fill_in:
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
@@ -38,19 +52,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
         - name: state
           selector: "#req_state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -154,6 +155,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submitButton"
+    - find:
+        - selector: "h1"
+          value: "THANK YOU"
   success:
     headers:
       status: 200

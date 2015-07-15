@@ -29,7 +29,7 @@ contact_form:
         value: "$ADDRESS_ZIP5"
         required: Yes
       - name: phone
-        selector: "#phone"
+        selector: "input+#phone"
         value: "$PHONE"
         required: Yes
       - name: email
@@ -44,15 +44,12 @@ contact_form:
         selector: ".input-textarea"
         value: "$MESSAGE"
         required: Yes
-    - select:
-      - name: State
-        selector: ".input-select"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
     - click_on:
       - value: Submit
         selector: "#sf-submit"
+    - find:
+      - selector: "p"
+        value: "Thank you!"
   success:
     headers:
       status: 200

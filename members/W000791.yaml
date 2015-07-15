@@ -52,13 +52,16 @@ contact_form:
         - name: msg
           selector: "#req_message"
           value: $MESSAGE
-          required: false
+          required: true
     - select: []
     - click_on:
         - value: Send Email
           selector: "#submitButton"
+    - find:
+        - selector: "h1"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for taking the time to let me know your thoughts. While I sometimes get overloaded with incoming mail, emails, calls, and faxes, I want you to know that I value the comments and suggestions I receive, even if I can’t always promptly respond to each one."
+      contains: "Thank you for taking the time to let me know your thoughts"

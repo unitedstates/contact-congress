@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt&form=/contact-mike/email-me-zip-authenticated&nobase&fpGetVer=2"
   steps:
-    - visit: "http://mike-rogers.house.gov/contact-mike/email-me"
+    - visit: "http://mikerogers.house.gov/contact-mike/email-me"
     - fill_in:
         - name: zip5
           selector: "#zip5"
@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
@@ -66,7 +66,7 @@ contact_form:
     - select:
         - name: required-issue
           selector: "#issue"
-          value: $SUBJECT
+          value: $TOPIC
           required: true
           options:
             Agriculture: AG

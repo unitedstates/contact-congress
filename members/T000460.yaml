@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
@@ -56,6 +56,12 @@ contact_form:
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
+          required: true
+        - name: recaptcha_response_field
+          selector: "input#recaptcha_response_field"
+          captcha_selector: "img#recaptcha_challenge_image"
+          captcha_id_selector: "input#recaptcha_challenge_field"
+          value: "$CAPTCHA_SOLUTION"
           required: true
     - select:
         - name: required-issue
@@ -117,6 +123,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
+    - find:
+        - selector: "h1"
+          value: "Email Me - Thank You"
   success:
     headers:
       status: 200

@@ -12,7 +12,7 @@ contact_form:
         - name: zipfour
           selector: "#zipfour"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go to Form
           selector: input.button
@@ -110,4 +110,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Your message has been successfully submitted! We will get in touch as soon as possible. "
+      contains: "Your message has been successfully submitted"

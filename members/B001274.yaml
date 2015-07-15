@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: "#centerbox form input.button"
+    - find:
+        - selector: "#req_firstname"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -55,14 +57,13 @@ contact_form:
           required: true
     - select:
         - name: prefix
-          selector: "#prefix"
+          selector: "#req_prefix"
           value: $NAME_PREFIX
           required: true
           options:
             Mr.: "Mr. "
             Mrs.: Mrs.
             Ms.: Ms.
-            Miss: Miss
             Dr.: Dr.
             Hon.: Hon.
             Rev.: Rev.
@@ -127,6 +128,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submitButton"
+    - find:
+        - selector: "span"
+          value: "THANK YOU"
   success:
     headers:
       status: 200

@@ -1,23 +1,128 @@
 bioguide: C001063
 contact_form:
-  method: get
-  action: /Forms/WriteYourRep/
+  method: post
+  action: default.aspx
   steps:
-    - visit: "http://cuellar.house.gov/contact/sendmeanemail.htm"
+    - visit: "https://cuellar.house.gov/forms/writeyourrep/default.aspx"
     - fill_in:
-        - name: zip5
-          selector: "#zipcode"
+        - name: ctl00$ctl14$FirstName
+          selector: "#ctl00_ctl14_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl14$LastName
+          selector: "#ctl00_ctl14_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl14$Street
+          selector: "#ctl00_ctl14_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl14$City
+          selector: "#ctl00_ctl14_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl14$Zip
+          selector: "#ctl00_ctl14_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "#plusfour"
-          value: $ADDRESS_ZIP4
+        - name: ctl00$ctl14$Email
+          selector: "#ctl00_ctl14_Email"
+          value: $EMAIL
           required: true
+        - name: ctl00$ctl14$Subject
+          selector: "#ctl00_ctl14_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl14$Body
+          selector: "#ctl00_ctl14_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$ctl14$PrefixList
+          selector: "#ctl00_ctl14_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
+            - Col.
+            - Judge
+            - The Honorable
+            - "Mr. & Mrs."
+        - name: ctl00$ctl14$State
+          selector: "#ctl00_ctl14_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
     - click_on:
         - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
+          selector: "#ctl00_ctl14_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl14_ConfirmationText"
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: Thank you for contacting my office.

@@ -1,120 +1,121 @@
 bioguide: P000449
 contact_form:
-  method: POST
-  action: ""
+  method: post
+  action: "https://www.portman.senate.gov/public/index.cfm/contact-form"
   steps:
-    - visit: https://www.portman.senate.gov/public/index.cfm/contact-form
+    - visit: "https://www.portman.senate.gov/public/index.cfm/contact-form"
     - fill_in:
-      - name: field_94419b46-a0d3-4172-b593-7d8de54c9f98
-        selector: "#field_94419b46-a0d3-4172-b593-7d8de54c9f98"
-        value: $PREFIX
-      - name: field_abc03f4e-8760-440f-ba41-22107a2f7bcf
-        selector: "#field_abc03f4e-8760-440f-ba41-22107a2f7bcf"
-        value: $NAME_FIRST
-        required: Yes
-      - name: field_e95c86c1-ff4a-48d2-8d74-15850a71bcf5
-        selector: "#field_e95c86c1-ff4a-48d2-8d74-15850a71bcf5"
-        value: $NAME_LAST
-        required: Yes
-      - name: field_4f3dabf6-a301-4e18-baa4-96774baa2f19
-        selector: "#field_4f3dabf6-a301-4e18-baa4-96774baa2f19"
-        value: $ADDRESS_STREET
-        required: Yes
-      - name: field_8d8cc099-7d26-4c56-ad0c-045285a1c646
-        selector: "#field_8d8cc099-7d26-4c56-ad0c-045285a1c646"
-        value: $ADDRESS_STREET_2
-      - name: field_8638c303-cc6b-46fc-b7cf-a2c754e1df2e
-        selector: "#field_8638c303-cc6b-46fc-b7cf-a2c754e1df2e"
-        value: $ADDRESS_CITY
-        required: Yes
-      - name: field_776c76d1-c541-4b2e-8c7a-4515381a5d0b
-        selector: "#field_776c76d1-c541-4b2e-8c7a-4515381a5d0b"
-        value: $ADDRESS_ZIP5
-        required: Yes
-      - name: field_0c081ef6-3113-46df-b4f7-4d83fadbaa9a
-        selector: "#field_0c081ef6-3113-46df-b4f7-4d83fadbaa9a"
-        value: $PHONE
-        required: Yes
-      - name: field_fad09af0-d33b-4934-bb13-7335edd82c4b
-        selector: "#field_fad09af0-d33b-4934-bb13-7335edd82c4b"
-        value: $EMAIL
-        required: Yes
-      - name: field_06a8c75e-4922-470d-acff-44367138678c
-        selector: "#field_06a8c75e-4922-470d-acff-44367138678c"
-        value: $SUBJECT
-        required: Yes
-      - name: field_716e154b-9c67-4ede-97ac-a867c5556908
-        selector: "#field_716e154b-9c67-4ede-97ac-a867c5556908"
-        value: $MESSAGE
-        required: Yes
+        - name: field_94419b46-a0d3-4172-b593-7d8de54c9f98
+          selector: "#field_94419b46-a0d3-4172-b593-7d8de54c9f98"
+          value: $NAME_PREFIX
+          required: false
+        - name: field_abc03f4e-8760-440f-ba41-22107a2f7bcf
+          selector: "#field_abc03f4e-8760-440f-ba41-22107a2f7bcf"
+          value: $NAME_FIRST
+          required: true
+        - name: field_e95c86c1-ff4a-48d2-8d74-15850a71bcf5
+          selector: "#field_e95c86c1-ff4a-48d2-8d74-15850a71bcf5"
+          value: $NAME_LAST
+          required: true
+        - name: field_4f3dabf6-a301-4e18-baa4-96774baa2f19
+          selector: "#field_4f3dabf6-a301-4e18-baa4-96774baa2f19"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_8d8cc099-7d26-4c56-ad0c-045285a1c646
+          selector: "#field_8d8cc099-7d26-4c56-ad0c-045285a1c646"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: field_8638c303-cc6b-46fc-b7cf-a2c754e1df2e
+          selector: "#field_8638c303-cc6b-46fc-b7cf-a2c754e1df2e"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_776c76d1-c541-4b2e-8c7a-4515381a5d0b
+          selector: "#field_776c76d1-c541-4b2e-8c7a-4515381a5d0b"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_0c081ef6-3113-46df-b4f7-4d83fadbaa9a
+          selector: "#field_0c081ef6-3113-46df-b4f7-4d83fadbaa9a"
+          value: $PHONE
+          required: true
+        - name: field_fad09af0-d33b-4934-bb13-7335edd82c4b
+          selector: "#field_fad09af0-d33b-4934-bb13-7335edd82c4b"
+          value: $EMAIL
+          required: true
+        - name: field_06a8c75e-4922-470d-acff-44367138678c
+          selector: "#field_06a8c75e-4922-470d-acff-44367138678c"
+          value: $SUBJECT
+          required: true
+        - name: field_716e154b-9c67-4ede-97ac-a867c5556908
+          selector: "#field_716e154b-9c67-4ede-97ac-a867c5556908"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: field_643f7f96-a956-4683-86a4-7ede8ca331c5
-        selector: "#field_643f7f96-a956-4683-86a4-7ede8ca331c5"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
-        options: US_STATES_AND_MPCS
-      - name: field_65b92e4c-5318-4314-9d1b-13c53db4f00a
-        selector: "#field_65b92e4c-5318-4314-9d1b-13c53db4f00a"
-        value: $TOPIC
-        required: Yes
-        options:
-          "Abortion": "ABOR"
-          "Aging and Seniors": "AGING"
-          "Agriculture": " AGR"
-          "Animal Rights": "ANIM"
-          "Appropriations": "APPRO"
-          "Banking": "BANK"
-          "Budget": "BUD"
-          "Campaign Finance": "CAMPFI"
-          "Child Abuse": "CHILD"
-          "Civil Rights/Humanities": "CIVIL"
-          "Civil Service/Postal": "CIVILSERV"
-          "Commerce": "COMMER"
-          "Communications": "COMMUN"
-          "Commemorative/Congratulatory/Memorative": "CONGRAT"
-          "Congressional Issues": "CONGRESS"
-          "Drugs/Crime,Second Amendment": "CRIME"
-          "Defense": "DEF"
-          "Education Higher": "ED.HIGH"
-          "Education K through 12": "ED.K12"
-          "Elections": "ELECT"
-          "Energy": "ENERG"
-          "Environment/Public Works": "ENVIR"
-          "Family/Marriage": "FAM"
-          "Flag Requests": "FLAG"
-          "Foreign Affairs": "FOREIGN"
-          "Health": "HEALTH"
-          "Housing": "HOUS"
-          "Immigration Reform": "IMMIGR"
-          "Insurance": "INSUR"
-          "Interior": "INTER"
-          "Internship": "INTERN"
-          "Iraq": "IRAQ"
-          "Jobs and the Economy": "JOBS"
-          "Judiciary": "JUD"
-          "Labor": "LAB"
-          "Medicaid": "MCAID"
-          "Medicare": "MCARE"
-          "NASA": "NASA"
-          "Native American Affairs": "NATIVE"
-          "Patents": "PAT"
-          "Pensions": "PENS"
-          "Scheduling Request": "SCHED"
-          "Security": "SEC"
-          "SM.BUS": "Small Business"
-          "Social Security": "SS"
-          "Taxes": "TAX"
-          "Tobacco": "TOB"
-          "Tour Request": "TOUR"
-          "Trade": "TRADE"
-          "Transportation": "TRANSP"
-          "Veterans": "VET"
-          "Welfare": "WEL"
-      - click_on:
-        value: Submit
-        selector: "form.uniForm input[type=submit]"
+        - name: field_65b92e4c-5318-4314-9d1b-13c53db4f00a
+          selector: "#field_65b92e4c-5318-4314-9d1b-13c53db4f00a"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: ABOR
+            Aging and Seniors: AGING
+            Agriculture: " AGR"
+            Animal Rights: ANIM
+            Appropriations: APPRO
+            Banking: BANK
+            Budget: BUD
+            Campaign Finance: CAMPFI
+            Child Abuse: CHILD
+            Civil Rights/Humanities: CIVIL
+            Civil Service/Postal: CIVILSERV
+            Commerce: COMMER
+            Communications: COMMUN
+            Commemorative/Congratulatory/Memorative: CONGRAT
+            Congressional Issues: CONGRESS
+            "Drugs/Crime,Second Amendment": CRIME
+            Defense: DEF
+            Education Higher: ED.HIGH
+            Education K through 12: ED.K12
+            Elections: ELECT
+            Energy: ENERG
+            Environment/Public Works: ENVIR
+            Family/Marriage: FAM
+            Flag Requests: FLAG
+            Foreign Affairs: FOREIGN
+            Health: HEALTH
+            Housing: HOUS
+            Immigration Reform: IMMIGR
+            Insurance: INSUR
+            Interior: INTER
+            Internship: INTERN
+            Iraq: IRAQ
+            Jobs and the Economy: JOBS
+            Judiciary: JUD
+            Labor: LAB
+            Medicaid: MCAID
+            Medicare: MCARE
+            NASA: NASA
+            Native American Affairs: NATIVE
+            Patents: PAT
+            Pensions: PENS
+            Scheduling Request: SCHED
+            Security: SEC
+            Small Business: SM.BUS
+            Social Security: SS
+            Taxes: TAX
+            Tobacco: TOB
+            Tour Request: TOUR
+            Trade: TRADE
+            Transportation: TRANSP
+            Veterans: VET
+            Welfare: WEL
+    - uncheck:
+        - name: Subscription_id_ad25a374-6207-4339-9ec6-2513f888ce3c
+          selector: "#Subscription_id_ad25a374-6207-4339-9ec6-2513f888ce3c_1"
+          value: 77e958c1-95c2-4f75-afaf-2cc45eee8682
+    - click_on:
+        - value: Submit
+          selector: "div.buttonHolder input"
   success:
     headers:
       status: 200
     body:
-      # contains: Thank you
+      contains: "Thank you for contacting my office"

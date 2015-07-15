@@ -1,95 +1,170 @@
 bioguide: L000564
 contact_form:
-  method: post
-  action: /contact-form/
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://lambornforms.house.gov/contact-form"
+    - visit: "http://douglamborn.house.gov/contact/leave-a-comment.htm"
     - fill_in:
-        - name: prefix
-          selector: "#req_prefix"
-          value: $NAME_PREFIX
-          required: true
-        - name: firstname
-          selector: "#req_firstname"
-          value: $NAME_FIRST
-          required: true
-        - name: lastname
-          selector: "#req_lastname"
-          value: $NAME_LAST
-          required: true
-        - name: street
-          selector: "#req_street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: street2
-          selector: "#custom_form25 input[name='street2']"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#req_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#req_zipcode"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
-        - name: phone
-          selector: "#req_phone"
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl16_FirstName"
+    - fill_in:
+        - name: ctl00$ctl16$FirstName
+          selector: "#ctl00_ctl16_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl16$LastName
+          selector: "#ctl00_ctl16_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl16$Street
+          selector: "#ctl00_ctl16_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl16$City
+          selector: "#ctl00_ctl16_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl16$Zip
+          selector: "#ctl00_ctl16_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl16$Phone
+          selector: "#ctl00_ctl16_Phone"
           value: $PHONE
-          required: false
-        - name: emailaddress
-          selector: "#req_email"
+          required: true
+        - name: ctl00$ctl16$Email
+          selector: "#ctl00_ctl16_Email"
           value: $EMAIL
           required: true
-        - name: msg
-          selector: "#req_message"
-          value: $MESSAGE
-          required: false
-    - select:
-        - name: state
-          selector: "#req-state"
-          value: CO
+        - name: ctl00$ctl16$Subject
+          selector: "#ctl00_ctl16_Subject"
+          value: $SUBJECT
           required: true
-          options: []
-        - name: required-issue
-          selector: "#req_issue"
-          value: $TOPIC
-          required: false
+        - name: ctl00$ctl16$Body
+          selector: "#ctl00_ctl16_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$ctl16$PrefixList
+          selector: "#ctl00_ctl16_PrefixList"
+          value: $NAME_PREFIX
+          required: true
           options:
-            Agriculture: AGR-FARM
-            Budget: BUD
-            "Defense & Military": DEF-MIL
-            Economy: ECON
-            Education: EDU
-            Energy: RESOURCES-EN
-            Environment: RESOURCES-ENV
-            Finance: FIN-BANK
-            Foreign Relations: FOR
-            Government Reform: GOV-REFORM
-            Health: HEA
-            Homeland Security: HOMELANDSEC
-            Immigration: IMM
-            Judicial: JUD
-            Labor: LAB
-            Second Amendment Rights: GUN
-            Social Issues and Traditional Values: VAT
-            Social Security and Medicare: AGR-WEL
-            Taxes: TAX
-            Telecommunications: CMRC-COMMU
-            Transportation: TRANS
-            Veterans: VET
-            Water: RESOURCES-WA
-            Welfare: WEL
-            Other: OTH
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Dr.
+            - 1LT
+            - 1SG
+            - 1st Lt
+            - 1stSgt
+            - 2d Lt
+            - 2LT
+            - 2nd Lt
+            - A1C
+            - AB
+            - ADM
+            - Amn
+            - BG
+            - BGen
+            - Brig Gen
+            - CAPT
+            - Capt
+            - CDR
+            - Chaplain
+            - Chief
+            - CMSAF
+            - CMSgt
+            - Col
+            - COL
+            - CPL
+            - Cpl
+            - CPO
+            - CPT
+            - CSM
+            - CW2
+            - CW3
+            - CW4
+            - CW5
+            - CWO-1
+            - CWO2
+            - CWO-2
+            - CWO3
+            - CWO-3
+            - CWO4
+            - CWO-4
+            - CWO-5
+            - ENS
+            - Gen
+            - GEN
+            - GySgt
+            - LCDR
+            - LCpl
+            - LT
+            - Lt Col
+            - LTC
+            - LtCol
+            - LTG
+            - LtGen
+            - LTJG
+            - Maj
+            - MAJ
+            - Maj Gen
+            - MajGen
+            - MCPO
+            - MCPON
+            - MG
+            - MGySgt
+            - Mmes.
+            - MSG
+            - MSgt
+            - PFC
+            - PFC
+            - PO1
+            - PO2
+            - PO3
+            - PV2
+            - PVT
+            - Pvt
+            - RADM
+            - Rank
+            - SA
+            - SCPO
+            - SFC
+            - SGM
+            - SGT
+            - Sgt
+            - Sgt Maj
+            - SgtMajMC
+            - SMA
+            - SMSgt
+            - SN
+            - SPC
+            - SR
+            - SrA
+            - SSG
+            - SSgt
+            - TSgt
+            - VADM
+            - WO1
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - value: Submit
+          selector: "#ctl00_ctl16_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl16_ConfirmationText"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been sent. Thank you for sharing your comments and concerns with me. I will respond back to you as soon as possible.
+      contains: Thank you for taking the time to write me.

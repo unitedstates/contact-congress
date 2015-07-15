@@ -119,13 +119,13 @@ contact_form:
           - "Airman First Class"
           - "Airman"
       - name: mailing_state
-        selector: "#mailing_state"
+        selector: "#state"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
         options: US_STATES
       - name: subject
         selector: "#subject"
-        value: $SUBJECT
+        value: $TOPIC
         required: Yes
         options:
           - "Arts/Culture/History"
@@ -168,3 +168,4 @@ contact_form:
       status: 200
     body:
       contains: Thank You
+

@@ -192,6 +192,9 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submitButton"
+    - find:
+        - selector: "div#centerbox"
+          value: "Thank you"
   success:
     headers:
       status: 200

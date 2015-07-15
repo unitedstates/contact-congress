@@ -12,17 +12,27 @@ contact_form:
         - name: zip4
           selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
         - selector: "#contact"
-    - fill_in:
+    - select:
         - name: required-prefix
-          selector: "#contact input[name='required-prefix']"
+          selector: "#contact select[name='required-prefix']"
           value: $NAME_PREFIX
           required: true
+          options:
+              - Mr.
+              - Ms.
+              - Miss
+              - Mrs.
+              - Dr.
+              - Fr.
+              - Rev.
+              - Hon.
+    - fill_in:
         - name: required-first
           selector: "#contact input[name='required-first']"
           value: $NAME_FIRST
@@ -39,14 +49,6 @@ contact_form:
           selector: "#contact input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
-        - name: zip5
-          selector: "#contact input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#contact input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: required-email
           selector: "#contact input[name='required-email']"
           value: $EMAIL
@@ -90,8 +92,10 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contact input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "#ctl00_ctl14_ctl00_Text"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for sending me your email.
+      contains: Thank you for sharing your thoughts

@@ -9,107 +9,179 @@ contact_form:
           selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: true
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl09_FirstName"
     - fill_in:
-        - name: required-first
-          selector: "form[name='contact'] input[name='required-first']"
+        - name: ctl00$ctl09$FirstName
+          selector: "#ctl00_ctl09_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "form[name='contact'] input[name='required-last']"
+        - name: ctl00$ctl09$LastName
+          selector: "#ctl00_ctl09_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "form[name='contact'] input[name='required-address']"
+        - name: ctl00$ctl09$Street
+          selector: "#ctl00_ctl09_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "form[name='contact'] input[name='required-city']"
+        - name: ctl00$ctl09$City
+          selector: "#ctl00_ctl09_City"
           value: $ADDRESS_CITY
           required: true
-        - name: zip5
-          selector: "form[name='contact'] input[name='zip5']"
+        - name: ctl00$ctl09$Zip
+          selector: "#ctl00_ctl09_Zip"
           value: $ADDRESS_ZIP5
-          required: false
-        - name: zip4
-          selector: "form[name='contact'] input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: false
-        - name: phone
-          selector: "form[name='contact'] input[name='phone']"
+          required: true
+        - name: ctl00$ctl09$Phone
+          selector: "#ctl00_ctl09_Phone"
           value: $PHONE
           required: true
-        - name: required-email
-          selector: "form[name='contact'] input[name='required-email']"
+        - name: ctl00$ctl09$Email
+          selector: "#ctl00_ctl09_Email"
           value: $EMAIL
           required: true
-        - name: required-message
-          selector: "form[name='contact'] textarea[name='required-message']"
+        - name: ctl00$ctl09$Subject
+          selector: "#ctl00_ctl09_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl09$Body
+          selector: "#ctl00_ctl09_Body"
           value: $MESSAGE
-          required: false
+          required: true
     - select:
-        - name: required-issue
-          selector: "form[name='contact'] select[name='required-issue']"
-          value: $TOPIC
+        - name: ctl00$ctl09$PrefixList
+          selector: "#ctl00_ctl09_PrefixList"
+          value: $NAME_PREFIX
           required: true
           options:
-            General: MISC
-            Abortion: AB
-            Agriculture: AG
-            Animal Rights: AR
-            Appropriations: AP
-            Arts and Humanities: ART
-            Banking and Finance: BA
-            Budget: BU
-            Campaign Finances and Election Reform: CF
-            Commerce and Business: CO
-            Congress: CG
-            Consumer Protection: CP
-            Crime: CR
-            Drug Abuse: DRUG
-            Economy: EC
-            Education: ED
-            Endangered Species and Wildlife: ESA
-            Energy: EG
-            Environment: ENV
-            Ethics Reform: ET
-            Foreign Affairs: FA
-            Government Operations: GO
-            Guns: GUN
-            Healthcare: HC
-            Homeland Security and Intelligence: HS
-            Housing: HOU
-            Immigration: IM
-            Judiciary: JU
-            Labor: LA
-            Medicaid: MD
-            Medicare: MC
-            Military Affairs and National Defense: MIL
-            Native American Issues: NA
-            Natural Resources: NR
-            Postal Issues: PO
-            Public Lands: PL
-            Science and Technology: SCI
-            Small Business: SB
-            Social Issues: SOC
-            Social Security: SS
-            Taxes: TAX
-            Telecommunications: TC
-            Trade: TRD
-            Transportation: TR
-            Veterans Affairs: VA
-            Welfare: WF
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
+        - name: ctl00$ctl09$IssuesList
+          selector: "#ctl00_ctl09_IssuesList"
+          value: $TOPIC
+          required: false
+          options:
+            Abortion: "120471"
+            Agriculture: "8383"
+            Animal Rights: "120472"
+            Appropriations: "120473"
+            Arts and Humanities: "120474"
+            Banking and Finance: "12245"
+            Budget: "120476"
+            Campaign Finance and Election Reform: "120477"
+            Commerce and Business: "120478"
+            Congress: "120479"
+            Consumer Protection: "120480"
+            Crime: "120481"
+            Drug Abuse: "120482"
+            Economy : "8302"
+            Education: "4652"
+            Endangered Species and Wildlife: "120483"
+            Energy: "5258"
+            Environment: "120497"
+            Ethics Reform: "120498"
+            Fiscal Responsibility: "13377"
+            Foreign Affairs: "120484"
+            Government Operations: "120485"
+            Guns: "120486"
+            Healthcare: "5209"
+            Homeland Security and Intelligence: "120487"
+            Housing: "5020"
+            Immigration: "5021"
+            Judiciary: "120488"
+            Labor: "120489"
+            Medicaid: "120490"
+            Medicare: "120491"
+            National Defense and Military: "5018"
+            Native American Issues: "120492"
+            Postal Issues: "120493"
+            Public Lands and Natural Resources: "5022"
+            Science and Technology: "120499"
+            Small Businesses: "5023"
+            Social Security and Medicare: "42739"
+            Taxes: "41587"
+            Telecommunications: "120494"
+            Trade: "120495"
+            Transportation and Infrastructure: "4647"
+            Veterans: "5024"
+            Welfare: "120496"
+        - name: ctl00$ctl09$State
+          selector: "#ctl00_ctl09_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
     - click_on:
-        - value: Send Email
-          selector: "form[name='contact'] input[type='submit'][value='Send Email']"
+        - value: Submit
+          selector: "#ctl00_ctl09_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl09_ConfirmationText"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for sending me your email."
+      contains: Thank you for sending me your email.

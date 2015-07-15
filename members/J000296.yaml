@@ -1,9 +1,9 @@
 bioguide: J000296
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "http://jolly.house.gov/htbin/formproc_za.pl?/jolly/zip-auth.txt&form=contact_jolly.html"
   steps:
-    - visit: "https://jolly.house.gov/contact/email-me"
+    - visit: "http://jolly.house.gov/contact/"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
@@ -108,8 +108,11 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
+    - find:
+        - value: "Thank you for contacting us. We will review your submission and get back to you as soon as possible."
+          selector: p
   success:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: Thank you for contacting us

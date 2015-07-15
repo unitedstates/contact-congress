@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
@@ -41,18 +41,6 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
@@ -88,17 +76,16 @@ contact_form:
             Social Security: SS
             Transportation: TRAN
             Veterans: VET
-    - check:
+    - choose:
         - name: required-RadioGroup1
           selector: "#RadioGroup1_0"
           value: "Y"
-    - uncheck:
-        - name: required-RadioGroup1
-          selector: "#RadioGroup1_1"
-          value: "N"
     - click_on:
         - value: Send Email
           selector: "#submit"
+    - find:
+        - selector: "h1#page-title-no-line"
+          value: "Thank You"
   success:
     headers:
       status: 200

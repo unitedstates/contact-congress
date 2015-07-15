@@ -1,0 +1,177 @@
+bioguide: F000450
+contact_form:
+  method: post
+  action: "?zip5=&zip4="
+  steps:
+    - visit: "https://foxx.house.gov/forms/writeyourrep/?zip5=&zip4="
+    - fill_in:
+        - name: ctl00$ctl12$FirstName
+          selector: "#ctl00_ctl12_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl12$LastName
+          selector: "#ctl00_ctl12_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl12$Street
+          selector: "#ctl00_ctl12_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl12$City
+          selector: "#ctl00_ctl12_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl12$Zip
+          selector: "#ctl00_ctl12_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl12$Phone
+          selector: "#ctl00_ctl12_Phone"
+          value: $PHONE
+          required: false
+        - name: ctl00$ctl12$Email
+          selector: "#ctl00_ctl12_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl12$Subject
+          selector: "#ctl00_ctl12_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl12$Body
+          selector: "#ctl00_ctl12_Body"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$ctl12$CampaignID
+          selector: "#ctl00_ctl12_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl12$CampaignInfo
+          selector: "#ctl00_ctl12_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl12$PrefixList
+          selector: "#ctl00_ctl12_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Mr. and Mrs.
+            - Ms.
+            - Dr.
+            - Dr. and Mrs.
+            - Dr. and Mr.
+            - Rev.
+            - Rev. and Mrs.
+            - Hon.
+            - Capt.
+            - Cmdr.
+            - Cmdr. and Mrs.
+            - Sen.
+        - name: ctl00$ctl12$State
+          selector: "#ctl00_ctl12_State"
+          value: NC
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl12$IssuesList
+          selector: "#ctl00_ctl12_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: "61070"
+            Animal Issues: "60404"
+            Budget: "61071"
+            Defense and Military: "60374"
+            Economy: "61072"
+            Education: "60408"
+            Energy: "60209"
+            Environment: "59846"
+            Family Values: "61073"
+            Foreign Affairs: "60016"
+            Government Reform: "61074"
+            Health Care: "60407"
+            Immigration: "60026"
+            Judiciary: "61075"
+            Labor: "61076"
+            Medicare: "60056"
+            Miscellaneous: "61077"
+            Second Amendment Rights: "61080"
+            Social Security: "61081"
+            Taxes: "59894"
+            Telecommunications: "61083"
+            Trade: "61084"
+            Transportation: "61085"
+            Veterans: "61086"
+    - check:
+        - name: ctl00$ctl12$ReplyChoice
+          selector: "#ctl00_ctl12_ReplyChoice_0"
+          value: Respond
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl12_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: I always appreciate hearing from my constituents.

@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl11_FirstName"
     - fill_in:
         - name: ctl00$ctl11$FirstName
           selector: "#ctl00_ctl11_FirstName"
@@ -36,7 +38,7 @@ contact_form:
         - name: ctl00$ctl11$Zip
           selector: "#ctl00_ctl11_Zip"
           value: $ADDRESS_ZIP5
-          required: false
+          required: true
         - name: ctl00$ctl11$Phone
           selector: "#ctl00_ctl11_Phone"
           value: $PHONE
@@ -107,8 +109,12 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl11_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl11_ConfirmationText"
+          value: "Thank you"
   success:
     headers:
       status: 200
     body:
       contains: Thank you for sending me your email.
+      

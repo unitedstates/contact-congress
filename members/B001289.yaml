@@ -20,11 +20,11 @@ contact_form:
         - selector: "#contactForm"
     - fill_in:
         - name: required-first
-          selector: "#required-first"
+          selector: "#contactForm #required-first"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#required-last"
+          selector: "#contactForm #required-last"
           value: $NAME_LAST
           required: true
         - name: required-address
@@ -36,7 +36,7 @@ contact_form:
           value: $ADDRESS_CITY
           required: true
         - name: required-valid-email
-          selector: "#required-valid-email"
+          selector: "#contactForm #required-valid-email"
           value: $EMAIL
           required: true
         - name: required-phone

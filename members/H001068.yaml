@@ -1,5 +1,5 @@
 bioguide: H001068
-contact_form:
+contact_form: 
   method: post
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
@@ -12,10 +12,12 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
+    - find:
+        - selector: "#prefix"
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -63,14 +65,14 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            No Response Necessary: NRN
             Agriculture: AGR
-            Animal Rights: ANML
+            Animal Welfare: ANML
             Arts and Humanities: ART
             Banking and Finance: FIN
             Budget: BUD
             Campaign Finance Reform: CAMP
-            Defense: DEF
+            Criminal Justice and Judiciary: JUST
+            Defense and Military: DEF
             Economy: ECON
             Education: EDU
             Energy: ENE
@@ -84,20 +86,21 @@ contact_form:
             International Relations: INT
             Labor: LAB
             LGBTQ: LGBTQ
+            Poverty and Social Safety Net Programs: SSEC
+            Religion: REL
             Science and Technology: SCI
             Senior Citizens: SNR
-            Social Security and the Social Safety Net: SSEC
+            Social Security: SSEC
             Taxes: TAX
-            Telecommunications: TEL
+            Telecommunications and the Internet: TEL
             Transportation: TRA
             Trade: TRADE
             Veterans: VET
             Voter Rights: VTR
             "Women's Issues": WOM
-            Other Issues: OTHER
         - name: required-response
           selector: "#required-response"
-          value: "N"
+          value: "Y"
           required: true
           options:
             "Yes, please contact me": "Y"
@@ -112,9 +115,13 @@ contact_form:
           value: Email.Optin
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: "#contactForm input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "h1#page-title"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
       contains: Email Me - Thank You
+

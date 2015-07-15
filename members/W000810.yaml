@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
@@ -37,14 +37,6 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
@@ -76,7 +68,7 @@ contact_form:
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: AG
             Arts and Humanities: ART
@@ -112,4 +104,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: "Email Me - Thank You "

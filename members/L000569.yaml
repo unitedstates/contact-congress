@@ -40,7 +40,7 @@ contact_form:
         - name: ctl00$ctl09$Body
           selector: "#ctl00_ctl09_Body"
           value: $MESSAGE
-          required: false
+          required: true
         - name: ctl00$ctl09$CampaignID
           selector: "#ctl00_ctl09_CampaignID"
           value: $CAMPAIGN_UUID
@@ -62,7 +62,7 @@ contact_form:
             - Ms.
         - name: ctl00$ctl09$State
           selector: "#ctl00_ctl09_State"
-          value: $ADDRESS_STATE_FULL
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
             - AL

@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /contact-form/
   steps:
-    - visit: "https://lowey.house.gov/contact-form"
+    - visit: "https://lowey.house.gov/contact-form/"
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
@@ -12,7 +12,7 @@ contact_form:
         - name: zipfour
           selector: "#zipfour"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go to Form
           selector: input.button
@@ -46,7 +46,7 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: false
         - name: emailaddress
-          selector: "#custom_form32 input[name='emailaddress']"
+          selector: "#custom_form32 #req_email"
           value: $EMAIL
           required: true
         - name: phone
@@ -62,19 +62,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
         - name: state
           selector: "#req_state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -159,16 +146,9 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other Issues: WEBOTH
-        - name: response
-          selector: "#response"
-          value: RN
-          required: false
-          options:
-            "Yes": RN
-            "No": NRN
     - click_on:
         - value: Send Email
-          selector: "#custom_form32 input.form_submit_button.filled"
+          selector: "#custom_form32 #submitButton"
   success:
     headers:
       status: 200

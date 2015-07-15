@@ -17,7 +17,7 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "form[name='contact']"
+        - selector: "form[name='contact'] input[name='required-prefix']"
     - fill_in:
         - name: required-prefix
           selector: "form[name='contact'] input[name='required-prefix']"
@@ -50,7 +50,7 @@ contact_form:
         - name: phone
           selector: "form[name='contact'] input[name='phone']"
           value: $PHONE
-          required: false
+          required: true
         - name: required-email
           selector: "form[name='contact'] input[name='required-email']"
           value: $EMAIL
@@ -60,11 +60,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: required-state
-          selector: "form[name='contact'] select[name='required-state']"
-          value: OH
-          required: true
-          options: []
         - name: required-issue
           selector: "form[name='contact'] select[name='required-issue']"
           value: $TOPIC
@@ -99,15 +94,15 @@ contact_form:
         - name: required-response
           selector: "form[name='contact'] select[name='required-response']"
           value: "Y"
-          required: false
+          required: true
           options:
             "Yes, I would like a response.": "Y"
             "No, I do not require a response.": "N"
     - click_on:
         - value: Send Email
-          selector: "form[name='contact'] input[type='submit']"
+          selector: "form[name='contact'] input[type='submit'][value='Send Email']"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to send me an e-mail.
+      contains: "Thank you for taking the time to send me an e-mail."

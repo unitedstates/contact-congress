@@ -11,7 +11,7 @@ contact_form:
           required: true
         - name: zip4
           selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP_PLUS_4
+          value: $ADDRESS_ZIP4
           required: true
     - click_on:
         - value: Submit
@@ -147,21 +147,21 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            - Agriculture: "102421"
-            - Civil Rights: "102343"
-            - Crime: "102290"
-            - Defense: "102386"
-            - Education: "102420"
-            - Energy: "102222"
-            - Environment: "101861"
-            - Financial Services: "102181"
-            - Foreign Affairs: "102031"
-            - Health Care: "102419"
-            - Homeland Security: "102224"
-            - Immigration: "102041"
-            - Labor and Employment: "102011"
-            - Taxation: "101909"
-            - Transportation and Infrastructure: "102418"
+            Agriculture: "102421"
+            Civil Rights: "102343"
+            Crime: "102290"
+            Defense: "102386"
+            Education: "102420"
+            Energy: "102222"
+            Environment: "101861"
+            Financial Services: "102181"
+            Foreign Affairs: "102031"
+            Health Care: "102419"
+            Homeland Security: "102224"
+            Immigration: "102041"
+            Labor and Employment: "102011"
+            Taxation: "101909"
+            Transportation and Infrastructure: "102418"
     - check:
         - name: ctl00$ctl19$ReplyChoice
           selector: "#ctl00_ctl19_ReplyChoice_0"
@@ -169,6 +169,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl19_SubmitButton"
+    - find:
+        - selector: "span#ctl00_ctl19_ConfirmationText"
+          value: "Thank you"
   success:
     headers:
       status: 200

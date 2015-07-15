@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
@@ -63,7 +63,7 @@ contact_form:
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: AGR
             Animals: AN
@@ -98,13 +98,16 @@ contact_form:
         - name: required-subscribe
           selector: "#required-subscribe"
           value: "N"
-          required: false
+          required: true
           options:
             "Yes, sign me up": EMAIL.OPTIN
             "No, not at this time": "N"
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
+    - find:
+        - value: "The following information has been submitted:"
+          selector: "p"
   success:
     headers:
       status: 200

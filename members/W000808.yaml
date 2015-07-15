@@ -164,7 +164,7 @@ contact_form:
         - name: response
           selector: "#req_response"
           value: "Yes"
-          required: false
+          required: true
           options:
             I do not need a response.: NO_RESPONSE_REQUIRED
             I would like a response.: "Yes"
@@ -175,6 +175,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#submitButton"
+    - find:
+        - selector: "h1"
+          value: "Thank You"
   success:
     headers:
       status: 200

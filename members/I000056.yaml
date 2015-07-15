@@ -27,7 +27,7 @@ contact_form:
           required: true
         - name: input_6
           selector: "#input_1_6"
-          value: $ADDRESS_STATE_FULL
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
         - name: input_7
           selector: "#input_1_7"
@@ -45,13 +45,18 @@ contact_form:
           selector: "#input_1_16"
           value: $MESSAGE
           required: true
+        - name: captcha
+          selector: "input#recaptcha_response_field"
+          captcha_selector: "img#recaptcha_challenge_image"
+          captcha_id_selector: "input#recaptcha_challenge_field"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
     - select:
         - name: input_12
           selector: "#input_1_12"
           value: $NAME_PREFIX
           required: true
           options:
-            - "-Select a Prefix-"
             - Mr.
             - Mrs.
             - Ms.
@@ -70,7 +75,6 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            - "-Please Select-"
             - Scheduling Request
             - Abortion
             - Agriculture

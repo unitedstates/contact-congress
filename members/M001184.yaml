@@ -11,7 +11,7 @@ contact_form:
           required: true
         - name: zip4
           selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP_PLUS_4
+          value: $ADDRESS_ZIP4
           required: true
     - click_on:
         - value: Submit
@@ -177,6 +177,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl15_SubmitButton"
+    - find:
+        - selector: "span#ctl00_ctl15_ConfirmationText"
+          value: "Thank you"
   success:
     headers:
       status: 200

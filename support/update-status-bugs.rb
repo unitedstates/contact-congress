@@ -1,10 +1,7 @@
 #!/usr/bin/env ruby
 
 ##
-# Run this file from the command line to update the list of members prior to committing.
-# ANYTHING below these images in the README.md file will be truncated! It will be project
-# policy to ensure this is the last block of content in the README file, but you should check
-# before running this to make sure you're not deleting something.
+# WARNING: This file adds an old version of the badge table to the README.  Don't use it.
 #
 # USAGE:
 # contact-congress/support~$ ./update-status-bugs.png

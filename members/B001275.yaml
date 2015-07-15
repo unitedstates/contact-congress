@@ -17,10 +17,6 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -33,10 +29,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -48,7 +40,7 @@ contact_form:
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -88,10 +80,9 @@ contact_form:
             Trade: " "
             Veterans: " "
             Other: " "
-      - select:
         - name: required-response
           selector: "#required-response"
-          value: "N"
+          value: "Y"
           required: true
           options:
             "Yes, please contact me": "Y"
@@ -103,4 +94,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: following information has been submitted
+      contains: Please take time to fill out my online survey so I may better know your thoughts on certain issues

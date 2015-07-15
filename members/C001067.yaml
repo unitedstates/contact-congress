@@ -12,7 +12,7 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
@@ -89,7 +89,7 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "Y"
-          required: false
+          required: true
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"

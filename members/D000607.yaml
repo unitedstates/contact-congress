@@ -10,7 +10,6 @@ contact_form:
         value: "$TOPIC"
         required: Yes
         options:
-          "Academy Nominations": "Academy"
           "Abortion": "JUD.ABORTION"
           "Aging and Seniors": "SS"
           "Agriculture": "AGR"
@@ -40,7 +39,6 @@ contact_form:
           "Foreign Affairs": "IR"
           "Gun Control": "JUD.GUN"
           "Healthcare": "HE"
-          "Help with a Federal Agency": "Casework"
           "Homeland Security": "HS"
           "Housing": "FS.HOUSING"
           "Immigration": "IMM"
@@ -189,9 +187,8 @@ contact_form:
           - "Specialist"
       - name: mailing_state
         selector: "#mailing_state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        value: "IN"
         required: Yes
-        options: US_STATES_AND_TERRITORIES
     - check:
       - name: response
         selector: "#response_y"
@@ -200,6 +197,9 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "input.btn[value='Submit']"
+    - find:
+      - selector: "h1"
+        value: "Thank You"
   success:
     headers:
       status: 200

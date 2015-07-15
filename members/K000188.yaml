@@ -12,17 +12,13 @@ contact_form:
         - name: zipfour
           selector: "#zipfour"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go to Form
           selector: input.button
     - find:
         - selector: "#custom_form17"
     - fill_in:
-        - name: ZIPVALIDATED
-          selector: "#custom_form17 input[name='ZIPVALIDATED']"
-          value: "true"
-          required: false
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
@@ -43,10 +39,12 @@ contact_form:
           selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
+    - select:
         - name: state
           selector: "#req_state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
+    - fill_in:
         - name: zipcode
           selector: "#req_zip"
           value: $ADDRESS_ZIP5
@@ -117,6 +115,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#submitButton"
+    - find:
+        - selector: "h1"
+          value: "Thank You"
   success:
     headers:
       status: 200

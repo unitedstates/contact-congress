@@ -1,0 +1,89 @@
+bioguide: N000015
+contact_form:
+  method: POST
+  action: "/htbin/formproc/neal/webforms/contact.txt&display=Contact_Form_Thank_You.shtml"
+  steps:
+    - visit: "https://forms.house.gov/neal/webforms/Contact_Form.shtml"
+    - fill_in:
+        - name: required-prefix
+          selector: "#rightinner2 form input[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#rightinner2 form input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#rightinner2 form input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#rightinner2 form input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#rightinner2 form input[name='address2']"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: phone
+          selector: "#rightinner2 form input[name='phone']"
+          value: $PHONE
+          required: false
+        - name: required-city
+          selector: "#rightinner2 form input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#rightinner2 form input[name='required-state']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-zip5
+          selector: "#rightinner2 form input[name='required-zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#rightinner2 form input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: required-email
+          selector: "#rightinner2 form input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: required-message
+          selector: "#rightinner2 form textarea[name='required-message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#rightinner2 form select[name='required-issue']"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGRICULTURE
+            Defense: DEFENSE
+            Economy: ECONOMY
+            Education: EDUCATION
+            Energy: ENERGY
+            Environment: ENVIRONMENT
+            Foreign Relations: FOREIGN
+            Government Affairs: GOVT
+            Healthcare: HEALTH
+            Medicare: MEDICARE
+            Homeland Security: HOM
+            Immigration: IMMIGRATION
+            Judiciary: JUD
+            Labor and Workforce: LABOR
+            Social Security: SOCSEC
+            Transportation: TRANSPORT
+            Trade: TRADE
+            " Veterans Issues": VETERANS
+            "Women's Issues": WOMEN
+            Other: OTHER
+    - click_on:
+        - value: Submit
+          selector: "#rightinner2 form input[type='submit'][value='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your correspondence.

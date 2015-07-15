@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
   steps:
-    - visit: "https://rush.house.gov/contact-me/legislative-issues"
+    - visit: "http://rush.house.gov/contact/legislative-issues"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -12,10 +12,10 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: "#submit[value='Go To Next Step']"
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -41,26 +41,14 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -75,45 +63,68 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGRICULTURE
-            Animals: ANIMAL
+            Abortion: ABORTION
+            Agriculture/USDA: AGRICULTURE
+            Animal Rights: ANIMAL
             Arts and Humanities: ARTS
-            Badger Army Ammunition Plant: BAAP
-            Banking and Finance: BANKING
-            Budget and Economy: BUDGET
+            Banking: FINANCIAL SERVICES
             Campaign Finance Reform: CAMPAIGN FINANCE
-            Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEFENSE
+            Election Reform: CAMPAIGN FINANCE
+            Census: CENSUS
+            Civil Rights: CIVIL/HUMAN RIGHTS
+            Consumer Protection: CONSUMER PROTECTION
+            Crime/Law Enforcement: CRIME
+            Data Privacy: PRIVACY
+            Defense/Military: DEFENSE
+            Disability: DISABILITIES
             Education: EDUCATION
             Energy: ENERGY
             Environment: ENVIRONMENT
-            Federal Employees: FED
-            Foreign Relations: FOREIGN AFFAIRS
-            Guns: GUN CONTROL
-            Health: HEALTHCARE
-            Housing and Urban Development: HOUSING
+            Federal Budget: BUDGET
+            Federal Employees: FEDERAL EMPLOYEES
+            Foreign Affairs: FOREIGN AFFAIRS
+            Government Reform: GOVT REFORM
+            Grants/Contracts: SUPPORT REQUESTS
+            Gun Control: GUN CONTROL
+            Healthcare: HEALTHCARE
+            Homeland Security: HOMELAND SECURITY
+            Housing: HOUSING
             Immigration: IMMIGRATION
+            Infrastructure: TRANSPORTATION
+            Intelligence: INTELLIGENCE
+            Jobs: JOBS
             Judiciary: JUDICIARY
-            Labor: LABOR ISSUES
+            Labor: LABOR
             LGBT: LGBT
-            Post Office: POSTAL
-            Science and Technology: SCIENCE
-            Senior Citizens: SENIORS
-            Social Security: SS
-            Social Services: SSEC
+            NASA/Space: NASA
+            National Parks: NATIONAL PARKS
+            Native Americans: NATIVE AMERICANS
+            Patents/Copyrights: PATENTS
+            Pensions: PENSIONS
+            Poverty: WELFARE/POVERTY
+            Natural Resources: RESOURCES
+            Science/Technology: SCIENCE/TECH
+            Small Business: SMALL BUSINESS
+            Social Security: SOCIAL SECURITY
             Taxes: TAXES
-            Telecommunications: COMM
-            Transportation: TRANSPORTATION
+            Telecom: TELECOM
             Trade: TRADE
+            Transportation: TRANSPORTATION
+            US Postal Service: POSTAL
             Veterans: VETERAN
-            "Women's Issues": "WOMENS "
-            Other Issues: OTHER
+            "Women's Issues": WOMENS
+            Youth Issues: YOUTH
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#submit[value='Send Email']"
+    - find:
+        - selector: "h1#page-title"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: EMAIL ME - THANK YOU
+      contains: The following information has been submitted

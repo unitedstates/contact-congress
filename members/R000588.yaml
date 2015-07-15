@@ -9,20 +9,12 @@ contact_form:
           selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
     - find:
-        - selector: "#contactForm"
+        - selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -35,10 +27,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -47,10 +35,6 @@ contact_form:
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -99,4 +83,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: "The following information has been submitted:"

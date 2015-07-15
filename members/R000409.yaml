@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: the url
   steps:
-    - visit: "https://rohrabacher.house.gov/contact-me"
+    - visit: "https://rohrabacher.house.gov/contact/email-me"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -12,26 +12,26 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
-        - selector: button.ideal-button
+        - selector: "input#submit"
     - fill_in:
         - name: required-prefix
           selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
         - name: required-first
-          selector: "#contactForm input[name='required-first']"
+          selector: "#contactForm #required-first"
           value: $NAME_FIRST
-          required: false
+          required: true
         - name: required-last
-          selector: "#contactForm input[name='required-last']"
+          selector: "#contactForm #required-last"
           value: $NAME_LAST
-          required: false
+          required: true
         - name: required-addr1
           selector: "#required-addr1"
           value: $ADDRESS_STREET
-          required: false
+          required: true
         - name: addr2
           selector: "#addr2"
           value: $ADDRESS_STREET_2
@@ -59,7 +59,7 @@ contact_form:
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
@@ -68,7 +68,7 @@ contact_form:
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
-          required: false
+          required: true
           options:
             Agriculture: Webag
             Crime: Webcrime

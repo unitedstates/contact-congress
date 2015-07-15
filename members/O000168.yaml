@@ -1,14 +1,24 @@
 bioguide: O000168
 contact_form:
   method: post
-  action: "/htbin/formproc/olson/contact_form_file.txt&display=/olson/contact_thankyou.shtml"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://forms.house.gov/olson/contact-form.shtml"
+    - visit: "https://olson.house.gov/contact/email-me"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
           required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: "#emailForm input[name='submit']"
+    - find:
+        - selector: "#required-first"
+    - fill_in:
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -21,24 +31,12 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-zip5
-          selector: "#zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#contactForm input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: false
-        - name: required-email
-          selector: "#required-email"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: required-message
@@ -46,35 +44,36 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#subject"
+        - name: required-subject
+          selector: "#required-subject"
           value: $TOPIC
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Economy: WEBECON
-            Education and Labor: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            Government Reform: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            International Relations: WEBINT
-            Judicial: WEBJUD
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Taxes and Trade: WEBTAX
-            Telecommunications: WEBTEL
-            Transportation: WEBTRA
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other: WEBOTH
+            Agriculture: AGR
+            Budget: BUD
+            Defense: DEF
+            Economy: ECON
+            Education and Labor: EDU
+            Energy: ENE
+            Environmental: ENV
+            Government Reform: GOV
+            Health: HEA
+            Homeland Security: HOM
+            Immigration: IMM
+            International Relations: INT
+            Judiciarl: JUD
+            Social Issues: SOC
+            Social Security: SSEC
+            Social Services: SOC.SERVICES
+            Taxes and Trade: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Veterans: VET
+            Welfare: WEL
+            Other Issues: OTHER
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit2']"
+          selector: "#contactForm input[name='submit']"
   success:
     headers:
       status: 200

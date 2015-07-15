@@ -32,7 +32,7 @@ contact_form:
         - name: zipfour
           selector: "#zipfour"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -49,15 +49,12 @@ contact_form:
           selector: "#req_message"
           value: $MESSAGE
           required: true
-    - select:
-        - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options: []
     - click_on:
         - value: Send Email
           selector: "#submitButton"
+    - find:
+        - selector: "h1"
+          value: "Thank You"
   success:
     headers:
       status: 200
