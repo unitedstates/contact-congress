@@ -1,135 +1,97 @@
 bioguide: R000599
 contact_form:
   method: post
-  action: /email-me/
+  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
   steps:
-    - visit: "https://ruiz.house.gov/email-me"
+    - visit: "https://ruiz.house.gov/contact/email"
+    - fill_in:
+        - name: zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Next
+          selector: ".btn-success"
     - fill_in:
         - name: firstname
-          selector: "#req_firstname"
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
         - name: lastname
-          selector: "#req_lastname"
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
         - name: street
-          selector: "#req_street"
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: "#req_city"
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
         - name: emailaddress
-          selector: "#req_email"
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: subject
-          selector: "#req_subject"
-          value: $SUBJECT
+        - name: phone
+          selector: "#required-phone"
+          value: $PHONE
           required: true
         - name: message
-          selector: "#req_message"
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: state
-          selector: "select[name='state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+        - name: prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
           required: true
           options:
-            CA: CA
-            CO: CO
-            CT: CT
-            DC: DC
-            DE: DE
-            FL: FL
-            GA: GA
-            HI: HI
-            IA: IA
-            ID: ID
-            IL: IL
-            IN: IN
-            KS: KS
-            KY: KY
-            LA: LA
-            MA: MA
-            MD: MD
-            ME: ME
-            MI: MI
-            MN: MN
-            MO: MO
-            MS: MS
-            MT: MT
-            NC: NC
-            ND: ND
-            NE: NE
-            NH: NH
-            NJ: NJ
-            NM: NM
-            NV: NV
-            NY: NY
-            OH: OH
-            OK: OK
-            OR: OR
-            PA: PA
-            PR: PR
-            RI: RI
-            SC: SC
-            SD: SD
-            TN: TN
-            TX: TX
-            UT: UT
-            VA: VA
-            VT: VT
-            WA: WA
-            WI: WI
-            WV: WV
-            WY: WY
+           - Ms.
+           - Miss
+           - Mrs.
+           - Mr.
+           - Mr. and Mrs.
+           - Rev.
+           - Dr.
+           - The Honorable
+           - Rabbi
         - name: issue
-          selector: "#req_issue"
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Education: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            Government Issues: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            International Relations: WEBINT
-            Judicial: WEBJUD
-            Labor: WEBLAB
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Taxes: WEBTAX
-            Telecommunications: WEBTEL
-            Transportation: WEBTRA
-            Trade: WEBTRADE
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other Issues: WEBOTH
+           - Agriculture
+           - Budget
+           - Defense
+           - Education
+           - Energy
+           - Environmental
+           - Government Issues
+           - Health
+           - Homeland Security
+           - Immigration
+           - International Relations
+           - Judicial
+           - Labor
+           - Social Issues
+           - Social Security
+           - Taxes
+           - Telecommunications
+           - Transportation
+           - Trade
+           - Veterans
+           - Welfare
+           - Other Issues
     - click_on:
         - value: Send Email
-          selector: "#submitButton"
-    - find:
-        - selector: "h1"
-          value: "Thank You"
+          selector: ".btn-success"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your input.
+      contains: your message has been sent
