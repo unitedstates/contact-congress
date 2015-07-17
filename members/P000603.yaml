@@ -4,10 +4,6 @@ contact_form:
   action: "http://www.paul.senate.gov/connect/email-rand"
   steps:
     - visit: "http://www.paul.senate.gov/connect/email-rand"
-    - wait:
-        - value: 2
-    - find:
-        - selector: "#input-35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD"
     - fill_in:
         - name: input_35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD
           selector: "#input-35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD"
@@ -21,6 +17,10 @@ contact_form:
           selector: "#input-35E2030D-0BE0-C6C3-F685-66EAF2C47AD2"
           value: $ADDRESS_STREET
           required: true
+        - name: input_35E37D6D-A28B-B763-E3C2-CD10D1E2E0E4
+          selector: "#input-35E37D6D-A28B-B763-E3C2-CD10D1E2E0E4"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: input_35F31A1A-E58A-4DBB-3443-57763D9F57B3
           selector: "#input-35F31A1A-E58A-4DBB-3443-57763D9F57B3"
           value: $ADDRESS_CITY
@@ -29,6 +29,10 @@ contact_form:
           selector: "#input-36021752-DBB4-99CD-0DF8-775968CFD2C5"
           value: $ADDRESS_ZIP5
           required: true
+        - name: input_360F3875-BD54-DA27-0013-E0935FBBAFC4
+          selector: "#input-360F3875-BD54-DA27-0013-E0935FBBAFC4"
+          value: $PHONE
+          required: false
         - name: input_3626C40E-B571-4595-8A61-4D52E0AAD553
           selector: "#email"
           value: $EMAIL
@@ -44,6 +48,10 @@ contact_form:
         - name: input_36466B2D-9324-A3EC-8F49-33D7F83F9C08
           selector: "#messagebody"
           value: $MESSAGE
+          required: true
+        - name: g-recaptcha-response
+          selector: "#g-recaptcha-response"
+          value: $CAPTCHA_SOLUTION
           required: true
     - select:
         - name: input_35B67D45-0EE9-695F-CF75-CB73E9531F2A
@@ -185,24 +193,79 @@ contact_form:
             - Navy - Seaman Apprentice
             - Navy - Seaman
             - Navy - Seaman Recruit
+        - name: input_35FAF8D1-CF8A-B51C-A450-42104EFAC15E
+          selector: "#input-35FAF8D1-CF8A-B51C-A450-42104EFAC15E"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
         - name: input_F86363CE-4040-F985-52CD-25BC1B061358
-          selector: "#topic"
+          selector: "#input-F86363CE-4040-F985-52CD-25BC1B061358"
           value: $TOPIC
           required: true
           options:
             - Abortion / Sanctity of Life
             - Agriculture
             - Arts
-            - Banking & Finance
+            - Banking / Finance
             - Border Security
             - Budget
             - Census
             - Congressional / Judicial / Investigations
-            - "Crime & Law Enforcement"
+            - Crime / Law Enforcement
             - Defense / National Security
             - Economic Development / Trade / Commerce
             - Education
-            - Elections
             - Energy
             - Environment
             - FDA
@@ -213,11 +276,11 @@ contact_form:
             - Housing
             - Immigration
             - Internet
-            - Iraq & Afghanistan
-            - Labor Issues
+            - Iraq / Afghanistan
             - Medicare / Medicaid
+            - Labor Issues
             - Overcriminalization of Drugs
-            - Science & Technology
+            - Science / Technology
             - Postal
             - Retirement
             - Small Business
@@ -227,18 +290,9 @@ contact_form:
             - Telecommunications
             - Transportation
             - Veterans Issues
-    - find:
-        - selector: ".recaptcha-checkbox-checkmark"
-    - click_on:
-        - selector: ".recaptcha-checkbox-checkmark"
-    - wait:
-        - value: 3
     - click_on:
         - value: Submit
           selector: input.btn
-    - find:
-        - selector: "#form-3572B654-E248-A5D9-D70B-8968CF7308EC p"
-          value: "Thank you for submitting your request. You should hear from the office soon."
   success:
     headers:
       status: 200
