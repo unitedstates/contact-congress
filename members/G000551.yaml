@@ -39,42 +39,42 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-            Other: Other
+           - Mr.
+           - Mrs.
+           - Ms.
+           - Miss
+           - Dr.
+           - Hon.
+           - Rev.
+           - Rabbi
+           - Other
         - name: issue
           selector: "#req_issue"
           value: $TOPIC
           required: true
           options:
-            "Agriculture": "AGRICULTURE"
-            "Budget": "BUDGET"
-            "Defense": "DEFENSE"
-            "Education": "EDUCATION"
-            "Energy": "ENERGY"
-            "Environmental": "ENVIRONMENT"
-            "Foreign Affairs": "FOREIGN_AFFAIRS"
-            "Government Issues": "GOVERNMENTAL_AFFAIRS"
-            "Health": "HEALTHCARE"
-            "Homeland Security": "HSA"
-            "Immigration": "IMMIGRATION"
-            "International Relations": "FOREIGN_AFFAIRS"
-            "Judicial": "JUD"
-            "Labor": "LABOR"
-            "Social Security": "SOCIAL_SECURITY"
-            "Taxes": "TAX"
-            "Telecommunications": "TECHNOLOGY"
-            "Transportation": "TRANSPORTATION"
-            "Trade": "TRADE"
-            "Veterans": "VETERANS_AFFAIRS"
-            "Welfare": "WELFARE"
-            "Other Issues": "OTHER"
+           - "Agriculture"
+           - "Budget"
+           - "Defense"
+           - "Education"
+           - "Energy"
+           - "Environmental"
+           - "Foreign Affairs"
+           - "Government Issues"
+           - "Health"
+           - "Homeland Security"
+           - "Immigration"
+           - "International Relations"
+           - "Judicial"
+           - "Labor"
+           - "Social Security"
+           - "Taxes"
+           - "Telecommunications"
+           - "Transportation"
+           - "Trade"
+           - "Veterans"
+           - "Welfare"
+           - "Other Issues"
     - click_on:
         - value: Send Email
           selector: "#submitButton"
