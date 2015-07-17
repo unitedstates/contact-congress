@@ -3,35 +3,23 @@ contact_form:
   method: post
   action: Contact.aspx
   steps:
-    - visit: "http://legis.wisconsin.gov/assembly/doyle/Pages/Contact.aspx"
+    - visit: "http://legis.wisconsin.gov/assembly/94/doyle/contact-me/"
     - fill_in:
         - name: name
-          selector: "#legis-cf-name"
+          selector: "input[id='7c287d3d-1690-46b5-9b7f-23087c51e661']"
           value: $NAME_FULL
           required: true
-        - name: address
-          selector: "#legis-cf-address"
-          value: $ADDRESS_STREET
-          required: true
-        - name: citystatezip
-          selector: "#legis-cf-city-state"
-          value: $ADDRESS_CITY_STATE_ZIP
-          required: true
-        - name: phone
-          selector: "#legis-cf-phone"
-          value: $PHONE
-          required: true
         - name: email
-          selector: "#legis-cf-email"
+          selector: "input[id='94d97197-549e-4ca5-a91c-e04884d02f0e']"
           value: $EMAIL
           required: true
         - name: message
-          selector: "#legis-cf-comments"
+          selector: "textarea[id='7d33c19d-2881-425b-a302-d59ff8102b55']"
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: ".legis-email-submit-btn"
+          selector: "input[type='submit'][value='Submit']"
   success:
     headers:
       status: 200
