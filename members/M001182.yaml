@@ -1,138 +1,58 @@
 bioguide: M001182
 contact_form:
   method: post
-  action: /email-mick/
+  action: default.aspx
   steps:
-    - visit: "https://mulvaney.house.gov/email-mick/"
+    - visit: "https://mulvaneyforms.house.gov/forms/writeyourrep/default.aspx"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go to Form
-          selector: "#zipauthform input.button"
-    - find:
-        - selector: "#custom_form24"
-    - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: ctl00$ctl06$FirstName
+          selector: "#ctl00_ctl06_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: ctl00$ctl06$LastName
+          selector: "#ctl00_ctl06_LastName"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: ctl00$ctl06$Street
+          selector: "#ctl00_ctl06_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#req_city"
+        - name: ctl00$ctl06$City
+          selector: "#ctl00_ctl06_City"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: ctl00$ctl06$Zip
+          selector: "#ctl00_ctl06_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
-          value: $EMAIL
-          required: true
-        - name: phone
-          selector: "#req_phone"
+        - name: ctl00$ctl06$Phone
+          selector: "#ctl00_ctl06_Phone"
           value: $PHONE
           required: true
-        - name: subject
-          selector: "#subject"
+        - name: ctl00$ctl06$Email
+          selector: "#ctl00_ctl06_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl06$Subject
+          selector: "#ctl00_ctl06_Subject"
           value: $SUBJECT
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: ctl00$ctl06$Body
+          selector: "#ctl00_ctl06_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#req_prefix"
+        - name: ctl00$ctl06$PrefixList
+          selector: "#ctl00_ctl06_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Mrs.
-            - Ms.
             - Dr.
-            - Rev.
-            - Prof.
-            - Maj.
-            - Col.
-            - Fr.
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-        - name: issue
-          selector: "#req_issue"
+            - Ms.
+        - name: ctl00$ctl06$IssuesList
+          selector: "#ctl00_ctl06_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -156,6 +76,7 @@ contact_form:
             Flag Requests: "24094"
             Foreign Trade and International Finance: "18563"
             Government Operations and Politics: "18549"
+            Gun Control: "101851"
             Health Care: "18820"
             Homeland Security: "18256"
             Housing and Community Development: "18453"
@@ -182,21 +103,15 @@ contact_form:
             Veterans Affairs: "18255"
             Volunteer: "24098"
             Water Resources Development: "18272"
-        - name: response
-          selector: "#response"
-          value: "Yes"
-          required: false
-          options:
-            "Yes, I would like a response.": "Yes"
-            "No, I just want you to know my thoughts.": "No"
+    - check:
+        - name: ctl00$ctl06$ReplyChoice
+          selector: "#ctl00_ctl06_ReplyChoice_0"
+          value: Respond
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
-    - find:
-        - selector: "div#centerbox"
-          value: "Thank you"
+        - value: Submit
+          selector: "#ctl00_ctl06_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your e-mail submission
+      contains: Thank you for your message.
