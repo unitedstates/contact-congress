@@ -56,13 +56,14 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: required-prefix
-          selector: "#required-prefix"
+        - name: prefix
+          selector: "#prefix"
           value: $NAME_PREFIX
           required: true
           options:
            - Mr.
            - Ms.
+           - Mrs.
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
