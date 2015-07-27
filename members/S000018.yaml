@@ -1,7 +1,7 @@
 bioguide: S000018
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
     - visit: "https://salmon.house.gov/contact/email-me"
     - fill_in:
@@ -14,13 +14,8 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: ".btn-success"
+        - selector: "#emailForm .btn-success"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -33,10 +28,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -58,6 +49,20 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -111,10 +116,9 @@ contact_form:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
     - click_on:
-        - value: Send Email
-          selector: ".btn-success"
+        - selector: "#contactForm .btn-success"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted"
+      contains: "your message has been sent."
