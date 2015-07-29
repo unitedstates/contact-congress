@@ -14,6 +14,8 @@ contact_form:
     - click_on:
         - value: Click
           selector: ".main_page_title"
+    - wait:
+        - value: 3
     - fill_in:
         - name: firstname
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
@@ -46,6 +48,10 @@ contact_form:
         - name: verifyemail
           selector: "#input-AB721CE8-4040-F985-52CD-9E550E8A76AA"
           value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#input-ECE20855-5056-A066-6081-CC976AA10A50"
+          value: $SUBJECT
           required: true
         - name: message
           selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
