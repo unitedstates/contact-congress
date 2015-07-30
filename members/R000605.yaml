@@ -5,12 +5,12 @@ contact_form:
   steps:
     - visit: "http://www.rounds.senate.gov/contact/email-mike"
     - select:
-      - name: "input_AE7457DD-4040-F985-52CD-B99385041C51"
-        selector: "#actions"
-        value: "opinion"
-        required: Yes
-        options:
-          "Share your opinions or comment on legislation or issues": opinion
+        - name: "input_AE7457DD-4040-F985-52CD-B99385041C51"
+          selector: "#actions"
+          value: "opinion"
+          required: Yes
+          options:
+            "Share your opinions or comment on legislation or issues": "opinion"
     - wait: 1
     - find:
       - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
@@ -56,51 +56,51 @@ contact_form:
         value: $MESSAGE
         required: Yes
     - select:
-      - name: "input_AB59F08A-4040-F985-52CD-7633AA11C65E"
-        selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
-        value: $NAME_PREFIX
-        required: Yes
-        options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Miss"
-          - "Dr."
-      - name: "input_AB8156A0-4040-F985-52CD-49CE65770EFC"
-        selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
-        value: $TOPIC
-        required: Yes
-        options:
-          - "Aging"
-          - "Agriculture"
-          - "Banking, Housing and Urban Affairs"
-          - "Budget"
-          - "Crime, Drugs, and Law Enforcement"
-          - "Cyber Security"
-          - "Economy"
-          - "Education"
-          - "Energy & Environment"
-          - "Environmental Protection Agency and Army Corp. of Engineers"
-          - "Family Issues"
-          - "Foreign Affairs"
-          - "Health"
-          - "Interior and National Parks"
-          - "Judicial"
-          - "Labor"
-          - "Life Issues"
-          - "Medicare and Medicaid"
-          - "Military and Defense"
-          - "NASA"
-          - "Native American Policy"
-          - "Other"
-          - "Science, Technology, and Telecom"
-          - "Second Amendment"
-          - "Small Business"
-          - "Social Security"
-          - "Taxes"
-          - "Trade"
-          - "Transportation"
-          - "Veterans"
+        - name: "input_AB59F08A-4040-F985-52CD-7633AA11C65E"
+          selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
+          value: $NAME_PREFIX
+          required: Yes
+          options:
+            - "Mr."
+            - "Mrs."
+            - "Ms."
+            - "Miss"
+            - "Dr."
+        - name: "input_AB8156A0-4040-F985-52CD-49CE65770EFC"
+          selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
+          value: $TOPIC
+          required: Yes
+          options:
+            - "Aging"
+            - "Agriculture"
+            - "Banking, Housing and Urban Affairs"
+            - "Budget"
+            - "Crime, Drugs, and Law Enforcement"
+            - "Cyber Security"
+            - "Economy"
+            - "Education"
+            - "Energy & Environment"
+            - "Environmental Protection Agency and Army Corp. of Engineers"
+            - "Family Issues"
+            - "Foreign Affairs"
+            - "Health"
+            - "Interior and National Parks"
+            - "Judicial"
+            - "Labor"
+            - "Life Issues"
+            - "Medicare and Medicaid"
+            - "Military and Defense"
+            - "NASA"
+            - "Native American Policy"
+            - "Other"
+            - "Science, Technology, and Telecom"
+            - "Second Amendment"
+            - "Small Business"
+            - "Social Security"
+            - "Taxes"
+            - "Trade"
+            - "Transportation"
+            - "Veterans"
     - click_on:
       - value: Submit
         selector: ".btn"
