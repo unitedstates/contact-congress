@@ -1,105 +1,114 @@
 bioguide: R000605
 contact_form:
   method: post
-  action: /content/contact-mike
+  action: http://www.rounds.senate.gov/contact/email-mike
   steps:
-    - visit: "http://www.rounds.senate.gov/content/contact-mike"
-    - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
-          value: $NAME_FIRST
-          required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
-          value: $NAME_LAST
-          required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
-          value: $ADDRESS_STREET
-          required: true
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
-          value: $EMAIL
-          required: true
-        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
-          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
-          value: $SUBJECT
-          required: true
-        - name: "submitted[message_details][message]"
-          selector: "#edit-submitted-message-details-message"
-          value: $MESSAGE
-          required: true
+    - visit: "http://www.rounds.senate.gov/contact/email-mike"
     - select:
-        - name: "submitted[constituent_information][prefix]"
-          selector: "#edit-submitted-constituent-information-prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mrs.
-            - Reverend
-            - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
-          value: $TOPIC
-          required: true
-          options:
-            - Aging
-            - Agriculture
-            - "Banking, Housing, and Urban Affairs"
-            - Budget
-            - "Crime, Drugs, and Law Enforcement"
-            - Cyber Security
-            - Economy
-            - Education
-            - "Energy & Environment"
-            - Environmental Protection Agency and Army Corp. of Engineers
-            - Family Issues
-            - Flag Request
-            - Foreign Affairs
-            - Health
-            - Help with a Federal Agency
-            - Interior and National Parks
-            - Judicial
-            - Labor
-            - Life Issues
-            - Medicare and Medicaid
-            - Military and Defense
-            - NASA
-            - Native American Policy
-            - Other
-            - Scheduling Request - D.C.
-            - Scheduling Request - SD
-            - "Science, Technology, and Telecom"
-            - Second Amendment
-            - Small Business
-            - Social Security
-            - Taxes
-            - Tour Requests
-            - Trade
-            - Transportation
-            - Veterans
+      - name: "input_AE7457DD-4040-F985-52CD-B99385041C51"
+        selector: "#actions"
+        value: "opinion"
+        required: Yes
+        options:
+          "Share your opinions or comment on legislation or issues": opinion
+    - wait: 1
+    - find:
+      - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
+    - fill_in:
+      - name: "input_AB59F0AE-4040-F985-52CD-AA63153C7925"
+        selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
+        value: $NAME_FIRST
+        required: Yes
+      - name: "input_AB59F0ED-4040-F985-52CD-265D9CF13F5E"
+        selector: "#input-AB59F0ED-4040-F985-52CD-265D9CF13F5E"
+        value: $NAME_LAST
+        required: Yes
+      - name: "input_AB5B6829-4040-F985-52CD-BF81DCC1F57D"
+        selector: "#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D"
+        value: $ADDRESS_STREET
+        required: Yes
+      - name: "input_AB5B6875-4040-F985-52CD-909541CB4B6C"
+        selector: "#input-AB5B6875-4040-F985-52CD-909541CB4B6C"
+        value: $ADDRESS_CITY
+        required: Yes
+      - name: "input_AB5B68B4-4040-F985-52CD-269A4338D057"
+        selector: "#input-AB5B68B4-4040-F985-52CD-269A4338D057"
+        value: $ADDRESS_ZIP5
+        required: Yes
+      - name: "input_AB67BC2F-4040-F985-52CD-007A86DA4D47"
+        selector: "#input-AB67BC2F-4040-F985-52CD-007A86DA4D47"
+        value: $PHONE
+        required: Yes
+      - name: "input_AB721CC4-4040-F985-52CD-76D1474A55F4"
+        selector: "#email"
+        value: $EMAIL
+        required: Yes
+      - name: input_AB721CE8-4040-F985-52CD-9E550E8A76AA
+        selector: "#input-AB721CE8-4040-F985-52CD-9E550E8A76AA"
+        value: $EMAIL
+        required: Yes
+      - name: "input_FB39F9E5-5056-A066-6090-70989F519869"
+        selector: "#input-FB39F9E5-5056-A066-6090-70989F519869"
+        value: $SUBJECT
+        required: Yes
+      - name: "input_ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
+        selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
+        value: $MESSAGE
+        required: Yes
+    - select:
+      - name: "input_AB59F08A-4040-F985-52CD-7633AA11C65E"
+        selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
+        value: $NAME_PREFIX
+        required: Yes
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Miss"
+          - "Dr."
+      - name: "input_AB8156A0-4040-F985-52CD-49CE65770EFC"
+        selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
+        value: $TOPIC
+        required: Yes
+        options:
+          - "Aging"
+          - "Agriculture"
+          - "Banking, Housing and Urban Affairs"
+          - "Budget"
+          - "Crime, Drugs, and Law Enforcement"
+          - "Cyber Security"
+          - "Economy"
+          - "Education"
+          - "Energy & Environment"
+          - "Environmental Protection Agency and Army Corp. of Engineers"
+          - "Family Issues"
+          - "Foreign Affairs"
+          - "Health"
+          - "Interior and National Parks"
+          - "Judicial"
+          - "Labor"
+          - "Life Issues"
+          - "Medicare and Medicaid"
+          - "Military and Defense"
+          - "NASA"
+          - "Native American Policy"
+          - "Other"
+          - "Science, Technology, and Telecom"
+          - "Second Amendment"
+          - "Small Business"
+          - "Social Security"
+          - "Taxes"
+          - "Trade"
+          - "Transportation"
+          - "Veterans"
     - click_on:
-        - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
+      - value: Submit
+        selector: ".btn"
+    - find:
+      - selector: "h1"
+        value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: "Thank you for submitting your request."
