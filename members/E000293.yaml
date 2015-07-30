@@ -61,9 +61,10 @@ contact_form:
         - value: Send Email
           selector: "#mainbodyContentleft form input[name='submit']"
     - find:
-        - selector: "#sbutton"
+        - selector: "a"
+          value: "Here"
   success:
     headers:
       status: 200
     body:
-      contains: Your email should automatically be sent in a few seconds.
+      contains: Thanks again.
