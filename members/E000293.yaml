@@ -60,8 +60,10 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#mainbodyContentleft form input[name='submit']"
+    - find:
+        - selector: "#sbutton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me through my website.
+      contains: Your email should automatically be sent in a few seconds.
