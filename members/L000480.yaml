@@ -3,154 +3,121 @@ contact_form:
   method: post
   action: /contact-form/
   steps:
-    - visit: "https://lowey.house.gov/contact-form/"
+    - visit: "https://lowey.house.gov/contact/email"
     - fill_in:
         - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go to Form
-          selector: input.button
-    - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
-          value: $NAME_FIRST
-          required: true
-        - name: lastname
-          selector: "#req_lastname"
-          value: $NAME_LAST
-          required: true
-        - name: street
-          selector: "#req_street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#req_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#req_zip"
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zipfour
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
+    - click_on:
+        - value: Go to Next Step
+          selector: "#submit"
+    - fill_in:
+        - name: firstname
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
         - name: emailaddress
-          selector: "#custom_form32 #req_email"
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: "#required-phone"
           value: $PHONE
-          required: false
-        - name: subject
-          selector: "#req_subject"
-          value: $SUBJECT
           required: true
         - name: message
-          selector: "#req_message"
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+        - name: prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
           required: true
           options:
-            North Carolina: NC
-            Alaska: AK
-            Alabama: AL
-            Arkansas: AR
-            Arizona: AZ
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            District of Columbia: DC
-            Delaware: DE
-            Florida: FL
-            Georgia: GA
-            Hawaii: HI
-            Iowa: IA
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Massachusetts: MA
-            Maryland: MD
-            Maine: ME
-            Michigan: MI
-            Minnesota: MN
-            Missouri: MO
-            Mississippi: MS
-            Montana: MT
-            North Dakota: ND
-            Nebraska: NE
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            Nevada: NV
-            New York: NY
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Pennsylvania: PA
-            Puerto Rico: PR
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Virginia: VA
-            Vermont: VT
-            Washington: WA
-            Wisconsin: WI
-            West Virginia: WV
-            Wyoming: WY
+           - Ms.
+           - Miss
+           - Mrs.
+           - Mr.
+           - Mr. and Mrs.
+           - Rev.
+           - Dr.
+           - The Honorable
+           - Rabbi
         - name: issue
-          selector: "#req_issue"
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Education: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            Government Issues: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            International Relations: WEBINT
-            Judicial: WEBJUD
-            Labor: WEBLAB
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Taxes: WEBTAX
-            Telecommunications: WEBTEL
-            Transportation: WEBTRA
-            Trade: WEBTRADE
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other Issues: WEBOTH
+           - Agriculture
+           - Animals
+           - Arts and Humanities
+           - Banking and Finance
+           - Budget and Economy
+           - Help With a Federal Agency
+           - Campaign Finance Reform
+           - Congress and Elections
+           - Defense and Military
+           - Economy
+           - Education
+           - Energy
+           - Environment
+           - Federal Employees
+           - Foreign Relations
+           - Government Reform
+           - Guns
+           - Health
+           - Homeland Security
+           - Housing and Urban Development
+           - Immigration
+           - International Relations
+           - Judiciary
+           - Labor
+           - LGBT
+           - No Response Necessary
+           - Post Office
+           - Science and Technology
+           - Social Issues
+           - Senior Citizens
+           - Social Security
+           - Social Services
+           - Taxes
+           - Telecommunications
+           - Tours
+           - Transportation
+           - Trade
+           - Veterans
+           - Women's Issues
+           - Welfare
+           - Other Issue
+        - name: response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+           - Yes
+           - No
     - click_on:
         - value: Send Email
-          selector: "#custom_form32 #submitButton"
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: The following information was sent to us
+      contains: your message has been sent
