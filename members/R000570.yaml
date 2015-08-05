@@ -43,6 +43,14 @@ contact_form:
           selector: "form.zipform[name='contact'] input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
+        - name: zip5
+          selector: "#zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
         - name: phone
           selector: "form.zipform[name='contact'] input[name='phone']"
           value: $PHONE
@@ -55,10 +63,10 @@ contact_form:
           selector: "form.zipform[name='contact'] textarea[name='required-message']"
           value: $MESSAGE
           required: true
-    - select:
+    - click_on:
         - name: required-issue
-          selector: "select:nth-child(1)"
-          value: AG
+          selector: "span[data-index='25']"
+          value: Other
           required: true
           options:
             " Agriculture": AG
@@ -92,10 +100,9 @@ contact_form:
           value: "yes"
     - click_on:
         - value: Send Email
-          selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
-    - find:
-      - selector: "#ctl00_PageCrumb"
-        value: "Thank You"
+          selector: "input[type='submit'][value='Send Email']"
+        - value: Send Email
+          selector: "input[type='submit'][value='Send Email']"
   success:
     headers:
       status: 200
