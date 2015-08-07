@@ -24,37 +24,44 @@ contact_form:
           selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
-          max_length: 10
+          options:
+            max_length: 10
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
           required: true
-          max_length: 100
+          options:
+            max_length: 100
         - name: required-last
           selector: "#required-last"
           value: $NAME_LAST
           required: true
-          max_length: 100
+          options:
+            max_length: 100
         - name: required-address
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-          max_length: 100
+          options:
+            max_length: 100
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-          max_length: 100
+          options:
+            max_length: 100
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-          max_length: 100
+          options:
+            max_length: 100
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
           required: true
-          max_length: 80
+          options:
+            max_length: 80
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
