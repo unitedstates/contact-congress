@@ -87,6 +87,13 @@ contact_form:
           Trade: TD
           Transportation: TR
           "Veterans' Affairs": VA
+      - name: required-subscribe
+        selector: "#required-subscribe"
+        value: "N"
+        required: true
+        options:
+          "Yes, sign me up": "EMAIL.OPTIN"
+          "No, not at this time": "N"
     - click_on:
       - value: "Send Email"
         selector: "#contactForm input[name='submit']"
