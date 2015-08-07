@@ -11,7 +11,8 @@ contact_form:
           required: Yes
           options:
             "Share your opinions or comment on legislation or issues": "opinion"
-    - wait: 1
+    - wait:
+      - value: 1
     - find:
         - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
