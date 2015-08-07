@@ -7,11 +7,11 @@ contact_form:
     - select:
         - name: required-response
           selector: "#required-response"
-          value: "Y"
+          value: "Response Requested - Opinion"
           required: true
           options:
-            "Yes, I want Mike to respond to my email.": "Y"
-            "No, I do not want Mike to respond to my email.": "N"
+            "Yes, I want Mike to respond to my email.": "Response Requested - Opinion"
+            "No, I do not want Mike to respond to my email.": "No Response Requested - Opinion"
     - find:
         - selector: "#first"
     - fill_in:
