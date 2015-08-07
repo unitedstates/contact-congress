@@ -13,14 +13,14 @@ contact_form:
             "Yes, I want Mike to respond to my email.": "Response Requested - Opinion"
             "No, I do not want Mike to respond to my email.": "No Response Requested - Opinion"
     - find:
-        - selector: "#first"
+        - selector: "#honda-detail #first"
     - fill_in:
         - name: first
-          selector: "#first"
+          selector: "#honda-detail #first"
           value: $NAME_FIRST
           required: true
         - name: last
-          selector: "#last"
+          selector: "#honda-detail #last"
           value: $NAME_LAST
           required: true
         - name: address
@@ -36,11 +36,11 @@ contact_form:
           value: "$ADDRESS_STATE_POSTAL_ABBREV"
           required: true
         - name: zip5
-          selector: "#zip"
+          selector: "#honda-detail #zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: email
-          selector: "#email"
+          selector: "#honda-detail #email"
           value: $EMAIL
           required: true
         - name: required-subject
