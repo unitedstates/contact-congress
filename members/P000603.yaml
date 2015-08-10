@@ -222,12 +222,10 @@ contact_form:
             - Telecommunications
             - Transportation
             - Veterans Issues
-    - iframe:
-        - selector: ".g-recaptcha iframe"
     - click_on:
         - selector: "#recaptcha-anchor"
-    - iframe:
-        - value: back
+          options:
+            - within_iframe: ".g-recaptcha iframe"
     - click_on:
         - value: Submit
           selector: input.btn
