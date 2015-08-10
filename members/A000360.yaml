@@ -5,46 +5,37 @@ contact_form:
   steps:
     - visit: http://www.alexander.senate.gov/public/index.cfm?p=Email
     - fill_in:
-      - name: field_0d9fdd23-1eb7-46e0-a061-05457b67ca76
-        selector: "#field_0d9fdd23-1eb7-46e0-a061-05457b67ca76"
+      - name: first
+        selector: "#field_56ca2f21-5b5a-4146-8603-f37314d2fd61"
         value: "$NAME_FIRST"
         required: true
-      - name: field_7fbed671-41c6-4fee-a8ff-88f3bc983a2d
-        selector: "#field_7fbed671-41c6-4fee-a8ff-88f3bc983a2d"
+      - name: last
+        selector: "#field_970a3ca0-c534-4302-8823-7d4910fceacd"
         value: "$NAME_LAST"
         required: true
-      - name: field_99425453-a256-4c53-9e4d-6c3bb37d4108
-        selector: "#field_99425453-a256-4c53-9e4d-6c3bb37d4108"
+      - name: street
+        selector: "#field_884bf137-ebea-4175-9269-c3e5ab6ca6ca"
         value: "$ADDRESS_STREET"
         required: true
-      - name: field_5931f2b2-5b88-46b0-a7cf-5be3fd07974b
-        selector: "#field_5931f2b2-5b88-46b0-a7cf-5be3fd07974b"
-        value: "$ADDRESS_STREET_2"
-      - name: field_a8dc4be1-b6d0-45b2-8e8c-fce92a58faa3
-        selector: "#field_a8dc4be1-b6d0-45b2-8e8c-fce92a58faa3"
+      - name: city
+        selector: "#field_05ea19c5-f508-4421-9547-2dbb6e74a6d3"
         value: "$ADDRESS_CITY"
         required: true
-      - name: field_420f4180-d327-4c63-aac5-efd047b1b463
-        selector: "#field_420f4180-d327-4c63-aac5-efd047b1b463"
+      - name: zip
+        selector: "#field_503e21fd-da3a-4853-a070-6fbba1e5e914"
         value: "$ADDRESS_ZIP5"
         required: true
-      - name: field_ef1f1e71-8ece-4f2b-a2d9-c790e0665be3
-        selector: "#field_ef1f1e71-8ece-4f2b-a2d9-c790e0665be3"
-        value: "$PHONE"
-      - name: field_d75596f4-bd81-4fc9-81fa-7988ef9e90b2
-        selector: "#field_d75596f4-bd81-4fc9-81fa-7988ef9e90b2"
-        value: "$PHONE"
-      - name: field_dfd4aea8-8a57-43d6-a4dc-f2a2971d44b3
-        selector: "#field_dfd4aea8-8a57-43d6-a4dc-f2a2971d44b3"
+      - name: email
+        selector: "#field_79586077-720a-4a8d-b87b-e36dbe3ad5b2"
         value: "$EMAIL"
         required: true
-      - name: field_8f2ab492-6dcd-4dd7-a35f-56574f6f6531
-        selector: "#field_8f2ab492-6dcd-4dd7-a35f-56574f6f6531"
+      - name: message
+        selector: "#field_8f3514fa-978c-4985-9fde-aad3dfc611c4"
         value: "$MESSAGE"
         required: true
     - select:
-      - name: field_74cbc1c2-c443-490a-b444-6106d1bf996b
-        selector: "#field_74cbc1c2-c443-490a-b444-6106d1bf996b"
+      - name: prefix
+        selector: "#field_d555ddf6-bf1e-47a6-9444-5b1f87a1ffbc"
         value: "$NAME_PREFIX"
         required: true
         options:
@@ -71,8 +62,8 @@ contact_form:
           - "The Honorable"
           - "The Honorable and Mrs."
           - "The Honorable and Mr."
-      - name: field_50b8687d-ef75-4803-aa8f-d3c9ca3dc003
-        selector: "#field_50b8687d-ef75-4803-aa8f-d3c9ca3dc003"
+      - name: topic
+        selector: "#field_265e4885-5b31-4f0a-8265-0aae78be86c9"
         value: "$TOPIC"
         required: true
         options:
