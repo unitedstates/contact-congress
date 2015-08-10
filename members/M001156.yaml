@@ -19,45 +19,45 @@ contact_form:
     - find:
         - selector: "#aspnetForm"
     - fill_in:
-        - name: ctl00$ctl12$FirstName
-          selector: "#ctl00_ctl12_FirstName"
+        - name: ctl00$ctl08$FirstName
+          selector: "#ctl00_ctl08_FirstName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl12$LastName
-          selector: "#ctl00_ctl12_LastName"
+        - name: ctl00$ctl08$LastName
+          selector: "#ctl00_ctl08_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl12$Street
-          selector: "#ctl00_ctl12_Street"
+        - name: ctl00$ctl08$Street
+          selector: "#ctl00_ctl08_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl12$City
-          selector: "#ctl00_ctl12_City"
+        - name: ctl00$ctl08$City
+          selector: "#ctl00_ctl08_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl12$Zip
-          selector: "#ctl00_ctl12_Zip"
+        - name: ctl00$ctl08$Zip
+          selector: "#ctl00_ctl08_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl12$Phone
-          selector: "#ctl00_ctl12_Phone"
+        - name: ctl00$ctl08$Phone
+          selector: "#ctl00_ctl08_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl12$Email
-          selector: "#ctl00_ctl12_Email"
+        - name: ctl00$ctl08$Email
+          selector: "#ctl00_ctl08_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl12$Subject
-          selector: "#ctl00_ctl12_Subject"
+        - name: ctl00$ctl08$Subject
+          selector: "#ctl00_ctl08_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl12$Body
-          selector: "#ctl00_ctl12_Body"
+        - name: ctl00$ctl08$Body
+          selector: "#ctl00_ctl08_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl12$PrefixList
-          selector: "#ctl00_ctl12_PrefixList"
+        - name: ctl00$ctl08$PrefixList
+          selector: "#ctl00_ctl08_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -89,8 +89,8 @@ contact_form:
             - Sr.
             - SSgt.
             - The Honorable
-        - name: ctl00$ctl12$State
-          selector: "#ctl00_ctl12_State"
+        - name: ctl00$ctl08$State
+          selector: "#ctl00_ctl08_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -154,8 +154,8 @@ contact_form:
             - MP
             - PR
             - VI
-        - name: ctl00$ctl12$IssuesList
-          selector: "#ctl00_ctl12_IssuesList"
+        - name: ctl00$ctl08$IssuesList
+          selector: "#ctl00_ctl08_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -200,9 +200,9 @@ contact_form:
             Welfare: "44723"
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl12_SubmitButton"
+          selector: "#ctl00_ctl08_SubmitButton"
     - find:
-        - selector: "span#ctl00_ctl12_ConfirmationText"
+        - selector: "span#ctl00_ctl08_ConfirmationText"
           value: "Thank you"
   success:
     headers:
