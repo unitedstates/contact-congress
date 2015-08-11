@@ -6,48 +6,48 @@ contact_form:
     - visit: "https://gowdy.house.gov/forms/writeyourrep"
     - fill_in:
         - name: FirstName
-          selector: "#ctl00_ctl07_FirstName"
+          selector: "#ctl00_ctl34_FirstName"
           value: $NAME_FIRST
           required: true
         - name: LastName
-          selector: "#ctl00_ctl07_LastName"
+          selector: "#ctl00_ctl34_LastName"
           value: $NAME_LAST
           required: true
         - name: Street
-          selector: "#ctl00_ctl07_Street"
+          selector: "#ctl00_ctl34_Street"
           value: $ADDRESS_STREET
           required: true
         - name: City
-          selector: "#ctl00_ctl07_City"
+          selector: "#ctl00_ctl34_City"
           value: $ADDRESS_CITY
           required: true
         - name: Zip
-          selector: "#ctl00_ctl07_Zip"
+          selector: "#ctl00_ctl34_Zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: Phone
-          selector: "#ctl00_ctl07_Phone"
+          selector: "#ctl00_ctl34_Phone"
           value: $PHONE
           required: false
         - name: Email
-          selector: "#ctl00_ctl07_Email"
+          selector: "#ctl00_ctl34_Email"
           value: $EMAIL
           required: true
         - name: Twitter
-          selector: "#ctl00_ctl07_Twitter"
+          selector: "#ctl00_ctl34_Twitter"
           value: $TWITTER
           required: true
         - name: Subject
-          selector: "#ctl00_ctl07_Subject"
+          selector: "#ctl00_ctl34_Subject"
           value: $SUBJECT
           required: true
         - name: Body
-          selector: "#ctl00_ctl07_Body"
+          selector: "#ctl00_ctl34_Body"
           value: $MESSAGE
           required: true
     - select:
         - name: PrefixList
-          selector: "#ctl00_ctl07_PrefixList"
+          selector: "#ctl00_ctl34_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -111,7 +111,7 @@ contact_form:
             - LT
             - LTJG
         - name: IssuesList
-          selector: "#ctl00_ctl07_IssuesList"
+          selector: "#ctl00_ctl34_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -160,11 +160,11 @@ contact_form:
             Water Resources Development: "17704"
     - check:
         - name: ReplyChoice
-          selector: "#ctl00_ctl07_ReplyChoice_0"
+          selector: "#ctl00_ctl34_ReplyChoice_0"
           value: Respond
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl07_SubmitButton"
+          selector: "#ctl00_ctl34_SubmitButton"
   success:
     headers:
       status: 200
