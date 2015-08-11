@@ -115,8 +115,8 @@ contact_form:
             - Veterans
     - wait:
         - value: 2
-    - javascript:
-        - value: "document.querySelector('.recaptcha-checkbox-checkmark').click();"
+    - click_on:
+        - selector: ".recaptcha-checkbox-checkmark"
           options:
             within_iframe: ".g-recaptcha iframe"
     - wait:
