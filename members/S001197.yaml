@@ -119,8 +119,6 @@ contact_form:
         - selector: "div.recaptcha-checkbox-checkmark"
           options:
             within_iframe: ".g-recaptcha iframe"
-    - wait:
-        - value: 2
   success:
     headers:
       status: 200
