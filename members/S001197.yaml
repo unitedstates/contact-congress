@@ -115,20 +115,20 @@ contact_form:
             - Veterans
     - wait:
         - value: 2
-    - click_on:
-        - selector: "div.recaptcha-checkbox-checkmark"
+    - javascript:
+        - value: "document.querySelector('.recaptcha-checkbox-checkmark').click();"
           options:
             within_iframe: ".g-recaptcha iframe"
     - wait:
         - value: 2
-    - click_on:
-        - selector: "div.recaptcha-checkbox-checkmark"
+    - javascript:
+        - value: "document.querySelector('.recaptcha-checkbox-checkmark').click();"
           options:
             within_iframe: ".g-recaptcha iframe"
     - wait:
         - value: 2
-    - click_on:
-        - selector: "div.recaptcha-checkbox-checkmark"
+    - javascript:
+        - value: "document.querySelector('.recaptcha-checkbox-checkmark').click();"
           options:
             within_iframe: ".g-recaptcha iframe"
   success:
