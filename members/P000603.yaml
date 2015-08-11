@@ -222,14 +222,8 @@ contact_form:
             - Telecommunications
             - Transportation
             - Veterans Issues
-    - wait:
-        - value: 5
     - javascript:
-        - value: "document.querySelector('#recaptcha-anchor').style.display = 'none';"
-          options:
-            within_iframe: ".g-recaptcha iframe"
-    - wait:
-        - value: 5
+        - value: "document.querySelector('.g-recaptcha iframe').remove();"
     - click_on:
         - value: Submit
           selector: input.btn
