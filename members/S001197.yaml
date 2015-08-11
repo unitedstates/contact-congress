@@ -117,6 +117,9 @@ contact_form:
         - value: 2
     - javascript:
         - value: "document.querySelector('.g-recaptcha iframe').parentNode.removeChild(document.querySelector('.g-recaptcha iframe'));"
+    - click_on:
+        - value: Submit
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
