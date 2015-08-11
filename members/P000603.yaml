@@ -225,7 +225,7 @@ contact_form:
     - click_on:
         - selector: "#recaptcha-anchor"
           options:
-            - within_iframe: ".g-recaptcha iframe"
+            within_iframe: ".g-recaptcha iframe"
     - click_on:
         - value: Submit
           selector: input.btn
