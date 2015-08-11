@@ -225,7 +225,7 @@ contact_form:
     - wait:
         - value: 2
     - javascript:
-        - value: "document.querySelector('.g-recaptcha iframe').remove();"
+        - value: "document.querySelector('.g-recaptcha iframe').parentNode.removeChild(document.querySelector('.g-recaptcha iframe'));"
     - click_on:
         - value: Submit
           selector: input.btn
