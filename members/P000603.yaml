@@ -225,7 +225,7 @@ contact_form:
     - wait:
         - value: 5
     - javascript:
-        - value: "document.querySelector('#recaptcha-anchor').click();"
+        - value: "document.querySelector('#recaptcha-anchor').style.display = 'none';"
           options:
             within_iframe: ".g-recaptcha iframe"
     - wait:
