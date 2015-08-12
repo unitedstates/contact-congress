@@ -116,21 +116,8 @@ contact_form:
     - wait:
         - value: 2
     - javascript:
-        - value: "document.querySelector('.recaptcha-checkbox-checkmark').click();"
-          options:
-            within_iframe: ".g-recaptcha iframe"
-    - wait:
-        - value: 2
-    - javascript:
-        - value: "document.querySelector('.recaptcha-checkbox-checkmark').click();"
-          options:
-            within_iframe: ".g-recaptcha iframe"
-    - wait:
-        - value: 2
-    - javascript:
-        - value: "document.querySelector('.recaptcha-checkbox-checkmark').click();"
-          options:
-            within_iframe: ".g-recaptcha iframe"
+        - value: "document.querySelector('.rc-anchor-content').parentNode.removeChild(document.querySelector('.rc-anchor-content'));"
+          within_frame: ".g-recaptcha iframe"
   success:
     headers:
       status: 200
