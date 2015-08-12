@@ -23,6 +23,7 @@ contact_form:
         verify_selector: "#recaptcha-verify-button"
         value: $CAPTCHA_SOLUTION
         types: [image, audio]
+        required: true
     - fill_in:
         - name: firstName
           selector: "#name_first"
