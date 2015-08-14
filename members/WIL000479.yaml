@@ -3,41 +3,40 @@ contact_form:
   method: post
   action: Contact.aspx
   steps:
-    - visit: "http://legis.wisconsin.gov/senate/tiffany/constituent-services/Pages/Email-Senator-Tiffany.aspx"
+    - visit: "http://legis.wisconsin.gov/senate/12/tiffany/constituent-services-page/"
+    - click_on:
+        - value: Request Assistance
+          selector: "a[rel='Services02']"
     - fill_in:
         - name: email
-          selector: "#legis-es-email"
+          selector: "input[id='01498d34-cf67-45fc-db34-f3caf1d06e15']"
           value: $EMAIL
           required: true
         - name: name
-          selector: "#legis-es-name"
+          selector: "input[id='3edf9a5e-aa92-4ac8-ff3a-fafce80611ef']"
           value: $NAME_FULL
           required: true
         - name: address
-          selector: "#legis-es-address"
+          selector: "input[id='d9f682a3-343a-42c6-c87e-e30956a91749']"
           value: $ADDRESS_STREET
           required: true
         - name: citystatezip
-          selector: "#legis-es-city-state"
+          selector: "input[id='60b6dfc9-0e8a-44b2-8ad3-bb38456de72a']"
           value: $ADDRESS_CITY_STATE_ZIP
           required: true
         - name: subject
-          selector: "#legis-es-phone"
+          selector: "input[id='7111938f-0610-497b-874b-8c4f8e82da45']"
           value: $PHONE
-          required: true
-        - name: subject
-          selector: "#legis-es-subject"
-          value: $SUBJECT
-          required: true
+          required: false
         - name: message
-          selector: "textarea[name='Legis-message']"
+          selector: "textarea[id='6980af7c-377f-4f36-9739-54f95c908664']"
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: ".legis-email-submit-btn"
+          selector: "input[type='submit'][value='Submit']"
   success:
     headers:
       status: 200
     body:
-      contains: Form submitted successfully
+      contains: Thank you
