@@ -8,54 +8,39 @@ contact_form:
       - name: FirstName
         selector: "#FirstName"
         value: "$NAME_FIRST"
-        required: Yes
+        required: true
       - name: LastName
         selector: "#LastName"
         value: "$NAME_LAST"
-        required: Yes
+        required: true
       - name: Address1
         selector: "#Address1"
         value: "$ADDRESS_STREET"
-        required: Yes
-      - name: Address2
-        selector: "#Address2"
-        value: "$ADDRESS_STREET_2"
+        required: true
       - name: City
         selector: "#City"
         value: "$ADDRESS_CITY"
-        required: Yes
+        required: true
       - name: ZipCode
         selector: "#ZipCode"
         value: "$ADDRESS_ZIP5"
-        required: Yes
+        required: true
       - name: PhoneNumber
         selector: "#PhoneNumber"
         value: "$PHONE"
       - name: EmailAddress
         selector: "#EmailAddress"
         value: "$EMAIL"
-        required: Yes
+        required: true
       - name: Message
         selector: "#Message"
         value: "$MESSAGE"
-        required: Yes
-      - name: PrefixOther
-        selector: "#PrefixOther"
-        value: ""
-      - name: Suffix
-        selector: "#Suffix"
-        value: ""
-      - name: Rank
-        selector: "#Rank"
-        value: ""
-      - name: Branch
-        selector: "#Branch"
-        value: ""
+        required: true
     - select:
       - name: Prefix
         selector: "#Prefix"
         value: "$NAME_PREFIX"
-        required: Yes
+        required: true
         options:
           - "Mr."
           - "Mrs."
@@ -70,7 +55,7 @@ contact_form:
       - name: State
         selector: "#State"
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
+        required: true
         options:
             "----Military---- ": " "
             "AA ": AA
@@ -131,7 +116,7 @@ contact_form:
       - name: Topic
         selector: "#Topic"
         value: "$TOPIC"
-        required: Yes
+        required: true
         options:
           - "Abortion"
           - "Agriculture"
