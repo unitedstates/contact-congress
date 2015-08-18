@@ -4,6 +4,8 @@ contact_form:
   action: http://www.alexander.senate.gov/public/index.cfm?p=Email
   steps:
     - visit: http://www.alexander.senate.gov/public/index.cfm?p=Email
+    - find:
+      - selector: "#field_56ca2f21-5b5a-4146-8603-f37314d2fd61"
     - fill_in:
       - name: first
         selector: "#field_56ca2f21-5b5a-4146-8603-f37314d2fd61"
