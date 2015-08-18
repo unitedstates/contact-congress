@@ -4,6 +4,8 @@ contact_form:
   action: http://www.gardner.senate.gov/contact-cory/email-cory
   steps:
     - visit: "http://www.gardner.senate.gov/contact-cory/email-cory"
+    - find:
+        - selector: "#actions"
     - select:
         - name: "Share opinion"
           selector: "#actions"
