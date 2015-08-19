@@ -102,11 +102,8 @@ contact_form:
             - LCDR
             - LT
             - LTJG
-    - check:
-        - name: ctl00$ctl34$ReplyChoice
-          selector: "#ctl00_ctl34_ReplyChoice_0"
-          value: Respond
-          required: true
+    - click_on:
+        - selector: "#ctl00_ctl34_ReplyChoice_0"
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl34_SubmitButton"
