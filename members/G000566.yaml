@@ -104,9 +104,8 @@ contact_form:
             - LTJG
     - javascript:
         - value: "document.querySelector('#ctl00_ctl34_ReplyChoice_0').checked=true"
-    - click_on:
-        - value: Submit
-          selector: "#ctl00_ctl34_SubmitButton"
+    - javascript:
+        - value: "document.querySelector('#ctl00_ctl34_SubmitButton').click()"
     - find:
       - selector: '#ctl00_ctl34_ConfirmationText'
   success:
