@@ -102,8 +102,8 @@ contact_form:
             - LCDR
             - LT
             - LTJG
-    - click_on:
-        - selector: "#ctl00_ctl34_ReplyChoice_0"
+    - javascript:
+        - value: "document.querySelector('#ctl00_ctl34_ReplyChoice_0').checked=true"
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl34_SubmitButton"
