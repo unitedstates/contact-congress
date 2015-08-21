@@ -1,0 +1,33 @@
+bioguide: MNL000015
+contact_form:
+  method: post
+  action:
+  steps:
+    - visit: "http://www.mnsenaterepublicans.com/our-senators/michelle-fischbach/"
+    - fill_in:
+      - name: name
+        selector: "#name"
+        value: "$NAME_FULL"
+        required: true
+      - name: email
+        selector: "#email"
+        value: "$EMAIL"
+        required: true
+      - name: message
+        selector: "#message"
+        value: "$MESSAGE"
+        required: true
+    - math:
+      - name: math_qna
+        question_selector: "label[for='contact_captcha']"
+        answer_selector: "input[name='captcha']"
+    - click_on:
+      - value: Submit
+        selector: ".w-form-field-success"
+    - find:
+      - selector: "#message_send"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message was sent"
