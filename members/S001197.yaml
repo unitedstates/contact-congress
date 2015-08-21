@@ -37,7 +37,9 @@ contact_form:
           selector: "#field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4"
           value: $MESSAGE
           required: true
-        - value: "$GOOGLE_RECAPTCHA"
+        - name: "g-recaptcha-response"
+          captcha_selector: ".g-recaptcha iframe"
+          value: "$CAPTCHA_SOLUTION"
           required: true
     - select:
         - name: field_2647C301-6F8A-4A2F-A7AD-6AB2BA694E46
@@ -115,11 +117,9 @@ contact_form:
             - Trade
             - Transportation
             - Veterans
-    - wait:
-        - value: 2
-    - javascript:
-        - value: "document.querySelector('.rc-anchor-content').parentNode.removeChild(document.querySelector('.rc-anchor-content'));"
-          within_frame: ".g-recaptcha iframe"
+    - click_on:
+        - value: Submit
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
