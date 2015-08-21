@@ -36,11 +36,10 @@ contact_form:
           selector: "#edit-submitted-comments"
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: "#recaptcha_response_field"
-          captcha_selector: "#recaptcha_challenge_image"
-          value: $CAPTCHA_SOLUTION
-          required: true
+    - math:
+        - name: math_qna
+          question_selector: ".field-prefix"
+          answer_selector: "#edit-captcha-response"
     - select:
         - name: prefix
           selector: "#edit-submitted-salutation"
