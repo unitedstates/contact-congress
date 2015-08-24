@@ -229,6 +229,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn
+    - find:
+        - value: "Thank you for submitting your request. You should hear from the office soon."
+          selector: "p"
   success:
     headers:
       status: 200
