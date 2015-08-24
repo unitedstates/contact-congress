@@ -46,15 +46,12 @@ contact_form:
           required: true
           options:
             max_length: 4000
-    - wait:
-        - value: 1
-    - fill_in:
-        - name: recaptcha_response_field
-          selector: "input#recaptcha_response_field"
-          captcha_selector: "img#recaptcha_challenge_image"
-          captcha_id_selector: "input#recaptcha_challenge_field"
-          value: $CAPTCHA_SOLUTION
+        - name: "g-recaptcha-response"
+          captcha_selector: ".g-recaptcha iframe"
+          value: "$CAPTCHA_SOLUTION"
           required: true
+          options:
+            google_recaptcha: true
     - select:
         - name: field_9FC33321-74A4-4940-8082-C5B5CEA8202B
           selector: "#field_9FC33321-74A4-4940-8082-C5B5CEA8202B"

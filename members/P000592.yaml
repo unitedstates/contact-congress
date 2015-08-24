@@ -49,6 +49,12 @@ contact_form:
           selector: "#field_077EA4A1-BF28-451C-9BD0-D33DB5A71AD0"
           value: $MESSAGE
           required: true
+        - name: "g-recaptcha-response"
+          captcha_selector: ".g-recaptcha iframe"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+          options:
+            google_recaptcha: true
     - select:
         - name: field_DDD852CB-EA6C-45CD-B87C-6CB9F18F22B5
           selector: "#field_DDD852CB-EA6C-45CD-B87C-6CB9F18F22B5"
