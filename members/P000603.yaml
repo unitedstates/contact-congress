@@ -225,8 +225,10 @@ contact_form:
     - wait:
         - value: 2
     - javascript:
-        - value: "document.querySelector('.rc-anchor-center-container').parentNode.removeChild(document.querySelector('.rc-anchor-center-container'));"
-          within_frame: ".g-recaptcha iframe"
+        - value: "document.querySelector('.g-recaptcha iframe').parentNode.removeChild(document.querySelector('.g-recaptcha iframe'));"
+    - click_on:
+        - value: Submit
+          selector: input.btn
   success:
     headers:
       status: 200
