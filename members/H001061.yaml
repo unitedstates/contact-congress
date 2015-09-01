@@ -30,8 +30,11 @@ contact_form:
         required: Yes
       - name: field_62cac646-c6c0-4b48-8637-86b77d2c9700
         selector: "#field_62cac646-c6c0-4b48-8637-86b77d2c9700"
-        value: "$PHONE_PARENTHESES"
+        value: "$PHONE"
         required: true
+        options:
+          match: "([0-9]{3})([0-9]{3})([0-9]{4})"
+          replace: "$1-$2-$3"
       - name: field_4a2966d5-e9ea-4195-b486-b5d3d04d185a
         selector: "#field_4a2966d5-e9ea-4195-b486-b5d3d04d185a"
         value: "$EMAIL"
