@@ -119,6 +119,10 @@ contact_form:
   - click_on: 
     - value: Send Email to Representative MacArthur
       selector: "#contactForm #submit"
+  - javascript:
+    - value: "document.querySelector('#contactForm #submit').click()"
+  - find:
+    - selector: ".data"
   success: 
     headers: 
       status: 200
