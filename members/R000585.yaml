@@ -17,12 +17,12 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - find:
-        - selector: "#contactForm"
+        - selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
+        - name: required-prefix
+          selector: "#required-prefix"
           value: $NAME_PREFIX
-          required: false
+          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -61,40 +61,48 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Agriculture: AG
+            Agriculture: AGR
             Animals: AN
             Arts and Humanities: ART
-            Badger Army Ammunition Plant: BAAP
             Banking and Finance: BANK
             Budget and Economy: BUD
+            Casework: CASE
             Campaign Finance Reform: CFR
             Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
             Defense and Military: DEF
+            Economy: ECON
             Education: ED
-            Energy: EN
+            eForm Response: EFORM RESPONSE
+            Energy: ENE
             Environment: ENV
             Federal Employees: FED
+            Flag Request: FLAG
             Foreign Relations: FR
+            Governmental Reform: GOV
             Guns: GUN
-            Health: HE
+            Health: HEA
+            Homeland Security: HOM
             Housing and Urban Development: HUD
-            Immigration: IM
+            Immigration: IMM
             Judiciary: JUD
             Labor: LAB
             LGBT: LGBT
+            No Response Necessary: NRN
+            Other Issues: OTHER
             Post Office: POST
             Science and Technology: SCI
             Senior Citizens: SENIORS
-            Social Security: SS
+            Social Issues: SOC
+            Social Security: SSEC
             Social Services: SOC.SERVICES
             Taxes: TAX
-            Telecommunications: COMM
-            Transportation: TRAN
-            Trade: TRD
+            Telecommunications: TEL
+            Tour: TOURS
+            Transportation: TRA
+            Trade: TRADE
             Veterans: VET
+            Welfare: WEL
             "Women's Issues": WOMEN
-            Other Issues: OTHER
         - name: required-response
           selector: "#required-response"
           value: "Y"
@@ -109,4 +117,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: "The following information has been submitted:"
