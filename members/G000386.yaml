@@ -62,6 +62,46 @@ contact_form:
             - Rev.
             - Mr. and Mrs.
             - Sister
+        - name: issue
+          selector: "#issue"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "Adoption/Foster Care": AD
+            "Agriculture": AGR
+            Animal: ANI
+            Banking: BA
+            Budget: BUD
+            Campaign Finance: CF
+            Consumer Protection: CP
+            Defense: DEF
+            Education: EDU
+            Energy: ENE
+            Environmental: ENV
+            Federal Government Employees Operations: GOV
+            Health: HEA
+            Homeland Security: HOM
+            Housing: HOU
+            Indian Affairs: IA
+            Immigration: IMM
+            International Relations: INT
+            Job Creation - Economy: EC
+            Judicial Nominees: NM
+            Judiciary (civil): JUD
+            Judiciary (crime): CR
+            Labor: LAB
+            Life Issues: AB
+            Medicare and Medicaid: MED
+            Postal Service: PS
+            Science/NASA: SC
+            Social Security: SSEC
+            Taxes: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRD
+            Veterans: VET
+            Welfare: WEL
+            Other: OT
     - click_on:
         - value: Send Message
           selector: "form.fullform.validate input[type='submit'][value='Send Message']"
