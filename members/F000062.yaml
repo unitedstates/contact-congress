@@ -6,40 +6,40 @@ contact_form:
     - visit: https://www.feinstein.senate.gov/public/index.cfm/e-mail-me
     - fill_in:
       - name: field_0c5a1392-6512-4fa5-a213-eb7e1cbaf1ad
-        selector: "#field_0c5a1392-6512-4fa5-a213-eb7e1cbaf1ad"
+        selector: "#field_0C5A1392-6512-4FA5-A213-EB7E1CBAF1AD"
         value: "$NAME_FIRST"
         required: true
       - name: field_ac791fc0-5e57-4f5e-88d4-6ef9e730f470
-        selector: "#field_ac791fc0-5e57-4f5e-88d4-6ef9e730f470"
+        selector: "#field_AC791FC0-5E57-4F5E-88D4-6EF9E730F470"
         value: "$NAME_LAST"
         required: true
       - name: field_844e2e93-7496-4372-bb04-d0cf157684f0
-        selector: "#field_844e2e93-7496-4372-bb04-d0cf157684f0"
+        selector: "#field_844E2E93-7496-4372-BB04-D0CF157684F0"
         value: "$ADDRESS_STREET"
         required: true
       - name: field_289b92dd-13e8-40e7-b141-1a02c6acdcea
-        selector: "#field_289b92dd-13e8-40e7-b141-1a02c6acdcea"
+        selector: "#field_289B92DD-13E8-40E7-B141-1A02C6ACDCEA"
         value: "$ADDRESS_STREET_2"
-        required: true
+        required: false
       - name: field_c44b713c-04ad-411a-9744-6e7f2ff71898
-        selector: "#field_c44b713c-04ad-411a-9744-6e7f2ff71898"
+        selector: "#field_C44B713C-04AD-411A-9744-6E7F2FF71898"
         value: "$ADDRESS_CITY"
         required: true
       - name: field_64d2124b-a227-4f90-ad83-65dbc8175a69
-        selector: "#field_64d2124b-a227-4f90-ad83-65dbc8175a69"
+        selector: "#field_64D2124B-A227-4F90-AD83-65DBC8175A69"
         value: "$ADDRESS_ZIP5"
         required: true
       - name: field_d065bdd9-7c1e-4d99-a50e-6a1adae8803b
-        selector: "#field_d065bdd9-7c1e-4d99-a50e-6a1adae8803b"
+        selector: "#field_D065BDD9-7C1E-4D99-A50E-6A1ADAE8803B"
         value: "$EMAIL"
         required: true
       - name: field_130638f0-2eec-4c6b-83be-11e83bb5ced3
-        selector: "#field_130638f0-2eec-4c6b-83be-11e83bb5ced3"
+        selector: "#field_130638F0-2EEC-4C6B-83BE-11E83BB5CED3"
         value: "$MESSAGE"
         required: true
     - select:
       - name: field_9444dbc2-bbe1-469d-9b8f-ab10eb838284
-        selector: "#field_9444dbc2-bbe1-469d-9b8f-ab10eb838284"
+        selector: "#field_9444DBC2-BBE1-469D-9B8F-AB10EB838284"
         value: "$NAME_PREFIX"
         required: true
         options:
@@ -51,8 +51,13 @@ contact_form:
           - "Dr."
           - "Mr. and Mr."
           - "Mrs. and Mrs."
+<<<<<<< HEAD
       - name: field_1c62db7f-a03b-4bc1-ae3f-816c2ec96b89
         selector: "#field_1c62db7f-a03b-4bc1-ae3f-816c2ec96b89"
+=======
+      - name: field_1c62db7f-a03b-4bc1-ae3f-816c2ec96b89"
+        selector: "#field_1C62DB7F-A03B-4BC1-AE3F-816C2EC96B89"
+>>>>>>> origin/master
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
         required: true
         options:
@@ -107,13 +112,49 @@ contact_form:
           West Virginia: WV
           Wisconsin: WI
           Wyoming: WY
-    - check:
+    - choose:
       - name: field_302e8a41-000d-419e-991e-40c7cb96f97c_6
-        selector: "#field_302e8a41-000d-419e-991e-40c7cb96f97c_6"
-        value: Yes
+        selector: "#field_302E8A41-000D-419E-991E-40C7CB96F97C input"
+        value: $TOPIC
+        options:
+          "Abortion": "Abortion.Hlth"
+          "Agriculture": "ag"
+          "Animals": "Anim"
+          "Banking / Finance": "BF"
+          "Budget": "Budget"
+          "Civil Liberties / Rights": "Civil Liberties"
+          "Communications / FCC": "Comm"
+          "Defense": "Def"
+          "Economy": "Economy"
+          "Education": "Ed"
+          "Energy": "Eng"
+          "Environment": "Env"
+          "Foreign Affairs": "FA"
+          "Government Affairs": "Govt"
+          "Gun Control": "Jud.Gun Control"
+          "Health": "Hlth"
+          "Homeland Security": "Homeland Security"
+          "Housing": "Hous"
+          "Human Services / Welfare": "Hmn"
+          "Immigration": "Immig"
+          "Indian Affairs": "Indian"
+          "Intelligence Committee": "Intelligence Committ"
+          "Internship": "Intern"
+          "Judiciary, Narcotics / Illicit Drugs": "Jud"
+          "Labor": "Lab"
+          "LGBT": "Gay"
+          "Medicare / Medicaid": "Medicare.Medicaid"
+          "Science / Space / Technology": "Science"
+          "Social Security": "SSec"
+          "Taxes": "Tax"
+          "Trade": "Trade"
+          "Transportation": "Trans"
+          "U.S. Postal Service": "USPS"
+          "Veterans": "Vet"
+          "Water": "Water.Evn"
     - uncheck:
       - name: field_d9957c6c-c947-4802-92d4-f0ac28dd4b72
-        selector: "#field_d9957c6c-c947-4802-92d4-f0ac28dd4b72_1"
+        selector: "#field_D9957C6C-C947-4802-92D4-F0AC28DD4B72_1"
         value: "NEWSLETTER"
     - click_on:
       - value: Submit

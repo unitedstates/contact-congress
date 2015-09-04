@@ -95,10 +95,10 @@ contact_form:
         - value: Submit
           selector: "#ctl00_ctl10_SubmitButton"
     - find:
-        - selector: "span#ctl00_ctl10_ConfirmationText"
-          value: "Thank you"
+        - selector: "#page-title-no-line"
+          value: "Thank You!"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for emailing Congressman Gregg Harper!"
+      contains: Thank you for emailing Congressman Gregg Harper
