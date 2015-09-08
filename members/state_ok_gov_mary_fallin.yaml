@@ -37,13 +37,12 @@ contact_form:
           value: $MESSAGE
           required: true
     - click_on:
-      - name: test2
+      - name: toggle_logic
         selector: "#captcha_toggle_logic"
     - math:
-      - name: test
-        question_selector: "#captcha_logic"
+      - name: math_captcha
+        question_selector: "#captcha_logic em"
         answer_selector: "#captcha"
-        multi: true
     - select:
       - name: stateAbbrev
         selector: "#State"
