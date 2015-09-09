@@ -8,52 +8,62 @@ contact_form:
       - name: firstName
         selector: "#firstName"
         value: $NAME_FIRST
-        maxlength: 100
         required: Yes
+        options:
+          max_length: 100
       - name: lastName
         selector: "#lastName"
         value: $NAME_LAST
-        maxlength: 100
         required: Yes
+        options:
+          max_length: 100
       - name: Address1
         selector: "#Address1"
         value: $ADDRESS_STREET
-        maxlength: 200
         required: Yes
+        options:
+          max_length: 200
       - name: Address2
         selector: "#Address2"
         value: $ADDRESS_STREET_2
-        maxlength: 200
+        options:
+          max_length: 200
       - name: city
         selector: "#city"
         value: $ADDRESS_CITY
-        maxlength: 50
         required: Yes
+        options:
+          max_length: 50
       - name: zip
         selector: "#zip"
         value: $ADDRESS_ZIP5
-        maxlength: 10
         required: Yes
+        options:
+          max_length: 10
       - name: phone
         selector: "#phone"
         value: $PHONE
-        maxlength: 100
         required: Yes
+        options:
+          max_length: 100
       - name: email
         selector: "#email"
         value: $EMAIL
-        maxlength: 100
         required: Yes
+        options:
+          max_length: 100
       - name: vemail
         selector: "#vemail"
         value: $EMAIL
-        maxlength: 100
         required: Yes
+        options:
+          max_length: 100
       - name: messageSubject
         selector: "#messageSubject"
         value: $SUBJECT
-        maxlength: 75
         required: Yes
+        options:
+          max_length: 75
       - name: message
         selector: "form#thisForm textarea[name='MessageBody']"
         value: $MESSAGE
