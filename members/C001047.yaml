@@ -304,8 +304,8 @@ contact_form:
           value: EMAIL.OPTIN
     - javascript:
         - value: "document.querySelector('.controls .btn[type=submit]').click()"
-    - wait:
-        - value: 1
+    - find:
+        - selector: "p > i"
   success:
     headers:
       status: 200
