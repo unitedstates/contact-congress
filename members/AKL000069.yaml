@@ -30,6 +30,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: ".wpcf7-submit"
+    - find:
+      - selector: ".wpcf7-mail-sent-ok"
   success:
     headers:
       status: 200
