@@ -13,8 +13,6 @@ contact_form:
             Send an email to comment on Legislation: opinion
             Help with a federal agency: federal_agency
             Meeting Requests: meeting
-    - wait:
-        - value: 1
     - fill_in:
         - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
@@ -300,9 +298,14 @@ contact_form:
             - Veterans
             - Welfare
             - "Women's Issues"
-    - click_on:
-        - value: Submit
-          selector: input.btn
+    - uncheck:
+        - name: input_A4E18009-4040-F985-52CD-6366A651E958
+          selector: "#affl_toggle"
+          value: EMAIL.OPTIN
+    - javascript:
+        - value: "document.querySelector('.controls .btn[type=submit]').click()"
+    - find:
+        - selector: "p > i"
   success:
     headers:
       status: 200
