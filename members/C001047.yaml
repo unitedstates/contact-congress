@@ -4,6 +4,17 @@ contact_form:
   action: "http://www.capito.senate.gov/contact/contact-shelley"
   steps:
     - visit: "http://www.capito.senate.gov/contact/contact-shelley"
+    - select:
+        - name: input_AE7457DD-4040-F985-52CD-B99385041C51
+          selector: "#actions"
+          value: opinion
+          required: true
+          options:
+            Send an email to comment on Legislation: opinion
+            Help with a federal agency: federal_agency
+            Meeting Requests: meeting
+    - wait:
+        - value: 1
     - fill_in:
         - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
@@ -46,14 +57,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: input_AE7457DD-4040-F985-52CD-B99385041C51
-          selector: "#actions"
-          value: opinion
-          required: true
-          options:
-            Send an email to comment on Legislation: opinion
-            Help with a federal agency: federal_agency
-            Meeting Requests: meeting
         - name: input_AB59F08A-4040-F985-52CD-7633AA11C65E
           selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
           value: $NAME_PREFIX
