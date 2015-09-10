@@ -13,6 +13,50 @@ contact_form:
             Send an email to comment on Legislation: opinion
             Help with a federal agency: federal_agency
             Meeting Requests: meeting
+    - wait:
+        - value: 3
+    - fill_in:
+        - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
+          selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
+          value: $NAME_FIRST
+          required: true
+        - name: input_AB59F0ED-4040-F985-52CD-265D9CF13F5E
+          selector: "#input-AB59F0ED-4040-F985-52CD-265D9CF13F5E"
+          value: $NAME_LAST
+          required: true
+        - name: input_AB5B6829-4040-F985-52CD-BF81DCC1F57D
+          selector: "#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_AB5B6875-4040-F985-52CD-909541CB4B6C
+          selector: "#input-AB5B6875-4040-F985-52CD-909541CB4B6C"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_AB5B68B4-4040-F985-52CD-269A4338D057
+          selector: "#input-AB5B68B4-4040-F985-52CD-269A4338D057"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_AB67BC2F-4040-F985-52CD-007A86DA4D47
+          selector: "#input-AB67BC2F-4040-F985-52CD-007A86DA4D47"
+          value: $PHONE
+          required: true
+        - name: input_AB721CC4-4040-F985-52CD-76D1474A55F4
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: input_AB721CE8-4040-F985-52CD-9E550E8A76AA
+          selector: "#input-AB721CE8-4040-F985-52CD-9E550E8A76AA"
+          value: $EMAIL
+          required: true
+        - name: input_936910F5-4040-F985-52CD-A6FC381A979D
+          selector: "#input-936910F5-4040-F985-52CD-A6FC381A979D"
+          value: $SUBJECT
+          required: true
+        - name: input_ADE64E73-4040-F985-52CD-A3AB6BCD2C51
+          selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
+          value: $MESSAGE
+          required: true
+    - select:
         - name: input_AB59F08A-4040-F985-52CD-7633AA11C65E
           selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
           value: $NAME_PREFIX
@@ -256,47 +300,6 @@ contact_form:
             - Veterans
             - Welfare
             - "Women's Issues"
-    - fill_in:
-        - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
-          selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
-          value: $NAME_FIRST
-          required: true
-        - name: input_AB59F0ED-4040-F985-52CD-265D9CF13F5E
-          selector: "#input-AB59F0ED-4040-F985-52CD-265D9CF13F5E"
-          value: $NAME_LAST
-          required: true
-        - name: input_AB5B6829-4040-F985-52CD-BF81DCC1F57D
-          selector: "#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D"
-          value: $ADDRESS_STREET
-          required: true
-        - name: input_AB5B6875-4040-F985-52CD-909541CB4B6C
-          selector: "#input-AB5B6875-4040-F985-52CD-909541CB4B6C"
-          value: $ADDRESS_CITY
-          required: true
-        - name: input_AB5B68B4-4040-F985-52CD-269A4338D057
-          selector: "#input-AB5B68B4-4040-F985-52CD-269A4338D057"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: input_AB67BC2F-4040-F985-52CD-007A86DA4D47
-          selector: "#input-AB67BC2F-4040-F985-52CD-007A86DA4D47"
-          value: $PHONE
-          required: true
-        - name: input_AB721CC4-4040-F985-52CD-76D1474A55F4
-          selector: "#email"
-          value: $EMAIL
-          required: true
-        - name: input_AB721CE8-4040-F985-52CD-9E550E8A76AA
-          selector: "#input-AB721CE8-4040-F985-52CD-9E550E8A76AA"
-          value: $EMAIL
-          required: true
-        - name: input_936910F5-4040-F985-52CD-A6FC381A979D
-          selector: "#input-936910F5-4040-F985-52CD-A6FC381A979D"
-          value: $SUBJECT
-          required: true
-        - name: input_ADE64E73-4040-F985-52CD-A3AB6BCD2C51
-          selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
-          value: $MESSAGE
-          required: true
     - click_on:
         - value: Submit
           selector: input.btn
