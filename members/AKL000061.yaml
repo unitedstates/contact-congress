@@ -1,9 +1,9 @@
-bioguide: AKL000007
+bioguide: AKL000061
 contact_form:
   method: post
   action: 
   steps:
-    - visit: "http://alaskasenatedems.com/egan/contact-me/"
+    - visit: "http://alaskasenatedems.com/olson/contact-me/"
     - fill_in:
         - name: name
           selector: "input[name='your-name']"
@@ -30,6 +30,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: ".wpcf7-submit"
+    - find:
+        - selector: ".wpcf7-mail-sent-ok"
   success:
     headers:
       status: 200
