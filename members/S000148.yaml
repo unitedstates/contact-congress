@@ -157,11 +157,8 @@ contact_form:
             - Transportation
             - Veterans
             - Other
-    - click_on:
-        - value: Send
-          selector: "#side-search-btn"
-    - wait:
-        - value: 1
+    - javascript:
+        - value: "document.querySelector('#side-search-btn').click()"
     - find:
         - value: "Thank You for Your Email"
           selector: "h1.main_page_title"
