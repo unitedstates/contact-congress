@@ -13,8 +13,6 @@ contact_form:
             Send an email to comment on Legislation: opinion
             Help with a federal agency: federal_agency
             Meeting Requests: meeting
-    - wait:
-        - value: 3
     - fill_in:
         - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
@@ -306,6 +304,8 @@ contact_form:
           value: EMAIL.OPTIN
     - javascript:
         - value: "document.querySelector('.controls .btn[type=submit]').click()"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
