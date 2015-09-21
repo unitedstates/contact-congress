@@ -118,7 +118,7 @@ contact_form:
     - value: Send Email to Representative Moolenaar
       selector: "#contactForm #submit"
   - javascript:
-    - value: "document.querySelector('#contactForm #submit').click();"
+    - value: "document.querySelector('#contactForm #submit').click(); document.querySelector('#contactForm #submit').click();"
   success: 
     headers: 
       status: 200
