@@ -28,7 +28,7 @@ contact_form:
         - name: "submitted[constituent_information][phone]"
           selector: "#edit-submitted-constituent-information-phone"
           value: $PHONE
-          required: true 
+          required: true
         - name: "submitted[constituent_information][email]"
           selector: "#edit-submitted-constituent-information-email"
           value: $EMAIL
@@ -59,127 +59,45 @@ contact_form:
             - The Honorable
             - Representative
             - Senator
-        - name: "submitted[constituent_information][state]"
-          selector: "#edit-submitted-constituent-information-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AA
-            - AE
-            - AP
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
         - name: "submitted[message_details][topic]"
           selector: "#edit-submitted-message-details-topic"
           value: $TOPIC
           required: true
           options:
-            - Abortion
-            - Adoption
-            - Aging
-            - Agriculture
-            - Animal Welfare
-            - Appropriations
-            - Banking
-            - Campaign Finance
-            - Children
-            - Civil Rights
-            - Commerce
-            - Communications
-            - Congratulations
-            - Congressional Issues
-            - Crime
-            - Defense
-            - Drugs
-            - Economy
-            - Education Higher
-            - Education K through 12
-            - Elections
-            - Energy
-            - Environment
-            - Family
-            - Food Stamps
-            - Foreign Affairs
-            - Gun Control
-            - Health
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Inauguration
-            - Insurance Health
-            - Insurance Other
-            - Interior
-            - Iran
-            - Iraq
-            - Judiciary
-            - Labor
-            - Medicaid
-            - Medicare
-            - Military
-            - NASA
-            - Nutrition
-            - Other
-            - Patents
-            - Pensions
-            - Securities
-            - Small Business
-            - Social Security
-            - Taxes
-            - Tobacco
-            - Trade
-            - Transportation
-            - Veterans
-            - Welfare
-            - "Women's Issues"
+            Abortion: AB
+            Armed Forces: AF
+            Agriculture: AG
+            Alaska Natives: AN
+            "Arts & Humanities": AR
+            Banking: BA
+            Budget: BU
+            "Crime & Law Enforcement": CR
+            Economic Development: EC
+            Education: ED
+            Elections: EL
+            Energy: EN
+            Ethics: ET
+            Environment: EV
+            Foreign Affairs: FA
+            Gun Control: GC
+            Government: GO
+            Health Care: HC
+            Housing: HO
+            Immigration: IM
+            Judiciary/Judicial: JU
+            Labor: LA
+            Natural Resources: NR
+            Postal Service: PO
+            Small Business: SB
+            "Science & Technology": SC
+            Social Security: SS
+            Telecommunications: TC
+            Transportation: TN
+            Tourism: TO
+            Trade: TR
+            Taxes: TX
+            Veterans: VT
+            "Women & Children": WC
     - click_on:
         - value: Submit
           selector: "#webform-client-form-78 input[name='op']"
