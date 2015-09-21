@@ -16,11 +16,9 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
+    - find:
+        - selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -33,10 +31,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -45,19 +39,29 @@ contact_form:
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
-          required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
           required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options: 
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi 
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -98,12 +102,19 @@ contact_form:
             Veterans: VET
             "Women's Issues": WOMEN
             Other Issues: OTHER
+        - name: required-response
+            selector: "#required-response"
+            value: Y
+            required: true
+            options: 
+              Yes, please contact me: Y
+              No, I wanted to voice my opinion: N
     - click_on:
-        - value: Send Email
+        - value: Send Email to Representative Neugebauer
           selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: your message has been sent
 
