@@ -111,6 +111,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submit"
+    - javascript:
+        - value: "document.querySelector('#submit').click();"
     - find:
         - selector: "span.data"
   success:
