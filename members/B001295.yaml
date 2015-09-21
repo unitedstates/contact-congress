@@ -16,6 +16,8 @@ contact_form:
   - click_on: 
     - value: Go To Next Step
       selector: "#emailForm #submit"
+  - wait:
+    - value: 1
   - javascript:
     - value: "document.querySelector('#emailForm #submit').click();"
   - find: 
