@@ -114,6 +114,8 @@ contact_form:
   - click_on: 
     - value: Send Email to Representative Guinta
       selector: "#contactForm #submit"
+  - javascript:
+    - value: "document.querySelector('#contactForm #submit'] #submit').click();"
   success: 
     headers: 
       status: 200
