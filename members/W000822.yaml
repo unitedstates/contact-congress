@@ -118,7 +118,7 @@ contact_form:
     - value: Send Email to Representative Watson Coleman
       selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
   - javascript:
-    - value: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
+    - value: "document.querySelector('#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit').click();"
   success: 
     headers: 
       status: 200

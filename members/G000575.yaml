@@ -16,6 +16,8 @@ contact_form:
   - click_on: 
     - value: Go To Next Step
       selector: "#emailForm #submit"
+  - javascript:
+    - value: "document.querySelector('#emailForm #submit').click();"
   - find: 
     - selector: "#required-prefix"
   - fill_in: 
