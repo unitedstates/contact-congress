@@ -90,6 +90,8 @@ contact_form:
             Other Issues: Other Issues
     - click_on:
         - selector: ".btn-success"
+    - javascript:
+        - value: "document.querySelector('.btn-success').click();"
     - find:
         - selector: ".data"
   success:
