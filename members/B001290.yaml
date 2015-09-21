@@ -1,118 +1,80 @@
 bioguide: B001290
 contact_form:
-  method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://brat.house.gov/contact/email-me"
+    - visit: "https://bratforms.house.gov/contact/"
     - fill_in:
-        - name: required-zip5
-          selector: "#emailForm #required-zip5"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm #submit"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#required-prefix"
+        - selector: "#ctl00_ctl32_FirstName"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
-          required: true
-        - name: required-first
-          selector: ".field-items #contactForm #required-first"
+        - name: ctl00$ctl32$FirstName
+          selector: "#ctl00_ctl32_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: ".field-items #contactForm #required-last"
+        - name: ctl00$ctl32$LastName
+          selector: "#ctl00_ctl32_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: ctl00$ctl32$Street
+          selector: "#ctl00_ctl32_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "#required-city"
+        - name: ctl00$ctl32$City
+          selector: "#ctl00_ctl32_City"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: ".field-items #contactForm #required-valid-email"
-          value: $EMAIL
+        - name: ctl00$ctl32$Zip
+          selector: "#ctl00_ctl32_Zip"
+          value: $ADDRESS_ZIP5
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: ctl00$ctl32$Phone
+          selector: "#ctl00_ctl32_Phone"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
+        - name: ctl00$ctl32$Email
+          selector: "#ctl00_ctl32_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl32$Subject
+          selector: "#ctl00_ctl32_Subject"
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: ctl00$ctl32$Body
+          selector: "#ctl00_ctl32_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
-          value: $TOPIC
+        - name: ctl00$ctl32$PrefixList
+          selector: "#ctl00_ctl32_PrefixList"
+          value: $NAME_PREFIX
           required: true
           options:
-            Agriculture: AGR
-            Animals: AN
-            Arts and Humanities: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
-            Health: HEA
-            Homeland Security: HOM
-            Housing and Urban Development: HUD
-            Immigration: IMM
-            International Relations: INT
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            No Response Necessary: NRN
-            Post Office: POST
-            Science and Technology: SCI
-            Social Issues: SOC
-            Senior Citizens: SENIORS
-            Social Security: SSEC
-            Social Services: SOC.SERVICES
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRADE
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Welfare: WEL
-            Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
-          required: true
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+    - check:
+        - name: ctl00$ctl32$ReplyChoice
+          selector: "#ctl00_ctl32_ReplyChoice_0"
+          value: Respond
     - click_on:
-        - value: Send Email
-          selector: ".field-items #contactForm #submit"
+        - value: Submit
+          selector: "#ctl00_ctl32_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank you for contacting me.
