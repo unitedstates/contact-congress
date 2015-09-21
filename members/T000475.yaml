@@ -15,6 +15,8 @@ contact_form:
           required: true
     - click_on:
         - selector: "#submit"
+    - javascript:
+        - value: "document.querySelector('#submit').click();"
     - find:
         - selector: "#required-first"
     - fill_in:
