@@ -121,6 +121,10 @@ contact_form:
   - click_on: 
     - value: Send Email to Representative Bost
       selector: "#contactForm #submit"
+  - wait:
+    - value: 1
+  - javascript:
+    - value: "document.querySelector('#contactForm #submit').click();"
   success: 
     headers: 
       status: 200
