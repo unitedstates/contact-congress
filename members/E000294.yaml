@@ -65,6 +65,8 @@ contact_form:
   - click_on: 
     - value: Send Email to Representative Emmer
       selector: "#contactForm #submit"
+  - javascript:
+    - value: "document.querySelector('#contactForm #submit').click();"
   success: 
     headers: 
       status: 200
