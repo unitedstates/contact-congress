@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
+    - javascript:
+        - value: "document.querySelector('#submit').click();"
     - find:
         - selector: "#contactForm"
     - fill_in:
