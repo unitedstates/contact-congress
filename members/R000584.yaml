@@ -39,12 +39,12 @@ contact_form:
           selector: "#field_b3546a94-6fc9-4491-b49e-491ab436132c"
           value: $MESSAGE
           required: true
-        - name: recaptcha_response_field
-          selector: "#recaptcha_response_field"
-          captcha_selector: "#recaptcha_image img"
-          captcha_id_selector: "#recaptcha_challenge_field"
+        - name: "g-recaptcha-response"
+          captcha_selector: ".g-recaptcha iframe"
           value: "$CAPTCHA_SOLUTION"
-          required: Yes
+          required: true
+          options:
+            google_recaptcha: true
     - select:
         - name: field_0cb45eca-a067-4502-a126-3bf34074a15a
           selector: "#field_0cb45eca-a067-4502-a126-3bf34074a15a"
