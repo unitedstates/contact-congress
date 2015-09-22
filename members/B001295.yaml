@@ -125,6 +125,10 @@ contact_form:
     - value: 2
   - javascript:
     - value: "document.querySelector('#contactForm #submit').click();"
+  - wait:
+    - value: 1
+  - javascript:
+    - value: "document.querySelector('#contactForm #submit').click();"
   success: 
     headers: 
       status: 200
