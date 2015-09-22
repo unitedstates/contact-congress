@@ -16,6 +16,8 @@ contact_form:
   - click_on: 
     - value: Go To Next Step
       selector: "#emailForm #submit"
+  - wait:
+    - value: 1
   - javascript:
     - value: "document.querySelector('#emailForm #submit').click();"
   - find: 
@@ -119,6 +121,8 @@ contact_form:
   - click_on: 
     - value: Send Email to Representative Boyle
       selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
+  - find:
+    - selector: ".data"
   success: 
     headers: 
       status: 200
