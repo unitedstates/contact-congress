@@ -13,9 +13,15 @@ contact_form:
       selector: "#zip4"
       value: $ADDRESS_ZIP4
       required: true
+  - wait:
+    - value: 2
   - click_on: 
     - value: Go To Next Step
       selector: "#emailForm #submit"
+  - wait:
+    - value: 2
+  - javascript:
+    - value: "document.querySelector('#emailForm #submit').click(); document.querySelector('#emailForm #submit').click();"
   - wait:
     - value: 2
   - javascript:
