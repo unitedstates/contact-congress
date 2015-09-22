@@ -19,7 +19,7 @@ contact_form:
   - wait:
     - value: 1
   - javascript:
-    - value: "document.querySelector('#emailForm #submit').click();"
+    - value: "document.querySelector('#emailForm #submit').click(); document.querySelector('#emailForm #submit').click();"
   - find: 
     - selector: "#required-prefix"
   - fill_in: 
