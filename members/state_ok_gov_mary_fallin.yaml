@@ -36,11 +36,13 @@ contact_form:
           selector: "#Message"
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: "#captcha"
-          captcha_selector: "div#captcha_image > img"
-          value: $CAPTCHA_SOLUTION
-          required: true
+    - click_on:
+      - name: toggle_logic
+        selector: "#captcha_toggle_logic"
+    - math:
+      - name: math_captcha
+        question_selector: "#captcha_logic em"
+        answer_selector: "#captcha"
     - select:
       - name: stateAbbrev
         selector: "#State"
