@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "http://bishop.house.gov/contact"
     - javascript:
-        - value: "document.querySelector('#section-footer').remove();"
+        - value: "document.querySelector('#section-footer').parentNode.removeChild(document.querySelector('#section-footer'));"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -19,9 +19,9 @@ contact_form:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
     - find:
-        - selector: "#sdsrequired-prefix"
+        - selector: "#required-prefix"
     - javascript:
-        - value: "document.querySelector('#section-footer').remove();"
+        - value: "document.querySelector('#section-footer').parentNode.removeChild(document.querySelector('#section-footer'));"
     - fill_in:
         - name: required-prefix
           selector: "#required-prefix"
