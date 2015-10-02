@@ -44,6 +44,19 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr
+            Mrs.: Mrs
+            Ms.: Ms
+            Miss.: Miss
+            Dr.: Dr
+            Hon.: Honorable
+            Rev.: Rev
+            Rabbi: Rabbi
         - name: required-subject
           selector: "#required-subject"
           value: $TOPIC
@@ -61,7 +74,8 @@ contact_form:
             Homeland Security: HOM
             Immigration: IMM
             International Relations: INT
-            Judiciarl: JUD
+            Judiciary: JUD
+            Second Amendment: GUN
             Social Issues: SOC
             Social Security: SSEC
             Social Services: SOC.SERVICES
@@ -71,6 +85,13 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other Issues: OTHER
+        - name: response
+          selector: "#response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, I would like a response from Congressman Olson": "Y"
+            "No, I was voicing my opinion": "N"
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
