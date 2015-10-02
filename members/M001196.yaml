@@ -110,6 +110,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#atform input[type='submit'][value='Submit']"
+    - wait:
+        - value: 1
   success:
     headers:
       status: 200
