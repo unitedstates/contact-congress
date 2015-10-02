@@ -1,124 +1,117 @@
 bioguide: M001196
-contact_form: 
+contact_form:
   method: post
-  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
-  steps: 
-  - visit: https://moulton.house.gov/contact
-  - fill_in: 
-    - name: required-zip5
-      selector: "#required-zip5"
-      value: $ADDRESS_ZIP5
-      required: true
-    - name: zip4
-      selector: "#zip4"
-      value: $ADDRESS_ZIP4
-      required: true
-  - click_on: 
-    - value: Go To Next Step
-      selector: "#emailForm #submit"
-  - find: 
-    - selector: "#required-prefix"
-  - fill_in: 
-    - name: required-first
-      selector: "#required-first"
-      value: $NAME_FIRST
-      required: true
-    - name: required-last
-      selector: "#required-last"
-      value: $NAME_LAST
-      required: true
-    - name: required-address
-      selector: "#required-address"
-      value: $ADDRESS_STREET
-      required: true
-    - name: required-city
-      selector: "#required-city"
-      value: $ADDRESS_CITY
-      required: true
-    - name: required-valid-email
-      selector: "#required-valid-email"
-      value: $EMAIL
-      required: true
-    - name: required-phone
-      selector: "#required-phone"
-      value: $PHONE
-      required: true
-    - name: required-message
-      selector: "#required-message"
-      value: $MESSAGE
-      required: true
-  - select:
-    - name: required-prefix
-      selector: "#required-prefix"
-      value: $NAME_PREFIX
-      required: true
-      options: 
-        Ms.: Ms.
-        Miss: Miss
-        Mrs.: Mrs.
-        Mr.: Mr.
-        Mr. and Mrs.: Mr. and Mrs.
-        Rev.: Rev.
-        Dr.: Dr.
-        The Honorable: The Honorable
-        Rabbi: Rabbi 
-    - name: required-issue
-      selector: "#required-issue"
-      value: $TOPIC
-      required: true
-      options: 
-        Agriculture: AGR
-        Animals: AN
-        Arts and Humanities: ART
-        Banking and Finance: BANK
-        Budget and Economy: BUD
-        Campaign Finance Reform: CFR
-        Congress and Elections: CONG
-        District of Columbia--Tours: TOUR
-        Defense and Military: DEF
-        Economy: ECON
-        Education: EDU
-        Energy: ENE
-        Environment: ENV
-        Federal Employees: FED
-        Foreign Relations: FR
-        Government Reform: GOV
-        Guns: GUN
-        Health: HEA
-        Homeland Security: HOM
-        Housing and Urban Development: HUD
-        Immigration: IMM
-        International Relations: INT
-        Judiciary: JUD
-        Labor: LAB
-        LGBT: LGBT
-        No Response Necessary: NRN
-        Post Office: POST
-        Science and Technology: SCI
-        Social Issues: SOC
-        Senior Citizens: SENIORS
-        Social Security: SSEC
-        Social Services: SOC.SERVICES
-        Taxes: TAX
-        Telecommunications: TEL
-        Transportation: TRA
-        Trade: TRADE
-        Veterans: VET
-        "Women's Issues": WOMEN
-        Welfare: WEL
-        Other Issues: OTHER
-    - name: required-response
-      selector: "#required-response"
-      value: Y
-      required: true
-      options: 
-        Yes, please contact me: Y
-        No, I wanted to voice my opinion: N
-  - click_on: 
-    - value: Send Email to Representative Moulton
-      selector: "#contactForm #submit"
-  success: 
-    headers: 
+  action: "/htbin/formproc.pl?/moulton/wp-content/themes/Moulton/formfiles/email-form.txt&display=/moulton/wp-content/themes/Moulton/formfiles/redirect.html&nobase&fpGetVer=2"
+  steps:
+    - visit: "http://moulton.house.gov/contact/email-form/"
+    - fill_in:
+        - name: salutation
+          selector: "#atform input[name='salutation']"
+          value: $NAME_PREFIX
+          required: true
+        - name: first_name
+          selector: "#atform input[name='first_name']"
+          value: $NAME_FIRST
+          required: true
+        - name: last_name
+          selector: "#atform input[name='last_name']"
+          value: $NAME_LAST
+          required: true
+        - name: street_address
+          selector: "#atform input[name='street_address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#atform input[name='city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip_code
+          selector: "#atform input[name='zip_code']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: primary_phone
+          selector: "#atform input[name='primary_phone']"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: "#atform input[name='verify_email']"
+          value: $EMAIL
+          required: true
+        - name: con_message
+          selector: "#atform textarea[name='con_message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: con_issue
+          selector: "#atform select[name='con_issue']"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGRICULTURE
+            Animals: ANIMALS
+            Appointments: APPOINTMENTS
+            Appropriations: APPROPRIATIONS
+            Banking: BANKING
+            Budget: BUDGET
+            Children: CHILDREN
+            Civil Rights: CIVILRIGHTS
+            Civil Service: CIVILSERVICE
+            Congress: CONGRESS
+            Crime/Gun Control: CRIME
+            Economy: ECONOMY
+            Defense/War: DEFENSE
+            Drugs: DRUGS
+            Education: EDUCATION
+            Elections/Voting: ELECTIONS
+            Energy: ENERGY
+            Environment: ENVIRONMENT
+            Foreign Affairs: FOREIGNAFFAIRS
+            Gay/Lesbian Issues: GAYS
+            Health: HEALTH
+            Housing: HOUSING
+            Immigration: IMMIGRATION
+            Judiciary: JUDICIARY
+            Jobs: JOBS
+            Labor: LABOR
+            Medicaid/Medicare: MEDICAID
+            Military/Armed Services: MILITARY
+            Native Americans: NATIVE AMERICANS
+            Passports: PASSPORTS
+            Politics: POLITICS
+            Post Office: POSTOFFICE
+            Poverty: POVERTY
+            The President: PRESIDENT
+            Science: SCIENCE
+            Small Business: SMALLBUSINESS
+            Social Security: SOCIALSECURITY
+            Space/NASA: SPACE
+            Taxation: TAX
+            Technology: TECHNOLOGY
+            Telecommunications: TELECOM
+            Telephone Town Hall: TELEPHONE TOWN HALL
+            Terrorism: TERRORISM
+            Trade/Commerce: TRADE
+            Transportation: TRANSPORTATION
+            Veterans Affairs: VETERANS
+            Welfare/Poverty: WELFARE
+            "Women's Issues": WOMEN
+            Miscellaneous/Other: MISCELLANEOUS
+        - name: con_respond
+          selector: "#atform select[name='con_respond']"
+          value: "yes"
+          required: false
+          options:
+            "Yes, Please Contact Me": "yes"
+            "No, I wanted to voice my opinion": "no"
+    - click_on:
+        - value: Submit
+          selector: "#atform input[type='submit'][value='Submit']"
+  success:
+    headers:
       status: 200
-    body: 
-      contains: your message has been sent
+    body:
+      contains: Thank you for your e-mail and your message.
