@@ -134,14 +134,14 @@ These graphics are pulled in near-real-time from the [congress-forms-test](http:
 
 
 
-| Bioguide ID | Website | Status 
+| Bioguide ID | Website | Status
 |-------------|---------|:------------:|:------------:
 | [A000360](https://github.com/unitedstates/contact-congress/blob/master/members/A000360.yaml) | [Sen. Lamar Alexander (R-TN)](http://www.alexander.senate.gov) | [![A000360 status](https://congressforms.eff.org/recent-fill-image/A000360)](http://efforg.github.io/congress-forms-test/?bioguide_id=A000360)
 | [A000368](https://github.com/unitedstates/contact-congress/blob/master/members/A000368.yaml) | Sen. Kelly Ayotte (R-NH)| [![A000368 status](https://congressforms.eff.org/recent-fill-image/A000368)](http://efforg.github.io/congress-forms-test/?bioguide_id=A000368)
 | [B001230](https://github.com/unitedstates/contact-congress/blob/master/members/B001230.yaml) | Sen. Tammy Baldwin (D-WI)| [![B001230 status](https://congressforms.eff.org/recent-fill-image/B001230)](http://efforg.github.io/congress-forms-test/?bioguide_id=B001230)
 | [B001261](https://github.com/unitedstates/contact-congress/blob/master/members/B001261.yaml) | Sen. John Barrasso (R-WY)| [![B001261 status](https://congressforms.eff.org/recent-fill-image/B001261)](http://efforg.github.io/congress-forms-test/?bioguide_id=B001261)
 | [B001267](https://github.com/unitedstates/contact-congress/blob/master/members/B001267.yaml) | Sen. Michael Bennet (D-CO)| [![B001267 status](https://congressforms.eff.org/recent-fill-image/B001267)](http://efforg.github.io/congress-forms-test/?bioguide_id=B001267)
-| [B001277](https://github.com/unitedstates/contact-congress/blob/master/members/B001277.yaml) | Sen. Richard Blumenthal (D-CT)| [![B001277 status](https://congressforms.eff.org/recent-fill-image/B001277)](http://efforg.github.io/congress-forms-test/?bioguide_id=B001277)
+| [B001277](https://github.com/unitedstates/contact-congress/blob/master/members/B001277.yaml) | [Sen. Richard Blumenthal (D-CT)](http://www.blumenthal.senate.gov) | [![B001277 status](https://congressforms.eff.org/recent-fill-image/B001277)](http://efforg.github.io/congress-forms-test/?bioguide_id=B001277)
 | [B000575](https://github.com/unitedstates/contact-congress/blob/master/members/B000575.yaml) | Sen. Roy Blunt (R-MO)| [![B000575 status](https://congressforms.eff.org/recent-fill-image/B000575)](http://efforg.github.io/congress-forms-test/?bioguide_id=B000575)
 | [B001288](https://github.com/unitedstates/contact-congress/blob/master/members/B001288.yaml) | [Sen. Cory Booker (D-NJ)](http://www.booker.senate.gov) | [![B001288 status](https://congressforms.eff.org/recent-fill-image/B001288)](http://efforg.github.io/congress-forms-test/?bioguide_id=B001288)
 | [B001236](https://github.com/unitedstates/contact-congress/blob/master/members/B001236.yaml) | Sen. John Boozman (R-AR)| [![B001236 status](https://congressforms.eff.org/recent-fill-image/B001236)](http://efforg.github.io/congress-forms-test/?bioguide_id=B001236)
