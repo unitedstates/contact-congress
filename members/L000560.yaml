@@ -20,7 +20,7 @@ contact_form:
         - selector: "#contactForm"
     - fill_in:
         - name: prefix
-          selector: "#prefix"
+          selector: "form fieldset:first-child select:first-of-type"
           value: $NAME_PREFIX
           required: false
         - name: required-first
