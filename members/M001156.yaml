@@ -17,47 +17,47 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#ctl00_ctl08_FirstName"
+        - selector: "#ctl00_ctl35_FirstName"
     - fill_in:
-        - name: ctl00$ctl08$FirstName
-          selector: "#ctl00_ctl08_FirstName"
+        - name: ctl00$ctl35$FirstName
+          selector: "#ctl00_ctl35_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl08$LastName
-          selector: "#ctl00_ctl08_LastName"
+        - name: ctl00$ctl35$LastName
+          selector: "#ctl00_ctl35_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl08$Street
-          selector: "#ctl00_ctl08_Street"
+        - name: ctl00$ctl35$Street
+          selector: "#ctl00_ctl35_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl08$City
-          selector: "#ctl00_ctl08_City"
+        - name: ctl00$ctl35$City
+          selector: "#ctl00_ctl35_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl08$Zip
-          selector: "#ctl00_ctl08_Zip"
+        - name: ctl00$ctl35$Zip
+          selector: "#ctl00_ctl35_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl08$Phone
-          selector: "#ctl00_ctl08_Phone"
+        - name: ctl00$ctl35$Phone
+          selector: "#ctl00_ctl35_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl08$Email
-          selector: "#ctl00_ctl08_Email"
+        - name: ctl00$ctl35$Email
+          selector: "#ctl00_ctl35_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl08$Subject
-          selector: "#ctl00_ctl08_Subject"
+        - name: ctl00$ctl35$Subject
+          selector: "#ctl00_ctl35_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl08$Body
-          selector: "#ctl00_ctl08_Body"
+        - name: ctl00$ctl35$Body
+          selector: "#ctl00_ctl35_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl08$PrefixList
-          selector: "#ctl00_ctl08_PrefixList"
+        - name: ctl00$ctl35$PrefixList
+          selector: "#ctl00_ctl35_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -89,57 +89,13 @@ contact_form:
             - Sr.
             - SSgt.
             - The Honorable
-        - name: ctl00$ctl08$IssuesList
-          selector: "#ctl00_ctl08_IssuesList"
-          value: $TOPIC
-          required: true
-          options:
-            Abortion: "44694"
-            Agriculture: "44695"
-            Animal Rights: "44696"
-            Appropriations: "44697"
-            Budget: "44730"
-            Capitol/White House Tour: "44698"
-            Crime: "44699"
-            "Defense of Marriage & Traditional Values": "1622"
-            Defense/War: "44700"
-            Education: "44701"
-            Energy: "44702"
-            Environment: "1613"
-            Ethics/Government Reform/Lobbying: "44703"
-            FDA: "44704"
-            Financial Services/Banking/Commerce: "44705"
-            Guns: "44706"
-            Healthcare: "1617"
-            Housing: "44709"
-            Illegal Drugs: "44710"
-            "Immigration & Border Security": "2100"
-            "Infrastructure & Transportation": "1623"
-            International Relations: "44711"
-            Judiciary/Tort Reform/Legal Issues: "44712"
-            Medicare/Medicaid: "44714"
-            National Guard: "44715"
-            Native American Affairs: "44716"
-            Other - Not Listed: "44724"
-            Pension: "44717"
-            Phones/Internet/Television: "44718"
-            Postal Reform: "44719"
-            Prescription Drugs: "44720"
-            Science/Technology: "44721"
-            Small Businesses: "1625"
-            Strengthening Social Security: "1624"
-            Tax Relief: "1334"
-            Thank You: "44722"
-            The Economy: "44731"
-            Trade Policy: "1335"
-            Welfare: "44723"
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl08_SubmitButton"
+          selector: "#ctl00_ctl35_SubmitButton"
     - find:
-        - selector: "span#ctl00_ctl08_ConfirmationText"
+        - selector: "span#ctl00_ctl35_ConfirmationText"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office with your concerns
+      contains: Thank you for contacting my office with your concerns.
