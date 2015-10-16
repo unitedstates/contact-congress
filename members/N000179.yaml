@@ -47,15 +47,6 @@ contact_form:
           selector: "#required-message"
           value: $MESSAGE
           required: true
-    - wait:
-        - value: 1
-    - fill_in:
-        - name: recaptcha_response_field
-          selector: "input#recaptcha_response_field"
-          captcha_selector: "img#recaptcha_challenge_image"
-          captcha_id_selector: "input#recaptcha_challenge_field"
-          value: "$CAPTCHA_SOLUTION"
-          required: true
     - select:
         - name: required-issue
           selector: "#required-issue"
@@ -88,8 +79,8 @@ contact_form:
             "Women's Issues": WOMEN
             Other Issues: OTHER
     - click_on:
-        - value: Submit
-          selector: ".form-100 #submit"
+        - value: Send Email
+          selector: "#submit"
     - find:
         - selector: "p"
           value: "The following information has been submitted:"
