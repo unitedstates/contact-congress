@@ -78,15 +78,6 @@ contact_form:
             Welfare: WELF
             "Women's Issues": WOMEN
             Other Issues: OTHER
-    - wait:		
-        - value: 1		
-    - fill_in:		
-        - name: recaptcha_response_field		
-          selector: "input#recaptcha_response_field"		
-          captcha_selector: "img#recaptcha_challenge_image"		
-          captcha_id_selector: "input#recaptcha_challenge_field"		
-          value: "$CAPTCHA_SOLUTION"		
-          required: true
     - click_on:
         - value: Send Email
           selector: "#submit"
