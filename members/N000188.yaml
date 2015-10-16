@@ -36,7 +36,7 @@ contact_form:
           value: $ADDRESS_CITY
           required: true
         - name: required-valid-email
-          selector: "#contactForm #required-valid-email"
+          selector: ".pane-content #contactForm #required-valid-email"
           value: $EMAIL
           required: true
         - name: required-phone
@@ -115,7 +115,7 @@ contact_form:
             "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
-          selector: "#contactForm #submit"
+          selector: ".pane-content #contactForm #submit"
   success:
     headers:
       status: 200
