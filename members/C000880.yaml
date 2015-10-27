@@ -6,6 +6,8 @@ contact_form:
     - visit: http://www.crapo.senate.gov/contact/email.cfm
     - click_on:
       - selector: ".modal-backdrop"
+    - wait:
+      - value: 1
     - fill_in:
       - name: firstName
         selector: "#firstName"
