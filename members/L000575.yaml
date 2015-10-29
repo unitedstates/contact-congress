@@ -1,81 +1,113 @@
 bioguide: L000575
 contact_form:
   method: post
-  action: /content/contact-james
+  action: "http://www.lankford.senate.gov/contact/email"
   steps:
-    - visit: "http://www.lankford.senate.gov/content/contact-james"
-    - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
-          value: $NAME_FIRST
-          required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
-          value: $NAME_LAST
-          required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
-          value: $ADDRESS_STREET
-          required: true
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: "submitted[constituent_information][phone]"
-          selector: "#edit-submitted-constituent-information-phone"
-          value: $PHONE
-          required: false
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
-          value: $EMAIL
-          required: true
-        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
-          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
-          value: $SUBJECT
-          required: true
-        - name: "submitted[message_details][message]"
-          selector: "#edit-submitted-message-details-message"
-          value: $MESSAGE
-          required: true
+    - visit: "http://www.lankford.senate.gov/contact/email"
     - select:
-        - name: "submitted[constituent_information][prefix]"
-          selector: "#edit-submitted-constituent-information-prefix"
+        - name: input_AE7457DD-4040-F985-52CD-B99385041C51
+          selector: "#actions"
+          value: opinion
+          required: true
+          options:
+            Send an email to comment on legislation: opinion
+            Help with a federal agency: federal_agency
+            Scheduling Request: meeting
+            Office Locations: office
+        - name: input_AB59F08A-4040-F985-52CD-7633AA11C65E
+          selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
-            - Mrs.
             - Ms.
+            - Mrs.
+            - Miss
             - Mr. and Mrs.
             - Dr.
             - Dr. and Mrs.
+            - Dr. and Mr.
             - Reverend
             - Sister
             - Pastor
+            - Rabbi
             - The Honorable
             - Representative
             - Senator
-        - name: "submitted[constituent_information][state]"
-          selector: "#edit-submitted-constituent-information-state"
+            - Fleet Admiral
+            - Admiral
+            - Vice Admiral
+            - Rear Admiral (upper half)
+            - Rear Admiral (lower half)
+            - Captain
+            - Commander
+            - Lieutenant Commander
+            - Lieutenant
+            - "Lieutenant, Junior Grade"
+            - Ensign
+            - Chief Warrant Officer
+            - Warrant Officer
+            - Master Chief Petty Officer of the Navy
+            - Fleet Master Chief Petty Officer
+            - Force Master Chief Petty Officer
+            - Command Master Chief Petty Officer
+            - Master Chief Petty Officer
+            - Senior Chief Petty Officer
+            - Chief Petty Officer
+            - Petty Officer First Class
+            - Petty Officer Second Class
+            - Petty Officer Third Class
+            - Seaman
+            - Seaman Apprentice
+            - Seaman Recruit
+            - Sergeant Major of the Marine Corps
+            - Sergeant Major
+            - Master Gunnery Sergeant
+            - First Sergeant
+            - Master Sergeant
+            - Gunnery Sergeant
+            - Staff Sergeant
+            - Sergeant
+            - Corporal
+            - Lance Corporal
+            - Private First Class
+            - Private
+            - General of the Air Force
+            - General
+            - Lieutenant General
+            - Major General
+            - Brigadier General
+            - Colonel
+            - Lieutenant Colonel
+            - Major
+            - First Lieutenant
+            - Second Lieutenant
+            - Chief Master Sergeant of the Air Force
+            - Command Chief Master Sergeant
+            - Chief Master Sergeant
+            - Senior Master Sergeant
+            - Technical Sergeant
+            - Senior Airman
+            - Airman First Class
+            - Airman
+            - General of the Army
+            - Sergeant Major of the Army
+            - Command Sergeant Major
+            - Sergeant First Class
+        - name: input_AB5B6894-4040-F985-52CD-DFC6D3C729DF
+          selector: "#input-AB5B6894-4040-F985-52CD-DFC6D3C729DF"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            - AA
-            - AE
-            - AP
             - AL
             - AK
-            - AZ
             - AR
+            - AZ
             - CA
             - CO
             - CT
-            - DE
             - DC
+            - DE
             - FL
             - GA
             - HI
@@ -118,8 +150,8 @@ contact_form:
             - WV
             - WI
             - WY
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
+        - name: input_AB8156A0-4040-F985-52CD-49CE65770EFC
+          selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
           value: $TOPIC
           required: true
           options:
@@ -135,13 +167,14 @@ contact_form:
             - Civil Rights
             - Commerce
             - Communications
+            - Congratulations
             - Congressional Issues
             - Crime
             - Defense
             - Drugs
             - Economy
             - Education Higher
-            - "Education K through 12"
+            - Education K through 12
             - Elections
             - Energy
             - Environment
@@ -153,6 +186,7 @@ contact_form:
             - Homeland Security
             - Housing
             - Immigration
+            - Inauguration
             - Insurance Health
             - Insurance Other
             - Interior
@@ -177,14 +211,56 @@ contact_form:
             - Veterans
             - Welfare
             - "Women's Issues"
+    - fill_in:
+        - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
+          selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
+          value: $NAME_FIRST
+          required: true
+        - name: input_AB59F0ED-4040-F985-52CD-265D9CF13F5E
+          selector: "#input-AB59F0ED-4040-F985-52CD-265D9CF13F5E"
+          value: $NAME_LAST
+          required: true
+        - name: input_AB5B6829-4040-F985-52CD-BF81DCC1F57D
+          selector: "#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_AB5B6853-4040-F985-52CD-7517D971BE75
+          selector: "#input-AB5B6853-4040-F985-52CD-7517D971BE75"
+          value: $ADDRESS_STREET_2
+          required: true
+        - name: input_AB5B6875-4040-F985-52CD-909541CB4B6C
+          selector: "#input-AB5B6875-4040-F985-52CD-909541CB4B6C"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_AB5B68B4-4040-F985-52CD-269A4338D057
+          selector: "#input-AB5B68B4-4040-F985-52CD-269A4338D057"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_AB67BC2F-4040-F985-52CD-007A86DA4D47
+          selector: "#input-AB67BC2F-4040-F985-52CD-007A86DA4D47"
+          value: $PHONE
+          required: true
+        - name: input_AB721CC4-4040-F985-52CD-76D1474A55F4
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: input_AB721CE8-4040-F985-52CD-9E550E8A76AA
+          selector: "#input-AB721CE8-4040-F985-52CD-9E550E8A76AA"
+          value: $EMAIL
+          required: true
+        - name: input_3C59591F-5056-A066-6088-5D612B17F7C4
+          selector: "#input-3C59591F-5056-A066-6088-5D612B17F7C4"
+          value: $SUBJECT
+          required: true
+        - name: input_ADE64E73-4040-F985-52CD-A3AB6BCD2C51
+          selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
+          value: $MESSAGE
+          required: true
     - click_on:
         - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
-    - find:
-        - value: Thank you
-          selector: "p"
+          selector: input.btn
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Thank you for submitting your Request to our office.
