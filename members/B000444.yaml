@@ -1,0 +1,106 @@
+bioguide: B000444
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: https://www.whitehouse.gov/contact/organization
+    - fill_in:
+        - name: submitted[first_name]
+          selector: "#edit-submitted-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: submitted[last_name]
+          selector: "#edit-submitted-last-name"
+          value: $LAST_FIRST
+          required: true
+        - name: submitted[zip]
+          selector: "#edit-submitted-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+    - select:
+        - name: submitted[country]
+          selector: "#edit-submitted-country"
+          value: United States
+        - name: submitted[subject]
+          selector: "#edit-submitted-subject"
+          value: $TOPIC
+          required: true
+          options:
+            0: "Afghanistan & Iraq"
+            1: Civil Rights
+            2: Economy
+            3: Education
+            4: Energy
+            5: Environment
+            6: Foreign Policy
+            7: Health Care
+            8: Homeland Security
+            9: Housing
+            10: Immigration
+            11: Job Creation
+            12: Middle Class Task Force
+            13: Recovery Act
+            14: "Science & Technology"
+            15: Seniors
+            16: Taxes
+            17: Transportation
+            18: Veterans
+            19: Help with a Federal Agency
+            20: The Administration
+            21: The Biden Family
+            22: The First Family
+            23: Other: 23
+    - fill_in:
+        - name: submitted[message]
+          selector: "#edit-submitted-message"
+          value: $MESSAGE
+          required: true
+        - name: submitted[delivery_agent_name]
+          selector: "#edit-submitted-delivery-agent-name"
+          value: EveryAction
+          required: true
+        - name: submitted[delivery_agent_first_name]
+          selector: "#edit-submitted-delivery-agent-first-name"
+          value: Mike
+          required: true
+        - name: submitted[delivery_agent_last_name]
+          selector: "#edit-submitted-delivery-agent-last-name"
+          value: Liddell
+          required: true
+        - name: submitted[delivery_agent_email]
+          selector: "#edit-submitted-delivery-agent-email"
+          value: advocacysupport@everyaction.com
+          required: true
+        - name: submitted[delivery_agent_phone]
+          selector: "#edit-submitted-delivery-agent-phone"
+          value: 202-370-8050
+        - name: submitted[delivery_agent_title]
+          selector: "#edit-submitted-delivery-agent-title"
+          value: General Manager, Digital
+        - name: submitted[delivery_agent_organization]
+          selector: "#edit-submitted-delivery-agent-organization"
+          value: EveryAction
+        - name: submitted[delivery_agent_street]
+          selector: "#edit-submitted-delivery-agent-street"
+          value: 1101 15TH ST NW STE 500
+        - name: submitted[delivery_agent_zip]
+          selector: "#edit-submitted-delivery-agent-zip"
+          value: 20005-5006
+        - name: submitted[delivery_agent_city]
+          selector: "#edit-submitted-delivery-agent-city"
+          value: Washington
+    - select:
+        - name: submitted[delivery_agent_state]
+          selector: "#edit-submitted-delivery-agent-city"
+          value: DC
+        - name: submitted[delivery_agent_country]
+          selector: "#edit-submitted-delivery-agent-country"
+          value: United States
+    - click_on:
+        - value: Submit
+          selector: "#edit-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: contacting the White House about submitting messages
