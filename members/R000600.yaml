@@ -14,6 +14,8 @@ contact_form:
       selector: "#emailForm #submit"
   - find: 
     - selector: "#required-prefix"
+  - javascript:
+    - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
   - fill_in: 
     - name: required-first
       selector: "#required-first"
