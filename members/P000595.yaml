@@ -7,16 +7,16 @@ contact_form:
     - select:
         - name: actions
           selector: "#actions"
-          value: opinion
+          value: $SUBTOPIC1
           required: true
           options:
-            - opinion
-            - Help with a Federal Agency
-            - Meeting Requests
-            - Tour Requests
-            - Office Locations
-            - Student Resources
-            - Veterans Resources
+            Comment on an Issue: opinion
+            Help with a Federal Agency: Help with a Federal Agency
+            Meeting Requests: Meeting Requests
+            Tour Requests: Tour Requests
+            Office Locations: Office Locations
+            Student Resources: Student Resources
+            Veterans Resources: Veterans Resources
     - find:
         - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
