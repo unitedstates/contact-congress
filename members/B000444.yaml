@@ -18,6 +18,16 @@ contact_form:
           value: $ADDRESS_ZIP5
           required: true
     - select:
+        - name: prefix
+          selector: "#edit-submitted-prefix"
+          value: $NAME_PREFIX
+          options:
+            1: Mr.
+            2: Mrs.
+            3: Ms.
+            4: Miss
+            5: Dr.
+            6: The Honorable
         - name: submitted[country]
           selector: "#edit-submitted-country"
           value: United States
