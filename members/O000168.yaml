@@ -19,10 +19,6 @@ contact_form:
     - find:
         - selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: firstname
           selector: "#required-first"
           value: $NAME_FIRST
@@ -37,8 +33,8 @@ contact_form:
           required: true
         - name: street2
           selector: "#address2"
-          value: $ADDRESS_STREET2
-          required: true
+          value: $ADDRESS_STREET_2
+          required: false
         - name: city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -52,6 +48,19 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Mr.: Mr
+            Mrs.: Mrs
+            Ms.: Ms
+            Miss.: Miss
+            Dr.: Dr
+            Hon.: Honorable
+            Rev.: Rev
+            Rabbi: Rabbi
         - name: subject
           selector: "#required-subject"
           value: $TOPIC
@@ -69,7 +78,7 @@ contact_form:
             Homeland Security: HOM
             Immigration: IMM
             International Relations: INT
-            Judicial: JUD
+            Judiciary: JUD
             Social Issues: SOC
             Social Security: SSEC
             Taxes and Trade: TAX
@@ -78,9 +87,13 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other: OTH
+        - name: response
+          selector: "#response"
+          value: "Y"
+          required: true
     - click_on:
-        - value: Submit
-          selector: "input[value='Send Email']"
+        - value: Send Email
+          selector: "#submit"
   success:
     headers:
       status: 200
