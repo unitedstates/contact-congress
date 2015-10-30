@@ -19,10 +19,6 @@ contact_form:
     - find:
         - selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: firstname
           selector: "#required-first"
           value: $NAME_FIRST
@@ -34,10 +30,6 @@ contact_form:
         - name: street
           selector: "#required-address"
           value: $ADDRESS_STREET
-          required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET2
           required: true
         - name: city
           selector: "#required-city"
@@ -69,7 +61,7 @@ contact_form:
             Homeland Security: HOM
             Immigration: IMM
             International Relations: INT
-            Judicial: JUD
+            Judiciary: JUD
             Social Issues: SOC
             Social Security: SSEC
             Taxes and Trade: TAX
