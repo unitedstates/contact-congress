@@ -15,7 +15,7 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+          selector: "#emailForm button#submit"
     - select:
         - name: prefix
           selector: "#required-prefix"
@@ -55,10 +55,6 @@ contact_form:
           selector: "#required-phone"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
-          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
@@ -69,52 +65,56 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Agriculture: AG
+            Agriculture: AGR
             Animals: AN
             Arts and Humanities: ART
-            Badger Army Ammunition Plant: BAAP
             Banking and Finance: BANK
             Budget and Economy: BUD
+            Help With a Federal Agency: Casework
             Campaign Finance Reform: CFR
             Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
             Defense and Military: DEF
-            Education: ED
-            Energy: EN
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
             Environment: ENV
             Federal Employees: FED
             Foreign Relations: FR
+            Government Reform: GOV
             Guns: GUN
-            Health: HE
+            Health: HEA
+            Homeland Security: HOM
             Housing and Urban Development: HUD
-            Immigration: IM
+            Immigration: IMM
+            International Relations: INT
             Judiciary: JUD
             Labor: LAB
             LGBT: LGBT
+            No Response Necessary: NRN
             Post Office: POST
             Science and Technology: SCI
+            Social Issues: SOC
             Senior Citizens: SENIORS
-            Social Security: SS
+            Social Security: SSEC
             Social Services: SOC.SERVICES
             Taxes: TAX
-            Telecommunications: COMM
-            Transportation: TRAN
-            Trade: TRD
+            Telecommunications: TEL
+            Tours: Tours
+            Transportation: TRA
+            Trade: TRADE
             Veterans: VET
             "Women's Issues": WOMEN
-            Other Issues: OTHER
+            Welfare: WEL
+            Other Issue: OTHER
         - name: required-response
           selector: "#required-response"
           value: "Y"
           required: true
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
-    - find:
-        - selector: "h1#page-title"
-          value: "Thank You"
+          selector: "#contactForm button#submit"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "Thank you"
