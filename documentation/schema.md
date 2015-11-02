@@ -35,6 +35,7 @@ a subset of [Capybara methods](http://rubydoc.info/github/jnicklas/capybara/mast
     steps should be executed until the selector is present and visible.
 - [`fill_in`](#fill_in): Entering text into a text `input` or `textarea`.
 - [`select`](#select): Choosing a value from a `select` list.
+- [`wait`](#wait): Waits a time in seconds
 - [`check`](#checkuncheckchoose): Ticking a checkbox `input`.
 - [`uncheck`](#checkuncheckchoose) The opposite of `check`.
 - [`choose`](#checkuncheckchoose) Ticking a specific item in a set of radio 
@@ -74,6 +75,10 @@ The purpose of this is to access elements on a form that may be embedded in an i
 ### find
 
 The value of a find step is just a string CSS selector which should be found on the page (and should be visible) before proceeding to execute more steps.
+
+### wait
+
+The value is a number of seconds to wait before performing another action. Find should be used if it all possible instead of wait.
 
 ### fill_in
 
