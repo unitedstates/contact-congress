@@ -113,11 +113,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contactForm button#submit"
-    - find:
-        - selector: "p"
-          value: "Thank you"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "Thank you"
