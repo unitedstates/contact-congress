@@ -1,53 +1,48 @@
 bioguide: P000603
 contact_form:
   method: post
-  action: "http://www.paul.senate.gov/connect/email-rand"
+  action: ""
   steps:
     - visit: "http://www.paul.senate.gov/connect/email-rand"
-    - wait:
-      - value: 2
-    - remove:
-      - name: iframe1
-        selector: "div.g-recaptcha div div iframe[src^='https://www.google.com/recaptcha/api2/anchor']"
     - fill_in:
-        - name: input_35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD
+        - name: firstname
           selector: "#input-35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD"
           value: $NAME_FIRST
           required: true
-        - name: input_35BD1D5A-9FBB-121F-9E6D-F05C00786FA5
+        - name: lastname
           selector: "#input-35BD1D5A-9FBB-121F-9E6D-F05C00786FA5"
           value: $NAME_LAST
           required: true
-        - name: input_35E2030D-0BE0-C6C3-F685-66EAF2C47AD2
+        - name: street
           selector: "#input-35E2030D-0BE0-C6C3-F685-66EAF2C47AD2"
           value: $ADDRESS_STREET
           required: true
-        - name: input_35F31A1A-E58A-4DBB-3443-57763D9F57B3
+        - name: city
           selector: "#input-35F31A1A-E58A-4DBB-3443-57763D9F57B3"
           value: $ADDRESS_CITY
           required: true
-        - name: input_36021752-DBB4-99CD-0DF8-775968CFD2C5
+        - name: zip5
           selector: "#input-36021752-DBB4-99CD-0DF8-775968CFD2C5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_3626C40E-B571-4595-8A61-4D52E0AAD553
+        - name: email
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: input_3629D55A-D2E7-5DF0-4EC9-CF7353DD9A7D
+        - name: email
           selector: "#input-3629D55A-D2E7-5DF0-4EC9-CF7353DD9A7D"
           value: $EMAIL
           required: true
-        - name: input_F8813686-4040-F985-52CD-09783C7407E6
+        - name: subject
           selector: "#subject"
           value: $SUBJECT
           required: true
-        - name: input_36466B2D-9324-A3EC-8F49-33D7F83F9C08
+        - name: message
           selector: "#messagebody"
           value: $MESSAGE
           required: true
     - select:
-        - name: input_35B67D45-0EE9-695F-CF75-CB73E9531F2A
+        - name: prefix
           selector: "#input-35B67D45-0EE9-695F-CF75-CB73E9531F2A"
           value: $NAME_PREFIX
           required: true
@@ -186,47 +181,55 @@ contact_form:
             - Navy - Seaman Apprentice
             - Navy - Seaman
             - Navy - Seaman Recruit
-        - name: input_F86363CE-4040-F985-52CD-25BC1B061358
+        - name: topic
           selector: "#input-F86363CE-4040-F985-52CD-25BC1B061358"
           value: $TOPIC
           required: true
           options:
-            - Abortion / Sanctity of Life
+            - Abortion / Pro-Life
+            - Academy
+            - Adoption
             - Agriculture
+            - Appropriations
             - Arts
-            - Banking / Finance
-            - Border Security
+            - Banking
             - Budget
+            - Casework
             - Census
-            - Congressional / Judicial / Investigations
-            - "Crime / Law Enforcement"
-            - Defense / National Security
-            - Economic Development / Trade / Commerce
+            - Constitutional Issues
+            - "Crime & Law Enforcement"
+            - Defense and Armed Services
+            - Economic Development
             - Education
             - Energy
             - Environment
             - FDA
-            - Firearms
+            - FEMA
             - Foreign Affairs
-            - Healthcare
-            - Homeland Security
+            - Government Reform
+            - Health Care
+            - Homeland Security and TSA
             - Housing
-            - Immigration
-            - Internet
-            - Iraq / Afghanistan
-            - Labor Issues
-            - Medicare / Medicaid
-            - Overcriminalization of Drugs
-            - Science / Technology
-            - Postal
-            - Retirement
+            - Illegal Drugs
+            - Immigration and Border Security
+            - "Judicial "
+            - Labor / Pensions
+            - Natural Resources
+            - Post Offices
+            - Referral
+            - Religion
+            - Rural Development
+            - "Science, Space and Technology"
+            - Second Amendment
             - Small Business
-            - Social Issues
             - Social Security
+            - Special Letter
+            - Trade and Commerce
             - Taxes
             - Telecommunications
             - Transportation
             - Veterans Issues
+    - recaptcha:
     - click_on:
         - value: Submit
           selector: input.btn
