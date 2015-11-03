@@ -5,101 +5,101 @@ contact_form:
   steps:
     - visit: "https://www.feinstein.senate.gov/public/index.cfm/e-mail-me"
     - fill_in:
-      - name: firstname
-        selector: "#field_0c5a1392-6512-4fa5-a213-eb7e1cbaf1ad"
-        value: $NAME_FIRST
-        required: true
-      - name: lastname
-        selector: "#field_ac791fc0-5e57-4f5e-88d4-6ef9e730f470"
-        value: $NAME_LAST
-        required: true
-      - name: street
-        selector: "#field_844e2e93-7496-4372-bb04-d0cf157684f0"
-        value: $ADDRESS_STREET
-        required: true
-      - name: street2
-        selector: "#field_289b92dd-13e8-40e7-b141-1a02c6acdcea"
-        value: $ADDRESS_STREET_2
-        required: false
-      - name: city
-        selector: "#field_c44b713c-04ad-411a-9744-6e7f2ff71898"
-        value: $ADDRESS_CITY
-        required: true
-      - name: zip5
-        selector: "#field_64d2124b-a227-4f90-ad83-65dbc8175a69"
-        value: $ADDRESS_ZIP5
-        required: true
-      - name: email
-        selector: "#field_d065bdd9-7c1e-4d99-a50e-6a1adae8803b"
-        value: $EMAIL
-        required: true
-      - name: message
-        selector: "#field_130638f0-2eec-4c6b-83be-11e83bb5ced3"
-        value: $MESSAGE
-        required: true
+        - name: firstname
+          selector: "#field_0C5A1392-6512-4FA5-A213-EB7E1CBAF1AD"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#field_AC791FC0-5E57-4F5E-88D4-6EF9E730F470"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#field_844E2E93-7496-4372-BB04-D0CF157684F0"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#field_289B92DD-13E8-40E7-B141-1A02C6ACDCEA"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#field_C44B713C-04AD-411A-9744-6E7F2FF71898"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#field_64D2124B-A227-4F90-AD83-65DBC8175A69"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#field_D065BDD9-7C1E-4D99-A50E-6A1ADAE8803B"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "#field_130638F0-2EEC-4C6B-83BE-11E83BB5CED3"
+          value: $MESSAGE
+          required: true
     - choose:
-      - name: subject
-        selector: "[type='radio'][name='field_302E8A41-000D-419E-991E-40C7CB96F97C']"
-        value: $TOPIC
-        required: true
-        options:
-          Abortion: "Abortion.Hlth"
-          Agriculture: ag
-          Animals: Anim
-          "Banking / Finance": BF
-          Budget: Budget
-          "Civil Liberties / Rights": Civil Liberties
-          "Communications / FCC": Comm
-          Defense: Def
-          Economy: Economy
-          Education: Ed
-          Energy: Eng
-          Environment: Env
-          Foreign Affairs: FA
-          Government Affairs: Govt
-          Gun Control: "Jud.Gun Control"
-          Health: Hlth
-          Homeland Security: Homeland Security
-          Housing: Hous
-          "Human Services / Welfare": Hmn
-          Immigration: Immig
-          Indian Affairs: Indian
-          Intelligence Committee: Intelligence Committ
-          "Judiciary, Narcotics / Illicit Drugs": Jud
-          Labor: Lab
-          LGBT: Gay
-          "Medicare/Medicaid": "Medicare.Medicaid"
-          "Science / Space / Technology": Science
-          Social Security: SSec
-          Taxes: Tax
-          Trade: Trade
-          Transportation: Trans
-          "U.S. Postal Service": USPS
-          Veterans: Vet
-          Water: "Water.Evn"
+        - name: subject
+          selector: "[type='radio'][name='field_302E8A41-000D-419E-991E-40C7CB96F97C']"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: "Abortion.Hlth"
+            Agriculture: ag
+            Animals: Anim
+            "Banking / Finance": BF
+            Budget: Budget
+            "Civil Liberties / Rights": Civil Liberties
+            "Communications / FCC": Comm
+            Defense: Def
+            Economy: Economy
+            Education: Ed
+            Energy: Eng
+            Environment: Env
+            Foreign Affairs: FA
+            Government Affairs: Govt
+            Gun Control: "Jud.Gun Control"
+            Health: Hlth
+            Homeland Security: Homeland Security
+            Housing: Hous
+            "Human Services / Welfare": Hmn
+            Immigration: Immig
+            Indian Affairs: Indian
+            Intelligence Committee: Intelligence Committ
+            "Judiciary, Narcotics / Illicit Drugs": Jud
+            Labor: Lab
+            LGBT: Gay
+            "Medicare/Medicaid": "Medicare.Medicaid"
+            "Science / Space / Technology": Science
+            Social Security: SSec
+            Taxes: Tax
+            Trade: Trade
+            Transportation: Trans
+            "U.S. Postal Service": USPS
+            Veterans: Vet
+            Water: "Water.Evn"
     - select:
-      - name: prefix
-        selector: "#field_9444dbc2-bbe1-469d-9b8f-ab10eb838284"
-        value: $NAME_PREFIX
-        required: false
-        options:
-          Mr.: Mr.
-          Miss: Miss
-          Mrs.: Mrs.
-          Ms.: Ms.
-          Mr. and Mrs.: Mr. and Mrs.
-          Mr. and Mr.: Mr. and Mr.
-          Mrs. and Mrs.: Mrs. and Mrs.
-          Dr.: Mrs.
-          Dr.: Dr.
-          Pastor: Pastor
-          Reverend: Reverend
-          PVT.: PVT.
-          SGT.: SGT.
-          SPC.: SPC.
+        - name: prefix
+          selector: "#field_9444DBC2-BBE1-469D-9B8F-AB10EB838284"
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Mr.: Mr.
+            Miss: Miss
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Mr. and Mrs.: Mr. and Mrs.
+            Mr. and Mr.: Mr. and Mr.
+            Mrs. and Mrs.: Mrs. and Mrs.
+            Dr.: Mrs.
+            Dr.: Dr.
+            Pastor: Pastor
+            Reverend: Reverend
+            PVT.: PVT.
+            SGT.: SGT.
+            SPC.: SPC.
     - click_on:
-      - value: Submit
-        selector: .buttonHolder
+        - value: Submit
+          selector: .buttonHolder
   success:
     headers:
       status: 200
