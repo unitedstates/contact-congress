@@ -83,17 +83,23 @@ contact_form:
         value: $NAME_PREFIX
         required: false
         options:
-          - Mr.
-          - Miss
-          - Mrs.
-          - Ms.
-          - Mr. and Mrs.
-          - Dr.
-          - Mr. and Mr.
-          - Mrs. and Mrs.
+          Mr.: Mr.
+          Miss: Miss
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Mr. and Mrs.: Mr. and Mrs.
+          Mr. and Mr.: Mr. and Mr.
+          Mrs. and Mrs.: Mrs. and Mrs.
+          Dr.: Mrs.
+          Dr.: Dr.
+          Pastor: Pastor
+          Reverend: Reverend
+          PVT.: PVT.
+          SGT.: SGT.
+          SPC.: SPC.
     - click_on:
       - value: Submit
-        selector: .buttonHolder input
+        selector: .buttonHolder
   success:
     headers:
       status: 200
