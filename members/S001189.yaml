@@ -17,6 +17,10 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
+        - name: street-2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: required-city
           selector: "#req_city"
           value: $ADDRESS_CITY
@@ -30,13 +34,17 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: false
         - name: required-valid-email
-          selector: "input.eml"
+          selector: "#req_email"
           value: $EMAIL
           required: true
         - name: phone
           selector: "#phone"
           value: $PHONE
           required: false
+        - name: subject
+          selector: "#req_greetingline"
+          value: $SUBJECT
+          required: true
         - name: required-message
           selector: "#req_message"
           value: $MESSAGE
