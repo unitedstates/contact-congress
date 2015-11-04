@@ -5,6 +5,20 @@ contact_form:
   steps:
     - visit: "https://fattahforms.house.gov/contact-rep-fattah"
     - fill_in:
+        - name: zip5
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go to Form
+          selector: .button
+    - find:
+        - value: "#req_firstname"
+    - fill_in:
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
@@ -25,11 +39,11 @@ contact_form:
           selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
+        - name: zip5
           selector: "#req_zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
+        - name: zip4
           selector: "#zip2"
           value: $ADDRESS_ZIP4
           required: true
@@ -49,7 +63,7 @@ contact_form:
         - name: prefix
           selector: "#req_prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
           options:
             Mr.: "Mr. "
             Mrs.: "Mrs."
@@ -65,32 +79,32 @@ contact_form:
           required: true
           options:
             PA: PA
-        - name: subject
+        - name: topic
           selector: "#req_subject"
           value: $TOPIC
           required: true
           options:
-            Constituent Service: WEBCST
-            Grant Requests: WEBGRT
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Education/Labor: WEBEDU
-            Energy: WEBENE
-            Environment: WEBENV
-            International: WEBINT
-            Government Reform: WEBGOV
-            Health Care: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            Judiciary: WEBJUD
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Telecommunications: WEBTEL
-            Taxes and Trade: WEBTAX
-            Transportation: WEBTRA
-            Veterans: WEBVET
-            Other: WEBOTH
+            WEBCST: Constituent Service
+            WEBGRT: Grant Requests
+            WEBAGR: Agriculture
+            WEBBUD: Budget
+            WEBDEF: Defense
+            WEBEDU: Education/Labor
+            WEBENE: Energy
+            WEBENV: Environment
+            WEBINT: International
+            WEBGOV: Government Reform
+            WEBHEA: Health Care
+            WEBHOM: Homeland Security
+            WEBIMM: Immigration
+            WEBJUD: Judiciary
+            WEBSOC: Social Issues
+            WEBSSEC: Social Security
+            WEBTEL: Telecommunications
+            WEBTAX: Taxes and Trade
+            WEBTRA: Transportation
+            WEBVET: Veterans
+            WEBOTH: Other
         - name: response
           selector: "#req_response"
           value: "ii"
