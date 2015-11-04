@@ -5,6 +5,18 @@ contact_form:
   steps:
     - visit: "https://fattahforms.house.gov/contact-rep-fattah"
     - fill_in:
+        - name: zipcode
+          selector: "#zipcode"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zipfour"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go to Form
+          selector: input.button
+    - fill_in:
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
@@ -17,10 +29,6 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#custom_form4 input[name='street2']"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
@@ -32,15 +40,11 @@ contact_form:
         - name: zipfour
           selector: "#zip2"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#custom_form4 input[name='phone']"
-          value: $PHONE_PARENTHESES
-          required: false
         - name: message
           selector: "#req_message"
           value: $MESSAGE
@@ -52,16 +56,16 @@ contact_form:
           required: true
           options:
             Mr.: "Mr. "
-            Mrs.: "Mrs."
-            Ms.: "Ms."
-            Miss: "Miss"
-            Dr.: "Dr."
-            Hon.: "Hon."
-            Rev.: "Rev."
-            Rabbi: "Rabbi"
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
         - name: state
           selector: "#req_state"
-          value: "PA"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
             PA: PA
@@ -105,4 +109,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for your e-mail. I value your comments and concerns.
+      contains: Thank You
