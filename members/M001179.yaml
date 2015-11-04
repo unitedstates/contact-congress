@@ -105,10 +105,10 @@ contact_form:
         - value: Send Email
           selector: "#submit"
     - find:
-        - selector: "h1#page-title-no-line"
-          value: "Thank You"
+        - selector: "#region-content"
+          value: "your message has been sent"
   success:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: "your message has been sent"
