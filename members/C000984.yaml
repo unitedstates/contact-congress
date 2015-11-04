@@ -17,7 +17,7 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - find:
-        - value: "#required-first"
+        - selector: "#required-first"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -75,8 +75,7 @@ contact_form:
         - value: Send Email
           selector: "#submit"
     - find:
-        - value: "your message has been sent"
-          selector: "p"
+        - selector: "p"
   success:
     headers:
       status: 200
