@@ -1,7 +1,7 @@
 bioguide: A000055
 contact_form:
   method: POST
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "https://aderholt.house.gov/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
     - visit: https://aderholt.house.gov/contact-robert
     - fill_in:
@@ -14,9 +14,9 @@ contact_form:
         value: $ADDRESS_ZIP4
         required: true
     - click_on:
-      - value: "Go to Form" 
+      - value: "Go to Form"
         selector: "#submit"
-    - find: 
+    - find:
       - selector: "#required-prefix"
     - fill_in:
       - name: firstname
@@ -36,9 +36,9 @@ contact_form:
         value: $ADDRESS_CITY
         required: true
       - name: emailaddress
-        selector: "#required-valid-email" 
+        selector: "#email"
         value: $EMAIL
-        required: true
+        required: false
       - name: phone
         selector: "#required-phone"
         value: $PHONE
@@ -48,49 +48,49 @@ contact_form:
         value: $MESSAGE
         required: true
     - select:
-      - name: prefix
-        selector: "#required-prefix"
-        value: $NAME_PREFIX
-        required: true
-        options:
-          - "Ms."
-          - "Miss"
-          - "Mrs."
-          - "Mr."
-          - "Mr. and Mrs."
-          - Rev.
-          - Dr.
-          - The Honorable
-          - Rabbi
-      - name: issue
-        selector: "#required-issue"
-        value: $TOPIC
-        required: true
-        options:
-          "Agriculture": "AGR"
-          "Budget": "BUD"
-          "Defense": "DEF"
-          "Education and Labor": "EDU"
-          "Energy": "ENE"
-          "Environmental": "ENV"
-          "Government Reform": "GOV"
-          "Health": "HEA"
-          "Homeland Security": "HOM"
-          "Immigration": "IMM"
-          "Judiciary": "JUD"
-          "International Relations": "INT"
-          "Social Issues": "SOC"
-          "Telecommunications": "TEL"
-          "Taxes and Trade": "TAX"
-          "Transportation": "TRA"
-          "Veterans": "VET"
-          "Welfare": "WEL"
-          "Other": "BOTH"
+        - name: prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - "Ms."
+            - "Miss"
+            - "Mrs."
+            - "Mr."
+            - "Mr. and Mrs."
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
+        - name: issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            "Agriculture": "AGR"
+            "Budget": "BUD"
+            "Defense": "DEF"
+            "Education and Labor": "EDU"
+            "Energy": "ENE"
+            "Environmental": "ENV"
+            "Government Reform": "GOV"
+            "Health": "HEA"
+            "Homeland Security": "HOM"
+            "Immigration": "IMM"
+            "Judiciary": "JUD"
+            "International Relations": "INT"
+            "Social Issues": "SOC"
+            "Telecommunications": "TEL"
+            "Taxes and Trade": "TAX"
+            "Transportation": "TRA"
+            "Veterans": "VET"
+            "Welfare": "WEL"
+            "Other": "BOTH"
     - click_on:
       - value: "Send Email"
         selector: "#submit"
-  success: 
+  success:
     headers:
       status: 200
     body:
-      contains: "Thank you"
+      contains: "your message has been sent"
