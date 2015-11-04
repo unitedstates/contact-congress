@@ -75,10 +75,10 @@ contact_form:
         - value: Send Email
           selector: "#submit"
     - find:
-        - value: The following information has been submitted
+        - value: "your message has been sent"
           selector: "p"
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: "your message has been sent"
