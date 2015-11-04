@@ -1,11 +1,11 @@
 bioguide: P000592
 contact_form:
   method: post
-  action: "https://poe.house.gov/index.cfm/contact-form#form_D05B44B5-B782-4DC7-BED6-FF0C90951FFF"
+  action: ""
   steps:
-    - visit: "https://poe.house.gov/index.cfm/contact-form#form_D05B44B5-B782-4DC7-BED6-FF0C90951FFF"
+    - visit: "https://poe.house.gov/contact-form"
     - fill_in:
-        - name: field_4B38B3F2-54EA-4E44-9B93-7E7907BCB9B9
+        - name: firstname
           selector: "#field_4B38B3F2-54EA-4E44-9B93-7E7907BCB9B9"
           value: $NAME_FIRST
           required: true
@@ -108,6 +108,24 @@ contact_form:
           options:
             I do not need a response: "i"
             I would like a response: "ii"
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img.rc-image-tile-3"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha div div iframe[src^='https://www.google.com/recaptcha/api2/anchor']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
