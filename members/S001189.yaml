@@ -1,7 +1,7 @@
 bioguide: S001189
 contact_form:
   method: post
-  action: /email-me/
+  action: ""
   steps:
     - visit: "https://austinscott.house.gov/email-me/"
     - fill_in:
@@ -17,6 +17,10 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
+        - name: street-2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: required-city
           selector: "#req_city"
           value: $ADDRESS_CITY
@@ -29,14 +33,18 @@ contact_form:
           selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: false
-        - name: required-valid-email
-          selector: "input.eml"
+        - name: email
+          selector: "#custom_form70 #req_email"
           value: $EMAIL
           required: true
         - name: phone
           selector: "#phone"
           value: $PHONE
           required: false
+        - name: subject
+          selector: "#req_greetingline"
+          value: $SUBJECT
+          required: true
         - name: required-message
           selector: "#req_message"
           value: $MESSAGE
@@ -112,33 +120,6 @@ contact_form:
             - WI
             - WV
             - WY
-        - name: issue
-          selector: "#req_issue"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: AGRI
-            Budget: BUD
-            Defense: DEF
-            Education: EDU
-            Energy: ENR
-            Environmental: ENV
-            Foreign Affairs: FAFF
-            Government Issues: GOV
-            Health: HLTH
-            Homeland Security: HOM
-            Immigration: IMM
-            International Relations: INT
-            Judicial: JUD
-            Labor: LAB
-            Social Security: SOC
-            Taxes: TAX
-            Telecommunications: TELE
-            Transportation: TRANS
-            Trade: TRD
-            Veterans: VET
-            Welfare: WEL
-            Other Issues: OTH
         - name: response-required
           selector: "#req_response"
           value: Y
@@ -150,7 +131,7 @@ contact_form:
         - value: Subscribe
           selector: "#enewsno"
         - value: Send Email
-          selector: "input[value='Send Email']"
+          selector: "#submitButton"
     - find:
         - selector: "h1"
           value: "Thank you"
