@@ -4,6 +4,8 @@ contact_form:
   action: "http://www.daines.senate.gov/connect/email-steve"
   steps:
     - visit: "http://www.daines.senate.gov/connect/email-steve"
+    - wait:
+        - value: 3
     - select:
         - name: input_AE7457DD-4040-F985-52CD-B99385041C51
           selector: "#actiontog"
@@ -59,6 +61,7 @@ contact_form:
           selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
           value: $MESSAGE
           required: true
+    - select:
         - name: input_AB59F08A-4040-F985-52CD-7633AA11C65E
           selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
           value: $NAME_PREFIX
@@ -198,6 +201,7 @@ contact_form:
             - Navy - Seaman Apprentice
             - Navy - Seaman
             - Navy - Seaman Recruit
+    - select:
         - name: input_AB5B6894-4040-F985-52CD-DFC6D3C729DF
           selector: "#input-AB5B6894-4040-F985-52CD-DFC6D3C729DF"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -254,6 +258,7 @@ contact_form:
             - WV
             - WI
             - WY
+    - select:
         - name: input_AB8156A0-4040-F985-52CD-49CE65770EFC
           selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
           value: $TOPIC
