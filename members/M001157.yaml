@@ -1,7 +1,7 @@
 bioguide: M001157
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "https://mccaul.house.gov/htbin/formproc/email-me.txt%26display%3D/contact/email-me/email-me-thank-you%26nobase%26fpGetVer%3D2"
   steps:
     - visit: "https://mccaul.house.gov/contact/email-me"
     - fill_in:
@@ -12,12 +12,12 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+          selector: "#submit"
     - find:
-        - selector: "#contactForm"
+        - selector: "#required-first"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -39,10 +39,14 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-phone
-          selector: "#required-phone"
-          value: $PHONE
+        - name: email
+          selector: "#required-valid-email"
+          value: $EMAIL
           required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: false
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -120,7 +124,7 @@ contact_form:
             "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: "#submit"
   success:
     headers:
       status: 200
