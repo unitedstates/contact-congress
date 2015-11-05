@@ -16,11 +16,9 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
+    - find:
+        - selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -46,58 +44,79 @@ contact_form:
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: "#required-phone"
           value: $PHONE
-          required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
           required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AG
-            Animals: AN
-            Arts and Humanities: ART
-            Badger Army Ammunition Plant: BAAP
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            "Consumer Protection ": CONS
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Education: ED
-            Energy: EN
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Guns: GUN
-            Health: HE
-            Housing and Urban Development: HUD
-            Immigration: IM
-            Judiciary: JUD
-            Labor: LAB
+            options:
+            AGR: Agriculture
+            AN: Animals
+            ART: Arts and Humanities
+            BANK: Banking and Finance
+            BUD: Budget and Economy
+            Casework: Help With a Federal Agency
+            CFR: Campaign Finance Reform
+            CONG: Congress and Elections
+            DEF: Defense and Military
+            ECON: Economy
+            EDU: Education
+            ENE: Energy
+            ENV: Environment
+            FED: Federal Employees
+            FR: Foreign Relations
+            GOV: Government Reform
+            GUN: Guns
+            HEA: Health
+            HOM: Homeland Security
+            HUD: Housing and Urban Development
+            IMM: Immigration
+            INT: International Relations
+            JUD: Judiciary
+            LAB: Labor
             LGBT: LGBT
-            Post Office: POST
-            Science and Technology: SCI
-            Senior Citizens: SENIORS
-            Social Security: SS
-            Social Services: SOC.SERVICES
-            Taxes: TAX
-            Telecommunications: COMM
-            Transportation: TRAN
-            Trade: TRD
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Other Issues: OTHER
+            NRN: No Response Necessary
+            POST: Post Office
+            SCI: Science and Technology
+            SOC: Social Issues
+            SENIORS: Senior Citizens
+            SSEC: Social Security
+            SOC.SERVICES: Social Services
+            TAX: Taxes
+            TEL: Telecommunications
+            Tours: Tours
+            TRA: Transportation
+            TRADE: Trade
+            VET: Veterans
+            WOMEN: Women's Issues
+            WEL: Welfare
+            OTHER: Other Issue
+        - name: required-response
+          selector: "#required-response"
+          value: Y
+          required: true
     - click_on:
         - value: Send Email
           selector: "#submit"
@@ -105,5 +124,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You
-
+      contains: "your message has been sent"
