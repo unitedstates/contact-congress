@@ -72,10 +72,10 @@ contact_form:
             Rabbi: Rabbi
         - name: topic
           selector: "#required-issue"
-          value: Legislation
+          value: $TOPIC
           required: true
           options:
-            AGR: Agriculture  
+            AGR: Agriculture
             AN: Animals
             ART: Arts and Humanities
             BANK: Banking and Finance
@@ -116,6 +116,10 @@ contact_form:
             WOMEN: Women's Issues
             WEL: Welfare
             OTHER: Other Issue
+        - name: response
+          selector: "#required-response"
+          value: Y
+          required: true
     - click_on:
         - value: Send Email
           selector: "#submit"
