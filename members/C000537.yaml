@@ -1,7 +1,7 @@
 bioguide: C000537
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  action: "https://clyburn.house.gov/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
   steps:
     - visit: "https://clyburn.house.gov/contact-me/email-me"
     - fill_in:
@@ -12,10 +12,12 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
+    - find:
+          selector: "#required-first"
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -104,4 +106,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: "The following information has been submitted"
