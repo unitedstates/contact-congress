@@ -1,9 +1,9 @@
 bioguide: OHL000019
 contact_form:
   method: post
-  action: "../members/member-contact-submission?id=19"
+  action: "http://ohiosenate.gov/members/member-contact-submission?id=19"
   steps:
-    - visit: "http://www.ohiosenate.gov/senate/jordan/contact"
+    - visit: "http://www.ohiosenate.gov/jordan/contact"
     - fill_in:
         - name: tbxFirstName
           selector: "#tbxFirstName"
@@ -30,17 +30,17 @@ contact_form:
           value: $ADDRESS_ZIP5
           required: true
         - name: tbxAreaCode
-          required: true
           selector: "#tbxAreaCode"
           value: "$PHONE_AREA_CODE"
-        - name: tbxPrefix
           required: true
+        - name: tbxPrefix
           selector: "#tbxPrefix"
           value: "$PHONE_EXCHANGE_CODE"
-        - name: tbxLineNumber
           required: true
+        - name: tbxLineNumber
           selector: "#tbxLineNumber"
           value: "$PHONE_SUBSCRIBER_NUMBER"
+          required: true
         - name: tbxMessage
           selector: "#tbxMessage"
           value: $MESSAGE
