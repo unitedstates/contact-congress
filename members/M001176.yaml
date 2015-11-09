@@ -6,13 +6,17 @@ contact_form:
     - visit: "http://www.merkley.senate.gov/contact/"
     - select:
         - name: actions
-          selector: "#contactForm select[name='actions']"
+          selector: "#actions"
           value: share
           options:
             Share your opinion or comments on bills or other issues: opinion
             Media Inquiries: media_inquires
             Request help with a federal agency: federal_agency
             Request a flag to be flown over the Capitol: flag
+    - wait:
+        - value: 1
+    - find:
+        - selector: "#fname"
     - fill_in:
         - name: fname
           selector: "#fname"
