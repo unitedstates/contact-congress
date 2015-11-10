@@ -51,11 +51,11 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mr. and Mrs.
-            - Mrs.
-            - Ms.
-            - Dr.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Dr.: Dr.
     - check:
         - name: Issue
           selector: "input[type='radio'][name='Issue'][value='Other']"
