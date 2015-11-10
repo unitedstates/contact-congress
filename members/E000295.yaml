@@ -51,14 +51,14 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
-            - Dr.
-            - Rev
-            - Mr. and Mrs.
-            - Sister
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Rev: Rev
+            Mr. and Mrs.: Mr. and Mrs.
+            Sister: Sister
         - name: state
           selector: "#edit-submitted-constituent-information-state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
