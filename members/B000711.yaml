@@ -1,7 +1,7 @@
 bioguide: B000711
 contact_form:
   method: post
-  action: shareyourviews.php
+  action: "https://www.boxer.senate.gov/contact/shareyourviews.php"
   steps:
     - visit: "https://www.boxer.senate.gov/contact/shareyourviews.html"
     - fill_in:
@@ -53,19 +53,19 @@ contact_form:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
           options:
-            " Mr. ": Mr.
-            " Mrs. ": Mrs.
-            " Miss ": Miss
-            " Ms. ": Ms.
-            " Dr. ": Dr.
-            " Mr. and Mrs. ": Mr. and Mrs.
-            " Dr. and Mrs. ": Dr. and Mrs.
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Miss: Miss
+            Ms.: Ms.
+            Dr.: Dr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr. and Mrs.: Dr. and Mrs.
             Dr. and Mr.: Dr. and Mr.
             Dr. and Dr.: Dr. and Dr.
-            " Mr. and Mr. ": Mr. and Mr.
-            " Ms. and Ms. ": Ms. and Ms.
+            Mr. and Mr.: Mr. and Mr.
+            Ms. and Ms.: Ms. and Ms.
             Brother: Brother
             Father: Father
             Imam: Imam
@@ -187,9 +187,6 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Climate Change: HT_ClimateChange
-            Campaign Finance Reform: HT_CampaignFinance
-            Net Neutrality: HT_NetNeutrality
             Abortion: ABORTION
             Afghanistan: AFGHANISTAN
             Agriculture: AGRICULTURE
