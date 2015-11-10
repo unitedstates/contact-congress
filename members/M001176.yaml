@@ -1,18 +1,22 @@
 bioguide: M001176
 contact_form:
   method: post
-  action: /contact
+  action: ""
   steps:
     - visit: "http://www.merkley.senate.gov/contact/"
     - select:
         - name: actions
-          selector: "#contactForm select[name='actions']"
-          value: opinion
+          selector: "#actions"
+          value: share
           options:
             Share your opinion or comments on bills or other issues: opinion
             Media Inquiries: media_inquires
             Request help with a federal agency: federal_agency
             Request a flag to be flown over the Capitol: flag
+    - wait:
+        - value: 1
+    - find:
+        - selector: "#fname"
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -60,10 +64,10 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Dr.
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Dr.: Dr.
         - name: state
           selector: "#state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -125,8 +129,8 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Abortion/Reproductive Rights: Abortion
-            Afghanistan/Iraq: Afghanistan
+            Abortion/Reproductive Rights: Abortion/Reproductive Rights
+            Afghanistan/Iraq: Afghanistan/Iraq
             Agriculture: Agriculture
             Animal Rights: Animal Rights
             Arts and Humanities: Arts and Humanities
@@ -146,7 +150,7 @@ contact_form:
             Guns: Guns
             Health Care: Health Care
             Housing: Housing
-            Help with a Government Agency / Casework: Casework
+            Help with a Government Agency / Casework: Help with a Government Agency / Casework
             Immigration: Immigration
             Indian Affairs: Indian Affairs
             Insurance Health: Insurance Health
@@ -157,7 +161,7 @@ contact_form:
             LIHEAP: LIHEAP
             LGBT Issues: LGBT Issues
             Medicare/Medicaid: Medicare/Medicaid
-            "Military, Retiree Health Care": Military Health Care
+            "Military, Retiree Health Care": "Military, Retiree Health Care"
             Other: Other
             Small Business: Small Business
             Social Security: Social Security
@@ -175,4 +179,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting Jeff.
+      contains: Thank you for emailing Jeff.
