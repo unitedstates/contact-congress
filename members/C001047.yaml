@@ -357,10 +357,10 @@ contact_form:
             Welfare: Welfare
             Women's Issues: Women's Issues
     - click_on:
-        - value:
-          selector:
+        - value: Submit
+          selector: .btn
   success:
     headers:
       status: 200
     body:
-      contains:
+      contains: "Thank you for submitting your Request to our office."
