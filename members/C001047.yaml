@@ -30,16 +30,24 @@ contact_form:
           selector: "#input-AB5B6853-4040-F985-52CD-7517D971BE75"
           value: $ADDRESS_STREET_2
           required: false
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
+        - name: city
+          selector: "#input-AB5B6875-4040-F985-52CD-909541CB4B6C"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
+        - name: zip5
+          selector: "#input-AB5B68B4-4040-F985-52CD-269A4338D057"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
+        - name: phone
+          selector: "#input-AB67BC2F-4040-F985-52CD-007A86DA4D47"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: email_verify
+          selector: "#input-AB721CE8-4040-F985-52CD-9E550E8A76AA"
           value: $EMAIL
           required: true
         - name: "submitted[message_details][please_type_the_subject_of_your_message]"
