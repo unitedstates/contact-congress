@@ -4,6 +4,15 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.capito.senate.gov/contact/contact-shelley"
+    - select:
+        - name: actions
+          selector: "#actions"
+          value: Send
+          required: true
+    - wait:
+        - value: 1
+    - find:
+        - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
         - name: "submitted[constituent_information][first_name]"
           selector: "#edit-submitted-constituent-information-first-name"
