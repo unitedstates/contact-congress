@@ -359,6 +359,10 @@ contact_form:
     - click_on:
         - value: Submit
           selector: .btn
+    - wait:
+        - value: 1
+    - find:
+        - selector: "#sam-main"
   success:
     headers:
       status: 200
