@@ -14,18 +14,22 @@ contact_form:
     - find:
         - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
+        - name: firstname
+          selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
+        - name: lastname
+          selector: "#input-AB59F0ED-4040-F985-52CD-265D9CF13F5E"
           value: $NAME_LAST
           required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
+        - name: street
+          selector: "#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D"
           value: $ADDRESS_STREET
           required: true
+        - name: street_2
+          selector: "#input-AB5B6853-4040-F985-52CD-7517D971BE75"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: "submitted[constituent_information][city]"
           selector: "#edit-submitted-constituent-information-city"
           value: $ADDRESS_CITY
