@@ -7,8 +7,12 @@ contact_form:
     - select:
         - name: actions
           selector: "#actions"
-          value: Send
+          value: Send an email
           required: true
+          options:
+            Send an email to comment on Legislation: Send an email to comment on Legislation
+            Help with a federal agency: Help with a federal agency
+            Meeting Requests: Meeting Requests
     - wait:
         - value: 1
     - find:
