@@ -1,9 +1,9 @@
 bioguide: G000386
 contact_form:
   method: post
-  action: /form_process/questions-and-comments-thank-you
+  action: "https://www.grassley.senate.gov/form_process/questions-and-comments-thank-you"
   steps:
-    - visit: "http://www.grassley.senate.gov/constituents/questions-and-comments"
+    - visit: "https://www.grassley.senate.gov/constituents/questions-and-comments"
     - fill_in:
         - name: first
           selector: "#first"
@@ -15,6 +15,10 @@ contact_form:
           required: true
         - name: Email
           selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: Email
+          selector: "#email2"
           value: $EMAIL
           required: true
         - name: addr1
@@ -51,14 +55,14 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
-            - Dr.
-            - Rev.
-            - Mr. and Mrs.
-            - Sister
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Rev.: Rev.
+            Mr. and Mrs.: Mr. and Mrs.
+            Sister: Sister
         - name: state
           selector: "#state"
           value: $ADDRESS_STATE_FULL
@@ -118,6 +122,46 @@ contact_form:
             - West Virginia
             - Wisconsin
             - Wyoming
+        - name: issue
+          selector: "#issue"
+          value: $TOPIC
+          required: true
+          options:
+            Adoption/Foster Care: Adoption/Foster Care
+            Agriculture: Agriculture
+            Animal: Animal
+            Banking: Banking
+            Budget: Budget
+            Campaign Finance: Campaign Finance
+            Consumer Protection: Consumer Protection
+            Defense: Defense
+            Education: Education
+            Energy: Energy
+            Environmental: Environmental
+            Federal Government Employees Operations: Federal Government Employees Operations
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Indian Affairs: Indian Affairs
+            Immigration: Immigration
+            International Relations: International Relations
+            Job Creation - Economy: Job Creation - Economy
+            Judicial Nominees: Judicial Nominees
+            Judiciary (civil): Judiciary (civil)
+            Judiciary (crime): Judiciary (crime)
+            Labor: Labor
+            Life Issues: Life Issues
+            Medicare and Medicaid: Medicare and Medicaid
+            Postal Service: Postal Service
+            Science/NASA: Science/NASA
+            Social Security: Social Security
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Transportation: Transportation
+            Trade: Trade
+            Veterans: Veterans
+            Welfare: Welfare
+            Other: Other
     - click_on:
         - value: Send Message
           selector: "form.fullform.validate input[type='submit'][value='Send Message']"
