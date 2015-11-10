@@ -1,9 +1,9 @@
 bioguide: C001056
 contact_form:
   method: POST
-  action: http://www.cornyn.senate.gov/public/index.cfm?p=ContactForm
+  action: ""
   steps:
-    - visit: http://www.cornyn.senate.gov/public/index.cfm?p=ContactForm
+    - visit: "http://www.cornyn.senate.gov/public/index.cfm?p=ContactForm"
     - fill_in:
       - name: FirstName
         selector: "#FirstName"
@@ -17,6 +17,10 @@ contact_form:
         selector: "#Address1"
         value: "$ADDRESS_STREET"
         required: true
+      - name: Address2
+        selector: "#Address2"
+        value: "$ADDRESS_STREET_2"
+        required: false
       - name: City
         selector: "#City"
         value: "$ADDRESS_CITY"
@@ -42,16 +46,17 @@ contact_form:
         value: "$NAME_PREFIX"
         required: true
         options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Mr. and Mrs."
-          - "Dr."
-          - "Dr. and Mr."
-          - "Dr. and Mrs."
-          - "Reverend"
-          - "Sister"
-          - "Pastor"
+          Mr.: Mr.
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Mr. and Mrs.: Mr. and Mrs.
+          Dr.: Dr.
+          Dr. and Mr.: Dr. and Mr.
+          Dr. and Mrs.: Dr. and Mrs.
+          Reverend: Reverend
+          Sister: Sister
+          Pastor: Pastor
+          Other: Other
       - name: State
         selector: "#State"
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
@@ -118,41 +123,41 @@ contact_form:
         value: "$TOPIC"
         required: true
         options:
-          - "Abortion"
-          - "Agriculture"
-          - "Arts and Humanities"
-          - "Banking"
-          - "Budget"
-          - "Communications"
-          - "Crime/Law Enforcement"
-          - "Defense"
-          - "Education"
-          - "Election Reform"
-          - "Energy"
-          - "Environment"
-          - "Finance"
-          - "Firearms"
-          - "Foreign Affairs"
-          - "Government Operations/Affairs"
-          - "Healthcare"
-          - "Homeland Security"
-          - "Housing"
-          - "Immigration"
-          - "Interior"
-          - "Judiciary"
-          - "Labor"
-          - "Medicare"
-          - "Picture Request"
-          - "Religion"
-          - "Small Business"
-          - "Social Security"
-          - "Taxes/Economy"
-          - "Texas Tuesday Coffee"
-          - "Tour Request"
-          - "Trade"
-          - "Transportation"
-          - "Veterans"
-          - "Welfare"
+          Abortion: Abortion
+          Agriculture: Agriculture
+          Arts and Humanities: Arts and Humanities
+          Banking: Banking
+          Budget: Budget
+          Communications: Communications
+          Crime/Law Enforcement: Crime/Law Enforcement
+          Defense: Defense
+          Education: Education
+          Election Reform: Election Reform
+          Energy: Energy
+          Environment: Environment
+          Finance: Finance
+          Firearms: Firearms
+          Foreign Affairs: Foreign Affairs
+          Government Operations/Affairs: Government Operations/Affairs
+          Healthcare: Healthcare
+          Homeland Security: Homeland Security
+          Housing: Housing
+          Immigration: Immigration
+          Interior: Interior
+          Judiciary: Judiciary
+          Labor: Labor
+          Medicare: Medicare
+          Picture Request: Picture Request
+          Religion: Religion
+          Small Business: Small Business
+          Social Security: Social Security
+          Taxes/Economy: Taxes/Economy
+          Texas Tuesday Coffee: Texas Tuesday Coffee
+          Tour Request: Tour Request
+          Trade: Trade
+          Transportation: Transportation
+          Veterans: Veterans
+          Welfare: Welfare
     - click_on:
       - value: Submit
         selector: ".primaryAction"
