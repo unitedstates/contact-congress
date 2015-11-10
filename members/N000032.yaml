@@ -1,7 +1,7 @@
 bioguide: N000032
 contact_form:
   method: post
-  action: /form_process/email-bill-thank-you
+  action: "http://www.billnelson.senate.gov/contact-bill-print"
   steps:
     - visit: "http://www.billnelson.senate.gov/contact-bill"
     - fill_in:
@@ -51,11 +51,11 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mr. and Mrs.
-            - Mrs.
-            - Ms.
-            - Dr.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Dr.: Dr.
     - check:
         - name: Issue
           selector: "input[type='radio'][name='Issue'][value='Other']"
