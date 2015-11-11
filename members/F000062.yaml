@@ -73,6 +73,8 @@ contact_form:
             "U.S. Postal Service": USPS
             Veterans: Vet
             Water: "Water.Evn"
+    - javascript:
+        - value: document.querySelector('#field_130638F0-2EEC-4C6B-83BE-11E83BB5CED3').val(document.querySelector('#field_130638F0-2EEC-4C6B-83BE-11E83BB5CED3').val().replace(/"/g, ''));
     - click_on:
         - value: Submit
           selector: div.buttonHolder input
