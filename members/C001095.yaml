@@ -1,12 +1,12 @@
 bioguide: C001095
 contact_form:
   method: post
-  action: /content/contact-tom
+  action: "http://www.cotton.senate.gov/?p=contact&clear_cache=1"
   steps:
     - visit: "http://www.cotton.senate.gov/?p=contact"
     - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
+        - name: firstName
+          selector: "#firstName"
           value: $NAME_FIRST
           required: true
         - name: "submitted[constituent_information][last_name]"
