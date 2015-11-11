@@ -50,23 +50,35 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: "submitted[constituent_information][prefix]"
-          selector: "#edit-submitted-constituent-information-prefix"
+        - name: prefix
+          selector: "#Prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mrs.
-            - Reverend
-            - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Mr. and Mrs.: Mr. and Mrs.
+            Miss: Miss
+            Dr.: Dr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Dr. and Mr.: Dr. and Mr.
+            Admiral: Admiral
+            Captain: Captain
+            Chief Master Sergeant: Chief Master Sergeant
+            Colonel: Colonel
+            Commander: Commander
+            Corporal: Corporal
+            Father: Father
+            Lieutenant: Lieutenant
+            Lieutenant Colonel: Lieutenant Colonel
+            Master Sergeant: Master Sergeant
+            Reverend: Reverend
+            Sergeant: Sergeant
+            Second Lieutenant: Second Lieutenant
+            Sergeant Major: Sergeant Major
+            Sister: Sister
+            Technical Sergeant: Technical Sergeant
         - name: "submitted[constituent_information][state]"
           selector: "#edit-submitted-constituent-information-state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
