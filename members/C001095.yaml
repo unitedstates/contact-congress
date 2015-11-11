@@ -239,9 +239,9 @@ contact_form:
             Women's Issues: Women's Issues
     - click_on:
         - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
+          selector: "input[name='Submit']"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: "Thank you! Your message has been sent."
