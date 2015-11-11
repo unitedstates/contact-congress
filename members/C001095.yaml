@@ -25,20 +25,28 @@ contact_form:
           selector: "#city"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
+        - name: zip5
+          selector: "#zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
-          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
+        - name: email2
+          selector: "#vemail"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#messageSubject"
           value: $SUBJECT
           required: true
-        - name: "submitted[message_details][message]"
-          selector: "#edit-submitted-message-details-message"
+        - name: message
+          selector: "#MessageBody"
           value: $MESSAGE
           required: true
     - select:
