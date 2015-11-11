@@ -50,7 +50,7 @@ contact_form:
           value: $EMAIL
           required: true
         - name: subject
-          selector: "#input-ECE20855-5056-A066-6081-CC976AA10A50"
+          selector: "#input-EAAFA915-5056-A066-608E-8F1B6EC37629"
           value: $SUBJECT
           required: true
         - name: message
@@ -202,61 +202,65 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            - Adoption
-            - Aging
-            - Agriculture
-            - Animal Welfare
-            - Appropriations
-            - Banking/Securities
-            - Campaign Finance
-            - Children
-            - Civil Rights
-            - Congratulations
-            - Congressional Issues
-            - Crime
-            - Defense
-            - Drugs
-            - Economy
-            - Education Higher
-            - Education K through 12
-            - Elections
-            - Energy
-            - Environment
-            - Foreign Affairs
-            - Health
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Inauguration
-            - Insurance Health
-            - Insurance Other
-            - Judiciary
-            - Labor
-            - Life Issues
-            - Medicaid/Medicare
-            - Military
-            - Montana Values
-            - NASA
-            - Natural Resources
-            - Nutrition
-            - Other
-            - Patents
-            - Pensions
-            - Second Amendment
-            - Small Business
-            - Social Security
-            - Taxes
-            - Telecommunications
-            - Trade/Commerce
-            - Transportation
-            - Veterans
-            - Welfare
-            - "Women's Issues"
+            Adoption: Adoption
+            Aging: Aging
+            Agriculture: Agriculture
+            Animal Welfare: Animal Welfare
+            Appropriations: Appropriations
+            Banking/Securities: Banking/Securities
+            Campaign Finance: Campaign Finance
+            Children: Children
+            Civil Rights: Civil Rights
+            Congratulations: Congratulations
+            Congressional Issues: Congressional Issues
+            Crime: Crime
+            Defense: Defense
+            Drugs: Drugs
+            Economy: Economy
+            Education Higher: Education Higher
+            Education K through 12: Education K through 12
+            Elections: Elections
+            Energy: Energy
+            Environment: Environment
+            Foreign Affairs: Foreign Affairs
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Inauguration: Inauguration
+            Insurance Health: Insurance Health
+            Insurance Other: Insurance Other
+            Judiciary: Judiciary
+            Labor: Labor
+            Life Issues: Life Issues
+            Medicaid/Medicare: Medicaid/Medicare
+            Military: Military
+            Montana Values: Montana Values
+            NASA: NASA
+            Natural Resources: Natural Resources
+            Nutrition: Nutrition
+            Other: Other
+            Patents: Patents
+            Pensions: Pensions
+            Second Amendment: Second Amendment
+            Small Business: Small Business
+            Social Security: Social Security
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Trade/Commerce: Trade/Commerce
+            Transportation: Transportation
+            Veterans: Veterans
+            Welfare: Welfare
+            "Women's Issues": "Women's Issues"
     - click_on:
         - value: Submit
           selector: "input[type='submit'][value='Submit']"
+    - wait:
+        - value: 3
+    - find:
+        - selector: "#form-4873565B-4040-F985-52CD-58F5E3BCC94D"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting
+      contains: "Thank you for submitting your request to our office."
