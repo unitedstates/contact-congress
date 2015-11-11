@@ -9,16 +9,20 @@ contact_form:
           selector: "#firstName"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
+        - name: lastname
+          selector: "#lastName"
           value: $NAME_LAST
           required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
+        - name: street
+          selector: "#Address1"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
+        - name: street2
+          selector: "#Address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#city"
           value: $ADDRESS_CITY
           required: true
         - name: "submitted[constituent_information][zip]"
