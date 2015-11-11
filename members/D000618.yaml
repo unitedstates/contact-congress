@@ -255,8 +255,12 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "input[type='submit'][value='Submit']"
+    - wait:
+        - value: 3
+    - find:
+        - selector: "#form-4873565B-4040-F985-52CD-58F5E3BCC94D"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting
+      contains: "Thank you for submitting your request to our office."
