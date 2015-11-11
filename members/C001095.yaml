@@ -79,8 +79,8 @@ contact_form:
             Sergeant Major: Sergeant Major
             Sister: Sister
             Technical Sergeant: Technical Sergeant
-        - name: "submitted[constituent_information][state]"
-          selector: "#edit-submitted-constituent-information-state"
+        - name: state
+          selector: "#State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -138,8 +138,8 @@ contact_form:
             - WV
             - WI
             - WY
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
+        - name: topic
+          selector: "form.-validate-form.form-contact[name='thisForm'] select[name='Subject']"
           value: $TOPIC
           required: true
           options:
