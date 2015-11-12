@@ -71,6 +71,8 @@ contact_form:
           "Religion/Human Rights": "Religious / Human Rights"
           "NASA/Science Issues": "NASA"
           "MIlitary/Defense": "Military Issues"
+    - javascript:
+      - value: document.querySelector("#field_f346ae03-8294-4f38-b762-fce94ed239af").value = document.querySelector("#field_f346ae03-8294-4f38-b762-fce94ed239af").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"

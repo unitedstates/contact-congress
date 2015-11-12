@@ -76,6 +76,8 @@ contact_form:
           "Veterans Issues": "mailtopicvet"
           "Welfare": "mailtopicwelfare"
           "Other": "mailtopicother"
+    - javascript:
+      - value: document.querySelector("#comments").value = document.querySelector("#comments").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#side-search-btn"

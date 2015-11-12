@@ -176,6 +176,8 @@ contact_form:
   - uncheck: 
     - name: ctl00$ctl09$SubscribeChoice
       selector: "#ctl00_ctl09_SubscribeChoice"
+  - javascript:
+    - value: document.querySelector("#ctl00_ctl09_Body").value = document.querySelector("#ctl00_ctl09_Body").value.replace(/"/g, '');
   - click_on: 
     - value: Submit
       selector: "#ctl00_ctl09_SubmitButton"

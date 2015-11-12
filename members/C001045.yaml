@@ -49,6 +49,8 @@ contact_form:
           selector: "#field_AD3C2CD1-4332-48E1-A080-BB1B4B5F082C"
           value: $MESSAGE
           required: true
+    - javascript:
+        - value: document.querySelector("#field_AD3C2CD1-4332-48E1-A080-BB1B4B5F082C").value = document.querySelector("#field_AD3C2CD1-4332-48E1-A080-BB1B4B5F082C").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

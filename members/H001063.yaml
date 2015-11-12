@@ -83,6 +83,8 @@ contact_form:
             Veterans: VET
             "Women's Issues": WOMEN
             Other Issues: OTHER
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"

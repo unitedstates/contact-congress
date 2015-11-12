@@ -87,6 +87,8 @@ contact_form:
         options:
           "Yes, I would like a written response": "Yes"
           "No, I am just passing my comments along.": "No"
+    - javascript:
+      - value: document.querySelector("#field_F1684590-B63E-4986-8A57-1216FEFE8B9F").value = document.querySelector("#field_F1684590-B63E-4986-8A57-1216FEFE8B9F").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".btn"

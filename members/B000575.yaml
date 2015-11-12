@@ -86,6 +86,8 @@ contact_form:
             - Water/Rivers
             - Welfare
             - Other
+    - javascript:
+        - value: document.querySelector("#field_1fcd0a32-c2b6-40e7-9d3f-18de98bf7997").value = document.querySelector("#field_1fcd0a32-c2b6-40e7-9d3f-18de98bf7997").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

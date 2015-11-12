@@ -69,6 +69,8 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other: WEBOTH
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#submitButton"

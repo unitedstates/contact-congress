@@ -172,6 +172,8 @@ contact_form:
         - name: _FTSubscribe
           selector: "#_FTSubscribe"
           value: "1"
+    - javascript:
+        - value: document.querySelector("#field_e954a14b-8b14-444b-914e-c1fd3d638258").value = document.querySelector("#field_e954a14b-8b14-444b-914e-c1fd3d638258").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

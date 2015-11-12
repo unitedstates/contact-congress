@@ -46,6 +46,8 @@ contact_form:
           value: $CAMPAIGN_UUID
           required: false
     - select: []
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl12_Body").value = document.querySelector("#ctl00_ctl12_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl12_SubmitButton"

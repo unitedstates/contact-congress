@@ -87,6 +87,8 @@ contact_form:
             "Trade": "74587"
             "Transportation": "3769"
             "Veterans": "74588"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl03_Body").value = document.querySelector("#ctl00_ctl03_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl03_SubmitButton"

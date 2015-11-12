@@ -112,6 +112,8 @@ contact_form:
             Veterans and Tricare Issues: VET
             Welfare: WELF
             "Women, Children, and Family": WOMEN
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Submit Information
           selector: "form.validate.wsbform input[name='submit']"

@@ -98,6 +98,8 @@ contact_form:
           "Trade": "TRD"
           "Veterans Affairs": "VET"
           "Water Issues": "WATER"
+    - javascript:
+      - value: document.querySelector("#field_52d20833-c7a4-455d-86b8-1beb4c81e758").value = document.querySelector("#field_52d20833-c7a4-455d-86b8-1beb4c81e758").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"

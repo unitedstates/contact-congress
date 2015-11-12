@@ -86,6 +86,8 @@ contact_form:
         - name: required-affl
           selector: "input[type='radio'][name='required-affl'][value='Unsubscribe']"
           value: Unsubscribe
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit2']"

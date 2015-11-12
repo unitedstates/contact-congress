@@ -82,6 +82,8 @@ contact_form:
             Veterans Issues: Veterans
             Welfare: Welfare
             "Eagle Scout / Gold Award, Birthday, and Retirement": Special_Requests
+    - javascript:
+        - value: document.querySelector("#field_8f3514fa-978c-4985-9fde-aad3dfc611c4").value = document.querySelector("#field_8f3514fa-978c-4985-9fde-aad3dfc611c4").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

@@ -80,6 +80,8 @@ contact_form:
           - "Transportation"
           - "Welfare"
           - "Other/Multiple Issues"
+    - javascript:
+      - value: document.querySelector("#field_55b09216-2b91-470f-af68-ae9d197787b0").value = document.querySelector("#field_55b09216-2b91-470f-af68-ae9d197787b0").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"

@@ -104,6 +104,8 @@ contact_form:
         selector: "#affl1_2"
         value: "No Action"
         required: Yes
+    - javascript:
+      - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
       - value: "Send Email"
         selector: "#submit"

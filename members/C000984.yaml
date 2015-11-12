@@ -101,6 +101,8 @@ contact_form:
             Transportation: TRANS
             Trade Issues: TRADE
             Veterans: VET
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"

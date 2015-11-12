@@ -281,6 +281,8 @@ contact_form:
           "Transportation": "Transportation"
           "Veterans Policy": "Veterans Policy"
           "Welfare & Poverty": "Welfare and Poverty"
+    - javascript:
+      - value: document.querySelector("#comments").value = document.querySelector("#comments").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#side-search-btn"

@@ -87,6 +87,8 @@ contact_form:
           "Telecommunications": "TV/Radio/Internet/Telecommunications"
           "Veterans": "Veteran's Issues"
           "Welfare": "Welfare"
+    - javascript:
+      - value: document.querySelector("#field_0aee09a6-7f4c-4afb-90a1-9ba03526fca0").value = document.querySelector("#field_0aee09a6-7f4c-4afb-90a1-9ba03526fca0").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"

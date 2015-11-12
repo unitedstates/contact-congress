@@ -172,6 +172,8 @@ contact_form:
             - Veterans
             - Welfare
             - "Women's Issues"
+    - javascript:
+        - value: document.querySelector("#field_d57a0ad2-172c-477e-a580-86a6c8b69dd6").value = document.querySelector("#field_d57a0ad2-172c-477e-a580-86a6c8b69dd6").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

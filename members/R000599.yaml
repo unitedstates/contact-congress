@@ -88,6 +88,8 @@ contact_form:
             Veterans: Veterans
             Welfare: Welfare
             Other Issues: Other Issues
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - selector: ".btn-success"
     - javascript:

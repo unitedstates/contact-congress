@@ -71,6 +71,8 @@ contact_form:
             - Hon.
             - Rabbi
             - Pastor
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl12_Body").value = document.querySelector("#ctl00_ctl12_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl12_SubmitButton"

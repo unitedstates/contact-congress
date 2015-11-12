@@ -62,6 +62,8 @@ contact_form:
             - Ms.
             - Rev.
             - Dr.
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl24_Body").value = document.querySelector("#ctl00_ctl24_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl24_SubmitButton"

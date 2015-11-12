@@ -247,6 +247,8 @@ contact_form:
         - name: newsletter
           selector: "#newsletter"
           value: newsletter
+    - javascript:
+        - value: document.querySelector("#contactForm textarea[name='comments']").value = document.querySelector("#contactForm textarea[name='comments']").value.replace(/"/g, '');
     - click_on:
         - value: submit
           selector: input.rollover

@@ -86,6 +86,8 @@ contact_form:
             Unions: UNION
             Veterans: VET
             Other-not Listed: OTHER
+    - javascript:
+        - value: document.querySelector("#field_4D8403A8-273C-4280-AE1E-3D764FE53D83").value = document.querySelector("#field_4D8403A8-273C-4280-AE1E-3D764FE53D83").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

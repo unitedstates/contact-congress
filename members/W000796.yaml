@@ -108,6 +108,8 @@ contact_form:
             Veterans Affairs: VET
             Women and Children: WMNCHIL
             Other: OTHER
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submitButton"

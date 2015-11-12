@@ -279,6 +279,8 @@ contact_form:
             Taxes: TX
             Veterans: VT
             "Women & Children": WC
+    - javascript:
+        - value: document.querySelector("#input-367803F9-4040-F985-52CD-372C846843B5").value = document.querySelector("#input-367803F9-4040-F985-52CD-372C846843B5").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn

@@ -110,6 +110,8 @@ contact_form:
         - name: newsletter-subscribe
           selector: "#newsletter-subscribe"
           value: EMAIL.OPTIN
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"

@@ -82,6 +82,8 @@ contact_form:
             Volunteerism: VOLUNTEER
             Women: WOMEN
             Other: MISC
+    - javascript:
+        - value: document.querySelector("#required-Message").value = document.querySelector("#required-Message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#mainbodyContentleft form input[type='submit'][value='Submit']"

@@ -133,6 +133,8 @@ contact_form:
             Transportation: TRAN
             Veterans: VET
             Welfare: WELFARE
+    - javascript:
+        - value: document.querySelector("#field_6AA78EC6-51E3-4F22-BF51-73BEB2668029").value = document.querySelector("#field_6AA78EC6-51E3-4F22-BF51-73BEB2668029").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

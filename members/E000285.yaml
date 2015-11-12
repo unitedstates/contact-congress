@@ -52,6 +52,8 @@ contact_form:
       - name: field_f6958bc0-eb9a-41ae-ad61-57221e74199f
         selector: "#field_f6958bc0-eb9a-41ae-ad61-57221e74199f"
         value: ""
+    - javascript:
+      - value: document.querySelector("#field_e8e82e9b-f02e-44a6-84cb-bb70f34c9310").value = document.querySelector("#field_e8e82e9b-f02e-44a6-84cb-bb70f34c9310").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"

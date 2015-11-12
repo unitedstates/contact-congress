@@ -88,6 +88,8 @@ contact_form:
           "Veteran Affairs" : "VET"
           "Welfare" : "WEL"
           "Other" : "GEN"
+    - javascript:
+      - value: document.querySelector("textarea[title='Message']").value = document.querySelector("textarea[title='Message']").value.replace(/"/g, '');
     - click_on:
       - value: "Send Email"
         selector: "#contact input[type='submit']"

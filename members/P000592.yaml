@@ -114,6 +114,8 @@ contact_form:
           options:
             I do not need a response: "N"
             I would like a response: "Y"
+    - javascript:
+        - value: document.querySelector("#field_077EA4A1-BF28-451C-9BD0-D33DB5A71AD0").value = document.querySelector("#field_077EA4A1-BF28-451C-9BD0-D33DB5A71AD0").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

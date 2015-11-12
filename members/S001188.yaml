@@ -50,6 +50,8 @@ contact_form:
             - Hoosier Solutions
             - Legislation
             - Help with Federal Agency
+    - javascript:
+        - value: document.querySelector("#contact_message").value = document.querySelector("#contact_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Message
           selector: "#contact_submit"

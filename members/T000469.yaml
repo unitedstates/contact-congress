@@ -101,6 +101,8 @@ contact_form:
             Transportation: WEBTRAN
             Veterans Issues: WEBVET
             Other Issues: WEBOTH
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#custom_form5 input[type='submit'][value='Submit']"
