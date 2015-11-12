@@ -5,33 +5,25 @@ contact_form:
   steps:
     - visit: "http://legis.wisconsin.gov/assembly/46/hebl/constituent-services-menu/contact-me/"
     - fill_in:
-        - name: message
-          selector: "#legis-cf-comments"
-          value: $MESSAGE
-          required: true
-        - name: email
-          selector: "#legis-cf-email"
-          value: $EMAIL
-          required: true
         - name: name
-          selector: "#legis-cf-name"
+          selector: "#"
           value: $NAME_FULL
           required: true
-        - name: address
-          selector: "#legis-cf-address"
-          value: $ADDRESS_STREET
-          required: true
-        - name: citystatezip
-          selector: "#legis-cf-city-state"
-          value: $ADDRESS_CITY_STATE_ZIP
+        - name: email
+          selector: "#"
+          value: $EMAIL
           required: true
         - name: phone
-          selector: "#legis-cf-phone"
+          selector: "#"
           value: $PHONE
+          required: true
+        - name: message
+          selector: "#"
+          value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: ".legis-email-submit-btn"
+          selector: inpit[name=submit]
   success:
     headers:
       status: 200
