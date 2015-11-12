@@ -1,43 +1,27 @@
 bioguide: WIL000378
 contact_form:
   method: post
-  action: Contact.aspx
+  action: ""
   steps:
     - visit: "http://legis.wisconsin.gov/assembly/43/jorgensen/contact/"
     - fill_in:
-        - name: message
-          selector: "#legis-cf-comments"
-          value: $MESSAGE
+        - name: name
+          selector: "#f6718dda-0e45-48f9-bf8f-ecfe8a500a9e"
+          value: $NAME_FULL
           required: true
         - name: email
-          selector: "#legis-cf-email"
+          selector: "#c9204231-7756-4e10-cb50-60870fb4bb73"
           value: $EMAIL
           required: true
-        - name: name
-          selector: "#legis-cf-name"
-          value: $NAME_FULL
-          required: true
-        - name: address
-          selector: "#legis-cf-address"
-          value: $ADDRESS_STREET
-          required: true
-        - name: citystatezip
-          selector: "#legis-cf-city-state"
-          value: $ADDRESS_CITY_STATE_ZIP
-          required: true
-        - name: name
-          selector: "#legis-cf-name"
-          value: $NAME_FULL
-          required: true
-        - name: phone
-          selector: "#legis-cf-phone"
-          value: $PHONE
+        - name: message
+          selector: "#d69e4ea5-4957-4b27-f572-cae872e2dc75"
+          value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: ".legis-email-submit-btn"
+          selector: input[name=submit]
   success:
     headers:
       status: 200
     body:
-      contains: "Feel free to fill"
+      contains: Thank you
