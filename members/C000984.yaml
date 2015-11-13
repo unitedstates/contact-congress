@@ -1,9 +1,9 @@
 bioguide: C000984
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://cummings.house.gov/contact-me/email-me"
+    - visit: "https://cummings.house.gov/contact"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -12,9 +12,9 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
+          required: false
     - click_on:
-        - value: Go To Next Step
+        - 
           selector: "#submit"
     - fill_in:
         - name: required-first
@@ -28,87 +28,66 @@ contact_form:
         - name: required-address
           selector: "#required-address"
           value: $ADDRESS_STREET
-          required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
           required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
+        - name: required-prefix
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            Dr.: Dr
-            Ms.: Ms
-            Mrs.: Mrs
-            Mr.: Mr
-        - name: required-topic
-          selector: "#required-topic"
-          value: Legislation
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
           required: true
           options:
-            Must Select One: blank
             Legislative Concerns: Legislation
             Casework Concerns: Casework
             Scheduling Requests: Scheduling_Requests
             Tour Requests: Tour_Requests
-        - name: legislation_concerns
-          selector: "#legislation_concerns"
-          value: $TOPIC
-          required: true
-          options:
-            Please select One: " "
-            Agriculture: AGR
-            Animals: ANI
-            "Arts/Entertainment/Humanities ": ART
-            "Banking\\Economy": BAN
-            "Budget/Appropriations\\Economy": BUD
-            Campaign Finance Reform: CAMFIN
-            Congress and Elections: CONG
-            "Defense\\Military": DEF
-            Education: EDU
-            Energy/Nuclear: ENG
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FOR
-            Guns: GUNS
-            Health Issues: HEALTH
-            Immigration: IMM
-            "Judiciary, court issues": JUD
-            Labor Issues: LBR
-            LGBT: LGBT
-            Postal: POS
-            Telecommunications/Broadcasting/TV: TEC
-            Social Services: SOCISERV
-            Tax Issues: TAX
-            Transportation: TRANS
-            Trade Issues: TRADE
-            Veterans: VET
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
+        - 
           selector: "#submit"
-    - find:
-        - value: The following information has been submitted
-          selector: "p"
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: Thank you
