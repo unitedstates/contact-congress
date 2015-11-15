@@ -100,6 +100,8 @@ contact_form:
           "Trade": "TRADE"
           "Veterans": "VET"
           "Welfare": "WEL"
+    - javascript:
+      - value: document.querySelector("#field_5d0df2c0-8a69-4230-aab8-b0f872ceb818").value = document.querySelector("#field_5d0df2c0-8a69-4230-aab8-b0f872ceb818").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"

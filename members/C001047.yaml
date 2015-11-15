@@ -303,6 +303,8 @@ contact_form:
           selector: "#affl_toggle"
           value: EMAIL.OPTIN
     - javascript:
+        - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
+    - javascript:
         - value: "document.querySelector('.controls .btn[type=submit]').click()"
     - find:
         - selector: "p > i"

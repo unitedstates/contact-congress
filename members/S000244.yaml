@@ -158,6 +158,8 @@ contact_form:
         - name: reqresponse
           selector: "#responseYes"
           value: "yes"
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send Message
           selector: "form input[name='WR_Submit']"

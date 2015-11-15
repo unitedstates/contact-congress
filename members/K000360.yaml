@@ -119,6 +119,8 @@ contact_form:
             "\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tUnemployment\n\t\t\t\t\t\t": Unemployment
             "\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tVeteran's Affairs\n\t\t\t\t\t\t": "Veteran's Affairs"
             "\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
+    - javascript:
+        - value: document.querySelector("#thisForm textarea[name='MessageBody']").value = document.querySelector("#thisForm textarea[name='MessageBody']").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#thisForm input[name='Submit']"

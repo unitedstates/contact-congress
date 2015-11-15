@@ -71,6 +71,8 @@ contact_form:
             Transportation: TRA
             Trade: TRADE
             Veterans: VET
+    - javascript:
+        - value: document.querySelector("#field_79A3A867-623E-4816-AE38-F10965A1B758").value = document.querySelector("#field_79A3A867-623E-4816-AE38-F10965A1B758").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

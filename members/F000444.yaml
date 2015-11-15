@@ -97,6 +97,8 @@ contact_form:
             - Transportation
             - Veterans Issues
             - Welfare
+    - javascript:
+        - value: document.querySelector("#field_11c08db8-4bd8-4cb6-bcc5-bcc5f4eb85b4").value = document.querySelector("#field_11c08db8-4bd8-4cb6-bcc5-bcc5f4eb85b4").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

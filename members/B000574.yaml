@@ -124,6 +124,8 @@ contact_form:
             Transportation: TRAN
             Veterans: VET
             Other: OTH
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send Message
           selector: "#int-left form input[type='submit'][value='Send Message']"

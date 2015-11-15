@@ -152,6 +152,8 @@ contact_form:
           options:
             "Yes, please respond": "Y"
             "No, I am not looking for a response": "N"
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submitButton"

@@ -192,6 +192,8 @@ contact_form:
       - name: ctl00$ctl16$ReplyChoice
         selector: "#ctl00_ctl16_ReplyChoice_0"
         value: Respond
+    - javascript:
+      - value: document.querySelector("#ctl00_ctl16_Body").value = document.querySelector("#ctl00_ctl16_Body").value.replace(/"/g, '');
     - click_on:
       - selector: "#ctl00_ctl16_SubmitButton"
         value: Submit

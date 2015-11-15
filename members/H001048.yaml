@@ -75,6 +75,8 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other: OTH
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - selector: "button.ideal-button"
   success:

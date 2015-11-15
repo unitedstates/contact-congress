@@ -295,6 +295,8 @@ contact_form:
             Transportation: Transportation
             Veterans: Veterans
             "Women's Rights/Choice": Women
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#side-search-btn"

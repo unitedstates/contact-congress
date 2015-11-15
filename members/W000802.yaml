@@ -127,6 +127,8 @@ contact_form:
           - "Airman First Class"
           - "Airman"
           - "Brother"
+    - javascript:
+      - value: document.querySelector("#comments").value = document.querySelector("#comments").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#side-search-btn"

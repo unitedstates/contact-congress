@@ -101,6 +101,8 @@ contact_form:
           options:
             I do not need a response.: "N"
             I would like a response.: "Y"
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#submitButton"

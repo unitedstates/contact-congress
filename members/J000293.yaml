@@ -73,6 +73,8 @@ contact_form:
           "Veterans": "VET"
           "Welfare": "WEL"
           "Other": "OTH"
+    - javascript:
+      - value: document.querySelector("#field_24b273cc-4761-49a6-ac70-cbcacccad0da").value = document.querySelector("#field_24b273cc-4761-49a6-ac70-cbcacccad0da").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"

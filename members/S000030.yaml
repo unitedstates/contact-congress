@@ -108,6 +108,8 @@ contact_form:
         - value: Send Email
           selector: "#submit"
     - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - javascript:
         - value: "document.querySelector('#submit').click();"
     - find:
         - selector: "p"

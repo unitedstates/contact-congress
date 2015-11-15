@@ -107,6 +107,8 @@ contact_form:
             Transportation: WEBTRA
             Trade: WEBTRAD
             Veterans Affairs: WEBVET
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"

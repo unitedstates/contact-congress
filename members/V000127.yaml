@@ -236,6 +236,8 @@ contact_form:
         value: "Y"
     - wait:
       - value: 1
+    - javascript:
+      - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: input.btn.right

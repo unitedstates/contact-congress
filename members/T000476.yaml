@@ -218,6 +218,8 @@ contact_form:
             Transportation: TRA
             Veterans: VET
             Welfare: WEL
+    - javascript:
+        - value: document.querySelector("#field_279EFB03-F78D-4924-8599-F04AEB99A7A6").value = document.querySelector("#field_279EFB03-F78D-4924-8599-F04AEB99A7A6").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

@@ -108,6 +108,8 @@ contact_form:
        options:
          Yes, please contact me: Y
          No, I wanted to voice my opinion: N
+   - javascript:
+     - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
    - click_on:
      - value: Send Email
        selector: "#contactForm[action='/htbin/formproc/email-me.txt%26display%3D/contact/email-me/email-me-thank-you%26nobase%26fpGetVer%3D2'] #submit"

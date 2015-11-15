@@ -101,6 +101,8 @@ contact_form:
           Transportation: TRANSPORT
           Veterans: Veterans
           Welfare: Welfare
+    - javascript:
+      - value: document.querySelector("#field_32e4bfdf-a639-47de-bdfb-6d0c705fd2ff").value = document.querySelector("#field_32e4bfdf-a639-47de-bdfb-6d0c705fd2ff").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"

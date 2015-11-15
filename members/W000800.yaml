@@ -125,6 +125,8 @@ contact_form:
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - 
           selector: button.btn.btn-success
@@ -133,3 +135,4 @@ contact_form:
       status: 200
     body:
       contains: Thank you
+

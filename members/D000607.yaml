@@ -194,6 +194,8 @@ contact_form:
         selector: "#response_y"
         value: Yes
         required: Yes
+    - javascript:
+      - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "input.btn[value='Submit']"

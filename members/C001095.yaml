@@ -137,6 +137,8 @@ contact_form:
             "\n\t\t\t\t\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t\t\t\t\t": Veterans
             "\n\t\t\t\t\t\t\t\t\t\t\tWelfare\n\t\t\t\t\t\t\t\t\t\t": Welfare
             "\n\t\t\t\t\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t\t\t\t\t": "Women's Issues"
+    - javascript:
+        - value: document.querySelector("#MessageBody").value = document.querySelector("#MessageBody").value.replace(/"/g, '');
     - click_on:
         - value: Send
           selector: "form.-validate-form.form-contact[name='thisForm'] input[name='Submit']"

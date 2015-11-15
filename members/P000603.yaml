@@ -233,6 +233,8 @@ contact_form:
         - value: 2
     - javascript:
         - value: "document.querySelector('.g-recaptcha iframe').parentNode.removeChild(document.querySelector('.g-recaptcha iframe'));"
+    - javascript:
+        - value: document.querySelector("#messagebody").value = document.querySelector("#messagebody").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn

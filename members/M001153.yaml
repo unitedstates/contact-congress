@@ -171,6 +171,8 @@ contact_form:
           "Welfare": "Welfare"
           "Wildlife": "Wildlife"
           "Other": "Other"
+    - javascript:
+      - value: document.querySelector("#field_feeeaf70-4711-4741-8937-5f65035115e6").value = document.querySelector("#field_feeeaf70-4711-4741-8937-5f65035115e6").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".btn-primary"

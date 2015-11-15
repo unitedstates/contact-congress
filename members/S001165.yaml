@@ -110,6 +110,8 @@ contact_form:
           selector: "#required-response"
           value: "Y"
           required: true
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm button#submit"

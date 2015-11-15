@@ -44,6 +44,8 @@ contact_form:
         selector: ".input-textarea"
         value: "$MESSAGE"
         required: Yes
+    - javascript:
+      - value: document.querySelector(".input-textarea").value = document.querySelector(".input-textarea").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#sf-submit"

@@ -87,6 +87,8 @@ contact_form:
             Veterans Issues: VETS
             Welfare Issues: WELFARE
             Women’s Issues: WOMEN
+    - javascript:
+        - value: document.querySelector("#lipsum form textarea[name='required-message']").value = document.querySelector("#lipsum form textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#lipsum form input[name='submit']"

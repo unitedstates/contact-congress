@@ -161,6 +161,8 @@ contact_form:
         selector: "#ctl00_ctl23_Body"
         value: $MESSAGE
         required: true
+    - javascript:
+      - value: document.querySelector("#ctl00_ctl23_Body").value = document.querySelector("#ctl00_ctl23_Body").value.replace(/"/g, '');
     - click_on:
       - value: "Submit"
         selector: "input[name='ctl00$ctl23$SubmitButton']"

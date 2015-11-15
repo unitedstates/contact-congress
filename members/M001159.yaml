@@ -47,6 +47,8 @@ contact_form:
           selector: "#input_11_13"
           value: $ADDRESS_ZIP5
           required: true
+    - javascript:
+        - value: document.querySelector("#input_11_2").value = document.querySelector("#input_11_2").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_11"

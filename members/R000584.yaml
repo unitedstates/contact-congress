@@ -116,6 +116,8 @@ contact_form:
             - Welfare
             - "Women's Issues"
             - Other
+    - javascript:
+        - value: document.querySelector("#field_b3546a94-6fc9-4491-b49e-491ab436132c").value = document.querySelector("#field_b3546a94-6fc9-4491-b49e-491ab436132c").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

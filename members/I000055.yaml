@@ -78,6 +78,8 @@ contact_form:
           "Taxes": "TAX"
           "Transporatation": "TRANS"
           "Veterans": "VETS"
+    - javascript:
+      - value: document.querySelector("#field_4bbb4940-5fa9-43e1-9f05-0a9eb169c378").value = document.querySelector("#field_4bbb4940-5fa9-43e1-9f05-0a9eb169c378").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "form.uniForm input[type='submit']"

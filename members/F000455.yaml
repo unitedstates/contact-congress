@@ -165,6 +165,8 @@ contact_form:
             Trade: TRD
             Veterans: VET
             Welfare: WELF
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#submitButton"

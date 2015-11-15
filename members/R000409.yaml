@@ -93,6 +93,8 @@ contact_form:
             Defense: Webdef
             Request for Assistance: Webreq
             Other: Weboth
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - selector: button.ideal-button
   success:

@@ -103,6 +103,8 @@ contact_form:
           options:
             "Yes": "Yes"
             "No": "No"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#node-1418 form.validate.wsbform input[name='submit']"

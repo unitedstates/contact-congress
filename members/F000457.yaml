@@ -126,6 +126,8 @@ contact_form:
         value: yes
     - wait:
       - value: 1
+    - javascript:
+      - value: document.querySelector(".textarea").value = document.querySelector(".textarea").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#thisForm input[title='Submit']"

@@ -162,6 +162,8 @@ contact_form:
         - name: newsletter3
           selector: "#newsletter3"
           value: ENEWS.GRANTS
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submitButton"

@@ -100,6 +100,8 @@ contact_form:
           - "Veterans Affairs"
           - "Welfare"
           - "Womens Issues"
+    - javascript:
+      - value: document.querySelector("#messagebody").value = document.querySelector("#messagebody").value.replace(/"/g, '');
     - click_on:
       - value: Submit Information
         selector: ".input-button"

@@ -121,6 +121,8 @@ contact_form:
             "Women & Children": WOMEN
             Request an appointment: SCHEDULING
             Send a Thank You: THANK(FAN MAIL)
+    - javascript:
+        - value: document.querySelector("#input-36E62F57-5056-A066-60BF-78ADF9F5676E").value = document.querySelector("#input-36E62F57-5056-A066-60BF-78ADF9F5676E").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn

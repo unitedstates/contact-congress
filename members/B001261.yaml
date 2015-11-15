@@ -161,6 +161,8 @@ contact_form:
             - Tour Request
             - Trade
             - Veterans
+    - javascript:
+        - value: document.querySelector("#field_40c203dd-a384-408d-84ab-26d1471756d8").value = document.querySelector("#field_40c203dd-a384-408d-84ab-26d1471756d8").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

@@ -101,6 +101,8 @@ contact_form:
         - name: required-response
           selector: "#required-response_0"
           value: "Y"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"

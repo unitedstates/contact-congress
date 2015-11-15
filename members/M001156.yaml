@@ -89,6 +89,8 @@ contact_form:
             - Sr.
             - SSgt.
             - The Honorable
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl35_Body").value = document.querySelector("#ctl00_ctl35_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl35_SubmitButton"

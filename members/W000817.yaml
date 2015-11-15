@@ -130,6 +130,8 @@ contact_form:
           "\n\t\t\t\t\t\t\tUnemployment Insurance\n\t\t\t\t\t\t": Unemployment Insurance
           "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": Veterans
           "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
+    - javascript:
+      - value: document.querySelector("#thisForm .textarea").value = document.querySelector("#thisForm .textarea").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".normal-input[name=Submit]"

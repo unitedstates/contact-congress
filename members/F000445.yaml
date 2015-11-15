@@ -218,6 +218,8 @@ contact_form:
             Trade: TR
             Transportation/Infrastructure: TI
             Veteran Affairs: VA
+    - javascript:
+        - value: document.querySelector("#Message").value = document.querySelector("#Message").value.replace(/"/g, '');
     - click_on:
         - value: Send Message
           selector: "form.zipform input[name='WR_Submit']"

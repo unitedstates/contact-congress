@@ -85,6 +85,8 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other Issues: OTH
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: ".custom_form #submitButton"

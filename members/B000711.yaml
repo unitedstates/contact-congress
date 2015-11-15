@@ -231,6 +231,8 @@ contact_form:
             "Veterans": "VETERANS"
             "Welfare": "WELFARE"
             "Women's Issues": "WOMEN"
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send
           selector: "#submit"
