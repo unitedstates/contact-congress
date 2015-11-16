@@ -57,10 +57,10 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Dr.
-            - Ms.
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Dr.: Dr.
+            Ms.: Ms.
         - name: ctl00$ctl16$IssuesList
           selector: "#ctl00_ctl16_IssuesList"
           value: $TOPIC
@@ -114,4 +114,3 @@ contact_form:
       status: 200
     body:
       contains: Thank you for taking the time to write me. I carefully consider the views of my constituents as I serve in Washington.
-      
