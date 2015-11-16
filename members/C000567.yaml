@@ -51,13 +51,13 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Hon.
-            - Dr.
-            - Reverend
-            - Sister
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Hon.: Hon.
+            Dr.: Dr.
+            Reverend: Reverend
+            Sister: Sister
         - name: field_a2b54723-46f9-4a75-bfcf-6e4974580e71
           selector: "#field_a2b54723-46f9-4a75-bfcf-6e4974580e71"
           value: $TOPIC
@@ -110,4 +110,3 @@ contact_form:
       status: 200
     body:
       contains: Thank you for taking the time to contact Senator Cochran.
-
