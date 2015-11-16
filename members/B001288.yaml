@@ -1,9 +1,9 @@
 bioguide: B001288
 contact_form:
   method: post
-  action: "/?p=contact&clear_cache=1"
+  action: "https://www.booker.senate.gov/?p=contact&clear_cache=1"
   steps:
-    - visit: "http://www.booker.senate.gov/?p=contact"
+    - visit: "https://www.booker.senate.gov/?p=contact"
     - fill_in:
         - name: firstName
           selector: "#firstName"
@@ -51,30 +51,30 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Mr. and Mrs.
-            - Miss
-            - Dr.
-            - Dr. and Mrs.
-            - Dr. and Mr.
-            - Admiral
-            - Captain
-            - Chief Master Sergeant
-            - Colonel
-            - Commander
-            - Corporal
-            - Father
-            - Lieutenant
-            - Lieutenant Colonel
-            - Master Sergeant
-            - Reverend
-            - Sergeant
-            - Second Lieutenant
-            - Sergeant Major
-            - Sister
-            - Technical Sergeant
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Mr. and Mrs.: Mr. and Mrs.
+            Miss: Miss
+            Dr.: Dr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Dr. and Mr.: Dr. and Mr.
+            Admiral: Admiral
+            Captain: Captain
+            Chief Master Sergeant: Chief Master Sergeant
+            Colonel: Colonel
+            Commander: Commander
+            Corporal: Corporal
+            Father: Father
+            Lieutenant: Lieutenant
+            Lieutenant Colonel: Lieutenant Colonel
+            Master Sergeant: Master Sergeant
+            Reverend: Reverend
+            Sergeant: Sergeant
+            Second Lieutenant: Second Lieutenant
+            Sergeant Major: Sergeant Major
+            Sister: Sister
+            Technical Sergeant: Technical Sergeant
         - name: State
           selector: "#State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
