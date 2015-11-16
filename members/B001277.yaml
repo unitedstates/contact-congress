@@ -8,39 +8,39 @@ contact_form:
       - name: topic
         selector: "#topic"
         value: "$TOPIC"
-        required: Yes
+        required: true
         options:
-          - "Abortion Rights"
-          - "Agriculture"
-          - "Animal Welfare"
-          - "Banking and Finance"
-          - "Budget"
-          - "Child Care and Welfare"
-          - "Civil Rights"
-          - "Defense"
-          - "Disability"
-          - "Economy"
-          - "Election Reform"
-          - "Energy"
-          - "Environment"
-          - "Foreign Affairs"
-          - "Gun Violence & Second Amendment Rights"
-          - "Infrastructure"
-          - "Intellectual Property"
-          - "Judicial Nominations"
-          - "Judiciary"
-          - "Labor"
-          - "Medicaid"
-          - "Online Privacy"
-          - "Other"
-          - "Pensions"
-          - "Postal Issues"
-          - "Science and Technology"
-          - "Senior Issues"
-          - "Sports"
-          - "Telecommunications"
-          - "Trade"
-          - "Transportation"
+          "Abortion Rights": "Abortion Rights"
+          "Agriculture": "Agriculture"
+          "Animal Welfare": "Animal Welfare"
+          "Banking and Finance": "Banking and Finance"
+          "Budget": "Budget"
+          "Child Care and Welfare": "Child Care and Welfare"
+          "Civil Rights": "Civil Rights"
+          "Defense": "Defense"
+          "Disability": "Disability"
+          "Economy": "Economy"
+          "Election Reform": "Election Reform"
+          "Energy": "Energy"
+          "Environment": "Environment"
+          "Foreign Affairs": "Foreign Affairs"
+          "Gun Violence & Second Amendment Rights": "Gun Violence & Second Amendment Rights"
+          "Infrastructure": "Infrastructure"
+          "Intellectual Property": "Intellectual Property"
+          "Judicial Nominations": "Judicial Nominations"
+          "Judiciary": "Judiciary"
+          "Labor": "Labor"
+          "Medicaid": "Medicaid"
+          "Online Privacy": "Online Privacy"
+          "Other": "Other"
+          "Pensions": "Pensions"
+          "Postal Issues": "Postal Issues"
+          "Science and Technology": "Science and Technology"
+          "Senior Issues": "Senior Issues"
+          "Sports": "Sports"
+          "Telecommunications": "Telecommunications"
+          "Trade": "Trade"
+          "Transportation": "Transportation"
     - click_on:
       - value: Clicksomewhere
         selector: "#contact-sam-main"
@@ -50,66 +50,66 @@ contact_form:
       - name: fname
         selector: "#fname"
         value: "$NAME_FIRST"
-        required: Yes
+        required: true
       - name: lname
         selector: "#lname"
         value: "$NAME_LAST"
-        required: Yes
+        required: true
       - name: mailing_streetAddress1
         selector: "#mailing_streetAddress1"
         value: "$ADDRESS_STREET"
-        required: Yes
+        required: true
       - name: mailing_streetAddress2
         selector: "#mailing_streetAddress2"
         value: "$ADDRESS_STREET_2"
       - name: mailing_city
         selector: "#mailing_city"
         value: "$ADDRESS_CITY"
-        required: Yes
+        required: true
       - name: mailing_zipCode
         selector: "#mailing_zipCode"
         value: "$ADDRESS_ZIP5"
-        required: Yes
+        required: true
       - name: phone_number
         selector: "#phone_number"
         value: "$PHONE"
       - name: email
         selector: "#email_address"
         value: "$EMAIL"
-        required: Yes
+        required: true
       - name: verify_email
         selector: "#verify_email"
         value: "$EMAIL"
-        required: Yes
+        required: true
       - name: subject
         selector: "#subject"
         value: "$SUBJECT"
-        required: Yes
+        required: true
       - name: comments
         selector: "#comments"
         value: "$MESSAGE"
-        required: Yes
+        required: true
     - select:
       - name: salutation
         selector: "#salutation"
         value: "$NAME_PREFIX"
-        required: Yes
+        required: true
         options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Miss"
-          - "Mr. and Mrs."
-          - "Professor"
-          - "Dean"
-          - "The Honorable"
-          - "Dr."
-          - "Dr. and Mrs."
-          - "Dr. and Mr."
+          "Mr.": "Mr."
+          "Mrs.": "Mrs."
+          "Ms.": "Ms."
+          "Miss": "Miss"
+          "Mr. and Mrs.": "Mr. and Mrs."
+          "Professor": "Professor"
+          "Dean": "Dean"
+          "The Honorable": "The Honorable"
+          "Dr.": "Dr."
+          "Dr. and Mrs.": "Dr. and Mrs."
+          "Dr. and Mr.": "Dr. and Mr."
       - name: mailing_state
         selector: "#mailing_state"
         value: "CT"  # only accepts mail from constituents
-        required: Yes
+        required: true
         options: US_STATES_AND_TERRITORIES
     - wait:
       - value: 1
