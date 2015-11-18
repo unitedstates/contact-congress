@@ -1,9 +1,9 @@
 bioguide: NYL000032
 contact_form:
   method: post
-  action: /senator/kenneth-p-lavalle/contact
+  action: ""
   steps:
-    - visit: "http://www.nysenate.gov/senator/kenneth-p-lavalle/contact"
+    - visit: "http://www.nysenate.gov/senators/kenneth-p-lavalle/contact"
     - fill_in:
         - name: fname
           selector: "#edit-first-name"
@@ -13,18 +13,22 @@ contact_form:
           selector: "#edit-last-name"
           value: $NAME_LAST
           required: true
+        - name: subject
+          selector: "#edit-subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#edit-email-body"
+          value: $MESSAGE
+          required: true
         - name: email
           selector: "#edit-from-email"
           value: $EMAIL
           required: true
         - name: address
-          selector: "#edit-guest-address"
+          selector: "#edit-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#edit-guest-address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#edit-city"
           value: $ADDRESS_CITY
@@ -33,31 +37,11 @@ contact_form:
           selector: "#edit-zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
-          selector: "#edit-phone"
-          value: $PHONE
-          required: true
-        - name: subject
-          selector: "#edit-subject"
-          value: $SUBJECT
-          required: true
-        - name: message
-          selector: "#edit-message"
-          value: $MESSAGE
-          required: true
-        - name: recaptcha_response_field
-          selector: "#recaptcha_response_field"
-          captcha_selector: "img#recaptcha_challenge_image"
-          captcha_id_selector: "#recaptcha_challenge_field"
-          value: $CAPTCHA_SOLUTION
-          required: true
     - click_on:
-        - value: Reg2VoteYes
-          selector: "#edit-voteregistered-Registered-at-this-Address"
         - value: Submit
           selector: "#edit-submit"
   success:
     headers:
       status: 200
     body:
-      contains: The message has been sent
+      contains: Your message has been submitted to the Senator.
