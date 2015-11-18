@@ -9,8 +9,8 @@ contact_form:
           selector: "#zipcode"
           value: $ADDRESS_ZIP5
           required: true
-    - click_on:
-        - selector: "h1.main_page_title"
+    - javascript:
+        - value: "$('input[type=submit][value=Submit]').click();$('#continue-form').show()"
     - find:
         - selector: "#input-FE90751D-4040-F985-52CD-49B043A1EC15"
     - fill_in:
@@ -192,12 +192,15 @@ contact_form:
             "Navy - Seaman Recruit": "Seaman Recruit"
         - name: "input_FEC5D1BC-4040-F985-52CD-9D43179522B8"
           selector: "#input-FEC5D1BC-4040-F985-52CD-9D43179522B8"
-          value: voice
+          value: "Voice - Home"
           required: true
           options:
-            "Voice": "voice"
-            "VP": "VP"
-            "TTD": "TTD"
+            "Voice - Home": "Voice - Home"
+            "Voice - Mobile": "Voice - Mobile"
+            "VP - Home": "VP - Home"
+            "VP - Mobile": "VP - Mobile"
+            "TTD - Home": "TTD - Home"
+            "TTD - Voice": "TTD - Voice"
         - name: "input_FEEEC32B-4040-F985-52CD-303955B5D15D"
           selector: "#input-FEEEC32B-4040-F985-52CD-303955B5D15D"
           value: $TOPIC
@@ -243,13 +246,6 @@ contact_form:
             "Women's Rights": "WOM"
             "Welfare": "WEL"
             "Other Issues": "OTHER"
-        - name: "input_7244B1CA-5056-BE32-8188-4FFD3A19F87D"
-          selector: "#input-7244B1CA-5056-BE32-8188-4FFD3A19F87D"
-          value: "Y"
-          required: true
-          options:
-            "Yes": "Y"
-            "No": "N"
     - javascript:
         - value: document.querySelector("#input-36466B2D-9324-A3EC-8F49-33D7F83F9C08").value = document.querySelector("#input-36466B2D-9324-A3EC-8F49-33D7F83F9C08").value.replace(/"/g, '');
     - click_on:
