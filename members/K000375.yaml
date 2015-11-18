@@ -89,6 +89,8 @@ contact_form:
         - name: aff1
           selector: "#mainbodyContentleft form input[name='aff1']"
           value: EMAIL.OPTIN
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit2"

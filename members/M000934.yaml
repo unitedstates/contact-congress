@@ -60,6 +60,8 @@ contact_form:
             - The Honorable
             - Representative
             - Senator
+    - javascript:
+        - value: document.querySelector("#field_123312f2-861a-4dc6-aaa2-768d19d27d8d").value = document.querySelector("#field_123312f2-861a-4dc6-aaa2-768d19d27d8d").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

@@ -118,6 +118,8 @@ contact_form:
     - value: Send Email to Representative Stefanik
       selector: "#contactForm #submit"
   - javascript:
+    - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+  - javascript:
     - value: "document.querySelector('#contactForm #submit').click()"
   - find:
     - selector: ".data"

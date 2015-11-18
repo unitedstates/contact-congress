@@ -55,6 +55,8 @@ contact_form:
           captcha_id_selector: "#recaptcha_challenge_field"
           value: $CAPTCHA_SOLUTION
           required: true
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"

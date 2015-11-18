@@ -119,6 +119,8 @@ contact_form:
           - "TOURS"
           - "TRANSPORTATION"
           - "VETERANS"
+    - javascript:
+      - value: document.querySelector("#field_1f71bc5e-19c7-4def-af1d-c2ddcd1e374c").value = document.querySelector("#field_1f71bc5e-19c7-4def-af1d-c2ddcd1e374c").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".primaryAction"

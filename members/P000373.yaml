@@ -77,6 +77,8 @@ contact_form:
             Trade: TRADE
             Veteran Affairs: VET
             Others: GEN
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Submit Form
           selector: "#submit"

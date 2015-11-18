@@ -69,6 +69,8 @@ contact_form:
         - name: subscribe
           selector: "#contactForm input[name='subscribe']"
           value: OPTIN.EMAIL
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send Message
           selector: "#submit"

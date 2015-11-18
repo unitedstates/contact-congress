@@ -152,6 +152,8 @@ contact_form:
             Trade: TRD
             Veterans: VET
             Welfare: WEL
+    - javascript:
+        - value: document.querySelector("#edit-submitted-message-details-message").value = document.querySelector("#edit-submitted-message-details-message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#webform-client-form-78 input[name='op']"

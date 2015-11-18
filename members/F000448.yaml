@@ -100,6 +100,8 @@ contact_form:
           options:
             "Yes": WBRN
             "No": WBNRN
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"

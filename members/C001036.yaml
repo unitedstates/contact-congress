@@ -109,6 +109,8 @@ contact_form:
         - name: rsp
           selector: "#rsp_yes"
           value: " "
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"

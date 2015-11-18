@@ -97,6 +97,8 @@ contact_form:
         - name: ResponseRequired
           selector: "#node-138 form.validate.wsbform input[name='ResponseRequired']"
           value: ResponseRequired
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"

@@ -105,6 +105,8 @@ contact_form:
     - javascript:
         - value: "document.querySelector('#ctl00_ctl34_ReplyChoice_0').checked=true"
     - javascript:
+        - value: document.querySelector("#ctl00_ctl34_Body").value = document.querySelector("#ctl00_ctl34_Body").value.replace(/"/g, '');
+    - javascript:
         - value: "document.querySelector('#ctl00_ctl34_SubmitButton').click()"
     - find:
       - selector: '#ctl00_ctl34_ConfirmationText'

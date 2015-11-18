@@ -68,6 +68,8 @@ contact_form:
         - name: required-response
           selector: "input[type='radio'][name='required-response'][value='Y']"
           value: "Y"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit2']"

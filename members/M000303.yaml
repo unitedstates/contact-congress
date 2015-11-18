@@ -92,6 +92,8 @@ contact_form:
           Transportation: TRGE
           Veterans Affairs: VAGE
           Wildlife: WIGE
+    - javascript:
+      - value: document.querySelector("#field_5d52282e-1edb-4cd7-abb8-5f940bdb0ea1").value = document.querySelector("#field_5d52282e-1edb-4cd7-abb8-5f940bdb0ea1").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".btn-primary"

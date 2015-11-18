@@ -68,6 +68,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl30_SubmitButton"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl30_Body").value = document.querySelector("#ctl00_ctl30_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl30_SubmitButton"

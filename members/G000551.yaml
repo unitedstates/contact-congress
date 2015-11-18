@@ -75,6 +75,8 @@ contact_form:
             "Veterans": "VETERANS_AFFAIRS"
             "Welfare": "WELFARE"
             "Other Issues": "OTHER"
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submitButton"

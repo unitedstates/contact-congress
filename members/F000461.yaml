@@ -161,6 +161,8 @@ contact_form:
             Telecommunications: "118744"
             Transportation and Infrastructure: "106000"
             Veterans: "106001"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl15_Body").value = document.querySelector("#ctl00_ctl15_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl15_SubmitButton"

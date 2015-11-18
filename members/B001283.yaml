@@ -118,6 +118,8 @@ contact_form:
         - name: ctl00$ctl15$ReplyChoice
           selector: "#ctl00_ctl15_ReplyChoice_0"
           value: Respond
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl15_Body").value = document.querySelector("#ctl00_ctl15_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl15_SubmitButton"

@@ -83,6 +83,8 @@ contact_form:
         - name: rsp
           selector: "#contactForm input[name='rsp']"
           value: "no"
+    - javascript:
+        - value: document.querySelector("#contactForm textarea[name='required-message']").value = document.querySelector("#contactForm textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[type='submit'][value='Send Email']"

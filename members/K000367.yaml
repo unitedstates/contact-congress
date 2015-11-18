@@ -91,6 +91,8 @@ contact_form:
             - Veterans Affairs
             - Welfare
             - Other
+    - javascript:
+        - value: document.querySelector("#field_1a032e33-7721-4ce2-ad9b-2ecafe076d8c").value = document.querySelector("#field_1a032e33-7721-4ce2-ad9b-2ecafe076d8c").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

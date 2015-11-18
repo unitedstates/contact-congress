@@ -168,6 +168,8 @@ contact_form:
             Welfare: WELF
             Women: WOMENS
             Civil Rights: Civil Rights
+    - javascript:
+        - value: document.querySelector("#field_5722c424-8601-4abf-a8d1-ac11b9c45f87").value = document.querySelector("#field_5722c424-8601-4abf-a8d1-ac11b9c45f87").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

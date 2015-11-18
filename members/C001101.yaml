@@ -86,6 +86,8 @@ contact_form:
           options:
             I do not need a response: N
             I would like a response: Y
+    - javascript:
+        - value: document.querySelector("#field_3CB3FE47-04FA-465C-8F41-96C585920FC2").value = document.querySelector("#field_3CB3FE47-04FA-465C-8F41-96C585920FC2").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

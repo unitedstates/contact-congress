@@ -95,6 +95,8 @@ contact_form:
           Technology: TECH
           Transportation: TRANSPORTATION
           Veterans: VETERANS
+    - javascript:
+      - value: document.querySelector("#field_8b3c545e-254e-4902-b51b-d26db60bf711").value = document.querySelector("#field_8b3c545e-254e-4902-b51b-d26db60bf711").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"

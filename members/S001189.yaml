@@ -126,6 +126,8 @@ contact_form:
     - choose:
         - name: enewssign
           selector: "#enewsno"
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#custom_form70 #submitButton"

@@ -160,6 +160,8 @@ contact_form:
           - "Tourism"
           - "Veterans"
           - "Transportation"
+    - javascript:
+      - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#side-search-btn"

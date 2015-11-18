@@ -155,6 +155,8 @@ contact_form:
             - Transportation
             - Veterans
             - Welfare
+    - javascript:
+        - value: document.querySelector("#Message").value = document.querySelector("#Message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.primaryAction

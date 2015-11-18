@@ -55,6 +55,8 @@ contact_form:
           - "Miss"
           - "Dr."
           - "Rev."
+    - javascript:
+      - value: document.querySelector("#field_4390dd78-cb0e-4eca-9543-55f2c71aecbc").value = document.querySelector("#field_4390dd78-cb0e-4eca-9543-55f2c71aecbc").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"

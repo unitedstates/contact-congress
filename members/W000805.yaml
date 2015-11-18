@@ -180,6 +180,8 @@ contact_form:
           options:
             "Yes": "Yes"
             "No": "No"
+    - javascript:
+        - value: document.querySelector("#field_6fa5f44f-28ca-45fd-9142-3c29c257b186").value = document.querySelector("#field_6fa5f44f-28ca-45fd-9142-3c29c257b186").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

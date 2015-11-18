@@ -123,6 +123,8 @@ contact_form:
             - WI
             - WV
             - WY
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submitButton"

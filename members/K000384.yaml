@@ -198,6 +198,8 @@ contact_form:
         # I would like to receive email updates from the Senator
     - wait:
         - value: 1
+    - javascript:
+      - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#contactForm input[type='submit']"

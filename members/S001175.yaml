@@ -93,6 +93,8 @@ contact_form:
           options:
             "Yes": "Y"
             "No": "no"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#mainbodyContentleft form input[name='submit']"

@@ -164,6 +164,8 @@ contact_form:
             Trade: "52888"
             Veterans: "47879"
             Water Resources Development: "47896"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl09_Body").value = document.querySelector("#ctl00_ctl09_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl09_SubmitButton"

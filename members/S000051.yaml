@@ -94,6 +94,8 @@ contact_form:
         options:
           "Yes, sign me up": "EMAIL.OPTIN"
           "No, not at this time": "N"
+    - javascript:
+      - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
       - value: "Send Email"
         selector: "#contactForm input[name='submit']"

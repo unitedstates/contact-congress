@@ -165,6 +165,8 @@ contact_form:
             Public Works/Utilities: PUBLICWORKS
             Web Site Comments: WEB
             Miscellaneous/Other: MISCELLANEOUS
+    - javascript:
+        - value: document.querySelector("#atform textarea[name='con_message']").value = document.querySelector("#atform textarea[name='con_message']").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#atform input[type='submit'][value='Submit']"

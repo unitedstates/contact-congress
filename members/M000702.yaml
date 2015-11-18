@@ -190,6 +190,8 @@ contact_form:
           selector: "#response_y"
           value: "Y"
     - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+    - javascript:
         - value: "document.querySelector('form#contactForm').submit();"
     - find:
         - value: Thank you

@@ -158,6 +158,8 @@ contact_form:
           - Veterans
           - "Women's Issues"
           - Other
+    - javascript:
+      - value: document.querySelector("#comments").value = document.querySelector("#comments").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#side-search-btn"

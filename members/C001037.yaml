@@ -89,6 +89,8 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other: WEBOTH
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send my message
           selector: "div.paddingmain form input[name='Submit']"

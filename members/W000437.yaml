@@ -60,6 +60,8 @@ contact_form:
           - "Second Amendment"
           - "Social Security & Pensions"
           - "Taxes & Financial Services"
+    - javascript:
+      - value: document.querySelector("#field_5ef876cf-9476-427b-a01b-25aafd0e013d").value = document.querySelector("#field_5ef876cf-9476-427b-a01b-25aafd0e013d").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".btn-primary"

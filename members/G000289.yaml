@@ -56,6 +56,8 @@ contact_form:
           - "Dr."
           - "Rev."
           - "Other"
+    - javascript:
+      - value: document.querySelector().value = document.querySelector().value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#contact_submit"

@@ -91,6 +91,8 @@ contact_form:
         - name: required-RadioGroup1
           selector: "#RadioGroup1_0"
           value: "Y"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: "Send Email"
           selector: ".formboxL #submit"

@@ -127,6 +127,8 @@ contact_form:
           Private (Recruit): Private (Recruit)
           Airman Basic: Airman Basic
           Seaman Recruit: Seaman Recruit
+    - javascript:
+      - value: document.querySelector("#field_e20922be-668a-46a0-ad93-2f4e33c72483").value = document.querySelector("#field_e20922be-668a-46a0-ad93-2f4e33c72483").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".buttonHolder input"

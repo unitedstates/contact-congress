@@ -81,6 +81,8 @@ contact_form:
           - "Veterans"
           - "Welfare"
           - "Other"
+    - javascript:
+      - value: document.querySelector("#field_bff13ea3-37ad-467a-bb61-750f5cce59e8").value = document.querySelector("#field_bff13ea3-37ad-467a-bb61-750f5cce59e8").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: ".btn-primary"

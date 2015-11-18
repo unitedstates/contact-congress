@@ -119,6 +119,8 @@ contact_form:
   - click_on: 
     - value: Send Email to Representative Comstock
       selector: "#contactForm #submit"
+    - javascript:
+      - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - value: Send Email to Representative Comstock
       selector: "#contactForm #submit"
   success: 

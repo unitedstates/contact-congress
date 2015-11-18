@@ -296,6 +296,8 @@ contact_form:
             - Transportation
             - Veterans Affairs
             - Other
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send My Message
           selector: "#side-search-btn"

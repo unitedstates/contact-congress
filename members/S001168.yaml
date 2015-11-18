@@ -89,6 +89,8 @@ contact_form:
         - selector: "#contactForm input#response"
           value: "yes"
           required: true
+    - javascript:
+        - value: document.querySelector("#contactForm textarea[name='required-message']").value = document.querySelector("#contactForm textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - selector: "#contactForm input[type='submit']"
     - find:

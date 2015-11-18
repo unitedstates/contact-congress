@@ -102,6 +102,8 @@ contact_form:
             Transportation: TRANS
             Veterans Affairs: VA
             Welfare: WELF
+    - javascript:
+        - value: document.querySelector("#field_c6841c81-5e4d-4b2b-9f86-99ece64b3377").value = document.querySelector("#field_c6841c81-5e4d-4b2b-9f86-99ece64b3377").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

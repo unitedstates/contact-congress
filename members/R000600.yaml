@@ -112,6 +112,8 @@ contact_form:
       options: 
         "Yes, please contact me": "Yes"
         "No, I wanted to voice my opinion": "No"
+  - javascript:
+    - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
   - click_on: 
     - value: Send Email to Representative Amata
       selector: "#submit"

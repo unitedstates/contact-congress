@@ -94,6 +94,8 @@ contact_form:
             - Veterans Affairs
             - Violence
             - Other
+    - javascript:
+        - value: document.querySelector("#field_6d262f00-ebe4-49b9-ab23-0c2c3f61225c").value = document.querySelector("#field_6d262f00-ebe4-49b9-ab23-0c2c3f61225c").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.primaryAction

@@ -287,6 +287,8 @@ contact_form:
             WI: WI
             WV: WV
             WY: WY
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send
           selector: "#side-search-btn"

@@ -96,6 +96,8 @@ contact_form:
         selector: "#ctl00_ctl09_ReplyChoice_0"
         value: "Respond"
         required: Yes
+    - javascript:
+      - value: document.querySelector("#ctl00_ctl09_Body").value = document.querySelector("#ctl00_ctl09_Body").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#ctl00_ctl09_SubmitButton"

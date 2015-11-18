@@ -107,6 +107,8 @@ contact_form:
           options:
             "Yes, Please Contact Me": "yes"
             "No, I wanted to voice my opinion": "no"
+    - javascript:
+        - value: document.querySelector("#atform textarea[name='con_message']").value = document.querySelector("#atform textarea[name='con_message']").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#atform input[type='submit'][value='Submit']"

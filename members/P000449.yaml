@@ -111,6 +111,8 @@ contact_form:
         - name: Subscription_id_ad25a374-6207-4339-9ec6-2513f888ce3c
           selector: "#Subscription_id_ad25a374-6207-4339-9ec6-2513f888ce3c_1"
           value: 77e958c1-95c2-4f75-afaf-2cc45eee8682
+    - javascript:
+        - value: document.querySelector("#field_716e154b-9c67-4ede-97ac-a867c5556908").value = document.querySelector("#field_716e154b-9c67-4ede-97ac-a867c5556908").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "div.buttonHolder input"

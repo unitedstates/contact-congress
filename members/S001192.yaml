@@ -103,6 +103,8 @@ contact_form:
           "Women's Issues": "WOMEN"
           "Welfare": "WEL"
           "Other Issues": "OTHER"
+    - javascript:
+      - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
       - value: "Send Email"
         selector: "#submit"

@@ -119,6 +119,8 @@ contact_form:
             Taxation: "100765"
             Transportation and Public Works: "101274"
             Water Resources Development: "100730"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl13_Body").value = document.querySelector("#ctl00_ctl13_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl13_SubmitButton"

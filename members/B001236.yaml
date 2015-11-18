@@ -55,6 +55,8 @@ contact_form:
           - "Reverend"
           - "Sister"
           - "Pastor"
+    - javascript:
+      - value: document.querySelector("#field_48423449-a5cb-4b5e-8af8-6941ab24e7bc").value = document.querySelector("#field_48423449-a5cb-4b5e-8af8-6941ab24e7bc").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#submit_ed3bc819-9b16-4ee9-b32c-0b529718df3f"

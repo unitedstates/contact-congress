@@ -60,6 +60,8 @@ contact_form:
         - name: Issue
           selector: "input[type='radio'][name='Issue'][value='Other']"
           value: Other
+    - javascript:
+        - value: document.querySelector("#Message").value = document.querySelector("#Message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#submit"
