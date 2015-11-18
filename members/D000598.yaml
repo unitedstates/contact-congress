@@ -1,7 +1,7 @@
 bioguide: D000598
 contact_form:
   method: POST
-  action: 
+  action: ""
   steps:
     - visit: https://susandavisforms.house.gov/forms/writeyourrep/
     - select:
@@ -71,7 +71,7 @@ contact_form:
         selector: "#ctl00_ctl09_City"
         value: "$ADDRESS_CITY"
         required: Yes
-      - name: ctl00$ctl09$Zip 
+      - name: ctl00$ctl09$Zip
         selector: "#ctl00_ctl09_Zip"
         value: "$ADDRESS_ZIP5"
         required: Yes
