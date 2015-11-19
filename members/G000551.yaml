@@ -1,7 +1,7 @@
 bioguide: G000551
 contact_form:
   method: post
-  action: /email-raul/
+  action: ""
   steps:
     - visit: "https://grijalva.house.gov/email-raul"
     - fill_in:
@@ -39,15 +39,15 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-           - Mr.
-           - Mrs.
-           - Ms.
-           - Miss
-           - Dr.
-           - Hon.
-           - Rev.
-           - Rabbi
-           - Other
+           Mr.: Mr.
+           Mrs.: Mrs.
+           Ms.: Ms.
+           Miss: Miss
+           Dr.: Dr.
+           Hon.: Hon.
+           Rev.: Rev.
+           Rabbi: Rabbi
+           Other: Other
         - name: issue
           selector: "#req_issue"
           value: $TOPIC
