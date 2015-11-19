@@ -1,5 +1,5 @@
 bioguide: G000289
-contact_form: 
+contact_form:
   method: POST
   action: http://goodlatte.house.gov/contacts
   steps:
@@ -50,12 +50,12 @@ contact_form:
         required: Yes
         value: "$NAME_PREFIX"
         options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Dr."
-          - "Rev."
-          - "Other"
+          "Mr.": "Mr."
+          "Mrs.": "Mrs."
+          "Ms.": "Ms."
+          "Dr.": "Dr."
+          "Rev.": "Rev."
+          "Other": "Other"
     - click_on:
       - value: Submit
         selector: "#contact_submit"
@@ -64,4 +64,3 @@ contact_form:
       status: 200
     body:
       contains: "Thank you for your email."
-
