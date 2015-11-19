@@ -6,57 +6,66 @@ contact_form:
     - visit: "https://flores.house.gov/forms/writeyourrep/?zip5=76710&zip4=2018"
     - fill_in:
         - name: ctl00$ctl16$FirstName
-          selector: "#ctl00_ctl16_FirstName"
+          selector: "#ctl00_ctl15_FirstName"
           value: $NAME_FIRST
           required: true
         - name: ctl00$ctl16$LastName
-          selector: "#ctl00_ctl16_LastName"
+          selector: "#ctl00_ctl15_LastName"
           value: $NAME_LAST
           required: true
         - name: ctl00$ctl16$Street
-          selector: "#ctl00_ctl16_Street"
+          selector: "#ctl00_ctl15_Street"
           value: $ADDRESS_STREET
           required: true
         - name: ctl00$ctl16$City
-          selector: "#ctl00_ctl16_City"
+          selector: "#ctl00_ctl15_City"
           value: $ADDRESS_CITY
           required: true
         - name: ctl00$ctl16$Zip
-          selector: "#ctl00_ctl16_Zip"
+          selector: "#ctl00_ctl15_Zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: ctl00$ctl16$Phone
-          selector: "#ctl00_ctl16_Phone"
+          selector: "#ctl00_ctl15_Phone"
           value: $PHONE
           required: true
         - name: ctl00$ctl16$Email
-          selector: "#ctl00_ctl16_Email"
+          selector: "#ctl00_ctl15_Email"
           value: $EMAIL
           required: true
         - name: ctl00$ctl16$Subject
-          selector: "#ctl00_ctl16_Subject"
+          selector: "#ctl00_ctl15_Subject"
           value: $SUBJECT
           required: true
         - name: ctl00$ctl16$Body
-          selector: "#ctl00_ctl16_Body"
+          selector: "#ctl00_ctl15_Body"
           value: $MESSAGE
           required: true
     - select:
         - name: ctl00$ctl16$PrefixList
-          selector: "#ctl00_ctl16_PrefixList"
+          selector: "#ctl00_ctl15_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
-            - Dr.
-            - Hon.
-            - The Honorable
-            - Reverend
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            The Honorable: The Honorable
+            Reverend: Reverend
+            Representative: Representative
+            Lieutenant: Lieutenant
+            Speaker: Speaker
+            Whip: Whip
+            Leader: Leader
+            Chairman: Chairman
+            Senator: Senator
+            Colonel: Colonel
+            Captain: Captain
         - name: ctl00$ctl16$State
-          selector: "#ctl00_ctl16_State"
+          selector: "#ctl00_ctl15_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -122,7 +131,7 @@ contact_form:
             - VI
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl16_SubmitButton"
+          selector: "#ctl00_ctl15_SubmitButton"
   success:
     headers:
       status: 200
