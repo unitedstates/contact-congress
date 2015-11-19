@@ -30,7 +30,7 @@ contact_form:
         required: Yes
       - name: field_62cac646-c6c0-4b48-8637-86b77d2c9700
         selector: "#field_62cac646-c6c0-4b48-8637-86b77d2c9700"
-        value: "$PHONE_PARENTHESES"
+        value: "$PHONE"
         required: true
       - name: field_4a2966d5-e9ea-4195-b486-b5d3d04d185a
         selector: "#field_4a2966d5-e9ea-4195-b486-b5d3d04d185a"
@@ -40,6 +40,8 @@ contact_form:
         selector: "#field_55b09216-2b91-470f-af68-ae9d197787b0"
         value: "$MESSAGE"
         required: Yes
+    - javascript:
+      - value: "document.getElementById('field_62cac646-c6c0-4b48-8637-86b77d2c9700').value = document.getElementById('field_62cac646-c6c0-4b48-8637-86b77d2c9700').value.replace(/([0-9]{3})([0-9]{3})([0-9]{4})/, '$1-$2-$3');"
     - select:
       - name: field_89f02d5d-f5d9-46e9-880e-bb15e9254713
         selector: "#field_89f02d5d-f5d9-46e9-880e-bb15e9254713"
