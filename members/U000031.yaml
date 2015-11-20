@@ -74,13 +74,10 @@ contact_form:
             Taxes/Fiscal Responsibility: TX
             Telecommunications: CT
             Veterans Affairs: VA
-    - click_on:
-        - value: Send Email
-          selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
-    - find:
-        - selector: "form.zipform.activeForm.submit"
     - javascript:
         - value: document.querySelector("form.zipform[name='contact'] textarea[name='required-message']").value = document.querySelector("form.zipform[name='contact'] textarea[name='required-message']").value.replace(/"/g, '');
+    - find:
+        - selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
     - click_on:
         - value: Send Email
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
