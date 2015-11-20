@@ -6,12 +6,8 @@ contact_form:
     - visit: "http://brettguthrieforms.house.gov/contact/"
     - fill_in:
         - name: zip5
-          selector: "form.zipform input[name='zip5']"
+          selector: input[name='zip5']
           value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP4
           required: true
     - click_on:
         - value: Submit
@@ -69,97 +65,97 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Dr.
-            - First Lieutenant
-            - First Sergeant
-            - "Mr. & Mrs."
-            - Miss.
-            - "Dr. & Mrs."
-            - "Dr. & Mr."
-            - The Honorable
-            - "The Honorable & Mrs."
-            - "The Honorable & Mr."
-            - Master
-            - Admiral
-            - Airman
-            - Postman
-            - Airman First Class
-            - Airman Basic
-            - Brigadier General
-            - Cadet
-            - Captain
-            - Chaplin
-            - Chief Master Sergeant
-            - Chief Petty Officer
-            - Chief Warrant Officer
-            - Colonel
-            - Commander
-            - Command Sergeant Major
-            - Commodor Admiral
-            - Congressman
-            - Congressman-elect
-            - Congresswoman
-            - Congresswoman-elect
-            - Corporal
-            - Delegate-elect
-            - Drs.
-            - Ensign
-            - Father
-            - Fleet Admiral
-            - General
-            - General of the Army
-            - General of the Air Force
-            - Gunnery Sergeant
-            - Lance Corporal
-            - Lieutenant
-            - Lieutenant Colonel
-            - Lieutenant Commander
-            - Lieutenant General
-            - Major
-            - Major General
-            - Master Chief Petty Officer
-            - Master Gunnery Sergeant
-            - Master Sergeant
-            - Midshipman
-            - Pastor
-            - "Pastor & Mrs"
-            - Petty Officer First Class
-            - Petty Officer Second Class
-            - Petty Officer Third Class
-            - Private
-            - Private First Class
-            - Rabbi
-            - "Rabbi & Mrs"
-            - Representative
-            - "The Reverend & Dr."
-            - The Reverend
-            - "The Reverend & Mrs."
-            - Seaman
-            - Seaman Apprentice
-            - Seaman Recruit
-            - Senator
-            - "Senator & Mr"
-            - "Senator & Mrs"
-            - Senator-elect
-            - Senior Airman
-            - Senior Chief Petty Officer
-            - Senior Master Sergeant
-            - Sergeant
-            - Sergeant First Class
-            - Sergeant Major
-            - Sherriff
-            - "Sherriff & Mrs"
-            - Sister
-            - Special Agent
-            - Staff Sergeant
-            - Technical Sergeant
-            - Warrant Officer
-            - Specialist
-            - Rear Admiral
-            - Colonel Select
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Dr.: Dr.
+            First Lieutenant: First Lieutenant
+            First Sergeant: First Sergeant
+            "Mr. & Mrs.": "Mr. & Mrs."
+            Miss.: Miss.
+            "Dr. & Mrs.": "Dr. & Mrs."
+            "Dr. & Mr.": "Dr. & Mr."
+            The Honorable: The Honorable
+            "The Honorable & Mrs.": "The Honorable & Mrs."
+            "The Honorable & Mr.": "The Honorable & Mr."
+            Master: Master
+            Admiral: Admiral
+            Airman: Airman
+            Postman: Postman
+            Airman First Class: Airman First Class
+            Airman Basic: Airman Basic
+            Brigadier General: Brigadier General
+            Cadet: Cadet
+            Captain: Captain
+            Chaplin: Chaplin
+            Chief Master Sergeant: Chief Master Sergeant
+            Chief Petty Officer: Chief Petty Officer
+            Chief Warrant Officer: Chief Warrant Officer
+            Colonel: Colonel
+            Commander: Commander
+            Command Sergeant Major: Command Sergeant Major
+            Commodor Admiral: Commodor Admiral
+            Congressman: Congressman
+            Congressman-elect: Congressman-elect
+            Congresswoman: Congresswoman
+            Congresswoman-elect: Congresswoman-elect
+            Corporal: Corporal
+            Delegate-elect: Delegate-elect
+            Drs.: Drs.
+            Ensign: Ensign
+            Father: Father
+            Fleet Admiral: Fleet Admiral
+            General: General
+            General of the Army: General of the Army
+            General of the Air Force: General of the Air Force
+            Gunnery Sergeant: Gunnery Sergeant
+            Lance Corporal: Lance Corporal
+            Lieutenant: Lieutenant
+            Lieutenant Colonel: Lieutenant Colonel
+            Lieutenant Commander: Lieutenant Commander
+            Lieutenant General: Lieutenant General
+            Major: Major
+            Major General: Major General
+            Master Chief Petty Officer: Master Chief Petty Officer
+            Master Gunnery Sergeant: Master Gunnery Sergeant
+            Master Sergeant: Master Sergeant
+            Midshipman: Midshipman
+            Pastor: Pastor
+            "Pastor & Mrs": "Pastor & Mrs"
+            Petty Officer First Class: Petty Officer First Class
+            Petty Officer Second Class: Petty Officer Second Class
+            Petty Officer Third Class: Petty Officer Third Class
+            Private: Private
+            Private First Class: Private First Class
+            Rabbi: Rabbi
+            "Rabbi & Mrs": "Rabbi & Mrs"
+            Representative: Representative
+            "The Reverend & Dr.": "The Reverend & Dr."
+            The Reverend: The Reverend
+            "The Reverend & Mrs.": "The Reverend & Mrs."
+            Seaman: Seaman
+            Seaman Apprentice: Seaman Apprentice
+            Seaman Recruit: Seaman Recruit
+            Senator: Senator
+            "Senator & Mr": "Senator & Mr"
+            "Senator & Mrs": "Senator & Mrs"
+            Senator-elect: Senator-elect
+            Senior Airman: Senior Airman
+            Senior Chief Petty Officer: Senior Chief Petty Officer
+            Senior Master Sergeant: Senior Master Sergeant
+            Sergeant: Sergeant
+            Sergeant First Class: Sergeant First Class
+            Sergeant Major: Sergeant Major
+            Sherriff: Sherriff
+            "Sherriff & Mrs": "Sherriff & Mrs"
+            Sister: Sister
+            Special Agent: Special Agent
+            Staff Sergeant: Staff Sergeant
+            Technical Sergeant: Technical Sergeant
+            Warrant Officer: Warrant Officer
+            Specialist: Specialist
+            Rear Admiral: Rear Admiral
+            Colonel Select: Colonel Select
         - name: ctl00$ctl14$State
           selector: "#ctl00_ctl14_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -265,6 +261,6 @@ contact_form:
           value: "Thank you"
   success:
     headers:
-      status: 200 
+      status: 200
     body:
       contains: Thank you for taking the time to write me
