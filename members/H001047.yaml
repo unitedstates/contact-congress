@@ -17,10 +17,6 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#contactForm input[name='required-first']"
           value: $NAME_FIRST
@@ -66,6 +62,19 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: "#refix"
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
