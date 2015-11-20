@@ -1,10 +1,10 @@
 bioguide: G000576
-contact_form: 
+contact_form:
   method: post
   action: /forms/writeyourrep/
-  steps: 
+  steps:
   - visit: https://grothman.house.gov/contact
-  - fill_in: 
+  - fill_in:
     - name: zip5
       selector: "form.zipform input[name='zip5']"
       value: $ADDRESS_ZIP5
@@ -13,7 +13,7 @@ contact_form:
       selector: "form.zipform input[name='zip4']"
       value: $ADDRESS_ZIP4
       required: true
-  - click_on: 
+  - click_on:
     - value: Submit
       selector: "form.zipform input[type='submit'][value='Submit']"
   - find:
@@ -69,10 +69,10 @@ contact_form:
       value: $NAME_PREFIX
       required: true
       options:
-        - Mr.
-        - Mrs.
-        - Dr.
-        - Ms.
+        Mr.: Mr.
+        Mrs.: Mrs.
+        Dr.: Dr.
+        Ms.: Ms.
     - name: ctl00$ctl15$IssuesList
       selector: "#ctl00_ctl15_IssuesList"
       value: $TOPIC
@@ -121,8 +121,8 @@ contact_form:
       selector: "#ctl00_ctl15_SubmitButton"
   - find:
     - selector: "#ctl00_ctl15_ConfirmationText"
-  success: 
-    headers: 
+  success:
+    headers:
       status: 200
-    body: 
+    body:
       contains: Thank you for taking the time to write me.
