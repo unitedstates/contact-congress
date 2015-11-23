@@ -1,15 +1,24 @@
 bioguide: L000575
 contact_form:
   method: post
-  action: /content/contact-james
+  action: ""
   steps:
-    - visit: "http://www.lankford.senate.gov/content/contact-james"
+    - visit: "http://www.lankford.senate.gov/contact/email"
+    - select:
+        - name: actions
+          selector: "#actions"
+          value: Send
+          required: true
+    - wait:
+        - value: 1
+    - find:
+        - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
+        - name: first
+          selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[constituent_information][last_name]"
+        - name: last
           selector: "#edit-submitted-constituent-information-last-name"
           value: $NAME_LAST
           required: true
