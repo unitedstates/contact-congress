@@ -30,7 +30,7 @@ contact_form:
           value: $ADDRESS_ZIP5
           required: true
         - name: email
-          selector: "input[name='Email']" 
+          selector: "input[name='Email']"
           value: $EMAIL
           required: true
         - name: phone
@@ -50,7 +50,7 @@ contact_form:
         selector: "select[name='Senator']"
         value: "Senator Lanane (District 25)"
         required: Yes
-        options: 
+        options:
          - Senator Arnold (District 8)
          - Senator Breaux (District 34)
          - Senator Broden (District 10)
@@ -65,11 +65,11 @@ contact_form:
         selector: "select[name='Salutation']"
         value: "$NAME_PREFIX"
         required: No
-        options: 
-         - Mr.
-         - Ms.
-         - Mrs.
-         - Dr.
+        options:
+         Mr.: Mr.
+         Ms.: Ms.
+         Mrs.: Mrs.
+         Dr.: Dr.
     - fill_in:
         - name: captcha
           selector: ".wpcf7-captchar"
