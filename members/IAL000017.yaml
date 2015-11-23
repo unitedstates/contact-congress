@@ -24,6 +24,7 @@ contact_form:
         - name: captcha
           selector: ".wpcf7-captchar"
           captcha_selector: ".wpcf7-captchac"
+          value: $CAPTCHA_SOLUTION
           required: true
     - click_on:
         - value: Submit
