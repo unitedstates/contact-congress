@@ -10,7 +10,7 @@ contact_form:
           value: Send
           required: true
     - wait:
-        - value: 1
+        - value: 3
     - find:
         - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
@@ -199,7 +199,7 @@ contact_form:
             - WI
             - WY
         - name: topic
-          selector: "#"
+          selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
           value: $TOPIC
           required: true
           options:
@@ -261,12 +261,14 @@ contact_form:
             "Women's Issues": "Women's Issues"
     - click_on:
         - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
+          selector: input[value='Submit']
+    - wait:
+        - value: 3
     - find:
         - value: Thank you
-          selector: "p"
+          selector: "#form-4873565B-4040-F985-52CD-58F5E3BCC94D"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: "Thank you for submitting your Request to our office."
