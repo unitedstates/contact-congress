@@ -65,11 +65,8 @@ contact_form:
             Transportation: Transportation
             Veterans: Veterans
             Welfare/SNAP: Welfare/SNAP
-    - click_on:
-        - value: Click
-          selector: "#contact-sam-main"
     - find:
-      - selector: "#fname"
+        - selector: "#fname"
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -121,12 +118,12 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Miss
-            - Mr. and Mrs.
-            - Dr.
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Miss: Miss
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr.: Dr.
         - name: mailing_state
           selector: "#mailing_state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
