@@ -1,7 +1,7 @@
 bioguide: IAL000017
 contact_form:
   method: post
-  action: 
+  action:
   steps:
     - visit: "http://www.senate.iowa.gov/senator/dotzler/contact/send-email/"
     - fill_in:
@@ -10,7 +10,7 @@ contact_form:
           value: $NAME_FULL
           required: true
         - name: email
-          selector: "input[name='your-email']" 
+          selector: "input[name='your-email']"
           value: $EMAIL
           required: true
         - name: subject
@@ -29,6 +29,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "input[type='submit'][value='Send']"
+    - find:
+        - selector: div[role='alert']
   success:
     headers:
       status: 200
