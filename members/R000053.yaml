@@ -61,9 +61,16 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Rev.: Rev.
+            Sister: Sister
+            Dr.: Dr.
+            Prof.: v
+            Hon.: Hon.
+            Rabbi: Rabbi
+            Pastor: v
         - name: ctl00$ctl25$State
           selector: "#ctl00_ctl25_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
