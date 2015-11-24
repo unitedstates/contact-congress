@@ -10,60 +10,60 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            - Adoption
-            - Aging and Seniors
-            - Agriculture
-            - Animal Rights
-            - Appropriations
-            - Arts
-            - Budget
-            - Campaign Finance
-            - Children/Family/Adoption
-            - Civil Rights
-            - Commerce
-            - Congressional Issues
-            - Crime
-            - Defense
-            - Education Higher
-            - Education K through 12
-            - Elections
-            - Energy
-            - Environment
-            - Financial Services
-            - Foreclosures
-            - Foreign Affairs
-            - Government Reform
-            - Gun Control
-            - Health
-            - Health Insurance
-            - Homeland Security
-            - Housing
-            - Illegal Drugs
-            - Immigration
-            - Indian Affairs
-            - Intellectual Property/Patents
-            - Interior/Forestry
-            - Jobs
-            - Judiciary
-            - Labor
-            - LIHEAP
-            - Medicare/Medicaid
-            - Military
-            - Nutrition
-            - Pensions
-            - Prescription Drugs
-            - Presidential Greetings
-            - Reproductive Rights
-            - Science and Space
-            - Small Business
-            - Social Security
-            - Taxes
-            - Telecommunications
-            - Tobacco
-            - Trade
-            - Transportation
-            - Veterans
-            - Welfare/Food Stamps
+            Adoption: Adoption
+            Aging and Seniors: Aging and Seniors
+            Agriculture: Agriculture
+            Animal Rights: Animal Rights
+            Appropriations: Appropriations
+            Arts: Arts
+            Budget: Budget
+            Campaign Finance: Campaign Finance
+            Children/Family/Adoption: Children/Family/Adoption
+            Civil Rights: Civil Rights
+            Commerce: Commerce
+            Congressional Issues: Congressional Issues
+            Crime: Crime
+            Defense: Defense
+            Education Higher: Education Higher
+            Education K through 12: Education K through 12
+            Elections: Elections
+            Energy: Energy
+            Environment: Environment
+            Financial Services: Financial Services
+            Foreclosures: Foreclosures
+            Foreign Affairs: Foreign Affairs
+            Government Reform: Government Reform
+            Gun Control: Gun Control
+            Health: Health
+            Health Insurance: Health Insurance
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Illegal Drugs: Illegal Drugs
+            Immigration: Immigration
+            Indian Affairs: Indian Affairs
+            Intellectual Property/Patents: Intellectual Property/Patents
+            Interior/Forestry: Interior/Forestry
+            Jobs: Jobs
+            Judiciary: Judiciary
+            Labor: Labor
+            LIHEAP: LIHEAP
+            Medicare/Medicaid: Medicare/Medicaid
+            Military: Military
+            Nutrition: Nutrition
+            Pensions: Pensions
+            Prescription Drugs: Prescription Drugs
+            Presidential Greetings: Presidential Greetings
+            Reproductive Rights: Reproductive Rights
+            Science and Space: Science and Space
+            Small Business: Small Business
+            Social Security: Social Security
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Tobacco: Tobacco
+            Trade: Trade
+            Transportation: Transportation
+            Veterans: Veterans
+            Welfare/Food Stamps: Welfare/Food Stamps
     - find:
         - selector: "#fname"
     - fill_in:
@@ -109,11 +109,12 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Miss
-            - Dr.
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Miss: Miss
+            Dr.: Dr.
+            Sister: Sister
         - name: mailing_state
           selector: "#mailing_state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
