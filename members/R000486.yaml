@@ -69,15 +69,15 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Miss
-            - Mrs.
-            - Rev.
-            - Dr.
-            - Sr.
-            - Hon.
-            - Sra.
+            Mr.: Mr.
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            Sr.: Sr.
+            Hon.: Hon.
+            Sra.: Sra.
         - name: ctl00$ctl11$IssuesList
           selector: "#ctl00_ctl11_IssuesList"
           value: $TOPIC
@@ -117,4 +117,3 @@ contact_form:
       status: 200
     body:
       contains: Thank you for sending me your email.
-      
