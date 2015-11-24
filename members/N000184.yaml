@@ -1,7 +1,7 @@
 bioguide: N000184
 contact_form:
   method: post
-  action: the url
+  action: ""
   steps:
     - visit: "http://noem.house.gov/index.cfm/email-kristi"
     - click_on:
@@ -53,21 +53,21 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mr.
-            - Dr. and Mrs.
-            - Dr. and Dr.
-            - Rabbi
-            - Reverend
-            - Sister
-            - Brother
-            - Father
-            - Pastor
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr.: Dr.
+            Dr. and Mr.: Dr. and Mr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Dr. and Dr.: Dr. and Dr.
+            Rabbi: Rabbi
+            Reverend: Reverend
+            Sister: Sister
+            Brother: Brother
+            Father: Father
+            Pastor: Pastor
         - name: field_0DD881FC-20AE-4A28-AC22-84ACEFB97844
           selector: "#field_0DD881FC-20AE-4A28-AC22-84ACEFB97844"
           value: $TOPIC
