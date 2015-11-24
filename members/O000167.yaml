@@ -22,12 +22,12 @@ contact_form:
           selector: "#edit-submitted-prefix"
           value: $NAME_PREFIX
           options:
-            1: Mr.
-            2: Mrs.
-            3: Ms.
-            4: Miss
-            5: Dr.
-            6: The Honorable
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            The Honorable: The Honorable
         - name: submitted[country]
           selector: "#edit-submitted-country"
           value: United States
@@ -36,30 +36,30 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            0: "Afghanistan & Iraq"
-            1: Civil Rights
-            2: Economy
-            3: Education
-            4: Energy
-            5: Environment
-            6: Foreign Policy
-            7: Health Care
-            8: Homeland Security
-            9: Housing
-            10: Immigration
-            11: Job Creation
-            12: Middle Class Task Force
-            13: Recovery Act
-            14: "Science & Technology"
-            15: Seniors
-            16: Taxes
-            17: Transportation
-            18: Veterans
-            19: Help with a Federal Agency
-            20: The Administration
-            21: The Biden Family
-            22: The First Family
-            23: Other
+            "Afghanistan & Iraq": "Afghanistan & Iraq"
+            Civil Rights: Civil Rights
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Foreign Policy: Foreign Policy
+            Health Care: Health Care
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Job Creation: Job Creation
+            Middle Class Task Force: Middle Class Task Force
+            Recovery Act: Recovery Act
+            "Science & Technology": "Science & Technology"
+            Seniors: Seniors
+            Taxes: Taxes
+            Transportation: Transportation
+            Veterans: Veterans
+            Help with a Federal Agency: Help with a Federal Agency
+            The Administration: The Administration
+            The Biden Family: The Biden Family
+            The First Family: The First Family
+            Other: Other
     - fill_in:
         - name: submitted[message]
           selector: "#edit-submitted-message"
