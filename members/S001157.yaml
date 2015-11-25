@@ -39,11 +39,11 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - "Mr. & Mrs."
-            - Dr.
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            "Mr. & Mrs.": "Mr. & Mrs."
+            Dr.: Dr.
         - name: required-state
           selector: "#contactForm select[name='required-state']"
           value: $ADDRESS_STATE_POSTAL_ABBREV
