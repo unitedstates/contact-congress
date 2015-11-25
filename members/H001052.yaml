@@ -17,10 +17,6 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -54,6 +50,20 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Ms.: Ms
+            Miss: Miss
+            Mrs.: Mrs
+            Mr.: Mr
+            Mr. and Mrs.: Mr_and_Mrs
+            Rev.: Rev
+            Dr.: Dr
+            The Honorable: The_Honorable
+            Rabbi: Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -93,10 +103,6 @@ contact_form:
             Veterans: VET
             "Women's Issues": WOMEN
             Other Issues: OTHER
-    - check:
-        - name: ResponseRequired
-          selector: "#node-138 form.validate.wsbform input[name='ResponseRequired']"
-          value: ResponseRequired
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
@@ -106,4 +112,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: EMAIL ME - THANK YOU
+      contains: THANK YOU
