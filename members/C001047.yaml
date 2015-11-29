@@ -1,9 +1,9 @@
 bioguide: C001047
 contact_form:
   method: post
-  action: "http://www.capito.senate.gov/contact/contact-shelley"
+  action: "https://www.capito.senate.gov/contact/contact-shelley"
   steps:
-    - visit: "http://www.capito.senate.gov/contact/contact-shelley"
+    - visit: "https://www.capito.senate.gov/contact/contact-shelley"
     - select:
         - name: input_AE7457DD-4040-F985-52CD-B99385041C51
           selector: "#actions"
@@ -13,6 +13,8 @@ contact_form:
             Send an email to comment on Legislation: opinion
             Help with a federal agency: federal_agency
             Meeting Requests: meeting
+    - wait:
+        - value: 3
     - fill_in:
         - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
@@ -198,7 +200,58 @@ contact_form:
           selector: "#input-AB5B6894-4040-F985-52CD-DFC6D3C729DF"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
-          options: US_STATES
+          options:
+            - AL
+            - AK
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
         - name: input_AB8156A0-4040-F985-52CD-49CE65770EFC
           selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
           value: $TOPIC
@@ -230,7 +283,7 @@ contact_form:
             - Cybersecurity
             - Death Penalty
             - Defense
-            - Disibility
+            - Disability
             - Domestic Violence
             - Drugs
             - Economy
@@ -298,18 +351,15 @@ contact_form:
             - Veterans
             - Welfare
             - "Women's Issues"
-    - uncheck:
-        - name: input_A4E18009-4040-F985-52CD-6366A651E958
-          selector: "#affl_toggle"
-          value: EMAIL.OPTIN
     - javascript:
         - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
-    - javascript:
-        - value: "document.querySelector('.controls .btn[type=submit]').click()"
-    - find:
-        - selector: "p > i"
+    - click_on:
+        - value: Submit
+          selector: input.btn
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for submitting your Request to our office."
+      contains: Thank you
