@@ -55,12 +55,13 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Dr.
-            - Ms.
-            - "Mr. & Mrs."
-            - The Honorable
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Dr.: Dr.
+            Ms.: Ms.
+            "Mr. & Mrs.": "Mr. & Mrs."
+            The Honorable: The Honorable
+            Mayor: Mayor
         - name: ctl00$ctl10$State
           selector: "#ctl00_ctl10_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
