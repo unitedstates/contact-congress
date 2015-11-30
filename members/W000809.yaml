@@ -51,15 +51,15 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Miss
-            - Mrs.
-            - "Mr. & Mrs."
-            - Dr.
-            - Reverend
-            - Sister
-            - Pastor
+            Mr.: Mr.
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            "Mr. & Mrs.": "Mr. & Mrs."
+            Dr.: Dr.
+            Reverend: Reverend
+            Sister: Sister
+            Pastor: Pastor
     - select:
         - name: required-issue
           selector: "form.zipform[name='contact'] select[name='required-issue']"
