@@ -5,10 +5,6 @@ contact_form:
   steps:
     - visit: "https://walden.house.gov/e-mail-greg"
     - fill_in:
-        - name: prefix
-          selector: "#req_prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
@@ -53,7 +49,21 @@ contact_form:
           selector: "#req_message"
           value: $MESSAGE
           required: true
-    - select: []
+    - select:
+        - name: prefix
+          selector: "#req_prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+              Ms.: Ms.
+              Miss: Miss
+              Mrs.: Mrs.
+              Mr.: Mr.
+              Mr. and Mrs.: Mr. and Mrs.
+              Rev.: Rev.
+              Dr.: Dr.
+              The Honorable: The Honorable
+              Rabbi: Rabbi
     - click_on:
         - value: Send Email
           selector: "#submitButton"
