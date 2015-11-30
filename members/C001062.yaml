@@ -6,74 +6,74 @@ contact_form:
     - visit: "https://conaway.house.gov/forms/writeyourrep/default.aspx"
     - fill_in:
         - name: ctl00$ctl10$FirstName
-          selector: "#ctl00_ctl10_FirstName"
+          selector: "#ctl00_ctl12_FirstName"
           value: $NAME_FIRST
           required: true
         - name: ctl00$ctl10$LastName
-          selector: "#ctl00_ctl10_LastName"
+          selector: "#ctl00_ctl12_LastName"
           value: $NAME_LAST
           required: true
         - name: ctl00$ctl10$Street
-          selector: "#ctl00_ctl10_Street"
+          selector: "#ctl00_ctl12_Street"
           value: $ADDRESS_STREET
           required: true
         - name: ctl00$ctl10$City
-          selector: "#ctl00_ctl10_City"
+          selector: "#ctl00_ctl12_City"
           value: $ADDRESS_CITY
           required: true
         - name: ctl00$ctl10$Zip
-          selector: "#ctl00_ctl10_Zip"
+          selector: "#ctl00_ctl12_Zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: ctl00$ctl10$Phone
-          selector: "#ctl00_ctl10_Phone"
+          selector: "#ctl00_ctl12_Phone"
           value: $PHONE
           required: true
         - name: ctl00$ctl10$Email
-          selector: "#ctl00_ctl10_Email"
+          selector: "#ctl00_ctl12_Email"
           value: $EMAIL
           required: true
         - name: ctl00$ctl10$Subject
-          selector: "#ctl00_ctl10_Subject"
+          selector: "#ctl00_ctl12_Subject"
           value: $SUBJECT
           required: true
         - name: ctl00$ctl10$Body
-          selector: "#ctl00_ctl10_Body"
+          selector: "#ctl00_ctl12_Body"
           value: $MESSAGE
           required: true
         - name: ctl00$ctl10$CampaignID
-          selector: "#ctl00_ctl10_CampaignID"
+          selector: "#ctl00_ctl12_CampaignID"
           value: $CAMPAIGN_UUID
           required: false
         - name: ctl00$ctl10$CampaignInfo
-          selector: "#ctl00_ctl10_CampaignInfo"
+          selector: "#ctl00_ctl12_CampaignInfo"
           value: $CAMPAIGN_UUID
           required: false
     - select:
         - name: ctl00$ctl10$PrefixList
-          selector: "#ctl00_ctl10_PrefixList"
+          selector: "#ctl00_ctl12_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Dr.
-            - Ms.
-            - Rev.
-            - "Mr. & Mrs."
-            - Col
-            - Lt
-            - Lt Col
-            - Gen
-            - Lt Gen
-            - Sgt
-            - MSGT
-            - Capt
-            - Adm
-            - Maj
-            - TSgt
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Dr.: Dr.
+            Ms.: Ms.
+            Rev.: Rev.
+            "Mr. & Mrs.": "Mr. & Mrs."
+            Col: Col
+            Lt: Lt
+            Lt Col: Lt Col
+            Gen: Gen
+            Lt Gen: Lt Gen
+            Sgt: Sgt
+            MSGT: MSGT
+            Capt: Capt
+            Adm: Adm
+            Maj: Maj
+            TSgt: TSgt
         - name: ctl00$ctl10$IssuesList
-          selector: "#ctl00_ctl10_IssuesList"
+          selector: "#ctl00_ctl12_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -121,7 +121,7 @@ contact_form:
             Washington Tours: "13395"
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl10_SubmitButton"
+          selector: "#ctl00_ctl12_SubmitButton"
   success:
     headers:
       status: 200

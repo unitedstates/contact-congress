@@ -65,12 +65,12 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
-            - Mr. and Mrs.
-            - Dr.
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr.: Dr.
         - name: ctl00$ctl22$State
           selector: "#ctl00_ctl22_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -176,4 +176,3 @@ contact_form:
       status: 200
     body:
       contains: Thank
-

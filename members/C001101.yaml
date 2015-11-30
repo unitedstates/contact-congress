@@ -1,7 +1,7 @@
 bioguide: C001101
 contact_form:
   method: post
-  action: the url
+  action: ""
   steps:
     - visit: "https://katherineclark.house.gov/index.cfm/email-me"
     - fill_in:
@@ -43,14 +43,14 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
-            - Dr.
-            - Hon.
-            - Rev.
-            - Rabbi
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
         - name: field_9F3053E5-060D-4C23-BAD4-8244969918D8
           selector: "#field_9F3053E5-060D-4C23-BAD4-8244969918D8"
           value: $TOPIC

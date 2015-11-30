@@ -7,16 +7,10 @@ contact_form:
     - select:
         - name: actions
           selector: "#actions"
-          value: opinion
+          value: Share your opinion or comments on bills or other issues
           required: false
           options:
-            "--Select an Option--": select
-            Request help with a federal agency: federal_agency
-            Request a meeting with Senator Mikulski or staff: meeting
-            "Request a tour of the Capitol, White House, or other DC landmark": tour
-            Request a flag to be flown over the Capitol: flag
-            Request a greeting or commemorative message: message
-            Share your opinion or comments on bills or other issues: opinion
+            Share your opinion or comments on bills or other issues: Share your opinion or comments on bills or other issues
     - find:
         - selector: "#fname"
     - fill_in:
@@ -66,17 +60,17 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
-            - Mr. and Mrs.
-            - Professor
-            - Dean
-            - The Honorable
-            - Dr.
-            - Dr. and Mrs.
-            - Dr. and Mr.
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Mr. and Mrs.: Mr. and Mrs.
+            Professor: Professor
+            Dean: Dean
+            The Honorable: The Honorable
+            Dr.: Dr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Dr. and Mr.: Dr. and Mr.
         - name: state
           selector: "#state"
           value: $ADDRESS_STATE_POSTAL_ABBREV

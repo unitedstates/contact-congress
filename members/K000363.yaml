@@ -24,14 +24,14 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-              - Mr.
-              - Ms.
-              - Miss
-              - Mrs.
-              - Dr.
-              - Fr.
-              - Rev.
-              - Hon.
+              Mr.: Mr.
+              Ms.: Ms.
+              Miss: Miss
+              Mrs.: Mrs.
+              Dr.: Dr.
+              Fr.: Fr.
+              Rev.: Rev.
+              Hon.: Hon.
     - fill_in:
         - name: required-first
           selector: "#contact input[name='required-first']"

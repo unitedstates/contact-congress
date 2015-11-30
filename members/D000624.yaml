@@ -1,127 +1,118 @@
 bioguide: D000624
-contact_form: 
+contact_form:
   method: post
-  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
-  steps: 
+  action: https://debbiedingell.house.gov./?zip5=48197&zip4=5450
+  steps:
   - visit: https://debbiedingell.house.gov/email-me
-  - fill_in: 
+  - fill_in:
     - name: required-zip5
-      selector: "#required-zip5"
+      selector: input[name='zip5']
       value: $ADDRESS_ZIP5
       required: true
     - name: zip4
-      selector: "#zip4"
+      selector: input[name='zip4']
       value: $ADDRESS_ZIP4
       required: true
-  - click_on: 
-    - value: Go To Next Step
-      selector: "#emailForm #submit"
-  - find: 
-    - selector: "#required-prefix"
-  - fill_in: 
+  - click_on:
+    - value: Submit
+      selector: input[value='Submit']
+  - find:
+    - selector: "#ctl00_ctl27_FirstName"
+  - fill_in:
     - name: required-first
-      selector: "#required-first"
+      selector: "#ctl00_ctl27_FirstName"
       value: $NAME_FIRST
       required: true
     - name: required-last
-      selector: "#required-last"
+      selector: "#ctl00_ctl27_LastName"
       value: $NAME_LAST
       required: true
     - name: required-address
-      selector: "#required-address"
+      selector: "#ctl00_ctl27_Street"
       value: $ADDRESS_STREET
       required: true
     - name: required-city
-      selector: "#required-city"
+      selector: "#ctl00_ctl27_City"
       value: $ADDRESS_CITY
       required: true
-    - name: required-valid-email
-      selector: "#required-valid-email"
-      value: $EMAIL
+    - name: zip5
+      selector: "#ctl00_ctl27_Zip"
+      value: $ADDRESS_ZIP5
       required: true
     - name: required-phone
-      selector: "#required-phone"
+      selector: "#ctl00_ctl27_Phone"
       value: $PHONE
       required: true
+    - name: required-valid-email
+      selector: "#ctl00_ctl27_Email"
+      value: $EMAIL
+      required: true
+    - name: subject
+      selector: "#ctl00_ctl27_Subject"
+      value: $SUBJECT
+      required: true
     - name: required-message
-      selector: "#required-message"
+      selector: "#ctl00_ctl27_Body"
       value: $MESSAGE
       required: true
-  - select:  
+  - select:
     - name: required-prefix
-      selector: "#required-prefix"
+      selector: "#ctl00_ctl27_PrefixList"
       value: $NAME_PREFIX
       required: true
-      options: 
-        Ms.: Ms.
-        Miss: Miss
-        Mrs.: Mrs.
+      options:
         Mr.: Mr.
-        Mr. and Mrs.: Mr. and Mrs.
-        Rev.: Rev.
+        Mrs.: Mrs.
         Dr.: Dr.
+        Ms.: Ms.
         The Honorable: The Honorable
-        Rabbi: Rabbi
     - name: required-issue
-      selector: "#required-issue"
+      selector: "#ctl00_ctl27_IssuesList"
       value: $TOPIC
       required: true
-      options: 
+      options:
         Agriculture: AGR
         Animals: AN
         Arts and Humanities: ART
         Banking and Finance: BANK
         Budget and Economy: BUD
-        Campaign Finance Reform: CFR
         Congress and Elections: CONG
-        District of Columbia--Tours: TOUR
         Defense and Military: DEF
-        Economy: ECON
         Education: EDU
-        Energy: ENE
         Environment: ENV
+        Families: Families
         Federal Employees: FED
         Foreign Relations: FR
         Government Reform: GOV
-        Guns: GUN
         Health: HEA
-        Homeland Security: HOM
         Housing and Urban Development: HUD
         Immigration: IMM
-        International Relations: INT
         Judiciary: JUD
         Labor: LAB
         LGBT: LGBT
         No Response Necessary: NRN
-        Post Office: POST
+        Medicare and Medicaid: Medicare and Medicaid
+        Native Americans: Native Americans
+        Other: Other
         Science and Technology: SCI
-        Social Issues: SOC
         Senior Citizens: SENIORS
+        Social Issues: SOC
         Social Security: SSEC
         Social Services: SOC.SERVICES
         Taxes: TAX
         Telecommunications: TEL
-        Transportation: TRA
         Trade: TRADE
+        Transportation: TRA
         Veterans: VET
-        "Women's Issues": WOMEN
         Welfare: WEL
-        Other Issues: OTHER
-    - name: required-response
-      selector: "#required-response"
-      value: Y
-      required: true
-      options: 
-        Yes, please contact me: Y
-        No, I wanted to voice my opinion: N
-  - click_on: 
-    - value: Send Email to Representative Dingell
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
+        "Women's Issues": WOMEN
+  - click_on:
+    - value: Submit
+      selector: "#ctl00_ctl27_SubmitButton"
   - find:
-    - value: Thank you
-      selector: "p"
-  success: 
-    headers: 
+      selector: "#ctl00_ctl27_ConfirmationText"
+  success:
+    headers:
       status: 200
-    body: 
-      contains: your message has been sent
+    body:
+      contains: Thank you for taking the time to write me

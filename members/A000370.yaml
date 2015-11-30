@@ -57,10 +57,19 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Representative: Representative
+            The Honorable: The Honorable
+            Lt.: Lt.
+            Capt.: Capt.
+            Col.: Col.
+            Gen.: Gen.
+            Sgt.: Sgt.
+            Adm.: Adm.
         - name: ctl00$ctl24$State
           selector: "#ctl00_ctl24_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV

@@ -3,7 +3,7 @@ contact_form:
   method: get
   action: /forms/writeyourrep/
   steps:
-    - visit: "https://reneeellmers.house.gov/contact/"
+    - visit: "https://ellmers.house.gov/contact/"
     - fill_in:
         - name: zip5
           selector: "form.zipform input[name='zip5']"
@@ -17,62 +17,65 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#ctl00_ctl14_PrefixList"
+        - selector: "#ctl00_ctl35_PrefixList"
     - fill_in:
         - name: ctl00$ctl14$FirstName
-          selector: "#ctl00_ctl14_FirstName"
+          selector: "#ctl00_ctl35_FirstName"
           value: $NAME_FIRST
           required: true
         - name: ctl00$ctl14$LastName
-          selector: "#ctl00_ctl14_LastName"
+          selector: "#ctl00_ctl35_LastName"
           value: $NAME_LAST
           required: true
         - name: ctl00$ctl14$Street
-          selector: "#ctl00_ctl14_Street"
+          selector: "#ctl00_ctl35_Street"
           value: $ADDRESS_STREET
           required: true
         - name: ctl00$ctl14$City
-          selector: "#ctl00_ctl14_City"
+          selector: "#ctl00_ctl35_City"
           value: $ADDRESS_CITY
           required: true
         - name: ctl00$ctl14$Zip
-          selector: "#ctl00_ctl14_Zip"
+          selector: "#ctl00_ctl35_Zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: ctl00$ctl14$Phone
-          selector: "#ctl00_ctl14_Phone"
+          selector: "#ctl00_ctl35_Phone"
           value: $PHONE
           required: true
         - name: ctl00$ctl14$Email
-          selector: "#ctl00_ctl14_Email"
+          selector: "#ctl00_ctl35_Email"
           value: $EMAIL
           required: true
         - name: ctl00$ctl14$Subject
-          selector: "#ctl00_ctl14_Subject"
+          selector: "#ctl00_ctl35_Subject"
           value: $SUBJECT
           required: true
         - name: ctl00$ctl14$Body
-          selector: "#ctl00_ctl14_Body"
+          selector: "#ctl00_ctl35_Body"
           value: $MESSAGE
           required: true
         - name: ctl00$ctl14$CampaignID
-          selector: "#ctl00_ctl14_CampaignID"
+          selector: "#ctl00_ctl35_CampaignID"
           value: $CAMPAIGN_UUID
           required: false
         - name: ctl00$ctl14$CampaignInfo
-          selector: "#ctl00_ctl14_CampaignInfo"
+          selector: "#ctl00_ctl35_CampaignInfo"
           value: $CAMPAIGN_UUID
           required: false
     - select:
         - name: ctl00$ctl14$PrefixList
-          selector: "#ctl00_ctl14_PrefixList"
+          selector: "#ctl00_ctl35_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
             Mr.: Mr.
             Ms.: Ms.
+            Dr.: Dr.
+            Mrs.: Mrs.
+            "Mr. & Mrs.": "Mr. & Mrs."
         - name: ctl00$ctl14$IssuesList
-          selector: "#ctl00_ctl14_IssuesList"
+          selector: "#ctl00_ctl35_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -110,10 +113,10 @@ contact_form:
             Water Resources Development: "10528"
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl14_SubmitButton"
+          selector: "#ctl00_ctl35_SubmitButton"
     - find:
         - value: Thank you
-          selector: "#ctl00_ctl14_ConfirmationText"
+          selector: "#ctl00_ctl35_ConfirmationText"
   success:
     headers:
       status: 200

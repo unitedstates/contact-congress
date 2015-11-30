@@ -65,15 +65,15 @@ contact_form:
         value: $CAMPAIGN_UUID
     - select:
       - name: ctl00$ctl16$PrefixList
-        options:
-        - Mr.
-        - Mrs.
-        - Ms.
-        - Dr.
-        - The Honorable
-        required: true
         selector: "#ctl00_ctl16_PrefixList"
         value: $NAME_PREFIX
+        required: true
+        options:
+          Mr.: Mr.
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Dr.: Dr.
+          The Honorable: The Honorable
       - name: ctl00$ctl16$State
         options:
         - AL

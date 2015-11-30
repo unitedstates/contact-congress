@@ -5,112 +5,118 @@ contact_form:
   steps:
     - visit: http://www.baldwin.senate.gov/contact
     - select:
-      - name: subject
-        selector: "#subject"
-        value: $TOPIC
-        required: Yes
-        options:
-          - Aging and Retirement
-          - Agriculture
-          - Armed Services and Defense
-          - "Arts & Humanities"
-          - Banking
-          - Budget
-          - Congress and Elections
-          - Economy and Jobs
-          - Education
-          - Energy
-          - Environment
-          - Federal Employees
-          - Foreign Relations
-          - Government Contracting
-          - Gun Safety
-          - Healthcare
-          - Homeland Security
-          - Housing
-          - Immigration
-          - Judiciary
-          - Labor
-          - LGBT Issues
-          - Native Americans
-          - Natural Resources
-          - Patents/Intellectual Property
-          - Pensions
-          - Postal Service
-          - Science and Technology
-          - Small Business
-          - Social Security
-          - Sports
-          - Taxes
-          - Telecommunication
-          - Trade
-          - Transportation
-          - Veterans
-          - Womens Issues
-    - find:  # waits for dom element to appear before proceeding
+      - name: action
+        selector: "#topic"
+        value: Share your comments or opinion on legislation
+        required: true
+    - find:
       - selector: "#continue-form fieldset:nth-child(1)"
     - fill_in:
       - name: fname
         selector: "#fname"
         value: $NAME_FIRST
-        required: Yes
+        required: true
       - name: lname
         selector: "#lname"
         value: $NAME_LAST
-        required: Yes
+        required: true
       - name: mailing_streetAddress1
         selector: "#mailing_streetAddress1"
         value: $ADDRESS_STREET
-        required: Yes
+        required: true
       - name: mailing_streetAddress2
         selector: "#mailing_streetAddress2"
         value: $ADDRESS_STREET_2
+        required: false
       - name: mailing_city
         selector: "#mailing_city"
         value: $ADDRESS_CITY
-        required: Yes
+        required: true
       - name: mailing_zipCode
         selector: "#mailing_zipCode"
         value: $ADDRESS_ZIP5
-        required: Yes
+        required: true
       - name: home_phone_number
         selector: "#home_phone_number"
         value: $PHONE
-      - name: work_phone_number
-        selector: "#work_phone_number"
-        value: $PHONE_WORK
       - name: email
         selector: "#email"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: verify_email
         selector: "#verify_email"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: message
         selector: "#message"
         value: $MESSAGE
-        required: Yes
+        required: true
     - select:
       - name: salutation
         selector: "#salutation"
         value: $NAME_PREFIX
-        required: Yes
+        required: true
         options:
-          - Mr.
-          - Ms.
-          - Mrs.
-          - Mr. and Mrs.
-          - Dr.
+          Mr.: Mr.
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Miss: Miss
+          Mr. and Mrs.: Mr. and Mrs.
+          Dr.: Dr.
+          Dr. and Mrs.: Dr. and Mrs.
+          Dr. and Mr.: Dr. and Mr.
+          Mr. and Mr.: Mr. and Mr.
+          Mrs. and Mrs.: Mrs. and Mrs.
+          Ms. and Ms.: Ms. and Ms.
+          Rev.: Rev.
+          Sr.: Sr.
+      - name: subject
+        selector: "#subject"
+        value: $TOPIC
+        required: true
+        options:
+          Aging and Retirement: Aging and Retirement
+          Agriculture: Agriculture
+          Armed Services and Defense: Armed Services and Defense
+          "Arts & Humanities": "Arts & Humanities"
+          Banking: Banking
+          Budget: Budget
+          Congress and Elections: Congress and Elections
+          Economy and Jobs: Economy and Jobs
+          Education: Education
+          Energy: Energy
+          Environment: Environment
+          Federal Employees: Federal Employees
+          Foreign Relations: Foreign Relations
+          Government Contracting: Government Contracting
+          Gun Safety: Gun Safety
+          Healthcare: Healthcare
+          Homeland Security: Homeland Security
+          Housing: Housing
+          Immigration: Immigration
+          Judiciary: Judiciary
+          Labor: Labor
+          LGBT Issues: LGBT Issues
+          Native Americans: Native Americans
+          Natural Resources: Natural Resources
+          Patents/Intellectual Property: Patents/Intellectual Property
+          Pensions: Pensions
+          Postal Service: Postal Service
+          Science and Technology: Science and Technology
+          Small Business: Small Business
+          Social Security: Social Security
+          Sports: Sports
+          Taxes: Taxes
+          Telecommunication: Telecommunication
+          Trade: Trade
+          Transportation: Transportation
+          Veterans: Veterans
+          Womens Issues: Womens Issues
       - name: state
         selector: "#state"
         value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
+        required: true
         options: US_STATES
-    - check:
-      - name: response
-        selector: "#response_y"
-        value: "Y"
     - click_on:
       - value: Send
         selector: "#side-search-btn"

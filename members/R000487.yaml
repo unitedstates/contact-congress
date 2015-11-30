@@ -47,11 +47,11 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - "Mr. & Mrs."
-            - Dr.
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            "Mr. & Mrs.": "Mr. & Mrs."
+            Dr.: Dr.
         - name: required-issue
           selector: "#contactForm select[name='required-issue']"
           value: $TOPIC
@@ -94,5 +94,3 @@ contact_form:
       status: 200
     body:
       contains: "Your message has been received."
-      
-      

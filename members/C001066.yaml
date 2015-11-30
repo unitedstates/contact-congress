@@ -1,7 +1,7 @@
 bioguide: C001066
 contact_form:
   method: post
-  action: /contact.aspx
+  action: https://castor.house.gov/contact.aspx
   steps:
     - visit: "https://castor.house.gov/contact/contactform.htm"
     - fill_in:
@@ -39,11 +39,11 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - "Mr. & Mrs."
-            - Dr.
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            "Mr. & Mrs.": "Mr. & Mrs."
+            Dr.: Dr.
         - name: required-state
           selector: "#contactForm select[name='required-state']"
           value: FL
@@ -101,10 +101,7 @@ contact_form:
             Womens Issues: WOMENS ISSUES
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[type='submit'][value='Send Email']"
-    - find:
-        - selector: "span#ctl00_PageLink"
-          value: "THANK YOU"
+          selector: "#contactForm input[type='submit']"
   success:
     headers:
       status: 200

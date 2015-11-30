@@ -18,7 +18,7 @@ contact_form:
           selector: "form.zipform input[type='submit'][value='Submit']"
     - wait:
         - value: 1
-    - find: 
+    - find:
         - selector: "#ctl00_ctl13_FirstName"
     - fill_in:
         - name: ctl00$ctl13$FirstName
@@ -63,14 +63,14 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss.
-            - Dr.
-            - Hon.
-            - Rev.
-            - Rabbi
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss.: Miss.
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
         - name: ctl00$ctl13$State
           selector: "#ctl00_ctl13_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV

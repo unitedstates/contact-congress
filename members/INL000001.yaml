@@ -30,7 +30,7 @@ contact_form:
           value: $ADDRESS_ZIP5
           required: true
         - name: email
-          selector: "#IDFormField_Email_0" 
+          selector: "#IDFormField_Email_0"
           value: $EMAIL
           required: true
         - name: phone
@@ -50,11 +50,11 @@ contact_form:
         selector: "#IDFormField_Prefix_0"
         value: "$NAME_PREFIX"
         required: No
-        options: 
-         - Dr
-         - Mr
-         - Mrs
-         - Ms
+        options:
+           Dr: Dr
+           Mr: Mr
+           Mrs: Mrs
+           Ms: Ms
     - fill_in:
         - name: captcha
           selector: "#recaptcha_response_field"

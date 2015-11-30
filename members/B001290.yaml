@@ -1,118 +1,111 @@
 bioguide: B001290
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "?zip5=23060&zip4=6149"
   steps:
-    - visit: "https://brat.house.gov/contact/email-me"
+    - visit: "https://bratforms.house.gov/contact/"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: input[name=zip5]
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: input[name=zip4]
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm #submit"
+        - value: Submit
+          selector: input[value=Submit]
+    - wait:
+        - value: 2
     - find:
-        - selector: "#required-prefix"
+        - selector: "#ctl00_ctl32_FirstName"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
-          required: true
-        - name: required-first
-          selector: "#required-first"
+        - name: first
+          selector: "#ctl00_ctl32_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: last
+          selector: "#ctl00_ctl32_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: street
+          selector: "#ctl00_ctl32_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "#required-city"
+        - name: city
+          selector: "#ctl00_ctl32_City"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
-          value: $EMAIL
+        - name: zip5
+          selector: "#ctl00_ctl32_Zip"
+          value: $ADDRESS_ZIP5
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: phone
+          selector: "#ctl00_ctl32_Phone"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
+        - name: email
+          selector: "#ctl00_ctl32_Email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#ctl00_ctl32_Subject"
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: message
+          selector: "#ctl00_ctl32_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
+        - name: prefix
+          selector: "#ctl00_ctl32_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+        - name: topic
+          selector: "#ctl00_ctl32_IssuesList"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Animals: AN
-            Arts and Humanities: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
-            Health: HEA
-            Homeland Security: HOM
-            Housing and Urban Development: HUD
-            Immigration: IMM
-            International Relations: INT
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            No Response Necessary: NRN
-            Post Office: POST
-            Science and Technology: SCI
-            Social Issues: SOC
-            Senior Citizens: SENIORS
-            Social Security: SSEC
-            Social Services: SOC.SERVICES
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
+            Agriculture: Agriculture
+            Animals: Animals
+            Appropriations: Appropriations
+            Budget: Budget
+            Commerce: Commerce
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Financial Services: Financial Services
+            Government Reform: Government Reform
+            Guns: Guns
+            Healthcare: Healthcare
+            Homeland Security: Homeland Security
+            Immigration: Immigration
+            International Relations: International Relations
+            Judiciary: Judiciary
+            Labor: Labor
+            Land: Land
+            Military: Military
+            Social Issues: Social Issues
+            Taxes: Taxes
+            Telecommunications: Telecommunications
             Trade: TRADE
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Welfare: WEL
-            Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
+            Transportation and Public Works: Transportation and Public Works
+    - choose:
+        - name: response
+          selector: "#ctl00_ctl32_ReplyChoice_0"
           required: true
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
     - click_on:
-        - value: Send Email
-          selector: "#contactForm #submit"
+        - value: Submit
+          selector: "#ctl00_ctl32_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "Thank you for contacting me"

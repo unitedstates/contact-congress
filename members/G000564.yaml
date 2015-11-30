@@ -73,10 +73,10 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Dr.
-            - Ms.
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Dr.: Dr.
+            Ms.: Ms.
         - name: ctl00$ctl02$State
           selector: "#ctl00_ctl02_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -191,7 +191,7 @@ contact_form:
           selector: "#ctl00_ctl02_ReplyChoice_0"
           value: Respond
     - click_on:
-        - value: Submit 
+        - value: Submit
           selector: "#ctl00_ctl02_SubmitButton"
   success:
     headers:

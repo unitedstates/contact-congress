@@ -51,32 +51,31 @@ contact_form:
         value: "$NAME_PREFIX"
         required: Yes
         options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Mr. and Mrs."
-          - "Miss"
-          - "Dr."
-          - "Dr. and Mrs."
-          - "Dr. and Mr."
-          - "Admiral"
-          - "Captain"
-          - "Chief Master Sergeant"
-          - "Colonel"
-          - "Commander"
-          - "Corporal"
-          - "Father"
-          - "General"
-          - "Lieutenant"
-          - "Lieutenant Colonel"
-          - "Major"
-          - "Master Sergeant"
-          - "Reverend"
-          - "Sergeant"
-          - "Second Lieutenant"
-          - "ergeant Major"
-          - "Sister"
-          - "Technical Sergeant"
+          Mr.: Mr.
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Mr. and Mrs.: Mr. and Mrs.
+          Miss: Miss
+          Dr.: Dr.
+          Dr. and Mrs.: Dr. and Mrs.
+          Dr. and Mr.: Dr. and Mr.
+          Admiral: Admiral
+          Captain: Captain
+          Chief Master Sergeant: Chief Master Sergeant
+          Colonel: Colonel
+          Commander: Commander
+          Corporal: Corporal
+          Father: Father
+          Lieutenant: Lieutenant
+          Lieutenant Colonel: Lieutenant Colonel
+          Master Sergeant: Master Sergeant
+          Rabbi: Rabbi
+          Reverend: Reverend
+          Sergeant: Sergeant
+          Second Lieutenant: Second Lieutenant
+          Sergeant Major: Sergeant Major
+          Sister: Sister
+          Technical Sergeant: Technical Sergeant
       - name: State
         selector: "#thisForm select[name='State']"
         value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -198,7 +197,7 @@ contact_form:
     - find:
       - selector: "p"
         value: "Thank you"
-        
+
   success:
     headers:
       status: 200

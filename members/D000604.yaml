@@ -51,21 +51,21 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mr.
-            - Dr. and Mrs.
-            - Dr. and Dr.
-            - Rabbi
-            - Reverend
-            - Sister
-            - Brother
-            - Father
-            - Pastor
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr.: Dr.
+            Dr. and Mr.: Dr. and Mr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Dr. and Dr.: Dr. and Dr.
+            Rabbi: Rabbi
+            Reverend: Reverend
+            Sister: Sister
+            Brother: Brother
+            Father: Father
+            Pastor: Pastor
         - name: Topic
           selector: "#Topic"
           value: $TOPIC
@@ -117,4 +117,3 @@ contact_form:
       status: 200
     body:
       contains: Thank you for sending me your email.
-

@@ -1,10 +1,10 @@
 bioguide: K000388
-contact_form: 
+contact_form:
   method: post
   action:
-  steps: 
+  steps:
   - visit: https://trentkellyforms.house.gov/forms/writeyourrep/
-  - fill_in: 
+  - fill_in:
     - name: FirstName
       selector: "#ctl00_ctl15_FirstName"
       value: $NAME_FIRST
@@ -41,20 +41,20 @@ contact_form:
       selector: "#ctl00_ctl15_Subject"
       value: $SUBJECT
       required: true
-  - choose: 
+  - choose:
     - name: ReplyChoice
       selector: "#ctl00_ctl15_ReplyChoice_0"
       value: Respond
-  - select: 
+  - select:
     - name: Prefix
       selector: "#ctl00_ctl15_PrefixList"
       value: $NAME_PREFIX
       required: true
-      options: 
-      - Mr.
-      - Mrs.
-      - Ms.
-      - Dr.
+      options:
+        Mr.: Mr.
+        Mrs.: Mrs.
+        Ms.: Ms.
+        Dr.: Dr.
     - name: Topic
       selector: "#ctl00_ctl15_IssuesList"
       value: $TOPIC
@@ -83,11 +83,11 @@ contact_form:
         "14893": Tax Reform
         "81": Transportation and Public Works
         "14897": Veterans
-  - click_on: 
+  - click_on:
     - value: Submit
       selector: "#ctl00_ctl15_SubmitButton"
-  success: 
-    headers: 
+  success:
+    headers:
       status: 200
-    body: 
+    body:
       contains: Thank you for taking the time to write me

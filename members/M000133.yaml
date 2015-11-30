@@ -10,66 +10,63 @@ contact_form:
         value: $TOPIC
         required: true
         options:
-          - Abortion
-          - Agriculture
-          - Animal Rights
-          - Appropriations
-          - Banking
-          - Budget
-          - Children/Family/Adoption
-          - Civil Rights/LGBT
-          - Civil Service/Postal
-          - Clean Energy
-          - Climate Change
-          - Commemorative/Congratulatory
-          - Commerce
-          - Defense
-          - Drugs
-          - Education Higher
-          - Education K to 12
-          - Elections
-          - Energy
-          - Environment/Public Works
-          - Fisheries
-          - Flag Requests
-          - Foreign Relations
-          - Gun Control
-          - Health
-          - Homeland Security
-          - Housing
-          - Immigration
-          - Indian Affairs
-          - Internships
-          - Insurance
-          - Judiciary
-          - Labor
-          - LIHEAP
-          - Medicare/Medicaid
-          - Middle East/North Africa
-          - Natural Resources
-          - Nuclear Proliferation
-          - Other
-          - Patents
-          - Pensions
-          - Privacy
-          - Public Lands and National Parks
-          - Science/Space
-          - Seniors
-          - Small Business
-          - Social Security
-          - Taxes
-          - Technology
-          - Tours and Tickets
-          - Telecommunications
-          - Trade
-          - Transportation
-          - Veterans
-          - Welfare/SNAP
-    - click_on:
-        - value: Click
-          selector: "#contact-sam-main"
+            Abortion: Abortion
+            Agriculture: Agriculture
+            Animal Rights: Animal Rights
+            Appropriations: Appropriations
+            Banking: Banking
+            Budget: Budget
+            Children/Family/Adoption: Children/Family/Adoption
+            Civil Rights/LGBT: Civil Rights/LGBT
+            Civil Service/Postal: Civil Service/Postal
+            Clean Energy: Clean Energy
+            Climate Change: Climate Change
+            Commemorative/Congratulatory: Commemorative/Congratulatory
+            Commerce: Commerce
+            Defense: Defense
+            Drugs: Drugs
+            Education Higher: Education Higher
+            Education K to 12: Education K to 12
+            Elections: Elections
+            Energy: Energy
+            Environment/Public Works: Environment/Public Works
+            Fisheries: Fisheries
+            Flag Requests: Flag Requests
+            Foreign Relations: Foreign Relations
+            Gun Control: Gun Control
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Indian Affairs: Indian Affairs
+            Internships: Internships
+            Insurance: Insurance
+            Judiciary: Judiciary
+            Labor: Labor
+            LIHEAP: LIHEAP
+            Medicare/Medicaid: Medicare/Medicaid
+            Middle East/North Africa: Middle East/North Africa
+            Natural Resources: Natural Resources
+            Nuclear Proliferation: Nuclear Proliferation
+            Other: Other
+            Patents: Patents
+            Pensions: Pensions
+            Privacy: Privacy
+            Public Lands and National Parks: Public Lands and National Parks
+            Science/Space: Science/Space
+            Seniors: Seniors
+            Small Business: Small Business
+            Social Security: Social Security
+            Taxes: Taxes
+            Technology: Technology
+            Tours and Tickets: Tours and Tickets
+            Telecommunications: Telecommunications
+            Trade: Trade
+            Transportation: Transportation
+            Veterans: Veterans
+            Welfare/SNAP: Welfare/SNAP
     - find:
-      - selector: "#fname"
+        - selector: "#fname"
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -121,12 +118,12 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Miss
-            - Mr. and Mrs.
-            - Dr.
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Miss: Miss
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr.: Dr.
         - name: mailing_state
           selector: "#mailing_state"
           value: $ADDRESS_STATE_POSTAL_ABBREV

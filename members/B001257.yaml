@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "http://bilirakis.house.gov/email-congressman-bilirakis"
+    - visit: "https://bilirakis.house.gov/email-congressman-bilirakis"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -61,7 +61,7 @@ contact_form:
           value: $NAME_PREFIX
           required: false
           options:
-            Mr.: "Mr. "
+            Mr.: Mr.
             Mrs.: Mrs.
             Ms.: Ms.
             Miss: Miss

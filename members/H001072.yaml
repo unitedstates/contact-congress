@@ -1,10 +1,10 @@
 bioguide: H001072
-contact_form: 
+contact_form:
   method: get
   action: /forms/writeyourrep/
-  steps: 
+  steps:
   - visit: https://Hillforms.house.gov/contact
-  - fill_in: 
+  - fill_in:
     - name: zip5
       selector: form.zipform input[name='zip5']
       value: $ADDRESS_ZIP5
@@ -13,12 +13,12 @@ contact_form:
       selector: form.zipform input[name='zip4']
       value: $ADDRESS_ZIP4
       required: true
-  - click_on: 
+  - click_on:
     - value: Submit
       selector: form.zipform input[type='submit']
-  - find: 
+  - find:
     - selector: "#ctl00_ctl09_FirstName"
-  - fill_in: 
+  - fill_in:
     - name: ctl00$ctl09$FirstName
       selector: "#ctl00_ctl09_FirstName"
       value: $NAME_FIRST
@@ -54,90 +54,103 @@ contact_form:
       selector: "#ctl00_ctl09_Subject"
       value: $SUBJECT
       required: true
-  - choose: 
+  - choose:
     - name: ctl00$ctl09$ReplyChoice
       selector: "#ctl00_ctl09_ReplyChoice_0"
       value: Respond
-  - select: 
+  - select:
     - name: ctl00$ctl09$PrefixList
       selector: "#ctl00_ctl09_PrefixList"
       value: $NAME_PREFIX
       required: true
-      options: 
-      - Mr.
-      - Mrs.
-      - Ms.
-      - Dr.
+      options:
+        Mr.: Mr.
+        Mrs.: Mrs.
+        Ms.: Ms.
+        Dr.: Dr.
+        The Honorable: The Honorable
+        Miss: Miss
+        Mr. and Mrs.: Mr. and Mrs.
+        Reverend: Reverend
+        Father: Father
+        Sister: Sister
+        Major General: Major General
+        General: General
+        Colonel: Colonel
+        Secretary: Secretary
+        Assistant Secretary: Assistant Secretary
+        Mayor: Mayor
+        Governor: Governor
     - name: ctl00$ctl09$State
       selector: "#ctl00_ctl09_State"
       value: $ADDRESS_STATE_POSTAL_ABBREV
       required: true
-      options: 
-      - AL
-      - AK
-      - AZ
-      - AR
-      - CA
-      - CO
-      - CT
-      - DE
-      - DC
-      - FL
-      - GA
-      - HI
-      - ID
-      - IL
-      - IN
-      - IA
-      - KS
-      - KY
-      - LA
-      - ME
-      - MD
-      - MA
-      - MI
-      - MN
-      - MS
-      - MO
-      - MT
-      - NE
-      - NV
-      - NH
-      - NJ
-      - NM
-      - NY
-      - NC
-      - ND
-      - OH
-      - OK
-      - OR
-      - PA
-      - RI
-      - SC
-      - SD
-      - TN
-      - TX
-      - UT
-      - VT
-      - VA
-      - WA
-      - WV
-      - WI
-      - WY
-      - AA
-      - AE
-      - AP
-      - FM
-      - GU
-      - MH
-      - MP
-      - PR
-      - VI
+      options:
+        - AL
+        - AK
+        - AZ
+        - AR
+        - CA
+        - CO
+        - CT
+        - DE
+        - DC
+        - FL
+        - GA
+        - HI
+        - ID
+        - IL
+        - IN
+        - IA
+        - KS
+        - KY
+        - LA
+        - ME
+        - MD
+        - MA
+        - MI
+        - MN
+        - MS
+        - MO
+        - MT
+        - NE
+        - NV
+        - NH
+        - NJ
+        - NM
+        - NY
+        - NC
+        - ND
+        - OH
+        - OK
+        - OR
+        - PA
+        - RI
+        - SC
+        - SD
+        - TN
+        - TX
+        - UT
+        - VT
+        - VA
+        - WA
+        - WV
+        - WI
+        - WY
+        - AA
+        - AE
+        - AP
+        - FM
+        - GU
+        - MH
+        - MP
+        - PR
+        - VI
     - name: ctl00$ctl09$IssuesList
       selector: "#ctl00_ctl09_IssuesList"
       value: $TOPIC
       required: true
-      options: 
+      options:
         Advocacy: "14886"
         Agriculture and Food: "72"
         Animals: "9982"
@@ -172,17 +185,17 @@ contact_form:
         Taxation: "10493"
         Transportation and Public Works: "81"
         Water Resources Development: "10528"
-  - uncheck: 
+  - uncheck:
     - name: ctl00$ctl09$SubscribeChoice
       selector: "#ctl00_ctl09_SubscribeChoice"
-  - click_on: 
+  - click_on:
     - value: Submit
       selector: "#ctl00_ctl09_SubmitButton"
-  - find: 
+  - find:
     - selector: "span#ctl00_ctl09_ConfirmationText"
       value: Thank you
-  success: 
-    headers: 
+  success:
+    headers:
       status: 200
-    body: 
+    body:
       contains: Thank

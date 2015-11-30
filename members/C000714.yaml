@@ -55,19 +55,15 @@ contact_form:
           value: $NAME_PREFIX
           required: false
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mr.
-            - Dr. and Mrs.
-            - Reverend
-            - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
         - name: topic
           selector: "#required-issue"
           value: $TOPIC

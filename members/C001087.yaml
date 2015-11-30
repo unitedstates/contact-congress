@@ -65,19 +65,19 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
-            - Dr.
-            - "Mr. & Mrs."
-            - "Dr. & Mrs."
-            - "Dr. & Mr."
-            - C.O.
-            - Representative
-            - Senator
-            - The Honorable
-            - Col.
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            "Mr. & Mrs.": "Mr. & Mrs."
+            "Dr. & Mrs.": "Dr. & Mrs."
+            "Dr. & Mr.": "Dr. & Mr."
+            C.O.: C.O.
+            Representative: Representative
+            Senator: Senator
+            The Honorable: The Honorable
+            Col.: Col.
         - name: ctl00$ctl13$State
           selector: "#ctl00_ctl13_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -190,4 +190,3 @@ contact_form:
       status: 200
     body:
       contains: sending me
-
