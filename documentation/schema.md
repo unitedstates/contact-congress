@@ -43,8 +43,8 @@ a subset of [Capybara methods](http://rubydoc.info/github/jnicklas/capybara/mast
 - [`click_on`](#click_on) Clicking a link or `button`, most likely to submit a 
     `form`.
 - [`remove`](#remove) Removes DOM element
+- [`picker`](#picker) Uses provided key-selector mapping to select element based on provided value
 - [`recaptcha`](#recaptcha) Handles reCAPTCHA V2
-
 
 **success**
 
@@ -103,6 +103,23 @@ The value of a fill_in step can be a single field, or a list of hashes defining 
 ### remove
 Removes DOM element from page.
 - `selector`: Selector for the DOM element to remove
+
+### picker
+Picks element using key-selector mapping and a provided key value.
+
+Example:
+```yaml
+- picker:
+  - name: topic
+    value: $TOPIC
+    required: true
+    options:
+      Abortion: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_1"
+      Animals: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_3"
+```
+For this to select `Animals` on the page, the `$TOPIC` value would be set to `Animals`.
+
+
 
 ### recaptcha
 
