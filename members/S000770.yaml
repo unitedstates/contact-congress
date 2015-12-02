@@ -1,58 +1,56 @@
 bioguide: S000770
 contact_form:
   method: POST
-  action: http://www.stabenow.senate.gov/?p=contact
+  action: ""
   steps:
-    - visit: http://www.stabenow.senate.gov/?p=contact
+    - visit: https://www.stabenow.senate.gov/contact
     - fill_in:
       - name: firstName
-        selector: "#firstName"
-        value: "$NAME_FIRST"
+        selector: "#input-F80AC606-4040-F985-52CD-88C5E17C2923"
+        value: $NAME_FIRST
         required: Yes
       - name: lastName
-        selector: "#lastName"
-        value: "$NAME_LAST"
+        selector: "#input-F80AC4BA-4040-F985-52CD-C1FBF3A239DA"
+        value: $NAME_LAST
         required: Yes
       - name: Address1
-        selector: "#Address1"
-        value: "$ADDRESS_STREET"
+        selector: "#input-F80AC639-4040-F985-52CD-01F3F3CED200"
+        value: $ADDRESS_STREET
         required: Yes
       - name: Address2
-        selector: "#Address2"
-        value: "$ADDRESS_STREET_2"
+        selector: "#input-F80AC6E0-4040-F985-52CD-65FA92CFCF90"
+        value: $ADDRESS_STREET_2
       - name: city
-        selector: "#city"
-        value: "$ADDRESS_CITY"
+        selector: "#input-F80AC6B0-4040-F985-52CD-D109F6244062"
+        value: $ADDRESS_CITY
         required: Yes
       - name: zip
-        selector: "#zip"
-        value: "$ADDRESS_ZIP5"
+        selector: "#input-F80AC4D5-4040-F985-52CD-CD63BB35E91B"
+        value: $ADDRESS_ZIP5
         required: Yes
       - name: phone
-        selector: "input+#phone"
-        value: "$PHONE"
+        selector: "#input-F80AC622-4040-F985-52CD-2ED21C242578"
+        value: $PHONE
         required: Yes
       - name: email
         selector: "#email"
-        value: "$EMAIL"
+        value: $EMAIL
         required: Yes
-      - name: messageSubject
-        selector: "#messageSubject"
-        value: "$SUBJECT"
+      - name: verifyemail
+        selector: "#input-F80AC51C-4040-F985-52CD-9794A2BECA45"
+        value: $EMAIL
         required: Yes
-      - name: MessageBody
-        selector: ".input-textarea"
-        value: "$MESSAGE"
+      - name: subject
+        selector: "#input-F81BE935-4040-F985-52CD-D2815240A234"
+        value: $SUBJECT
         required: Yes
-    - select:
-      - name: State
-        selector: ".input-select"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+      - name: message
+        selector: "#input-F80AC5B6-4040-F985-52CD-834C1DD62DF3"
+        value: $MESSAGE
         required: Yes
-        options: US_STATES_AND_TERRITORIES
     - click_on:
       - value: Submit
-        selector: "#sf-submit"
+        selector: input[value='Submit']
     - find:
       - selector: "p"
         value: "Thank you!"
@@ -60,4 +58,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Your message has been sent"
+      contains: "Thank you for submitting your Request to our office."
