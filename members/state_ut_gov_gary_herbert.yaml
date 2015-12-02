@@ -1,39 +1,51 @@
 bioguide: state_ut_gov_gary_herbert
 contact_form:
   method: post
-  action: http://gva1.utah.gov/programs/govmsg.asp
+  action: ""
   steps:
-    - visit: "http://governor.utah.gov/goca/form_comment.html"
+    - visit: "https://gocentral.utah.gov/Request/Contact?response=true"
     - fill_in:
         - name: first
-          selector: "#first"
+          selector: "#Firstname"
           value: $NAME_FIRST
           required: true
         - name: last
-          selector: "#last"
+          selector: "#Lastname"
           value: $NAME_LAST
           required: true
-        - name: city
-          selector: "#city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
         - name: email
-          selector: "input[name='email']"
+          selector: "#Email"
           value: $EMAIL
           required: true
+        - name: street
+          selector: "#Address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#PhoneHome"
+          value: $PHONE
+          required: true
         - name: subject
-          selector: "textarea[name='subject']"
+          selector: "#Subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#Body"
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit Feedback
-          selector: "input[name='send']"
+          selector: "input[type='submit'][value='Submit Feedback']"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for your feedback!"
+      contains: "Your concern has been entered into our system"
