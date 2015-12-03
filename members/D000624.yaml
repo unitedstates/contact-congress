@@ -1,9 +1,9 @@
 bioguide: D000624
 contact_form:
   method: post
-  action: https://debbiedingell.house.gov./?zip5=48197&zip4=5450
+  action: ""
   steps:
-  - visit: https://debbiedingell.house.gov/email-me
+  - visit: https://debbiedingellforms.house.gov/contact/
   - fill_in:
     - name: required-zip5
       selector: input[name='zip5']
@@ -116,4 +116,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to write me
+      contains: Thank you for contacting my office.

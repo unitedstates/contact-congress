@@ -1,53 +1,52 @@
 bioguide: C001035
 contact_form:
   method: POST
-  action: http://www.collins.senate.gov/public/index.cfm/email
+  action: ""
   steps:
-    - visit: http://www.collins.senate.gov/public/index.cfm/email
+    - visit: http://www.collins.senate.gov/contact
     - fill_in:
-      - name: field_2ed1447f-9467-412b-a523-3091085f7843
-        selector: "#field_2ed1447f-9467-412b-a523-3091085f7843"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_4639e7c2-2f0f-4c79-bb13-dba4ad0ef667
-        selector: "#field_4639e7c2-2f0f-4c79-bb13-dba4ad0ef667"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_994d1f0e-6824-4dc3-9762-77882c1d79e8
-        selector: "#field_994d1f0e-6824-4dc3-9762-77882c1d79e8"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_005d93b0-529c-4969-ad2e-42838187d3a8
-        selector: "#field_005d93b0-529c-4969-ad2e-42838187d3a8"
-        value: "$ADDRESS_STREET_2"
-      - name: field_e2f4b573-5775-43ba-bd42-abb2e522896c
-        selector: "#field_e2f4b573-5775-43ba-bd42-abb2e522896c"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_55aa34dc-0cf0-4a0f-b0ae-fef99fece739
-        selector: "#field_55aa34dc-0cf0-4a0f-b0ae-fef99fece739"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_0090711b-e091-4e9c-8bd3-1cbd194203f5
-        selector: "#field_0090711b-e091-4e9c-8bd3-1cbd194203f5"
-        value: "$PHONE"
-      - name: field_ea706c1a-a603-45de-9176-b3e0b97fc67a
-        selector: "#field_ea706c1a-a603-45de-9176-b3e0b97fc67a"
-        value: "$PHONE"
-      - name: field_e735c0ee-32ab-4e2e-904a-d293c7830065
-        selector: "#field_e735c0ee-32ab-4e2e-904a-d293c7830065"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_4390dd78-cb0e-4eca-9543-55f2c71aecbc
-        selector: "#field_4390dd78-cb0e-4eca-9543-55f2c71aecbc"
-        value: "$MESSAGE"
-        required: Yes
-        options:
-          max_length: 10000
+      - name: firstname
+        selector: "#edit-submitted-first-name"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: "#edit-submitted-last-name"
+        value: $NAME_LAST
+        required: true
+      - name: street
+        selector: "#edit-submitted-address-1"
+        value: $ADDRESS_STREET
+        required: true
+      - name: street2
+        selector: "#edit-submitted-address-2"
+        value: $ADDRESS_STREET_2
+        required: false
+      - name: city
+        selector: "#edit-submitted-city-town"
+        value: $ADDRESS_CITY
+        required: true
+      - name: zip5
+        selector: "#edit-submitted-zip-code"
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: phone
+        selector: "#edit-submitted-home-phone"
+        value: $PHONE
+        required: false
+      - name: email
+        selector: "#edit-submitted-e-mail"
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: "#edit-submitted-please-write-your-message"
+        value: $MESSAGE
+        required: true
+        max_length: 10000
     - select:
-      - name: field_75844ae5-39b1-4018-8db6-0a44e71595de
-        selector: "#field_75844ae5-39b1-4018-8db6-0a44e71595de"
-        value: "$NAME_PREFIX"
+      - name: prefix
+        selector: "#edit-submitted-prefix"
+        value: $NAME_PREFIX
+        required: false
         options:
           "Mr.": "Mr."
           "Ms.": "Ms."
@@ -55,11 +54,22 @@ contact_form:
           "Miss": "Miss"
           "Dr.": "Dr."
           "Rev.": "Rev."
+      - name: state
+        selector: "#edit-submitted-state"
+        value: Maine
+        required: true
+    - check:
+      - name: response
+        selector: "#edit-submitted-would-you-like-a-response-from-senator-collins-1"
+        required: true
+      - name: newsletter
+        selector: "#edit-submitted-subscribe-to-newsletter-2"
+        required: true
     - click_on:
       - value: Submit
-        selector: ".buttonHolder input"
+        selector: "input.webform-submit.button-primary.form-submit"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting Senator Collins on this issue"
+      contains: "Thank you, your submission has been received."

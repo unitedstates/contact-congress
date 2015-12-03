@@ -14,7 +14,7 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - selector: "input#submit"
+        - selector: "#submit"
     - fill_in:
         - name: required-prefix
           selector: "#required-prefix"
@@ -70,29 +70,29 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-           - Agriculture
-           - Crime
-           - Education
-           - Energy
-           - Environment
-           - Healthcare
-           - Homeland Security
-           - Immigration
-           - Veterans
-           - Trade
-           - Taxes
-           - Telecommunications
-           - Social Security
-           - Retirement
-           - Foreign Relations
-           - Family Values
-           - Transportation
-           - Workforce
-           - Financial Services
-           - Housing
-           - Defense
-           - Request for Assistance
-           - Other
+            Agriculture: Agriculture
+            Crime: Crime
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Healthcare: Healthcare
+            Homeland Security: Homeland Security
+            Immigration: Immigration
+            Veterans: Veterans
+            Trade: Trade
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Social Security: Social Security
+            Retirement: Retirement
+            Foreign Relations: Foreign Relations
+            Family Values: Family Values
+            Transportation: Transportation
+            Workforce: Workforce
+            Financial Services: Financial Services
+            Housing: Housing
+            Defense: Defense
+            Request for Assistance: Request for Assistance
+            Other: Other
     - click_on:
         - selector: button.ideal-button
   success:
