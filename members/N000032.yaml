@@ -56,10 +56,12 @@ contact_form:
             Mrs.: Mrs.
             Ms.: Ms.
             Dr.: Dr.
-    - check:
+    - picker:
         - name: Issue
-          selector: "input[type='radio'][name='Issue'][value='Other']"
-          value: Other
+          value: $TOPIC
+          required: true
+          options:
+            
     - click_on:
         - value: Submit
           selector: "#submit"
