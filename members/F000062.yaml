@@ -37,11 +37,46 @@ contact_form:
           selector: "#field_130638F0-2EEC-4C6B-83BE-11E83BB5CED3"
           value: $MESSAGE
           required: true
-    - choose:
+    - picker:
         - name: topic
-          selector: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_14"
-          value: Government Affairs
+          value: $TOPIC
           required: true
+          options:
+            Abortion: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_1"
+            Agriculture: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_2"
+            Animals: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_3"
+            Banking / Finance: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_4"
+            Budget: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_5"
+            Civil Liberties / Rights: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_6"
+            Communications / FCC: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_7"
+            Defense: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_8"
+            Economy: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_9"
+            Education: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_10"
+            Energy: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_11"
+            Environment: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_12"
+            Foreign Affairs: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_13"
+            Government Affairs: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_14"
+            Gun Control: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_15"
+            Health: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_16"
+            Homeland Security: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_17"
+            Housing: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_18"
+            Human Services / Welfare: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_19"
+            Immigration: "3field_302E8A41-000D-419E-991E-40C7CB96F97C_20"
+            Indian Affairs: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_21"
+            Intelligence Committee: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_22"
+            Internship: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_23"
+            Judiciary, Narcotics / Illicit Drugs: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_24"
+            Labor: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_25"
+            LGBT: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_26"
+            Medicare / Medicaid: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_27"
+            Science / Space / Technology: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_28"
+            Social Security: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_29"
+            Taxes: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_30"
+            Trade: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_31"
+            Transportation: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_32"
+            U.S. Postal Service: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_33"
+            Veterans: "3field_302E8A41-000D-419E-991E-40C7CB96F97C_34"
+            Water: "#field_302E8A41-000D-419E-991E-40C7CB96F97C_35"
     - select:
         - name: prefix
           selector: "#field_9444DBC2-BBE1-469D-9B8F-AB10EB838284"
