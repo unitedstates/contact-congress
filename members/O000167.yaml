@@ -3,114 +3,145 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: https://www.whitehouse.gov/contact/organization
-    - fill_in:
-        - name: submitted[first_name]
-          selector: "#edit-submitted-first-name"
-          value: $NAME_FIRST
-          required: true
-        - name: submitted[last_name]
-          selector: "#edit-submitted-last-name"
-          value: $LAST_FIRST
-          required: true
-        - name: submitted[zip]
-          selector: "#edit-submitted-zip"
-          value: $ADDRESS_ZIP5
-          required: true
+    - visit: https://forms.whitehouse.gov/contact/questions-comments?initialWidth=960&childId=forall-iframe-embed-2&parentUrl=https%3A%2F%2Fwww.whitehouse.gov%2Fcontact
     - select:
-        - name: prefix
-          selector: "#edit-submitted-prefix"
-          value: $NAME_PREFIX
-          options:
-            Mr.: Mr.
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            The Honorable: The Honorable
-        - name: submitted[country]
-          selector: "#edit-submitted-country"
-          value: United States
-        - name: submitted[subject]
-          selector: "#edit-submitted-subject"
-          value: $TOPIC
-          required: true
-          options:
-            "Afghanistan & Iraq": "Afghanistan & Iraq"
-            Civil Rights: Civil Rights
-            Economy: Economy
-            Education: Education
-            Energy: Energy
-            Environment: Environment
-            Foreign Policy: Foreign Policy
-            Health Care: Health Care
-            Homeland Security: Homeland Security
-            Housing: Housing
-            Immigration: Immigration
-            Job Creation: Job Creation
-            Middle Class Task Force: Middle Class Task Force
-            Recovery Act: Recovery Act
-            "Science & Technology": "Science & Technology"
-            Seniors: Seniors
-            Taxes: Taxes
-            Transportation: Transportation
-            Veterans: Veterans
-            Help with a Federal Agency: Help with a Federal Agency
-            The Administration: The Administration
-            The Biden Family: The Biden Family
-            The First Family: The First Family
-            Other: Other
+      - name: target
+        selector: "#edit-submitted-00nj0000000vdnx"
+        value: President Obama
+        required: True
+    - find:
+      - selector: "#edit-submitted-administration-subject"
     - fill_in:
-        - name: submitted[message]
-          selector: "#edit-submitted-message"
-          value: $MESSAGE
-          required: true
-        - name: submitted[delivery_agent_name]
-          selector: "#edit-submitted-delivery-agent-name"
-          value: EveryAction
-          required: true
-        - name: submitted[delivery_agent_first_name]
-          selector: "#edit-submitted-delivery-agent-first-name"
-          value: Mike
-          required: true
-        - name: submitted[delivery_agent_last_name]
-          selector: "#edit-submitted-delivery-agent-last-name"
-          value: Liddell
-          required: true
-        - name: submitted[delivery_agent_email]
-          selector: "#edit-submitted-delivery-agent-email"
-          value: advocacysupport@everyaction.com
-          required: true
-        - name: submitted[delivery_agent_phone]
-          selector: "#edit-submitted-delivery-agent-phone"
-          value: 202-370-8050
-        - name: submitted[delivery_agent_title]
-          selector: "#edit-submitted-delivery-agent-title"
-          value: General Manager, Digital
-        - name: submitted[delivery_agent_organization]
-          selector: "#edit-submitted-delivery-agent-organization"
-          value: EveryAction
-        - name: submitted[delivery_agent_street]
-          selector: "#edit-submitted-delivery-agent-street"
-          value: 1101 15TH ST NW STE 500
-        - name: submitted[delivery_agent_zip]
-          selector: "#edit-submitted-delivery-agent-zip"
-          value: 20005-5006
-        - name: submitted[delivery_agent_city]
-          selector: "#edit-submitted-delivery-agent-city"
-          value: Washington
+      - name: first
+        selector: "#edit-submitted-00nj0000000vdne"
+        value: $NAME_FIRST
+        required: True
+      - name: last
+        selector: "#edit-submitted-00nj0000000vdnf"
+        value: $NAME_LAST
+        required: True
+      - name: email
+        selector: "#edit-submitted-email"
+        value: $EMAIL
+        required: True
+      - name: phone
+        selector: "#edit-submitted-phone-us"
+        value: $PHONE
+        required: True
+      - name: street
+        selector: "#edit-submitted-00nj0000000vdnq"
+        value: $ADDRESS_STREET
+        required: True
+      - name: city
+        selector: "#edit-submitted-00nj0000000vdmz"
+        value: $ADDRESS_CITY
+        required: True
+      - name: zip5
+        selector: "#edit-submitted-postal-code-us"
+        value: $ADDRESS_ZIP5
+        required: True
+      - name: message
+        selector: "#edit-submitted-description"
+        value: $MESSAGE
+        required: True
     - select:
-        - name: submitted[delivery_agent_state]
-          selector: "#edit-submitted-delivery-agent-city"
-          value: DC
-        - name: submitted[delivery_agent_country]
-          selector: "#edit-submitted-delivery-agent-country"
-          value: United States
+      - name: state
+        selector: "#edit-submitted-us-states"
+        value: $ADDRESS_STATE_FULL
+        required: True
+        options:
+          Armed Forces Americas: Armed Forces Americas
+          Armed Forces Europe: Armed Forces Europe
+          Armed Forces Pacific: Armed Forces Pacific
+          Alaska: Alaska
+          Alabama: Alabama
+          American Samoa: American Samoa
+          Arizona: Arizona
+          Arkansas: Arkansas
+          California: California
+          Colorado: Colorado
+          Connecticut: Connecticut
+          Delaware: Delaware
+          District of Columbia: District of Columbia
+          Federated Micronesia: Federated Micronesia
+          Florida: Florida
+          Georgia: Georgia
+          Guam: Guam
+          Hawaii: Hawaii
+          Idaho: Idaho
+          Illinois: Illinois
+          Indiana: Indiana
+          Iowa: Iowa
+          Kansas: Kansas
+          Kentucky: Kentucky
+          Louisiana: Louisiana
+          Maine: Maine
+          Marshall Islands: Marshall Islands
+          Maryland: Maryland
+          Massachusetts: Massachusetts
+          Michigan: Michigan
+          Minnesota: Minnesota
+          Mississippi: Mississippi
+          Missouri: Missouri
+          Montana: Montana
+          Nebraska: Nebraska
+          Nevada: Nevada
+          New Hampshire: New Hampshire
+          New Jersey: New Jersey
+          New Mexico: New Mexico
+          New York: New York
+          North Carolina: North Carolina
+          North Dakota: North Dakota
+          Northern Mariana Islands: Northern Mariana Islands
+          Ohio: Ohio
+          Oklahoma: Oklahoma
+          Oregon: Oregon
+          Palau: Palau
+          Pennsylvania: Pennsylvania
+          Puerto Rico: Puerto Rico
+          Rhode Island: Rhode Island
+          South Carolina: South Carolina
+          South Dakota: South Dakota
+          Tennessee: Tennessee
+          Texas: Texas
+          United States Minor Outlying Islands: United States Minor Outlying Islands
+          US Virgin Islands: US Virgin Islands
+          Utah: Utah
+          Virginia: Virginia
+          Vermont: Vermont
+          Washington: Washington
+          West Virginia: West Virginia
+          Wisconsin: Wisconsin
+          Wyoming: Wyoming
+      - name: potus-topic
+        selector: "#edit-submitted-administration-subject"
+        value: $TOPIC
+        required: True
+        options:
+          Civil Rights: Civil Rights
+          Economy: Economy
+          Education: Education
+          Environment: Environment
+          Firearms: Firearms
+          Foreign Policy: Foreign Policy
+          Health Care: Health Care
+          Homeland Security: Homeland Security
+          Housing: Housing
+          Immigration: Immigration
+          Job Creation: Job Creation
+          "Science & Technology": "Science & Technology"
+          Seniors: Seniors
+          Taxes: Taxes
+          Transportation: Transportation
+          Veterans: Veterans
+          The Administration: The Administration
+    - check:
+      - selector: "#edit-submitted-interest-1"
     - click_on:
-        - value: Submit
-          selector: "#edit-submit"
+      - value: Send
+        selector: input.webform-submit.button-primary.btn.form-submit
   success:
     headers:
       status: 200
     body:
-      contains: contacting the White House about submitting messages
+      contains: Thank you for contacting the White House
