@@ -1,12 +1,9 @@
 bioguide: F000444
 contact_form:
   method: post
-  action: webformActionIQV2.cfm
+  action: ""
   steps:
-    - visit: "http://www.flake.senate.gov/contact.cfm"
-    - click_on:
-        - value: Skip
-          selector: ".popup-container form .skip"
+    - visit: "http://www.flake.senate.gov/public/index.cfm/contact-jeff"
     - fill_in:
         - name: firstName
           selector: "#field_6f2ba101-f309-4d6d-94df-6e3a1c86ad7d"
@@ -54,18 +51,18 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            " Mr. ": Mr.
-            " Mrs. ": Mrs.
-            " Ms. ": Ms.
-            " Mr. and Mrs. ": Mr. and Mrs.
-            " Dr. ": Dr.
-            " Dr. and Mrs. ": Dr. and Mrs.
-            " Reverend ": Reverend
-            " Sister ": Sister
-            " Pastor ": Pastor
-            " The Honorable ": The Honorable
-            " Representative ": Representative
-            " Senator ": Senator
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr.: Dr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Reverend: Reverend
+            Sister: Sister
+            Pastor: Pastor
+            The Honorable: The Honorable
+            Representative: Representative
+            Senator: Senator
         - name: State
           selector: "#field_b2e8657c-e546-42d7-97a6-baff33e85780"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -167,7 +164,7 @@ contact_form:
             "Welfare": Welfare
     - click_on:
         - value: Submit
-          selector: "#form_c689cd15-96e7-40a7-bf1a-12cdb1863af9 input[type='submit'][value='Submit']"
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
