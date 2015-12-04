@@ -176,17 +176,14 @@ contact_form:
         Taxation: "10493"
         Transportation and Public Works: "81"
         Water Resources Development: "10528"
-  - uncheck:
-    - name: ctl00$ctl09$SubscribeChoice
-      selector: "#ctl00_ctl09_SubscribeChoice"
   - click_on:
     - value: Submit
       selector: "#ctl00_ctl09_SubmitButton"
   - find:
-    - selector: "span#ctl00_ctl09_ConfirmationText"
+    - selector: "ctl00_ctl09_ConfirmationText"
       value: Thank you
   success:
     headers:
       status: 200
     body:
-      contains: Thank
+      contains: Thank you for taking the time to write me
