@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
+    - find:
+        - selector: "#required-first"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -42,12 +44,8 @@ contact_form:
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: "#required-phone"
           value: $PHONE
-          required: false
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
           required: true
         - name: required-message
           selector: "#required-message"
@@ -107,4 +105,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Email Me - Thank You "
+      contains: "your message has been sent"
