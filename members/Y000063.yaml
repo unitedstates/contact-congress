@@ -15,7 +15,9 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+          selector: "#submit"
+    - find:
+        - selector: "#prefix"
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -116,10 +118,9 @@ contact_form:
           value: Email.Optin
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
       contains: Thank You
-
