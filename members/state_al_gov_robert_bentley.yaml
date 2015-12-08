@@ -28,7 +28,7 @@ contact_form:
         - name: phoneNumber
           selector: "#ctl00_ContentPlaceHolder1_PHONE3"
           value: $PHONE_SUBSCRIBER_NUMBER
-          required: true 
+          required: true
         - name: street
           selector: "#ctl00_ContentPlaceHolder1_STREET_ADDRESS"
           value: $ADDRESS_STREET
@@ -48,6 +48,12 @@ contact_form:
         - name: message
           selector: "#ctl00_ContentPlaceHolder1_COMMENTS"
           value: $MESSAGE
+          required: true
+        - name: recaptcha
+          captcha_selector: "#recaptcha_challenge_image"
+          value: $CAPTCHA_SOLUTION
+          selector: "#recaptcha_response_field"
+          captcha_id_selector: "#recaptcha_challenge_field"
           required: true
     - select:
         - name: prefix
