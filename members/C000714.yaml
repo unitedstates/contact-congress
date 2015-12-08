@@ -14,8 +14,9 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: zip_validation
-          selector: "#submit"
+        - selector: "button#submit"
+    - find:
+        - selector: "#required-first"
     - fill_in:
         - name: first
           selector: "#required-first"
@@ -118,8 +119,7 @@ contact_form:
             Yes, please contact me: Y
             No, I wanted to voice my opinion: N
     - click_on:
-        - value: Submit
-          selector: "#submit"
+        - selector: "#submit"
   success:
     headers:
       status: 200
