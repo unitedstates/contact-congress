@@ -111,10 +111,7 @@ contact_form:
             "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
-    - find:
-        - selector: "h1#page-title"
-          value: "Thank You"
+          selector: "#submit"
   success:
     headers:
       status: 200
