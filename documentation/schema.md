@@ -97,7 +97,17 @@ The value of a fill_in step can be a single field, or a list of hashes defining 
 - `required` (ironically, optional): This field will be present if a field *must* 
     be filled out with a value in order for the form to be valid.
 - `max_length` (optional): This field will be present if a field has a maximum length. 
-    It's very useful where max length is only enforced server-side.
+    It's very useful where max length is only enforced server-side. Must be within an `options` block, like so:
+    
+    ```yaml
+    - fill_in
+      - name: test
+        selector: "#id"
+        value: $TEST
+        required: true
+        options:
+          max_length: 1234
+    ```
 - `wysiwyg` (optional): This field will be present if a field is a wysiwyg, such as ckeditor or tinymce. They cannot be filled in the same way as a typical textbox.
 
 ### remove
