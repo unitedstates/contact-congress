@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl13_FirstName"
     - fill_in:
         - name: required-first
           selector: "#ctl00_ctl13_FirstName"
@@ -40,11 +42,7 @@ contact_form:
         - name: zip4
           selector: "#ctl00_ctl13_Zip4"
           value: $ADDRESS_ZIP4
-          required: false
-        - name: phone
-          selector: "#ctl00_ctl13_Phone"
-          value: $PHONE
-          required: false
+          required: true
         - name: required-email
           selector: "#ctl00_ctl13_Email"
           value: $EMAIL
@@ -76,71 +74,6 @@ contact_form:
             - Senator
             - The Honorable
             - Col.
-        - name: required-state
-          selector: "#ctl00_ctl13_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - AA
-            - AE
-            - AP
-            - FM
-            - GU
-            - MH
-            - MP
-            - PR
-            - VI
         - name: required-issue
           selector: "#ctl00_ctl13_IssuesList"
           value: $TOPIC
@@ -174,12 +107,14 @@ contact_form:
             Transportation: TRA
             Veterans: VET
     - javascript:
-        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+        - value: document.querySelector("#ctl00_ctl13_Body").value = document.querySelector("#ctl00_ctl13_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl15_ctl00_Text"
   success:
     headers:
       status: 200
     body:
-      contains: THANK YOU
+      contains: Thank you. Your form has been successfully submitted.
