@@ -1,132 +1,80 @@
 bioguide: D000624
-contact_form: 
-  method: post
-  action: /htbin/formproc_za/zip-auth.txt%26form%3D/email-me/email-zip-authenticated%26nobase%26fpGetVer%3D2
-  steps: 
-  - visit: https://debbiedingell.house.gov/email-me
-  - javascript:
-    - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-  - fill_in: 
-    - name: required-zip5
-      selector: "#required-zip5"
-      value: $ADDRESS_ZIP5
-      required: true
-    - name: zip4
-      selector: "#zip4"
-      value: $ADDRESS_ZIP4
-      required: true
-  - click_on: 
-    - value: Go To Next Step
-      selector: "#emailForm #submit"
-  - find: 
-    - selector: "#required-prefix"
-  - javascript:
-    - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-  - fill_in: 
-    - name: required-first
-      selector: "#required-first"
-      value: $NAME_FIRST
-      required: true
-    - name: required-last
-      selector: "#required-last"
-      value: $NAME_LAST
-      required: true
-    - name: required-address
-      selector: "#required-address"
-      value: $ADDRESS_STREET
-      required: true
-    - name: required-city
-      selector: "#required-city"
-      value: $ADDRESS_CITY
-      required: true
-    - name: required-valid-email
-      selector: "#required-valid-email"
-      value: $EMAIL
-      required: true
-    - name: required-phone
-      selector: "#required-phone"
-      value: $PHONE
-      required: true
-    - name: required-message
-      selector: "#required-message"
-      value: $MESSAGE
-      required: true
-  - select:  
-    - name: required-prefix
-      selector: "#required-prefix"
-      value: $NAME_PREFIX
-      required: true
-      options: 
-        Ms.: Ms.
-        Miss: Miss
-        Mrs.: Mrs.
-        Mr.: Mr.
-        Mr. and Mrs.: Mr. and Mrs.
-        Rev.: Rev.
-        Dr.: Dr.
-        The Honorable: The Honorable
-        Rabbi: Rabbi
-    - name: required-issue
-      selector: "#required-issue"
-      value: $TOPIC
-      required: true
-      options: 
-        Agriculture: AGR
-        Animals: AN
-        Arts and Humanities: ART
-        Banking and Finance: BANK
-        Budget and Economy: BUD
-        Campaign Finance Reform: CFR
-        Congress and Elections: CONG
-        District of Columbia--Tours: TOUR
-        Defense and Military: DEF
-        Economy: ECON
-        Education: EDU
-        Energy: ENE
-        Environment: ENV
-        Federal Employees: FED
-        Foreign Relations: FR
-        Government Reform: GOV
-        Guns: GUN
-        Health: HEA
-        Homeland Security: HOM
-        Housing and Urban Development: HUD
-        Immigration: IMM
-        International Relations: INT
-        Judiciary: JUD
-        Labor: LAB
-        LGBT: LGBT
-        No Response Necessary: NRN
-        Post Office: POST
-        Science and Technology: SCI
-        Social Issues: SOC
-        Senior Citizens: SENIORS
-        Social Security: SSEC
-        Social Services: SOC.SERVICES
-        Taxes: TAX
-        Telecommunications: TEL
-        Transportation: TRA
-        Trade: TRADE
-        Veterans: VET
-        "Women's Issues": WOMEN
-        Welfare: WEL
-        Other Issues: OTHER
-    - name: required-response
-      selector: "#required-response"
-      value: Y
-      required: true
-      options: 
-        Yes, please contact me: Y
-        No, I wanted to voice my opinion: N
-  - javascript:
-    - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
-  - click_on: 
-    - value: Send Email to Representative Dingell
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
-  - find:
-    - selector: ".data"
-  success: 
-    headers: 
+contact_form:
+  method: get
+  action: /forms/writeyourrep/
+  steps:
+    - visit: "https://debbiedingellforms.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl27_FirstName"
+    - fill_in:
+        - name: ctl00$ctl27$FirstName
+          selector: "#ctl00_ctl27_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl27$LastName
+          selector: "#ctl00_ctl27_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl27$Street
+          selector: "#ctl00_ctl27_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl27$City
+          selector: "#ctl00_ctl27_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl27$Zip
+          selector: "#ctl00_ctl27_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl27$Phone
+          selector: "#ctl00_ctl27_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl27$Email
+          selector: "#ctl00_ctl27_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl27$Subject
+          selector: "#ctl00_ctl27_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl27$Body
+          selector: "#ctl00_ctl27_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$ctl27$PrefixList
+          selector: "#ctl00_ctl27_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
+            - The Honorable
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl27_Body").value = document.querySelector("#ctl00_ctl27_Body").value.replace(/"/g, '');
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl27_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl27_ConfirmationText"
+  success:
+    headers:
       status: 200
-    body: 
-      contains: your message has been sent
+    body:
+      contains: Thank you for contacting my office.
