@@ -68,9 +68,7 @@ contact_form:
             Veterans: WEB VA
             Other: WEB OTHER
     - javascript:
-        - value: document.querySelector("#contactForm textarea[name='required-m
-essage']").value = document.querySelector("#contactForm textarea[name='required-
-message']").value.replace(/"/g, '');
+        - value: document.querySelector("#contactForm textarea[name='required-message']").value = document.querySelector("#contactForm textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[type='submit'][value='Send Email']"
@@ -78,4 +76,4 @@ message']").value.replace(/"/g, '');
     headers:
       status: 200
     body:
-      contains: THANKS FOR YOUR MESSAGE
+      contains: Thank you for contacting me
