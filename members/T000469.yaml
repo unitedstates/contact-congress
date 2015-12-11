@@ -71,16 +71,11 @@ contact_form:
         - name: ctl00$ctl14$ReplyChoice
           selector: "#ctl00_ctl14_ReplyChoice_0"
           value: Respond
-    - click_on:
-        - value: Submit
-          selector: "#ctl00_ctl14_SubmitButton"
-
- 
     - javascript:
         - value: document.querySelector("#ctl00_ctl14_Body").value = document.querySelector("#ctl00_ctl14_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#custom_form5 input[type='submit'][value='Submit']"
+          selector: "#ctl00_ctl14_SubmitButton"
     - find:
         - selector: "#ctl00_ctl14_ConfirmationText"
   success:
