@@ -1,7 +1,7 @@
 bioguide: D000612
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact-me/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
     - visit: "https://denham.house.gov/contact-me/email-me"
     - fill_in:
@@ -15,14 +15,10 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm #submit"
+          selector: "#emailForm input[name='submit']"
     - find:
-        - selector: "#contactForm"
+        - selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -35,10 +31,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -65,38 +57,33 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Education: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            Government Issues: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            International Relations: WEBINT
-            Judicial: WEBJUD
-            Labor: WEBLAB
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Taxes: WEBTAX
-            Telecommunications: WEBTEL
-            Transportation: WEBTRA
-            Trade: WEBTRADE
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other Issues: WEBOTH
+            Agriculture: AG
+            Budget: BUDGET
+            Defense and Military: DEFMIL
+            Education: EDU
+            Energy: ENERGY
+            Environmental: ENV
+            Government Reform and Oversight: GOVREFORM
+            Health Care: HEALTH
+            Homeland Security: HOMSEC
+            Immigration: IMM
+            International Relations: INTL
+            Judicial: JUD
+            Labor: LABOR
+            Social Issues: SOC
+            Social Security: SOCSEC
+            Taxes: TAX
+            Telecommunications: TELECOM
+            Transportation: TRANS
+            Trade: TRADE
+            Veterans: VET
+            "Welfare & Social Programs": WELFARE
+            Other Issue: OTH
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
-          selector: "#contactForm #submit"
+          selector: "#contactForm input[name='submit']"
     - find:
         - selector: "p"
           value: "The following information has been submitted:"
-  success:
-    headers:
-      status: 200
-    body:
-      contains: "The following information has been submitted:"
