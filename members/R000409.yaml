@@ -4,6 +4,8 @@ contact_form:
   action: the url
   steps:
     - visit: "https://rohrabacher.house.gov/contact/email-me"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -15,6 +17,8 @@ contact_form:
           required: true
     - click_on:
         - selector: "input#submit"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: required-prefix
           selector: "#required-prefix"
