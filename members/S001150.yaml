@@ -1,6 +1,6 @@
 bioguide: S001150
 contact_form:
-  method: post 
+  method: post
   action: /contact/
   steps:
     - visit: "https://schiff.house.gov/contact"
@@ -63,7 +63,8 @@ contact_form:
           selector: "#message"
           value: $MESSAGE
           required: true
-          max_length: 1500
+          options:
+            max_length: 1500
     - select:
         - name: prefix
           selector: "#prefix"

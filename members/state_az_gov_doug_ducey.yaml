@@ -36,10 +36,6 @@ contact_form:
           selector: "#edit-submitted-comments"
           value: $MESSAGE
           required: true
-    - math:
-        - name: math_qna
-          question_selector: ".field-prefix"
-          answer_selector: "#edit-captcha-response"
     - select:
         - name: prefix
           selector: "#edit-submitted-salutation"
@@ -55,24 +51,41 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            - "Budget": "Budget"
-            - "Inmate &amp; Corrections Dept": "Inmate & Corrections Dept"
-            - "DCS Dept of Child Safety (Formerly CPS)": "DCS Dept of Child Safety (Formerly CPS)"
-            - "DES Dept of Economic Security": "DES Dept of Economic Security"
-            - "Education": "Education"
-            - "Health &amp; Healthcare": "Health & Healthcare "
-            - "Immigration &amp; Border": "Immigration & Border"
-            - "Legislation (Bills)": "Legislation (Bills)"
-            - "Motor Vehicle": "Motor Vehicle"
-            - "Recognition, Photo &amp; Other Request": "Recognition, Photo & Other Request"
-            - "Senior Issues": "Senior Issues"
-            - "Taxes": "Taxes"
-            - "Veterans &amp; Military": "Veterans & Military"
-            - "Other": "Other"
+            "Budget": "Budget"
+            "Inmate &amp; Corrections Dept": "Inmate & Corrections Dept"
+            "DCS Dept of Child Safety (Formerly CPS)": "DCS Dept of Child Safety (Formerly CPS)"
+            "DES Dept of Economic Security": "DES Dept of Economic Security"
+            "Education": "Education"
+            "Health &amp; Healthcare": "Health & Healthcare "
+            "Immigration &amp; Border": "Immigration & Border"
+            "Legislation (Bills)": "Legislation (Bills)"
+            "Motor Vehicle": "Motor Vehicle"
+            "Recognition, Photo &amp; Other Request": "Recognition, Photo & Other Request"
+            "Senior Issues": "Senior Issues"
+            "Taxes": "Taxes"
+            "Veterans &amp; Military": "Veterans & Military"
+            "Other": "Other"
     - check:
         - name: comment
           selector: "#edit-submitted-reason-2"
           value: "Comment"
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img.rc-image-tile-3"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha div div iframe[src^='https://www.google.com/recaptcha/api2/anchor']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
     - click_on:
         - value: Send Email
           selector: ".webform-submit"
