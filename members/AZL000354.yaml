@@ -1,0 +1,39 @@
+bioguide: AZL000354
+contact_form:
+  method: POST
+  action: ""
+  steps:
+    - visit: http://www.azleg.gov/emailmember.asp?Member_ID=80&Legislature=%2051&Session_ID=%20110
+    - fill_in:
+      - name: firstname
+        selector: "#"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: "#"
+        value: $NAME_LAST
+        required: true
+      - name: phone
+        selector: "#"
+        value: $PHONE
+        required: true
+      - name: emailaddress
+        selector: "#"
+        value: $EMAIL
+        required: false
+      - name: subject
+        selector: "#"
+        value: $SUBJECT
+        required: true
+      - name: message
+        selector: "#"
+        value: $MESSAGE
+        required: true
+    - click_on:
+      - value: "Submit"
+        selector: input[name='Submit']
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "your message has been sent"
