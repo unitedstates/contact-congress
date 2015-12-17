@@ -8,14 +8,14 @@ contact_form:
         - name: actions
           selector: "#actions"
           value: opinion
-          required: false
+          required: true
           options:
             "--Select an Option--": select
             Share your opinion or comments on bills or other issues: opinion
             Request a flag to be flown over the Capitol: flag
             Request help with a federal agency: federal_agency
-    - find:
-        - selector: "#fname"
+    - wait:
+        - value: 3
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -29,6 +29,10 @@ contact_form:
           selector: "#mailing_streetAddress1"
           value: $ADDRESS_STREET
           required: true
+        - name: mailing_streetAddress2
+          selector: "#mailing_streetAddress2"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: mailing_city
           selector: "#mailing_city"
           value: $ADDRESS_CITY
@@ -159,13 +163,11 @@ contact_form:
             - Other
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
-    - javascript:
-        - value: "document.querySelector('#side-search-btn').click()"
-    - find:
-        - value: "Thank You for Your Email"
-          selector: "h1.main_page_title"
+    - click_on:
+        - value: Send
+          selector: "#side-search-btn"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting Senator Schumer.
+      contains: Thank You
