@@ -108,7 +108,7 @@ The value of a fill_in step can be a single field, or a list of hashes defining 
         options:
           max_length: 1234
     ```
-- `blacklist` (optional): This field is used to remove characters from text before it is entered. All removed characters will be replaced by a single whitespace. The value of this field can either be a series of characters or a regex. If using a regex, the value should start and with a `/` character. Must be within an `options` block, like so:
+- `blacklist` (optional): This field is used to remove characters from text before it is entered. All removed characters will be replaced by a single whitespace. The value of this field can either be a series of characters or a regex. If using a regex, the value should start and end with a `/` character. Must be within an `options` block, like so:
 
     ```yaml
     - fill_in
