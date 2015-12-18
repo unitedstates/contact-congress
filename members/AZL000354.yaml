@@ -1,33 +1,51 @@
 bioguide: AZL000354
 contact_form:
   method: POST
-  action: ""
+  action: "http://www.azleg.gov/emailmember.asp"
   steps:
-    - visit: http://www.azleg.gov/emailmember.asp?Member_ID=80&Legislature=%2051&Session_ID=%20110
+    - visit: "http://www.azleg.gov/emailmember.asp?Member_ID=80&Legislature=%2051&Session_ID=%20110"
     - fill_in:
       - name: firstname
-        selector: "#"
+        selector: "#fname"
         value: $NAME_FIRST
-        required: true
+        required: false
       - name: lastname
-        selector: "#"
+        selector: "#lname"
         value: $NAME_LAST
-        required: true
+        required: false
       - name: phone
-        selector: "#"
+        selector: "#phone"
         value: $PHONE
-        required: true
+        required: false
       - name: emailaddress
-        selector: "#"
+        selector: "#email"
         value: $EMAIL
         required: false
       - name: subject
-        selector: "#"
+        selector: "#whoInvite"
         value: $SUBJECT
         required: true
       - name: message
-        selector: "#"
+        selector: "#topic"
         value: $MESSAGE
+        required: true
+    - recaptcha:
+      - name: recaptcha_response_field
+        grid_selector: "#rc-imageselect-target"
+        img_selector: "#rc-imageselect-target img.rc-image-tile-3"
+        phrase_selector: "html body div.rc-imageselect-desc > strong"
+        phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+        simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+        simple_textbox_selector: "#default-response"
+        audio_selector: "html body a.rc-audiochallenge-download-link"
+        audio_response_selector: "#audio-response"
+        audio_switch_selector: "#recaptcha-audio-button"
+        checkbox_iframe_selector: "div.g-recaptcha div div iframe[src^='https://www.google.com/recaptcha/api2/anchor']"
+        checkbox_selector: "div.recaptcha-checkbox-checkmark"
+        main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+        verify_selector: "#recaptcha-verify-button"
+        value: $CAPTCHA_SOLUTION
+        types: [image, audio]
         required: true
     - click_on:
       - value: "Submit"
@@ -36,4 +54,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "your message has been sent"
+      contains: "Your email has been submitted"
