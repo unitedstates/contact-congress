@@ -1,81 +1,136 @@
 bioguide: L000551
 contact_form:
-  method: get
-  action: /forms/writeyourrep/
+  method: post
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://barbaralee.house.gov/contact/"
+    - visit: "http://lee.house.gov/contact-the-office/email-me"
     - fill_in:
-        - name: zip5
-          selector: "form.zipform input[name='zip5']"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "form.zipform input[name='zip4']"
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
     - javascript:
-        - value: "document.querySelector('.zipform').submit();"
-    - find:
-        - selector: "#ctl00_ctl30_FirstName"
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ 
+try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - click_on:
+        - 
+          selector: button.btn.btn-success
     - fill_in:
-        - name: ctl00$ctl30$FirstName
-          selector: "#ctl00_ctl30_FirstName"
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl30$LastName
-          selector: "#ctl00_ctl30_LastName"
+        - name: required-last
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl30$Street
-          selector: "#ctl00_ctl30_Street"
+        - name: required-address
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl30$City
-          selector: "#ctl00_ctl30_City"
+        - name: required-city
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl30$Zip
-          selector: "#ctl00_ctl30_Zip"
+        - name: required-state
+          selector: "#required-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl30$Phone
-          selector: "#ctl00_ctl30_Phone"
-          value: $PHONE
-          required: true
-        - name: ctl00$ctl30$Email
-          selector: "#ctl00_ctl30_Email"
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl30$Subject
-          selector: "#ctl00_ctl30_Subject"
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: required-subject
+          selector: "#required-subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl30$Body
-          selector: "#ctl00_ctl30_Body"
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl30$PrefixList
-          selector: "#ctl00_ctl30_PrefixList"
-          value: $NAME_PREFIX
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Dr.
-            - Miss.
+            Agriculture: AGR
+            Animals: AN
+            Arts and Humanities: ART
+            Banking and Finance: BANK
+            Budget and Economy: BUD
+            Campaign Finance Reform: CFR
+            Congress and Elections: CONG
+            District of Columbia--Tours: TOUR
+            Defense and Military: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
+            Environment: ENV
+            Federal Employees: FED
+            Foreign Relations: FR
+            Government Reform: GOV
+            Guns: GUN
+            Health: HEA
+            Homeland Security: HOM
+            Housing and Urban Development: HUD
+            Immigration: IMM
+            International Relations: INT
+            Judiciary: JUD
+            Labor: LAB
+            LGBT: LGBT
+            No Response Necessary: NRN
+            Post Office: POST
+            Science and Technology: SCI
+            Social Issues: SOC
+            Senior Citizens: SENIORS
+            Social Security: SSEC
+            Social Services: SOC.SERVICES
+            Taxes: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRADE
+            Veterans: VET
+            "Women's Issues": WOMEN
+            Welfare: WEL
+            Other Issues: OTHER
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
     - javascript:
-        - value: document.querySelector("#ctl00_ctl30_Body").value = document.querySelector("#ctl00_ctl30_Body").value.replace(/"/g, '');
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ 
+try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
-        - value: Submit
-          selector: "#ctl00_ctl30_SubmitButton"
-    - find:
-        - selector: "#ctl00_ctl30_ConfirmationText"
+        - 
+          selector: button.btn.btn-success
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for taking the time to contact me, your correspondence helps me better represent our district."
+      contains: THANK YOU
