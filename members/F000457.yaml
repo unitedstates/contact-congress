@@ -82,7 +82,7 @@ contact_form:
           "Technical Sergeant": "Technical Sergeant"
       - name: State
         selector: "#thisForm select[name='State']"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        value: Minnesota
         required: true
         options: US_STATES_AND_TERRITORIES
       - name: Subject
@@ -120,7 +120,7 @@ contact_form:
           "Transportation": "Transportation"
           "Veterans": "Veterans"
     - wait:
-      - value: 1
+      - value: 3
     - select:
         - name: SubSubject
           selector: "#SubSubject"
