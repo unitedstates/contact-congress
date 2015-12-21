@@ -1,0 +1,51 @@
+bioguide: ILL001010
+contact_form:
+  method: post
+  action: "http://www.ilhousegop.org/forms/feedbacks"
+  steps:
+    - visit: "http://www.ilhousegop.org/contactjimenez"
+    - fill_in:
+        - name: message
+          selector: "#feedback_content"
+          value: $MESSAGE
+          required: true
+        - name: firstname
+          selector: "#feedback_first_name"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#feedback_last_name"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "#feedback_email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#feedback_mobile_number"
+          value: $PHONE
+          required: false
+        - name: address
+          selector: "#feedback_submitted_address"
+          value: $ADDRESS_FULL
+          required: true
+    - check:
+        - name: emailoptin
+          selector: "#feedback_email_opt_in"
+          required: true
+        - name: phoneoptin
+          selector: "#feedback_mobile_opt_in"
+          required: true
+        - name: privatefeedback
+          selector: "#feedback_is_private"
+          required: true
+    - click_on:
+        - value: Send Message
+          selector: input.submit-button
+    - find:
+        - selector: "#BlogArchive1"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Latest News
