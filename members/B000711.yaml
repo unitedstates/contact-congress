@@ -4,6 +4,9 @@ contact_form:
   action: shareyourviews.php
   steps:
     - visit: "https://www.boxer.senate.gov/contact/shareyourviews.html"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ 
+try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: firstName
           selector: "#firstName"
