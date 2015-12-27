@@ -19,47 +19,47 @@ contact_form:
     - wait:
         - value: 2
     - find:
-        - selector: "#ctl00_ctl16_FirstName"
+        - selector: "#ctl00_ctl14_FirstName"
     - fill_in:
-        - name: ctl00$ctl16$FirstName
-          selector: "#ctl00_ctl16_FirstName"
+        - name: ctl00$ctl14$FirstName
+          selector: "#ctl00_ctl14_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl16$LastName
-          selector: "#ctl00_ctl16_LastName"
+        - name: ctl00$ctl14$LastName
+          selector: "#ctl00_ctl14_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl16$Street
-          selector: "#ctl00_ctl16_Street"
+        - name: ctl00$ctl14$Street
+          selector: "#ctl00_ctl14_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl16$City
-          selector: "#ctl00_ctl16_City"
+        - name: ctl00$ctl14$City
+          selector: "#ctl00_ctl14_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl16$Zip
-          selector: "#ctl00_ctl16_Zip"
+        - name: ctl00$ctl14$Zip
+          selector: "#ctl00_ctl14_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl16$Phone
-          selector: "#ctl00_ctl16_Phone"
+        - name: ctl00$ctl14$Phone
+          selector: "#ctl00_ctl14_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl16$Email
-          selector: "#ctl00_ctl16_Email"
+        - name: ctl00$ctl14$Email
+          selector: "#ctl00_ctl14_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl16$Subject
-          selector: "#ctl00_ctl16_Subject"
+        - name: ctl00$ctl14$Subject
+          selector: "#ctl00_ctl14_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl16$Body
-          selector: "#ctl00_ctl16_Body"
+        - name: ctl00$ctl14$Body
+          selector: "#ctl00_ctl14_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl16$PrefixList
-          selector: "#ctl00_ctl16_PrefixList"
+        - name: ctl00$ctl14$PrefixList
+          selector: "#ctl00_ctl14_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -68,8 +68,8 @@ contact_form:
             - Miss.
             - Ms.
             - Dr.
-        - name: ctl00$ctl16$State
-          selector: "#ctl00_ctl16_State"
+        - name: ctl00$ctl14$State
+          selector: "#ctl00_ctl14_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -133,8 +133,8 @@ contact_form:
             - MP
             - PR
             - VI
-        - name: ctl00$ctl16$IssuesList
-          selector: "#ctl00_ctl16_IssuesList"
+        - name: ctl00$ctl14$IssuesList
+          selector: "#ctl00_ctl14_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -160,12 +160,12 @@ contact_form:
             Veterans: "14824"
             Welfare: "10479"
     - javascript:
-        - value: document.querySelector("#ctl00_ctl16_Body").value = document.querySelector("#ctl00_ctl16_Body").value.replace(/"/g, '');
+        - value: document.querySelector("#ctl00_ctl14_Body").value = document.querySelector("#ctl00_ctl14_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl16_SubmitButton"
+          selector: "#ctl00_ctl14_SubmitButton"
     - find:
-        - selector: "#ctl00_ctl16_ConfirmationText"
+        - selector: "#ctl00_ctl14_ConfirmationText"
   success:
     headers:
       status: 200
