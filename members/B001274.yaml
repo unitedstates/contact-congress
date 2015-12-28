@@ -15,20 +15,20 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#centerbox form input.button"
+          selector: "#submit"
     - find:
-        - selector: "#req_firstname"
+        - selector: "#required-first"
     - fill_in:
         - name: firstname
-          selector: "#req_firstname"
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
         - name: lastname
-          selector: "#req_lastname"
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
         - name: street
-          selector: "#req_street"
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
         - name: street2
@@ -36,28 +36,24 @@ contact_form:
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: "#req_city"
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
         - name: emailaddress
-          selector: "#req_email"
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#req_phone"
+          selector: "#required-phone"
           value: $PHONE
           required: true
         - name: message
-          selector: "#req_message"
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
         - name: prefix
-          selector: "#req_prefix"
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
@@ -70,71 +66,61 @@ contact_form:
             Dr.: Dr.
             The Honorable: The Honorable
             Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+        - name: topic
+          selector: "#required-issue"
+          value: $TOPIC
           required: true
           options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
+            Agriculture: Agriculture
+            Animals: Animals
+            Arts and Humanities: Arts and Humanities
+            Banking and Finance: Banking and Finance
+            Budget and Economy: Budget and Economy
+            Help With a Federal Agency: Help With a Federal Agency
+            Campaign Finance Reform: Campaign Finance Reform
+            Congress and Elections: ongress and Elections
+            Defense and Military: Defense and Military
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Federal Employees: Federal Employees
+            Foreign Relations: Foreign Relations
+            Government Reform: Government Reform
+            Guns: Guns
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing and Urban Development: Housing and Urban Development
+            Immigration: Immigration
+            International Relations: International Relations
+            Judiciary: Judiciary
+            Labor: Labor
+            LGBT: LGBT
+            No Response Necessary: No Response Necessary
+            Post Office: Post Office
+            Science and Technology: Science and Technology
+            Social Issues: Social Issues
+            Senior Citizens: Senior Citizens
+            Social Security: Social Security
+            Social Services: Social Services
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Tours: Tours
+            Transportation: Transportation
+            Trade: Trade
+            Veterans: Veterans
+            "Women's Issues": "Women's Issues"
+            Welfare: Welfare
+            Other Issue: Other Issue
+        - name: response
+          selector: "#required-response"
+          value: Yes
+          required: true
     - click_on:
         - value: Send Email
-          selector: "#submitButton"
-    - find:
-        - selector: "span"
-          value: "THANK YOU"
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: submitting your information
+      contains: your message has been sent
