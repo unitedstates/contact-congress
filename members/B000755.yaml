@@ -17,43 +17,43 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-      - selector: "#ctl00_ctl17_FirstName"
+      - selector: "#ctl00_ctl16_F`irstName"
     - fill_in:
-        - name: ctl00$ctl17$FirstName
-          selector: "#ctl00_ctl17_FirstName"
+        - name: ctl00$ctl16$FirstName
+          selector: "#ctl00_ctl16_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl17$LastName
-          selector: "#ctl00_ctl17_LastName"
+        - name: ctl00$ctl16$LastName
+          selector: "#ctl00_ctl16_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl17$Street
-          selector: "#ctl00_ctl17_Street"
+        - name: ctl00$ctl16$Street
+          selector: "#ctl00_ctl16_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl17$City
-          selector: "#ctl00_ctl17_City"
+        - name: ctl00$ctl16$City
+          selector: "#ctl00_ctl16_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl17$Zip
-          selector: "#ctl00_ctl17_Zip"
+        - name: ctl00$ctl16$Zip
+          selector: "#ctl00_ctl16_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl17$Email
-          selector: "#ctl00_ctl17_Email"
+        - name: ctl00$ctl16$Email
+          selector: "#ctl00_ctl16_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl17$Subject
-          selector: "#ctl00_ctl17_Subject"
+        - name: ctl00$ctl16$Subject
+          selector: "#ctl00_ctl16_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl17$Body
-          selector: "#ctl00_ctl17_Body"
+        - name: ctl00$ctl16$Body
+          selector: "#ctl00_ctl16_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl17$PrefixList
-          selector: "#ctl00_ctl17_PrefixList"
+        - name: ctl00$ctl16$PrefixList
+          selector: "#ctl00_ctl16_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -62,8 +62,8 @@ contact_form:
             Miss: Miss
             Ms.: Ms.
             Dr.: Dr.
-        - name: ctl00$ctl17$IssuesList
-          selector: "#ctl00_ctl17_IssuesList"
+        - name: ctl00$ctl16$IssuesList
+          selector: "#ctl00_ctl16_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -116,10 +116,10 @@ contact_form:
             WEP / GPO: "120681"
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl17_SubmitButton"
+          selector: "#ctl00_ctl16_SubmitButton"
     - find:
         - value: Thank you
-          selector: "#ctl00_ctl17_ConfirmationText"
+          selector: "#ctl00_ctl16_ConfirmationText"
   success:
     headers:
       status: 200
