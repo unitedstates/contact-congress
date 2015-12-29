@@ -3,19 +3,19 @@ contact_form:
   method: post
   action: /email-form1/
   steps:
-    - visit: "https://tonko.house.gov/email-form1"
+    - visit: "https://tonkoforms.house.gov/contact/"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
+        - name: zip5
+          selector: input[name='zip5']
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
+        - name: zip4
+          selector: input[name='zip4']
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go to Form
-          selector: input.button
+        - value: Submit
+          selector: input[value='Submit']
     - find:
         - selector: "#custom_form5"
     - fill_in:
