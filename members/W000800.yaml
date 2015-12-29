@@ -6,52 +6,56 @@ contact_form:
     - visit: "https://welch.house.gov/contact/email"
     - fill_in:
         - name: required-zip5
-          selector: "#zipcode"
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zipfour"
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
-        - value: Go To Form
-          selector: "#zipauthform input[type='submit']"
+        - value: Go To Next Step
+          selector: "#submit"
     - find :
-        - selector: "#custom_form70"
+        - selector: "#required-first"
     - fill_in:
         - name: firstname
-          selector: "#req_firstname"
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
         - name: lastname
-          selector: "#req_lastname"
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
         - name: street
-          selector: "#req_street"
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
+        - name: street2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: city
-          selector: "#req_city"
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
         - name: emailaddress
-          selector: "#req_email"
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: "#required-phone"
           value: $PHONE
           required: false
         - name: message
-          selector: "#req_message"
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
         - name: prefix
-          selector: "#prefix"
+          selector: "#required-prefix"
           value: $NAME_PREFIX
-          required: false
+          required: true
           options:
             Ms.: Ms.
             Miss: Miss
@@ -62,68 +66,20 @@ contact_form:
             Dr.: Dr.
             The Honorable: The Honorable
             Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+        - name: topic
+          selector: "#required-issue"
+          value: $TOPIC
           required: true
           options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
+        - name: response
+          selector: "#required-response"
+          value: Yes, please contact me
+          required: true
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - value: Send Email To Representative Welch
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted.
+      contains: your message has been sent
