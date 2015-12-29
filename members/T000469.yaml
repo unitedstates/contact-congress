@@ -1,7 +1,7 @@
 bioguide: T000469
 contact_form:
   method: post
-  action: /email-form1/
+  action: ""
   steps:
     - visit: "https://tonkoforms.house.gov/contact/"
     - fill_in:
@@ -17,97 +17,71 @@ contact_form:
         - value: Submit
           selector: input[value='Submit']
     - find:
-        - selector: "#custom_form5"
+        - selector: "#ctl00_ctl14_FirstName"
     - fill_in:
         - name: firstname
-          selector: "#firstname"
+          selector: "#ctl00_ctl14_FirstName"
           value: $NAME_FIRST
           required: true
         - name: lastname
-          selector: "#lastname"
+          selector: "#ctl00_ctl14_LastName"
           value: $NAME_LAST
           required: true
         - name: street
-          selector: "#street"
+          selector: "#ctl00_ctl14_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#custom_form5 input[name='street2']"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
-          selector: "#city"
+          selector: "#ctl00_ctl14_City"
           value: $ADDRESS_CITY
           required: true
+        - name: zip5
+          selector: "#ctl00_ctl14_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
         - name: emailaddress
-          selector: "#email"
+          selector: "#ctl00_ctl14_Email"
           value: $EMAIL
           required: true
+        - name: subject
+          selector: "#ctl00_ctl14_Subject"
+          value: $SUBJECT
+          required: true
         - name: message
-          selector: "#message"
+          selector: "#ctl00_ctl14_Body"
           value: $MESSAGE
           required: true
     - select:
         - name: prefix
-          selector: "#req_prefix"
+          selector: "#ctl00_ctl14_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Ms.: Ms.
+            Mr.: Mr.
             Mrs.: Mrs.
             Dr.: Dr.
+            Ms.: Ms.
             The Reverend: The Reverend
-            The Honorable: The Honorable
-            Father: Father
-            Rabbi: Rabbi
             Pastor: Pastor
+            The Honorable: The Honorable
+            Rabbi: Rabbi
             Sister: Sister
+            Father: Father
         - name: state
-          selector: "#state"
+          selector: "#ctl00_ctl14_State"
           value: NY
           required: true
           options:
             NY: NY
-        - name: subject
-          selector: "#custom_form5 select[name='subject']"
-          value: $TOPIC
+    - choose:
+        - name: response
+          selector: "#ctl00_ctl14_ReplyChoice_0"
           required: true
-          options:
-            Agriculture: WEBAGR
-            Banking: WEBBAN
-            Budget: WEBBUD
-            Congressional Process: WEBCONG
-            Constitutional Issues: WEBCONS
-            Crime and Drugs: WEBCRI
-            "Defense and Military ": WEBDEF
-            Economy and Taxes: WEBECO
-            Education: WEBEDU
-            Energy: WEBENE
-            Environment and Resources: WEBENV
-            Ethics: WEBETH
-            "Faith-Based Initiative ": WEBFAI
-            Family and Life Issues: WEBFAM
-            Healthcare: WEBHEA
-            Homeland Security: WEBHOM
-            Housing: WEBHOU
-            Immigration: WEBIMM
-            International Affairs: WEBINT
-            Labor Issues: WEBLAB
-            Social Security: WEBSSEC
-            Telecommunications: WEBTEL
-            Trade: WEBTRA
-            Transportation: WEBTRAN
-            Veterans Issues: WEBVET
-            Other Issues: WEBOTH
     - click_on:
         - value: Submit
-          selector: "#custom_form5 input[type='submit'][value='Submit']"
-    - find:
-        - selector: "h1"
-          value: "Thank You"
+          selector: "#ctl00_ctl14_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information was sent to us:"
+      contains: "Thank you for contacting my office"
