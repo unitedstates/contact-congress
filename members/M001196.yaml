@@ -1,114 +1,122 @@
 bioguide: M001196
 contact_form:
   method: post
-  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
+  action: https://moulton.house.gov/htbin/formproc.pl?/moulton/wp-content/themes/Moulton/formfiles/contact.txt&display=/moulton/wp-content/themes/Moulton/formfiles/redirect.html&nobase&fpGetVer=2
   steps:
   - visit: https://moulton.house.gov/contact
   - fill_in:
-    - name: required-zip5
-      selector: "#required-zip5"
-      value: $ADDRESS_ZIP5
-      required: true
-    - name: zip4
-      selector: "#zip4"
-      value: $ADDRESS_ZIP4
-      required: true
-  - click_on:
-    - value: Go To Next Step
-      selector: "#emailForm #submit"
-  - find:
-    - selector: "#required-prefix"
-  - fill_in:
-    - name: required-prefix
-      selector: "#required-prefix"
+    - name: prefix
+      selector: input[name='salutation']
       value: $NAME_PREFIX
       required: true
-    - name: required-first
-      selector: "#required-first"
+    - name: firstname
+      selector: input[name='first_name']
       value: $NAME_FIRST
       required: true
-    - name: required-last
-      selector: "#required-last"
+    - name: lastname
+      selector: input[name='last_name']
       value: $NAME_LAST
       required: true
-    - name: required-address
-      selector: "#required-address"
+    - name: street
+      selector: input[name='street_address']
       value: $ADDRESS_STREET
       required: true
-    - name: required-city
-      selector: "#required-city"
+    - name: street2
+      selector: input[name='street_address2']
+      value: $ADDRESS_STREET_2
+      required: false
+    - name: city
+      selector: input[name='city']
       value: $ADDRESS_CITY
       required: true
-    - name: required-valid-email
-      selector: "#required-valid-email"
-      value: $EMAIL
+    - name: zip5
+      selector: input[name='zip_code']
+      value: $ADDRESS_ZIP5
       required: true
-    - name: required-phone
-      selector: "#required-phone"
+    - name: phone
+      selector: input[name='primary_phone']
       value: $PHONE
       required: true
-    - name: required-message
-      selector: "#required-message"
+    - name: email
+      selector: "#email"
+      value: $EMAIL
+      required: true
+    - name: email2
+      selector: input[name='verify_email']
+      value: $EMAIL
+      required: true
+    - name: message
+      selector: textarea[name='con_message']
       value: $MESSAGE
       required: true
   - select:
-    - name: required-issue
-      selector: "#required-issue"
+    - name: topic
+      selector: select[name='con_issue']
       value: $TOPIC
       required: true
       options:
-        Agriculture: AGR
-        Animals: AN
-        Arts and Humanities: ART
-        Banking and Finance: BANK
-        Budget and Economy: BUD
-        Campaign Finance Reform: CFR
-        Congress and Elections: CONG
-        District of Columbia--Tours: TOUR
-        Defense and Military: DEF
-        Economy: ECON
-        Education: EDU
-        Energy: ENE
-        Environment: ENV
-        Federal Employees: FED
-        Foreign Relations: FR
-        Government Reform: GOV
-        Guns: GUN
-        Health: HEA
-        Homeland Security: HOM
-        Housing and Urban Development: HUD
-        Immigration: IMM
-        International Relations: INT
-        Judiciary: JUD
-        Labor: LAB
-        LGBT: LGBT
-        No Response Necessary: NRN
-        Post Office: POST
-        Science and Technology: SCI
-        Social Issues: SOC
-        Senior Citizens: SENIORS
-        Social Security: SSEC
-        Social Services: SOC.SERVICES
-        Taxes: TAX
-        Telecommunications: TEL
-        Transportation: TRA
-        Trade: TRADE
-        Veterans: VET
-        "Women's Issues": WOMEN
-        Welfare: WEL
-        Other Issues: OTHER
-    - name: required-response
-      selector: "#required-response"
-      value: Y
+        Agriculture: Agriculture
+        Animals: Animals
+        Appointments: Appointments
+        Appropriations: Appropriations
+        Banking: Banking
+        Budget: Budget
+        Children: Children
+        Civil Rights: Civil Rights
+        Civil Service: Civil Service
+        Congress: Congress
+        "Crime/Gun Control": "Crime/Gun Control"
+        Economy: Economy
+        "Defense/War": "Defense/War"
+        Drugs: Drugs
+        Education: Education
+        "Elections/Voting": "Elections/Voting"
+        Energy: Energy
+        Environment: Environment
+        Foreign Affairs: Foreign Affairs
+        "Gay/Lesbian Issues": "Gay/Lesbian Issues"
+        Health: Health
+        Housing: Housing
+        Immigration: Immigration
+        Judiciary: Judiciary
+        Jobs: Jobs
+        Labor: Labor
+        "Medicaid/Medicare": "Medicaid/Medicare"
+        "Military/Armed Services": "Military/Armed Services"
+        Native Americans: Native Americans
+        Passports: Passports
+        Politics: Politics
+        Post Office: Post Office
+        Poverty: Poverty
+        "The President": "The President"
+        Science: Science
+        Small Business: Small Business
+        Social Security: Social Security
+        "Space/NASA": "Space/NASA"
+        Taxation: Taxation
+        Technology: Technology
+        Telecommunications: Telecommunications
+        Telephone Town Hall: Telephone Town Hall
+        Terrorism: Terrorism
+        "Trade/Commerce": "Trade/Commerce"
+        Transportation: Transportation
+        "Veterans Affairs": "Veterans Affairs"
+        "Welfare/Poverty": "Welfare/Poverty"
+        "Women's Issues": "Women's Issues"
+        "Miscellaneous/Other": "Miscellaneous/Other"
+    - name: response
+      selector: select[name='con_respond']
+      value: Yes
       required: true
-      options:
-        Yes, please contact me: Y
-        No, I wanted to voice my opinion: N
   - click_on:
-    - value: Send Email to Representative Moulton
-      selector: "#contactForm #submit"
+    - value: Submit
+      selector: "#atform input[value='Submit']"
+  - wait:
+    - value: 3
+  - find:
+    - selector: div.header.services.form-confirmation
   success:
     headers:
       status: 200
     body:
-      contains: your message has been sent
+      contains: Thank you for your e-mail and your message
