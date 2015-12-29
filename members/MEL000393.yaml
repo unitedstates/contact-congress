@@ -1,33 +1,29 @@
 bioguide: MEL000393
 contact_form:
   method: post
-  action: Contact.aspx
+  action: "http://www.mainesenate.org/senator-contact/?senator_name=Bill+Diamond#gf_2"
   steps:
-    - visit: "http://www.mainesenate.org/contact-us/contact-senator-diamond/"
+    - visit: "http://www.mainesenate.org/senator-contact/?senator_name=Bill%20Diamond"
     - fill_in:
         - name: name
-          selector: "input[name='your-name']"
+          selector: "#input_2_2"
           value: $NAME_FULL
           required: true
         - name: email
-          selector: "input[name='your-email']"
+          selector: "#input_2_3"
           value: $EMAIL
           required: true
-        - name: zip
-          selector: "input[name='your-subject']"
-          value: $ADDRESS_ZIP5
-          required: true
         - name: message
-          selector: "textarea[name='your-message']"
+          selector: "#input_2_5"
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: "input[type='submit'][value='Send']"
+          selector: "#gform_submit_button_2"
     - find:
-        - selector: ".wpcf7-mail-sent-ok"
+        - selector: "#gform_confirmation_message_2"
   success:
     headers:
       status: 200
     body:
-      contains: Your message was sent successfully
+      contains: Thanks for contacting us
