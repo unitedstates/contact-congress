@@ -30,6 +30,23 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: "#dnf_class_values_communication__primary_constituent__0__prefix_"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Miss: Miss
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Mr. and Mrs.: Mr. and Mrs.
+            Reverend: Reverend
+            Father: Father
+            Dr.: Dr.
+            Atty: Atty
+            Prof: Prof
+            Coach: Coach
+            Ofc: Ofc
         - name: dnf_class_values[communication][topic]
           selector: "#dnf_class_values_communication__topic_"
           value: $TOPIC
