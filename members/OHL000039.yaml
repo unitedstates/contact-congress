@@ -21,6 +21,8 @@ contact_form:
           selector: "#tbxAddress"
           value: $ADDRESS_STREET
           required: true
+          options:
+            blacklist: "/"
         - name: tbxCity
           selector: "#tbxCity"
           value: $ADDRESS_CITY
