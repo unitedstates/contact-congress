@@ -4,6 +4,8 @@ contact_form:
   action: default.aspx
   steps:
     - visit: "http://governor.vermont.gov/contact-us/opinion"
+    - find:
+        - selector: "#edit-submitted-FIRST"
     - fill_in:
         - name: firstName
           selector: "#edit-submitted-FIRST"
