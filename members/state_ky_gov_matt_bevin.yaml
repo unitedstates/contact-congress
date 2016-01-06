@@ -20,7 +20,7 @@ contact_form:
       - name: street2
         selector: "#ctl00_ctl00_m_g_a055e91e_eff2_462e_8c8e_c465d03ddc1e_txtAddress2"
         value: $ADDRESS_STREET_2
-        required: true
+        required: false
       - name: city
         selector: "#ctl00_ctl00_m_g_a055e91e_eff2_462e_8c8e_c465d03ddc1e_txtCity"
         value: $ADDRESS_CITY
@@ -36,6 +36,10 @@ contact_form:
       - name: email
         selector: "#ctl00_ctl00_m_g_a055e91e_eff2_462e_8c8e_c465d03ddc1e_txtEmail"
         value: $EMAIL
+        required: true
+      - name: subject
+        selector: "#ctl00_ctl00_m_g_a055e91e_eff2_462e_8c8e_c465d03ddc1e_txtSubject"
+        value: $SUBJECT
         required: true
       - name: message
         selector: "#ctl00_ctl00_m_g_a055e91e_eff2_462e_8c8e_c465d03ddc1e_txtComment"
