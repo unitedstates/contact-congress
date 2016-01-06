@@ -1,0 +1,59 @@
+bioguide: PAL000529
+contact_form:
+  method: POST
+  action: ""
+  steps:
+    - visit: http://www.reprothman.com/contact.aspx
+    - find:
+      - selector: "#ctl00_cphContent_txtFirstName"
+    - fill_in:
+      - name: first
+        selector: "#ctl00_cphContent_txtFirstName"
+        value: "$NAME_FIRST"
+        required: true
+      - name: last
+        selector: "#ctl00_cphContent_txtLastName"
+        value: "$NAME_LAST"
+        required: true
+      - name: phone
+        selector: "#ctl00_cphContent_txtHomePhone"
+        value: "$PHONE"
+        required: true
+      - name: email
+        selector: "#ctl00_cphContent_txtEmail"
+        value: "$EMAIL"
+        required: true
+      - name: street
+        selector: "#ctl00_cphContent_txtAddress"
+        value: "$ADDRESS_STREET"
+        required: true
+      - name: city
+        selector: "#ctl00_cphContent_txtCity"
+        value: "$ADDRESS_CITY"
+        required: true
+      - name: zip5
+        selector: "#ctl00_cphContent_txtZip"
+        value: "$ADDRESS_ZIP5"
+        required: true
+      - name: message
+        selector: "#ctl00_cphContent_txtActionRequest"
+        value: "$MESSAGE"
+        required: true
+      - name: recaptcha_response_field
+        selector: "#ctl00_cphContent_RadCaptcha1_CaptchaTextBox"
+        captcha_selector: "#ctl00_cphContent_RadCaptcha1_CaptchaImageUP"
+        value: $CAPTCHA_SOLUTION
+        required: true
+    - select:
+      - name: state
+        selector: "#ctl00_cphContent_ddlStates"
+        value: PA
+        required: true
+    - click_on:
+      - value: Submit
+        selector: "#ctl00_cphContent_btnSubmit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting this office.
