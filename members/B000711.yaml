@@ -43,12 +43,16 @@ contact_form:
           required: true
         - name: subject
           selector: "#msubject"
-          value: Vote NO on the Safe and Accurate Food Labeling Act
-          required: false
+          value: $SUBJECT
+          required: true
+          options:
+            blacklist: "\""
         - name: message
           selector: "#message"
           value: $MESSAGE
           required: true
+          options:
+            blacklist: "\""
     - select:
         - name: prefix
           selector: "#prefix"

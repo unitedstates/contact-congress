@@ -45,6 +45,8 @@ contact_form:
           selector: "#Message"
           value: $MESSAGE
           required: true
+          options:
+            blacklist: "\""
     - select:
         - name: Prefix
           selector: "#prefix"
