@@ -1,0 +1,62 @@
+bioguide: PAL000530
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: http://wpcontact.pasenategop.com/contact.aspx?websiteid=37
+    - find:
+        - selector: "#txtFirstname"
+    - fill_in:
+        - name: firstName
+          selector: "#txtFirstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastName
+          selector: "#txtLastname"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "#txtEmail"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#txtPhone"
+          value: $PHONE
+          required: true
+        - name: street1
+          selector: "#txtAddress1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#txtAddress2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#txtCity"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#txtZip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: message
+          selector: "#txtComments"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: topic
+          selector: "#ddlIssue_Input"
+          value: General
+          required: true
+    - check:
+        - selector: input[type='checkbox'][class='rlbCheck']
+    - wait:
+        - value: 5
+    - click_on:
+        - value: Submit
+          selector: "input#bSubmit_input.rbDecorated"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for contacting us
