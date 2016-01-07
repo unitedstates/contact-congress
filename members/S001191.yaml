@@ -4,19 +4,7 @@ contact_form:
   action: "https://sinemaforms.house.gov/forms/writeyourrep/"
   steps:
     - visit: https://sinemaforms.house.gov/forms/writeyourrep/
-    - fill_in: # has hidden inputs: ID, CampaignInfo, DeliveryAgent, DeliveryAgentContact, Organization, OrganizationContact, OrganizationDescription
-      - name: "ctl00$ctl23$CampaignID"
-        selector: "#ctl00_ctl23_CampaignID"
-        value: $CAMPAIGN_UUID
-        required: false
-      - name: "ctl00$ctl23$OrganizationContact"
-        selector: "#ctl00_ctl23_OrganizationContact"
-        value: $ORG_URL
-        required: false
-      - name: "ctl00$ctl23$Organization"
-        selector: "#ctl00_ctl23_Organization"
-        value: $ORG_NAME
-        required: false
+    - fill_in:
       - name: "ctl00$ctl23$FirstName"
         selector: "#ctl00_ctl23_FirstName"
         value: $NAME_FIRST
