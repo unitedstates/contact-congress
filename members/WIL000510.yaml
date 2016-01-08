@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "http://legis.wisconsin.gov/assembly/18/goyke/contact/contact/"
+    - find:
+        - selector: "#f6718dda-0e45-48f9-bf8f-ecfe8a500a9e"
     - fill_in:
         - name: name
           selector: "#f6718dda-0e45-48f9-bf8f-ecfe8a500a9e"
