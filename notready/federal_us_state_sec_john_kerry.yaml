@@ -11,6 +11,10 @@ contact_form:
         selector: "#first"
         value: $NAME_FIRST
         required: true
+      - name: lastname
+        selector: "input#last"
+        value: $NAME_LAST
+        required: true
       - name: email
         selector: "#emailaddress"
         value: $EMAIL
@@ -27,10 +31,6 @@ contact_form:
         captcha_selector: "#Captcha1_InnerCaptchaImage"
         selector: div.ob_iTC input
         value: $CAPTCHA_SOLUTION
-        required: true
-      - name: lastname
-        selector: "#last"
-        value: $NAME_LAST
         required: true
     - click_on:
       - value: Submit
