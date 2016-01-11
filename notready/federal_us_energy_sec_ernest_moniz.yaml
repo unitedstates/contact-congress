@@ -23,6 +23,18 @@ contact_form:
       - name: response-method
         selector: input#edit-submitted-how-should-we-respond-1
         required: true
+    - find:
+      - selector: input#edit-submitted-email-address
+    - fill_in:
+      - name: email
+        selector: input#edit-submitted-email-address
+        value: $EMAIL
+        required: true
+      - name: captcha
+        selector:
+        img_selector:
+        value:
+        required:
     - click_on:
       - value: Submit
         selector:
