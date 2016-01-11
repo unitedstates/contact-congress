@@ -1,0 +1,31 @@
+bioguide: federal_us_interior_sec_sally_jewell
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://www.doi.gov/feedback"
+    - fill_in:
+      - name: name
+        selector: "#"
+        value: $NAME_FULL
+        required: true
+      - name: email
+        selector: "#"
+        value: $EMAIL
+        required: true
+      - name: subject
+        selector: "#"
+        value: $SUBJECT
+        required: true
+      - name: message
+        selector: "#"
+        value: $MESSAGE
+        required: true
+    - click_on:
+      - value: Submit
+        selector: "#"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: ""
