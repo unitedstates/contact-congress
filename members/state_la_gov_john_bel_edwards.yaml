@@ -1,0 +1,40 @@
+bioguide: state_la_gov_john_bel_edwards
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://gov.louisiana.gov/index.cfm/form/home/4"
+    - fill_in:
+      - name: fname
+        selector: "#field-288"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: div.name input[name='lastName']
+        value: $NAME_LAST
+        required: true
+      - name: email
+        selector: "#field-289"
+        value: $EMAIL
+        required: true
+      - name: parish
+        selector: "#field-290"
+        value: $ADDRESS_COUNTY
+        required: true
+      - name: message
+        selector: "#field-293"
+        value: $MESSAGE
+        required: true
+    - check:
+       - name: issue
+         selector: div#field-container-291 div.field div.radio input[value='Other']
+       - name: problem
+         selector: div#field-container-292 div.field div.radio input[value='Other']
+    - click_on:
+      - value: Submit
+        selector: "#btn-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting the Governor Edwards administration."
