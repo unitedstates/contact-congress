@@ -4,6 +4,11 @@ contact_form:
   action: ""
   steps:
     - visit: "http://www.energy.gov/contact-us"
+    - select:
+      - name: topic
+        selector: select#edit-submitted-category
+        value: Other
+        required: true
     - fill_in:
       - name: subject
         selector: "div#webform-component-subject input#edit-submitted-subject"
@@ -31,15 +36,17 @@ contact_form:
         value: $EMAIL
         required: true
       - name: captcha
-        selector:
-        img_selector:
-        value:
-        required:
+        captcha_selector: "img#recaptcha_challenge_image"
+        selector: "input#recaptcha_response_field"
+        value: $CAPTCHA_SOLUTION
+        required: true
     - click_on:
       - value: Submit
-        selector:
+        selector: input#edit-submit
+    - find:
+      - selector: div.content div.webform-confirmation
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Your comments have been sent to the Department of Energy successfully."
