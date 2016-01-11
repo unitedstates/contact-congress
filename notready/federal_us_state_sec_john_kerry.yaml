@@ -32,9 +32,9 @@ contact_form:
         required: true
     - click_on:
       - value: Submit
-        selector: "#"
+        selector: "#submit1"
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Your message has been received."
