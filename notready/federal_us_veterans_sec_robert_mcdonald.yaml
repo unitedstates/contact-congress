@@ -1,0 +1,35 @@
+bioguide: federal_us_veterans_sec_robert_mcdonald
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://iris.custhelp.com/app/ask/"
+    - fill_in:
+      - name: fname
+        selector: "#first"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: "input#last"
+        value: $NAME_LAST
+        required: true
+      - name: email
+        selector: "#emailaddress"
+        value: $EMAIL
+        required: true
+      - name: subject
+        selector: "#subject"
+        value: $SUBJECT
+        required: true
+      - name: message
+        selector: "#message"
+        value: $MESSAGE
+        required: true
+    - click_on:
+      - value: Submit
+        selector: "#"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: ""
