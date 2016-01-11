@@ -3,14 +3,14 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: ""
+    - visit: "http://gov.louisiana.gov/index.cfm/form/home/4"
     - fill_in:
       - name: fname
-        selector: "#"
+        selector: "#field-288"
         value: $NAME_FIRST
         required: true
       - name: lastname
-        selector: "#"
+        selector: div.name input
         value: $NAME_LAST
         required: true
       - name: street
