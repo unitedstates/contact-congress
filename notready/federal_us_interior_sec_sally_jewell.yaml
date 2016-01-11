@@ -6,26 +6,26 @@ contact_form:
     - visit: "https://www.doi.gov/feedback"
     - fill_in:
       - name: name
-        selector: "#"
+        selector: "#edit-submitted-name"
         value: $NAME_FULL
         required: true
       - name: email
-        selector: "#"
+        selector: "#edit-submitted-e-mail-address"
         value: $EMAIL
         required: true
       - name: subject
-        selector: "#"
+        selector: "#edit-submitted-subject"
         value: $SUBJECT
         required: true
       - name: message
-        selector: "#"
+        selector: "#edit-submitted-feedback"
         value: $MESSAGE
         required: true
     - click_on:
       - value: Submit
-        selector: "#"
+        selector: div#edit-actions input#edit-submit
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Thank you for submitting your feedback."
