@@ -32,19 +32,44 @@ contact_form:
       - name: zip5
         selector: "input#rn_TextLogicInput_17_zipcode"
         value: $ADDRESS_ZIP5
-        required: false
+        required: true
       - name: message
         selector: "textarea#rn_TextLogicInput_0_thread"
         value: $MESSAGE
         required: true
     - select:
-      - name:
-        selector:
-        value:
-        required:
+      - name: response
+        selector: select#rn_SelectionInput_5_form_of_response
+        value: E-Mail
+        required: true
+      - name: prefix
+        selector: select#rn_SelectionLogicInput_6_form_of_address
+        value: $NAME_PREFIX
+        required: true
+        options:
+          Mr.: Mr.
+          Miss: Miss
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Dr.: Dr.
+          Rev.: Rev.
+      - name: country
+        selector: select#rn_SelectionLogicInput_13_country
+        value: United States
+        required: true
+      - name: state
+        selector: select#rn_SelectionLogicInput_16_state
+        value: $ADDRESS_STATE_FULL
+        required: true
+        options:
+      - name: veteran-status
+        selector: select#rn_SelectionLogicInput_18_vet_status
+        value: $ADDRESS_STATE_FULL
+        required: true
+        options:
     - click_on:
       - value: Submit
-        selector: "#"
+        selector: "input#rn_FormSubmit_55_Button"
   success:
     headers:
       status: 200
