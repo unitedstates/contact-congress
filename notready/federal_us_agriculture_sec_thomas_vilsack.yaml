@@ -13,14 +13,24 @@ contact_form:
         selector: "textarea#rn_TextInput_8_thread"
         value: $MESSAGE
         required: true
-    - select:
-      - name: topic
+    - choose:
+      - name: dropdown
         selector: "button#rn_ProductCategoryInput_4_products_Button"
-        value: Other
+        required: true
+      - name: other-expander
+        selector: td#ygtvt17 a.ygtvspacer
+        required: true
+    - find:
+      - selector: a#ygtvlabelel24
+    - choose:
+      - name: final-other
+        selector: td#ygtvcontentel24 a#ygtvlabelel24
         required: true
     - click_on:
       - value: Continue
         selector: "input#rn_FormSubmit_10_Button"
+    - find:
+      - selector: div.rn_wrap div.rn_refno
   success:
     headers:
       status: 200
