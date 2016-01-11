@@ -21,6 +21,9 @@ contact_form:
         selector: "textarea#yourmessage"
         value: $MESSAGE
         required: true
+    - check:
+      - name: subject
+        selector: input#None_of_the_above
     - click_on:
       - value: Submit
         selector: "input#submit"
