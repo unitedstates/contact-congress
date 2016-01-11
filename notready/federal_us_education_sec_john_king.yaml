@@ -1,0 +1,34 @@
+bioguide: federal_us_education_sec_john_king
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://answers.ed.gov/ics/support/ticketnewwizard.asp?style=classic"
+    - fill_in:
+      - name: name
+        selector: "input#customerFullName"
+        value: $NAME_FIRST
+        required: true
+      - name: email
+        selector: "input#email"
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: "#message"
+        value: $MESSAGE
+        required: true
+        options:
+          max_length: 64000
+    - select:
+      - name: state
+        selector: select#FIELD_91593_DROPDOWN_null
+        value: $ADDRESS_STATE_FULL
+        required: true
+    - click_on:
+      - value: Finish
+        selector: "input#finish"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: ""
