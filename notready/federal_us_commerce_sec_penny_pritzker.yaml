@@ -13,6 +13,8 @@ contact_form:
         selector: "textarea#edit-submitted-your-message"
         value: $MESSAGE
         required: true
+    - wait:
+      - value: 4
     - click_on:
       - value: Submit
         selector: div.form-actions input.webform-submit
