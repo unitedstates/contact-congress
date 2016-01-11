@@ -13,39 +13,28 @@ contact_form:
         selector: div.name input[name='lastName']
         value: $NAME_LAST
         required: true
-      - name: street
-        selector: "#"
-        value: $ADDRESS_STREET
-        required: true
-      - name: street2
-        selector: "#"
-        value: $ADDRESS_STREET_2
-        required: true
-      - name: city
-        selector: "#"
-        value: $ADDRESS_CITY
-        required: true
-      - name: zip5
-        selector: "#"
-        value: $ADDRESS_ZIP5
-        required: true
-      - name: phone
-        selector: "#"
-        value: $PHONE
-        required: true
       - name: email
-        selector: "#"
+        selector: "#field-289"
         value: $EMAIL
         required: true
+      - name: parish
+        selector: "#field-290"
+        value: $ADDRESS_COUNTY
+        required: true
       - name: message
-        selector: "#"
+        selector: "#field-293"
         value: $MESSAGE
         required: true
+    - check:
+       - name: issue
+         selector: div#field-container-291 div.field div.radio input[value='Other']
+       - name: problem
+         selector: div#field-container-292 div.field div.radio input[value='Other']
     - click_on:
       - value: Submit
-        selector: "#"
+        selector: "#btn-submit"
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Thank you for contacting the Governor Edwards administration."
