@@ -5,26 +5,43 @@ contact_form:
   steps:
     - visit: "https://iris.custhelp.com/app/ask/"
     - fill_in:
-      - name: fname
-        selector: "#first"
+      - name: firstname
+        selector: "input#rn_TextLogicInput_7_first_name"
         value: $NAME_FIRST
         required: true
       - name: lastname
-        selector: "input#last"
+        selector: "input#rn_TextLogicInput_9_last_name"
         value: $NAME_LAST
         required: true
       - name: email
-        selector: "#emailaddress"
+        selector: "input#rn_TextLogicInput_11_incomingemail"
         value: $EMAIL
         required: true
-      - name: subject
-        selector: "#subject"
-        value: $SUBJECT
-        required: true
+      - name: phone
+        selector: "input#rn_TextLogicInput_12_telephone_number"
+        value: $PHONE
+        required: false
+      - name: street
+        selector: "input#rn_TextLogicInput_14_street"
+        value: $ADDRESS_STREET
+        required: false
+      - name: city
+        selector: "input#rn_TextLogicInput_15_city"
+        value: $ADDRESS_CITY
+        required: false
+      - name: zip5
+        selector: "input#rn_TextLogicInput_17_zipcode"
+        value: $ADDRESS_ZIP5
+        required: false
       - name: message
-        selector: "#message"
+        selector: "textarea#rn_TextLogicInput_0_thread"
         value: $MESSAGE
         required: true
+    - select:
+      - name:
+        selector:
+        value:
+        required:
     - click_on:
       - value: Submit
         selector: "#"
