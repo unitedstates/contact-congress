@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://register.state.gov/contactus/contactusform"
+    - find:
+      - selector: "#first"
     - fill_in:
       - name: fname
         selector: "#first"
