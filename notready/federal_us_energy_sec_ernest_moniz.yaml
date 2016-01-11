@@ -1,0 +1,33 @@
+bioguide: federal_us_energy_sec_ernest_moniz
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.energy.gov/contact-us"
+    - fill_in:
+      - name: subject
+        selector: "div#webform-component-subject input#edit-submitted-subject"
+        value: $SUBJECT
+        required: true
+      - name: message
+        selector: "textarea#edit-submitted-message"
+        value: $MESSAGE
+        required: true
+    - check:
+      - name: response
+        selector: div.form-item-submitted-reply input#edit-submitted-reply-2
+        required: true
+    - find:
+      - selector: input#edit-submitted-how-should-we-respond-1
+    - check:
+      - name: response-method
+        selector: input#edit-submitted-how-should-we-respond-1
+        required: true
+    - click_on:
+      - value: Submit
+        selector:
+  success:
+    headers:
+      status: 200
+    body:
+      contains: ""
