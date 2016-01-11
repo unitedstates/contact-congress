@@ -16,8 +16,10 @@ contact_form:
     - click_on:
       - value: Submit
         selector: div.form-actions input.webform-submit
+    - find:
+      - selector: div#block-system-main div.webform-confirmation
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Thank you for your feedback."
