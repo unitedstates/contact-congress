@@ -1,0 +1,35 @@
+bioguide: federal_us_un_amb_samantha_power
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://usun.state.gov/contact"
+    - fill_in:
+      - name: firstname
+        selector: "#"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: "#"
+        value: $NAME_LAST
+        required: true
+      - name: email
+        selector: "#"
+        value: $EMAIL
+        required: true
+      - name: subject
+        selector: "#"
+        value: $SUBJECT
+        required: true
+      - name: message
+        selector: "#"
+        value: $MESSAGE
+        required: true
+    - click_on:
+      - value: Submit
+        selector: "#"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: ""
