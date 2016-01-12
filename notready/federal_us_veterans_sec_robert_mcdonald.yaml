@@ -17,6 +17,13 @@ contact_form:
         selector: "input#rn_TextLogicInput_11_incomingemail"
         value: $EMAIL
         required: true
+    - find:
+      - selector: input#rn_TextLogicInput_11_incomingemail_confirm
+    - fill_in:
+      - name: email2
+        selector: "input#rn_TextLogicInput_11_incomingemail_confirm"
+        value: $EMAIL
+        required: true
       - name: phone
         selector: "input#rn_TextLogicInput_12_telephone_number"
         value: $PHONE
@@ -38,6 +45,25 @@ contact_form:
         value: $MESSAGE
         required: true
     - select:
+      - name: topic
+        selector:
+        value:
+        required: true
+        options:
+      - name: sub-topic-1
+        selector:
+        value:
+        required: true
+        options:
+      - name: sub-topic-2
+        selector:
+        value:
+        required: true
+        options:
+      - name: inquiry-type
+        selector: select#rn_ProductCategoryInputSimple_4_lvl1
+        value: Question
+        required: true
       - name: response
         selector: select#rn_SelectionInput_5_form_of_response
         value: E-Mail
@@ -70,8 +96,15 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "input#rn_FormSubmit_55_Button"
+    - find:
+      - selector: div#rnDialog1_c div#rnDialog1 div.ft span.button-group button#rnDialog1_Button_0
+    - click_on:
+      - value: Finish Submitting Question
+        selector: div#rnDialog1_c div#rnDialog1 div.ft span.button-group button#rnDialog1_Button_0
+    - find:
+      - selector: div#rn_PageContent div.rn_Padding
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "This confirms receipt of the electronic message you just sent to the Department of Veterans Affairs"
