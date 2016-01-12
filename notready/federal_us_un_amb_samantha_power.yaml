@@ -31,6 +31,8 @@ contact_form:
         required: true
         options:
           max_length: 2500
+    - wait:
+      - value: 3
     - click_on:
       - value: Submit
         selector: button.form-submit
