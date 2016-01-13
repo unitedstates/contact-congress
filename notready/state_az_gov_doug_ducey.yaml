@@ -33,7 +33,7 @@ contact_form:
           selector: "#edit-submitted-topic"
           value: $SUBJECT
         - name: message
-          selector: "#edit-submitted-comments"
+          selector: div.form-textarea-wrapper textarea#edit-submitted-comments
           value: $MESSAGE
           required: true
     - select:
