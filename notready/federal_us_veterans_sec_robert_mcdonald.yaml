@@ -13,17 +13,6 @@ contact_form:
         selector: "input#rn_TextLogicInput_9_last_name"
         value: $NAME_LAST
         required: true
-      - name: email
-        selector: "input#rn_TextLogicInput_11_incomingemail"
-        value: $EMAIL
-        required: true
-    - find:
-      - selector: input#rn_TextLogicInput_11_incomingemail_confirm
-    - fill_in:
-      - name: email2
-        selector: "input#rn_TextLogicInput_11_incomingemail_confirm"
-        value: $EMAIL
-        required: true
       - name: phone
         selector: "input#rn_TextLogicInput_12_telephone_number"
         value: $PHONE
@@ -71,17 +60,6 @@ contact_form:
         selector: select#rn_SelectionInput_5_form_of_response
         value: E-Mail
         required: true
-      - name: prefix
-        selector: select#rn_SelectionLogicInput_6_form_of_address
-        value: $NAME_PREFIX
-        required: true
-        options:
-          Mr.: Mr.
-          Miss: Miss
-          Mrs.: Mrs.
-          Ms.: Ms.
-          Dr.: Dr.
-          Rev.: Rev.
       - name: country
         selector: select#rn_SelectionLogicInput_13_country
         value: United States
@@ -161,6 +139,28 @@ contact_form:
       - name: veteran-status
         selector: select#rn_SelectionLogicInput_18_vet_status
         value: a General Question
+        required: true
+    - fill_in:
+      - name: email
+        selector: "input#rn_TextLogicInput_11_incomingemail"
+        value: $EMAIL
+        required: true
+    - select:
+      - name: prefix
+        selector: select#rn_SelectionLogicInput_6_form_of_address
+        value: $NAME_PREFIX
+        required: true
+        options:
+          Mr.: Mr.
+          Miss: Miss
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Dr.: Dr.
+          Rev.: Rev.
+    - fill_in:
+      - name: email2
+        selector: "input#rn_TextLogicInput_11_incomingemail_confirm"
+        value: $EMAIL
         required: true
     - click_on:
       - value: Submit
