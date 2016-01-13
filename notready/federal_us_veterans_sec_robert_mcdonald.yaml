@@ -46,20 +46,23 @@ contact_form:
         required: true
     - select:
       - name: topic
-        selector:
-        value:
+        selector: "select#rn_ProductCategoryInputSimple_1_lvl1"
+        value: All Health
         required: true
-        options:
+    - find:
+      - selector: "select#rn_ProductCategoryInputSimple_1_lvl2"
+    - select:
       - name: sub-topic-1
-        selector:
-        value:
+        selector: "select#rn_ProductCategoryInputSimple_1_lvl2"
+        value: Health
         required: true
-        options:
+    - find:
+      - selector: "select#rn_ProductCategoryInputSimple_1_lvl3"
+    - select:
       - name: sub-topic-2
-        selector:
-        value:
+        selector: "select#rn_ProductCategoryInputSimple_1_lvl3"
+        value: Medical Care for Veterans within USA
         required: true
-        options:
       - name: inquiry-type
         selector: select#rn_ProductCategoryInputSimple_4_lvl1
         value: Question
