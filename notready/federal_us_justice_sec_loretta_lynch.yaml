@@ -1,0 +1,32 @@
+bioguide: federal_us_justice_sec_loretta_lynch
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.justice.gov/doj/webform/your-message-department-justice"
+    - fill_in:
+      - name: name
+        selector: "input#edit-submitted-name"
+        value: $NAME_FULL
+        required: true
+      - name: email
+        selector: "input#edit-submitted-email"
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: "textarea#edit-submitted-message"
+        value: $MESSAGE
+        required: true
+    - select:
+      - name: topic
+        selector: "select#edit-submitted-topic"
+        value: Messages to the Attorney General
+        required: true
+    - click_on:
+      - value: Submit
+        selector: div#edit-actions input#edit-submit
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you, your submission has been received."

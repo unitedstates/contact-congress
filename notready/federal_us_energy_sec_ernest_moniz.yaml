@@ -1,0 +1,52 @@
+bioguide: federal_us_energy_sec_ernest_moniz
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.energy.gov/contact-us"
+    - select:
+      - name: topic
+        selector: select#edit-submitted-category
+        value: Other
+        required: true
+    - fill_in:
+      - name: subject
+        selector: "div#webform-component-subject input#edit-submitted-subject"
+        value: $SUBJECT
+        required: true
+      - name: message
+        selector: "textarea#edit-submitted-message"
+        value: $MESSAGE
+        required: true
+    - check:
+      - name: response
+        selector: div.form-item-submitted-reply input#edit-submitted-reply-2
+        required: true
+    - find:
+      - selector: input#edit-submitted-how-should-we-respond-1
+    - check:
+      - name: response-method
+        selector: input#edit-submitted-how-should-we-respond-1
+        required: true
+    - find:
+      - selector: input#edit-submitted-email-address
+    - fill_in:
+      - name: email
+        selector: input#edit-submitted-email-address
+        value: $EMAIL
+        required: true
+      - name: captcha
+        captcha_selector: "img#recaptcha_challenge_image"
+        selector: "input#recaptcha_response_field"
+        value: $CAPTCHA_SOLUTION
+        required: true
+    - click_on:
+      - value: Submit
+        selector: input#edit-submit
+    - find:
+      - selector: div.content div.webform-confirmation
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your comments have been sent to the Department of Energy successfully."

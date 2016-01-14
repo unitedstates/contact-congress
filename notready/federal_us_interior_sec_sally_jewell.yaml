@@ -1,0 +1,31 @@
+bioguide: federal_us_interior_sec_sally_jewell
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://www.doi.gov/feedback"
+    - fill_in:
+      - name: name
+        selector: "#edit-submitted-name"
+        value: $NAME_FULL
+        required: true
+      - name: email
+        selector: "#edit-submitted-e-mail-address"
+        value: $EMAIL
+        required: true
+      - name: subject
+        selector: "#edit-submitted-subject"
+        value: $SUBJECT
+        required: true
+      - name: message
+        selector: "#edit-submitted-feedback"
+        value: $MESSAGE
+        required: true
+    - click_on:
+      - value: Submit
+        selector: div#edit-actions input#edit-submit
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for submitting your feedback."

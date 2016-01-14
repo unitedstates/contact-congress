@@ -1,0 +1,34 @@
+bioguide: federal_us_labor_sec_thomas_perez
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://webapps.dol.gov/contactus/contactus.asp"
+    - fill_in:
+      - name: email
+        selector: "input#youremail"
+        value: $EMAIL
+        required: true
+      - name: email2
+        selector: "input#youremail2"
+        value: $EMAIL
+        required: true
+      - name: zip5
+        selector: "input#yourzip"
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: message
+        selector: "textarea#yourmessage"
+        value: $MESSAGE
+        required: true
+    - check:
+      - name: subject
+        selector: input#None_of_the_above
+    - click_on:
+      - value: Submit
+        selector: "input#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: ""

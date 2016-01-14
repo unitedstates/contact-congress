@@ -1,0 +1,38 @@
+bioguide: federal_us_agriculture_sec_thomas_vilsack
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://asktheexpert.custhelp.com/app/ask"
+    - fill_in:
+      - name: email
+        selector: "input#rn_TextInput_6_email"
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: "textarea#rn_TextInput_8_thread"
+        value: $MESSAGE
+        required: true
+    - choose:
+      - name: dropdown
+        selector: "button#rn_ProductCategoryInput_4_products_Button"
+        required: true
+      - name: other-expander
+        selector: td#ygtvt17 a.ygtvspacer
+        required: true
+    - find:
+      - selector: a#ygtvlabelel24
+    - choose:
+      - name: final-other
+        selector: td#ygtvcontentel24 a#ygtvlabelel24
+        required: true
+    - click_on:
+      - value: Continue
+        selector: "input#rn_FormSubmit_10_Button"
+    - find:
+      - selector: div.rn_wrap div.rn_refno
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your Question has been Submitted"
