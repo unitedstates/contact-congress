@@ -60,6 +60,17 @@ contact_form:
         selector: select#rn_SelectionInput_5_form_of_response
         value: E-Mail
         required: true
+      - name: prefix
+        selector: select#rn_SelectionLogicInput_6_form_of_address
+        value: $NAME_PREFIX
+        required: true
+        options:
+          Mr.: Mr.
+          Miss: Miss
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Dr.: Dr.
+          Rev.: Rev.
       - name: country
         selector: select#rn_SelectionLogicInput_13_country
         value: United States
@@ -145,18 +156,8 @@ contact_form:
         selector: "input#rn_TextLogicInput_11_incomingemail"
         value: $EMAIL
         required: true
-    - select:
-      - name: prefix
-        selector: select#rn_SelectionLogicInput_6_form_of_address
-        value: $NAME_PREFIX
-        required: true
-        options:
-          Mr.: Mr.
-          Miss: Miss
-          Mrs.: Mrs.
-          Ms.: Ms.
-          Dr.: Dr.
-          Rev.: Rev.
+    - click_on:
+      - selector: label#rn_TextLogicInput_0_Label
     - fill_in:
       - name: email2
         selector: "input#rn_TextLogicInput_11_incomingemail_confirm"
