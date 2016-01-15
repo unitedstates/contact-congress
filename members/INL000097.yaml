@@ -1,47 +1,47 @@
 bioguide: INL000097
 contact_form:
   method: post
-  action: 
+  action: "https://kersey43.wufoo.com/embed/zpd4qhz02eg9bs/#public"
   steps:
-    - visit: "http://indianahousedemocrats.org/contact-clyde-kersey"
+    - visit: "https://kersey43.wufoo.com/embed/zpd4qhz02eg9bs/"
     - fill_in:
-        - name: name
-          selector: "#text1"
-          value: $NAME_FULL
+        - name: first
+          selector: input#Field1
+          value: $NAME_FIRST
+          required: true
+        - name: last
+          selector: input#Field2
+          value: $NAME_LAST
           required: true
         - name: address
-          selector: "#text2"
+          selector: input#Field3
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: "#text3"
+          selector: input#Field5
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#text4"
+        - name: state
+          selector: input#Field6
+          value: $ADDRESS_STATE_FULL
+          required: true
+        - name: zip5
+          selector: input#Field7
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
-          selector: "#text5"
-          value: $PHONE
-          required: false
         - name: email
-          selector: "#text4" 
+          selector: input#Field10
           value: $EMAIL
           required: true
-        - name: subject
-          selector: "#text10"
-          value: $SUBJECT
-          required: true
         - name: message
-          selector: "#textarea8"
+          selector: input#Field11
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: "#button9"
+          selector: input#saveForm
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been received
+      contains: "Great! Thanks for filling out my form!"
