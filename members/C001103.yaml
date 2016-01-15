@@ -39,10 +39,6 @@ contact_form:
           selector: "input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: true
         - name: required-valid-email
           selector: "input[name='required-email']"
           value: $EMAIL
@@ -50,62 +46,42 @@ contact_form:
         - name: phone
           selector: "input[name='phone']"
           value: $PHONE
-          required: false
+          required: true
         - name: required-message
           selector: "textarea[name='required-message']"
           value: $MESSAGE
           required: true
     - select:
         - name: required-issue
-          selector: "select[name='required-issue']"
+          selector: select#subject
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Animals: AN
-            Arts and Humanities: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
-            Health: HEA
-            Homeland Security: HOM
-            Housing and Urban Development: HUD
-            Immigration: IMM
-            International Relations: INT
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            No Response Necessary: NRN
-            Post Office: POST
-            Science and Technology: SCI
-            Social Issues: SOC
-            Senior Citizens: SENIORS
-            Social Security: SSEC
-            Social Services: SOC.SERVICES
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRADE
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Welfare: WEL
-            Other Issues: OTHER
+            Agriculture: Agriculture
+            Budget: Budget
+            Defense: Defense
+            Education: Education
+            Energy: Energy
+            Environmental: Environmental
+            Government Issues: Government Issues
+            Health: Health
+            Homeland Security: Homeland Security
+            Immigration: Immigration
+            International Relations: International Relations
+            Judicial: Judicial
+            Labor: Labor
+            Social Issues: Social Issues
+            Social Security: Social Security
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Transportation: Transportation
+            Trade: Trade
+            Veterans: Veterans
+            Welfare: Welfare
+            Other Issues: Other Issues
     - click_on:
         - value: Yes
           selector: "input[value='Yes'][name='response']"
-        - value: Send Email
-          selector: "input[value='Send Email'][type='submit']"
         - value: Send Email
           selector: "input[value='Send Email'][type='submit']"
   success:
