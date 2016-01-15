@@ -16,9 +16,11 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
-    - find:
-        - selector: "#contactForm input[name='prefix']"
     - fill_in:
+        - name: prefix
+          selector: "#contactForm input[name='prefix']"
+          value: $NAME_PREFIX
+          required: true
         - name: required-first
           selector: "#contactForm input[name='required-first']"
           value: $NAME_FIRST
@@ -100,4 +102,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: I appreciate hearing from you.
+      contains: Thank You
