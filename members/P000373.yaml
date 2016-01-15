@@ -5,10 +5,6 @@ contact_form:
   steps:
     - visit: "https://pitts.house.gov/contact-me/legislative-contact-form"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
