@@ -1,9 +1,9 @@
 bioguide: S001165
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact-me/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: ""
   steps:
-    - visit: "https://sires.house.gov/contact-me/email-me"
+    - visit: "https://sires.house.gov/contact/email"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -15,7 +15,9 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+          selector: div.form-group button#submit
+    - find:
+        - selector: "#required-first"
     - select:
         - name: prefix
           selector: "#required-prefix"
@@ -53,16 +55,12 @@ contact_form:
           value: $ADDRESS_CITY
           required: true
         - name: required-valid-email
-          selector: "#contactForm input[name='required-valid-email']"
+          selector: input#required-valid-email
           value: $EMAIL
           required: true
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
           required: true
         - name: required-message
           selector: "#required-message"
@@ -77,7 +75,6 @@ contact_form:
             Agriculture: AG
             Animals: AN
             Arts and Humanities: ART
-            Badger Army Ammunition Plant: BAAP
             Banking and Finance: BANK
             Budget and Economy: BUD
             Campaign Finance Reform: CFR
@@ -107,19 +104,18 @@ contact_form:
             Trade: TRD
             Veterans: VET
             "Women's Issues": WOMEN
-            Other Issues: OTHER
+            Other Issue: Other Issue
         - name: required-response
           selector: "#required-response"
-          value: "Y"
+          value: Yes
           required: true
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
-    - find:
-        - selector: "h1#page-title"
-          value: "Thank You"
+          selector: button#submit
+    - wait:
+        - value: 1
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: your message has been sent.
