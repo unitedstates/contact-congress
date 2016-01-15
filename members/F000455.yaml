@@ -1,7 +1,7 @@
 bioguide: F000455
 contact_form:
   method: post
-  action: /contact-form/
+  action: /email-me/
   steps:
     - visit: "https://fudgeforms.house.gov/email-me"
     - fill_in:
@@ -16,11 +16,9 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: "#zipauthform input.button"
-    - find:
-        - selector: "#custom_form13"
     - fill_in:
         - name: prefix
-          selector: "#custom_form13 input[name='prefix']"
+          selector: "#req_prefix"
           value: $NAME_PREFIX
           required: true
         - name: firstname
@@ -35,28 +33,16 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#custom_form13 input[name='street2']"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip2"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#custom_form13 input[name='em-address']"
+        - name: em-address
+          selector: "#req_email"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#custom_form13 input[name='phone']"
+          selector: "#req_phone"
           value: $PHONE
           required: true
         - name: message
@@ -144,7 +130,7 @@ contact_form:
             Energy: ENERGY
             Environment: ENVIRONMENT
             Foreign Affairs: FOREIGN_AFFFAIRS
-            Gun Control: GUN_CONTROL
+            Gun Violence: GUN_CONTROL
             Health: HEALTH
             Homeland Security: HOMELAND_SECURITY
             Immigration: IMMIGRATION
@@ -170,11 +156,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#submitButton"
-    - find:
-        - value: "Thank You"
-          selector: "h1"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting your information.
+      contains: Thank You
