@@ -1,165 +1,163 @@
 bioguide: C001056
 contact_form:
   method: post
-  action: ""
+  action: /contact
   steps:
-    - visit: "http://www.cornyn.senate.gov/public/index.cfm?p=ContactForm"
-    - fill_in:
-        - name: FirstName
-          selector: "#FirstName"
-          value: $NAME_FIRST
-          required: true
-        - name: LastName
-          selector: "#LastName"
-          value: $NAME_LAST
-          required: true
-        - name: Address1
-          selector: "#Address1"
-          value: $ADDRESS_STREET
-          required: true
-        - name: Address2
-          selector: "#Address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: City
-          selector: "#City"
-          value: $ADDRESS_CITY
-          required: true
-        - name: ZipCode
-          selector: "#ZipCode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: PhoneNumber
-          selector: "#PhoneNumber"
-          value: $PHONE
-          required: false
-        - name: EmailAddress
-          selector: "#EmailAddress"
-          value: $EMAIL
-          required: true
-        - name: Message
-          selector: "#Message"
-          value: $MESSAGE
-          required: true
+    - visit: "http://www.cornyn.senate.gov/contact"
+    - check:
+        - name: "submitted[please_select_one]"
+          selector: "#edit-submitted-please-select-one-1"
+          value: contact_discuss
+    - wait:
+        - value: 1
     - select:
-        - name: Prefix
-          selector: "#Prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mr.
-            - Dr. and Mrs.
-            - Reverend
-            - Sister
-            - Pastor
-        - name: State
-          selector: "#State"
-          value: $ADDRESS_STATE_FULL
-          required: true
-          options:
-            - "----Military----"
-            - AA
-            - AE
-            - AP
-            - "----States----"
-            - Alabama
-            - Alaska
-            - Arizona
-            - Arkansas
-            - California
-            - Colorado
-            - Connecticut
-            - Delaware
-            - District of Columbia
-            - Florida
-            - Georgia
-            - Hawaii
-            - Idaho
-            - Illinois
-            - Indiana
-            - Iowa
-            - Kansas
-            - Kentucky
-            - Louisiana
-            - Maine
-            - Maryland
-            - Massachusetts
-            - Michigan
-            - Minnesota
-            - Mississippi
-            - Missouri
-            - Montana
-            - Nebraska
-            - Nevada
-            - New Hampshire
-            - New Jersey
-            - New Mexico
-            - New York
-            - North Carolina
-            - North Dakota
-            - Ohio
-            - Oklahoma
-            - Oregon
-            - Pennsylvania
-            - Rhode Island
-            - South Carolina
-            - South Dakota
-            - Tennessee
-            - Texas
-            - Utah
-            - Vermont
-            - Virginia
-            - Washington
-            - West Virginia
-            - Wisconsin
-            - Wyoming
-        - name: Topic
-          selector: "#Topic"
+        - name: "submitted[issue]"
+          selector: "#edit-submitted-issue"
           value: $TOPIC
           required: true
           options:
-            - Abortion
-            - Agriculture
-            - Arts and Humanities
-            - Banking
-            - Budget
-            - Communications
-            - Crime/Law Enforcement
-            - Defense
-            - Education
-            - Election Reform
-            - Energy
-            - Environment
-            - Finance
-            - Firearms
-            - Foreign Affairs
-            - Government Operations/Affairs
-            - Healthcare
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Interior
-            - Judiciary
-            - Labor
-            - Medicare
-            - Religion
-            - Small Business
-            - Social Security
-            - Taxes/Economy
-            - Trade
-            - Transportation
-            - Veterans
-            - Welfare
+            Abortion: abortion
+            Agriculture: agriculture
+            Arts and Humanities: arts_and_humanities
+            Banking: banking
+            Budget: budget
+            Communications: communications
+            Crime/Law Enforcement: law_enforcement
+            Defense: defense
+            Education: education
+            Election Reform: election_reform
+            Energy: energy
+            Environment: environment
+            Finance: finance
+            Firearms: firearms
+            Foreign Affairs: foreign_affairs
+            Government Operations/Affairs: government_operations/Affairs
+            Health Care: health_care
+            Homeland Security: homeland_security
+            Housing: housing
+            Immigration: immigration
+            Interior: interior
+            Judiciary: judiciary
+            Labor: labor
+            Medicare: medicare
+            Picture Request: picture_request
+            Religion: religion
+            Service Academies: service_academies
+            Small Business: small_business
+            Social Security: social_security
+            Taxes/Economy: taxes
+            Tour Request: tour Request
+            Trade: trade
+            Transportation: transportation
+            Veterans: veterans
+            Welfare: welfare
+        - name: "submitted[state]"
+          selector: "#edit-submitted-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            Alabama: AL
+            Alaska: AK
+            American Samoa: AS
+            Arizona: AZ
+            Arkansas: AR
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            Delaware: DE
+            District of Columbia: DC
+            Florida: FL
+            Georgia: GA
+            Guam: GU
+            Hawaii: HI
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Iowa: IA
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Maine: ME
+            Marshall Islands: MH
+            Maryland: MD
+            Massachusetts: MA
+            Michigan: MI
+            Minnesota: MN
+            Mississippi: MS
+            Missouri: MO
+            Montana: MT
+            Nebraska: NE
+            Nevada: NV
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            New York: NY
+            North Carolina: NC
+            North Dakota: ND
+            Northern Marianas Islands: MP
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Palau: PW
+            Pennsylvania: PA
+            Puerto Rico: PR
+            Rhode Island: RI
+            South Carolina: SC
+            South Dakota: SD
+            Tennessee: TN
+            Texas: TX
+            Utah: UT
+            Vermont: VT
+            Virgin Islands: VI
+            Virginia: VA
+            Washington: WA
+            West Virginia: WV
+            Wisconsin: WI
+            Wyoming: WY
+    - fill_in:
+        - name: "submitted[prefix_optional]"
+          selector: "#edit-submitted-prefix-optional"
+          value: $NAME_PREFIX
+          required: false
+        - name: "submitted[first_name]"
+          selector: "#edit-submitted-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: "submitted[last_name]"
+          selector: "#edit-submitted-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: "submitted[message]"
+          selector: "#edit-submitted-message"
+          value: $MESSAGE
+          required: true
+        - name: "submitted[address_1]"
+          selector: "#edit-submitted-address-1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "submitted[city]"
+          selector: "#edit-submitted-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "submitted[zip_code]"
+          selector: "#edit-submitted-zip-code"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "submitted[phone_number_optional]"
+          selector: "#edit-submitted-phone-number-optional"
+          value: $PHONE
+          required: false
+        - name: "submitted[email_address]"
+          selector: "#edit-submitted-email-address"
+          value: $EMAIL
+          required: true
+    - javascript:
+        - value: document.querySelector("#edit-submitted-message").value = document.querySelector("#edit-submitted-message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: input.primaryAction
+          selector: "#webform-client-form-7 input[name='op']"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting Senator John Cornyn's office."
+      contains: Thank you
