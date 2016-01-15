@@ -17,10 +17,6 @@ contact_form:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
     - fill_in:
-        - name: prefix
-          selector: "#contactForm input[name='prefix']"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#contactForm input[name='required-first']"
           value: $NAME_FIRST
