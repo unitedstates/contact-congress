@@ -3,124 +3,56 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: "http://www.cornyn.senate.gov/public/index.cfm?p=ContactForm"
+    - visit: "http://www.cornyn.senate.gov/contact"
     - fill_in:
+      - name: Prefix
+        selector: input#edit-submitted-prefix-optional
+        value: $NAME_PREFIX
+        required: false
       - name: FirstName
-        selector: "#FirstName"
-        value: "$NAME_FIRST"
+        selector: input#edit-submitted-first-name
+        value: $NAME_FIRST
         required: true
       - name: LastName
-        selector: "#LastName"
-        value: "$NAME_LAST"
+        selector: input#edit-submitted-last-name
+        value: $NAME_LAST
         required: true
-      - name: Address1
-        selector: "#Address1"
-        value: "$ADDRESS_STREET"
+      - name: Street
+        selector: input#edit-submitted-address-1
+        value: $ADDRESS_STREET
         required: true
-      - name: Address2
-        selector: "#Address2"
-        value: "$ADDRESS_STREET_2"
+      - name: Street2
+        selector: input#edit-submitted-address-2-optional
+        value: $ADDRESS_STREET_2
         required: false
       - name: City
-        selector: "#City"
-        value: "$ADDRESS_CITY"
+        selector: input#edit-submitted-city
+        value: $ADDRESS_CITY
         required: true
       - name: ZipCode
-        selector: "#ZipCode"
-        value: "$ADDRESS_ZIP5"
+        selector: input#edit-submitted-zip-code
+        value: $ADDRESS_ZIP5
         required: true
       - name: PhoneNumber
-        selector: "#PhoneNumber"
-        value: "$PHONE"
+        selector: input#edit-submitted-phone-number-optional
+        value: $PHONE
+        required: false
       - name: EmailAddress
-        selector: "#EmailAddress"
-        value: "$EMAIL"
+        selector: input#edit-submitted-email-address
+        value: $EMAIL
         required: true
       - name: Message
-        selector: "#Message"
-        value: "$MESSAGE"
+        selector: textarea#edit-submitted-message
+        value: $MESSAGE
         required: true
+    - choose:
+      - selector: input#edit-submitted-please-select-one-1
+    - find:
+      - selector: select#edit-submitted-issue
     - select:
-      - name: Prefix
-        selector: "#Prefix"
-        value: "$NAME_PREFIX"
-        required: true
-        options:
-          Mr.: Mr.
-          Mrs.: Mrs.
-          Ms.: Ms.
-          Mr. and Mrs.: Mr. and Mrs.
-          Dr.: Dr.
-          Dr. and Mr.: Dr. and Mr.
-          Dr. and Mrs.: Dr. and Mrs.
-          Reverend: Reverend
-          Sister: Sister
-          Pastor: Pastor
-          Other: Other
-      - name: State
-        selector: "#State"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: true
-        options:
-            "----Military---- ": " "
-            "AA ": AA
-            "AE ": AE
-            "AP ": AP
-            "----States---- ": " "
-            "Alabama ": AL
-            "Alaska ": AK
-            "Arizona ": AZ
-            "Arkansas ": AR
-            "California ": CA
-            "Colorado ": CO
-            "Connecticut ": CT
-            "Delaware ": DE
-            "District of Columbia ": DC
-            "Florida ": FL
-            "Georgia ": GA
-            "Hawaii ": HI
-            "Idaho ": ID
-            "Illinois ": MT
-            "Indiana ": IN
-            "Iowa ": IA
-            "Kansas ": KS
-            "Kentucky ": KY
-            "Louisiana ": LA
-            "Maine ": ME
-            "Maryland ": MD
-            "Massachusetts ": MA
-            "Michigan ": MI
-            "Minnesota ": MN
-            "Mississippi ": MS
-            "Missouri ": MO
-            "Montana ": MT
-            "Nebraska ": NE
-            "Nevada ": NV
-            "New Hampshire ": NH
-            "New Jersey ": NJ
-            "New Mexico ": NM
-            "New York ": NY
-            "North Carolina ": NC
-            "North Dakota ": ND
-            "Ohio ": OH
-            "Oklahoma ": OK
-            "Oregon ": OR
-            "Pennsylvania ": PA
-            "Rhode Island ": RI
-            "South Carolina ": SC
-            "South Dakota ": SD
-            "Tennessee ": TN
-            "Texas ": TX
-            "Utah ": UT
-            "Vermont ": VT
-            "Virginia ": VA
-            "Washington ": WA
-            "West Virginia ": WV
-            "Wisconsin ": WI
-            "Wyoming ": WY
       - name: Topic
-        selector: "#Topic"
-        value: "$TOPIC"
+        selector: select#edit-submitted-issue
+        value: $TOPIC
         required: true
         options:
           Abortion: Abortion
@@ -149,20 +81,83 @@ contact_form:
           Medicare: Medicare
           Picture Request: Picture Request
           Religion: Religion
+          Service Academies: Service Academies
           Small Business: Small Business
           Social Security: Social Security
           Taxes/Economy: Taxes/Economy
-          Texas Tuesday Coffee: Texas Tuesday Coffee
           Tour Request: Tour Request
           Trade: Trade
           Transportation: Transportation
           Veterans: Veterans
           Welfare: Welfare
+      - name: State
+        selector: select#edit-submitted-state
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: true
+        options:
+          Alabama: Alabama
+          Alaska: Alaska
+          American Samoa: American Samoa
+          Arizona: Arizona
+          Arkansas: Arkansas
+          California: California
+          Colorado: Colorado
+          Connecticut: Connecticut
+          Delaware: Delaware
+          District of Columbia: District of Columbia
+          Florida: Florida
+          Georgia: Georgia
+          Guam: Guam
+          Hawaii: Hawaii
+          Idaho: Idaho
+          Illinois: Illinois
+          Indiana: Indiana
+          Iowa: Iowa
+          Kansas: Kansas
+          Kentucky: Kentucky
+          Louisiana: Louisiana
+          Maine: Maine
+          Marshall Islands: Marshall Islands
+          Maryland: Maryland
+          Massachusetts: Massachusetts
+          Michigan: Michigan
+          Minnesota: Minnesota
+          Mississippi: Mississippi
+          Missouri: Missouri
+          Montana: Montana
+          Nebraska: Nebraska
+          Nevada: Nevada
+          New Hampshire: New Hampshire
+          New Jersey: New Jersey
+          New Mexico: New Mexico
+          New York: New York
+          North Carolina: North Carolina
+          North Dakota: North Dakota
+          Northern Marianas Islands: Northern Marianas Islands
+          Ohio: Ohio
+          Oklahoma: Oklahoma
+          Oregon: Oregon
+          Palau: Palau
+          Pennsylvania: Pennsylvania
+          Puerto Rico: Puerto Rico
+          Rhode Island: Rhode Island
+          South Carolina: South Carolina
+          South Dakota: South Dakota
+          Tennessee: Tennessee
+          Texas: Texas
+          Utah: Utah
+          Vermont: Vermont
+          Virgin Islands: Virgin Islands
+          Virginia: Virginia
+          Washington: Washington
+          West Virginia: West Virginia
+          Wisconsin: Wisconsin
+          Wyoming: Wyoming
     - click_on:
       - value: Submit
-        selector: ".primaryAction"
+        selector: div.form-actions input.webform-submit
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting Senator John Cornyn's office"
+      contains: Thank you, your submission has been received.

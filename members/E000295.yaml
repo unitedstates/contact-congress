@@ -1,53 +1,51 @@
 bioguide: E000295
 contact_form:
   method: post
-  action: "http://www.ernst.senate.gov/content/contact-joni"
+  action: ""
   steps:
-    - visit: "http://www.ernst.senate.gov/content/contact-joni"
+    - visit: "http://www.ernst.senate.gov/public/index.cfm/contact"
     - fill_in:
         - name: firstname
-          selector: "#edit-submitted-constituent-information-first-name"
+          selector: input#field_DB3CFA78-D300-4859-B087-3057FBA587ED
           value: $NAME_FIRST
           required: true
         - name: lastname
-          selector: "#edit-submitted-constituent-information-last-name"
+          selector: input#field_141F094C-93F0-44FB-9400-56F367E16BD5
           value: $NAME_LAST
           required: true
         - name: street
-          selector: "#edit-submitted-constituent-information-address-1"
+          selector: input#field_0057F417-9E25-4887-8E27-B2BDA7DB8125
           value: $ADDRESS_STREET
           required: true
         - name: street2
-          selector: "#edit-submitted-constituent-information-address-2"
+          selector: input#field_5100B260-21BE-485D-84A3-F2EFFD053D7E
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: "#edit-submitted-constituent-information-city"
+          selector: input#field_3556DD50-C891-4153-BCFC-806B555999E7
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: "#edit-submitted-constituent-information-zip"
+          selector: input#field_7671E429-2E68-47F4-8F6C-F4E7E2D272E1
           value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector: "#edit-submitted-constituent-information-phone"
-          value: 222-222-2222
-          required: true
+          selector: input#field_09E12330-CB2E-4652-BEAA-DC119831E64E
+          value: $PHONE
+          required: false
         - name: email
-          selector: "#edit-submitted-constituent-information-email"
+          selector: input#field_AE6F4B6C-CF43-4983-9235-B62D675AC9AA
           value: $EMAIL
           required: true
-        - name: subject
-          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
-          value: $SUBJECT
-          required: true
         - name: message
-          selector: "#edit-submitted-message-details-message"
+          selector: textarea#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0
           value: $MESSAGE
           required: true
+          options:
+            max_length: 5000
     - select:
         - name: prefix
-          selector: "#edit-submitted-constituent-information-prefix"
+          selector: select#field_40B41E59-8BAB-4655-BE10-0EF1A105D108
           value: $NAME_PREFIX
           required: true
           options:
@@ -60,107 +58,127 @@ contact_form:
             Mr. and Mrs.: Mr. and Mrs.
             Sister: Sister
         - name: state
-          selector: "#edit-submitted-constituent-information-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          selector: select#field_3F956B9E-749E-49C7-BF24-3E16E902787A
+          value: $ADDRESS_STATE_FULL
           required: true
           options:
-            - AA
-            - AE
-            - AP
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
+            AA: AA
+            AE: AE
+            AP: AP
+            Alabama: Alabama
+            Alaska: Alaska
+            Arizona: Arizona
+            Arkansas: Arkansas
+            California: California
+            Colorado: Colorado
+            Connecticut: Connecticut
+            Delaware: Delaware
+            District of Columbia: District of Columbia
+            Florida: Florida
+            Georgia: Georgia
+            Hawaii: Hawaii
+            Idaho: Idaho
+            Illinois: Illinois
+            Indiana: Indiana
+            Iowa: Iowa
+            Kansas: Kansas
+            Kentucky: Kentucky
+            Louisiana: Louisiana
+            Maine: Maine
+            Maryland: Maryland
+            Massachusetts: Massachusetts
+            Michigan: Michigan
+            Minnesota: Minnesota
+            Mississippi: Mississippi
+            Missouri: Missouri
+            Montana: Montana
+            Nebraska: Nebraska
+            Nevada: Nevada
+            New Hampshire: New Hampshire
+            New Jersey: New Jersey
+            New Mexico: New Mexico
+            New York: New York
+            North Carolina: North Carolina
+            North Dakota: North Dakota
+            Ohio: Ohio
+            Oklahoma: Oklahoma
+            Oregon: Oregon
+            Pennsylvania: Pennsylvania
+            Rhode Island: Rhode Island
+            South Carolina: South Carolina
+            South Dakota: South Dakota
+            Tennessee: Tennessee
+            Texas: Texas
+            Utah: Utah
+            Vermont: Vermont
+            Virginia: Virginia
+            Washington: Washington
+            West Virginia: West Virginia
+            Wisconsin: Wisconsin
+            Wyoming: Wyoming
         - name: topic
-          selector: "#edit-submitted-message-details-topic"
+          selector: select#field_86870AAB-C6FB-4506-8503-2FA7F5CEF532
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Animal: ANI
-            Banking/Finance: BANKING/FINANCE
-            Budget: BUD
-            Business: BUS
-            Defense: DEF
-            Education: EDU
-            Energy: ENE
-            Environmental: ENV
-            Government Reform: GOV
-            Guns/2nd Amendment: GUNS/2ND AMENDMENT
-            Health: HEA
-            Homeland Security: HOM
-            Housing: HOU
-            Immigration: IMM
-            International Relations: INT
-            Judiciary: JUD
-            Labor: LAB
-            Life/Abortion: LIFE/ABORTION
-            Marriage: MARRIAGE
-            Medicare and Medicaid: MED
-            Other: OTHER
-            Pensions: PENSIONS
-            Seniors and Aging: SEN
-            Spending: SPENDING
-            Social Security: SSEC
-            Taxes: TAX
-            Technology: TECHNOLOGY
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRD
-            Veterans: VET
-            Welfare: WEL
+            Abortion: Abortion
+            Adoption: Adoption
+            Agriculture: Agriculture
+            Animal Welfare: Animal Welfare
+            Appropriations: Appropriations
+            Banking: Banking
+            Budget: Budget
+            Campaign Finance: Campaign Finance
+            Children: Children
+            Civil Rights: Civil Rights
+            Commerce: Commerce
+            Communications: Communications
+            Congratulations: Congratulations
+            Crime: Crime
+            Defense: Defense
+            Drugs: Drugs
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Entitlements: Entitlements
+            Environment: Environment
+            "Export-Import Bank": "Export-Import Bank"
+            Family: Family
+            Flood Insurance: Flood Insurance
+            Food Stamps: Food Stamps
+            Foreign Affairs: Foreign Affairs
+            Guns: Guns
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Inauguration: Inauguration
+            Judiciary: Judiciary
+            Labor: Labor
+            Medicaid: Medicaid
+            Medicare: Medicare
+            Miscellaneous: Miscellaneous
+            Monetary Policy: Monetary Policy
+            NASA: NASA
+            Nutrition: Nutrition
+            Other: Other
+            Patents: Patents
+            Pensions: Pensions
+            Postal Issue: Postal Issue
+            Regulatory Reform: Regulatory Reform
+            Securities: Securities
+            Small Business: Small Business
+            Social Issues: Social Issues
+            Social Security: Social Security
+            Taxes: Taxes
+            Trade: Trade
+            Transportation: Transportation
+            Veterans: Veterans
     - click_on:
         - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
+          selector: form#form_0AA25852-D2AC-44E4-9DC2-C44F08E1FB49 div.buttonHolder input.btn
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: "Thank you!"
