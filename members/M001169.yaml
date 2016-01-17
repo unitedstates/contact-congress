@@ -10,6 +10,7 @@ contact_form:
           value: $TOPIC
           required: true
           options:
+            - Academy Nominations
             - Adoption
             - Aging and Seniors
             - Agriculture
@@ -18,10 +19,11 @@ contact_form:
             - Arts
             - Budget
             - Campaign Finance
+            - Casework
             - Children/Family/Adoption
             - Civil Rights
+            - Commemorative/Congratulatory/Memorative
             - Commerce
-            - Congressional Issues
             - Crime
             - Defense
             - Education Higher
@@ -30,6 +32,7 @@ contact_form:
             - Energy
             - Environment
             - Financial Services
+            - Flag Requests
             - Foreclosures
             - Foreign Affairs
             - Government Reform
@@ -38,16 +41,19 @@ contact_form:
             - Health Insurance
             - Homeland Security
             - Housing
+            - Human Trafficking
             - Illegal Drugs
             - Immigration
             - Indian Affairs
             - Intellectual Property/Patents
             - Interior/Forestry
+            - "Internships & Senate Page Program"
             - Jobs
             - Judiciary
             - Labor
             - LIHEAP
             - Medicare/Medicaid
+            - Mental/Behavioral Health
             - Military
             - Nutrition
             - Pensions
@@ -60,12 +66,13 @@ contact_form:
             - Taxes
             - Telecommunications
             - Tobacco
+            - Tours and Tickets
             - Trade
             - Transportation
             - Veterans
             - Welfare/Food Stamps
-    - find:
-        - selector: "#fname"
+    - wait:
+        - value: 5
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -79,6 +86,10 @@ contact_form:
           selector: "#mailing_streetAddress1"
           value: $ADDRESS_STREET
           required: true
+        - name: mailing_streetAddress2
+          selector: "#mailing_streetAddress2"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: mailing_city
           selector: "#mailing_city"
           value: $ADDRESS_CITY
@@ -87,6 +98,10 @@ contact_form:
           selector: "#mailing_zipCode"
           value: $ADDRESS_ZIP5
           required: true
+        - name: phone_number
+          selector: "#phone_number"
+          value: $PHONE
+          required: false
         - name: email_address
           selector: "#email"
           value: $EMAIL
@@ -114,6 +129,7 @@ contact_form:
             - Mrs.
             - Miss
             - Dr.
+            - Sister
         - name: mailing_state
           selector: "#mailing_state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -178,11 +194,8 @@ contact_form:
     - click_on:
         - value: Send
           selector: "#side-search-btn"
-    - find:
-        - selector: "h2"
-          value: "THANK YOU"
   success:
     headers:
       status: 200
     body:
-      contains: Thanks for taking the time to share your thoughts with me.
+      contains: THANK YOU
