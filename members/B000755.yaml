@@ -16,8 +16,6 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
-    - find:
-        - selector: "#ctl00_ctl16_FirstName"
     - fill_in:
         - name: ctl00$ctl16$FirstName
           selector: "#ctl00_ctl16_FirstName"
@@ -38,6 +36,10 @@ contact_form:
         - name: ctl00$ctl16$Zip
           selector: "#ctl00_ctl16_Zip"
           value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl16$Phone
+          selector: "#ctl00_ctl16_Phone"
+          value: $PHONE
           required: true
         - name: ctl00$ctl16$Email
           selector: "#ctl00_ctl16_Email"
@@ -62,15 +64,65 @@ contact_form:
             - Miss
             - Ms.
             - Dr.
+        - name: ctl00$ctl16$IssuesList
+          selector: "#ctl00_ctl16_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion / Life: "120636"
+            Agriculture: "120637"
+            Animal Welfare: "120638"
+            Arts / Humanities: "120639"
+            Banking / Financial Services: "120640"
+            Campaign Finance: "120641"
+            Casework / Help with an Agency: "120635"
+            Civil Rights: "120642"
+            Constitution: "120643"
+            Crime: "120644"
+            Defense / Military: "120645"
+            Deficit / National Debt: "120646"
+            Economy / Jobs: "120647"
+            Education: "120648"
+            Election Reform: "120649"
+            Energy Issues: "120650"
+            Environment: "120651"
+            Financial Privacy / Identity Theft: "120652"
+            Fish / Wildlife: "120653"
+            Foreign Relations: "120654"
+            Gun Rights / 2nd Amendment: "120655"
+            Health Care Reform: "120656"
+            Homeland Security: "120657"
+            Housing: "120658"
+            Hurricanes / Disasters: "120659"
+            Immigration / Border Security: "120660"
+            Interior / National Parks: "120661"
+            Judiciary: "120662"
+            Labor: "120663"
+            Medicare Reform: "120664"
+            Minimum Wage: "120665"
+            Pensions: "120666"
+            Port Security: "120667"
+            Postal: "120668"
+            Property Rights: "120669"
+            Science and Technology: "120670"
+            Seniors / Aging: "120672"
+            Service Academy Nominations: "120671"
+            Social Security: "120673"
+            Space / NASA: "120674"
+            Taxes / Tax Relief: "120675"
+            Telecommunications: "120676"
+            Trade: "120677"
+            Transportation: "120678"
+            Veterans: "120679"
+            Welfare: "120680"
+            WEP / GPO: "120681"
     - javascript:
         - value: document.querySelector("#ctl00_ctl16_Body").value = document.querySelector("#ctl00_ctl16_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl16_SubmitButton"
-    - find:
-        - selector: "#ctl00_ctl16_ConfirmationText"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting the office of Rep. Kevin Brady
+      contains: Thank you
