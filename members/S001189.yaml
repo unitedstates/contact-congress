@@ -3,140 +3,82 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://austinscott.house.gov/email-me/"
+    - visit: "https://austinscott.house.gov/contact/email"
     - fill_in:
-        - name: required-first
-          selector: "#req_firstname"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "#req_lastname"
-          value: $NAME_LAST
-          required: true
-        - name: required-street
-          selector: "#req_street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: street-2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#req_city"
-          value: $ADDRESS_CITY
-          required: true
         - name: zip5
-          selector: "#req_zip"
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: form#emailForm div.form-group button#submit
+    - find:
+        - selector: input#required-first
+    - fill_in:
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-street
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
           required: false
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
         - name: email
-          selector: "#custom_form70 #req_email"
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: subject
-          selector: "#req_greetingline"
+          selector: "#required-issue"
           value: $SUBJECT
           required: true
         - name: required-message
-          selector: "#req_message"
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
         - name: required-prefix
-          selector: "#req_prefix"
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
             Ms.: Ms.
             Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
             Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
             Rabbi: Rabbi
-        - name: required-state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
         - name: response-required
-          selector: "#req_response"
-          value: Y
+          selector: "#required-response"
+          value: Yes
           required: true
-          options:
-            - Y
-            - N
     - click_on:
-        - value: Subscribe
-          selector: "#enewsno"
-        - value: Send Email
-          selector: "#submitButton"
-    - find:
-        - selector: "h1"
-          value: "Thank you"
+        - value: Send Email to Congressman Scott
+          selector: button#submit
   success:
     headers:
       status: 200
     body:
-      contains: "Your message has been successfully submitted"
+      contains: "your message has been sent."
