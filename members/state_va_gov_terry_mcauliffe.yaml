@@ -30,7 +30,7 @@ contact_form:
         value: $ADDRESS_ZIP5
         required: true
       - name: emailaddress
-        selector: "#RequestedByEmail" 
+        selector: "#RequestedByEmail"
         value: $EMAIL
         required: true
       - name: subject
@@ -45,9 +45,9 @@ contact_form:
       - name: topic
         selector: "#IssueCode"
         value: $TOPIC
-        required: false
+        required: true
         options:
-          "": "General Inquiry"
+          General Inquiry: General Inquiry
           "CT": "Commerce and Trade, Secretary of"
           "EDU": "Education, Secretary of"
           "FIN": "Finance, Secretary of"
@@ -65,7 +65,7 @@ contact_form:
         selector: "input[id='ResponseRequired'][value='Yes']"
       - value: Submit
         selector: "input[type='submit'][value='Submit']"
-  success: 
+  success:
     headers:
       status: 200
     body:
