@@ -48,7 +48,7 @@ contact_form:
             Labor and Workforce Development Agency: "38192"
             Legislation Issues/Concerns: "6157"
             Medi-Cal Issues/Concerns: "5824"
-            OTHER: "1"
+            OTHER: OTHER
             Pardon - Request: "44283"
             Parole - Governors Review: "54336"
             Parole Issues/Concerns: "38196"
@@ -86,7 +86,7 @@ contact_form:
           required: true
         - name: subject
           selector: "input[name='newsubject']"
-          value: $SUBJECT 
+          value: $SUBJECT
     - check:
         - name: position
           selector: "input[type='radio'][name='position'][value='2']"
