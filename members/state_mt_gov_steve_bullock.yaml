@@ -1,48 +1,51 @@
 bioguide: state_mt_gov_steve_bullock
 contact_form:
   method: post
-  action: /Home/Contact/shareopinion.aspx
+  action: ""
   steps:
-    - visit: "http://governor.mt.gov/Home/Contact/shareopinion.aspx"
+    - visit: "http://governor.mt.gov/Home/Contact/shareopinion"
     - fill_in:
-        - name: "dnn7787FirstName"
-          required: true
+        - name: prefix
+          selector: input#dnn7787Prefix
+          value: $NAME_PREFIX
+          required: false
+        - name: first
           selector: "#dnn7787FirstName"
           value: $NAME_FIRST
-        - name: "dnn7787LastName"
           required: true
+        - name: last
           selector: "#dnn7787LastName"
           value: $NAME_LAST
-        - name: "dnn7787Email"
           required: true
+        - name: email
           selector: "#dnn7787Email"
           value: $EMAIL
-        - name: "dnn7787MailingAddress"
           required: true
+        - name: street
           selector: "#dnn7787MailingAddress"
           value: $ADDRESS_STREET
-        - name: "dnn7787City"
           required: true
+        - name: city
           selector: "#dnn7787City"
           value: $ADDRESS_CITY
-        - name: "dnn7787ZipCode"
           required: true
+        - name: zip5
           selector: "#dnn7787ZipCode"
           value: $ADDRESS_ZIP5
-        - name: "dnn7787Phone"
           required: true
+        - name: phone
           selector: "#dnn7787Phone"
           value: $PHONE
-        - name: "dnn7787Comments"
           required: true
+        - name: message
           selector: "#dnn7787Comments"
           value: $MESSAGE
-    - check:
-        - name: "dnn7787RespondtoOpinion"
-          selector: "input[type='radio'][name='dnn7787RespondtoOpinion'][value='Yes']"
-          value: "Yes"
+          required: true
     - click_on:
-        - selector: "#dnn7787SendNow"
+        - value: Send Now
+          selector: button#dnn7787SendNow
+    - find:
+        - selector: div.submit-confirm p
   success:
     headers:
       status: 200
