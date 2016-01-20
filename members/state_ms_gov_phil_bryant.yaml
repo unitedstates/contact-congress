@@ -1,29 +1,29 @@
 bioguide: state_ms_gov_phil_bryant
 contact_form:
   method: post
-  action: default.aspx
+  action: http://www.governorbryant.com/contact/#wpcf7-f622-p8-o1
   steps:
     - visit: "http://www.governorbryant.com/contact/"
     - fill_in:
         - name: fullName
-          selector: "span.your-name > input"
+          selector: span.your-name > input
           value: $NAME_FULL
           required: true
         - name: email
-          selector: "span.your-email > input"
+          selector: span.your-email > input
           value: $EMAIL
           required: true
         - name: subject
-          selector: "span.your-subject > input"
+          selector: span.your-subject > input
           value: $SUBJECT
           required: true
         - name: message
-          selector: "span.your-message > input"
+          selector: span.your-message > textarea
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: "input.wpcf7-submit"
+          selector: input.wpcf7-submit
   success:
     headers:
       status: 200
