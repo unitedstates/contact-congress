@@ -4,18 +4,17 @@ contact_form:
   action: http://www.daines.senate.gov/connect/email-steve
   steps:
     - visit: "http://www.daines.senate.gov/connect/email-steve"
+    - find:
+        - selector: select#actiontog
     - select:
-        - name: share opinion
-          selector: "#actiontog"
+        - name: Share
+          selector: select#actiontog
           value: Share
           required: true
-          options:
-            - "Share your opinions or comment on legislation or issues"
-    - click_on:
-        - value: Click
-          selector: ".main_page_title"
     - wait:
-        - value: 3
+        - value: 2
+    - find:
+        - selector: input#input-AB59F0AE-4040-F985-52CD-AA63153C7925
     - fill_in:
         - name: firstname
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
