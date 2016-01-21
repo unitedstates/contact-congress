@@ -79,10 +79,12 @@ contact_form:
             Transportation: "WEB TNS"
             Veterans: "WEB VA"
             Other: "WEB OTHER"
-    - uncheck:
+    - click_on:
         - name: rsp
           selector: "#contactForm input[name='rsp']"
           value: "no"
+    - wait:
+        - value: 1
     - click_on:
         - value: Send Email
           selector: "#contactForm input[type='submit'][value='Send Email']"
