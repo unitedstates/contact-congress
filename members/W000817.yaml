@@ -1,56 +1,58 @@
 bioguide: W000817
 contact_form:
   method: POST
-  action: "http://www.warren.senate.gov/?p=email_senator#thisForm"
+  action: "http://www.warren.senate.gov/?p=email_senator&clear_cache=1"
   steps:
-    - visit: "http://www.warren.senate.gov/?p=email_senator#thisForm"
+    - visit: "http://www.warren.senate.gov/?p=email_senator"
+    - find:
+      - selector: form#thisForm
     - fill_in:
       - name: firstName
-        selector: "#firstName"
+        selector: input#fname
         value: "$NAME_FIRST"
         required: Yes
       - name: lastName
-        selector: "#lastName"
+        selector: input#lname
         value: "$NAME_LAST"
         required: Yes
       - name: Address1
-        selector: "#Address1"
+        selector: input#address1
         value: "$ADDRESS_STREET"
         required: Yes
       - name: Address2
-        selector: "#Address2"
+        selector: input#address2
         value: "$ADDRESS_STREET_2"
       - name: city
-        selector: "#city"
+        selector: input#city
         value: "$ADDRESS_CITY"
         required: Yes
       - name: zip
-        selector: "#thisForm #zip"
+        selector: form#thisForm input#zip
         value: "$ADDRESS_ZIP5"
         required: Yes
       - name: phone
-        selector: "#phone"
+        selector: input#phone
         value: "$PHONE"
         required: Yes
       - name: email
-        selector: "#thisForm #email"
+        selector: form#thisForm input#email
         value: "$EMAIL"
         required: Yes
       - name: vemail
-        selector: "#vemail"
+        selector: input#vemail
         value: "$EMAIL"
         required: Yes
       - name: messageSubject
-        selector: "#messageSubject"
+        selector: input#subject
         value: "$SUBJECT"
         required: Yes
       - name: messageBody
-        selector: "#thisForm .textarea"
+        selector: textarea#msgbody
         value: "$MESSAGE"
         required: Yes
     - select:
       - name: Prefix
-        selector: "select[name=Prefix]"
+        selector: select#prefix
         value: "$NAME_PREFIX"
         required: Yes
         options:
@@ -59,26 +61,25 @@ contact_form:
           Ms.: Ms.
           Dr.: Dr.
       - name: State
-        selector: "select[name=State]"
+        selector: select#state
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
         required: Yes
         options: US_STATES_AND_MPCS
-    - select:
       - name: Subject
-        selector: "#thisForm select[name='Subject']"
+        selector: select#issue_subject
         value: $TOPIC
         required: true
         options:
-          "\n\t\t\t\t\t\t\tAbortion\n\t\t\t\t\t\t": Abortion
-          "\n\t\t\t\t\t\t\tAdoption/Foster Care\n\t\t\t\t\t\t": Adoption/Foster Care
-          "\n\t\t\t\t\t\t\tAging\n\t\t\t\t\t\t": Aging
-          "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": Agriculture
-          "\n\t\t\t\t\t\t\tAnimal Welfare\n\t\t\t\t\t\t": Animal Welfare
-          "\n\t\t\t\t\t\t\tAntitrust/Competition\n\t\t\t\t\t\t": Antitrust/Competition
-          "\n\t\t\t\t\t\t\tAppropriations\n\t\t\t\t\t\t": Appropriations
-          "\n\t\t\t\t\t\t\tArts and Culture\n\t\t\t\t\t\t": Arts and Culture
-          "\n\t\t\t\t\t\t\tBanking\n\t\t\t\t\t\t": Banking
-          "\n\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t": Budget
+          "Abortion": Abortion
+          "Adoption/Foster Care": Adoption/Foster Care
+          "Aging": Aging
+          "Agriculture": Agriculture
+          "Animal Welfare": Animal Welfare
+          "Antitrust/Competition": Antitrust/Competition
+          "Appropriations": Appropriations
+          "Arts and Culture": Arts and Culture
+          "Banking": Banking
+          "Budget": Budget
           "\n\t\t\t\t\t\t\tCampaign Finance\n\t\t\t\t\t\t": Campaign Finance
           "\n\t\t\t\t\t\t\tChild Care/Child Welfare\n\t\t\t\t\t\t": Child Care/Child Welfare
           "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": Civil Rights
@@ -119,20 +120,20 @@ contact_form:
           "\n\t\t\t\t\t\t\tPostal Issues\n\t\t\t\t\t\t": Postal Issues
           "\n\t\t\t\t\t\t\tScience/Technology/Space\n\t\t\t\t\t\t": Science/Technology/Space
           "\n\t\t\t\t\t\t\tSmall Business\n\t\t\t\t\t\t": Small Business
-          "\n\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t": Social Security
-          "\n\t\t\t\t\t\t\tStart-Ups and Entrepreneurs\n\t\t\t\t\t\t": Start-Ups and Entrepreneurs
-          "\n\t\t\t\t\t\t\tTANF and Low-Income Benefits\n\t\t\t\t\t\t": TANF and Low-Income Benefits
-          "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": Taxes
-          "\n\t\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t\t": Telecommunications
-          "\n\t\t\t\t\t\t\tTour Request\n\t\t\t\t\t\t": Tour Request
-          "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": Trade
-          "\n\t\t\t\t\t\t\tTransportation and Infrastructure\n\t\t\t\t\t\t": Transportation and Infrastructure
-          "\n\t\t\t\t\t\t\tUnemployment Insurance\n\t\t\t\t\t\t": Unemployment Insurance
-          "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": Veterans
-          "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
+          "Social Security\n\t\t\t\t\t\t": Social Security
+          "Start-Ups and Entrepreneurs\n\t\t\t\t\t\t": Start-Ups and Entrepreneurs
+          "TANF and Low-Income Benefits\n\t\t\t\t\t\t": TANF and Low-Income Benefits
+          "Taxes\n\t\t\t\t\t\t": Taxes
+          "Telecommunications\n\t\t\t\t\t\t": Telecommunications
+          "Tour Request\n\t\t\t\t\t\t": Tour Request
+          "Trade": Trade
+          "Transportation and Infrastructure": Transportation and Infrastructure
+          "Unemployment Insurance": Unemployment Insurance
+          "Veterans": Veterans
+          "Women's Issues": "Women's Issues"
     - click_on:
       - value: Submit
-        selector: ".normal-input[name=Submit]"
+        selector: form#thisForm input.normal-input
   success:
     headers:
       status: 200
