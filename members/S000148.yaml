@@ -163,6 +163,9 @@ contact_form:
             - Other
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ 
+try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - value: Send
           selector: "#side-search-btn"
