@@ -19,91 +19,77 @@ contact_form:
     - find:
         - selector: form#aspnetForm
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#node-138 form.validate.wsbform input[name='required-first']"
+        - name: first
+          selector: input#ctl00_ctl28_FirstName
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#node-138 form.validate.wsbform input[name='required-last']"
+        - name: last
+          selector: input#ctl00_ctl28_LastName
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: street
+          selector: input#ctl00_ctl28_Street
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
+        - name: city
+          selector: input#ctl00_ctl28_City
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#node-138 form.validate.wsbform input[name='required-valid-email']"
-          value: $EMAIL
+        - name: zip5
+          selector: input#ctl00_ctl28_Zip
+          value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector: "#phone"
+          selector: input#ctl00_ctl28_Phone
           value: $PHONE
-          required: false
+          required: true
+        - name: email
+          selector: input#ctl00_ctl28_Email
+          value: $EMAIL
+          required: true
         - name: required-subject
-          selector: "#required-subject"
+          selector: input#ctl00_ctl28_Subject
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: message
+          selector: textarea#ctl00_ctl28_Body
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
+        - name: prefix
+          selector: select#ctl00_ctl28_PrefixList
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Dr.: Dr.
+            Ms.: Ms.
+        - name: topic
+          selector: select#ctl00_ctl28_IssuesList
           value: $TOPIC
           required: true
           options:
-            Agriculture: AG
-            Animals: AN
-            Arts and Humanities: ART
-            Badger Army Ammunition Plant: BAAP
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Education: ED
-            Energy: EN
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Guns: GUN
-            Health: HE
-            Housing and Urban Development: HUD
-            Immigration: IM
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            Post Office: POST
-            Science and Technology: SCI
-            Senior Citizens: SENIORS
-            Social Security: SS
-            Social Services: SOC.SERVICES
-            Taxes: TAX
-            Telecommunications: COMM
-            Transportation: TRAN
-            Trade: TRD
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Other Issues: OTHER
+            Agriculture: Agriculture
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Federal Lands: Federal Lands
+            Foreign Affairs: Foreign Affairs
+            Health Care: Health Care
+            Immigration: Immigration
+            National Security: National Security
+            Social Issues: Social Issues
+            Taxes: Taxes
+            Technology: Technology
+            Transportation: Transportation
     - click_on:
-        - value: Send Email
-          selector: "#node-138 form.validate.wsbform input[name='submit']"
+        - value: Respond
+          selector: input#ctl00_ctl28_ReplyChoice_0
+        - value: Submit
+          selector: input#ctl00_ctl28_SubmitButton
   success:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: "This email confirms your message was received."
