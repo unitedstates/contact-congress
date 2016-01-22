@@ -17,39 +17,43 @@ contact_form:
     - value: Go To Form
       selector: form#zipauthform input.button
   - find:
-    - selector: "#required-prefix"
+    - selector: input#req_firstname
   - fill_in:
-    - name: required-first
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #required-first"
+    - name: first
+      selector: input#req_firstname
       value: $NAME_FIRST
       required: true
-    - name: required-last
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #required-last"
+    - name: last
+      selector: input#req_lastname
       value: $NAME_LAST
       required: true
-    - name: required-address
-      selector: "#required-address"
+    - name: street
+      selector: input#req_street
       value: $ADDRESS_STREET
       required: true
-    - name: required-city
-      selector: "#required-city"
+    - name: street2
+      selector: input#address2
+      value: $ADDRESS_STREET_2
+      required: false
+    - name: city
+      selector: input#req_city
       value: $ADDRESS_CITY
       required: true
-    - name: required-valid-email
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #required-valid-email"
+    - name: email
+      selector: input#req_email
       value: $EMAIL
       required: true
-    - name: required-phone
-      selector: "#required-phone"
+    - name: phone
+      selector: input#phone
       value: $PHONE
       required: true
-    - name: required-message
-      selector: "#required-message"
+    - name: message
+      selector: textarea#req_message
       value: $MESSAGE
       required: true
   - select:
-    - name: required-prefix
-      selector: "#required-prefix"
+    - name: prefix
+      selector:
       value: $NAME_PREFIX
       required: true
       options:
@@ -62,8 +66,8 @@ contact_form:
         Dr.: Dr.
         The Honorable: The Honorable
         Rabbi: Rabbi
-    - name: required-issue
-      selector: "#required-issue"
+    - name: topic
+      selector:
       value: $TOPIC
       required: true
       options:
@@ -107,7 +111,7 @@ contact_form:
         "Women's Issues": WOMEN
         Welfare: WEL
         Other Issues: OTHER
-    - name: required-response
+    - name: response
       selector: "#required-response"
       value: Y
       required: true
@@ -115,8 +119,8 @@ contact_form:
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
   - click_on:
-    - value: Send Email to Representative Love
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
+    - value: Send Email
+      selector: form#custom_form42 input#submitButton
   success:
     headers:
       status: 200
