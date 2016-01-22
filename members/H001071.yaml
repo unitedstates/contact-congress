@@ -17,43 +17,43 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#ctl00_ctl13_FirstName"
+        - selector: "#ctl00_ctl15_FirstName"
     - fill_in:
         - name: ctl00$ctl13$FirstName
-          selector: "#ctl00_ctl13_FirstName"
+          selector: "#ctl00_ctl15_FirstName"
           value: $NAME_FIRST
           required: true
         - name: ctl00$ctl13$LastName
-          selector: "#ctl00_ctl13_LastName"
+          selector: "#ctl00_ctl15_LastName"
           value: $NAME_LAST
           required: true
         - name: ctl00$ctl13$Street
-          selector: "#ctl00_ctl13_Street"
+          selector: "#ctl00_ctl15_Street"
           value: $ADDRESS_STREET
           required: true
         - name: ctl00$ctl13$City
-          selector: "#ctl00_ctl13_City"
+          selector: "#ctl00_ctl15_City"
           value: $ADDRESS_CITY
           required: true
         - name: ctl00$ctl13$Zip
-          selector: "#ctl00_ctl13_Zip"
+          selector: "#ctl00_ctl15_Zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: ctl00$ctl13$Email
-          selector: "#ctl00_ctl13_Email"
+          selector: "#ctl00_ctl15_Email"
           value: $EMAIL
           required: true
         - name: ctl00$ctl13$Subject
-          selector: "#ctl00_ctl13_Subject"
+          selector: "#ctl00_ctl15_Subject"
           value: $SUBJECT
           required: true
         - name: ctl00$ctl13$Body
-          selector: "#ctl00_ctl13_Body"
+          selector: "#ctl00_ctl15_Body"
           value: $MESSAGE
           required: true
     - select:
         - name: ctl00$ctl13$PrefixList
-          selector: "#ctl00_ctl13_PrefixList"
+          selector: "#ctl00_ctl15_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -63,7 +63,7 @@ contact_form:
             Ms.: Ms.
             Col: Col
         - name: ctl00$ctl13$IssuesList
-          selector: "#ctl00_ctl13_IssuesList"
+          selector: "#ctl00_ctl15_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -104,11 +104,11 @@ contact_form:
             Water Resources Development: "10528"
     - check:
         - name: ctl00$ctl13$ReplyChoice
-          selector: "#ctl00_ctl13_ReplyChoice_0"
+          selector: "#ctl00_ctl15_ReplyChoice_0"
           value: Respond
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl13_SubmitButton"
+          selector: "#ctl00_ctl15_SubmitButton"
   success:
     headers:
       status: 200
