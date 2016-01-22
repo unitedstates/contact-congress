@@ -1,24 +1,24 @@
 bioguide: L000584
-contact_form: 
+contact_form:
   method: post
-  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
-  steps: 
-  - visit: https://love.house.gov/contact
-  - fill_in: 
-    - name: required-zip5
-      selector: "#required-zip5"
+  action: ""
+  steps:
+  - visit: https://love.house.gov/email-me/
+  - fill_in:
+    - name: zip5
+      selector: input#zipcode
       value: $ADDRESS_ZIP5
       required: true
     - name: zip4
-      selector: "#zip4"
+      selector: input#zipfour
       value: $ADDRESS_ZIP4
       required: true
-  - click_on: 
-    - value: Go To Next Step
-      selector: "#emailForm #submit"
-  - find: 
+  - click_on:
+    - value: Go To Form
+      selector: form#zipauthform input.button
+  - find:
     - selector: "#required-prefix"
-  - fill_in: 
+  - fill_in:
     - name: required-first
       selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #required-first"
       value: $NAME_FIRST
@@ -47,12 +47,12 @@ contact_form:
       selector: "#required-message"
       value: $MESSAGE
       required: true
-  - select: 
+  - select:
     - name: required-prefix
       selector: "#required-prefix"
       value: $NAME_PREFIX
       required: true
-      options: 
+      options:
         Ms.: Ms.
         Miss: Miss
         Mrs.: Mrs.
@@ -66,7 +66,7 @@ contact_form:
       selector: "#required-issue"
       value: $TOPIC
       required: true
-      options: 
+      options:
         Agriculture: AGR
         Animals: AN
         Arts and Humanities: ART
@@ -111,14 +111,14 @@ contact_form:
       selector: "#required-response"
       value: Y
       required: true
-      options: 
+      options:
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
-  - click_on: 
+  - click_on:
     - value: Send Email to Representative Love
       selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
-  success: 
-    headers: 
+  success:
+    headers:
       status: 200
-    body: 
+    body:
       contains: your message has been sent
