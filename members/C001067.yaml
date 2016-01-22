@@ -15,7 +15,7 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm input[type='submit']"
+          selector: form#emailForm button#submit
     - find:
         - selector: "input#required-address"
     - fill_in:
@@ -109,7 +109,7 @@ contact_form:
           value: Voice
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: form#contactForm button#submit
   success:
     headers:
       status: 200
