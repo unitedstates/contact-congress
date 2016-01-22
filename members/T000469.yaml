@@ -1,59 +1,57 @@
 bioguide: T000469
 contact_form:
-  method: post
+  method: get
   action: /forms/writeyourrep/
   steps:
     - visit: "https://tonkoforms.house.gov/contact/"
     - fill_in:
         - name: zip5
-          selector: "input[name='zip5']"
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "input[name='zip4']"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
         - value: Submit
-          selector: ".zipform input[type='submit']"
-    - find:
-        - selector: "#ctl00_ctl14_FirstName"
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - fill_in:
-        - name: ctl00$ctl14$FirstName
-          selector: "#ctl00_ctl14_FirstName"
+        - name: ctl00$ctl12$FirstName
+          selector: "#ctl00_ctl12_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl14$LastName
-          selector: "#ctl00_ctl14_LastName"
+        - name: ctl00$ctl12$LastName
+          selector: "#ctl00_ctl12_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl14$Street
-          selector: "#ctl00_ctl14_Street"
+        - name: ctl00$ctl12$Street
+          selector: "#ctl00_ctl12_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl14$City
-          selector: "#ctl00_ctl14_City"
+        - name: ctl00$ctl12$City
+          selector: "#ctl00_ctl12_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl14$Zip
-          selector: "#ctl00_ctl14_Zip"
+        - name: ctl00$ctl12$Zip
+          selector: "#ctl00_ctl12_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl14$Email
-          selector: "#ctl00_ctl14_Email"
+        - name: ctl00$ctl12$Email
+          selector: "#ctl00_ctl12_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl14$Subject
-          selector: "#ctl00_ctl14_Subject"
+        - name: ctl00$ctl12$Subject
+          selector: "#ctl00_ctl12_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl14$Body
-          selector: "#ctl00_ctl14_Body"
+        - name: ctl00$ctl12$Body
+          selector: "#ctl00_ctl12_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl14$PrefixList
-          selector: "#ctl00_ctl14_PrefixList"
+        - name: ctl00$ctl12$PrefixList
+          selector: "#ctl00_ctl12_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -67,19 +65,43 @@ contact_form:
             - Rabbi
             - Sister
             - Father
+        - name: ctl00$ctl12$IssuesList
+          selector: "#ctl00_ctl12_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: "10168"
+            Civil Rights: "10055"
+            Communications: "14888"
+            Education: "73"
+            Energy and Environment: "10177"
+            Financial Services: "10219"
+            Foreign Affairs: "10370"
+            Health: "74"
+            Homeland Security: "10012"
+            Immigration: "10360"
+            Labor: "10390"
+            Medicare/Medicaid: "14890"
+            Military/Defense: "14891"
+            Other: "14895"
+            Postal: "14887"
+            Science and Technology: "10447"
+            Second Amendment: "14894"
+            Small Business: "14893"
+            Taxes: "10493"
+            Transportation: "81"
+            Veterans: "14892"
     - check:
-        - name: ctl00$ctl14$ReplyChoice
-          selector: "#ctl00_ctl14_ReplyChoice_0"
+        - name: ctl00$ctl12$ReplyChoice
+          selector: "#ctl00_ctl12_ReplyChoice_0"
           value: Respond
     - javascript:
-        - value: document.querySelector("#ctl00_ctl14_Body").value = document.querySelector("#ctl00_ctl14_Body").value.replace(/"/g, '');
+        - value: document.querySelector("#ctl00_ctl12_Body").value = document.querySelector("#ctl00_ctl12_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl14_SubmitButton"
-    - find:
-        - selector: "#ctl00_ctl14_ConfirmationText"
+          selector: "#ctl00_ctl12_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office.
+      contains: Thank you
