@@ -1,9 +1,9 @@
 bioguide: R000585
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
+  action: "/htbin/formproc_za/zip-auth.txt&form=/contact/email/email-zip-authenticated&nobase&fpGetVer=2"
   steps:
-    - visit: "https://reed.house.gov/contact-me/email-me"
+    - visit: "https://reed.house.gov/contact/email"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -14,15 +14,9 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
+        - 
           selector: "#submit"
-    - find:
-        - selector: "#required-first"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -55,62 +49,62 @@ contact_form:
           selector: "#required-message"
           value: $MESSAGE
           required: true
-    - wait:
-        - value: 1
-    - fill_in:
-        - name: recaptcha_response_field
-          selector: "input#recaptcha_response_field"
-          captcha_selector: "img#recaptcha_challenge_image"
-          captcha_id_selector: "input#recaptcha_challenge_field"
-          value: "$CAPTCHA_SOLUTION"
-          required: true
     - select:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
             Agriculture: AGR
-            Animals: AN
-            Arts and Humanities: ART
+            Animals/Wildlife: AN
             Banking and Finance: BANK
-            Budget and Economy: BUD
-            Casework: CASE
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            Defense and Military: DEF
-            Economy: ECON
-            Education: ED
-            eForm Response: EFORM RESPONSE
+            Budget and Appropriations: BUD
+            Consumer Protection: CONPROT
+            Education: EDU
             Energy: ENE
             Environment: ENV
-            Federal Employees: FED
-            Flag Request: FLAG
             Foreign Relations: FR
-            Governmental Reform: GOV
+            Generic: GEN
             Guns: GUN
-            Health: HEA
+            Healthcare: HEA
             Homeland Security: HOM
             Housing and Urban Development: HUD
             Immigration: IMM
-            Judiciary: JUD
+            Indian Affairs: IND
+            Job Creation: JOBS
             Labor: LAB
             LGBT: LGBT
-            No Response Necessary: NRN
+            Military and Defense Concerns: MILITARY/DEFENSE
             Other Issues: OTHER
+            Oversight/Govt Reform: OVERSIGHT/GOVT REFOR
+            National Parks: PARKS
             Post Office: POST
             Science and Technology: SCI
-            Senior Citizens: SENIORS
+            Small Business: SMALL BUSINESS
             Social Issues: SOC
-            Social Security: SSEC
+            Social Security and Medicare: SSEC
             Social Services: SOC.SERVICES
             Taxes: TAX
             Telecommunications: TEL
-            Tour: TOURS
-            Transportation: TRA
             Trade: TRADE
+            Unknown: UNKNOWN
+            Transportation: TRA
             Veterans: VET
-            Welfare: WEL
+            Welfare Programs: WELFARE PROGRAMS
             "Women's Issues": WOMEN
         - name: required-response
           selector: "#required-response"
@@ -122,10 +116,10 @@ contact_form:
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
+        - 
           selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank you
