@@ -1,58 +1,62 @@
 bioguide: L000584
-contact_form: 
+contact_form:
   method: post
-  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
-  steps: 
-  - visit: https://love.house.gov/contact
-  - fill_in: 
-    - name: required-zip5
-      selector: "#required-zip5"
+  action: ""
+  steps:
+  - visit: https://love.house.gov/email-me/
+  - fill_in:
+    - name: zip5
+      selector: input#zipcode
       value: $ADDRESS_ZIP5
       required: true
     - name: zip4
-      selector: "#zip4"
+      selector: input#zipfour
       value: $ADDRESS_ZIP4
       required: true
-  - click_on: 
-    - value: Go To Next Step
-      selector: "#emailForm #submit"
-  - find: 
-    - selector: "#required-prefix"
-  - fill_in: 
-    - name: required-first
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #required-first"
+  - click_on:
+    - value: Go To Form
+      selector: form#zipauthform input.button
+  - find:
+    - selector: input#req_firstname
+  - fill_in:
+    - name: first
+      selector: input#req_firstname
       value: $NAME_FIRST
       required: true
-    - name: required-last
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #required-last"
+    - name: last
+      selector: input#req_lastname
       value: $NAME_LAST
       required: true
-    - name: required-address
-      selector: "#required-address"
+    - name: street
+      selector: input#req_street
       value: $ADDRESS_STREET
       required: true
-    - name: required-city
-      selector: "#required-city"
+    - name: street2
+      selector: input#address2
+      value: $ADDRESS_STREET_2
+      required: false
+    - name: city
+      selector: input#req_city
       value: $ADDRESS_CITY
       required: true
-    - name: required-valid-email
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #required-valid-email"
+    - name: email
+      selector: input#req_email
       value: $EMAIL
       required: true
-    - name: required-phone
-      selector: "#required-phone"
+    - name: phone
+      selector: input#phone
       value: $PHONE
       required: true
-    - name: required-message
-      selector: "#required-message"
+    - name: message
+      selector: textarea#req_message
       value: $MESSAGE
       required: true
-  - select: 
-    - name: required-prefix
-      selector: "#required-prefix"
+  - select:
+    - name: prefix
+      selector:
       value: $NAME_PREFIX
       required: true
-      options: 
+      options:
         Ms.: Ms.
         Miss: Miss
         Mrs.: Mrs.
@@ -62,11 +66,11 @@ contact_form:
         Dr.: Dr.
         The Honorable: The Honorable
         Rabbi: Rabbi
-    - name: required-issue
-      selector: "#required-issue"
+    - name: topic
+      selector:
       value: $TOPIC
       required: true
-      options: 
+      options:
         Agriculture: AGR
         Animals: AN
         Arts and Humanities: ART
@@ -107,18 +111,18 @@ contact_form:
         "Women's Issues": WOMEN
         Welfare: WEL
         Other Issues: OTHER
-    - name: required-response
+    - name: response
       selector: "#required-response"
       value: Y
       required: true
-      options: 
+      options:
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
-  - click_on: 
-    - value: Send Email to Representative Love
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
-  success: 
-    headers: 
+  - click_on:
+    - value: Send Email
+      selector: form#custom_form42 input#submitButton
+  success:
+    headers:
       status: 200
-    body: 
+    body:
       contains: your message has been sent
