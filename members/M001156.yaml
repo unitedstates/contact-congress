@@ -20,44 +20,44 @@ contact_form:
         - selector: "#aspnetForm"
     - fill_in:
         - name: ctl00$ctl08$FirstName
-          selector: "#ctl00_ctl08_FirstName"
+          selector: "#ctl00_ctl35_FirstName"
           value: $NAME_LAST
           required: true
         - name: ctl00$ctl08$LastName
-          selector: "#ctl00_ctl08_LastName"
+          selector: "#ctl00_ctl35_LastName"
           value: $NAME_LAST
           required: true
         - name: ctl00$ctl08$Street
-          selector: "#ctl00_ctl08_Street"
+          selector: "#ctl00_ctl35_Street"
           value: $ADDRESS_STREET
           required: true
         - name: ctl00$ctl08$City
-          selector: "#ctl00_ctl08_City"
+          selector: "#ctl00_ctl35_City"
           value: $ADDRESS_CITY
           required: true
         - name: ctl00$ctl08$Zip
-          selector: "#ctl00_ctl08_Zip"
+          selector: "#ctl00_ctl35_Zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: ctl00$ctl08$Phone
-          selector: "#ctl00_ctl08_Phone"
+          selector: "#ctl00_ctl35_Phone"
           value: $PHONE
           required: true
         - name: ctl00$ctl08$Email
-          selector: "#ctl00_ctl08_Email"
+          selector: "#ctl00_ctl35_Email"
           value: $EMAIL
           required: true
         - name: ctl00$ctl08$Subject
-          selector: "#ctl00_ctl08_Subject"
+          selector: "#ctl00_ctl35_Subject"
           value: $SUBJECT
           required: true
         - name: ctl00$ctl08$Body
-          selector: "#ctl00_ctl08_Body"
+          selector: "#ctl00_ctl35_Body"
           value: $MESSAGE
           required: true
     - select:
         - name: ctl00$ctl08$PrefixList
-          selector: "#ctl00_ctl08_PrefixList"
+          selector: "#ctl00_ctl35_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -90,7 +90,7 @@ contact_form:
             SSgt.: SSgt.
             The Honorable: The Honorable
         - name: ctl00$ctl08$State
-          selector: "#ctl00_ctl08_State"
+          selector: "#ctl00_ctl35_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -155,7 +155,7 @@ contact_form:
             - PR
             - VI
         - name: ctl00$ctl08$IssuesList
-          selector: "#ctl00_ctl08_IssuesList"
+          selector: "#ctl00_ctl35_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -200,9 +200,9 @@ contact_form:
             Welfare: "44723"
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl08_SubmitButton"
+          selector: "#ctl00_ctl35_SubmitButton"
     - find:
-        - selector: "span#ctl00_ctl08_ConfirmationText"
+        - selector: "span#ctl00_ctl35_ConfirmationText"
           value: "Thank you"
   success:
     headers:
