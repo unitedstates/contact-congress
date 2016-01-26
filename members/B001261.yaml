@@ -5,49 +5,49 @@ contact_form:
   steps:
     - visit: "http://www.barrasso.senate.gov/public/index.cfm/contact-form"
     - fill_in:
-        - name: field_4676565c-0170-462b-9d63-700a776bf7ac
-          selector: "#field_4676565c-0170-462b-9d63-700a776bf7ac"
+        - name: first
+          selector: "#field_4676565C-0170-462B-9D63-700A776BF7AC"
           value: $NAME_FIRST
           required: true
-        - name: field_45cb27bd-28a7-432d-995c-4f9527b29e9d
-          selector: "#field_45cb27bd-28a7-432d-995c-4f9527b29e9d"
+        - name: last
+          selector: "#field_45CB27BD-28A7-432D-995C-4F9527B29E9D"
           value: $NAME_LAST
           required: true
-        - name: field_651ca95e-dced-412b-b6d8-27eb6ee75c74
-          selector: "#field_651ca95e-dced-412b-b6d8-27eb6ee75c74"
+        - name: street
+          selector: "#field_651CA95E-DCED-412B-B6D8-27EB6EE75C74"
           value: $ADDRESS_STREET
           required: true
-        - name: field_187d5dea-54f0-4957-b75a-a00e2144a011
-          selector: "#field_187d5dea-54f0-4957-b75a-a00e2144a011"
+        - name: street2
+          selector: "#field_187D5DEA-54F0-4957-B75A-A00E2144A011"
           value: $ADDRESS_STREET_2
           required: false
-        - name: field_be9f26d8-9ed2-4eb1-8a5c-47a179dbf22e
-          selector: "#field_be9f26d8-9ed2-4eb1-8a5c-47a179dbf22e"
+        - name: city
+          selector: "#field_BE9F26D8-9ED2-4EB1-8A5C-47A179DBF22E"
           value: $ADDRESS_CITY
           required: true
-        - name: field_96df0c39-34d1-4ed1-9f8b-955307bc507e
-          selector: "#field_96df0c39-34d1-4ed1-9f8b-955307bc507e"
+        - name: zip5
+          selector: "#field_96DF0C39-34D1-4ED1-9F8B-955307BC507E"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_d2bb608a-1c26-41f5-aa6d-7bb9ae611ce1
-          selector: "#field_d2bb608a-1c26-41f5-aa6d-7bb9ae611ce1"
+        - name: phone
+          selector: "#field_D2BB608A-1C26-41F5-AA6D-7BB9AE611CE1"
           value: $PHONE
           required: false
-        - name: field_ff59bb0a-1685-421f-81b4-6299b34bf028
-          selector: "#field_ff59bb0a-1685-421f-81b4-6299b34bf028"
+        - name: email
+          selector: "#field_FF59BB0A-1685-421F-81B4-6299B34BF028"
           value: $EMAIL
           required: true
-        - name: field_40c203dd-a384-408d-84ab-26d1471756d8
-          selector: "#field_40c203dd-a384-408d-84ab-26d1471756d8"
+        - name: message
+          selector: "#field_40C203DD-A384-408D-84AB-26D1471756D8"
           value: $MESSAGE
           required: true
         - name: topic
-          selector: "#field_41faa356-b947-40ca-9264-be321c5f5d94"
+          selector: "#field_41FAA356-B947-40CA-9264-BE321C5F5D94"
           value: $TOPIC
           required: true
     - select:
-        - name: field_5a60f5cf-85bc-4c81-acd1-76b917030069
-          selector: "#field_5a60f5cf-85bc-4c81-acd1-76b917030069"
+        - name: prefix
+          selector: "#field_5A60F5CF-85BC-4C81-ACD1-76B917030069"
           value: $NAME_PREFIX
           required: true
           options:
@@ -64,8 +64,8 @@ contact_form:
             The Honorable: The Honorable
             Representative: Representative
             Senator: Senator
-        - name: field_9458aef1-68e8-4306-b9e3-72ba1be4afad
-          selector: "#field_9458aef1-68e8-4306-b9e3-72ba1be4afad"
+        - name: state
+          selector: "#field_9458AEF1-68E8-4306-B9E3-72BA1BE4AFAD"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -123,56 +123,53 @@ contact_form:
             - West Virginia
             - Wisconsin
             - Wyoming
-        - name: field_f4e8e3bf-a702-450e-ad14-7c7922cd28f3
-          selector: "#field_f4e8e3bf-a702-450e-ad14-7c7922cd28f3"
+        - name: topic
+          selector: "#field_F4E8E3BF-A702-450E-AD14-7C7922CD28F3"
           value: $TOPIC
           required: true
           options:
-            - Agriculture
-            - Animals
-            - Assistance with a Federal Agency
-            - Banking and Finance
-            - Budget
-            - Business
-            - Campaign Reform/Elections
-            - Congratulations Letter Request
-            - Congress
-            - Constitution
-            - Defense
-            - Economy
-            - Education
-            - Employment
-            - Energy
-            - Environment
-            - Federal Debt
-            - Flag Request
-            - Government
-            - Healthcare
-            - Human Rights
-            - Immigration
-            - Inauguration Tickets
-            - Indian Affairs
-            - Internet/Telecommunications
-            - Internship
-            - Labor
-            - Medicare
-            - Other
-            - President
-            - Public Lands
-            - Second Amendment and Gun Rights
-            - Social Security
-            - Taxes
-            - Tour Request
-            - Trade
-            - Veterans
+            Agriculture: Agriculture
+            Animals: Animals
+            Assistance with a Federal Agency: Assistance with a Federal Agency
+            Banking and Finance: Banking and Finance
+            Budget: Budget
+            Business: Business
+            Campaign Reform/Elections: Campaign Reform/Elections
+            Congratulations Letter Request: Congratulations Letter Request
+            Congress: Congress
+            Constitution: Constitution
+            Defense: Defense
+            Economy: Economy
+            Education: Education
+            Employment: Employment
+            Energy: Energy
+            Environment: Environment
+            Federal Debt: Federal Debt
+            Flag Request: Flag Request
+            Government: Government
+            Healthcare: Healthcare
+            Human Rights: Human Rights
+            Immigration: Immigration
+            Inauguration Tickets: Inauguration Tickets
+            Indian Affairs: Indian Affairs
+            Internet/Telecommunications: Internet/Telecommunications
+            Internship: Internship
+            Labor: Labor
+            Medicare: Medicare
+            Other: Other
+            President: President
+            Public Lands: Public Lands
+            Second Amendment and Gun Rights: Second Amendment and Gun Rights
+            Social Security: Social Security
+            Taxes: Taxes
+            Tour Request: Tour Request
+            Trade: Trade
+            Veterans: Veterans
     - click_on:
         - value: Submit
-          selector: input.btn.btn-primary
-    - find:
-        - value: "Thank you for contacting my office. "
-          selector: "p"
+          selector: form#form_E34FEA37-898E-41E4-8922-BE0B298C725A div.buttonHolder input.btn
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting my office. "
+      contains: "Thank you for contacting my office."
