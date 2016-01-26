@@ -51,9 +51,11 @@ contact_form:
       selector: textarea#req_message
       value: $MESSAGE
       required: true
+  - check:
+    - selector: input#newsletter
   - select:
     - name: prefix
-      selector:
+      selector: select#prefix
       value: $NAME_PREFIX
       required: true
       options:
@@ -68,10 +70,12 @@ contact_form:
         Rabbi: Rabbi
     - name: state
       selector: select#req_state
-      value: Utah
+      value: UT
       required: true
+      options:
+        UT: UT
     - name: topic
-      selector:
+      selector: select#req_issue
       value: $TOPIC
       required: true
       options:
@@ -116,12 +120,11 @@ contact_form:
         Welfare: WEL
         Other Issues: OTHER
     - name: response
-      selector: "#required-response"
-      value: Y
+      selector: select#response
+      value: Yes
       required: true
       options:
-        Yes, please contact me: Y
-        No, I wanted to voice my opinion: N
+        Yes: Yes
   - click_on:
     - value: Send Email
       selector: form#custom_form42 input#submitButton
@@ -129,4 +132,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: your message has been sent
+      contains: "Your message has been successfully submitted"
