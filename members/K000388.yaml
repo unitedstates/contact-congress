@@ -3,51 +3,49 @@ contact_form:
   method: post
   action:
   steps:
-  - visit: https://trentkellyforms.house.gov/forms/writeyourrep/
+  - visit: https://trentkelly.house.gov/forms/writeyourrep/
   - fill_in:
     - name: FirstName
-      selector: "#ctl00_ctl15_FirstName"
+      selector: "#ctl00_ctl12_FirstName"
       value: $NAME_FIRST
       required: true
     - name: LastName
-      selector: "#ctl00_ctl15_LastName"
+      selector: "#ctl00_ctl12_LastName"
       value: $NAME_LAST
       required: true
     - name: Street
-      selector: "#ctl00_ctl15_Street"
+      selector: "#ctl00_ctl12_Street"
       value: $ADDRESS_STREET
       required: true
     - name: City
-      selector: "#ctl00_ctl15_City"
+      selector: "#ctl00_ctl12_City"
       value: $ADDRESS_CITY
       required: true
-    - name: Zip
-      selector: "#ctl00_ctl15_Zip"
+    - name: Zip5
+      selector: "#ctl00_ctl12_Zip"
       value: $ADDRESS_ZIP5
       required: true
+    - name: Phone
+      selector: "#ctl00_ctl12_Phone"
+      value: $PHONE
+      required: true
     - name: Email
-      selector: "#ctl00_ctl15_Email"
+      selector: "#ctl00_ctl12_Email"
       value: $EMAIL
       required: true
-    - name: Phone
-      selector: "#ctl00_ctl15_Phone"
-      value: 222-222-2222
-      required: false
-    - name: Message
-      selector: "#ctl00_ctl15_Body"
-      value: $MESSAGE
-      required: true
     - name: Subject
-      selector: "#ctl00_ctl15_Subject"
+      selector: "#ctl00_ctl12_Subject"
       value: $SUBJECT
       required: true
-  - choose:
-    - name: ReplyChoice
-      selector: "#ctl00_ctl15_ReplyChoice_0"
-      value: Respond
+    - name: Message
+      selector: "#ctl00_ctl12_Body"
+      value: $MESSAGE
+      required: true
+  - click_on:
+    - selector: input#ctl00_ctl12_ReplyChoice_0
   - select:
     - name: Prefix
-      selector: "#ctl00_ctl15_PrefixList"
+      selector: "#ctl00_ctl12_PrefixList"
       value: $NAME_PREFIX
       required: true
       options:
@@ -55,37 +53,9 @@ contact_form:
         Mrs.: Mrs.
         Ms.: Ms.
         Dr.: Dr.
-    - name: Topic
-      selector: "#ctl00_ctl15_IssuesList"
-      value: $TOPIC
-      required: true
-      options:
-        "": None
-        "72": Agriculture
-        "9982": Animals
-        "10012": Armed Forces
-        "14887": Defense
-        "14889": Economy and Jobs
-        "73": Education
-        "10177": Energy
-        "14890": Environment
-        "14891": Foreign Affairs
-        "10250": Government Operations and Politics
-        "74": Health Care
-        "10360": Immigration
-        "14892": Life
-        "14888": National Security
-        "14898": Other
-        "10447": Science, Technology, Communications
-        "14895": Second Amendment
-        "14894": Small Business
-        "14896": Social Security
-        "14893": Tax Reform
-        "81": Transportation and Public Works
-        "14897": Veterans
   - click_on:
     - value: Submit
-      selector: "#ctl00_ctl15_SubmitButton"
+      selector: input#ctl00_ctl12_SubmitButton
   success:
     headers:
       status: 200
