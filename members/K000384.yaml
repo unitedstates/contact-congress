@@ -4,117 +4,120 @@ contact_form:
   action: ""
   steps:
     - visit: http://www.kaine.senate.gov/contact
+    - find:
+      - selector: select#subject
     - select:
       - name: subject
-        selector: "#subject"
+        selector: select#subject
         value: $TOPIC
-        required: Yes
+        required: true
         options:
-          # - "Academy Nominations"
-          - "Agriculture"
-          - "Banking & Financial Reform"
-          - "Arts & Humanities"
-          - "Budget"
-          - "Child Welfare"
-          - "Civil Rights"
-          # - "Condolence Letters"
-          # - "Congratulatory Letters"
-          - "Congress & Executive Office Reform"
-          - "Crime & Law Enforcement"
-          - "Disaster Relief"
-          # - "Eagle Scouts"
-          - "Economy"
-          - "Education"
-          - "Election Issues"
-          - "Energy"
-          - "Environment & Wildlife Protection"
-          - "Federal Employees"
-          # - "Flag Requests"
-          - "Foreign Aid"
-          - "Foreign Relations"
-          - "Foreign Trade"
-          # - "Girl Scouts"
-          # - "Grant Information"
-          - "Gun Violence"
-          - "Health Care & Affordable Care Act"
-          # - "Help with a Federal Agency"
-          - "Homeland Security"
-          # - "Housing"
-          # - "Immigration"
-          # - "Internships and Senate Page Program"
-          - "Judicial Issues & Nominations"
-          # - "Medicare"
-          - "Mental Health"
-          - "Military/Armed Services/Defense"
-          - "Postal Issues"
-          - "Public Welfare"
-          # - "Scheduling Request"
-          - "Science & Technology"
-          - "Second Amendment Rights"
-          - "Small Business"
-          # - "Social Security"
-          # - "Special Recognitions and Greetings"
-          # - "Taxes"
-          - "Telecommunications & Internet"
-          # - "Tour Requests"
-          # - "Veterans"
-          - "Transportation & Infrastructure"
-          - "Womens Issues"
-          - "Workforce & Labor"
+          Academy Nominations: Academy Nominations
+          Agriculture: Agriculture
+          Animal Welfare: Animal Welfare
+          "Banking & Financial Reform": "Banking & Financial Reform"
+          "Arts & Humanities": "Arts & Humanities"
+          Budget: Budget
+          Child Welfare: Child Welfare
+          Civil Rights: Civil Rights
+          Condolence Letters: Condolence Letters
+          Congratulatory Letters: Congratulatory Letters
+          "Congress & Executive Office Reform": "Congress & Executive Office Reform"
+          "Crime & Law Enforcement": "Crime & Law Enforcement"
+          Disaster Relief: Disaster Relief
+          Eagle Scouts: Eagle Scouts
+          Economy: Economy
+          Education: Education
+          Election Issues: Election Issues
+          Energy: Energy
+          "Environment & Wildlife Protection": "Environment & Wildlife Protection"
+          Federal Employees: Federal Employees
+          Flag Requests: Flag Requests
+          Foreign Aid: Foreign Aid
+          Foreign Relations: Foreign Relations
+          Foreign Trade: Foreign Trade
+          Girl Scouts: Girl Scouts
+          Grant Information: Grant Information
+          Gun Violence: Gun Violence
+          "Health Care & Affordable Care Act": "Health Care & Affordable Care Act"
+          Help with a Federal Agency: Help with a Federal Agency
+          Homeland Security: Homeland Security
+          Housing: Housing
+          Immigration: Immigration
+          Internships and Senate Page Program: Internships and Senate Page Program
+          Judicial Issues & Nominations: Judicial Issues & Nominations
+          Medicare: Medicare
+          Mental Health: Mental Health
+          "Military/Armed Services/Defense": "Military/Armed Services/Defense"
+          Postal Issues: Postal Issues
+          Public Welfare: Public Welfare
+          Scheduling Request: Scheduling Request
+          "Science & Technology": "Science & Technology"
+          Second Amendment Rights: Second Amendment Rights
+          Small Business: Small Business
+          Social Security: Social Security
+          Special Recognitions and Greetings: Special Recognitions and Greetings
+          Taxes: Taxes
+          "Telecommunications & Internet": "Telecommunications & Internet"
+          Tour Requests: Tour Requests
+          Veterans: Veterans
+          "Transportation & Infrastructure": "Transportation & Infrastructure"
+          Womens Issues: Womens Issues
+          "Workforce & Labor": "Workforce & Labor"
     - click_on:
       - value: Clicksomewhere
         selector: "#contact-sam-main"
-    - find:  # waits for dom element to appear before proceeding
-      - selector: "#continue-form fieldset #prefname"
+    - find:
+      - selector: div#continue-form input#fname
     - fill_in:
       - name: fname
         selector: "#fname"
         value: $NAME_FIRST
-        required: Yes
+        required: true
       - name: lname
         selector: "#lname"
         value: $NAME_LAST
-        required: Yes
+        required: true
       - name: mailing_streetAddress1
         selector: "#mailing_streetAddress1"
         value: $ADDRESS_STREET
-        required: Yes
+        required: true
       - name: mailing_streetAddress2
         selector: "#mailing_streetAddress2"
         value: $ADDRESS_STREET_2
       - name: mailing_city
         selector: "#mailing_city"
         value: $ADDRESS_CITY
-        required: Yes
+        required: true
       - name: mailing_zipCode
         selector: "#mailing_zipCode"
         value: $ADDRESS_ZIP5
-        required: Yes
+        required: true
       - name: phone_number
         selector: "#phone_number"
         value: $PHONE
-        required: Yes
+        required: true
       - name: email
         selector: "#email"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: verify_email
         selector: "#verify_email"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: subject
         selector: "[name='subject']"
         value: $SUBJECT
-        required: Yes
+        required: true
       - name: message
         selector: "#message"
         value: $MESSAGE
-        required: Yes
+        required: true
     - select:
       - name: salutation
         selector: "#salutation"
         value: $NAME_PREFIX
-        required: Yes
+        required: true
         options:
           "Mr.": "Mr."
           "Ms.": "Ms."
@@ -187,23 +190,23 @@ contact_form:
       - name: mailing_state
         selector: "#mailing_state"
         value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
+        required: true
         options: US_STATES
       - name: response
         selector: "#response"
-        value: "yes"
-        required: Yes
-        # I would like a response from the Senator
+        value: Yes
+        required: true
       - name: newsletter
         selector: "#newsletter"
-        value: "no"
-        required: Yes
-        # I would like to receive email updates from the Senator
+        value: No
+        required: true
     - wait:
-        - value: 1
+      - value: 1
     - click_on:
       - value: Submit
         selector: "#contactForm input[type='submit']"
+    - wait:
+      - value: 1
     - find:
       - selector: "h1"
         value: "THANK YOU"
@@ -212,4 +215,3 @@ contact_form:
       status: 200
     body:
       contains: "Thanks for taking the time to share your thoughts with me"
-      # matches: "thank you, [a-z\. ]+ for contacting"
