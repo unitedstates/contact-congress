@@ -235,13 +235,13 @@ contact_form:
             Veterans: VETERANS
             Welfare: WELFARE
             "Women's Issues": WOMEN
+    - wait:
+        - value: 1
     - click_on:
         - value: Send
           selector: "#submit"
     - wait:
-        - value: 1
-    - find:
-        - selector: .success
+        - value: 4
   success:
     headers:
       status: 200
