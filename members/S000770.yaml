@@ -4,6 +4,10 @@ contact_form:
   action: ""
   steps:
     - visit: https://www.stabenow.senate.gov/contact
+    - wait:
+      - value: 1
+    - find:
+      - selector: "#input-F80AC606-4040-F985-52CD-88C5E17C2923"
     - fill_in:
       - name: firstName
         selector: "#input-F80AC606-4040-F985-52CD-88C5E17C2923"
