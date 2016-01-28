@@ -15,9 +15,9 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: div.formboxL input#submit
     - find:
-        - selector: "#contactForm"
+        - selector: form#contactForm
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -44,15 +44,15 @@ contact_form:
           value: $EMAIL
           required: true
         - name: phone1
-          selector: "#phone1"
+          selector: input#required-phone1
           value: $PHONE_AREA_CODE
           required: true
         - name: phone2
-          selector: "#phone2"
+          selector: input#required-phone2
           value: $PHONE_EXCHANGE_CODE
           required: true
         - name: phone3
-          selector: "#phone3"
+          selector: input#required-phone3
           value: $PHONE_SUBSCRIBER_NUMBER
           required: true
         - name: required-subject
