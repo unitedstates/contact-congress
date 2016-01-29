@@ -1,183 +1,175 @@
 bioguide: M001153
 contact_form:
-  method: POST
-  action: http://www.murkowski.senate.gov/public/index.cfm?p=EMailLisa
+  method: post
+  action: ""
   steps:
-    - visit: http://www.murkowski.senate.gov/public/index.cfm?p=EMailLisa
+    - visit: "http://www.murkowski.senate.gov/public/index.cfm?p=EMailLisa"
     - fill_in:
-      - name: field_fd355a73-439b-4dee-b95f-297384e45ce2
-        selector: "#field_fd355a73-439b-4dee-b95f-297384e45ce2"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_a89cb2c3-b15c-46b4-8401-0e5fc313f7fc
-        selector: "#field_a89cb2c3-b15c-46b4-8401-0e5fc313f7fc"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_586da5bb-df0d-43f8-a63a-5cb5e1a8d3e9
-        selector: "#field_586da5bb-df0d-43f8-a63a-5cb5e1a8d3e9"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_ebc8b166-dd5a-4f7d-a47e-ccd640c5036f
-        selector: "#field_ebc8b166-dd5a-4f7d-a47e-ccd640c5036f"
-        value: "$ADDRESS_STREET_2"
-      - name: field_5ef77fca-e8ef-43ef-b34f-5f69133bff45
-        selector: "#field_5ef77fca-e8ef-43ef-b34f-5f69133bff45"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_15ec24a3-fa2a-46b7-9bfc-deed21407553
-        selector: "#field_15ec24a3-fa2a-46b7-9bfc-deed21407553"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_bb56937c-3a1a-487e-bdaf-01fc996bd56f
-        selector: "#field_bb56937c-3a1a-487e-bdaf-01fc996bd56f"
-        value: "$PHONE"
-      - name: field_c54af03a-3ced-4c65-a90e-47586bcd2138
-        selector: "#field_c54af03a-3ced-4c65-a90e-47586bcd2138"
-        value: "$PHONE"
-      - name: field_3a56bc3b-7edf-4848-af0a-4373d7082579
-        selector: "#field_3a56bc3b-7edf-4848-af0a-4373d7082579"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_feeeaf70-4711-4741-8937-5f65035115e6
-        selector: "#field_feeeaf70-4711-4741-8937-5f65035115e6"
-        value: "$MESSAGE"
-        required: Yes
+        - name: field_FD355A73-439B-4DEE-B95F-297384E45CE2
+          selector: "#field_FD355A73-439B-4DEE-B95F-297384E45CE2"
+          value: $NAME_FIRST
+          required: true
+        - name: field_A89CB2C3-B15C-46B4-8401-0E5FC313F7FC
+          selector: "#field_A89CB2C3-B15C-46B4-8401-0E5FC313F7FC"
+          value: $NAME_LAST
+          required: true
+        - name: field_586DA5BB-DF0D-43F8-A63A-5CB5E1A8D3E9
+          selector: "#field_586DA5BB-DF0D-43F8-A63A-5CB5E1A8D3E9"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_5EF77FCA-E8EF-43EF-B34F-5F69133BFF45
+          selector: "#field_5EF77FCA-E8EF-43EF-B34F-5F69133BFF45"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_15EC24A3-FA2A-46B7-9BFC-DEED21407553
+          selector: "#field_15EC24A3-FA2A-46B7-9BFC-DEED21407553"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_3A56BC3B-7EDF-4848-AF0A-4373D7082579
+          selector: "#field_3A56BC3B-7EDF-4848-AF0A-4373D7082579"
+          value: $EMAIL
+          required: true
+        - name: field_FEEEAF70-4711-4741-8937-5F65035115E6
+          selector: "#field_FEEEAF70-4711-4741-8937-5F65035115E6"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: field_90095e33-25ee-4e43-90ff-c6af67fd24f0
-        selector: "#field_90095e33-25ee-4e43-90ff-c6af67fd24f0"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          - "Please select a Prefix"
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Miss"
-          - "Mr. and Mrs."
-          - "Dr."
-          - "Reverend"
-          - "Sister"
-          - "Pastor"
-          - "The Honorable"
-          - "Representative"
-          - "Senator"
-      - name: field_d2ed9dfd-fc6b-463c-89b4-c258786f2b2a
-        selector: "#field_d2ed9dfd-fc6b-463c-89b4-c258786f2b2a"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: true
-        options:
-          - "----Military----"
-          - AA
-          - AE
-          - AP
-          - "----States----"
-          - Alabama
-          - Alaska
-          - Arizona
-          - Arkansas
-          - California
-          - Colorado
-          - Connecticut
-          - Delaware
-          - District of Columbia
-          - Florida
-          - Georgia
-          - Hawaii
-          - Idaho
-          - Illinois
-          - Indiana
-          - Iowa
-          - Kansas
-          - Kentucky
-          - Louisiana
-          - Maine
-          - Maryland
-          - Massachusetts
-          - Michigan
-          - Minnesota
-          - Mississippi
-          - Missouri
-          - Montana
-          - Nebraska
-          - Nevada
-          - New Hampshire
-          - New Jersey
-          - New Mexico
-          - New York
-          - North Carolina
-          - North Dakota
-          - Ohio
-          - Oklahoma
-          - Oregon
-          - Pennsylvania
-          - Rhode Island
-          - South Carolina
-          - South Dakota
-          - Tennessee
-          - Texas
-          - Utah
-          - Vermont
-          - Virginia
-          - Washington
-          - West Virginia
-          - Wisconsin
-          - Wyoming
-      - name: field_d196a0dd-3603-495b-987e-7c8b5a06050c
-        selector: "#field_d196a0dd-3603-495b-987e-7c8b5a06050c"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          "Ask Lisa Webcast Question": "AskLisa"
-          "Agriculture": "Agriculture"
-          "Alaska Native Issues": "Alaska Native Issues"
-          "Arts": "Arts"
-          "Banking": "Banking"
-          "Budget ": "Budget "
-          "Budget , Economy": " Economy"
-          "Climate Change": "Climate Change"
-          "Coast Guard": "Coast Guard"
-          "Communications": "Communications"
-          "Defense": "Defense"
-          "Economy": "Economy"
-          "Education": "Education"
-          "Energy": "Energy"
-          "Environment": "Environment"
-          "Fisheries": "Fisheries"
-          "Foreign Affairs": "Foreign Affairs"
-          "Forestry": "Forestry"
-          "Government Affairs": "Government Affairs"
-          "Homeland Security": "Homeland Security"
-          "Health": "Health"
-          "Housing": "Housing"
-          "Immigration": "Immigration"
-          "Iraq": "Iraq"
-          "Judicial Issues": "Judicial Issues"
-          "Labor": "Labor"
-          "Maritime Issues": "Maritime Issues"
-          "Mining": "Mining"
-          "Post Office": "Post Office"
-          "Public Lands": "Public Lands"
-          "Public Works": "Public Works"
-          "Science and Technology": "Science and Technology"
-          "Second Amendment Issues": "Second Amendment Issues"
-          "Sequestration": "Sequestration"
-          "Small Business": "Small Business"
-          "Social Issues": "Social Issues"
-          "Social Security": "Social Security"
-          "Taxes": "Taxes"
-          "Trade": "Trade"
-          "Transportation": "Transportation"
-          "Veterans": "Veterans"
-          "Welfare": "Welfare"
-          "Wildlife": "Wildlife"
-          "Other": "Other"
+        - name: field_90095E33-25EE-4E43-90FF-C6AF67FD24F0
+          selector: "#field_90095E33-25EE-4E43-90FF-C6AF67FD24F0"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Please select a Prefix
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Mr. and Mrs.
+            - Dr.
+            - Reverend
+            - Sister
+            - Pastor
+            - The Honorable
+            - Representative
+            - Senator
+        - name: field_D2ED9DFD-FC6B-463C-89B4-C258786F2B2A
+          selector: "#field_D2ED9DFD-FC6B-463C-89B4-C258786F2B2A"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - "----Military----"
+            - AA
+            - AE
+            - AP
+            - "----States----"
+            - Alabama
+            - Alaska
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+        - name: field_D196A0DD-3603-495B-987E-7C8B5A06050C
+          selector: "#field_D196A0DD-3603-495B-987E-7C8B5A06050C"
+          value: $TOPIC
+          required: true
+          options:
+            Ask Lisa Webcast Question: AskLisa
+            Agriculture: Agriculture
+            Alaska Native Issues: Alaska Native Issues
+            Arts: Arts
+            Banking: Banking
+            "Budget ": "Budget "
+            "Budget , Economy": " Economy"
+            Climate Change: Climate Change
+            Coast Guard: Coast Guard
+            Communications: Communications
+            Defense: Defense
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Fisheries: Fisheries
+            Foreign Affairs: Foreign Affairs
+            Forestry: Forestry
+            Government Affairs: Government Affairs
+            Homeland Security: Homeland Security
+            Health: Health
+            Housing: Housing
+            Immigration: Immigration
+            Iraq: Iraq
+            Judicial Issues: Judicial Issues
+            Labor: Labor
+            Maritime Issues: Maritime Issues
+            Military: Military
+            Mining: Mining
+            Post Office: Post Office
+            Public Lands: Public Lands
+            Public Works: Public Works
+            Science and Technology: Science and Technology
+            Second Amendment Issues: Second Amendment Issues
+            Sequestration: Sequestration
+            Small Business: Small Business
+            Social Issues: Social Issues
+            Social Security: Social Security
+            Taxes: Taxes
+            Trade: Trade
+            Transportation: Transportation
+            Veterans: Veterans
+            Welfare: Welfare
+            Wildlife: Wildlife
+            Other: Other
     - javascript:
-      - value: document.querySelector("#field_feeeaf70-4711-4741-8937-5f65035115e6").value = document.querySelector("#field_feeeaf70-4711-4741-8937-5f65035115e6").value.replace(/"/g, '');
+        - value: document.querySelector("#field_FEEEAF70-4711-4741-8937-5F65035115E6").value = document.querySelector("#field_FEEEAF70-4711-4741-8937-5F65035115E6").value.replace(/"/g, '');
     - click_on:
-      - value: Submit
-        selector: ".btn-primary"
+        - value: Submit
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you very much"
+      contains: Thank you
