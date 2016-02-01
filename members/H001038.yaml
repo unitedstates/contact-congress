@@ -1,65 +1,68 @@
 bioguide: H001038
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-brian/email-brian-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: ""
   steps:
-    - visit: "http://higgins.house.gov/contact/send-brian-an-email"
+    - visit: "https://higginsforms.house.gov/contact/"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: form.zipform input[name='zip5']
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: form.zipform input[name='zip4']
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+        - selector: form.zipform input[value='Submit']
+    - find:
+        - selector: input#ctl00_ctl25_FirstName
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#required-first"
+        - name: first
+          selector: input#ctl00_ctl25_FirstName
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: last
+          selector:
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: address
+          selector:
           value: $ADDRESS_STREET
           required: true
         - name: address2
-          selector: "#address2"
+          selector:
           value: $ADDRESS_STREET_2
           required: false
-        - name: required-city
-          selector: "#required-city"
+        - name: city
+          selector:
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: email
+          selector:
           value: $EMAIL
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: phone
+          selector:
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
+        - name: subject
+          selector:
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: message
+          selector:
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
+        - name: prefix
+          selector:
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+        - name: topic
+          selector:
           value: $TOPIC
           required: true
           options:
@@ -103,8 +106,8 @@ contact_form:
             "Women's Issues": WOMEN
             Welfare: WEL
             Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
+        - name: response
+          selector:
           value: "Y"
           required: true
           options:
@@ -112,8 +115,7 @@ contact_form:
             "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
-
+          selector: 
   success:
     headers:
       status: 200
