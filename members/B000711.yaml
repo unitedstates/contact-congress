@@ -1,9 +1,9 @@
 bioguide: B000711
 contact_form:
   method: post
-  action: "https://www.boxer.senate.gov/contact/shareyourviews.php"
+  action: ""
   steps:
-    - visit: "https://www.boxer.senate.gov/contact/shareyourviews.html"
+    - visit: "http://www.boxer.senate.gov/?p=shareyourviews"
     - fill_in:
         - name: firstName
           selector: "#firstName"
@@ -38,11 +38,11 @@ contact_form:
           value: $EMAIL
           required: true
         - name: email_confirmation
-          selector: "#email_confirmation"
+          selector: input#vemail
           value: $EMAIL
           required: true
         - name: subject
-          selector: "#msubject"
+          selector: input#msgsubject
           value: $SUBJECT
           required: true
           options:
@@ -238,12 +238,12 @@ contact_form:
     - wait:
         - value: 1
     - click_on:
-        - value: Send
-          selector: "#submit"
+        - value: Submit
+          selector: div.pagecontent button.button
     - wait:
         - value: 4
   success:
     headers:
       status: 200
     body:
-      contains: "Thank You! Your message has been sent."
+      contains: "Thanks! Your message has been received."
