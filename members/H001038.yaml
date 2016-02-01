@@ -23,35 +23,35 @@ contact_form:
           value: $NAME_FIRST
           required: true
         - name: last
-          selector:
+          selector: input#ctl00_ctl25_LastName
           value: $NAME_LAST
           required: true
-        - name: address
-          selector:
+        - name: street
+          selector: input#ctl00_ctl25_Street
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector:
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
-          selector:
+          selector: input#ctl00_ctl25_City
           value: $ADDRESS_CITY
           required: true
-        - name: email
-          selector:
-          value: $EMAIL
+        - name: zip5
+          selector: input#ctl00_ctl25_Zip
+          value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector:
+          selector: input#ctl00_ctl25_Phone
           value: $PHONE
+          required: false
+        - name: email
+          selector: input#ctl00_ctl25_Email
+          value: $EMAIL
           required: true
         - name: subject
-          selector:
+          selector: input#ctl00_ctl25_Subject
           value: $SUBJECT
           required: true
         - name: message
-          selector:
+          selector: textarea#ctl00_ctl25_Body
           value: $MESSAGE
           required: true
     - select:
@@ -115,7 +115,7 @@ contact_form:
             "No, I wanted to voice my opinion": "N"
     - click_on:
         - value: Send Email
-          selector: 
+          selector:
   success:
     headers:
       status: 200
