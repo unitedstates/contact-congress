@@ -241,10 +241,10 @@ contact_form:
             Transportation: TRA
             Veterans: VET
             Welfare / Food Stamps: WEL
-    - uncheck:
-        - name: newsletter
-          selector: "#newsletter"
-          value: newsletter
+    - click_on:
+        - selector: "#newsletter"
+    - wait:
+        - value: 1
     - click_on:
         - value: submit
           selector: input.rollover
