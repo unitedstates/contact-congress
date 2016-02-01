@@ -6,6 +6,8 @@ contact_form:
     - visit: "http://www.sullivan.senate.gov/contact/email"
     - find:
         - selector: "#input-34F91EAB-4040-F985-52CD-81AE445C8C28"
+    - wait:
+        - value: 2
     - fill_in:
         - name: firstname
           selector: "#input-34F91EAB-4040-F985-52CD-81AE445C8C28"
@@ -291,6 +293,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: .btn
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
