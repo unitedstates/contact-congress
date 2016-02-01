@@ -6,6 +6,8 @@ contact_form:
     - visit: "https://www.perdue.senate.gov/connect/email"
     - find:
         - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
+    - wait:
+        - value: 2
     - fill_in:
         - name: firstname
           selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
