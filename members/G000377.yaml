@@ -20,7 +20,7 @@ contact_form:
         - selector: "#contactForm"
     - fill_in:
         - name: prefix
-          selector: "#prefix"
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
         - name: required-first
@@ -63,13 +63,12 @@ contact_form:
           options:
             "Yes": "Y"
             "No": "N"
-        - name: required-affl1
-          selector: "#required-affl1"
-          value: "No"
+        - name: newsletter
+          selector: select#subscribe
+          value: No
           required: true
           options:
-            "Yes": EMAIL.OPTIN
-            "No": "No"
+            No: No
             I already receive it: EMAIL.OPTIN
         - name: required-issue
           selector: "#required-issue"
@@ -114,4 +113,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:" 
+      contains: "The following information has been submitted:"
