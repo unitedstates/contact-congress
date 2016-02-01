@@ -51,9 +51,11 @@ contact_form:
             Women: WOM
     - wait:
         - value: 5
+    - find:
+        - selector: input#fname
     - fill_in:
         - name: fname
-          selector: "#fname"
+          selector: input#fname
           value: $NAME_FIRST
           required: true
         - name: lname
