@@ -4,19 +4,19 @@ contact_form:
   action: http://www.gardner.senate.gov/contact-cory/email-cory
   steps:
     - visit: "http://www.gardner.senate.gov/contact-cory/email-cory"
+    - wait:
+        - value: 1
     - find:
-        - selector: "#actions"
+        - selector: select#actions
     - select:
-        - name: "Share opinion"
-          selector: "#actions"
-          value: "S"
+        - name: step1
+          selector: select#actions
+          value: "Share"
           required: true
           options:
-            - Share your opinions or comment on legislation or issues
-            - Meeting Requests
-            - Help with a federal agency
-            - Tour Request
-            - Request a flag to be flown over the Capitol
+            Share your opinions or comment on legislation or issues: Share your opinions or comment on legislation or issues
+    - wait:
+        - value: 2
     - find:
         - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
@@ -205,63 +205,63 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            - Abortion
-            - Adoption
-            - Aging
-            - Agriculture
-            - Animal Welfare
-            - Appropriations
-            - Banking
-            - Campaign Finance
-            - Children
-            - Civil Rights
-            - Commerce
-            - Communications
-            - Congratulations
-            - Congressional Issues
-            - Crime
-            - Defense
-            - Drugs
-            - Economy
-            - Education Higher
-            - Education K through 12
-            - Elections
-            - Energy
-            - Environment
-            - Family
-            - Food Stamps
-            - Foreign Affairs
-            - Gun Control
-            - Health
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Inauguration
-            - Insurance Health
-            - Insurance Other
-            - Interior
-            - Iran
-            - Iraq
-            - Judiciary
-            - Labor
-            - Medicaid
-            - Medicare
-            - Military
-            - NASA
-            - Nutrition
-            - Other
-            - Patents
-            - Pensions
-            - Securities
-            - Small Business
-            - Social Security
-            - Taxes
-            - Tobacco
-            - Trade
-            - Transportation
-            - Veterans
-            - Welfare
-            - Women's Issues
+            Abortion: Abortion
+            Adoption: Adoption
+            Aging: Aging
+            Agriculture: Agriculture
+            Animal Welfare: Animal Welfare
+            Appropriations: Appropriations
+            Banking: Banking
+            Campaign Finance: Campaign Finance
+            Children: Children
+            Civil Rights: Civil Rights
+            Commerce: Commerce
+            Communications: Communications
+            Congratulations: Congratulations
+            Congressional Issues: Congressional Issues
+            Crime: Crime
+            Defense: Defense
+            Drugs: Drugs
+            Economy: Economy
+            Education Higher: Education Higher
+            Education K through 12: Education K through 12
+            Elections: Elections
+            Energy: Energy
+            Environment: Environment
+            Family: Family
+            Food Stamps: Food Stamps
+            Foreign Affairs: Foreign Affairs
+            Gun Control: Gun Control
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Inauguration: Inauguration
+            Insurance Health: Insurance Health
+            Insurance Other: Insurance Other
+            Interior: Interior
+            Iran: Iran
+            Iraq: Iraq
+            Judiciary: Judiciary
+            Labor: Labor
+            Medicaid: Medicaid
+            Medicare: Medicare
+            Military: Military
+            NASA: NASA
+            Nutrition: Nutrition
+            Other: Other
+            Patents: Patents
+            Pensions: Pensions
+            Securities: Securities
+            Small Business: Small Business
+            Social Security: Social Security
+            Taxes: Taxes
+            Tobacco: Tobacco
+            Trade: Trade
+            Transportation: Transportation
+            Veterans: Veterans
+            Welfare: Welfare
+            "Women's Issues": "Women's Issues"
     - click_on:
         - value: Submit
           selector: "input[type='submit'][value='Submit']"
