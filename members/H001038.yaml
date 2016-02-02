@@ -56,13 +56,22 @@ contact_form:
           required: true
     - select:
         - name: prefix
-          selector:
+          selector: select#ctl00_ctl25_PrefixList
           value: $NAME_PREFIX
           required: true
           options:
             Mr.: Mr.
+            Mrs.: Mrs.
+            Dr.: Dr.
+            Ms.: Ms.
+            Miss: Miss
+            Lt. Col.: Lt. Col.
+            Col.: Col.
+            Mag. Gen.: Mag. Gen.
+            Capt.: Capt.
+            RDML: RDML
         - name: topic
-          selector:
+          selector: select#ctl00_ctl25_IssuesList
           value: $TOPIC
           required: true
           options:
@@ -106,18 +115,15 @@ contact_form:
             "Women's Issues": WOMEN
             Welfare: WEL
             Other Issues: OTHER
-        - name: response
-          selector:
-          value: "Y"
-          required: true
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
     - click_on:
-        - value: Send Email
-          selector:
+        - selector: "#ctl00_ctl25_ReplyChoice_0"
+    - wait:
+        - value: 1
+    - click_on:
+        - value: Submit
+          selector: input#ctl00_ctl25_SubmitButton
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "Thank you for taking the time to reach out to me."
