@@ -4,50 +4,51 @@ contact_form:
   action: http://goodlatte.house.gov/contacts
   steps:
     - visit: http://goodlatte.house.gov/contacts/new
-    - click_on:  # newsletter signup needs to be dismissed
-        - value: ""
-          selector: "#fancybox-close"
+    - click_on:
+      - selector: a#fancybox-close
+    - wait:
+      - value: 2
     - fill_in:
       - name: "contact[first_name]"
         selector: "#contact_first_name"
-        required: Yes
+        required: true
         value: $NAME_FIRST
       - name: "contact[last_name]"
         selector: "#contact_last_name"
-        required: Yes
+        required: true
         value: $NAME_LAST
       - name: "contact[address]"
         selector: "#contact_address"
-        required: Yes
+        required: true
         value: $ADDRESS_STREET
       - name: "contact[city]"
         selector: "#contact_city"
-        required: Yes
+        required: true
         value: $ADDRESS_CITY
       - name: "contact[postal_code]"
         selector: "#contact_postal_code"
-        required: Yes
+        required: true
         value: $ADDRESS_ZIP5
       - name: "contact[primary_phone]"
         selector: "#contact_primary_phone"
-        required: Yes
-        value: $PHONE
+        required: true
+        value: $PHONE_HYPHENS
       - name: "contact[email]"
         selector: ".formtastic #contact_email"
-        required: Yes
+        required: true
         value: $EMAIL
       - name: "contact[subject]"
         selector: "#contact_subject"
-        required: Yes
+        required: true
         value: $SUBJECT
       - name: "contact[message]"
         selector: "#contact_message"
-        required: Yes
+        required: true
         value: $MESSAGE
     - select:
       - name: "contact[salutation]"
         selector: "#contact_salutation"
-        required: Yes
+        required: true
         value: "$NAME_PREFIX"
         options:
           "Mr.": "Mr."

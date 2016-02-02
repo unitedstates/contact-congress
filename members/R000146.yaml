@@ -164,6 +164,8 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#sendbutton"
+    - wait:
+        - value: 3
     - find:
         - selector: "#usermessagea.success"
   success:

@@ -65,10 +65,6 @@ contact_form:
           options:
             "Yes": "Y"
             "No": "N"
-    - uncheck:
-        - name: subscribe
-          selector: "#contactForm input[name='subscribe']"
-          value: OPTIN.EMAIL
     - click_on:
         - value: Send Message
           selector: "#submit"

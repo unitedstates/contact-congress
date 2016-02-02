@@ -160,16 +160,11 @@ contact_form:
             Transportation and Public Works: "67608"
             Veterans Affairs: "67044"
             Water Resources Development: "67061"
-    - check:
-        - name: ctl00$ctl08$ReplyChoice
-          selector: "#ctl00_ctl08_ReplyChoice_1"
-          value: Comment
-    - uncheck:
-        - name: ctl00$ctl08$SubscribeChoice
-          selector: "#ctl00_ctl08_SubscribeChoice"
-        - name: ctl00$ctl08$ReplyChoice
-          selector: "#ctl00_ctl08_ReplyChoice_0"
-          value: Respond
+    - click_on:
+        - value: Respond
+          selector: input#ctl00_ctl08_ReplyChoice_0
+    - wait:
+        - value: 1
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl08_SubmitButton"
