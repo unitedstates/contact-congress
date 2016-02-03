@@ -168,10 +168,10 @@ contact_form:
             Veterans: VET
             Water/Rivers: RES
             Welfare: WEL
-    - uncheck:
-        - name: _FTSubscribe
-          selector: "#_FTSubscribe"
-          value: "1"
+    - click_on:
+        - selector: input#_FTSubscribe
+    - find:
+        - selector: div.buttonHolder input
     - click_on:
         - value: Submit
           selector: div.buttonHolder input
@@ -179,4 +179,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for&nbsp;taking the time to contact&nbsp;me
+      contains: taking the time to contact me
