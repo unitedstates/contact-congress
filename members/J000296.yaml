@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://jolly.house.gov/contact/email-me"
+    - visit: "http://jolly.house.gov/contact/"
     - fill_in:
         - name: zip5
           selector: "#required-zip5"
@@ -14,8 +14,8 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Next Step
-          selector: "#submit"
+        - value: Go To Next Step
+          selector: form#emailForm input#submit
     - fill_in:
         - name: prefix
           selector: "#prefix"

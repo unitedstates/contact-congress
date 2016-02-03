@@ -3,125 +3,75 @@ contact_form:
   method: post
   action: /email-joe1/
   steps:
-    - visit: "https://courtney.house.gov/email-joe1"
+    - visit: "https://courtney.house.gov/contact/email"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: zip5
+          selector: input#required-zip5
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: input#zip4
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: form#emailForm button#submit
+    - find:
+        - selector: input#required-first
+    - fill_in:
+        - name: first
+          selector: input#required-first
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: last
+          selector: input#required-last
           value: $NAME_LAST
           required: true
         - name: street
-          selector: "#req_street"
+          selector: input#required-address
           value: $ADDRESS_STREET
           required: true
         - name: street2
-          selector: "#address2"
+          selector: input#address2
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: "#req_city"
+          selector: input#required-city
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: email
+          selector: input#required-valid-email
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: input#required-phone
           value: $PHONE
-          required: false
+          required: true
         - name: subject
-          selector: "#req_subject"
+          selector: input#required-subject
           value: $SUBJECT
           required: true
         - name: message
-          selector: "#req_message"
+          selector: textarea#required-message
           value: $MESSAGE
           required: true
     - select:
         - name: prefix
-          selector: "#prefix"
+          selector: select#required-prefix
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
             Ms.: Ms.
             Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
             Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
             Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-        - name: issue
-          selector: "#req_issue"
+        - name: topic
+          selector: select#required-issue
           value: $TOPIC
           required: true
           options:
@@ -143,32 +93,21 @@ contact_form:
             "Veterans Affairs": "VET"
             "Welfare": "WEL"
             "Casework": "CASEWORK"
+            "Tour and Flag Requests": "Tour and Flag Requests"
             "Other Issues": "MISC"
         - name: response
-          selector: "#response"
+          selector: select#required-response
           value: "Yes"
-          required: false
+          required: true
           options:
             "Yes": "Yes"
-            "No": "No"
-    - uncheck:
-        - name: newsletter
-          selector: "#newsletter"
-          value: ENEWS.SUBSCRIBE
-        - name: newsletter2
-          selector: "#newsletter2"
-          value: ENEWS.SENIORS
-        - name: newsletter3
-          selector: "#newsletter3"
-          value: ENEWS.GRANTS
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - value: Send Email to Representative Courtney
+          selector: form#contactForm button#submit
     - find:
-        - value: THANK YOU
-          selector: "h1"
+        - selector: span.data
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: "your message has been sent."

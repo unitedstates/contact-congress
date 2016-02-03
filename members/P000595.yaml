@@ -4,6 +4,8 @@ contact_form:
   action: "https://www.peters.senate.gov/contact/email-gary"
   steps:
     - visit: "https://www.peters.senate.gov/contact/email-gary"
+    - find:
+        - selector: select#actions
     - select:
         - name: actions
           selector: "#actions"

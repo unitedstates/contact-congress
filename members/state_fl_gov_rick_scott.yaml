@@ -13,6 +13,10 @@ contact_form:
           selector: "form.wpcf7-form input[name='email']"
           value: $EMAIL
           required: true
+        - name: phone
+          selector: form.wpcf7-form input[name='tel-295']
+          value: $PHONE
+          required: false
         - name: zip
           selector: "form.wpcf7-form input[name='zip']"
           value: $ADDRESS_ZIP5
@@ -28,8 +32,10 @@ contact_form:
     - click_on:
         - value: Send
           selector: input.wpcf7-form-control.wpcf7-submit
+    - wait:
+        - value: 1
     - find:
-        - selector: ".wpcf7-mail-sent-ok"
+        - selector: div.wpcf7-mail-sent-ok
   success:
     headers:
       status: 200
