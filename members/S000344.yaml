@@ -57,10 +57,6 @@ contact_form:
           selector: "#required-message"
           value: $MESSAGE
           required: true
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: "TRUE"
     - click_on:
         - value: Send Email
           selector: "#submit"
@@ -69,4 +65,3 @@ contact_form:
       status: 200
     body:
       contains: "The following information has been submitted:"
-
