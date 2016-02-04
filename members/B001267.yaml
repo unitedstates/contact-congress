@@ -4,7 +4,7 @@ contact_form:
   action: /?p=contact
   steps:
     - visit: "http://www.bennet.senate.gov/?p=contact"
-    - find: 
+    - find:
         - selector: "#gen-fieldid-3"
     - fill_in:
         - name: firstName
@@ -19,6 +19,10 @@ contact_form:
           selector: "#gen-fieldid-7"
           value: $ADDRESS_STREET
           required: true
+        - name: Address2
+          selector: "#gen-fieldid-9"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: city
           selector: "#gen-fieldid-11"
           value: $ADDRESS_CITY
@@ -53,7 +57,6 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            "-- please select a prefix --": "null"
             Mr.: Mr.
             Mrs.: Mrs.
             Ms.: Ms.
@@ -83,7 +86,6 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            "-- please select a topic --": "null"
             Agriculture: Agriculture
             Animal Rights: Animal Rights
             Banking and Financial Services: Banking and Financial Services
