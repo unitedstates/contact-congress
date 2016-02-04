@@ -97,10 +97,10 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other Issues: OTH
-    - uncheck:
-        - name: newsletter
-          selector: "#newsletter"
-          value: "1"
+    - click_on:
+        - selector: input#newsletter
+    - find:
+        - selector: "#submitButton"
     - click_on:
         - value: Send Email
           selector: "#submitButton"
