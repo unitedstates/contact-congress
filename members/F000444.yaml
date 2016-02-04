@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "http://www.flake.senate.gov/public/index.cfm/contact-jeff"
+    - find:
+        - selector: "#field_6f2ba101-f309-4d6d-94df-6e3a1c86ad7d"
     - fill_in:
         - name: firstName
           selector: "#field_6f2ba101-f309-4d6d-94df-6e3a1c86ad7d"
