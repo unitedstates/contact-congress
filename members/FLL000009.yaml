@@ -6,9 +6,11 @@ contact_form:
     - visit: "https://www.flsenate.gov/Senators/s28"
     - click_on:
         - value: Contact
-          selector: ".contactSenator"
+          selector: div#sidebar a.contactSenator
     - wait:
         - value: 5
+    - find:
+        - selector: textarea#Comment
     - fill_in:
         - name: message
           selector: "#Comment"

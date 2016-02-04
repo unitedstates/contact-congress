@@ -4,17 +4,15 @@ contact_form:
   action: http://www.rounds.senate.gov/contact/email-mike
   steps:
     - visit: "http://www.rounds.senate.gov/contact/email-mike"
+    - find:
+      - selector: "#actions"
     - select:
       - name: topic
         selector: "#actions"
         value: "Share"
         required: Yes
         options:
-          - "Share your opinions or comment on legislation or issues"
-          - "Scheduling Request"
-          - "Help with a federal agency"
-          - "Tour Request"
-          - "Request a flag to be flown over the Capitol"
+          "Share your opinions or comment on legislation or issues": "Share your opinions or comment on legislation or issues"
     - find:
       - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
@@ -30,6 +28,10 @@ contact_form:
           selector: "#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D"
           value: $ADDRESS_STREET
           required: true
+        - name: "address2"
+          selector: input#input-AB5B6853-4040-F985-52CD-7517D971BE75
+          value: $ADDRESS_STREET_2
+          required: false
         - name: "city"
           selector: "#input-AB5B6875-4040-F985-52CD-909541CB4B6C"
           value: $ADDRESS_CITY
@@ -53,7 +55,7 @@ contact_form:
         - name: "subject"
           selector: "#input-FB39F9E5-5056-A066-6090-70989F519869"
           value: $SUBJECT
-          required: false
+          required: true
         - name: "message"
           selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
           value: $MESSAGE
@@ -203,36 +205,36 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            - Aging
-            - Agriculture
-            - Banking, Housing and Urban Affairs
-            - Budget
-            - Crime, Drugs, and Law Enforcement
-            - Cyber Security
-            - Economy
-            - Education
-            - Energy & Environment
-            - Environmental Protection Agency and Army Corp. of Engineers
-            - Family Issues
-            - Foreign Affairs
-            - Health
-            - Interior and National Parks
-            - Judicial
-            - Labor
-            - Life Issues
-            - Medicare and Medicaid
-            - Military and Defense
-            - NASA
-            - Native American Policy
-            - Other
-            - Science, Technology, and Telecom
-            - Second Amendment
-            - Small Business
-            - Social Security
-            - Taxes
-            - Trade
-            - Transportation
-            - Veterans
+            Aging: Aging
+            Agriculture: Agriculture
+            Banking, Housing and Urban Affairs: Banking, Housing and Urban Affairs
+            Budget: Budget
+            Crime, Drugs, and Law Enforcement: Crime, Drugs, and Law Enforcement
+            Cyber Security: Cyber Security
+            Economy: Economy
+            Education: Education
+            Energy & Environment: Energy & Environment
+            Environmental Protection Agency and Army Corp. of Engineers: Environmental Protection Agency and Army Corp. of Engineers
+            Family Issues: Family Issues
+            Foreign Affairs: Foreign Affairs
+            Health: Health
+            Interior and National Parks: Interior and National Parks
+            Judicial: Judicial
+            Labor: Labor
+            Life Issues: Life Issues
+            Medicare and Medicaid: Medicare and Medicaid
+            Military and Defense: Military and Defense
+            NASA: NASA
+            Native American Policy: Native American Policy
+            Other: Other
+            Science, Technology, and Telecom: Science, Technology, and Telecom
+            Second Amendment: Second Amendment
+            Small Business: Small Business
+            Social Security: Social Security
+            Taxes: Taxes
+            Trade: Trade
+            Transportation: Transportation
+            Veterans: Veterans
     - click_on:
         - value: Submit
           selector: "input[value='Submit']"

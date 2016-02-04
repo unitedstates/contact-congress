@@ -4,47 +4,48 @@ contact_form:
   action: http://www.mccain.senate.gov/public/index.cfm/contact-form
   steps:
     - visit: http://www.mccain.senate.gov/public/index.cfm/contact-form
+    - find:
+      - selector: input#field_D5A73635-88FA-4B32-B8B5-274D2F97D77E
     - fill_in:
-      - name: field_d5a73635-88fa-4b32-b8b5-274d2f97d77e
-        selector: "#field_d5a73635-88fa-4b32-b8b5-274d2f97d77e"
+      - name: fname
+        selector: input#field_D5A73635-88FA-4B32-B8B5-274D2F97D77E
         value: "$NAME_FIRST"
         required: true
-      - name: field_530365c1-9d19-4874-8e05-15cf67df77fa
-        selector: "#field_530365c1-9d19-4874-8e05-15cf67df77fa"
+      - name: lname
+        selector: input#field_530365C1-9D19-4874-8E05-15CF67DF77FA
         value: "$NAME_LAST"
         required: true
-      - name: field_9f996d75-2053-4808-a6cb-fa827927f477
-        selector: "#field_9f996d75-2053-4808-a6cb-fa827927f477"
+      - name: street
+        selector: input#field_9F996D75-2053-4808-A6CB-FA827927F477
         value: "$ADDRESS_STREET"
         required: true
-      - name: field_e6cb6a76-6a8f-4611-927b-ca2b46c7b911
-        selector: "#field_e6cb6a76-6a8f-4611-927b-ca2b46c7b911"
+      - name: street2
+        selector: input#field_E6CB6A76-6A8F-4611-927B-CA2B46C7B911
         value: "$ADDRESS_STREET_2"
-      - name: field_cdb2c870-0a38-4862-9ba2-83b5e7099e4c
-        selector: "#field_cdb2c870-0a38-4862-9ba2-83b5e7099e4c"
+        required: false
+      - name: city
+        selector: input#field_CDB2C870-0A38-4862-9BA2-83B5E7099E4C
         value: "$ADDRESS_CITY"
         required: true
-      - name: field_edcb31bc-046a-4ced-af15-678947ac8be8
-        selector: "#field_edcb31bc-046a-4ced-af15-678947ac8be8"
+      - name: zip5
+        selector: input#field_EDCB31BC-046A-4CED-AF15-678947AC8BE8
         value: "$ADDRESS_ZIP5"
         required: true
-      - name: field_47697f5b-b18a-4d75-a6eb-0b5d92cd9ee5
-        selector: "#field_47697f5b-b18a-4d75-a6eb-0b5d92cd9ee5"
+      - name: phone
+        selector: input#field_47697F5B-B18A-4D75-A6EB-0B5D92CD9EE5
         value: "$PHONE"
-      - name: field_c3328bb8-9b28-4dd9-8db4-a758a4cb35e4
-        selector: "#field_c3328bb8-9b28-4dd9-8db4-a758a4cb35e4"
-        value: "$PHONE"
-      - name: field_775ed1f8-c016-4685-9e4f-785268d148a6
-        selector: "#field_775ed1f8-c016-4685-9e4f-785268d148a6"
+        required: false
+      - name: email
+        selector: input#field_775ED1F8-C016-4685-9E4F-785268D148A6
         value: "$EMAIL"
         required: true
-      - name: field_5d52282e-1edb-4cd7-abb8-5f940bdb0ea1
-        selector: "#field_5d52282e-1edb-4cd7-abb8-5f940bdb0ea1"
+      - name: message
+        selector: textarea#field_5D52282E-1EDB-4CD7-ABB8-5F940BDB0EA1
         value: "$MESSAGE"
         required: true
     - select:
-      - name: field_fabf1d80-94c6-4e2f-a4b6-6a1ffd08b5c4
-        selector: "#field_fabf1d80-94c6-4e2f-a4b6-6a1ffd08b5c4"
+      - name: prefix
+        selector: select#field_FABF1D80-94C6-4E2F-A4B6-6A1FFD08B5C4
         value: $NAME_PREFIX
         required: true
         options:
@@ -52,8 +53,8 @@ contact_form:
           Mrs.: Mrs.
           Ms.: Ms.
           Mr. and Mrs.: Mr. and Mrs.
-      - name: field_7a47a752-056a-4df4-9782-5782f68587c0
-        selector: "#field_7a47a752-056a-4df4-9782-5782f68587c0"
+      - name: topic
+        selector: select#field_7A47A752-056A-4DF4-9782-5782F68587C0
         value: $TOPIC
         required: true
         options:
@@ -92,11 +93,14 @@ contact_form:
           Wildlife: WIGE
     - click_on:
       - value: Response
-        selector: "#field_38fba043-11a4-46cc-be06-78afff4ce884_1"
+        selector: input#field_38FBA043-11A4-46CC-BE06-78AFFF4CE884_1
+    - find:
+      - selector: div.buttonHolder input.btn-primary
+    - click_on:
       - value: Submit
-        selector: ".btn-primary"
+        selector: div.buttonHolder input.btn-primary
   success:
     headers:
       status: 200
     body:
-      contains: "Thank You!"
+      contains: "Your comment has been submitted."
