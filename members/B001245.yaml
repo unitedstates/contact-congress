@@ -12,6 +12,8 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
+    - find:
+        - selector: "#required-first"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -33,28 +35,16 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
         - name: required-valid-email
-          selector: "#required-valid-email"
+          selector: input#required-valid-email
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: input#required-phone
           value: $PHONE
-          required: false
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
           required: true
         - name: required-message
-          selector: "#required-message"
+          selector: textarea#required-message
           value: $MESSAGE
           required: true
     - select:
@@ -111,6 +101,12 @@ contact_form:
             Veterans: VET
             "Women's Issues": WOMEN
             Other Issues: OTHER
+        - name: response
+          selector: select#required-response
+          value: "Yes, please contact me"
+          required: true
+          options:
+            Yes, please contact me: Yes, please contact me
     - click_on:
         - value: Send Email
           selector: "#submit"
@@ -118,4 +114,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted"
+      contains: your message has been sent
