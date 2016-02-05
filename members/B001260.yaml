@@ -12,17 +12,15 @@ contact_form:
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: input#submit
+    - find:
+        - selector: input#required-first
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
-          selector: "#required-first"
+          selector: input#required-first
           value: $NAME_FIRST
           required: true
         - name: required-last
@@ -54,6 +52,20 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: select#prefix
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            "Mr. & Mrs.": "Mr. & Mrs."
+            Rev.: Rev.
+            Dr.: Dr.
+            Hon.: Hon.
+            Rabbi: Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -83,8 +95,12 @@ contact_form:
             "Women's Issues": WOMEN
             Other Issues: OTHER
     - click_on:
+        - selector: input#response
+    - find:
+        - selector: input#submit
+    - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: input#submit
     - find:
         - value: The following information has been submitted
           selector: "p"
