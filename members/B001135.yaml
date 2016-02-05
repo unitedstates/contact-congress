@@ -6,19 +6,15 @@ contact_form:
     - visit: "http://www.burr.senate.gov/contact/email"
     - select:
         - name: actions
-          selector: "#actions"
-          value: opinion
+          selector: select#actions
+          value: Send an email to comment on legislation
           required: true
           options:
-            "--Select an Option--": select
-            Send an email to comment on legislation: opinion
-            Help with a Federal Agency: Help with a Federal Agency
-            Scheduling Requests: Scheduling Requests
-            Office Locations: Office Locations
+            Send an email to comment on legislation: Send an email to comment on legislation
     - wait:
-        - value: 1
+        - value: 3
     - find:
-        - selector: "#fname"
+        - selector: input#fname
     - fill_in:
         - name: fname
           selector: "#fname"
