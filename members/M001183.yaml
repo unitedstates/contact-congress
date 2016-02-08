@@ -1,52 +1,54 @@
 bioguide: M001183
 contact_form:
   method: POST
-  action: http://www.manchin.senate.gov/public/index.cfm/contact-form
+  action: ""
   steps:
     - visit: http://www.manchin.senate.gov/public/index.cfm/contact-form
     - fill_in:
-      - name: field_2b2ec1af-f595-4c6d-8679-17dc5235dc9d
-        selector: "#field_2b2ec1af-f595-4c6d-8679-17dc5235dc9d"
+      - name: first
+        selector: input#field_2B2EC1AF-F595-4C6D-8679-17DC5235DC9D
         value: $NAME_FIRST
-        required: Yes
-      - name: field_573cec11-763e-4721-9f2e-d534e4fa8a7e
-        selector: "#field_573cec11-763e-4721-9f2e-d534e4fa8a7e"
+        required: true
+      - name: last
+        selector: input#field_573CEC11-763E-4721-9F2E-D534E4FA8A7E
         value: $NAME_LAST
-        required: yes
-      - name: field_459d6e93-ea89-4a7d-b84f-9e9582edf1a5
-        selector: "#field_459d6e93-ea89-4a7d-b84f-9e9582edf1a5"
+        required: true
+      - name: street
+        selector: input#field_459D6E93-EA89-4A7D-B84F-9E9582EDF1A5
         value: $ADDRESS_STREET
-        required: Yes
-      - name: field_e718ec4b-6691-49d7-82c7-eedd5ede1789
-        selector: "#field_e718ec4b-6691-49d7-82c7-eedd5ede1789"
+        required: true
+      - name: street2
+        selector: input#field_E718EC4B-6691-49D7-82C7-EEDD5EDE1789
         value: $ADDRESS_STREET_2
-      - name: field_70607b58-2837-4789-a817-b0d6bac2742d
-        selector: "#field_70607b58-2837-4789-a817-b0d6bac2742d"
+      - name: city
+        selector: input#field_70607B58-2837-4789-A817-B0D6BAC2742D
         value: $ADDRESS_CITY
-        required: Yes
-      - name: field_7c42f6e5-d1dd-4843-a5d3-7730af8ed4fd
-        selector: "#field_7c42f6e5-d1dd-4843-a5d3-7730af8ed4fd"
+        required: true
+      - name: zip5
+        selector: input#field_7C42F6E5-D1DD-4843-A5D3-7730AF8ED4FD
         value: $ADDRESS_ZIP5
-        required: Yes
-      - name: field_0e1209a3-f2fd-4f29-bb48-7e41d87bd40d
-        selector: "#field_0e1209a3-f2fd-4f29-bb48-7e41d87bd40d"
+        required: true
+      - name: phone
+        selector: input#field_0E1209A3-F2FD-4F29-BB48-7E41D87BD40D
         value: $PHONE
-      - name: field_13fee0ec-ac8c-4fce-968a-c3996732f06b
-        selector: "#field_13fee0ec-ac8c-4fce-968a-c3996732f06b"
+        required: false
+      - name: email
+        selector: input#field_13FEE0EC-AC8C-4FCE-968A-C3996732F06B
         value: $EMAIL
-        required: Yes
-      - name: field_82faa3c6-43f8-4ed3-bc83-386cb96469bf
-        selector: "#field_82faa3c6-43f8-4ed3-bc83-386cb96469bf"
+        required: true
+      - name: subject
+        selector: input#field_82FAA3C6-43F8-4ED3-BC83-386CB96469BF
         value: $SUBJECT
-        required: Yes
-      - name: field_e5e07fdc-f54e-43f0-a0c2-0fa4df24a4ae
-        selector: "#field_e5e07fdc-f54e-43f0-a0c2-0fa4df24a4ae"
+        required: true
+      - name: message
+        selector: textarea#field_E5E07FDC-F54E-43F0-A0C2-0FA4DF24A4AE
         value: $MESSAGE
+        required: true
     - select:
-      - name: field_2ce505fa-c0ab-4e5d-b984-a0dc7219f6bd
-        selector: "#field_2ce505fa-c0ab-4e5d-b984-a0dc7219f6bd"
+      - name: prefix
+        selector: select#field_2CE505FA-C0AB-4E5D-B984-A0DC7219F6BD
         value: $NAME_PREFIX
-        required: Yes
+        required: true
         options:
           "Mr.": "Mr."
           "Ms.": "Ms."
@@ -62,17 +64,10 @@ contact_form:
           "The Honorable": "The Honorable"
           "Representative": "Representative"
           "Senator": "Senator"
-    - select:
-      - name: field_8ea2327b-8ce4-44da-b35d-66afdd64924f
-        selector: "#field_8ea2327b-8ce4-44da-b35d-66afdd64924f"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
-        options: US_STATES_AND_MPCS
-    - select:
-      - name: field_6c9d8eee-c551-4bf1-8324-5134c01dd93a
-        selector: "#field_6c9d8eee-c551-4bf1-8324-5134c01dd93a"
+      - name: topic
+        selector: select#field_6C9D8EEE-C551-4BF1-8324-5134C01DD93A
         value: $TOPIC
-        required: Yes
+        required: true
         options:
           "Abortion": "ABO"
           "Aging / Children / Families": "AGE"
@@ -107,10 +102,10 @@ contact_form:
           "Transportation": "TRA"
           "Veterans": "VET"
           "Welfare": "WEL"
-          "Other": "GEN"
+          "Other": "Other"
     - click_on:
-      - value: "Submit"
-        selector: "div.buttonHolder input[type=submit]"
+      - value: Submit
+        selector: div.buttonHolder input
   success:
     headers:
       status: 200

@@ -1,23 +1,11 @@
 bioguide: Y000064
 contact_form:
   method: post
-  action: /give-me-your-opinion/
+  action: ""
   steps:
     - visit: "https://toddyoungforms.house.gov/give-me-your-opinion"
-    - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go to Form
-          selector: input.button
     - find:
-        - selector: "#custom_form21"
+        - selector: form#custom_form21
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -39,11 +27,11 @@ contact_form:
           selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
+        - name: zip5
           selector: "#req_zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
+        - name: zip4
           selector: "#zip2"
           value: $ADDRESS_ZIP4
           required: false
@@ -73,37 +61,36 @@ contact_form:
             Hon.: Hon.
             Rev.: Rev.
             Rabbi: Rabbi
-        - name: subject
+        - name: topic
           selector: "#req_subject"
           value: $TOPIC
           required: true
           options:
-            Jobs and the Economy: ECON
-            "Budget, Government Spending, National Debt": BUD
-            "Medicare, Social Security, Medicaid, Welfare": ENT
-            "Tax Rates, Tax Code, the IRS": TAX
-            Health Care: HLTH
-            "Agriculture, Farming, Food & Nutrition": AG
-            "Marriage, Adoption, Family Issues": FAM
-            "Education, Student Loans, Teachers": EDU
-            "Energy, Cap and Trade, Domestic Drilling": ENR
-            Foreign Affairs: FOR
-            "Military, Department of Defense, Afghanistan, Iraq": DEF
-            "Immigration, Border Protection, Amnesty": IMM
-            "Judicial Branch, Law Enforcement, 2nd Amendment": JUD
-            "Transportation & Infrastructure, Highways, Bridges": TI
-            Veterans Affairs: VET
-            Other: OTH
+            Jobs and the Economy: Jobs and the Economy
+            "Budget, Government Spending, National Debt": "Budget, Government Spending, National Debt"
+            "Medicare, Social Security, Medicaid, Welfare": "Medicare, Social Security, Medicaid, Welfare"
+            "Tax Rates, Tax Code, the IRS": "Tax Rates, Tax Code, the IRS"
+            Health Care: Health Care
+            "Agriculture, Farming, Food & Nutrition": "Agriculture, Farming, Food & Nutrition"
+            "Marriage, Adoption, Family Issues": "Marriage, Adoption, Family Issues"
+            "Education, Student Loans, Teachers": "Education, Student Loans, Teachers"
+            "Energy, Cap and Trade, Domestic Drilling": "Energy, Cap and Trade, Domestic Drilling"
+            Foreign Affairs: Foreign Affairs
+            "Military, Department of Defense, Afghanistan, Iraq": "Military, Department of Defense, Afghanistan, Iraq"
+            "Immigration, Border Protection, Amnesty": "Immigration, Border Protection, Amnesty"
+            "Judicial Branch, Law Enforcement, 2nd Amendment": "Judicial Branch, Law Enforcement, 2nd Amendment"
+            "Transportation & Infrastructure, Highways, Bridges": "Transportation & Infrastructure, Highways, Bridges"
+            Veterans Affairs: Veterans Affairs
+            Other: Other
         - name: response
           selector: "#req_response"
-          value: "ii"
+          value: "I would like a response."
           required: true
           options:
-            I do not need a response.: "i"
-            I would like a response.: "ii"
+            "I would like a response.": "I would like a response."
     - click_on:
         - value: Submit
-          selector: "#submitButton"
+          selector: input#submitButton
   success:
     headers:
       status: 200

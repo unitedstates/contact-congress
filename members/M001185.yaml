@@ -15,7 +15,7 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: form#emailForm input#submit
     - find:
         - selector: "#required-prefix"
     - fill_in:
@@ -98,10 +98,6 @@ contact_form:
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: Email.Optin
     - click_on:
         - value: Send Email
           selector: "#submit"
@@ -110,4 +106,3 @@ contact_form:
       status: 200
     body:
       contains: Thank You
-

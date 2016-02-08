@@ -1,76 +1,121 @@
 bioguide: L000551
 contact_form:
-  method: get
-  action: /forms/writeyourrep/
+  method: post
+  action: ""
   steps:
-    - visit: "https://barbaralee.house.gov/contact/"
+    - visit: http://lee.house.gov/contact-the-office/email-me
     - fill_in:
         - name: zip5
-          selector: "form.zipform input[name='zip5']"
+          selector: input#required-zip5
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "form.zipform input[name='zip4']"
+          selector: input#zip4
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
+        - value: Go To Next Step
+          selector: form#emailForm button#submit
     - find:
-        - selector: "#ctl00_ctl30_PrefixList"
+        - selector: input#required-first
     - fill_in:
-        - name: ctl00$ctl30$FirstName
-          selector: "#ctl00_ctl30_FirstName"
+        - name: prefix
+          selector: input#prefix
+          value: $NAME_PREFIX
+          required: false
+        - name: first
+          selector: input#required-first
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl30$LastName
-          selector: "#ctl00_ctl30_LastName"
+        - name: last
+          selector: input#required-last
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl30$Street
-          selector: "#ctl00_ctl30_Street"
+        - name: street
+          selector: input#required-address
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl30$City
-          selector: "#ctl00_ctl30_City"
+        - name: street2
+          selector: input#address2
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: input#required-city
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl30$Zip
-          selector: "#ctl00_ctl30_Zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: ctl00$ctl30$Phone
-          selector: "#ctl00_ctl30_Phone"
-          value: $PHONE
-          required: true
-        - name: ctl00$ctl30$Email
-          selector: "#ctl00_ctl30_Email"
+        - name: email
+          selector: input#required-valid-email
           value: $EMAIL
           required: true
-        - name: ctl00$ctl30$Subject
-          selector: "#ctl00_ctl30_Subject"
+        - name: phone
+          selector: input#required-phone
+          value: $PHONE
+          required: true
+        - name: subject
+          selector: input#required-subject
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl30$Body
-          selector: "#ctl00_ctl30_Body"
+        - name: message
+          selector: textarea#required-message
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl30$PrefixList
-          selector: "#ctl00_ctl30_PrefixList"
-          value: $NAME_PREFIX
+        - name: topic
+          selector: select#required-issue
+          value: $TOPIC
           required: true
           options:
-            Mr.: Mr.
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Dr.: Dr.
-            Miss.: Miss.
+            Agriculture: Agriculture
+            Animals: Animals
+            Arts and Humanities: Arts and Humanities
+            Banking and Finance: Banking and Finance
+            Budget and Economy: Budget and Economy
+            Campaign Finance Reform: Campaign Finance Reform
+            Congress and Elections: Congress and Elections
+            "District of Columbia--Tours": "District of Columbia--Tours"
+            Defense and Military: Defense and Military
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Federal Employees: Federal Employees
+            Foreign Relations: Foreign Relations
+            Government Reform: Government Reform
+            Guns: Guns
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing and Urban Development: Housing and Urban Development
+            Immigration: Immigration
+            International Relations: International Relations
+            Judiciary: Judiciary
+            Labor: Labor
+            LGBT: LGBT
+            No Response Necessary: No Response Necessary
+            Post Office: Post Office
+            Science and Technology: Science and Technology
+            Social Issues: Social Issues
+            Senior Citizens: Senior Citizens
+            Social Security: Social Security
+            Social Services: Social Services
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Transportation: Transportation
+            Trade: Trade
+            Veterans: Veterans
+            "Women's Issues": "Women's Issues"
+            Welfare: Welfare
+            Other Issues: Other Issues
+        - name: response
+          selector: select#required-response
+          value: "Yes, please contact me"
+          required: true
+          options:
+            "Yes, please contact me": "Yes, please contact me"
     - click_on:
-        - value: Submit
-          selector: "#ctl00_ctl30_SubmitButton"
+        - value: Send Email to Representative Lee
+          selector: form#contactForm button#submit
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for taking the time to contact me, your correspondence helps me better represent our district."
+      contains: "The following information has been submitted:"

@@ -15,7 +15,7 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+          selector: form#emailForm input#submit
     - find:
         - selector: "#prefix"
     - fill_in:

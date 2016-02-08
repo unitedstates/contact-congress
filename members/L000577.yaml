@@ -1,54 +1,51 @@
 bioguide: L000577
 contact_form:
   method: POST
-  action: http://www.lee.senate.gov/public/index.cfm/contact
+  action: ""
   steps:
     - visit: http://www.lee.senate.gov/public/index.cfm/contact
     - fill_in:
-      - name: field_2a51781a-213d-4dc2-9293-3efed302483e
-        selector: "#field_2a51781a-213d-4dc2-9293-3efed302483e"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_1b394f62-2287-4028-830b-803d149d560f
-        selector: "#field_1b394f62-2287-4028-830b-803d149d560f"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_0c59597d-7e2c-417d-a1a0-3f0f251d2dcf
-        selector: "#field_0c59597d-7e2c-417d-a1a0-3f0f251d2dcf"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_47aed200-7fb8-4632-9245-6f8c0a4c9af2
-        selector: "#field_47aed200-7fb8-4632-9245-6f8c0a4c9af2"
-        value: "$ADDRESS_STREET_2"
-      - name: field_c0ccf7df-2f14-4e1c-9a70-7d76feead56a
-        selector: "#field_c0ccf7df-2f14-4e1c-9a70-7d76feead56a"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_46120286-e428-43a6-b615-8c2d10c7b85c
-        selector: "#field_46120286-e428-43a6-b615-8c2d10c7b85c"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_b30bf750-620c-463a-abe4-96a152981195
-        selector: "#field_b30bf750-620c-463a-abe4-96a152981195"
-        value: "$PHONE"
-      - name: field_ff2cc3a1-aa06-464f-9547-0ddd5b8a51ad
-        selector: "#field_ff2cc3a1-aa06-464f-9547-0ddd5b8a51ad"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_f346ae03-8294-4f38-b762-fce94ed239af
-        selector: "#field_f346ae03-8294-4f38-b762-fce94ed239af"
-        value: "$MESSAGE"
-        required: Yes
+      - name: first
+        selector: input#field_2A51781A-213D-4DC2-9293-3EFED302483E
+        value: $NAME_FIRST
+        required: true
+      - name: last
+        selector: input#field_1B394F62-2287-4028-830B-803D149D560F
+        value: $NAME_LAST
+        required: true
+      - name: street
+        selector: input#field_0C59597D-7E2C-417D-A1A0-3F0F251D2DCF
+        value: $ADDRESS_STREET
+        required: true
+      - name: street2
+        selector: input#field_47AED200-7FB8-4632-9245-6F8C0A4C9AF2
+        value: $ADDRESS_STREET_2
+        required: false
+      - name: city
+        selector: input#field_C0CCF7DF-2F14-4E1C-9A70-7D76FEEAD56A
+        value: $ADDRESS_CITY
+        required: true
+      - name: zip5
+        selector: input#field_46120286-E428-43A6-B615-8C2D10C7B85C
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: phone
+        selector: input#field_B30BF750-620C-463A-ABE4-96A152981195
+        value: $PHONE
+        required: false
+      - name: email
+        selector: input#field_FF2CC3A1-AA06-464F-9547-0DDD5B8A51AD
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: textarea#field_F346AE03-8294-4F38-B762-FCE94ED239AF
+        value: $MESSAGE
+        required: true
     - select:
-      - name: field_99a9d53f-bc16-428f-8d09-a237c733995d
-        selector: "#field_99a9d53f-bc16-428f-8d09-a237c733995d"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: field_7572e5ca-9879-4ab3-9c06-24514d6b57f4
-        selector: "#field_7572e5ca-9879-4ab3-9c06-24514d6b57f4"
-        value: "$TOPIC"
-        required: Yes
+      - name: topic
+        selector: select#field_7572E5CA-9879-4AB3-9C06-24514D6B57F4
+        value: $TOPIC
+        required: true
         options:
           "Agriculture/Forestry": "Agriculture & Forestry"
           "Appropriations": "Appropriations"
@@ -75,8 +72,12 @@ contact_form:
           "NASA/Science Issues": "NASA"
           "MIlitary/Defense": "Military Issues"
     - click_on:
+      - selector: input#field_E5D28FE4-5B68-4619-9940-81168686475D_2
+    - find:
+      - selector: div.buttonHolder input.btn-primary
+    - click_on:
       - value: Submit
-        selector: ".buttonHolder input"
+        selector: div.buttonHolder input.btn-primary
   success:
     headers:
       status: 200

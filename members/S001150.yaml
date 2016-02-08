@@ -4,22 +4,19 @@ contact_form:
   action: /contact/
   steps:
     - visit: "https://schiff.house.gov/contact"
+    - find:
+        - selector: select#subject
     - select:
         - name: subject
-          selector: "#subject"
-          value: share
+          selector: select#subject
+          value: Share your opinion or comments on bills or other issues
           required: true
           options:
-            Get Help: request
-            Federal Agency Help: federal_agency
-            Request a flag to be flown over the Capitol flag: flag
-            Request a greeting or commemorative message message: message
-            Schedule a Meeting: meeting
-            Share your opinion or comments on bills or other issues: opinion
+            Share your opinion or comments on bills or other issues: Share your opinion or comments on bills or other issues
     - click_on:
-        - selector: "#contact-sam-main"
+        - selector: div#contact-sam-main
     - wait:
-        - value: 5
+        - value: 8
     - find:
       - selector: "#fname"
     - fill_in:
@@ -55,7 +52,7 @@ contact_form:
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: "input_3629D55A-D2E7-5DF0-4EC9-CF7353DD9A7D"
+        - name: verify-email
           selector: "#input-3629D55A-D2E7-5DF0-4EC9-CF7353DD9A7D"
           value: $EMAIL
           required: true
@@ -249,10 +246,12 @@ contact_form:
             "Veterans": "Veterans"
             "Women's Rights/Choice": "Women"
     - click_on:
-        - selector: "label[for='subscribe']"
+        - selector: input#subscribe
+    - find:
+        - selector:
     - click_on:
         - value: Submit
-          selector: "input[type='submit'][value='Submit']"
+          selector: form#contactForm input.btn
     - wait:
         - value: 5
     - find:
