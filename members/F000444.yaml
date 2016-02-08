@@ -5,51 +5,51 @@ contact_form:
   steps:
     - visit: "http://www.flake.senate.gov/public/index.cfm/contact-jeff"
     - find:
-        - selector: "#field_6f2ba101-f309-4d6d-94df-6e3a1c86ad7d"
+        - selector: input#field_6F2BA101-F309-4D6D-94DF-6E3A1C86AD7D
     - fill_in:
         - name: firstName
-          selector: "#field_6f2ba101-f309-4d6d-94df-6e3a1c86ad7d"
+          selector: input#field_6F2BA101-F309-4D6D-94DF-6E3A1C86AD7D
           value: $NAME_FIRST
           required: true
         - name: lastName
-          selector: "#field_a25e1505-6d87-455e-9f4a-524c8394129a"
+          selector: input#field_A25E1505-6D87-455E-9F4A-524C8394129A
           value: $NAME_LAST
           required: true
         - name: Address1
-          selector: "#field_c7a1518e-cd55-43d5-a88f-2e64293bee0c"
+          selector: input#field_C7A1518E-CD55-43D5-A88F-2E64293BEE0C
           value: $ADDRESS_STREET
           required: true
         - name: Address2
-          selector: "#field_50badb9d-9ca8-4474-ba7d-4a1ebf3bdd38"
+          selector: input#field_50BADB9D-9CA8-4474-BA7D-4A1EBF3BDD38
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: "#field_7ecda6cf-a296-474b-a788-3791f6aca3aa"
+          selector: input#field_7ECDA6CF-A296-474B-A788-3791F6ACA3AA
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#field_6a483fd1-64eb-47c4-842f-35e8e9fa3b71"
+        - name: zip5
+          selector: input#field_6A483FD1-64EB-47C4-842F-35E8E9FA3B71
           value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector: "#field_5eddfd5f-d667-43c1-9db0-ae36e2814cc3"
+          selector: input#field_5EDDFD5F-D667-43C1-9DB0-AE36E2814CC3
           value: $PHONE
           required: true
         - name: email
-          selector: "#field_7e770959-172a-4c9d-8720-67a027916b7d"
+          selector: input#field_7E770959-172A-4C9D-8720-67A027916B7D
           value: $EMAIL
           required: true
         - name: messageSubject
-          selector: "#field_73afa19a-4375-49c3-b145-a618657c8ee8"
+          selector: input#field_73AFA19A-4375-49C3-B145-A618657C8EE8
           value: $SUBJECT
           required: true
         - name: MessageBody
-          selector: "#field_11c08db8-4bd8-4cb6-bcc5-bcc5f4eb85b4"
+          selector: textarea#field_11C08DB8-4BD8-4CB6-BCC5-BCC5F4EB85B4
           value: $MESSAGE
           required: true
     - select:
         - name: Prefix
-          selector: "#field_fad36bbe-38f4-44c4-a418-1a7149fe811b"
+          selector: select#field_FAD36BBE-38F4-44C4-A418-1A7149FE811B
           value: $NAME_PREFIX
           required: true
           options:
@@ -66,7 +66,7 @@ contact_form:
             Representative: Representative
             Senator: Senator
         - name: State
-          selector: "#field_b2e8657c-e546-42d7-97a6-baff33e85780"
+          selector: select#field_B2E8657C-E546-42D7-97A6-BAFF33E85780
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -127,7 +127,7 @@ contact_form:
             "Wisconsin ": WI
             "Wyoming ": WY
         - name: Topic
-          selector: "#field_bf07744f-fc8c-45c9-b660-5be4f2aa0b7e"
+          selector: select#field_BF07744F-FC8C-45C9-B660-5BE4F2AA0B7E
           value: $TOPIC
           required: true
           options:
@@ -166,7 +166,7 @@ contact_form:
             "Welfare": Welfare
     - click_on:
         - value: Submit
-          selector: input.btn.btn-primary
+          selector: div.buttonHolder input.btn-primary
   success:
     headers:
       status: 200
