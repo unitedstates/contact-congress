@@ -5,44 +5,44 @@ contact_form:
   steps:
     - visit: "http://www.heller.senate.gov/public/index.cfm/contact-form"
     - fill_in:
-        - name: field_1dcd64f4-e34a-4321-8af2-b3b700d921c4
+        - name: first
           selector: "#field_1dcd64f4-e34a-4321-8af2-b3b700d921c4"
           value: $NAME_FIRST
           required: true
-        - name: field_5b6b155c-17b8-4ceb-80dd-7ddcc92dbcb9
+        - name: last
           selector: "#field_5b6b155c-17b8-4ceb-80dd-7ddcc92dbcb9"
           value: $NAME_LAST
           required: true
-        - name: field_497f41d9-bbee-4388-8b96-e7054de40441
+        - name: street
           selector: "#field_497f41d9-bbee-4388-8b96-e7054de40441"
           value: $ADDRESS_STREET
           required: true
-        - name: field_4642cced-36d2-44a8-a62c-a457b30fca1c
+        - name: street2
           selector: "#field_4642cced-36d2-44a8-a62c-a457b30fca1c"
           value: $ADDRESS_STREET_2
           required: false
-        - name: field_410e1d9d-b5e2-4229-821a-ac6c891cc5e6
+        - name: city
           selector: "#field_410e1d9d-b5e2-4229-821a-ac6c891cc5e6"
           value: $ADDRESS_CITY
           required: true
-        - name: field_8f8978f7-8148-4546-a4e9-e1963386e0d8
+        - name: zip5
           selector: "#field_8f8978f7-8148-4546-a4e9-e1963386e0d8"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_78b60da9-2eb3-402a-a2e3-4f7f39b3f556
+        - name: phone
           selector: "#field_78b60da9-2eb3-402a-a2e3-4f7f39b3f556"
           value: $PHONE
           required: false
-        - name: field_504a6bf0-239d-4981-be6e-1f4987b68c94
+        - name: email
           selector: "#field_504a6bf0-239d-4981-be6e-1f4987b68c94"
           value: $EMAIL
           required: true
-        - name: field_e954a14b-8b14-444b-914e-c1fd3d638258
+        - name: message
           selector: "#field_e954a14b-8b14-444b-914e-c1fd3d638258"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_605adcac-5e71-4b93-9035-24a1d31c5794
+        - name: prefix
           selector: "#field_605adcac-5e71-4b93-9035-24a1d31c5794"
           value: $NAME_PREFIX
           required: false
@@ -59,7 +59,7 @@ contact_form:
             Sister: Sister
             Pastor: Pastor
             Hon.: Hon.
-        - name: field_51425bd8-665d-4a9c-8e50-3ee8323dabfd
+        - name: state
           selector: "#field_51425bd8-665d-4a9c-8e50-3ee8323dabfd"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
@@ -120,54 +120,54 @@ contact_form:
             "West Virginia ": WV
             "Wisconsin ": WI
             Wyoming: WY
-        - name: field_7d523b66-8097-43d9-875c-e6715b09918f
+        - name: topic
           selector: "#field_7d523b66-8097-43d9-875c-e6715b09918f"
           value: $TOPIC
           required: true
           options:
-            Abortion: ABR
-            Agriculture: AGR
-            Animal Rights: ANI
-            Budget/Spending: BUD
-            Business: BUS
-            Civil Rights: JUD
-            Commerce: TLC
-            Congratulations/Birthdays: GEN
-            Crime/Drugs: CRI
-            Defense: DEF
-            Education: EDU
-            Elections: GOV
-            Energy: ENE
-            Environment: ENV
-            Foreign Relations: FOR
-            Government Reform: GOV
-            Health: HEA
-            Homeland Security: HLS
-            Housing: HOU
-            Immigration: IMM
-            Intelligence: HLS
-            Jobs: JOB
-            Judiciary: JUD
-            Labor: LBR
-            Parks and Public Lands: RES
-            Pension/Retirement: LBR
-            Postal: PST
-            Religion: OTR
-            Science/Technology: SCI
-            Second Amendment Rights: GUN
-            Senate Procedure: RUL
-            Small Business: BUS
-            Social Security: SOC
-            Taxes: TAX
-            Telecommunications: TLC
-            Tobacco: HEA
-            Trade: TRD
-            Transportation: TRN
-            Unemployment: LBR
-            VA Backlog: VET
-            Veterans: VET
-            Water/Rivers: RES
-            Welfare: WEL
+            Abortion: Abortion
+            Agriculture: Agriculture
+            Animal Rights: Animal Rights
+            "Budget/Spending": "Budget/Spending"
+            Business: Business
+            Civil Rights: Civil Rights
+            Commerce: Commerce
+            "Congratulations/Birthdays": "Congratulations/Birthdays"
+            "Crime/Drugs": "Crime/Drugs"
+            Defense: Defense
+            Education: Education
+            Elections: Elections
+            Energy: Energy
+            Environment: Environment
+            Foreign Relations: Foreign Relations
+            Government Reform: Government Reform
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Intelligence: Intelligence
+            Jobs: Jobs
+            Judiciary: Judiciary
+            Labor: Labor
+            Parks and Public Lands: Parks and Public Lands
+            "Pension/Retirement": "Pension/Retirement"
+            Postal: Postal
+            Religion: Religion
+            "Science/Technology": "Science/Technology"
+            Second Amendment Rights: Second Amendment Rights
+            Senate Procedure: Senate Procedure
+            Small Business: Small Business
+            Social Security: Social Security
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Tobacco: Tobacco
+            Trade: Trade
+            Transportation: Transportation
+            Unemployment: Unemployment
+            VA Backlog: VA Backlog
+            Veterans: Veterans
+            "Water/Rivers": "Water/Rivers"
+            Welfare: Welfare
     - click_on:
         - selector: input#_FTSubscribe
     - find:
@@ -179,4 +179,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: taking the time to contact me
+      contains: "I hope that you will continue to visit my website, Facebook"
