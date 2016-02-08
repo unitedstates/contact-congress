@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "http://www.gardner.senate.gov/contact-cory/email-cory"
     - wait:
-        - value: 1
+        - value: 4
     - find:
         - selector: select#actions
     - select:
@@ -16,7 +16,7 @@ contact_form:
           options:
             Share your opinions or comment on legislation or issues: Share your opinions or comment on legislation or issues
     - wait:
-        - value: 2
+        - value: 5
     - find:
         - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
@@ -265,6 +265,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "input[type='submit'][value='Submit']"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
