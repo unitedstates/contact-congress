@@ -1,56 +1,52 @@
 bioguide: C000127
 contact_form:
   method: POST
-  action: http://www.cantwell.senate.gov/public/index.cfm/email-maria
+  action: ""
   steps:
     - visit: http://www.cantwell.senate.gov/public/index.cfm/email-maria
+    - find:
+      - selector: form#form_51688F65-B665-49D7-9163-6F9328935422
     - fill_in:
-      - name: field_da0e97c6-19d2-4b50-b2f6-8cb003e27913
-        selector: "#field_da0e97c6-19d2-4b50-b2f6-8cb003e27913"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_87de2e22-62ae-4520-8b11-964e4d9a438b
-        selector: "#field_87de2e22-62ae-4520-8b11-964e4d9a438b"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_446db533-7685-4b67-bc58-a07786b68350
-        selector: "#field_446db533-7685-4b67-bc58-a07786b68350"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_3723b57c-d046-43d2-a885-daaea4a6b81b
-        selector: "#field_3723b57c-d046-43d2-a885-daaea4a6b81b"
-        value: "$ADDRESS_STREET_2"
-      - name: field_6f684076-6b0b-4e2f-9b0a-556a9bf086f3
-        selector: "#field_6f684076-6b0b-4e2f-9b0a-556a9bf086f3"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_f78762b8-0fa6-4358-a981-ffcbd410b35f
-        selector: "#field_f78762b8-0fa6-4358-a981-ffcbd410b35f"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_ddbb058b-30e2-4dde-b801-e1d7f1f3d45e
-        selector: "#field_ddbb058b-30e2-4dde-b801-e1d7f1f3d45e"
-        value: "$PHONE"
-        required: Yes
-      - name: field_0a235fd8-208a-4e9f-89a1-8365f3da6ebd
-        selector: "#field_0a235fd8-208a-4e9f-89a1-8365f3da6ebd"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_8b3c545e-254e-4902-b51b-d26db60bf711
-        selector: "#field_8b3c545e-254e-4902-b51b-d26db60bf711"
-        value: "$MESSAGE"
-        required: Yes
-      - name: field_113f8513-8ef5-4595-938c-0576c6ee6112
-        selector: "#field_113f8513-8ef5-4595-938c-0576c6ee6112"
-        value: ""
-      - name: field_1826646f-67b8-463e-b9d5-22dfff5fbbdc
-        selector: "#field_1826646f-67b8-463e-b9d5-22dfff5fbbdc"
-        value: ""
+      - name: first
+        selector: input#field_DA0E97C6-19D2-4B50-B2F6-8CB003E27913
+        value: $NAME_FIRST
+        required: true
+      - name: last
+        selector: input#field_87DE2E22-62AE-4520-8B11-964E4D9A438B
+        value: $NAME_LAST
+        required: true
+      - name: street
+        selector: input#field_446DB533-7685-4B67-BC58-A07786B68350
+        value: $ADDRESS_STREET
+        required: true
+      - name: street2
+        selector: input#field_3723B57C-D046-43D2-A885-DAAEA4A6B81B
+        value: $ADDRESS_STREET_2
+      - name: city
+        selector: input#field_6F684076-6B0B-4E2F-9B0A-556A9BF086F3
+        value: $ADDRESS_CITY
+        required: true
+      - name: zip5
+        selector: input#field_F78762B8-0FA6-4358-A981-FFCBD410B35F
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: phone
+        selector: input#field_DDBB058B-30E2-4DDE-B801-E1D7F1F3D45E
+        value: $PHONE
+        required: true
+      - name: email
+        selector: input#field_0A235FD8-208A-4E9F-89A1-8365F3DA6EBD
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: textarea#field_8B3C545E-254E-4902-B51B-D26DB60BF711
+        value: $MESSAGE
+        required: true
     - select:
-      - name: field_b537a993-bf4a-42c3-bc9f-0e91c0d064f6
-        selector: "#field_b537a993-bf4a-42c3-bc9f-0e91c0d064f6"
-        value: "$NAME_PREFIX"
-        required: Yes
+      - name: prefix
+        selector: select#field_B537A993-BF4A-42C3-BC9F-0E91C0D064F6
+        value: $NAME_PREFIX
+        required: true
         options:
           "Mr.": "Mr."
           "Mrs.": "Mrs."
@@ -64,46 +60,45 @@ contact_form:
           "Reverend": "Reverend"
           "Sister": "Sister"
           "Pastor": "Pastor"
-      - name: field_2614f508-c6c7-43d9-aaa0-5092a48f926c
-        selector: "#field_2614f508-c6c7-43d9-aaa0-5092a48f926c"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: field_6544a2ff-bc89-4c03-b786-c7927f5bc6f7
-        selector: "#field_6544a2ff-bc89-4c03-b786-c7927f5bc6f7"
+      - name: topic
+        selector: select#field_6544A2FF-BC89-4C03-B786-C7927F5BC6F7
         value: $TOPIC
         required: true
         options:
-          Agriculture: AGR.GEN
-          Border Security: BOR.SEC
-          Budget: BGT.GEN
-          Civil Liberties: CIVLIB
-          Defense: DEF
-          Economy and Jobs: JOBS
-          Education: ED
-          Energy: ENE.GEN
-          Environment: ENV.GEN
-          First Responders: FEMA
-          Foreign Affairs: FOR.GEN
-          Gun Violence: GUN CONTROL
-          Health Care: HLT.GEN
-          Housing: HOU.GEN
-          Immigration: IMM.GEN
-          Indian Affairs: INDIAN
-          Law Enforcement: LAW.ENFORCE
-          Miscellaneous: KM1
-          National Security: NAT.SEC
-          Seniors and Social Security: SS.GEN
-          Small Business: SM BUS
-          Taxes: TAX.GEN
-          Technology: TECH
-          Transportation: TRN.GEN
-          Veterans: VET.GEN
+          Agriculture: Agriculture
+          Budget: Budget
+          Department of Defense: Department of Defense
+          Department of Homeland Security: Department of Homeland Security
+          Economy and Jobs: Economy and Jobs
+          Education: Education
+          Energy: Energy
+          Environment: Environment
+          First Responders: First Responders
+          Foreign Affairs: Foreign Affairs
+          Gun Violence: Gun Violence
+          Health Care: Health Care
+          Housing: Housing
+          Immigration: Immigration
+          Indian Affairs: Indian Affairs
+          Labor: Labor
+          Law Enforcement: Law Enforcement
+          Miscellaneous: Miscellaneous
+          National Security: National Security
+          Seniors and Social Security: Social Security
+          Small Business: Small Business
+          Taxes: Taxes
+          Technology: Technology
+          Transportation: Transportation
+          Veterans: Veterans
+    - click_on:
+      - selector: input#field_1F16BF7A-1773-4479-BC8F-995D37E73F17_1
+    - find:
+      - selector: div.buttonHolder input
     - click_on:
       - value: Submit
-        selector: ".buttonHolder input"
+        selector: div.buttonHolder input
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for sharing your thoughts with us"
+      contains: "Thank you for sharing your thoughts with us."
