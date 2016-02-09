@@ -1,44 +1,52 @@
 bioguide: A000360
 contact_form:
   method: POST
-  action: http://www.alexander.senate.gov/public/index.cfm?p=Email
+  action: ""
   steps:
     - visit: http://www.alexander.senate.gov/public/index.cfm?p=Email
     - find:
       - selector: "#field_56ca2f21-5b5a-4146-8603-f37314d2fd61"
     - fill_in:
       - name: first
-        selector: "#field_56ca2f21-5b5a-4146-8603-f37314d2fd61"
-        value: "$NAME_FIRST"
+        selector: input#field_56CA2F21-5B5A-4146-8603-F37314D2FD61
+        value: $NAME_FIRST
         required: true
       - name: last
-        selector: "#field_970a3ca0-c534-4302-8823-7d4910fceacd"
-        value: "$NAME_LAST"
+        selector: input#field_970A3CA0-C534-4302-8823-7D4910FCEACD
+        value: $NAME_LAST
         required: true
       - name: street
-        selector: "#field_884bf137-ebea-4175-9269-c3e5ab6ca6ca"
-        value: "$ADDRESS_STREET"
+        selector: input#field_884BF137-EBEA-4175-9269-C3E5AB6CA6CA
+        value: $ADDRESS_STREET
         required: true
+      - name: street2
+        selector: input#field_F503B2FF-86FB-4012-89F3-9B6859889BB3
+        value: $ADDRESS_STREET_2
+        required: false
       - name: city
-        selector: "#field_05ea19c5-f508-4421-9547-2dbb6e74a6d3"
-        value: "$ADDRESS_CITY"
+        selector: input#field_05EA19C5-F508-4421-9547-2DBB6E74A6D3
+        value: $ADDRESS_CITY
         required: true
       - name: zip
-        selector: "#field_503e21fd-da3a-4853-a070-6fbba1e5e914"
-        value: "$ADDRESS_ZIP5"
+        selector: input#field_503E21FD-DA3A-4853-A070-6FBBA1E5E914
+        value: $ADDRESS_ZIP5
         required: true
+      - name: phone
+        selector: input#field_655A724F-47E5-4829-8B48-136126355A0D
+        value: $PHONE
+        required: false
       - name: email
-        selector: "#field_79586077-720a-4a8d-b87b-e36dbe3ad5b2"
-        value: "$EMAIL"
+        selector: input#field_79586077-720A-4A8D-B87B-E36DBE3AD5B2
+        value: $EMAIL
         required: true
       - name: message
-        selector: "#field_8f3514fa-978c-4985-9fde-aad3dfc611c4"
-        value: "$MESSAGE"
+        selector: textarea#field_8F3514FA-978C-4985-9FDE-AAD3DFC611C4
+        value: $MESSAGE
         required: true
     - select:
       - name: prefix
-        selector: "#field_d555ddf6-bf1e-47a6-9444-5b1f87a1ffbc"
-        value: "$NAME_PREFIX"
+        selector: select#field_D555DDF6-BF1E-47A6-9444-5B1F87A1FFBC
+        value: $NAME_PREFIX
         required: true
         options:
           "Chaplain": "Chaplain"
@@ -65,8 +73,8 @@ contact_form:
           "The Honorable and Mrs.": "The Honorable and Mrs."
           "The Honorable and Mr.": "The Honorable and Mr."
       - name: topic
-        selector: "#field_265e4885-5b31-4f0a-8265-0aae78be86c9"
-        value: "$TOPIC"
+        selector: select#field_265E4885-5B31-4F0A-8265-0AAE78BE86C9
+        value: $TOPIC
         required: true
         options:
           "Pro-Life/Family Values": "Prolife"
@@ -113,7 +121,7 @@ contact_form:
           "Eagle Scout / Gold Award, Birthday, and Retirement": "Special_Requests"
     - click_on:
       - value: Submit
-        selector: "input[type='submit']"
+        selector: div.buttonHolder input.btn-primary
   success:
     headers:
       status: 200
