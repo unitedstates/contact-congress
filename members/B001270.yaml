@@ -15,18 +15,16 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: form#emailForm button#submit
+    - find:
+        - selector: input#required-first
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#contactForm input[name='required-last']"
+          selector: form#contactForm input#required-last
           value: $NAME_LAST
           required: true
         - name: required-address
@@ -46,7 +44,7 @@ contact_form:
           value: $EMAIL
           required: true
         - name: required-phone
-          selector: "input[name='required-phone']"
+          selector: form#contactForm input#required-phone
           value: $PHONE
           required: true
         - name: required-subject
@@ -54,11 +52,25 @@ contact_form:
           value: $SUBJECT
           required: true
         - name: required-message
-          selector: "#required-message"
+          selector: textarea#required-message
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
+        - name: prefix
+          selector: select#required-prefix
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
+        - name: topic
           selector: "#required-issue"
           value: $TOPIC
           required: true
@@ -94,12 +106,15 @@ contact_form:
             "Women's Issues": WOMENS_ISSUES
         - name: required-response
           selector: "#required-response"
-          value: "Y"
+          value: "Yes, please contact me"
+          required: true
+          options:
+            "Yes, please contact me": "Yes, please contact me"
     - click_on:
-        - value: Send Email
-          selector: "#submit"
+        - value: Send Email to Representative Bass
+          selector: form#contactForm button#submit
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: "your message has been sent"
