@@ -17,14 +17,10 @@ contact_form:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
     - find:
-        - selector: "#contactForm"
+        - selector: "#required-first"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -37,10 +33,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -62,6 +54,19 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -116,4 +121,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: The following information has been submitted
