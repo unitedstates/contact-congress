@@ -17,77 +17,77 @@ contact_form:
       - value: "Go To Next Step" 
         selector: "#emailForm #submit"
     - find: 
-      - selector: "#required-prefix"
+      - selector: "#required-first"
     - fill_in:
-      - name: required-first
-        selector: "#required-first"
-        value: $NAME_FIRST
-        required: true
-      - name: required-last
-        selector: "#required-last"
-        value: $NAME_LAST
-        required: true
-      - name: required-address
-        selector: "#required-address"
-        value: $ADDRESS_STREET
-        required: true
-      - name: required-city
-        selector: "#required-city"
-        value: $ADDRESS_CITY
-        required: true
-      - name: email
-        selector: "#email"
-        value: $EMAIL
-        required: true
-      - name: required-phone
-        selector: "#required-phone"
-        value: $PHONE
-        required: true
-      - name: required-message
-        selector: "#required-message"
-        value: $MESSAGE
-        required: true
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: required-prefix
-        selector: "#required-prefix"
-        value: $NAME_PREFIX
-        required: true
-        options: 
-          Mr.: Mr.
-          Mrs.: Mrs.
-          Mr. and Mrs.: Mr. and Mrs.
-          The Honorable: The Honorable
-      - name: required-issue
-        selector: "#required-issue"
-        value: $TOPIC
-        required: true
-        options: 
-          "Agriculture": "AGR"
-          "Budget": "BUD"
-          "Defense": "DEF"
-          "Education and Labor": "EDU"
-          "Energy": "ENE"
-          "Environment": "ENV"
-          "Government Reform": "GOV"
-          "Health": "HEA"
-          "Homeland Security": "HOM"
-          "Immigration": "IMM"
-          "International Relations": "INT"
-          "Judiciary": "JUD"
-          "Social Issues": "SOC"
-          "Taxes": "TAX"
-          "Telecommunications": "TEL"
-          "Transportation": "TRA"
-          "Veterans": "VET"
-          "Welfare": "WEL"
-          "Other Issue": "OTHER"
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Mr. and Mrs.
+            - The Honorable
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGR
+            Budget: BUD
+            Defense: DEF
+            Education and Labor: EDU
+            Energy: ENE
+            Environment: ENV
+            Government Reform: GOV
+            Health: HEA
+            Homeland Security: HOM
+            Immigration: IMM
+            International Relations: INT
+            Judiciary: JUD
+            Social Issues: SOC
+            Taxes: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Veterans: VET
+            Welfare: WEL
+            Other Issue: OTHER
     - javascript:
-      - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-      - value: "Send Email to Representative Aderholt"
-        selector: "#contactForm #submit"
-  success: 
+        - selector: "#block-system-main form.bootstrap button.btn.btn-success"
+  success:
     headers:
       status: 200
     body:
-      contains: "your message has been sent"
+      contains: your message has been sent
