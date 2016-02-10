@@ -34,7 +34,7 @@ contact_form:
           value: $ADDRESS_CITY
           required: true
         - name: required-valid-email
-          selector: "#required-valid-email"
+          selector: "#contactForm #required-valid-email"
           value: $EMAIL
           required: true
         - name: required-phone
@@ -91,7 +91,7 @@ contact_form:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#contactForm #submit"
   success:
     headers:
       status: 200
