@@ -5,37 +5,98 @@ contact_form:
   steps:
     - visit: "http://www.alexander.senate.gov/public/index.cfm?p=Email"
     - fill_in:
-        - name: field_56ca2f21-5b5a-4146-8603-f37314d2fd61
-          selector: "#field_56ca2f21-5b5a-4146-8603-f37314d2fd61"
+        - name: field_56CA2F21-5B5A-4146-8603-F37314D2FD61
+          selector: "#field_56CA2F21-5B5A-4146-8603-F37314D2FD61"
           value: $NAME_FIRST
           required: true
-        - name: field_970a3ca0-c534-4302-8823-7d4910fceacd
-          selector: "#field_970a3ca0-c534-4302-8823-7d4910fceacd"
+        - name: field_970A3CA0-C534-4302-8823-7D4910FCEACD
+          selector: "#field_970A3CA0-C534-4302-8823-7D4910FCEACD"
           value: $NAME_LAST
           required: true
-        - name: field_884bf137-ebea-4175-9269-c3e5ab6ca6ca
-          selector: "#field_884bf137-ebea-4175-9269-c3e5ab6ca6ca"
+        - name: field_884BF137-EBEA-4175-9269-C3E5AB6CA6CA
+          selector: "#field_884BF137-EBEA-4175-9269-C3E5AB6CA6CA"
           value: $ADDRESS_STREET
           required: true
-        - name: field_05ea19c5-f508-4421-9547-2dbb6e74a6d3
-          selector: "#field_05ea19c5-f508-4421-9547-2dbb6e74a6d3"
+        - name: field_05EA19C5-F508-4421-9547-2DBB6E74A6D3
+          selector: "#field_05EA19C5-F508-4421-9547-2DBB6E74A6D3"
           value: $ADDRESS_CITY
           required: true
-        - name: field_503e21fd-da3a-4853-a070-6fbba1e5e914
-          selector: "#field_503e21fd-da3a-4853-a070-6fbba1e5e914"
+        - name: field_503E21FD-DA3A-4853-A070-6FBBA1E5E914
+          selector: "#field_503E21FD-DA3A-4853-A070-6FBBA1E5E914"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_79586077-720a-4a8d-b87b-e36dbe3ad5b2
-          selector: "#field_79586077-720a-4a8d-b87b-e36dbe3ad5b2"
+        - name: field_79586077-720A-4A8D-B87B-E36DBE3AD5B2
+          selector: "#field_79586077-720A-4A8D-B87B-E36DBE3AD5B2"
           value: $EMAIL
           required: true
-        - name: field_8f3514fa-978c-4985-9fde-aad3dfc611c4
-          selector: "#field_8f3514fa-978c-4985-9fde-aad3dfc611c4"
+        - name: field_8F3514FA-978C-4985-9FDE-AAD3DFC611C4
+          selector: "#field_8F3514FA-978C-4985-9FDE-AAD3DFC611C4"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_265e4885-5b31-4f0a-8265-0aae78be86c9
-          selector: "#field_265e4885-5b31-4f0a-8265-0aae78be86c9"
+        - name: field_F9364585-BA36-42AA-A9BB-D97EDB8CF689
+          selector: "#field_F9364585-BA36-42AA-A9BB-D97EDB8CF689"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - "----Military----"
+            - AA
+            - AE
+            - AP
+            - "----States----"
+            - Alabama
+            - Alaska
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+        - name: field_265E4885-5B31-4F0A-8265-0AAE78BE86C9
+          selector: "#field_265E4885-5B31-4F0A-8265-0AAE78BE86C9"
           value: $TOPIC
           required: true
           options:
@@ -83,7 +144,7 @@ contact_form:
             Welfare: Welfare
             "Eagle Scout / Gold Award, Birthday, and Retirement": Special_Requests
     - javascript:
-        - value: document.querySelector("#field_8f3514fa-978c-4985-9fde-aad3dfc611c4").value = document.querySelector("#field_8f3514fa-978c-4985-9fde-aad3dfc611c4").value.replace(/"/g, '');
+        - value: document.querySelector("#field_8F3514FA-978C-4985-9FDE-AAD3DFC611C4").value = document.querySelector("#field_8F3514FA-978C-4985-9FDE-AAD3DFC611C4").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
@@ -91,4 +152,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting Senator Lamar Alexander's office"
+      contains: Thank you
