@@ -1,4 +1,4 @@
-bioguide: W000795
+bioguide: W000808
 contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
@@ -16,11 +16,9 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
+    - find:
+        - selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -115,4 +113,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: The following information has been submitted
