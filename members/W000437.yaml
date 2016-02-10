@@ -38,14 +38,7 @@ contact_form:
           value: $MESSAGE
           required: true
     - javascript:
-        - value: document.querySelector("#field_9CBA10ED-C94F-4770-A165-38166625C0A8").options[0].remove();
-    - select:
-        - name: field_9CBA10ED-C94F-4770-A165-38166625C0A8
-          selector: "#field_9CBA10ED-C94F-4770-A165-38166625C0A8"
-          value: $SUBJECT
-          required: true
-          options:
-            - Abortion
+        - value: document.querySelector("#field_9CBA10ED-C94F-4770-A165-38166625C0A8").options[8].selected = true
     - javascript:
         - value: document.querySelector("#field_5EF876CF-9476-427B-A01B-25AAFD0E013D").value = document.querySelector("#field_5EF876CF-9476-427B-A01B-25AAFD0E013D").value.replace(/"/g, '');
     - click_on:
