@@ -1,6 +1,7 @@
 bioguide: R000307
 contact_form:
   method: post
+  action: ""
   steps:
     - visit: "http://www.roberts.senate.gov/public/index.cfm?p=EmailPat"
     - fill_in:
@@ -50,7 +51,7 @@ contact_form:
           captcha_id_selector: "#captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af_hash"
           value: "$CAPTCHA_SOLUTION"
           required: true
-    - select:    
+    - select:
         - name: field_9e46d42d-a8a8-4014-af7c-a316aa230d9f
           selector: "#field_9e46d42d-a8a8-4014-af7c-a316aa230d9f"
           value: $TOPIC
