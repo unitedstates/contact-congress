@@ -5,20 +5,6 @@ contact_form:
   steps:
     - visit: "https://toddyoungforms.house.gov/give-me-your-opinion"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go to Form
-          selector: input.button
-    - find:
-        - selector: "#custom_form21"
-    - fill_in:
         - name: firstname
           selector: "#req_firstname"
           value: $NAME_FIRST
@@ -31,10 +17,6 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#street2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
@@ -46,11 +28,7 @@ contact_form:
         - name: zipfour
           selector: "#zip2"
           value: $ADDRESS_ZIP4
-          required: false
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
+          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -110,4 +88,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Your message has been sent.
+      contains: Thank you for submitting your information.
