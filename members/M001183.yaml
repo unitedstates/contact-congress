@@ -5,41 +5,41 @@ contact_form:
   steps:
     - visit: "http://www.manchin.senate.gov/public/index.cfm/contact-form"
     - fill_in:
-        - name: field_2b2ec1af-f595-4c6d-8679-17dc5235dc9d
-          selector: "#field_2b2ec1af-f595-4c6d-8679-17dc5235dc9d"
+        - name: field_2B2EC1AF-F595-4C6D-8679-17DC5235DC9D
+          selector: "#field_2B2EC1AF-F595-4C6D-8679-17DC5235DC9D"
           value: $NAME_FIRST
           required: true
-        - name: field_573cec11-763e-4721-9f2e-d534e4fa8a7e
-          selector: "#field_573cec11-763e-4721-9f2e-d534e4fa8a7e"
+        - name: field_573CEC11-763E-4721-9F2E-D534E4FA8A7E
+          selector: "#field_573CEC11-763E-4721-9F2E-D534E4FA8A7E"
           value: $NAME_LAST
           required: true
-        - name: field_459d6e93-ea89-4a7d-b84f-9e9582edf1a5
-          selector: "#field_459d6e93-ea89-4a7d-b84f-9e9582edf1a5"
+        - name: field_459D6E93-EA89-4A7D-B84F-9E9582EDF1A5
+          selector: "#field_459D6E93-EA89-4A7D-B84F-9E9582EDF1A5"
           value: $ADDRESS_STREET
           required: true
-        - name: field_70607b58-2837-4789-a817-b0d6bac2742d
-          selector: "#field_70607b58-2837-4789-a817-b0d6bac2742d"
+        - name: field_70607B58-2837-4789-A817-B0D6BAC2742D
+          selector: "#field_70607B58-2837-4789-A817-B0D6BAC2742D"
           value: $ADDRESS_CITY
           required: true
-        - name: field_7c42f6e5-d1dd-4843-a5d3-7730af8ed4fd
-          selector: "#field_7c42f6e5-d1dd-4843-a5d3-7730af8ed4fd"
+        - name: field_7C42F6E5-D1DD-4843-A5D3-7730AF8ED4FD
+          selector: "#field_7C42F6E5-D1DD-4843-A5D3-7730AF8ED4FD"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_13fee0ec-ac8c-4fce-968a-c3996732f06b
-          selector: "#field_13fee0ec-ac8c-4fce-968a-c3996732f06b"
+        - name: field_13FEE0EC-AC8C-4FCE-968A-C3996732F06B
+          selector: "#field_13FEE0EC-AC8C-4FCE-968A-C3996732F06B"
           value: $EMAIL
           required: true
-        - name: field_82faa3c6-43f8-4ed3-bc83-386cb96469bf
-          selector: "#field_82faa3c6-43f8-4ed3-bc83-386cb96469bf"
+        - name: field_82FAA3C6-43F8-4ED3-BC83-386CB96469BF
+          selector: "#field_82FAA3C6-43F8-4ED3-BC83-386CB96469BF"
           value: $SUBJECT
           required: true
-        - name: field_e5e07fdc-f54e-43f0-a0c2-0fa4df24a4ae
-          selector: "#field_e5e07fdc-f54e-43f0-a0c2-0fa4df24a4ae"
+        - name: field_E5E07FDC-F54E-43F0-A0C2-0FA4DF24A4AE
+          selector: "#field_E5E07FDC-F54E-43F0-A0C2-0FA4DF24A4AE"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_2ce505fa-c0ab-4e5d-b984-a0dc7219f6bd
-          selector: "#field_2ce505fa-c0ab-4e5d-b984-a0dc7219f6bd"
+        - name: field_2CE505FA-C0AB-4E5D-B984-A0DC7219F6BD
+          selector: "#field_2CE505FA-C0AB-4E5D-B984-A0DC7219F6BD"
           value: $NAME_PREFIX
           required: true
           options:
@@ -57,69 +57,8 @@ contact_form:
             - The Honorable
             - Representative
             - Senator
-        - name: field_8ea2327b-8ce4-44da-b35d-66afdd64924f
-          selector: "#field_8ea2327b-8ce4-44da-b35d-66afdd64924f"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - "----Military----"
-            - AA
-            - AE
-            - AP
-            - "----States----"
-            - Alabama
-            - Alaska
-            - Arizona
-            - Arkansas
-            - California
-            - Colorado
-            - Connecticut
-            - Delaware
-            - District of Columbia
-            - Florida
-            - Georgia
-            - Hawaii
-            - Idaho
-            - Illinois
-            - Indiana
-            - Iowa
-            - Kansas
-            - Kentucky
-            - Louisiana
-            - Maine
-            - Maryland
-            - Massachusetts
-            - Michigan
-            - Minnesota
-            - Mississippi
-            - Missouri
-            - Montana
-            - Nebraska
-            - Nevada
-            - New Hampshire
-            - New Jersey
-            - New Mexico
-            - New York
-            - North Carolina
-            - North Dakota
-            - Ohio
-            - Oklahoma
-            - Oregon
-            - Pennsylvania
-            - Rhode Island
-            - South Carolina
-            - South Dakota
-            - Tennessee
-            - Texas
-            - Utah
-            - Vermont
-            - Virginia
-            - Washington
-            - West Virginia
-            - Wisconsin
-            - Wyoming
-        - name: field_6c9d8eee-c551-4bf1-8324-5134c01dd93a
-          selector: "#field_6c9d8eee-c551-4bf1-8324-5134c01dd93a"
+        - name: field_6C9D8EEE-C551-4BF1-8324-5134C01DD93A
+          selector: "#field_6C9D8EEE-C551-4BF1-8324-5134C01DD93A"
           value: $TOPIC
           required: true
           options:
@@ -164,7 +103,7 @@ contact_form:
             Welfare: WEL
             Other: GEN
     - javascript:
-        - value: document.querySelector("#field_e5e07fdc-f54e-43f0-a0c2-0fa4df24a4ae").value = document.querySelector("#field_e5e07fdc-f54e-43f0-a0c2-0fa4df24a4ae").value.replace(/"/g, '');
+        - value: document.querySelector("#field_E5E07FDC-F54E-43F0-A0C2-0FA4DF24A4AE").value = document.querySelector("#field_E5E07FDC-F54E-43F0-A0C2-0FA4DF24A4AE").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input
@@ -172,4 +111,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: "Thank you for your message!"
