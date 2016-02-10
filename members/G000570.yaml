@@ -49,7 +49,7 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: false
         - name: required-valid-email
-          selector: "#required-valid-email"
+          selector: "#contactForm #required-valid-email"
           value: $EMAIL
           required: true
         - name: required-phone
@@ -130,8 +130,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - 
-          selector: "#submit"
+        - selector: "#submit"
   success:
     headers:
       status: 200
