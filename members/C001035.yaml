@@ -41,7 +41,8 @@ contact_form:
         selector: "#edit-submitted-please-write-your-message"
         value: $MESSAGE
         required: true
-        max_length: 10000
+        options:
+          max_length: 10000
     - select:
       - name: prefix
         selector: "#edit-submitted-prefix"
