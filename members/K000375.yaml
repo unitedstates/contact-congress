@@ -85,10 +85,8 @@ contact_form:
         - name: response
           selector: "input[type='radio'][name='response'][value='Y']"
           value: "Y"
-    - uncheck:
         - name: aff1
-          selector: "#mainbodyContentleft form input[name='aff1']"
-          value: EMAIL.OPTIN
+          selector: "input[name='aff1'][value='']"
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
