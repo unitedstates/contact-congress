@@ -1,53 +1,49 @@
 bioguide: C000567
 contact_form:
   method: post
-  action: "http://www.cochran.senate.gov/public/index.cfm/email-me"
+  action: ""
   steps:
     - visit: "http://www.cochran.senate.gov/public/index.cfm/email-me"
     - fill_in:
-        - name: field_d977f7a2-3618-49d6-a4dd-fc825487aa23
-          selector: "#field_d977f7a2-3618-49d6-a4dd-fc825487aa23"
+        - name: field_D977F7A2-3618-49D6-A4DD-FC825487AA23
+          selector: "#field_D977F7A2-3618-49D6-A4DD-FC825487AA23"
           value: $NAME_FIRST
           required: true
-        - name: field_17057c13-813e-45f2-b611-18cd0b9b0628
-          selector: "#field_17057c13-813e-45f2-b611-18cd0b9b0628"
+        - name: field_17057C13-813E-45F2-B611-18CD0B9B0628
+          selector: "#field_17057C13-813E-45F2-B611-18CD0B9B0628"
           value: $NAME_LAST
           required: true
-        - name: field_522bb9d8-25c2-40b1-a5e1-cbcc12f5a3f2
-          selector: "#field_522bb9d8-25c2-40b1-a5e1-cbcc12f5a3f2"
+        - name: field_522BB9D8-25C2-40B1-A5E1-CBCC12F5A3F2
+          selector: "#field_522BB9D8-25C2-40B1-A5E1-CBCC12F5A3F2"
           value: $ADDRESS_STREET
           required: true
-        - name: field_ec0068ce-17c8-4053-85ae-4f6e67efc420
-          selector: "#field_ec0068ce-17c8-4053-85ae-4f6e67efc420"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: field_0e631a3f-4211-4bbc-86f6-97a427b98985
-          selector: "#field_0e631a3f-4211-4bbc-86f6-97a427b98985"
+        - name: field_0E631A3F-4211-4BBC-86F6-97A427B98985
+          selector: "#field_0E631A3F-4211-4BBC-86F6-97A427B98985"
           value: $ADDRESS_CITY
           required: true
-        - name: field_73e0e5cf-bc83-4149-9fb3-3eb8a93ea636
-          selector: "#field_73e0e5cf-bc83-4149-9fb3-3eb8a93ea636"
+        - name: field_73E0E5CF-BC83-4149-9FB3-3EB8A93EA636
+          selector: "#field_73E0E5CF-BC83-4149-9FB3-3EB8A93EA636"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
-        - name: field_15776769-150b-48f5-9100-337de2e0ef87
-          selector: "#field_15776769-150b-48f5-9100-337de2e0ef87"
+        - name: field_15776769-150B-48F5-9100-337DE2E0EF87
+          selector: "#field_15776769-150B-48F5-9100-337DE2E0EF87"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_3b436a3e-262c-469b-8fee-a496473af289
-          selector: "#field_3b436a3e-262c-469b-8fee-a496473af289"
+        - name: field_3B436A3E-262C-469B-8FEE-A496473AF289
+          selector: "#field_3B436A3E-262C-469B-8FEE-A496473AF289"
           value: $PHONE
           required: true
-        - name: field_e3d57b35-8231-4bff-be88-477ee47c2414
-          selector: "#field_e3d57b35-8231-4bff-be88-477ee47c2414"
+        - name: field_E3D57B35-8231-4BFF-BE88-477EE47C2414
+          selector: "#field_E3D57B35-8231-4BFF-BE88-477EE47C2414"
           value: $EMAIL
           required: true
-        - name: field_c6841c81-5e4d-4b2b-9f86-99ece64b3377
-          selector: "#field_c6841c81-5e4d-4b2b-9f86-99ece64b3377"
+        - name: field_C6841C81-5E4D-4B2B-9F86-99ECE64B3377
+          selector: "#field_C6841C81-5E4D-4B2B-9F86-99ECE64B3377"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_92b27f14-94c8-42b6-936d-f144c6422998
-          selector: "#field_92b27f14-94c8-42b6-936d-f144c6422998"
+        - name: field_92B27F14-94C8-42B6-936D-F144C6422998
+          selector: "#field_92B27F14-94C8-42B6-936D-F144C6422998"
           value: $NAME_PREFIX
           required: true
           options:
@@ -58,8 +54,8 @@ contact_form:
             - Dr.
             - Reverend
             - Sister
-        - name: field_a2b54723-46f9-4a75-bfcf-6e4974580e71
-          selector: "#field_a2b54723-46f9-4a75-bfcf-6e4974580e71"
+        - name: field_A2B54723-46F9-4A75-BFCF-6E4974580E71
+          selector: "#field_A2B54723-46F9-4A75-BFCF-6E4974580E71"
           value: $TOPIC
           required: true
           options:
@@ -103,7 +99,7 @@ contact_form:
             Veterans Affairs: VA
             Welfare: WELF
     - javascript:
-        - value: document.querySelector("#field_c6841c81-5e4d-4b2b-9f86-99ece64b3377").value = document.querySelector("#field_c6841c81-5e4d-4b2b-9f86-99ece64b3377").value.replace(/"/g, '');
+        - value: document.querySelector("#field_C6841C81-5E4D-4B2B-9F86-99ECE64B3377").value = document.querySelector("#field_C6841C81-5E4D-4B2B-9F86-99ECE64B3377").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input
@@ -111,5 +107,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to contact Senator Cochran.
-
+      contains: Thank you
