@@ -15,7 +15,7 @@ contact_form:
         required: true
     - click_on:
       - value: "Go To Next Step" 
-        selector: "#submit"
+        selector: "#emailForm #submit"
     - find: 
       - selector: "#required-prefix"
     - fill_in:
@@ -85,7 +85,7 @@ contact_form:
       - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
       - value: "Send Email to Representative Aderholt"
-        selector: "#submit"
+        selector: "#contactForm #submit"
   success: 
     headers:
       status: 200
