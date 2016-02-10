@@ -3,17 +3,16 @@ contact_form:
   method: post
   action: /contact/email-chuck
   steps:
-    - visit: "http://www.schumer.senate.gov/contact/email-chuck"
+    - visit: http://www.schumer.senate.gov/contact/email-chuck
     - select:
         - name: actions
-          selector: "#actions"
-          value: opinion
-          required: false
+          selector: select#actions
+          value: Share your opinion or comments on bills or other issues
+          required: true
           options:
-            "--Select an Option--": select
-            Share your opinion or comments on bills or other issues: opinion
-            Request a flag to be flown over the Capitol: flag
-            Request help with a federal agency: federal_agency
+            Share your opinion or comments on bills or other issues: Share your opinion or comments on bills or other issues
+    - wait:
+        - value: 3
     - find:
         - selector: "#fname"
     - fill_in:
@@ -25,23 +24,27 @@ contact_form:
           selector: "#lname"
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
+        - name: street
           selector: "#mailing_streetAddress1"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_city
+        - name: street2
+          selector: input#mailing_streetAddress2
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
           selector: "#mailing_city"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipCode
+        - name: zip5
           selector: "#mailing_zipCode"
           value: $ADDRESS_ZIP5
           required: true
-        - name: home_phone_number
+        - name: phone
           selector: "#home_phone_number"
           value: $PHONE
           required: true
-        - name: email_address
+        - name: email
           selector: "#email"
           value: $EMAIL
           required: true
@@ -49,7 +52,7 @@ contact_form:
           selector: "#verify_email"
           value: $EMAIL
           required: true
-        - name: subjecttext
+        - name: subject
           selector: "#subjecttext"
           value: $SUBJECT
           required: true
@@ -58,7 +61,7 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: salutation
+        - name: prefix
           selector: "#salutation"
           value: $NAME_PREFIX
           required: true
@@ -67,99 +70,42 @@ contact_form:
             Mrs.: Mrs.
             Ms.: Ms.
             Dr.: Dr.
-        - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            "--": "null"
-            AK: AK
-            AL: AL
-            AR: AR
-            AZ: AZ
-            CA: CA
-            CO: CO
-            CT: CT
-            DC: DC
-            DE: DE
-            FL: FL
-            GA: GA
-            HI: HI
-            IA: IA
-            ID: ID
-            IL: IL
-            IN: IN
-            KS: KS
-            KY: KY
-            LA: LA
-            MA: MA
-            MD: MD
-            ME: ME
-            MI: MI
-            MN: MN
-            MO: MO
-            MS: MS
-            MT: MT
-            NC: NC
-            ND: ND
-            NE: NE
-            NH: NH
-            NJ: NJ
-            NM: NM
-            NV: NV
-            NY: NY
-            OH: OH
-            OK: OK
-            OR: OR
-            PA: PA
-            RI: RI
-            SC: SC
-            SD: SD
-            TN: TN
-            TX: TX
-            UT: UT
-            VA: VA
-            VT: VT
-            WA: WA
-            WI: WI
-            WV: WV
-            WY: WY
-        - name: subject
+        - name: topic
           selector: "#subject"
           value: $TOPIC
           required: true
           options:
-            - Agriculture
-            - Animal Welfare
-            - Banking
-            - Budget
-            - Campaigns and Elections
-            - Children
-            - Civil Rights
-            - Consumer Affairs
-            - Defense and Military
-            - Education
-            - Environment
-            - Federal Emergency Management
-            - Foreign Relations
-            - Health
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Judiciary
-            - Labor
-            - Medicare and Medicaid
-            - Seniors
-            - Social Security
-            - Taxes
-            - Technology
-            - Telecommunications
-            - Transportation
-            - Veterans
-            - Other
+            Agriculture: Agriculture
+            Animal Welfare: Animal Welfare
+            Banking: Banking
+            Budget: Budget
+            Campaigns and Elections: Campaigns and Elections
+            Children: Children
+            Civil Rights: Civil Rights
+            Consumer Affairs: Consumer Affairs
+            Defense and Military: Defense and Military
+            Education: Education
+            Environment: Environment
+            Federal Emergency Management: Federal Emergency Management
+            Foreign Relations: Foreign Relations
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Judiciary: Judiciary
+            Labor: Labor
+            Medicare and Medicaid: Medicare and Medicaid
+            Seniors: Seniors
+            Social Security: Social Security
+            Taxes: Taxes
+            Technology: Technology
+            Telecommunications: Telecommunications
+            Transportation: Transportation
+            Veterans: Veterans
+            Other: Other
     - click_on:
         - value: Send
-          selector: "#side-search-btn"
+          selector: form#contactForm input#side-search-btn
   success:
     headers:
       status: 200
