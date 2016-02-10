@@ -1,9 +1,9 @@
 bioguide: W000779
 contact_form:
   method: POST
-  action: http://www.wyden.senate.gov/contact
+  action: "/contact"
   steps:
-    - visit: http://www.wyden.senate.gov/contact
+    - visit: https://www.wyden.senate.gov/contact
     - javascript:
       - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ 
 try{ element.parentNode.removeChild(element) } catch(err){} });"
@@ -158,7 +158,6 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
           - "Hunger"
           - "Immigration"
           - "Intelligence"
-          - "International Trade"
           - "Internet, Technology, Broadband"
           - "Judicial Nominations"
           - "Medicare/ Medicaid"
