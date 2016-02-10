@@ -1,55 +1,51 @@
 bioguide: C000174
 contact_form:
   method: POST
-  action: http://www.carper.senate.gov/public/index.cfm/email-senator-carper
+  action: ""
   steps:
     - visit: http://www.carper.senate.gov/public/index.cfm/email-senator-carper
     - fill_in:
-      - name: field_e9631d45-016e-495f-9fa4-8cd94db04f33
-        selector: "#field_e9631d45-016e-495f-9fa4-8cd94db04f33"
-        value: "$NAME_PREFIX"
-        required: Yes
-      - name: field_9b220bdf-2254-4fd5-aaac-261352486679
-        selector: "#field_9b220bdf-2254-4fd5-aaac-261352486679"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_f8bb9fb5-9c4f-47dc-bf4e-ec83dba5c7f1
-        selector: "#field_f8bb9fb5-9c4f-47dc-bf4e-ec83dba5c7f1"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_e4ab5648-7530-4794-a6f0-b642d8d8e7e8
-        selector: "#field_e4ab5648-7530-4794-a6f0-b642d8d8e7e8"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_d0e99421-c120-444e-9308-5539dab567fb
-        selector: "#field_d0e99421-c120-444e-9308-5539dab567fb"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_bda8a7f1-6e6b-4e3f-bf31-52ed9b04ad72
-        selector: "#field_bda8a7f1-6e6b-4e3f-bf31-52ed9b04ad72"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_dccd8945-e5c8-4a06-a0c6-ede1b92a97f5
-        selector: "#field_dccd8945-e5c8-4a06-a0c6-ede1b92a97f5"
-        value: "$PHONE"
-      - name: field_de485565-dede-4143-8002-d6809187e021
-        selector: "#field_de485565-dede-4143-8002-d6809187e021"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_0aee09a6-7f4c-4afb-90a1-9ba03526fca0
-        selector: "#field_0aee09a6-7f4c-4afb-90a1-9ba03526fca0"
-        value: "$MESSAGE"
-        required: Yes
+      - name: prefix
+        selector: input#field_E9631D45-016E-495F-9FA4-8CD94DB04F33
+        value: $NAME_PREFIX
+        required: true
+      - name: first
+        selector: input#field_9B220BDF-2254-4FD5-AAAC-261352486679
+        value: $NAME_FIRST
+        required: true
+      - name: last
+        selector: input#field_F8BB9FB5-9C4F-47DC-BF4E-EC83DBA5C7F1
+        value: $NAME_LAST
+        required: true
+      - name: street
+        selector: input#field_E4AB5648-7530-4794-A6F0-B642D8D8E7E8
+        value: $ADDRESS_STREET
+        required: true
+      - name: city
+        selector: input#field_D0E99421-C120-444E-9308-5539DAB567FB
+        value: $ADDRESS_CITY
+        required: true
+      - name: zip5
+        selector: input#field_BDA8A7F1-6E6B-4E3F-BF31-52ED9B04AD72
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: phone
+        selector: input#field_DCCD8945-E5C8-4A06-A0C6-EDE1B92A97F5
+        value: $PHONE
+        required: false
+      - name: email
+        selector: input#field_DE485565-DEDE-4143-8002-D6809187E021
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: textarea#field_0AEE09A6-7F4C-4AFB-90A1-9BA03526FCA0
+        value: $MESSAGE
+        required: true
     - select:
-      - name: field_366474b1-0115-48e2-ba24-8983cfbcc12c
-        selector: "#field_366474b1-0115-48e2-ba24-8983cfbcc12c"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: field_576a1858-5b78-4883-b30a-9e699d99bae0
-        selector: "#field_576a1858-5b78-4883-b30a-9e699d99bae0"
-        value: "$TOPIC"
-        required: Yes
+      - name: topic
+        selector: select#field_576A1858-5B78-4883-B30A-9E699D99BAE0
+        value: $TOPIC
+        required: true
         options:
           "Agriculture": "Agriculture"
           "Amtrak": "Amtrak"
@@ -94,7 +90,7 @@ contact_form:
           "Welfare": "Welfare"
     - click_on:
       - value: Submit
-        selector: ".buttonHolder input"
+        selector: form.uniForm div.buttonHolder input
   success:
     headers:
       status: 200

@@ -1,75 +1,98 @@
 bioguide: W000437
 contact_form:
   method: POST
-  action: http://www.wicker.senate.gov/public/index.cfm/contact
+  action: ""
   steps:
     - visit: http://www.wicker.senate.gov/public/index.cfm/contact
     - fill_in:
-      - name: field_3daaa206-cb3d-4b2c-9733-ef66d9d6b255
-        selector: "#field_3daaa206-cb3d-4b2c-9733-ef66d9d6b255"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_f848bfd8-dad0-4072-ae21-1051063c7e68
-        selector: "#field_f848bfd8-dad0-4072-ae21-1051063c7e68"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_232f54d2-55a1-4f95-9b02-b4df7fb2ab46
-        selector: "#field_232f54d2-55a1-4f95-9b02-b4df7fb2ab46"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_cc548bc3-2fc5-42dd-b604-e625ab2c1390
-        selector: "#field_cc548bc3-2fc5-42dd-b604-e625ab2c1390"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_ddabcffc-ce15-4571-80de-556f4e4e5e92
-        selector: "#field_ddabcffc-ce15-4571-80de-556f4e4e5e92"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_5ea11758-7780-4a74-9add-43f6a0327982
-        selector: "#field_5ea11758-7780-4a74-9add-43f6a0327982"
-        value: "$PHONE"
-        required: Yes
-      - name: field_ca1b9d75-d246-4104-bd2f-754b854dd79e
-        selector: "#field_ca1b9d75-d246-4104-bd2f-754b854dd79e"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_5ef876cf-9476-427b-a01b-25aafd0e013d
-        selector: "#field_5ef876cf-9476-427b-a01b-25aafd0e013d"
-        value: "$MESSAGE"
-        required: Yes
-    - select:
-      - name: field_49733098-c61f-426d-ae81-30e6b41c6d19
-        selector: "#field_49733098-c61f-426d-ae81-30e6b41c6d19"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: field_9cba10ed-c94f-4770-a165-38166625c0a8
-        selector: "#field_9cba10ed-c94f-4770-a165-38166625c0a8"
-        value: "$TOPIC"
-        required: Yes
+      - name: first
+        selector: input#field_3DAAA206-CB3D-4B2C-9733-EF66D9D6B255
+        value: $NAME_FIRST
+        required: true
+      - name: last
+        selector: input#field_F848BFD8-DAD0-4072-AE21-1051063C7E68
+        value: $NAME_LAST
+        required: true
+      - name: street
+        selector: input#field_232F54D2-55A1-4F95-9B02-B4DF7FB2AB46
+        value: $ADDRESS_STREET
+        required: true
+      - name: city
+        selector: input#field_CC548BC3-2FC5-42DD-B604-E625AB2C1390
+        value: $ADDRESS_CITY
+        required: true
+      - name: zip5
+        selector: input#field_DDABCFFC-CE15-4571-80DE-556F4E4E5E92
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: phone
+        selector: input#field_5EA11758-7780-4A74-9ADD-43F6A0327982
+        value: $PHONE
+        required: true
+      - name: email
+        selector: input#field_CA1B9D75-D246-4104-BD2F-754B854DD79E
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: textarea#field_5EF876CF-9476-427B-A01B-25AAFD0E013D
+        value: $MESSAGE
+        required: true
         options:
-          - "Abortion"
-          - "Agriculture"
-          - "Defense & Veteran Affairs"
-          - "Economy"
-          - "Education"
-          - "Energy"
-          - "Environment & Animal Welfare"
-          - "Foreign Affairs"
-          - "Healthcare"
-          - "Homeland Security & Immigration"
-          - "Judicial-Crime-Civil Rights"
-          - "Labor"
-          - "Miscellaneous"
-          - "Religious Freedom & Family Values"
-          - "Second Amendment"
-          - "Social Security & Pensions"
-          - "Taxes & Financial Services"
+          max_legth: 10000
+    - select:
+      - name: prefix
+        selector: select#field_96A937C7-25E8-4B18-8EA7-63A138E06211
+        value: $PREFIX
+        required: false
+        options:
+          Mr.: Mr.
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Mr. and Mrs.: Mr. and Mrs.
+          Dr.: Dr.
+          Dr. and Mr.: Dr. and Mr.
+          Dr. and Mrs.: Dr. and Mrs.
+          Reverend: Reverend
+          Sister: Sister
+      - name: topic
+        selector: select#field_9CBA10ED-C94F-4770-A165-38166625C0A8
+        value: $TOPIC
+        required: true
+        options:
+          Abortion: Abortion
+          Agriculture: Agriculture
+          Armed Services: Armed Services
+          Economy and Jobs: Economy and Jobs
+          Education: Education
+          Energy: Energy
+          "Environment/Animal Welfare": "Environment/Animal Welfare"
+          Federal Budget: Federal Budget
+          Financial Services: Financial Services
+          Foreign Affairs: Foreign Affairs
+          Healthcare: Healthcare
+          "Homeland Security/Defense": "Homeland Security/Defense"
+          Housing: Housing
+          Immigration: Immigration
+          "Judicial/Crime": "Judicial/Crime"
+          Labor: Labor
+          Medical Research: Medical Research
+          "Medicare/Medicaid": "Medicare/Medicaid"
+          Religious Freedoms: Religious Freedoms
+          Second Amendment: Second Amendment
+          Small Business: Small Business
+          Social Security and Pensions: Social Security and Pensions
+          "Social Security/Disability Assistance": "Social Security/Disability Assistance"
+          Taxes: Taxes
+          "Telecommunications/Technology": "Telecommunications/Technology"
+          Trade: Trade
+          Transportation: Transportation
+          Veterans Affairs: Veterans Affairs
+          Veterans Assistance: Veterans Assistance
     - click_on:
       - value: Submit
-        selector: ".btn-primary"
+        selector: form#form_B836E18F-525F-4AC6-9299-7147B6066AF6 div.buttonHolder input.btn-primary
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting me"
+      contains: "Thank you for contacting me."
