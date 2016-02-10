@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl12_FirstName"
     - fill_in:
         - name: ctl00$ctl12$FirstName
           selector: "#ctl00_ctl12_FirstName"
@@ -65,31 +67,6 @@ contact_form:
             - Rabbi
             - Sister
             - Father
-        - name: ctl00$ctl12$IssuesList
-          selector: "#ctl00_ctl12_IssuesList"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: "10168"
-            Civil Rights: "10055"
-            Communications: "14888"
-            Education: "73"
-            Energy and Environment: "10177"
-            Financial Services: "10219"
-            Foreign Affairs: "10370"
-            Health: "74"
-            Homeland Security: "10012"
-            Immigration: "10360"
-            Labor: "10390"
-            Medicare/Medicaid: "14890"
-            Military/Defense: "14891"
-            Postal: "14887"
-            Science and Technology: "10447"
-            Second Amendment: "14894"
-            Small Business: "14893"
-            Taxes: "10493"
-            Transportation: "81"
-            Veterans: "14892"
     - check:
         - name: ctl00$ctl12$ReplyChoice
           selector: "#ctl00_ctl12_ReplyChoice_0"
@@ -103,4 +80,5 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Thank you for contacting my office.
+      
