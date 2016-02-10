@@ -76,7 +76,6 @@ contact_form:
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            "--": "null"
             AK: AK
             AL: AL
             AR: AR
@@ -169,8 +168,11 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - value: Send
           selector: "#side-search-btn"
+    - find:
+        - selector: "p"
+          value: "Thank you for contacting Senator Schumer."
   success:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: Thank you for contacting Senator Schumer.
