@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
+    - find:
+        - selector: "#required-first"
     - fill_in:
         - name: required-prefix
           selector: "#required-prefix"
@@ -59,7 +61,7 @@ contact_form:
             "No": "N"
         - name: subscribe
           selector: "#subscribe"
-          value: "Y"
+          value: "False"
           required: true
           options:
             "Yes": "True"
@@ -109,4 +111,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: The following information has been submitted
