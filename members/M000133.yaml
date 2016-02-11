@@ -1,7 +1,7 @@
 bioguide: M000133
 contact_form:
   method: post
-  action: /contact
+  action: ""
   steps:
     - visit: "http://www.markey.senate.gov/contact"
     - select:
@@ -65,6 +65,8 @@ contact_form:
             Transportation: Transportation
             Veterans: Veterans
             Welfare/SNAP: Welfare/SNAP
+    - wait:
+        - value: 6
     - find:
         - selector: "#fname"
     - fill_in:
@@ -129,7 +131,6 @@ contact_form:
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            "--": "null"
             AK: AK
             AL: AL
             AR: AR
@@ -186,6 +187,8 @@ contact_form:
     - click_on:
         - value: Send
           selector: "#side-search-btn"
+    - wait:
+        - value: 7
     - find:
         - selector: "h2"
           value: "Thank You"
