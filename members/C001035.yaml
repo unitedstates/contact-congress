@@ -46,8 +46,8 @@ contact_form:
         value: $MESSAGE
         required: true
         options:
-          max_length: 10000
-          blacklist: ".,!@#$%^&*/\'\""
+          max_length: 1000
+          blacklist: ".,!@#$%^&*/\'\"?"
     - select:
       - name: prefix
         selector: "#edit-submitted-prefix"
