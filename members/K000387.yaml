@@ -1,9 +1,9 @@
 bioguide: K000387
 contact_form:
   method: get
-  action: /forms/writeyourrep/
+  action: "https://knightforms.house.gov/forms/writeyourrep/"
   steps:
-  - visit: https://Knightforms.house.gov/contact
+  - visit: "https://knightforms.house.gov/contact/"
   - fill_in:
     - name: zip5
       selector: form.zipform input[name='zip5']
@@ -172,9 +172,6 @@ contact_form:
         Taxation: "10493"
         Transportation and Public Works: "81"
         Water Resources Development: "10528"
-  - uncheck:
-    - name: ctl00$ctl09$SubscribeChoice
-      selector: "#ctl00_ctl09_SubscribeChoice"
   - click_on:
     - value: Submit
       selector: "#ctl00_ctl09_SubmitButton"

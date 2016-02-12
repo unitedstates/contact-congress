@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "http://noem.house.gov/index.cfm/email-kristi"
     - click_on:
-        - selector: "button[rel=close]"
+        - selector: div#signup-popup button[rel='close']
     - fill_in:
         - name: field_844CEEDB-B2E1-4444-8E26-E7C1A9866178
           selector: "#field_844CEEDB-B2E1-4444-8E26-E7C1A9866178"
@@ -110,13 +110,13 @@ contact_form:
         - name: field_07C7727A-6C47-4FF9-A890-C904FA4D408F
           selector: "#field_07C7727A-6C47-4FF9-A890-C904FA4D408F_1"
           value: Express an opinion or share your views with me
-    - uncheck:
-        - name: field_C118293D-C266-4EF6-9F9D-3DD4D9DCFD7F
-          selector: "#field_C118293D-C266-4EF6-9F9D-3DD4D9DCFD7F_1"
-          value: EMAIL.OPTIN
+    - click_on:
+        - selector: input#field_C118293D-C266-4EF6-9F9D-3DD4D9DCFD7F_1
+    - find:
+        - selector: form.uniForm div.buttonHolder input
     - click_on:
         - value: Submit
-          selector: div.buttonHolder input
+          selector: form.uniForm div.buttonHolder input
   success:
     headers:
       status: 200

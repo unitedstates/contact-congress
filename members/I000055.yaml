@@ -3,56 +3,59 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: http://www.isakson.senate.gov/public/index.cfm/email-me
+    - visit: "http://www.isakson.senate.gov/public/index.cfm/email-me"
     - fill_in:
-      - name: field_ab86600e-030c-4da2-8f14-396a3e48191c
-        selector: "#field_ab86600e-030c-4da2-8f14-396a3e48191c"
+      - name: prefix
+        selector: input#field_AB86600E-030C-4DA2-8F14-396A3E48191C
         value: $NAME_PREFIX
         required: true
-      - name: field_22a9d1cc-bfe4-45f4-aa29-1f4d2585d826
-        selector: "#field_22a9d1cc-bfe4-45f4-aa29-1f4d2585d826"
+      - name: first
+        selector: input#field_22A9D1CC-BFE4-45F4-AA29-1F4D2585D826
         value: $NAME_FIRST
-        required: Yes
-      - name: field_104d6112-f94a-4d44-9c2c-2888262b2c48
-        selector: "#field_104d6112-f94a-4d44-9c2c-2888262b2c48"
+        required: true
+      - name: last
+        selector: input#field_104D6112-F94A-4D44-9C2C-2888262B2C48
         value: $NAME_LAST
-        required: Yes
-      - name: field_b3baf8d6-afb0-4679-952f-404a128f4244
-        selector: "#field_b3baf8d6-afb0-4679-952f-404a128f4244"
+        required: true
+      - name: street
+        selector: input#field_B3BAF8D6-AFB0-4679-952F-404A128F4244
         value: $ADDRESS_STREET
-        required: Yes
-      - name: field_c5be6ebd-de31-4209-913d-10617dc5a8ca
-        selector: "#field_c5be6ebd-de31-4209-913d-10617dc5a8ca"
+        required: true
+      - name: street2
+        selector: input#field_C5BE6EBD-DE31-4209-913D-10617DC5A8CA
         value: $ADDRESS_STREET_2
-      - name: field_cab416e9-62e2-4927-8f65-06abd04adfce
-        selector: "#field_cab416e9-62e2-4927-8f65-06abd04adfce"
+        required: false
+      - name: city
+        selector: input#field_CAB416E9-62E2-4927-8F65-06ABD04ADFCE
         value: $ADDRESS_CITY
-        required: Yes
-      - name: field_f7e42a27-651e-4a5b-83f9-d44122a86aaf
-        selector: "#field_f7e42a27-651e-4a5b-83f9-d44122a86aaf"
+        required: true
+      - name: zip5
+        selector: input#field_F7E42A27-651E-4A5B-83F9-D44122A86AAF
         value: $ADDRESS_ZIP5
-        required: Yes
-      - name: field_3d5deefb-35d1-45f5-9663-ca9e70d45d5f
-        selector: "#field_3d5deefb-35d1-45f5-9663-ca9e70d45d5f"
+        required: true
+      - name: phone
+        selector: input#field_3D5DEEFB-35D1-45F5-9663-CA9E70D45D5F
         value: $PHONE
-      - name: field_e3e7cb2b-2628-4eae-91e3-8658c92580f5
-        selector: "#field_e3e7cb2b-2628-4eae-91e3-8658c92580f5"
+        required: false
+      - name: email
+        selector: input#field_E3E7CB2B-2628-4EAE-91E3-8658C92580F5
         value: $EMAIL
-        required: Yes
-        # disallow_plus: Yes
-      - name: field_6dce4fee-bdb8-4dad-9496-d121f71a4bd9
-        selector: "#field_6dce4fee-bdb8-4dad-9496-d121f71a4bd9"
+        required: true
+      - name: subject
+        selector: input#field_6DCE4FEE-BDB8-4DAD-9496-D121F71A4BD9
         value: $SUBJECT
-        required: Yes
-      - name: field_4bbb4940-5fa9-43e1-9f05-0a9eb169c378
-        selector: "#field_4bbb4940-5fa9-43e1-9f05-0a9eb169c378"
+        required: true
+      - name: message
+        selector: textarea#field_4BBB4940-5FA9-43E1-9F05-0A9EB169C378
         value: $MESSAGE
-        maxlength: 10000
+        required: true
+        options:
+          maxlength: 10000
     - select:
-      - name: field_158b2b90-6381-4626-beeb-7b43c917be66
-        selector: "#field_158b2b90-6381-4626-beeb-7b43c917be66"
+      - name: topic
+        selector: select#field_158B2B90-6381-4626-BEEB-7B43C917BE66
         value: $TOPIC
-        required: Yes
+        required: true
         options:
           "Other": "GOV"
           "Do not respond": "DNR"
@@ -77,10 +80,9 @@ contact_form:
           "Veterans": "VETS"
     - click_on:
       - value: Submit
-        selector: "form.uniForm input[type='submit']"
+        selector: form#form_AD079185-D77D-42DF-8CAD-8191DB7442A5 div.buttonHolder input
   success:
     headers:
       status: 200
     body:
       contains: Your message has been submitted
-      # matches: "thank you, [a-z\. ]+ for contacting"
