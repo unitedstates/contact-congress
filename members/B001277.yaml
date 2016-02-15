@@ -41,8 +41,8 @@ contact_form:
           - "Telecommunications"
           - "Trade"
           - "Transportation"
-    - find:
-      - selector: "#continue-form"
+    - wait:
+      - value: 3
     - fill_in:
       - name: fname
         selector: "#fname"
@@ -122,4 +122,3 @@ contact_form:
       status: 200
     body:
       contains: "Thank you again for writing"
-
