@@ -1,94 +1,215 @@
 bioguide: H001061
 contact_form:
-  method: POST
-  action: http://www.hoeven.senate.gov/public/index.cfm/email-the-senator
+  method: post
+  action: ""
   steps:
-    - visit: http://www.hoeven.senate.gov/public/index.cfm/email-the-senator
+    - visit: "http://www.hoeven.senate.gov/public/index.cfm/email-the-senator"
     - fill_in:
-      - name: field_edbee5a8-1500-4783-a711-f1e737df406f
-        selector: "#field_edbee5a8-1500-4783-a711-f1e737df406f"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_e3ad017a-566e-4911-81a5-a8611192b357
-        selector: "#field_e3ad017a-566e-4911-81a5-a8611192b357"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_10554e6c-6b6f-427a-a865-d714bd2fe5a1
-        selector: "#field_10554e6c-6b6f-427a-a865-d714bd2fe5a1"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_4c3af2ea-a686-49b4-a847-859af8e7d23a
-        selector: "#field_4c3af2ea-a686-49b4-a847-859af8e7d23a"
-        value: "$ADDRESS_STREET_2"
-      - name: field_b7efe8e9-c929-4b92-8328-7b7f6f8c7274
-        selector: "#field_b7efe8e9-c929-4b92-8328-7b7f6f8c7274"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_a80a2a87-2f31-4c21-8beb-afbf12327276
-        selector: "#field_a80a2a87-2f31-4c21-8beb-afbf12327276"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_62cac646-c6c0-4b48-8637-86b77d2c9700
-        selector: "#field_62cac646-c6c0-4b48-8637-86b77d2c9700"
-        value: "$PHONE"
-        required: true
-      - name: field_4a2966d5-e9ea-4195-b486-b5d3d04d185a
-        selector: "#field_4a2966d5-e9ea-4195-b486-b5d3d04d185a"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_55b09216-2b91-470f-af68-ae9d197787b0
-        selector: "#field_55b09216-2b91-470f-af68-ae9d197787b0"
-        value: "$MESSAGE"
-        required: Yes
-    - javascript:
-      - value: "document.getElementById('field_62cac646-c6c0-4b48-8637-86b77d2c9700').value = document.getElementById('field_62cac646-c6c0-4b48-8637-86b77d2c9700').value.replace(/([0-9]{3})([0-9]{3})([0-9]{4})/, '$1-$2-$3');"
+        - name: field_EDBEE5A8-1500-4783-A711-F1E737DF406F
+          selector: "#field_EDBEE5A8-1500-4783-A711-F1E737DF406F"
+          value: $NAME_FIRST
+          required: true
+        - name: field_E3AD017A-566E-4911-81A5-A8611192B357
+          selector: "#field_E3AD017A-566E-4911-81A5-A8611192B357"
+          value: $NAME_LAST
+          required: true
+        - name: field_10554E6C-6B6F-427A-A865-D714BD2FE5A1
+          selector: "#field_10554E6C-6B6F-427A-A865-D714BD2FE5A1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_B7EFE8E9-C929-4B92-8328-7B7F6F8C7274
+          selector: "#field_B7EFE8E9-C929-4B92-8328-7B7F6F8C7274"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_A80A2A87-2F31-4C21-8BEB-AFBF12327276
+          selector: "#field_A80A2A87-2F31-4C21-8BEB-AFBF12327276"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_62CAC646-C6C0-4B48-8637-86B77D2C9700
+          selector: "#field_62CAC646-C6C0-4B48-8637-86B77D2C9700"
+          value: $PHONE
+          required: true
+        - name: field_4A2966D5-E9EA-4195-B486-B5D3D04D185A
+          selector: "#field_4A2966D5-E9EA-4195-B486-B5D3D04D185A"
+          value: $EMAIL
+          required: true
+        - name: field_55B09216-2B91-470F-AF68-AE9D197787B0
+          selector: "#field_55B09216-2B91-470F-AF68-AE9D197787B0"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: field_89f02d5d-f5d9-46e9-880e-bb15e9254713
-        selector: "#field_89f02d5d-f5d9-46e9-880e-bb15e9254713"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          "Mr.": 1
-          "Mrs.": 2
-          "Mr. and Mrs.": 3
-          "Ms.": 4
-      - name: field_0cf6bfda-3ad1-4f31-9f42-fbf81148e3cf
-        selector: "#field_0cf6bfda-3ad1-4f31-9f42-fbf81148e3cf"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          - "Agriculture"
-          - "Budget"
-          - "Civil Rights"
-          - "Communications"
-          - "Defense"
-          - "Economic Development"
-          - "Education"
-          - "Energy"
-          - "Environment"
-          - "Flooding Issues"
-          - "Foreign Relations"
-          - "Government Reform"
-          - "Health"
-          - "Homeland Security"
-          - "Housing"
-          - "Immigration"
-          - "Indian Affairs"
-          - "Insurance"
-          - "Medicare"
-          - "Social Security"
-          - "Taxes"
-          - "Trade"
-          - "Transportation"
-          - "Welfare"
-          - "Other/Multiple Issues"
+        - name: field_89F02D5D-F5D9-46E9-880E-BB15E9254713
+          selector: "#field_89F02D5D-F5D9-46E9-880E-BB15E9254713"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: MR
+            Mrs.: MRS
+            Mr. and Mrs.: MRANDMRS
+            Ms.: MS
+            Dr.: DR
+            Dr. and Mrs.: "6"
+            The Honorable: P
+            The Honorable and Mrs.: HONORABLEANDMRS
+            Master: MASTER
+            Miss: MISS
+            The Reverend: "11"
+            The Reverend and Mrs.: REVERENDANDMRS
+            First Lieutenant: FIRSTLIEUTENANT
+            First Sergeant: FIRSTSERGEANT
+            1st Lt.: 1STLT
+            2nd Lt.: 2NDLT
+            Admiral: ADMIRAL
+            Airman: AIRMAN
+            Airman First Class: AIRMAN1
+            Airman Basic: AIRMANBASIC
+            Brigadier General: BRIGADIERGENERAL
+            Cadet: CADET
+            Cap.: CAP
+            Capt.: CAPT
+            Captain: CAPTAIN
+            Chaplain: CHAPLAIN
+            Chief Master Sergeant: CHIEFMASTERSERGEANT
+            Chief Petty Officer: CHIEFPETTYOFFICER
+            Chief Warrant Officer: CHIEFWARRENTOFFICER
+            Cmdr.: CMDR
+            Col.: COL
+            Colonel: COLONEL
+            Commander: COMMANDER
+            Command Sergeant Major: COMMANDSERGEANTMAJOR
+            Commodore Admiral: COMMODOREADMIRAL
+            Congressman: CONGRESSMAN
+            Congressman-Elect: CONGRESSMAN-ELECT
+            Congresswoman: CONGRESSWOMAN
+            Congresswoman-Elect: CONGRESSWOMANELECT
+            Corporal: CORPORAL
+            Cpl.: CPL
+            CPO: CPO
+            Cpt.: CPT
+            CWO: CWO
+            Delegate-Elect: DELEGATE-ELECT
+            Drs.: DRS
+            Ensign: ESN
+            Father: FATHER
+            Fleet Admiral: FLEETADMIRAL
+            General: GENERAL
+            General of the Army: GENERALA
+            General of the Air Force: GENERALAF
+            Gunnery Sergeant: GUNNERYSERGEANT
+            Gy. Sgt.: GYSGT
+            The Hon.: HON
+            The Hon. and Mr.: HONANDMR
+            The Hon. and Mrs.: HONANDMRS
+            The Honorable and Mr.: HONORABLEANDMR
+            Lance Corporal: LANCECORPORAL
+            LCpl.: LCPL
+            Lieutenant: LIEUTENANT
+            Lieutenant Colonel: LIEUTENANTCOLONEL
+            Lieutenant Commander: LIEUTENANTCOMMANDER
+            Lieutenant General: LIEUTENANTGENERAL
+            Lieutenant Junior Grade: LIEUTENANTJRGRD
+            Lt.: LT
+            Lt. Cmdr.: LTCMDR
+            Lt. Col.: LTCOL
+            Maj.: MAJ
+            Major: MAJOR
+            Major General: MAJORGENERAL
+            Master Chief Petty Officer: MASTERCHIEFPETTYOFFICER
+            Master Gunnery Sergeant: MASTERGUNNERYSERGEANT
+            Master Sergeant: MASTERSERGEANT
+            MGSgt.: MGSGT
+            Midshipman: MIDSHIPMAN
+            Mr. and Dr.: MRANDDR
+            MSgt.: MSGT
+            Pastor: PASTOR
+            Pastor and Mrs.: PASTORANDMRS
+            Petty Officer First Class: PETTYOFFICER1
+            Petty Officer Second Class: PETTYOFFICER2
+            Petty Officer Third Class: PETTYOFFICER3
+            PFC: PFC
+            Private: PRIVATE
+            Private First Class: PRIVATE1
+            Pvt.: PVT
+            Rabbi: RABBI
+            Rabbi and Mrs.: RABBIANDMRS
+            Representative: REPRESENTATIVE
+            The Rev.: REV
+            The Rev. and Mrs.: REVANDMRS
+            The Rev. Dr.: REVDR
+            The Rev. Dr. and Mrs.: REVDRANDMRS
+            The Reverend Doctor: REVERENDDOCTOR
+            The Reverend Doctor and Mrs.: REVERENDDOCTORANDMRS
+            Seaman: SEAMAN
+            Seaman Apprentice: SEAMANAPPRENTICE
+            Seaman Recruit: SEAMANRECRUIT
+            Sen.: SEN
+            Sen. and Mr.: SENANDMR
+            Sen. and Mrs.: SENANDMRS
+            Senator: SENATOR
+            Senator and Mr.: SENATORANDMR
+            Senator and Mrs.: SENATORANDMRS
+            Senator-Elect: SENEL
+            Senior Airman: SENIORAIRMAN
+            Senior Chief Petty Officer: SENIORCHIEFPETTYOFFICER
+            Senior Master Sergeant: SENIORMASTERSERGEANT
+            Sr.: SR
+            Sr. and Sra.: SRANDSRA
+            Sergeant: SERGEANT
+            Sergeant First Class: SERGEANT1
+            Sergeant Major: SERGEANTMAJOR
+            Sgt.: SGT
+            Sgt. Maj.: SGTMAJ
+            Sheriff: SHERIFF
+            Sheriff and Mrs.: SHERIFFANDMRS
+            Sister: SISTER
+            SSgt.: SSGT
+            Staff Sergeant: STAFFSERGEANT
+            Technical Sergeant: TECHNICALSERGEANT
+            Warrant Officer: WARRANTOFFICER
+            Your Highness: YOURHIGHNESS
+        - name: field_0CF6BFDA-3AD1-4F31-9F42-FBF81148E3CF
+          selector: "#field_0CF6BFDA-3AD1-4F31-9F42-FBF81148E3CF"
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture
+            - Budget
+            - Civil Rights
+            - Communications
+            - Defense
+            - Economic Development
+            - "Economy,Jobs"
+            - Education
+            - Energy
+            - Environment
+            - Flooding Issues
+            - Foreign Relations
+            - Government Reform
+            - Guns
+            - Health
+            - Homeland Security
+            - Housing
+            - Immigration
+            - Indian Affairs
+            - Insurance
+            - Judiciary
+            - Medicare
+            - Social Security
+            - Taxes
+            - Trade
+            - Transportation
+            - Veterans
+            - Welfare
+            - Other/Multiple Issues
     - javascript:
-      - value: document.querySelector("#field_55b09216-2b91-470f-af68-ae9d197787b0").value = document.querySelector("#field_55b09216-2b91-470f-af68-ae9d197787b0").value.replace(/"/g, '');
+        - value: "document.getElementById('field_62CAC646-C6C0-4B48-8637-86B77D2C9700').value = document.getElementById('field_62CAC646-C6C0-4B48-8637-86B77D2C9700').value.replace(/([0-9]{3})([0-9]{3})([0-9]{4})/, '$1-$2-$3');"
+    - javascript:
+        - value: document.querySelector("#field_55B09216-2B91-470F-AF68-AE9D197787B0").value = document.querySelector("#field_55B09216-2B91-470F-AF68-AE9D197787B0").value.replace(/"/g, '');
     - click_on:
-      - value: Submit
-        selector: ".buttonHolder input"
+        - value: Submit
+          selector: div.buttonHolder input
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for sharing your concerns with me"
+      contains: Thank you
