@@ -1,114 +1,139 @@
 bioguide: H000338
 contact_form:
-  method: POST
-  action: http://www.hatch.senate.gov/public/index.cfm/contact?p=Email-Orrin
+  method: post
+  action: ""
   steps:
-    - visit: http://www.hatch.senate.gov/public/index.cfm/contact?p=Email-Orrin
+    - visit: "http://www.hatch.senate.gov/public/index.cfm/contact?p=Email-Orrin"
     - fill_in:
-      - name: field_e1b6dbd1-0ad9-40be-ab0f-9f51a3d6e884
-        selector: "#field_e1b6dbd1-0ad9-40be-ab0f-9f51a3d6e884"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_462d2bb9-db78-443e-be87-0b0b47dd00c5
-        selector: "#field_462d2bb9-db78-443e-be87-0b0b47dd00c5"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_117b579f-a706-4735-a966-dd5746ae6ebd
-        selector: "#field_117b579f-a706-4735-a966-dd5746ae6ebd"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_e8f08f3d-981f-4f15-a76e-eb49b722c2b4
-        selector: "#field_e8f08f3d-981f-4f15-a76e-eb49b722c2b4"
-        value: "$ADDRESS_STREET_2"
-      - name: field_4e978a1e-0b3b-41ee-8fdc-eb9c26d77405
-        selector: "#field_4e978a1e-0b3b-41ee-8fdc-eb9c26d77405"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_04fc034d-d107-4519-b606-afb75aa37526
-        selector: "#field_04fc034d-d107-4519-b606-afb75aa37526"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_0aaeac3f-dfba-4b74-b884-2494e1be87f2
-        selector: "#field_0aaeac3f-dfba-4b74-b884-2494e1be87f2"
-        value: "$PHONE"
-        required: true
-      - name: field_a04e48fc-dd84-4b78-b573-2be80de041e3
-        selector: "#field_a04e48fc-dd84-4b78-b573-2be80de041e3"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_32e4bfdf-a639-47de-bdfb-6d0c705fd2ff
-        selector: "#field_32e4bfdf-a639-47de-bdfb-6d0c705fd2ff"
-        value: "$MESSAGE"
-        required: Yes
+        - name: field_E1B6DBD1-0AD9-40BE-AB0F-9F51A3D6E884
+          selector: "#field_E1B6DBD1-0AD9-40BE-AB0F-9F51A3D6E884"
+          value: $NAME_FIRST
+          required: true
+        - name: field_462D2BB9-DB78-443E-BE87-0B0B47DD00C5
+          selector: "#field_462D2BB9-DB78-443E-BE87-0B0B47DD00C5"
+          value: $NAME_LAST
+          required: true
+        - name: field_A04E48FC-DD84-4B78-B573-2BE80DE041E3
+          selector: "#field_A04E48FC-DD84-4B78-B573-2BE80DE041E3"
+          value: $EMAIL
+          required: true
+        - name: field_0AAEAC3F-DFBA-4B74-B884-2494E1BE87F2
+          selector: "#field_0AAEAC3F-DFBA-4B74-B884-2494E1BE87F2"
+          value: $PHONE
+          required: true
+        - name: field_117B579F-A706-4735-A966-DD5746AE6EBD
+          selector: "#field_117B579F-A706-4735-A966-DD5746AE6EBD"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_4E978A1E-0B3B-41EE-8FDC-EB9C26D77405
+          selector: "#field_4E978A1E-0B3B-41EE-8FDC-EB9C26D77405"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_04FC034D-D107-4519-B606-AFB75AA37526
+          selector: "#field_04FC034D-D107-4519-B606-AFB75AA37526"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_32E4BFDF-A639-47DE-BDFB-6D0C705FD2FF
+          selector: "#field_32E4BFDF-A639-47DE-BDFB-6D0C705FD2FF"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: field_0919c49e-53e2-45f3-9967-4ac8ce6e4e96
-        selector: "#field_0919c49e-53e2-45f3-9967-4ac8ce6e4e96"
-        value: $TOPIC
-        required: true
-        options:
-          Abortion: Abortion
-          Administrative: Administrative
-          Agriculture: AG
-          "Arts & Humanities ": "Arts & Humanities"
-          Aviation: Aviation
-          Banking: Banking
-          Boy/Girl Scouts/Youth: Boy/Girl Scouts/Youth
-          Budget/Economy: Budget
-          Casework: Casework
-          Census: Census
-          Commerce: Commerce
-          Congratulatory: Congratulatory
-          Crime: Crime
-          Disability Issues: Disability Issues
-          Education: Education
-          Election Reform: voting
-          Energy: Energy
-          Environment: ENVIRON
-          Ethics: Ethics
-          "Federal Trade Commission ": Federal Trade Commission
-          FEMA: FEMA
-          Finance: Finance
-          Firearms: Firearms
-          Flag Requests: Flag Requests
-          Foreign Affairs: foreign-aid
-          General Responses: General Responses
-          Government Affairs: Government Affairs
-          Grants: Grants
-          Healthcare: Healthcare
-          Homeland Security: Homeland Security
-          Housing: Housing
-          Immigration: IMMIGRATION
-          "Intellectual Property ": Intellectual Property
-          Interior: "Interior "
-          Invitation Request: Invitation Request
-          Judiciary: Judiciary
-          Labor: LABOR
-          Marriage/Family: Marriage/Family
-          Medicare: MEDICARE
-          Military/Defense: Military
-          Native Americans: NATIVE-AMER
-          Postal: Postal
-          President: President
-          Press: Press
-          Prisons: Prisons
-          Religion: Religion
-          Small Business: SMALL-BIZ
-          Social Security: SOC-SEC
-          Space/NASA: nasa
-          Taxes: Taxes
-          Technology: Technoly
-          Telecommunications: Telecommunications
-          Tour Requests: Tour Requests
-          Transportation: TRANSPORT
-          Veterans: Veterans
-          Welfare: Welfare
+        - name: field_9A784EBC-408B-4EEB-A05B-05317A1DF5D2
+          selector: "#field_9A784EBC-408B-4EEB-A05B-05317A1DF5D2"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Chaplain
+            - Dr.
+            - Dr. and Mrs.
+            - Dr. and Mr.
+            - Father
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Mr. and Mrs.
+            - Pastor
+            - Pastor and Mrs.
+            - Pastor and Mr.
+            - Rabbi
+            - Rabbi and Mrs.
+            - Rabbi and Mr.
+            - Reverend
+            - Reverend and Mrs.
+            - Reverend and Mr.
+            - Sister
+            - The Honorable
+            - The Honorable and Mrs.
+            - The Honorable and Mr.
+        - name: field_0919C49E-53E2-45F3-9967-4AC8CE6E4E96
+          selector: "#field_0919C49E-53E2-45F3-9967-4AC8CE6E4E96"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: Abortion
+            Administrative: Administrative
+            Agriculture: AG
+            "Arts & Humanities ": "Arts & Humanities"
+            Aviation: Aviation
+            Banking: Banking
+            Boy/Girl Scouts/Youth: Boy/Girl Scouts/Youth
+            Budget/Economy: Budget
+            Casework: Casework
+            Census: Census
+            Commerce: Commerce
+            Congratulatory: Congratulatory
+            Crime: Crime
+            Disability Issues: Disability Issues
+            Education: Education
+            Election Reform: voting
+            Energy: Energy
+            Environment: ENVIRON
+            Ethics: Ethics
+            "Federal Trade Commission ": Federal Trade Commission
+            FEMA: FEMA
+            Finance: Finance
+            Firearms: Firearms
+            Flag Requests: Flag Requests
+            Foreign Affairs: foreign-aid
+            General Responses: General Responses
+            Government Affairs: Government Affairs
+            Grants: Grants
+            Healthcare: Healthcare
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: IMMIGRATION
+            "Intellectual Property ": Intellectual Property
+            Interior: "Interior "
+            Invitation Request: Invitation Request
+            Judiciary: Judiciary
+            Labor: LABOR
+            Marriage/Family: Marriage/Family
+            Medicare: MEDICARE
+            Military/Defense: Military
+            Native Americans: NATIVE-AMER
+            Postal: Postal
+            President: President
+            Press: Press
+            Prisons: Prisons
+            Religion: Religion
+            Small Business: SMALL-BIZ
+            Social Security: SOC-SEC
+            Space/NASA: nasa
+            Taxes: Taxes
+            Technology: Technoly
+            Telecommunications: Telecommunications
+            Tour Requests: Tour Requests
+            Transportation: TRANSPORT
+            Veterans: Veterans
+            Welfare: Welfare
     - javascript:
-      - value: document.querySelector("#field_32e4bfdf-a639-47de-bdfb-6d0c705fd2ff").value = document.querySelector("#field_32e4bfdf-a639-47de-bdfb-6d0c705fd2ff").value.replace(/"/g, '');
+        - value: document.querySelector("#field_32E4BFDF-A639-47DE-BDFB-6D0C705FD2FF").value = document.querySelector("#field_32E4BFDF-A639-47DE-BDFB-6D0C705FD2FF").value.replace(/"/g, '');
     - click_on:
-      - value: Submit
-        selector: ".buttonHolder input"
+        - value: Submit
+          selector: div.buttonHolder input
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting me via my website"
+      contains: Thank you
