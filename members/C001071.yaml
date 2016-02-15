@@ -1,139 +1,191 @@
 bioguide: C001071
 contact_form:
-  method: POST
-  action: http://www.corker.senate.gov/public/index.cfm/emailme
+  method: post
+  action: ""
   steps:
-    - visit: http://www.corker.senate.gov/public/index.cfm/emailme
+    - visit: "https://www.corker.senate.gov/public/index.cfm/emailme"
     - fill_in:
-      - name: field_c8fa410e-b7db-470e-a0c3-42f2c09c90af
-        selector: "#field_c8fa410e-b7db-470e-a0c3-42f2c09c90af"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_3b34fa45-f073-42d7-835e-76062c0e4a90
-        selector: "#field_3b34fa45-f073-42d7-835e-76062c0e4a90"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_9e117f89-c270-468c-adcb-4a5f5720f1d4
-        selector: "#field_9e117f89-c270-468c-adcb-4a5f5720f1d4"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_29d2a69c-65cd-4463-ad0b-15593ebfd806
-        selector: "#field_29d2a69c-65cd-4463-ad0b-15593ebfd806"
-        value: "$ADDRESS_STREET_2"
-      - name: field_b90b2e13-0ab2-4ecf-9cd6-0e3bec79dfe9
-        selector: "#field_b90b2e13-0ab2-4ecf-9cd6-0e3bec79dfe9"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_30d2eaad-cc57-4b7a-850c-34b902400ba5
-        selector: "#field_30d2eaad-cc57-4b7a-850c-34b902400ba5"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_f7804074-553e-4290-ad3f-8a58ebd842b2
-        selector: "#field_f7804074-553e-4290-ad3f-8a58ebd842b2"
-        value: "$PHONE"
-        required: Yes
-      - name: field_4d12afa8-5707-4d30-90ac-c145ed61c761
-        selector: "#field_4d12afa8-5707-4d30-90ac-c145ed61c761"
-        value: "$PHONE"
-      - name: field_19446150-cb65-453c-b5d0-f461c2b9c62f
-        selector: "#field_19446150-cb65-453c-b5d0-f461c2b9c62f"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_2e25fe62-8e53-4a19-ad7e-a4443d298b3f
-        selector: "#field_2e25fe62-8e53-4a19-ad7e-a4443d298b3f"
-        value: "$SUBJECT"
-        required: Yes
-      - name: field_e20922be-668a-46a0-ad93-2f4e33c72483
-        selector: "#field_e20922be-668a-46a0-ad93-2f4e33c72483"
-        value: "$MESSAGE"
-        required: Yes
-      - name: field_dbe73130-2c88-447b-bb88-8a097e611511
-        selector: "#field_dbe73130-2c88-447b-bb88-8a097e611511"
-        value: ""
+        - name: field_C8FA410E-B7DB-470E-A0C3-42F2C09C90AF
+          selector: "#field_C8FA410E-B7DB-470E-A0C3-42F2C09C90AF"
+          value: $NAME_FIRST
+          required: true
+        - name: field_3B34FA45-F073-42D7-835E-76062C0E4A90
+          selector: "#field_3B34FA45-F073-42D7-835E-76062C0E4A90"
+          value: $NAME_LAST
+          required: true
+        - name: field_9E117F89-C270-468C-ADCB-4A5F5720F1D4
+          selector: "#field_9E117F89-C270-468C-ADCB-4A5F5720F1D4"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_B90B2E13-0AB2-4ECF-9CD6-0E3BEC79DFE9
+          selector: "#field_B90B2E13-0AB2-4ECF-9CD6-0E3BEC79DFE9"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_30D2EAAD-CC57-4B7A-850C-34B902400BA5
+          selector: "#field_30D2EAAD-CC57-4B7A-850C-34B902400BA5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_F7804074-553E-4290-AD3F-8A58EBD842B2
+          selector: "#field_F7804074-553E-4290-AD3F-8A58EBD842B2"
+          value: $PHONE
+          required: true
+        - name: field_19446150-CB65-453C-B5D0-F461C2B9C62F
+          selector: "#field_19446150-CB65-453C-B5D0-F461C2B9C62F"
+          value: $EMAIL
+          required: true
+        - name: field_2E25FE62-8E53-4A19-AD7E-A4443D298B3F
+          selector: "#field_2E25FE62-8E53-4A19-AD7E-A4443D298B3F"
+          value: $SUBJECT
+          required: true
+        - name: field_E20922BE-668A-46A0-AD93-2F4E33C72483
+          selector: "#field_E20922BE-668A-46A0-AD93-2F4E33C72483"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: field_003defa2-ec48-471d-a425-e5ce7b354509
-        selector: "#field_003defa2-ec48-471d-a425-e5ce7b354509"
-        value: $NAME_PREFIX
-        required: true
-        options:
-          "Mr. ": Mr.
-          "Mrs. ": Mrs.
-          "Miss ": Miss
-          "Ms. ": Ms.
-          "Dr. ": Dr.
-          "Mr. and Mrs. ": Mr. and Mrs.
-          "Dr. and Mrs. ": Dr. and Mrs.
-          Dr. and Mr.: Dr. and Mr.
-          Dr. and Dr.: Dr. and Dr.
-          Father: Father
-          Pastor: Pastor
-          Rabbi: Rabbi
-          Reverend: The Reverend
-          "----Military Ranks----": Sister
-          General: General
-          Admiral: Admiral
-          Lt General: Lt General
-          Vice Admiral: Vice Admiral
-          Maj General: Maj General
-          Rear Admiral: Rear Admiral
-          Brig General: Brig General
-          Colonel: Colonel
-          "Captain,Captain": Captain
-          Lt Colonel: Lt Colonel
-          Commander: Commander
-          Major: Major
-          Lt Commander: Lt Commander
-          Lieutenant: Lieutenant
-          1st Lieutenant: 1st Lieutenant
-          Lieutenant JG: Lieutenant JG
-          2nd Lieutenant: 2nd Lieutenant
-          Ensign: Ensign
-          Warrant Officer (WO1): Warrant Officer (WO1)
-          Chief Warrant Officer (CW2): Chief Warrant Officer (CW2)
-          Chief Warrant Officer (CW3): Chief Warrant Officer (CW3)
-          Chief Warrant Officer (CW4): Chief Warrant Officer (CW4)
-          Chief Warrant Officer (CW5): Chief Warrant Officer (CW5)
-          Cmd Sgt Major: Cmd Sgt Major
-          Force/Fleet Cmd Master Sgt: Force/Fleet Cmd Master Sgt
-          Cmd Chief Master Sgt: Cmd Chief Master Sgt
-          Sergeant Major: Sergeant Major
-          Master Chief Petty Officer: Master Chief Petty Officer
-          Chief Master Sergeant: Chief Master SGT
-          Master Gunnery Sergeant: Master Gunnery SGT
-          Master CPO: Master CPO
-          Master Sergeant: Master Sergeant
-          1st Sergeant: 1st Sergeant
-          Sr Master Sergeant: Sr Master Sergeant
-          Sr CPO: Sr CPO
-          Sergeant 1st Class: Sergeant 1st Class
-          Gunnery Sergeant: Gunnery Sergeant
-          CPO: CPO
-          Staff Sergeant: Staff Sergeant
-          Technical Sgt: Technical Sgt
-          PO 1st Class: PO 1st Class
-          Sergeant: Sergeant
-          PO 2nd Class: PO 2nd Class
-          Corporal: Corporal
-          PO 3rd Class: PO 3rd Class
-          Specialist: Specialist
-          Sr Airman: Sr Airman
-          "Private 1st Class,Private 1st Class": Private 1st Class
-          Airman 1st Class: Airman 1st Class
-          Lance Corporal: Lance Corporal
-          Seaman: Seaman
-          "Private,Private": Private
-          Airman: Airman
-          Seaman Apprentice: Seaman Apprentice
-          Private (Recruit): Private (Recruit)
-          Airman Basic: Airman Basic
-          Seaman Recruit: Seaman Recruit
+        - name: field_003DEFA2-EC48-471D-A425-E5CE7B354509
+          selector: "#field_003DEFA2-EC48-471D-A425-E5CE7B354509"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "Mr. ": Mr.
+            "Mrs. ": Mrs.
+            "Miss ": Miss
+            "Ms. ": Ms.
+            "Dr. ": Dr.
+            "Mr. and Mrs. ": Mr. and Mrs.
+            "Dr. and Mrs. ": Dr. and Mrs.
+            Dr. and Mr.: Dr. and Mr.
+            Dr. and Dr.: Dr. and Dr.
+            Father: Father
+            Pastor: Pastor
+            Rabbi: Rabbi
+            Reverend: The Reverend
+            "----Military Ranks----": Sister
+            General: General
+            Admiral: Admiral
+            Lt General: Lt General
+            Vice Admiral: Vice Admiral
+            Maj General: Maj General
+            Rear Admiral: Rear Admiral
+            Brig General: Brig General
+            Colonel: Colonel
+            "Captain,Captain": Captain
+            Lt Colonel: Lt Colonel
+            Commander: Commander
+            Major: Major
+            Lt Commander: Lt Commander
+            Lieutenant: Lieutenant
+            1st Lieutenant: 1st Lieutenant
+            Lieutenant JG: Lieutenant JG
+            2nd Lieutenant: 2nd Lieutenant
+            Ensign: Ensign
+            Warrant Officer (WO1): Warrant Officer (WO1)
+            Chief Warrant Officer (CW2): Chief Warrant Officer (CW2)
+            Chief Warrant Officer (CW3): Chief Warrant Officer (CW3)
+            Chief Warrant Officer (CW4): Chief Warrant Officer (CW4)
+            Chief Warrant Officer (CW5): Chief Warrant Officer (CW5)
+            Cmd Sgt Major: Cmd Sgt Major
+            Force/Fleet Cmd Master Sgt: Force/Fleet Cmd Master Sgt
+            Cmd Chief Master Sgt: Cmd Chief Master Sgt
+            Sergeant Major: Sergeant Major
+            Master Chief Petty Officer: Master Chief Petty Officer
+            Chief Master Sergeant: Chief Master SGT
+            Master Gunnery Sergeant: Master Gunnery SGT
+            Master CPO: Master CPO
+            Master Sergeant: Master Sergeant
+            1st Sergeant: 1st Sergeant
+            Sr Master Sergeant: Sr Master Sergeant
+            Sr CPO: Sr CPO
+            Sergeant 1st Class: Sergeant 1st Class
+            Gunnery Sergeant: Gunnery Sergeant
+            CPO: CPO
+            Staff Sergeant: Staff Sergeant
+            Technical Sgt: Technical Sgt
+            PO 1st Class: PO 1st Class
+            Sergeant: Sergeant
+            PO 2nd Class: PO 2nd Class
+            Corporal: Corporal
+            PO 3rd Class: PO 3rd Class
+            Specialist: Specialist
+            Sr Airman: Sr Airman
+            "Private 1st Class,Private 1st Class": Private 1st Class
+            Airman 1st Class: Airman 1st Class
+            Lance Corporal: Lance Corporal
+            Seaman: Seaman
+            "Private,Private": Private
+            Airman: Airman
+            Seaman Apprentice: Seaman Apprentice
+            Private (Recruit): Private (Recruit)
+            Airman Basic: Airman Basic
+            Seaman Recruit: Seaman Recruit
+        - name: field_F466E548-9A0A-4CAD-A977-50EBEF8B82DE
+          selector: "#field_F466E548-9A0A-4CAD-A977-50EBEF8B82DE"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - "----Military----"
+            - AA
+            - AE
+            - AP
+            - "----States----"
+            - Alabama
+            - Alaska
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
     - javascript:
-      - value: document.querySelector("#field_e20922be-668a-46a0-ad93-2f4e33c72483").value = document.querySelector("#field_e20922be-668a-46a0-ad93-2f4e33c72483").value.replace(/"/g, '');
+        - value: document.querySelector("#field_E20922BE-668A-46A0-AD93-2F4E33C72483").value = document.querySelector("#field_E20922BE-668A-46A0-AD93-2F4E33C72483").value.replace(/"/g, '');
     - click_on:
-      - value: Submit
-        selector: ".buttonHolder input"
+        - value: Submit
+          selector: div.buttonHolder input
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting our office"
+      contains: Thank you
