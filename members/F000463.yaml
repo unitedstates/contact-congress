@@ -1,93 +1,89 @@
 bioguide: F000463
 contact_form:
-  method: POST
-  action: http://www.fischer.senate.gov/public/?p=email-deb
+  method: post
+  action: ""
   steps:
-    - visit: http://www.fischer.senate.gov/public/?p=email-deb
+    - visit: "http://www.fischer.senate.gov/public/?p=email-deb"
     - fill_in:
-      - name: field_54f8542e-f6db-417c-9677-e57f2f190899
-        selector: "#field_54f8542e-f6db-417c-9677-e57f2f190899"
-        value: "$NAME_PREFIX"
-      - name: field_2a913e5f-016d-49ca-b284-b4a1b186f01d
-        selector: "#field_2a913e5f-016d-49ca-b284-b4a1b186f01d"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_2e235441-e702-4d0d-a75b-85d6f316586c
-        selector: "#field_2e235441-e702-4d0d-a75b-85d6f316586c"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_22790971-8cb2-4478-9b93-c3ec8aa88912
-        selector: "#field_22790971-8cb2-4478-9b93-c3ec8aa88912"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_9109e448-ecfb-440d-a3a9-8bea21e116cd
-        selector: "#field_9109e448-ecfb-440d-a3a9-8bea21e116cd"
-        value: "$ADDRESS_STREET_2"
-      - name: field_240e9b49-c4d2-44cf-830e-298c55a40443
-        selector: "#field_240e9b49-c4d2-44cf-830e-298c55a40443"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_0c3f47bf-cec6-4900-b077-223949219c54
-        selector: "#field_0c3f47bf-cec6-4900-b077-223949219c54"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_e4cde960-384d-4aed-ba80-2e2be81190e6
-        selector: "#field_e4cde960-384d-4aed-ba80-2e2be81190e6"
-        value: "$PHONE"
-        required: Yes
-      - name: field_c3e69c90-7d25-46bb-afd5-1f126572e8a7
-        selector: "#field_c3e69c90-7d25-46bb-afd5-1f126572e8a7"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_6eb9e15b-f29d-4876-9f0f-53e314172579
-        selector: "#field_6eb9e15b-f29d-4876-9f0f-53e314172579"
-        value: "$SUBJECT"
-        required: Yes
-      - name: field_bff13ea3-37ad-467a-bb61-750f5cce59e8
-        selector: "#field_bff13ea3-37ad-467a-bb61-750f5cce59e8"
-        value: "$MESSAGE"
-        required: Yes
+        - name: field_2A913E5F-016D-49CA-B284-B4A1B186F01D
+          selector: "#field_2A913E5F-016D-49CA-B284-B4A1B186F01D"
+          value: $NAME_FIRST
+          required: true
+        - name: field_2E235441-E702-4D0D-A75B-85D6F316586C
+          selector: "#field_2E235441-E702-4D0D-A75B-85D6F316586C"
+          value: $NAME_LAST
+          required: true
+        - name: field_22790971-8CB2-4478-9B93-C3EC8AA88912
+          selector: "#field_22790971-8CB2-4478-9B93-C3EC8AA88912"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_240E9B49-C4D2-44CF-830E-298C55A40443
+          selector: "#field_240E9B49-C4D2-44CF-830E-298C55A40443"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_0C3F47BF-CEC6-4900-B077-223949219C54
+          selector: "#field_0C3F47BF-CEC6-4900-B077-223949219C54"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_E4CDE960-384D-4AED-BA80-2E2BE81190E6
+          selector: "#field_E4CDE960-384D-4AED-BA80-2E2BE81190E6"
+          value: $PHONE
+          required: true
+        - name: field_C3E69C90-7D25-46BB-AFD5-1F126572E8A7
+          selector: "#field_C3E69C90-7D25-46BB-AFD5-1F126572E8A7"
+          value: $EMAIL
+          required: true
+        - name: field_6EB9E15B-F29D-4876-9F0F-53E314172579
+          selector: "#field_6EB9E15B-F29D-4876-9F0F-53E314172579"
+          value: $SUBJECT
+          required: true
+        - name: field_BFF13EA3-37AD-467A-BB61-750F5CCE59E8
+          selector: "#field_BFF13EA3-37AD-467A-BB61-750F5CCE59E8"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: field_30da42c5-f1dd-4674-8c1d-6e047a20a190
-        selector: "#field_30da42c5-f1dd-4674-8c1d-6e047a20a190"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          - "Agriculture"
-          - "Banking"
-          - "Budget"
-          - "Defense"
-          - "Economy"
-          - "Education"
-          - "Energy"
-          - "Environment"
-          - "Government"
-          - "Foreign Affairs"
-          - "Health"
-          - "Housing"
-          - "Immigration"
-          - "Intelligence"
-          - "Judiciary"
-          - "Labor"
-          - "Healthcare"
-          - "Science and Technology"
-          - "Senior Issues"
-          - "Small Business"
-          - "Social Security"
-          - "Taxes"
-          - "Communications"
-          - "Trade"
-          - "Transportation"
-          - "Veterans"
-          - "Welfare"
-          - "Other"
+        - name: field_30DA42C5-F1DD-4674-8C1D-6E047A20A190
+          selector: "#field_30DA42C5-F1DD-4674-8C1D-6E047A20A190"
+          value: $TOPIC
+          required: true
+          options:
+            Please select a Subject: noSelect
+            Agriculture: Agriculture
+            Banking: Banking
+            Budget: Budget
+            "Defense,Terrorism": Defense
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Federal Government: Government
+            Foreign Affairs: Foreign Affairs
+            Health: Health
+            Housing: Housing
+            Immigration: Immigration
+            Intelligence/National Security: Intelligence
+            Judiciary: Judiciary
+            "Labor,Unemployment Issues": Labor
+            Medicaid/Medicare: Healthcare
+            Science and Technology: Science and Technology
+            Senior Issues: Senior Issues
+            Second Amendment Rights: Second Amendment Rights
+            Small Business: Small Business
+            Social Security: Social Security
+            Taxes: Taxes
+            Telecommunications: Communications
+            Trade: Trade
+            Transportation: Transportation
+            "Veterans' Affairs": Veterans
+            Welfare: Welfare
+            Other: Other
     - javascript:
-      - value: document.querySelector("#field_bff13ea3-37ad-467a-bb61-750f5cce59e8").value = document.querySelector("#field_bff13ea3-37ad-467a-bb61-750f5cce59e8").value.replace(/"/g, '');
+        - value: document.querySelector("#field_BFF13EA3-37AD-467A-BB61-750F5CCE59E8").value = document.querySelector("#field_BFF13EA3-37AD-467A-BB61-750F5CCE59E8").value.replace(/"/g, '');
     - click_on:
-      - value: Submit
-        selector: ".btn-primary"
+        - value: Submit
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting me"
+      contains: Thank you
