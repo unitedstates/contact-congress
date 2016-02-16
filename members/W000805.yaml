@@ -3,52 +3,53 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.warner.senate.gov/public//index.cfm?p=ContactPage#form_f9db6196-2dc7-4cda-8add-f8435a71318a"
+    - visit: "https://www.warner.senate.gov/public/index.cfm/contactpage"
+    - find:
+        - selector: input#field_DB042583-9E58-4B92-8979-A28769F48DB6
     - fill_in:
-        - name: field_db042583-9e58-4b92-8979-a28769f48db6
-          selector: "#field_db042583-9e58-4b92-8979-a28769f48db6"
+        - name: first
+          selector: input#field_DB042583-9E58-4B92-8979-A28769F48DB6
           value: $NAME_FIRST
           required: true
-        - name: field_b5ec1754-a087-456b-8adb-7d3b19cf9997
-          selector: "#field_b5ec1754-a087-456b-8adb-7d3b19cf9997"
+        - name: last
+          selector: input#field_B5EC1754-A087-456B-8ADB-7D3B19CF9997
           value: $NAME_LAST
           required: true
-        - name: field_35ed0d76-065e-41f1-b5c8-5f8de89ecf90
-          selector: "#field_35ed0d76-065e-41f1-b5c8-5f8de89ecf90"
+        - name: street
+          selector: input#field_35ED0D76-065E-41F1-B5C8-5F8DE89ECF90
           value: $ADDRESS_STREET
           required: true
-        - name: field_85957133-1789-436c-b14c-0fb68fcddb25
-          selector: "#field_85957133-1789-436c-b14c-0fb68fcddb25"
+        - name: street2
+          selector: input#field_85957133-1789-436C-B14C-0FB68FCDDB25
           value: $ADDRESS_STREET_2
           required: false
-        - name: field_3d314fc8-c88d-42f9-843e-163ad337d87c
-          selector: "#field_3d314fc8-c88d-42f9-843e-163ad337d87c"
+        - name: city
+          selector: input#field_3D314FC8-C88D-42F9-843E-163AD337D87C
           value: $ADDRESS_CITY
           required: true
-        - name: field_0f85608e-fb00-4c2c-a32a-82b202f738c9
-          selector: "#field_0f85608e-fb00-4c2c-a32a-82b202f738c9"
+        - name: zip5
+          selector: input#field_0F85608E-FB00-4C2C-A32A-82B202F738C9
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_050c394f-5f4c-40fd-92c0-5dd66961745d
-          selector: "#field_050c394f-5f4c-40fd-92c0-5dd66961745d"
+        - name: phone
+          selector: input#field_050C394F-5F4C-40FD-92C0-5DD66961745D
           value: $PHONE
           required: true
-        - name: field_9c7d925d-cfd3-40bc-9cf6-961fc04333d6
-          selector: "#field_9c7d925d-cfd3-40bc-9cf6-961fc04333d6"
+        - name: email
+          selector: input#field_9C7D925D-CFD3-40BC-9CF6-961FC04333D6
           value: $EMAIL
-          disallow_plus: Yes
           required: true
-        - name: field_7a0144ec-734e-4c09-8992-734ac3e6e337
-          selector: "#field_7a0144ec-734e-4c09-8992-734ac3e6e337"
+        - name: subject
+          selector: input#field_7A0144EC-734E-4C09-8992-734AC3E6E337
           value: $SUBJECT
           required: true
-        - name: field_6fa5f44f-28ca-45fd-9142-3c29c257b186
-          selector: "#field_6fa5f44f-28ca-45fd-9142-3c29c257b186"
+        - name: message
+          selector: textarea#field_6FA5F44F-28CA-45FD-9142-3C29C257B186
           value: $MESSAGE
           required: true
     - select:
-        - name: field_eec119b6-f19d-4f37-8035-f4a46c2d7c2f
-          selector: "#field_eec119b6-f19d-4f37-8035-f4a46c2d7c2f"
+        - name: prefix
+          selector: select#field_EEC119B6-F19D-4F37-8035-F4A46C2D7C2F
           value: $NAME_PREFIX
           required: true
           options:
@@ -120,8 +121,8 @@ contact_form:
             "Technical Sergeant": TECHNICALSERGEANT
             "Vice Admiral": VICEADMIRA
             "Warrant Officer": WARRANTOFFICER
-        - name: field_abec110b-7e92-4b85-b94a-5ccc8a7a046d
-          selector: "#field_abec110b-7e92-4b85-b94a-5ccc8a7a046d"
+        - name: topic
+          selector: select#field_ABEC110B-7E92-4B85-B94A-5CCC8A7A046D
           value: $TOPIC
           required: true
           options:
@@ -172,18 +173,17 @@ contact_form:
             Tricare: VET.TRI
             Veterans: Vet
             Voting Rights: VOTE
-        - name: field_4815620b-0631-45d2-b52e-a9420a813de5
-          selector: "#field_4815620b-0631-45d2-b52e-a9420a813de5"
-          value: "No"
+        - name: response
+          selector: select#field_4815620B-0631-45D2-B52E-A9420A813DE5
+          value: Yes
           required: true
           options:
-            "Yes": "Yes"
-            "No": "No"
+            Yes: Yes
     - click_on:
         - value: Submit
-          selector: div.buttonHolder input
+          selector: form#form_F9DB6196-2DC7-4CDA-8ADD-F8435A71318A div.buttonHolder input
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting our office.
+      contains: "Thank you for contacting our office."
