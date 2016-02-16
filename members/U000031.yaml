@@ -1,7 +1,7 @@
 bioguide: U000031
 contact_form:
   method: get
-  action: /Contact/ContactForm.htm
+  action: "https://upton.house.gov/submit-contact.aspx"
   steps:
     - visit: "http://upton.house.gov/contact/zipauth.htm"
     - fill_in:
@@ -16,9 +16,13 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
-    - find: 
+    - find:
         - selector: "form.zipform[name='contact']"
     - fill_in:
+        - name: prefix
+          selector: "form.zipform[name='contact'] input[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
         - name: required-first
           selector: "form.zipform[name='contact'] input[name='required-first']"
           value: $NAME_FIRST
@@ -90,4 +94,3 @@ contact_form:
       status: 200
     body:
       contains: Thanks for your request. We will try to address your message as soon as we are able
-
