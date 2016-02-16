@@ -35,14 +35,6 @@ contact_form:
           selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -51,7 +43,10 @@ contact_form:
           selector: "#req_message"
           value: $MESSAGE
           required: true
-    - select: []
+    - click_on:
+        - selector: input#newsletter
+    - find:
+        - selector: input#submitButton
     - click_on:
         - value: Send Email
           selector: "#submitButton"
@@ -63,4 +58,3 @@ contact_form:
       status: 200
     body:
       contains: Your message has been successfully submitted.
-
