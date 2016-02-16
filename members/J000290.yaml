@@ -35,7 +35,7 @@ contact_form:
           required: true
         - name: phone
           selector: input#req_phone
-          value: 222-222-2222
+          value: $PHONE
           required: true
         - name: message
           selector: "#req_message"
@@ -43,9 +43,9 @@ contact_form:
           required: true
     - select:
         - name: prefix
-          selector: "#req_prefix"
+          selector: "#prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
           options:
             Mr.: "Mr. "
             Mrs.: Mrs.

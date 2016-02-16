@@ -6,52 +6,52 @@ contact_form:
     - visit: "https://culbersonforms.house.gov/forms/writeyourrep/default.aspx"
     - fill_in:
         - name: firstname
-          selector: "#ctl00_ctl13_FirstName"
+          selector: "#ctl00_ctl15_FirstName"
           value: $NAME_FIRST
           required: true
         - name: lastname
-          selector: "#ctl00_ctl13_LastName"
+          selector: "#ctl00_ctl15_LastName"
           value: $NAME_LAST
           required: true
         - name: street
-          selector: "#ctl00_ctl13_Street"
+          selector: "#ctl00_ctl15_Street"
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: "#ctl00_ctl13_City"
+          selector: "#ctl00_ctl15_City"
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: "#ctl00_ctl13_Zip"
+          selector: "#ctl00_ctl15_Zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector: "#ctl00_ctl13_Phone"
+          selector: "#ctl00_ctl15_Phone"
           value: $PHONE
           required: true
         - name: email
-          selector: "#ctl00_ctl13_Email"
+          selector: "#ctl00_ctl15_Email"
           value: $EMAIL
           required: true
         - name: subject
-          selector: "#ctl00_ctl13_Subject"
+          selector: "#ctl00_ctl15_Subject"
           value: $SUBJECT
           required: true
         - name: message
-          selector: "#ctl00_ctl13_Body"
+          selector: "#ctl00_ctl15_Body"
           value: $MESSAGE
           required: true
         - name: CampaignID
-          selector: "#ctl00_ctl13_CampaignID"
+          selector: "#ctl00_ctl15_CampaignID"
           value: $CAMPAIGN_UUID
           required: false
         - name: CampaignInfo
-          selector: "#ctl00_ctl13_CampaignInfo"
+          selector: "#ctl00_ctl15_CampaignInfo"
           value: $CAMPAIGN_UUID
           required: false
     - select:
         - name: prefix
-          selector: "#ctl00_ctl13_PrefixList"
+          selector: "#ctl00_ctl15_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -143,73 +143,8 @@ contact_form:
             Lieutenant Colonel: Lieutenant Colonel
             Lance Corporal: Lance Corporal
             First Sergeant: First Sergeant
-        - name: state
-          selector: "#ctl00_ctl13_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - AA
-            - AE
-            - AP
-            - FM
-            - GU
-            - MH
-            - MP
-            - PR
-            - VI
         - name: topic
-          selector: "#ctl00_ctl13_IssuesList"
+          selector: "#ctl00_ctl15_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -239,13 +174,13 @@ contact_form:
             Veterans: "45929"
     - check:
         - name: replychoice
-          selector: "#ctl00_ctl13_ReplyChoice_0"
+          selector: "#ctl00_ctl15_ReplyChoice_0"
           value: Respond
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl13_SubmitButton"
+          selector: "#ctl00_ctl15_SubmitButton"
     - find:
-        - selector: "#ctl00_ctl13_ConfirmationText"
+        - selector: "#ctl00_ctl15_ConfirmationText"
   success:
     headers:
       status: 200

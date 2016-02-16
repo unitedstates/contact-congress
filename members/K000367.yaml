@@ -1,101 +1,122 @@
 bioguide: K000367
 contact_form:
   method: post
-  action: "http://www.klobuchar.senate.gov/public/email-amy"
+  action: ""
   steps:
     - visit: "http://www.klobuchar.senate.gov/public/email-amy"
+    - find:
+        - selector: input#field_C52E1162-F258-4E3F-9F22-A054DA714390
     - fill_in:
-        - name: field_c52e1162-f258-4e3f-9f22-a054da714390
-          selector: "#field_c52e1162-f258-4e3f-9f22-a054da714390"
+        - name: first
+          selector: input#field_C52E1162-F258-4E3F-9F22-A054DA714390
           value: $NAME_FIRST
           required: true
-        - name: field_dd82b60d-4635-4434-93ff-892b72b9d52b
-          selector: "#field_dd82b60d-4635-4434-93ff-892b72b9d52b"
+        - name: last
+          selector: input#field_DD82B60D-4635-4434-93FF-892B72B9D52B
           value: $NAME_LAST
           required: true
-        - name: field_9cc52f34-5547-46d2-845b-0ce277324714
-          selector: "#field_9cc52f34-5547-46d2-845b-0ce277324714"
+        - name: street
+          selector: input#field_9CC52F34-5547-46D2-845B-0CE277324714
           value: $ADDRESS_STREET
           required: true
-        - name: field_bcc3fe7a-ef27-4d25-9e7c-14d77c27114c
-          selector: "#field_bcc3fe7a-ef27-4d25-9e7c-14d77c27114c"
+        - name: street2
+          selector: input#field_BCC3FE7A-EF27-4D25-9E7C-14D77C27114C
           value: $ADDRESS_STREET_2
           required: false
-        - name: field_a96c76ca-3b30-4134-a9ba-c5695aeaa16f
-          selector: "#field_a96c76ca-3b30-4134-a9ba-c5695aeaa16f"
+        - name: city
+          selector: input#field_A96C76CA-3B30-4134-A9BA-C5695AEAA16F
           value: $ADDRESS_CITY
           required: true
-        - name: field_6fd17215-4484-496c-8859-92698c465f01
-          selector: "#field_6fd17215-4484-496c-8859-92698c465f01"
+        - name: zip5
+          selector: input#field_6FD17215-4484-496C-8859-92698C465F01
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_1b20e163-ea77-43ad-a84f-87dce4f1b900
-          selector: "#field_1b20e163-ea77-43ad-a84f-87dce4f1b900"
+        - name: phone
+          selector: input#field_1B20E163-EA77-43AD-A84F-87DCE4F1B900
           value: $PHONE
           required: false
-        - name: field_352a82b8-7386-4c46-96ff-e96e2a164c11
-          selector: "#field_352a82b8-7386-4c46-96ff-e96e2a164c11"
+        - name: email
+          selector: input#field_352A82B8-7386-4C46-96FF-E96E2A164C11
           value: $EMAIL
           required: true
-        - name: field_675a9f22-38ae-4ef6-97d8-09fc5f57b19e
-          selector: "#field_675a9f22-38ae-4ef6-97d8-09fc5f57b19e"
+        - name: subject
+          selector: input#field_675A9F22-38AE-4EF6-97D8-09FC5F57B19E
           value: $SUBJECT
           required: true
-        - name: field_1a032e33-7721-4ce2-ad9b-2ecafe076d8c
-          selector: "#field_1a032e33-7721-4ce2-ad9b-2ecafe076d8c"
+        - name: message
+          selector: textarea#field_1A032E33-7721-4CE2-AD9B-2ECAFE076D8C
           value: $MESSAGE
           required: true
     - select:
-        - name: field_14306be6-1d30-4925-afba-1bc433f550d7
-          selector: "#field_14306be6-1d30-4925-afba-1bc433f550d7"
+        - name: prefix
+          selector: select#field_E0FEB2BD-6735-4E39-BD94-63CD417A73EF
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr.: Dr.
+            Dr. and Dr.: Dr. and Dr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Dr. and Mr.: Dr. and Mr.
+            Reverend: Reverend
+            Sister: Sister
+            Pastor: Pastor
+            The Honorable: The Honorable
+            Representative: Representative
+            Senator: Senator
+        - name: topic
+          selector: select#field_14306BE6-1D30-4925-AFBA-1BC433F550D7
           value: $TOPIC
           required: true
           options:
-            - Abortion
-            - Academy Nominations
-            - Agriculture
-            - Animal Welfare
-            - Arts and Humanities
-            - Banking
-            - Budget
-            - Businesses
-            - Commerce
-            - Communications
-            - Crime and Judiciary
-            - Civil Rights
-            - Defense
-            - Economy
-            - Education
-            - Energy
-            - Environment
-            - Federal Government Agencies
-            - Financial Crisis
-            - Foreign Affairs
-            - Gas Prices
-            - Government Reform
-            - Health/Healthcare
-            - Housing
-            - Immigration/Visas
-            - Internships
-            - Internal Revenue Service
-            - Iraq/Middle East
-            - Labor
-            - Native Americans
-            - Press Request
-            - Scheduling Request
-            - Small Business
-            - Social Security
-            - Taxes
-            - Trade
-            - Transportation
-            - Veterans Affairs
-            - Welfare
-            - Other
+            Abortion: Abortion
+            Academy Nominations: Academy Nominations
+            Agriculture: Agriculture
+            Animal Welfare: Animal Welfare
+            Arts and Humanities: Arts and Humanities
+            Banking: Banking
+            Budget: Budget
+            Businesses: Businesses
+            Commerce: Commerce
+            Communications: Communications
+            Crime and Judiciary: Crime and Judiciary
+            Civil Rights: Civil Rights
+            Defense: Defense
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Federal Government Agencies: Federal Government Agencies
+            Financial Crisis: Financial Crisis
+            Foreign Affairs: Foreign Affairs
+            Gas Prices: Gas Prices
+            Government Reform: Government Reform
+            "Health/Healthcare": "Health/Healthcare"
+            Housing: Housing
+            "Immigration/Visas": "Immigration/Visas"
+            Internships: Internships
+            Internal Revenue Service: Internal Revenue Service
+            "Iraq/Middle East": "Iraq/Middle East"
+            Labor: Labor
+            Native Americans: Native Americans
+            Press Request: Press Request
+            Scheduling Request: Scheduling Request
+            Small Business: Small Business
+            Social Security: Social Security
+            Taxes: Taxes
+            Trade: Trade
+            Transportation: Transportation
+            Veterans Affairs: Veterans Affairs
+            Welfare: Welfare
+            Other: Other
     - click_on:
         - value: Submit
-          selector: input.btn.btn-primary
+          selector: form#form_E13EAF9D-7466-4377-96AD-7D97BCA16A2D div.buttonHolder input.btn-primary
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: "Thank you"
