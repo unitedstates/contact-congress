@@ -6,11 +6,11 @@ contact_form:
     - visit: "https://tonkoforms.house.gov/contact/"
     - fill_in:
         - name: zip5
-          selector: "form.zipform input[name='zip5']"
+          selector: "form.zipform input[name='zip5'][size='6']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "form.zipform input[name='zip4']"
+          selector: "form.zipform input[name='zip4'][size='5']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
