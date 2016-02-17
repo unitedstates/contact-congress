@@ -13,6 +13,8 @@ contact_form:
           selector: "#plusfour"
           value: $ADDRESS_ZIP4
           required: true
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
