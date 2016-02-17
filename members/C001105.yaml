@@ -17,6 +17,10 @@ contact_form:
           required: true
     - click_on:
         - selector: "#submit"
+    - wait:
+        - value: 1
+    - click_on:
+        - selector: "#submit"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
@@ -125,6 +129,10 @@ contact_form:
             "No, I wanted to voice my opinion": "N"
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - click_on:
+        - selector: "#submit"
+    - wait:
+        - value: 1
     - click_on:
         - selector: "#submit"
   success:
