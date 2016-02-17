@@ -4,6 +4,8 @@ contact_form:
   action: "http://www.lankford.senate.gov/contact/email"
   steps:
     - visit: "http://www.lankford.senate.gov/contact/email"
+    - wait:
+        - value: 3
     - select:
         - name: input_AE7457DD-4040-F985-52CD-B99385041C51
           selector: "#actions"
@@ -15,7 +17,7 @@ contact_form:
             Scheduling Request: meeting
             Office Locations: office
     - wait:
-        - value: 5
+        - value: 3
     - select:
         - name: input_AB59F08A-4040-F985-52CD-7633AA11C65E
           selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
