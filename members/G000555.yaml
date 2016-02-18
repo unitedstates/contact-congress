@@ -222,8 +222,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#contactForm textarea[name='comments']").value = document.querySelector("#contactForm textarea[name='comments']").value.replace(/"/g, '');
     - click_on:
-        - value: submit
-          selector: input.rollover
+        - selector: input.rollover
     - find:
         - selector: "p"
           value: "Thank you for contacting Senator Gillibrand."
