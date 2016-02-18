@@ -1,58 +1,59 @@
 bioguide: C000141
 contact_form:
   method: POST
-  action: http://www.cardin.senate.gov/contact/
+  action: ""
   steps:
-    - visit: http://www.cardin.senate.gov/contact/
+    - visit: "http://www.cardin.senate.gov/contact/"
     - fill_in:
       - name: salutation
         selector: "#salutation"
         value: "$NAME_PREFIX"
-        required: Yes
+        required: true
       - name: fname
         selector: "#fname"
         value: "$NAME_FIRST"
-        required: Yes
+        required: true
       - name: lname
         selector: "#lname"
         value: "$NAME_LAST"
-        required: Yes
+        required: true
       - name: mailing_streetaddress1
         selector: "#mailing_streetaddress1"
         value: "$ADDRESS_STREET"
-        required: Yes
+        required: true
       - name: mailing_streetaddress2
         selector: "#mailing_streetaddress2"
         value: "$ADDRESS_STREET_2"
+        required: false
       - name: mailing_city
         selector: "#mailing_city"
         value: "$ADDRESS_CITY"
-        required: Yes
+        required: true
       - name: mailing_zipcode
         selector: "#mailing_zipcode"
         value: "$ADDRESS_ZIP5"
-        required: Yes
+        required: true
       - name: phone_number
         selector: "#phone_number"
         value: "$PHONE"
-        required: No
+        required: false
       - name: email_address
         selector: "#email_address"
         value: "$EMAIL"
-        required: Yes
+        required: true
       - name: verify_email
         selector: "#verify_email"
         value: "$EMAIL"
-        required: Yes
+        required: true
       - name: comments
         selector: "#comments"
         value: "$MESSAGE"
-        required: Yes
+        required: true
     - select:
       - name: subject
         selector: "#subject"
         value: "$TOPIC"
-        required: Yes
+        required: true
         options:
           "Agriculture": "mailtopicag"
           "Animal Rights": "mailtopican"
@@ -83,7 +84,7 @@ contact_form:
         - value: 1
     - find:
       - selector: "h1"
-        value: "Thank You" 
+        value: "Thank You"
   success:
     headers:
       status: 200
