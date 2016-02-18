@@ -110,10 +110,14 @@ contact_form:
           selector: "#subject"
           value: $SUBJECT
           required: true
+          options:
+            blacklist: "!@#$%^&*\'\""
         - name: message
           selector: "#message"
           value: $MESSAGE
           required: true
+          options:
+            blacklist: "!@#$%^&*\'\""
     - select:
         - name: salutation
           selector: "#salutation"

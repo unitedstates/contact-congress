@@ -10,51 +10,51 @@ contact_form:
       - name: firstName
         selector: input#fname
         value: "$NAME_FIRST"
-        required: Yes
+        required: true
       - name: lastName
         selector: input#lname
         value: "$NAME_LAST"
-        required: Yes
+        required: true
       - name: Address1
         selector: input#address1
         value: "$ADDRESS_STREET"
-        required: Yes
+        required: true
       - name: Address2
         selector: input#address2
         value: "$ADDRESS_STREET_2"
       - name: city
         selector: input#city
         value: "$ADDRESS_CITY"
-        required: Yes
+        required: true
       - name: zip
         selector: form#thisForm input#zip
         value: "$ADDRESS_ZIP5"
-        required: Yes
+        required: true
       - name: phone
         selector: input#phone
         value: "$PHONE"
-        required: Yes
+        required: true
       - name: email
         selector: form#thisForm input#email
         value: "$EMAIL"
-        required: Yes
+        required: true
       - name: vemail
         selector: input#vemail
         value: "$EMAIL"
-        required: Yes
+        required: true
       - name: messageSubject
         selector: input#subject
         value: "$SUBJECT"
-        required: Yes
+        required: true
       - name: messageBody
         selector: textarea#msgbody
         value: "$MESSAGE"
-        required: Yes
+        required: true
     - select:
       - name: Prefix
         selector: select#prefix
         value: "$NAME_PREFIX"
-        required: Yes
+        required: true
         options:
           Mr.: Mr.
           Mrs.: Mrs.
@@ -63,7 +63,7 @@ contact_form:
       - name: State
         selector: select#state
         value: Massachusetts
-        required: Yes
+        required: true
       - name: Subject
         selector: select#issue_subject
         value: $TOPIC

@@ -1,52 +1,57 @@
 bioguide: M001111
 contact_form:
   method: POST
-  action: http://www.murray.senate.gov/public/index.cfm/contactme
+  action: ""
   steps:
-    - visit: http://www.murray.senate.gov/public/index.cfm/contactme
+    - visit: "http://www.murray.senate.gov/public/index.cfm/contactme"
+    - find:
+      - selector: input#field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5
     - fill_in:
-      - name: field_d63bdcde-a04c-4ecc-a644-f224be0854f5
-        selector: "#field_d63bdcde-a04c-4ecc-a644-f224be0854f5"
+      - name: first
+        selector: input#field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5
         value: $NAME_FIRST
-        required: Yes
-      - name: field_ade71885-03e5-482f-a2a9-d7a3436bbd32
-        selector: "#field_ade71885-03e5-482f-a2a9-d7a3436bbd32"
+        required: true
+      - name: last
+        selector: input#field_ADE71885-03E5-482F-A2A9-D7A3436BBD32
         value: $NAME_LAST
-        required: Yes
-      - name: field_cc02a0b7-1663-41b2-8b89-ab05498d3eed
-        selector: "#field_cc02a0b7-1663-41b2-8b89-ab05498d3eed"
+        required: true
+      - name: street
+        selector: input#field_CC02A0B7-1663-41B2-8B89-AB05498D3EED
         value: $ADDRESS_STREET
-        required: Yes
-      - name: field_c8f81223-f4a8-4c04-8de5-9530cdc95079
-        selector: "#field_c8f81223-f4a8-4c04-8de5-9530cdc95079"
+        required: true
+      - name: street2
+        selector: input#field_C8F81223-F4A8-4C04-8DE5-9530CDC95079
         value: $ADDRESS_STREET_2
-      - name: field_5a2c4a60-5ca8-476b-b29b-414a7f6934fe
-        selector: "#field_5a2c4a60-5ca8-476b-b29b-414a7f6934fe"
+        required: false
+      - name: city
+        selector: input#field_5A2C4A60-5CA8-476B-B29B-414A7F6934FE
         value: $ADDRESS_CITY
-        required: Yes
-      - name: field_53d3b15c-3710-44b7-b6cd-731dab06bc92
-        selector: "#field_53d3b15c-3710-44b7-b6cd-731dab06bc92"
+        required: true
+      - name: zip5
+        selector: input#field_53D3B15C-3710-44B7-B6CD-731DAB06BC92
         value: $ADDRESS_ZIP5
-        required: Yes
-      - name: field_5a8cfd28-f121-4b4e-a8e7-bdd361d8bfe4
-        selector: "#field_5a8cfd28-f121-4b4e-a8e7-bdd361d8bfe4"
+        required: true
+      - name: phone
+        selector: input#field_5A8CFD28-F121-4B4E-A8E7-BDD361D8BFE4
         value: $PHONE
-      - name: field_654caeaa-e603-4a35-8210-b2dac7d95e51
-        selector: "#field_654caeaa-e603-4a35-8210-b2dac7d95e51"
+        required: false
+      - name: email
+        selector: input#field_654CAEAA-E603-4A35-8210-B2DAC7D95E51
         value: $EMAIL
-        required: Yes
-      - name: field_250a9cb8-13dc-40f7-94fb-d301593db4c9
-        selector: "#field_250a9cb8-13dc-40f7-94fb-d301593db4c9"
+        required: true
+      - name: subject
+        selector: input#field_250A9CB8-13DC-40F7-94FB-D301593DB4C9
         value: $SUBJECT
-        required: Yes
-      - name: field_5722c424-8601-4abf-a8d1-ac11b9c45f87
-        selector: "#field_5722c424-8601-4abf-a8d1-ac11b9c45f87"
+        required: true
+      - name: message
+        selector: textarea#field_5722C424-8601-4ABF-A8D1-AC11B9C45F87
         value: $MESSAGE
+        required: true
     - select:
-      - name: field_b104be44-176d-4cd9-9fda-dbcbaeb5aaf9
-        selector: "#field_b104be44-176d-4cd9-9fda-dbcbaeb5aaf9"
+      - name: prefix
+        selector: select#field_B104BE44-176D-4CD9-9FDA-DBCBAEB5AAF9
         value: $NAME_PREFIX
-        required: Yes
+        required: true
         options:
           "Mr.": "Mr."
           "Ms.": "Ms."
@@ -64,15 +69,10 @@ contact_form:
           "The Honorable": "The Honorable"
           "Representative": "Representative"
           "Senator": "Senator"
-      - name: field_666b0565-90bc-4fba-99bb-1d4ec09fcc6e
-        selector: "#field_666b0565-90bc-4fba-99bb-1d4ec09fcc6e"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
-        options: US_STATES_AND_MPCS
-      - name: field_58409530-3430-4481-9b78-4434bd9620eb
-        selector: "#field_58409530-3430-4481-9b78-4434bd9620eb"
+      - name: topic
+        selector: select#field_58409530-3430-4481-9B78-4434BD9620EB
         value: $TOPIC
-        required: Yes
+        required: true
         options:
           "Economic Stimulus/Financial Services" : "FIN"
           "Mortgage Assistance" : "MORTGAGE HELP"
@@ -116,9 +116,9 @@ contact_form:
           "Women" : "WOMENS"
     - click_on:
       - value: Submit
-        selector: "form.uniForm input[type='submit']"
+        selector: form.uniForm div.buttonHolder input
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your message!
+      contains: "Thank you for your message!"
