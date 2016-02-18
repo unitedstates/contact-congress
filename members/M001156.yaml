@@ -96,6 +96,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl35_SubmitButton"
+    - wait:
+        - value: 3
     - find:
         - selector: "span#ctl00_ctl35_ConfirmationText"
   success:
