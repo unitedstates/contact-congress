@@ -7,7 +7,7 @@ contact_form:
     - find:
         - selector: "#input-34F91EAB-4040-F985-52CD-81AE445C8C28"
     - wait:
-        - value: 2
+        - value: 6
     - fill_in:
         - name: firstname
           selector: "#input-34F91EAB-4040-F985-52CD-81AE445C8C28"
@@ -290,11 +290,13 @@ contact_form:
             Taxes: Taxes
             Veterans: Veterans
             "Women & Children": "Women & Children"
+    - wait:
+        - value: 9
     - click_on:
         - value: Submit
           selector: .btn
     - wait:
-        - value: 3
+        - value: 9
   success:
     headers:
       status: 200
