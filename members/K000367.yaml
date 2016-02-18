@@ -1,53 +1,45 @@
 bioguide: K000367
 contact_form:
   method: post
-  action: "http://www.klobuchar.senate.gov/public/email-amy"
+  action: ""
   steps:
     - visit: "http://www.klobuchar.senate.gov/public/email-amy"
     - fill_in:
-        - name: field_c52e1162-f258-4e3f-9f22-a054da714390
-          selector: "#field_c52e1162-f258-4e3f-9f22-a054da714390"
+        - name: field_C52E1162-F258-4E3F-9F22-A054DA714390
+          selector: "#field_C52E1162-F258-4E3F-9F22-A054DA714390"
           value: $NAME_FIRST
           required: true
-        - name: field_dd82b60d-4635-4434-93ff-892b72b9d52b
-          selector: "#field_dd82b60d-4635-4434-93ff-892b72b9d52b"
+        - name: field_DD82B60D-4635-4434-93FF-892B72B9D52B
+          selector: "#field_DD82B60D-4635-4434-93FF-892B72B9D52B"
           value: $NAME_LAST
           required: true
-        - name: field_9cc52f34-5547-46d2-845b-0ce277324714
-          selector: "#field_9cc52f34-5547-46d2-845b-0ce277324714"
+        - name: field_9CC52F34-5547-46D2-845B-0CE277324714
+          selector: "#field_9CC52F34-5547-46D2-845B-0CE277324714"
           value: $ADDRESS_STREET
           required: true
-        - name: field_bcc3fe7a-ef27-4d25-9e7c-14d77c27114c
-          selector: "#field_bcc3fe7a-ef27-4d25-9e7c-14d77c27114c"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: field_a96c76ca-3b30-4134-a9ba-c5695aeaa16f
-          selector: "#field_a96c76ca-3b30-4134-a9ba-c5695aeaa16f"
+        - name: field_A96C76CA-3B30-4134-A9BA-C5695AEAA16F
+          selector: "#field_A96C76CA-3B30-4134-A9BA-C5695AEAA16F"
           value: $ADDRESS_CITY
           required: true
-        - name: field_6fd17215-4484-496c-8859-92698c465f01
-          selector: "#field_6fd17215-4484-496c-8859-92698c465f01"
+        - name: field_6FD17215-4484-496C-8859-92698C465F01
+          selector: "#field_6FD17215-4484-496C-8859-92698C465F01"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_1b20e163-ea77-43ad-a84f-87dce4f1b900
-          selector: "#field_1b20e163-ea77-43ad-a84f-87dce4f1b900"
-          value: $PHONE
-          required: false
-        - name: field_352a82b8-7386-4c46-96ff-e96e2a164c11
-          selector: "#field_352a82b8-7386-4c46-96ff-e96e2a164c11"
+        - name: field_352A82B8-7386-4C46-96FF-E96E2A164C11
+          selector: "#field_352A82B8-7386-4C46-96FF-E96E2A164C11"
           value: $EMAIL
           required: true
-        - name: field_675a9f22-38ae-4ef6-97d8-09fc5f57b19e
-          selector: "#field_675a9f22-38ae-4ef6-97d8-09fc5f57b19e"
+        - name: field_675A9F22-38AE-4EF6-97D8-09FC5F57B19E
+          selector: "#field_675A9F22-38AE-4EF6-97D8-09FC5F57B19E"
           value: $SUBJECT
           required: true
-        - name: field_1a032e33-7721-4ce2-ad9b-2ecafe076d8c
-          selector: "#field_1a032e33-7721-4ce2-ad9b-2ecafe076d8c"
+        - name: field_1A032E33-7721-4CE2-AD9B-2ECAFE076D8C
+          selector: "#field_1A032E33-7721-4CE2-AD9B-2ECAFE076D8C"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_14306be6-1d30-4925-afba-1bc433f550d7
-          selector: "#field_14306be6-1d30-4925-afba-1bc433f550d7"
+        - name: field_14306BE6-1D30-4925-AFBA-1BC433F550D7
+          selector: "#field_14306BE6-1D30-4925-AFBA-1BC433F550D7"
           value: $TOPIC
           required: true
           options:
@@ -92,7 +84,7 @@ contact_form:
             - Welfare
             - Other
     - javascript:
-        - value: document.querySelector("#field_1a032e33-7721-4ce2-ad9b-2ecafe076d8c").value = document.querySelector("#field_1a032e33-7721-4ce2-ad9b-2ecafe076d8c").value.replace(/"/g, '');
+        - value: document.querySelector("#field_1A032E33-7721-4CE2-AD9B-2ECAFE076D8C").value = document.querySelector("#field_1A032E33-7721-4CE2-AD9B-2ECAFE076D8C").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
