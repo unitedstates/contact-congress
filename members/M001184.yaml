@@ -167,11 +167,12 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl15_SubmitButton"
+    - wait:
+        - value: 3
     - find:
         - selector: "span#ctl00_ctl15_ConfirmationText"
-          value: "Thank you"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for taking the time to write me"
+      contains: "Your message has been submitted"
