@@ -1,112 +1,107 @@
 bioguide: R000595
 contact_form:
-  method: POST
-  action: http://www.rubio.senate.gov/public/index.cfm/contact
+  method: post
+  action: ""
   steps:
-    - visit: http://www.rubio.senate.gov/public/index.cfm/contact
+    - visit: "http://www.rubio.senate.gov/public/index.cfm/contact"
     - fill_in:
-      - name: field_f14022b2-ce41-4b48-baaa-3ea936d0dc49
-        selector: "#field_f14022b2-ce41-4b48-baaa-3ea936d0dc49"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_b1cbecaf-fa94-47ce-8e08-413af45c40a3
-        selector: "#field_b1cbecaf-fa94-47ce-8e08-413af45c40a3"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_d9fc9586-2976-4549-af04-9cb756a4ccf6
-        selector: "#field_d9fc9586-2976-4549-af04-9cb756a4ccf6"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_e593f76a-3be3-4e05-8b68-fd4c067eea76
-        selector: "#field_e593f76a-3be3-4e05-8b68-fd4c067eea76"
-        value: "$ADDRESS_STREET_2"
-      - name: field_40d5d76f-f7f7-4d8b-bb9d-57bc5161e745
-        selector: "#field_40d5d76f-f7f7-4d8b-bb9d-57bc5161e745"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_d612f7d3-c97e-40b4-9525-a3fb97965c23
-        selector: "#field_d612f7d3-c97e-40b4-9525-a3fb97965c23"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_34077b89-d0f0-42cf-a62e-26a3cdefeab8
-        selector: "#field_34077b89-d0f0-42cf-a62e-26a3cdefeab8"
-        value: "$PHONE"
-      - name: field_ab8ae0e8-b62d-4418-9580-df08d60934cd
-        selector: "#field_ab8ae0e8-b62d-4418-9580-df08d60934cd"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_7694661f-5de4-433e-8682-3972ebcf2e27
-        selector: "#field_7694661f-5de4-433e-8682-3972ebcf2e27"
-        value: "$SUBJECT"
-        required: Yes
-      - name: field_5d0df2c0-8a69-4230-aab8-b0f872ceb818
-        selector: "#field_5d0df2c0-8a69-4230-aab8-b0f872ceb818"
-        value: "$MESSAGE"
-        required: Yes
+        - name: field_F14022B2-CE41-4B48-BAAA-3EA936D0DC49
+          selector: "#field_F14022B2-CE41-4B48-BAAA-3EA936D0DC49"
+          value: $NAME_FIRST
+          required: true
+        - name: field_B1CBECAF-FA94-47CE-8E08-413AF45C40A3
+          selector: "#field_B1CBECAF-FA94-47CE-8E08-413AF45C40A3"
+          value: $NAME_LAST
+          required: true
+        - name: field_D9FC9586-2976-4549-AF04-9CB756A4CCF6
+          selector: "#field_D9FC9586-2976-4549-AF04-9CB756A4CCF6"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_40D5D76F-F7F7-4D8B-BB9D-57BC5161E745
+          selector: "#field_40D5D76F-F7F7-4D8B-BB9D-57BC5161E745"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_D612F7D3-C97E-40B4-9525-A3FB97965C23
+          selector: "#field_D612F7D3-C97E-40B4-9525-A3FB97965C23"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_AB8AE0E8-B62D-4418-9580-DF08D60934CD
+          selector: "#field_AB8AE0E8-B62D-4418-9580-DF08D60934CD"
+          value: $EMAIL
+          required: true
+        - name: field_7694661F-5DE4-433E-8682-3972EBCF2E27
+          selector: "#field_7694661F-5DE4-433E-8682-3972EBCF2E27"
+          value: $SUBJECT
+          required: true
+        - name: field_5D0DF2C0-8A69-4230-AAB8-B0F872CEB818
+          selector: "#field_5D0DF2C0-8A69-4230-AAB8-B0F872CEB818"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: field_8ce97650-0fb4-4175-ae29-ca0848365a3e
-        selector: "#field_8ce97650-0fb4-4175-ae29-ca0848365a3e"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          - "Mr."
-          - "Ms."
-          - "Mrs."
-          - "Mr. and Mrs."
-          - "Dr."
-          - "Dr. and Mrs."
-          - "Mr. and Dr."
-          - "Reverend"
-          - "Sister"
-          - "Pastor"
-          - "The Honorable"
-          - "Representative"
-          - "Senator"
-      - name: field_502cc83d-39f8-415e-8205-061f1b2f23fa
-        selector: "#field_502cc83d-39f8-415e-8205-061f1b2f23fa"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          "Agriculture": "AGR"
-          "Banking": "BANK"
-          "Budget": "BUD"
-          "Business": "BUS"
-          "Condolences": "COND"
-          "Congratulations - Military, Retirement, etc.": "CONGRATS"
-          "Casework": "CW"
-          "Defense": "DEF"
-          "Economy": "ECON"
-          "Education": "EDU"
-          "Energy": "ENE"
-          "Environmental": "ENV"
-          "General State Office Correspondence": "GENERAL"
-          "Governmental Reform": "GOV"
-          "Health": "HEA"
-          "Homeland Security": "HOM"
-          "Individual Assistance": "IA"
-          "Immigration": "IMM"
-          "International Relations": "INT"
-          "Judiciary": "JUD"
-          "Labor": "LAB"
-          "Legal": "LEG"
-          "Medicare/Medicaid": "MED"
-          "Military Personnel": "MILP"
-          "Other": "OTH"
-          "Social Issues": "SOC"
-          "Social Security": "SSEC"
-          "Taxes": "TAXES"
-          "Telecommunications": "TEL"
-          "Transportation": "TRA"
-          "Trade": "TRADE"
-          "Veterans": "VET"
-          "Welfare": "WEL"
+        - name: field_8CE97650-0FB4-4175-AE29-CA0848365A3E
+          selector: "#field_8CE97650-0FB4-4175-AE29-CA0848365A3E"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mrs.
+            - Mr. and Dr.
+            - Reverend
+            - Sister
+            - Pastor
+            - The Honorable
+            - Representative
+            - Senator
+        - name: field_502CC83D-39F8-415E-8205-061F1B2F23FA
+          selector: "#field_502CC83D-39F8-415E-8205-061F1B2F23FA"
+          value: $TOPIC
+          required: true
+          options:
+            "----------------------------------------,----------------------------------------": "----------------------------------------,----------------------------------------"
+            Agriculture: AGR
+            Banking: BANK
+            Budget: BUD
+            Business: BUS
+            Condolences: COND
+            "Congratulations - Military, Retirement, etc.": CONGRATS
+            Casework: CW
+            Defense: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
+            Environmental: ENV
+            General State Office Correspondence: GENERAL
+            Governmental Reform: GOV
+            Health: HEA
+            Homeland Security: HOM
+            Individual Assistance: IA
+            Immigration: IMM
+            International Relations: INT
+            Judiciary: JUD
+            Labor: LAB
+            Legal: LEG
+            Medicare/Medicaid: MED
+            Military Personnel: MILP
+            Other: OTH
+            Social Issues: SOC
+            Social Security: SSEC
+            Taxes: TAXES
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRADE
+            Veterans: VET
+            Welfare: WEL
     - javascript:
-      - value: document.querySelector("#field_5d0df2c0-8a69-4230-aab8-b0f872ceb818").value = document.querySelector("#field_5d0df2c0-8a69-4230-aab8-b0f872ceb818").value.replace(/"/g, '');
+        - value: document.querySelector("#field_5D0DF2C0-8A69-4230-AAB8-B0F872CEB818").value = document.querySelector("#field_5D0DF2C0-8A69-4230-AAB8-B0F872CEB818").value.replace(/"/g, '');
     - click_on:
-      - value: Submit
-        selector: ".buttonHolder input"
+        - value: Submit
+          selector: div.buttonHolder input
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for your message"
+      contains: Thank you
