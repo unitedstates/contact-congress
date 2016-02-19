@@ -5,43 +5,43 @@ contact_form:
   steps:
     - visit: "http://www.murray.senate.gov/public/index.cfm/contactme"
     - fill_in:
-        - name: field_d63bdcde-a04c-4ecc-a644-f224be0854f5
-          selector: "#field_d63bdcde-a04c-4ecc-a644-f224be0854f5"
+        - name: field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5
+          selector: "#field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5"
           value: $NAME_FIRST
           required: true
-        - name: field_ade71885-03e5-482f-a2a9-d7a3436bbd32
-          selector: "#field_ade71885-03e5-482f-a2a9-d7a3436bbd32"
+        - name: field_ADE71885-03E5-482F-A2A9-D7A3436BBD32
+          selector: "#field_ADE71885-03E5-482F-A2A9-D7A3436BBD32"
           value: $NAME_LAST
           required: true
-        - name: field_cc02a0b7-1663-41b2-8b89-ab05498d3eed
-          selector: "#field_cc02a0b7-1663-41b2-8b89-ab05498d3eed"
+        - name: field_CC02A0B7-1663-41B2-8B89-AB05498D3EED
+          selector: "#field_CC02A0B7-1663-41B2-8B89-AB05498D3EED"
           value: $ADDRESS_STREET
           required: true
-        - name: field_5a2c4a60-5ca8-476b-b29b-414a7f6934fe
-          selector: "#field_5a2c4a60-5ca8-476b-b29b-414a7f6934fe"
+        - name: field_5A2C4A60-5CA8-476B-B29B-414A7F6934FE
+          selector: "#field_5A2C4A60-5CA8-476B-B29B-414A7F6934FE"
           value: $ADDRESS_CITY
           required: true
-        - name: field_53d3b15c-3710-44b7-b6cd-731dab06bc92
-          selector: "#field_53d3b15c-3710-44b7-b6cd-731dab06bc92"
+        - name: field_53D3B15C-3710-44B7-B6CD-731DAB06BC92
+          selector: "#field_53D3B15C-3710-44B7-B6CD-731DAB06BC92"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_654caeaa-e603-4a35-8210-b2dac7d95e51
-          selector: "#field_654caeaa-e603-4a35-8210-b2dac7d95e51"
+        - name: field_654CAEAA-E603-4A35-8210-B2DAC7D95E51
+          selector: "#field_654CAEAA-E603-4A35-8210-B2DAC7D95E51"
           value: $EMAIL
           required: true
-        - name: field_250a9cb8-13dc-40f7-94fb-d301593db4c9
-          selector: "#field_250a9cb8-13dc-40f7-94fb-d301593db4c9"
+        - name: field_250A9CB8-13DC-40F7-94FB-D301593DB4C9
+          selector: "#field_250A9CB8-13DC-40F7-94FB-D301593DB4C9"
           value: $SUBJECT
           required: true
-        - name: field_5722c424-8601-4abf-a8d1-ac11b9c45f87
-          selector: "#field_5722c424-8601-4abf-a8d1-ac11b9c45f87"
+        - name: field_5722C424-8601-4ABF-A8D1-AC11B9C45F87
+          selector: "#field_5722C424-8601-4ABF-A8D1-AC11B9C45F87"
           value: $MESSAGE
           required: true
           options:
             max_length: 5000
     - select:
-        - name: field_b104be44-176d-4cd9-9fda-dbcbaeb5aaf9
-          selector: "#field_b104be44-176d-4cd9-9fda-dbcbaeb5aaf9"
+        - name: field_B104BE44-176D-4CD9-9FDA-DBCBAEB5AAF9
+          selector: "#field_B104BE44-176D-4CD9-9FDA-DBCBAEB5AAF9"
           value: $NAME_PREFIX
           required: true
           options:
@@ -61,11 +61,12 @@ contact_form:
             - The Honorable
             - Representative
             - Senator
-        - name: field_58409530-3430-4481-9b78-4434bd9620eb
-          selector: "#field_58409530-3430-4481-9b78-4434bd9620eb"
+        - name: field_58409530-3430-4481-9B78-4434BD9620EB
+          selector: "#field_58409530-3430-4481-9B78-4434BD9620EB"
           value: $TOPIC
           required: true
           options:
+            "---------------------------------------------------": NRN
             Economic Stimulus/Financial Services: FIN
             Mortgage Assistance: MORTGAGE HELP
             Abortion: ABO
@@ -109,7 +110,7 @@ contact_form:
             Women: WOMENS
             Civil Rights: Civil Rights
     - javascript:
-        - value: document.querySelector("#field_5722c424-8601-4abf-a8d1-ac11b9c45f87").value = document.querySelector("#field_5722c424-8601-4abf-a8d1-ac11b9c45f87").value.replace(/"/g, '');
+        - value: document.querySelector("#field_5722C424-8601-4ABF-A8D1-AC11B9C45F87").value = document.querySelector("#field_5722C424-8601-4ABF-A8D1-AC11B9C45F87").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input
@@ -117,4 +118,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for your message
+      contains: Thank you
