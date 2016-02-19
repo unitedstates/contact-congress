@@ -1,57 +1,49 @@
 bioguide: P000449
 contact_form:
   method: post
-  action: "https://www.portman.senate.gov/public/index.cfm/contact-form"
+  action: ""
   steps:
     - visit: "https://www.portman.senate.gov/public/index.cfm/contact-form"
     - fill_in:
-        - name: field_94419b46-a0d3-4172-b593-7d8de54c9f98
-          selector: "#field_94419b46-a0d3-4172-b593-7d8de54c9f98"
-          value: $NAME_PREFIX
-          required: false
-        - name: field_abc03f4e-8760-440f-ba41-22107a2f7bcf
-          selector: "#field_abc03f4e-8760-440f-ba41-22107a2f7bcf"
+        - name: field_ABC03F4E-8760-440F-BA41-22107A2F7BCF
+          selector: "#field_ABC03F4E-8760-440F-BA41-22107A2F7BCF"
           value: $NAME_FIRST
           required: true
-        - name: field_e95c86c1-ff4a-48d2-8d74-15850a71bcf5
-          selector: "#field_e95c86c1-ff4a-48d2-8d74-15850a71bcf5"
+        - name: field_E95C86C1-FF4A-48D2-8D74-15850A71BCF5
+          selector: "#field_E95C86C1-FF4A-48D2-8D74-15850A71BCF5"
           value: $NAME_LAST
           required: true
-        - name: field_4f3dabf6-a301-4e18-baa4-96774baa2f19
-          selector: "#field_4f3dabf6-a301-4e18-baa4-96774baa2f19"
+        - name: field_4F3DABF6-A301-4E18-BAA4-96774BAA2F19
+          selector: "#field_4F3DABF6-A301-4E18-BAA4-96774BAA2F19"
           value: $ADDRESS_STREET
           required: true
-        - name: field_8d8cc099-7d26-4c56-ad0c-045285a1c646
-          selector: "#field_8d8cc099-7d26-4c56-ad0c-045285a1c646"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: field_8638c303-cc6b-46fc-b7cf-a2c754e1df2e
-          selector: "#field_8638c303-cc6b-46fc-b7cf-a2c754e1df2e"
+        - name: field_8638C303-CC6B-46FC-B7CF-A2C754E1DF2E
+          selector: "#field_8638C303-CC6B-46FC-B7CF-A2C754E1DF2E"
           value: $ADDRESS_CITY
           required: true
-        - name: field_776c76d1-c541-4b2e-8c7a-4515381a5d0b
-          selector: "#field_776c76d1-c541-4b2e-8c7a-4515381a5d0b"
+        - name: field_776C76D1-C541-4B2E-8C7A-4515381A5D0B
+          selector: "#field_776C76D1-C541-4B2E-8C7A-4515381A5D0B"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_0c081ef6-3113-46df-b4f7-4d83fadbaa9a
-          selector: "#field_0c081ef6-3113-46df-b4f7-4d83fadbaa9a"
+        - name: field_0C081EF6-3113-46DF-B4F7-4D83FADBAA9A
+          selector: "#field_0C081EF6-3113-46DF-B4F7-4D83FADBAA9A"
           value: $PHONE
           required: true
-        - name: field_fad09af0-d33b-4934-bb13-7335edd82c4b
-          selector: "#field_fad09af0-d33b-4934-bb13-7335edd82c4b"
+        - name: field_FAD09AF0-D33B-4934-BB13-7335EDD82C4B
+          selector: "#field_FAD09AF0-D33B-4934-BB13-7335EDD82C4B"
           value: $EMAIL
           required: true
-        - name: field_06a8c75e-4922-470d-acff-44367138678c
-          selector: "#field_06a8c75e-4922-470d-acff-44367138678c"
+        - name: field_06A8C75E-4922-470D-ACFF-44367138678C
+          selector: "#field_06A8C75E-4922-470D-ACFF-44367138678C"
           value: $SUBJECT
           required: true
-        - name: field_716e154b-9c67-4ede-97ac-a867c5556908
-          selector: "#field_716e154b-9c67-4ede-97ac-a867c5556908"
+        - name: field_716E154B-9C67-4EDE-97AC-A867C5556908
+          selector: "#field_716E154B-9C67-4EDE-97AC-A867C5556908"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_65b92e4c-5318-4314-9d1b-13c53db4f00a
-          selector: "#field_65b92e4c-5318-4314-9d1b-13c53db4f00a"
+        - name: field_65B92E4C-5318-4314-9D1B-13C53DB4F00A
+          selector: "#field_65B92E4C-5318-4314-9D1B-13C53DB4F00A"
           value: $TOPIC
           required: true
           options:
@@ -107,17 +99,13 @@ contact_form:
             Transportation: TRANSP
             Veterans: VET
             Welfare: WEL
-    - uncheck:
-        - name: Subscription_id_ad25a374-6207-4339-9ec6-2513f888ce3c
-          selector: "#Subscription_id_ad25a374-6207-4339-9ec6-2513f888ce3c_1"
-          value: 77e958c1-95c2-4f75-afaf-2cc45eee8682
     - javascript:
-        - value: document.querySelector("#field_716e154b-9c67-4ede-97ac-a867c5556908").value = document.querySelector("#field_716e154b-9c67-4ede-97ac-a867c5556908").value.replace(/"/g, '');
+        - value: document.querySelector("#field_716E154B-9C67-4EDE-97AC-A867C5556908").value = document.querySelector("#field_716E154B-9C67-4EDE-97AC-A867C5556908").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "div.buttonHolder input"
+          selector: div.buttonHolder input
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting my office"
+      contains: Thank you
