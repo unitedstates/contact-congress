@@ -34,25 +34,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#req_prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            ID: ID
         - name: subject
           selector: "#req_subject"
           value: $TOPIC
@@ -83,7 +64,7 @@ contact_form:
         - name: response
           selector: "#req_response"
           value: "Y"
-          required: false
+          required: true
           options:
             I do not need a response.: "N"
             I would like a response.: "Y"
@@ -96,4 +77,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting your information.
+      contains: Thank you
