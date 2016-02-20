@@ -133,6 +133,8 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "#contact_form input[src='/images/btn-submit.gif']"
+    - wait:
+      - value: 3
     - find:
       - selector: ".notice"
   success:
