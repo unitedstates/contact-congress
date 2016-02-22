@@ -45,6 +45,8 @@ contact_form:
           selector: "#comments"
           value: $MESSAGE
           required: true
+          options:
+            blacklist: "!@#$%^&*.,\'\"{}_+=()~"
     - select:
         - name: salutation
           selector: "#salutation"

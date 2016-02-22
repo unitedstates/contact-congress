@@ -45,10 +45,14 @@ contact_form:
           selector: "input[name='msgsubject']"
           value: $SUBJECT
           required: true
+          options:
+            blacklist: "!@#$%^&*(),.<>\'\"+=_-"
         - name: MSG
           selector: "textarea[name='MSG']"
           value: $MESSAGE
           required: true
+          options:
+            blacklist: "!@#$%^&*(),.<>\'\"+=_-"
     - select:
         - name: PREFIX
           selector: "select[name='PREFIX']"
