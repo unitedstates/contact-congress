@@ -39,26 +39,22 @@ contact_form:
       selector: "#ctl00_ctl14_Zip"
       value: $ADDRESS_ZIP5
       required: true
-    - name: ctl00$ctl14$Email
-      selector: "#ctl00_ctl14_Email"
-      value: $EMAIL
-      required: true
     - name: ctl00$ctl14$Phone
       selector: "#ctl00_ctl14_Phone"
       value: $PHONE
       required: true
-    - name: ctl00$ctl14$Body
-      selector: "#ctl00_ctl14_Body"
-      value: $MESSAGE
+    - name: ctl00$ctl14$Email
+      selector: "#ctl00_ctl14_Email"
+      value: $EMAIL
       required: true
     - name: ctl00$ctl14$Subject
       selector: "#ctl00_ctl14_Subject"
       value: $SUBJECT
       required: true
-  - choose:
-    - name: ctl00$ctl14$ReplyChoice
-      selector: "#ctl00_ctl14_ReplyChoice_0"
-      value: Respond
+    - name: ctl00$ctl14$Body
+      selector: "#ctl00_ctl14_Body"
+      value: $MESSAGE
+      required: true
   - select:
     - name: ctl00$ctl14$PrefixList
       selector: "#ctl00_ctl14_PrefixList"
@@ -175,9 +171,10 @@ contact_form:
         Taxation: "10493"
         Transportation and Public Works: "81"
         Water Resources Development: "10528"
-  - uncheck:
-    - name: ctl00$ctl14$SubscribeChoice
-      selector: "#ctl00_ctl14_SubscribeChoice"
+  - click_on:
+    - selector: "#ctl00_ctl14_ReplyChoice_0"
+  - find:
+    - selector: input#ctl00_ctl14_SubmitButton
   - click_on:
     - value: Submit
       selector: "#ctl00_ctl14_SubmitButton"
