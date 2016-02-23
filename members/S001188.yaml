@@ -29,8 +29,8 @@ contact_form:
           selector: "#contact_primary_phone"
           value: $PHONE
           required: true
-        - name: "contact[email]"
-          selector: "#new_contact input[name='contact[email]']"
+        - name: email
+          selector: form#new_contact input#contact_email
           value: $EMAIL
           required: true
         - name: "contact[subject]"

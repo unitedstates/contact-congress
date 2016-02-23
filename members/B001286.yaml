@@ -56,18 +56,17 @@ contact_form:
     - select:
         - name: required-response
           selector: "#required-response"
-          value: "Y"
+          value: Yes, please contact me
           required: true
           options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: Email.Optin
+            Yes, please contact me: Yes, please contact me
+    - click_on:
+        - selector: input#subscribe
+    - find:
+        - selector: input#submit
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: input#submit
     - find:
         - selector: "h1#page-title"
           value: "Thank You"
