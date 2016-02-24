@@ -5,45 +5,71 @@ contact_form:
   steps:
     - visit: "http://www.regulations.gov/#!submitComment;D=BOEM_FRDOC_0001-0327"
     - find:
-        - selector:
+        - selector: div.GCARQJCDMX textarea#x-auto-0-input
     - fill_in:
         - name: first
-          selector:
+          selector: div.GCARQJCDFY input#x-auto-1-input
           value: $NAME_FIRST
           required: true
         - name: last
-          selector:
+          selector: div.GCARQJCDFY input#x-auto-2-input
           value: $NAME_LAST
           required: true
         - name: street
-          selector:
+          selector: div.GCARQJCDFY input#x-auto-3-input
           value: $ADDRESS_STREET
           required: true
+        - name: street2
+          selector: div.GCARQJCDFY input#x-auto-4-input
+          value: $ADDRESS_STREET
+          required: false
         - name: city
-          selector:
+          selector: div.GCARQJCDFY input#x-auto-5-input
           value: $ADDRESS_CITY
           required: true
+        - name: state
+          selector: div.GCARQJCDCMC input#x-auto-6-input
+          value: $ADDRESS_STATE_FULL
+          required: true
         - name: zip5
-          selector:
+          selector: div.GCARQJCDFY input#x-auto-8-input
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
-          selector:
-          value: $PHONE
-          required: true
         - name: email
-          selector:
+          selector: div.GCARQJCDFY input#x-auto-10-input
           value: $EMAIL
           required: true
+        - name: phone
+          selector: div.GCARQJCDFY input#x-auto-11-input
+          value: $PHONE
+          required: false
         - name: message
-          selector:
+          selector: div.GCARQJCDMX textarea#x-auto-0-input
           value: $MESSAGE
           required: true
     - click_on:
-        - value: Submit
-          selector:
+        - selector: div.optionalFieldSet input#gwt-uid-162
+    - find:
+        - selector: div.GCARQJCDHSC button.primary
+    - click_on:
+        - value: Continue
+          selector: div.GCARQJCDHSC button.primary
+    - wait:
+        - value: 5
+    - find:
+        - selector: input#gwt-uid-253
+    - click_on:
+        - selector: input#gwt-uid-253
+    - find:
+        - selector: div.GCARQJCDARD button#gwt-uid-403
+    - click_on:
+        - selector: div.GCARQJCDARD button#gwt-uid-403
+    - wait:
+        - value: 5
+    - find:
+        - selector: table.GCARQJCDDSD td.successInfo
   success:
     headers:
       status: 200
     body:
-      contains: tbd
+      contains: "Your Comment Tracking Number"
