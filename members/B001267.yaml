@@ -126,6 +126,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.-validate-form[name='thisForm'] input[name='formaction']"
+    - wait:
+        - value: 4
   success:
     headers:
       status: 200

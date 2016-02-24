@@ -1,58 +1,68 @@
 bioguide: F000461
 contact_form:
   method: post
-  action: "?zip5=76710&zip4=2018"
+  action: ""
   steps:
-    - visit: "https://flores.house.gov/forms/writeyourrep/?zip5=76710&zip4=2018"
+    - visit: "http://flores.house.gov/contact/"
     - fill_in:
-        - name: ctl00$ctl16$FirstName
+        - name: zip5
+          selector: form.zipform input[name='zip5']
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: form.zipform input[name='zip4']
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - selector: form.zipform input[value='Submit']
+    - find:
+        - selector: input#ctl00_ctl15_FirstName
+    - fill_in:
+        - name: first
           selector: "#ctl00_ctl15_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl16$LastName
+        - name: last
           selector: "#ctl00_ctl15_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl16$Street
+        - name: street
           selector: "#ctl00_ctl15_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl16$City
+        - name: city
           selector: "#ctl00_ctl15_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl16$Zip
+        - name: zip5
           selector: "#ctl00_ctl15_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl16$Phone
+        - name: phone
           selector: "#ctl00_ctl15_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl16$Email
+        - name: email
           selector: "#ctl00_ctl15_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl16$Subject
+        - name: subject
           selector: "#ctl00_ctl15_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl16$Body
+        - name: message
           selector: "#ctl00_ctl15_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl16$PrefixList
+        - name: prefix
           selector: "#ctl00_ctl15_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
             Mr.: Mr.
-            Mrs.: Mrs.
             Ms.: Ms.
-            Miss: Miss
             Dr.: Dr.
-            Hon.: Hon.
             The Honorable: The Honorable
             Reverend: Reverend
             Representative: Representative
@@ -64,71 +74,6 @@ contact_form:
             Senator: Senator
             Colonel: Colonel
             Captain: Captain
-        - name: ctl00$ctl16$State
-          selector: "#ctl00_ctl15_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - AA
-            - AE
-            - AP
-            - FM
-            - GU
-            - MH
-            - MP
-            - PR
-            - VI
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl15_SubmitButton"
