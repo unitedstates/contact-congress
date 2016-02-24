@@ -51,6 +51,8 @@ contact_form:
         - selector: div.optionalFieldSet input#gwt-uid-162
     - find:
         - selector: div.GCARQJCDHSC button.primary
+    - wait:
+        - value: 4
     - click_on:
         - value: Continue
           selector: div.GCARQJCDHSC button.primary
@@ -72,4 +74,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Your Comment Tracking Number"
+      contains: "Use your tracking number to find out the status of your comment."
