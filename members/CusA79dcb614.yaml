@@ -1,0 +1,49 @@
+bioguide: CusA79dcb614
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.regulations.gov/#!submitComment;D=BOEM_FRDOC_0001-0327"
+    - find:
+        - selector:
+    - fill_in:
+        - name: first
+          selector:
+          value: $NAME_FIRST
+          required: true
+        - name: last
+          selector:
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector:
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector:
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector:
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector:
+          value: $PHONE
+          required: true
+        - name: email
+          selector:
+          value: $EMAIL
+          required: true
+        - name: message
+          selector:
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector:
+  success:
+    headers:
+      status: 200
+    body:
+      contains: tbd
