@@ -81,14 +81,11 @@ contact_form:
             Transportation: TRA
             Trade: TRADE
             Veterans: VET
-    - check:
-        - name: field_217B8539-2613-4996-852B-F56184A42B20
-          selector: "#field_217B8539-2613-4996-852B-F56184A42B20_1"
-          value: email
-    - uncheck:
-        - name: frontrunner_connect_optin
-          selector: "form.uniForm input[name='frontrunner_connect_optin']"
-          value: "1"
+    - click_on:
+        - selector: "#field_217B8539-2613-4996-852B-F56184A42B20_1"
+        - selector: form.uniForm div.ctrlHolder input[name='frontrunner_connect_optin']
+    - find:
+        - selector: div.buttonHolder input
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

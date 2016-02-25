@@ -39,14 +39,6 @@ contact_form:
           selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: false
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -186,17 +178,10 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             "Women's Issues": WOMEN
-        - name: response
-          selector: "#response"
-          value: RN
-          required: true
-          options:
-            "Yes": RN
-            "No": NRN
-    - uncheck:
-        - name: newsletter
-          selector: "#newsletter"
-          value: "<AFFL>Subscribe</AFFL>"
+    - click_on:
+        - selector: div.formbox input#newsletter
+    - find:
+        - selector: "#submitButton"
     - click_on:
         - value: Send Email
           selector: "#submitButton"
