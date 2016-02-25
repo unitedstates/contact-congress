@@ -1,9 +1,9 @@
 bioguide: W000819
 contact_form:
-  method: get
+  method: post
   action: /forms/writeyourrep/
   steps:
-  - visit: https://Walkerforms.house.gov/contact
+  - visit: "https://walkerforms.house.gov/contact/"
   - fill_in:
     - name: zip5
       selector: form.zipform input[name='zip5']
@@ -68,71 +68,6 @@ contact_form:
         Mrs.: Mrs.
         Ms.: Ms.
         Dr.: Dr.
-    - name: ctl00$ctl09$State
-      selector: "#ctl00_ctl09_State"
-      value: $ADDRESS_STATE_POSTAL_ABBREV
-      required: true
-      options:
-        - AL
-        - AK
-        - AZ
-        - AR
-        - CA
-        - CO
-        - CT
-        - DE
-        - DC
-        - FL
-        - GA
-        - HI
-        - ID
-        - IL
-        - IN
-        - IA
-        - KS
-        - KY
-        - LA
-        - ME
-        - MD
-        - MA
-        - MI
-        - MN
-        - MS
-        - MO
-        - MT
-        - NE
-        - NV
-        - NH
-        - NJ
-        - NM
-        - NY
-        - NC
-        - ND
-        - OH
-        - OK
-        - OR
-        - PA
-        - RI
-        - SC
-        - SD
-        - TN
-        - TX
-        - UT
-        - VT
-        - VA
-        - WA
-        - WV
-        - WI
-        - WY
-        - AA
-        - AE
-        - AP
-        - FM
-        - GU
-        - MH
-        - MP
-        - PR
-        - VI
     - name: ctl00$ctl09$IssuesList
       selector: "#ctl00_ctl09_IssuesList"
       value: $TOPIC
@@ -172,9 +107,6 @@ contact_form:
         Taxation: "10493"
         Transportation and Public Works: "81"
         Water Resources Development: "10528"
-  - uncheck:
-    - name: ctl00$ctl09$SubscribeChoice
-      selector: "#ctl00_ctl09_SubscribeChoice"
   - click_on:
     - value: Submit
       selector: "#ctl00_ctl09_SubmitButton"
