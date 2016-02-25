@@ -20,7 +20,7 @@ contact_form:
             Student Resources: Student Resources
             Veterans Resources: Veterans Resources
     - wait:
-        - value: 1
+        - value: 10
     - fill_in:
         - name: firstname
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
@@ -318,7 +318,7 @@ contact_form:
         - value: Submit
           selector: .btn
     - wait:
-        - value: 1
+        - value: 5
   success:
     headers:
       status: 200
