@@ -4,6 +4,8 @@ contact_form:
   action: /?p=contact
   steps:
     - visit: "http://www.bennet.senate.gov/?p=contact"
+    - wait:
+        - value: 5
     - find:
         - selector: "#gen-fieldid-3"
     - fill_in:
@@ -123,11 +125,13 @@ contact_form:
             U.S. Military Academies: U.S. Military Academies
             "Women's Issues": "Women's Issues"
             Other: Other
+    - wait:
+        - value: 2
     - click_on:
         - value: Submit
           selector: "form.-validate-form[name='thisForm'] input[name='formaction']"
     - wait:
-        - value: 4
+        - value: 6
   success:
     headers:
       status: 200
