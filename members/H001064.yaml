@@ -8,11 +8,11 @@ contact_form:
       - name: required-zip5
         selector: "#required-zip5"
         value: $ADDRESS_ZIP5
-        required: Yes
+        required: true
       - name: zip4
         selector: "#zip4"
         value: $ADDRESS_ZIP4
-        required: Yes
+        required: true
     - click_on:
       - value: "Go To Next Step"
         selector: "form#emailForm input#submit"
@@ -22,46 +22,48 @@ contact_form:
       - name: prefix
         selector: "#prefix"
         value: $NAME_PREFIX
+        required: false
       - name: required-first
         selector: "#required-first"
         value: $NAME_FIRST
-        required: Yes
+        required: true
       - name: required-last
         selector: "#required-last"
         value: $NAME_LAST
-        required: Yes
+        required: true
       - name: required-address
         selector: "#required-address"
         value: $ADDRESS_STREET
-        required: Yes
+        required: true
       - name: address2
         selector: "#address2"
         value: $ADDRESS_STREET_2
+        required: false
       - name: required-city
         selector: "#required-city"
         value: $ADDRESS_CITY
-        required: Yes
+        required: true
       - name: required-valid-email
         selector: "#required-valid-email"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: required-phone
         selector: "#required-phone"
         value: $PHONE
-        required: Yes
+        required: true
       - name: required-subject
         selector: "#required-subject"
         value: $SUBJECT
-        required: Yes
+        required: true
       - name: required-message
         selector: "#required-message"
         value: $MESSAGE
-        required: Yes
+        required: true
     - select:
       - name: required-response
         selector: "#required-response"
         value: "Y"
-        required: Yes
+        required: true
         options:
           "Yes, please contact me": "Y"
           "No, I wanted to voice my opinion": "N"
