@@ -8,33 +8,34 @@ contact_form:
       - name: prefix
         selector: "#prefix"
         value: "$NAME_PREFIX"
-        required: Yes
+        required: true
       - name: firstname
         selector: "#firstname"
         value: "$NAME_FIRST"
-        required: Yes
+        required: true
       - name: lastname
         selector: "#lastname"
         value: "$NAME_LAST"
-        required: Yes
+        required: true
       - name: suffix
         selector: "#suffix"
         value: "$NAME_SUFFIX"
       - name: address1
         selector: "#address1"
         value: "$ADDRESS_STREET"
-        required: Yes
+        required: true
       - name: address2
         selector: "#address2"
         value: "$ADDRESS_STREET_2"
+        required: false
       - name: city
         selector: "#city"
         value:  "$ADDRESS_CITY"
-        required: Yes
+        required: true
       - name: zip
         selector: "#zip"
         value:  "$ADDRESS_ZIP5"
-        required: Yes
+        required: true
       - name: homephone
         selector: "#homephone"
         value: "$PHONE"
@@ -44,11 +45,11 @@ contact_form:
       - name: email
         selector: "#email"
         value: "$EMAIL"
-        required: Yes
+        required: true
       - name: subject
         selector: "#subject"
         value: "$SUBJECT"
-        required: Yes
+        required: true
       - name: messagebody
         selector: "#messagebody"
         value: "$MESSAGE"
@@ -56,12 +57,12 @@ contact_form:
       - name: state
         selector: "#state"
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
+        required: true
         options: US_STATES
       - name: topic
         selector: "#topic"
         value: "$TOPIC"
-        required: Yes
+        required: true
         options:
           - "Abortion / Family Planning"
           - "Agriculture"
