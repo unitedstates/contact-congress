@@ -12,44 +12,43 @@ contact_form:
       - name: firstName
         selector: "#firstName"
         value: "$NAME_FIRST"
-        required: Yes
+        required: true
       - name: lastName
         selector: "#lastName"
         value: "$NAME_LAST"
-        required: Yes
+        required: true
       - name: Address1
         selector: "#Address1"
         value: "$ADDRESS_STREET"
-        required: Yes
+        required: true
       - name: Address2
         selector: "#Address2"
         value: "$ADDRESS_STREET_2"
+        required: false
       - name: city
         selector: "#city"
         value: "$ADDRESS_CITY"
-        required: Yes
+        required: true
       - name: zip
         selector: "#zip"
         value: "$ADDRESS_ZIP5"
-        required: Yes
+        required: true
       - name: homePhone
         selector: "#homePhone"
         value: "$PHONE"
-      - name: workPhone
-        selector: "#workPhone"
-        value: "$PHONE"
+        required: false
       - name: email
         selector: "#email"
         value: "$EMAIL"
-        required: Yes
+        required: true
       - name: messageSubject
         selector: "#messageSubject"
         value: "$SUBJECT"
-        required: Yes
+        required: true
       - name: MessageBody
         selector: ".required[name='MessageBody']"
         value: "$MESSAGE"
-        required: Yes
+        required: true
     - wait:
       - value: 1
     - fill_in:
@@ -61,12 +60,12 @@ contact_form:
         #
         # jQuery('a[href$=".wav"]').attr('href').match(/_([a-z0-9]+)\.wav/)[1]
         value: "$CAPTCHA_SOLUTION"
-        required: Yes
+        required: true
     - select:
       - name: Prefix
         selector: ".required[name='Prefix']"
         value: "$NAME_PREFIX"
-        required: Yes
+        required: true
         options:
           " Mr. ": "Mr."
           " Mrs. ": "Mrs."
@@ -83,7 +82,7 @@ contact_form:
       - name: State
         selector: ".required[name='State']"
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
+        required: true
         options: US_STATES_AND_TERRITORIES
       - name: Subject
         selector: "#Subject"
