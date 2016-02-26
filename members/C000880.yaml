@@ -4,8 +4,8 @@ contact_form:
   action: http://www.crapo.senate.gov/webformActionIAV1.cfm
   steps:
     - visit: http://www.crapo.senate.gov/contact/email.cfm
-    - click_on:
-      - selector: ".modal-header button"
+    - javascript:
+      - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
       - name: firstName
         selector: "#firstName"
