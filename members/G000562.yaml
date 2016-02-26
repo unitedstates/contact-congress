@@ -4,6 +4,8 @@ contact_form:
   action: "http://www.gardner.senate.gov/contact-cory/email-cory"
   steps:
     - visit: "http://www.gardner.senate.gov/contact-cory/email-cory"
+    - wait:
+        - value: 3
     - find:
         - selector: "#actions"
     - select:
