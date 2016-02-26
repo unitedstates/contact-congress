@@ -241,6 +241,8 @@ contact_form:
     - click_on:
       - value: Submit
         selector: input.btn.right
+    - wait:
+      - value: 3
     - find:
       - selector: "h1"
         value: "Thank You"
