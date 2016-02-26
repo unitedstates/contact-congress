@@ -1,58 +1,51 @@
 bioguide: R000307
 contact_form:
   method: post
+  action: ""
   steps:
     - visit: "http://www.roberts.senate.gov/public/index.cfm?p=EmailPat"
     - fill_in:
-        - name: field_23c64f0f-17aa-4395-bfa8-65ea859c9ddb
-          selector: "#field_23c64f0f-17aa-4395-bfa8-65ea859c9ddb"
+        - name: field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB
+          selector: "#field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB"
           value: $NAME_PREFIX
           required: true
-        - name: field_7bbad001-4221-4cb0-b7bd-b1adc5e3a379
-          selector: "#field_7bbad001-4221-4cb0-b7bd-b1adc5e3a379"
+        - name: field_7BBAD001-4221-4CB0-B7BD-B1ADC5E3A379
+          selector: "#field_7BBAD001-4221-4CB0-B7BD-B1ADC5E3A379"
           value: $NAME_FIRST
           required: true
-        - name: field_08788e58-2487-4d39-bd3e-99b47a7db6b3
-          selector: "#field_08788e58-2487-4d39-bd3e-99b47a7db6b3"
+        - name: field_08788E58-2487-4D39-BD3E-99B47A7DB6B3
+          selector: "#field_08788E58-2487-4D39-BD3E-99B47A7DB6B3"
           value: $NAME_LAST
           required: true
-        - name: field_6e92b6ce-26ea-4520-a313-fb9fb4554935
-          selector: "#field_6e92b6ce-26ea-4520-a313-fb9fb4554935"
+        - name: field_6E92B6CE-26EA-4520-A313-FB9FB4554935
+          selector: "#field_6E92B6CE-26EA-4520-A313-FB9FB4554935"
           value: $ADDRESS_STREET
           required: true
-        - name: field_3d1183cf-bf40-4f07-bc9a-c1cefb5a9773
-          selector: "#field_3d1183cf-bf40-4f07-bc9a-c1cefb5a9773"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: field_a10af97b-ac6c-4b88-8bfd-0c8e6a2ef117
-          selector: "#field_a10af97b-ac6c-4b88-8bfd-0c8e6a2ef117"
+        - name: field_A10AF97B-AC6C-4B88-8BFD-0C8E6A2EF117
+          selector: "#field_A10AF97B-AC6C-4B88-8BFD-0C8E6A2EF117"
           value: $ADDRESS_CITY
           required: true
-        - name: field_aea5b2a7-06b4-4af8-933e-2b74af558cfb
-          selector: "#field_aea5b2a7-06b4-4af8-933e-2b74af558cfb"
+        - name: field_AEA5B2A7-06B4-4AF8-933E-2B74AF558CFB
+          selector: "#field_AEA5B2A7-06B4-4AF8-933E-2B74AF558CFB"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_f80f60a1-095a-4e5d-9946-91e5d9fe422d
-          selector: "#field_f80f60a1-095a-4e5d-9946-91e5d9fe422d"
-          value: $PHONE
-          required: false
-        - name: field_f7677061-8f71-4136-b3b2-ed7bcc421d95
-          selector: "#field_f7677061-8f71-4136-b3b2-ed7bcc421d95"
+        - name: field_F7677061-8F71-4136-B3B2-ED7BCC421D95
+          selector: "#field_F7677061-8F71-4136-B3B2-ED7BCC421D95"
           value: $EMAIL
           required: true
-        - name: field_6d262f00-ebe4-49b9-ab23-0c2c3f61225c
-          selector: "#field_6d262f00-ebe4-49b9-ab23-0c2c3f61225c"
+        - name: field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C
+          selector: "#field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C"
           value: $MESSAGE
           required: true
-        - name: captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af
-          selector: "#captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af"
-          captcha_selector: "#captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af_container img"
-          captcha_id_selector: "#captcha_56e0e9d8-904d-4c9e-81b8-19474ee968af_hash"
-          value: "$CAPTCHA_SOLUTION"
+        - name: captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF
+          selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF"
+          captcha_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img"
+          captcha_id_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_hash"
+          value: $CAPTCHA_SOLUTION
           required: true
-    - select:    
-        - name: field_9e46d42d-a8a8-4014-af7c-a316aa230d9f
-          selector: "#field_9e46d42d-a8a8-4014-af7c-a316aa230d9f"
+    - select:
+        - name: field_9E46D42D-A8A8-4014-AF7C-A316AA230D9F
+          selector: "#field_9E46D42D-A8A8-4014-AF7C-A316AA230D9F"
           value: $TOPIC
           required: true
           options:
@@ -70,6 +63,7 @@ contact_form:
             - Aviation
             - Banking-General
             - Budget
+            - "Children's Issues"
             - Communications
             - Defense-General
             - Economy-General
@@ -95,7 +89,7 @@ contact_form:
             - Violence
             - Other
     - javascript:
-        - value: document.querySelector("#field_6d262f00-ebe4-49b9-ab23-0c2c3f61225c").value = document.querySelector("#field_6d262f00-ebe4-49b9-ab23-0c2c3f61225c").value.replace(/"/g, '');
+        - value: document.querySelector("#field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C").value = document.querySelector("#field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.primaryAction
@@ -105,4 +99,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank
+      contains: Thank you for expressing your views.
