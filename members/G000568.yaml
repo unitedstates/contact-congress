@@ -8,46 +8,47 @@ contact_form:
       - name: required-first
         selector: "input[title='First Name']"
         value: $NAME_FIRST
-        required: Yes
+        required: true
       - name: required-last
         selector: "input[title='Last Name']"
         value: $NAME_LAST
-        required: Yes
+        required: true
       - name: required-address
         selector: "input[title='Address']"
         value: $ADDRESS_STREET
-        required: Yes
+        required: true
       - name: required-city
         selector: "input[title='City']"
         value: $ADDRESS_CITY
-        required: Yes
+        required: true
       - name: zip5
         selector: "input[title='Zip']"
         value: $ADDRESS_ZIP5
-        required: Yes
+        required: true
       - name: zip4
         selector: "input[name='zip4']"
         value: $ADDRESS_ZIP4
       - name: required-email
         selector: "input[title='Email']"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: phone
         selector: "input[title='Phone']"
         value: $PHONE
-        required: yes
+        required: true
       - name: subject
         selector: "input[name='subject']"
         value: $SUBJECT
+        required: false
       - name: required-message
         selector: "textarea[title='Message']"
         value: $MESSAGE
-        required: Yes
+        required: true
     - select:
       - name: required-prefix
         selector: "select[title='Prefix']"
         value: $NAME_PREFIX
-        required: Yes
+        required: true
         options:
           "Dr.": "Dr."
           "Mr.": "Mr."
@@ -60,7 +61,7 @@ contact_form:
       - name: required-issue
         selector: "select[title='Issue']"
         value: $TOPIC
-        required: Yes
+        required: true
         options:
           "Agriculture" : "AG"
           "Banking" : "BAN"
