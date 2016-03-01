@@ -1,9 +1,11 @@
 bioguide: R000605
 contact_form:
   method: post
-  action: "http://www.rounds.senate.gov/contact/email-mike"
+  action: "https://www.rounds.senate.gov/contact/email-mike"
   steps:
-    - visit: "http://www.rounds.senate.gov/contact/email-mike"
+    - visit: "https://www.rounds.senate.gov/contact/email-mike"
+    - wait:
+        - value: 3
     - select:
         - name: input_AE7457DD-4040-F985-52CD-B99385041C51
           selector: "#actions"
@@ -16,7 +18,7 @@ contact_form:
             Tour Request: tour
             Request a flag to be flown over the Capitol: flag
     - wait:
-        - value: 5
+        - value: 3
     - fill_in:
         - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
@@ -40,7 +42,7 @@ contact_form:
           required: true
         - name: input_AB67BC2F-4040-F985-52CD-007A86DA4D47
           selector: "#input-AB67BC2F-4040-F985-52CD-007A86DA4D47"
-          value: $ADDRESS_ZIP_PLUS_4
+          value: $PHONE
           required: true
         - name: input_AB721CC4-4040-F985-52CD-76D1474A55F4
           selector: "#email"
@@ -198,62 +200,6 @@ contact_form:
             - Navy - Seaman Apprentice
             - Navy - Seaman
             - Navy - Seaman Recruit
-        - name: input_AB5B6894-4040-F985-52CD-DFC6D3C729DF
-          selector: "#input-AB5B6894-4040-F985-52CD-DFC6D3C729DF"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
         - name: input_AB8156A0-4040-F985-52CD-49CE65770EFC
           selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
           value: $TOPIC
@@ -298,4 +244,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: Thank you
