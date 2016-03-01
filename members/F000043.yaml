@@ -37,10 +37,6 @@ contact_form:
           selector: "#req_zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zip2"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
@@ -63,12 +59,6 @@ contact_form:
             Hon.: Hon.
             Rev.: Rev.
             Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            PA: PA
         - name: subject
           selector: "#req_subject"
           value: $TOPIC
@@ -84,6 +74,7 @@ contact_form:
             Environment: WEBENV
             International: WEBINT
             Government Reform: WEBGOV
+            Gun Control: WEBGUN
             Health Care: WEBHEA
             Homeland Security: WEBHOM
             Immigration: WEBIMM
@@ -111,4 +102,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: Thank you
