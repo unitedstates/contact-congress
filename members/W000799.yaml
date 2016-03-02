@@ -20,35 +20,39 @@ contact_form:
         - selector: form#aspnetForm input#ctl00_ctl26_FirstName
     - fill_in:
         - name: first
-          selector:
+          selector: input#ctl00_ctl26_FirstName
           value: $NAME_FIRST
           required: true
         - name: last
-          selector:
+          selector: input#ctl00_ctl26_LastName
           value: $NAME_LAST
           required: true
         - name: address
-          selector:
+          selector: input#ctl00_ctl26_Street
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector:
+          selector: input#ctl00_ctl26_City
           value: $ADDRESS_CITY
           required: true
-        - name: email
-          selector:
-          value: $EMAIL
+        - name: zip5
+          selector: input#ctl00_ctl26_Zip
+          value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector:
+          selector: input#ctl00_ctl26_Phone
           value: $PHONE
           required: true
+        - name: email
+          selector: input#ctl00_ctl26_Email
+          value: $EMAIL
+          required: true
         - name: subject
-          selector:
+          selector: input#ctl00_ctl26_Subject
           value: $SUBJECT
           required: true
         - name: message
-          selector:
+          selector: textarea#ctl00_ctl26_Body
           value: $MESSAGE
           required: true
     - select:
@@ -61,19 +65,18 @@ contact_form:
             Mrs.: Mrs.
             Dr.: Dr.
             Ms.: Ms.
-        - name: required-issue
-          selector: "#required-issue"
+        - name: topic
+          selector: select#ctl00_ctl26_IssuesList
           value: $TOPIC
           required: true
           options:
             Agriculture: AGR
             Animals: AN
-            Arts and Humanities: ART
+            Arts snd Humanities: ART
             Banking and Finance: BANK
             Budget and Economy: BUD
             Campaign Finance Reform: CFR
             Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
             Defense and Military: DEF
             Economy: ECON
             Education: EDU
@@ -91,6 +94,7 @@ contact_form:
             Judiciary: JUD
             Labor: LAB
             LGBT: LGBT
+            Other: Other
             No Response Necessary: NRN
             Post Office: POST
             Science and Technology: SCI
@@ -103,21 +107,17 @@ contact_form:
             Transportation: TRA
             Trade: TRADE
             Veterans: VET
-            "Women's Issues": WOMEN
+            "Woman's Issues": WOMEN
             Welfare: WEL
-            Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
-          required: true
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit']"
+        - selector: input#ctl00_ctl26_ReplyChoice_0
+    - find:
+        - selector: input#ctl00_ctl26_SubmitButton
+    - click_on:
+        - value: Submit
+          selector: input#ctl00_ctl26_SubmitButton
   success:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: "Thank you again for sharing your views with me"
