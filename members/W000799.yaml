@@ -1,61 +1,66 @@
 bioguide: W000799
 contact_form:
-  method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  method: get
+  action: ""
   steps:
-    - visit: "http://walz.house.gov/contact"
+    - visit: "https://walzforms.house.gov/contact/"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: form.zipform input[name='zip5']
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: form.zipform input[name='zip4']
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+        - value: Submit
+          selector: form.zipform input[type='submit']
     - find:
-        - selector: "#contactForm"
+        - selector: form#aspnetForm input#ctl00_ctl26_FirstName
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#required-first"
+        - name: first
+          selector:
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: last
+          selector:
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: address
+          selector:
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "#required-city"
+        - name: city
+          selector:
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: email
+          selector:
           value: $EMAIL
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: phone
+          selector:
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
+        - name: subject
+          selector:
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: message
+          selector:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: select#ctl00_ctl26_PrefixList
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Dr.: Dr.
+            Ms.: Ms.
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
