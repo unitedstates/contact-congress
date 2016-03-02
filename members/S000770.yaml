@@ -12,46 +12,47 @@ contact_form:
       - name: firstName
         selector: "#input-F80AC606-4040-F985-52CD-88C5E17C2923"
         value: $NAME_FIRST
-        required: Yes
+        required: true
       - name: lastName
         selector: "#input-F80AC4BA-4040-F985-52CD-C1FBF3A239DA"
         value: $NAME_LAST
-        required: Yes
+        required: true
       - name: Address1
         selector: "#input-F80AC639-4040-F985-52CD-01F3F3CED200"
         value: $ADDRESS_STREET
-        required: Yes
+        required: true
       - name: Address2
         selector: "#input-F80AC6E0-4040-F985-52CD-65FA92CFCF90"
         value: $ADDRESS_STREET_2
+        required: false
       - name: city
         selector: "#input-F80AC6B0-4040-F985-52CD-D109F6244062"
         value: $ADDRESS_CITY
-        required: Yes
+        required: true
       - name: zip
         selector: "#input-F80AC4D5-4040-F985-52CD-CD63BB35E91B"
         value: $ADDRESS_ZIP5
-        required: Yes
+        required: true
       - name: phone
         selector: "#input-F80AC622-4040-F985-52CD-2ED21C242578"
         value: $PHONE
-        required: Yes
+        required: true
       - name: email
         selector: "#email"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: verifyemail
         selector: "#input-F80AC51C-4040-F985-52CD-9794A2BECA45"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: subject
         selector: "#input-F81BE935-4040-F985-52CD-D2815240A234"
         value: $SUBJECT
-        required: Yes
+        required: true
       - name: message
         selector: "#input-F80AC5B6-4040-F985-52CD-834C1DD62DF3"
         value: $MESSAGE
-        required: Yes
+        required: true
     - click_on:
       - value: Submit
         selector: input[value='Submit']

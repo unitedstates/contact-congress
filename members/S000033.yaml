@@ -58,50 +58,52 @@ contact_form:
       - name: fname
         selector: "#fname"
         value: "$NAME_FIRST"
-        required: Yes
+        required: true
       - name: lname
         selector: "#lname"
         value: "$NAME_LAST"
-        required: Yes
+        required: true
       - name: mailing_streetAddress1
         selector: "#mailing_streetAddress1"
         value: "$ADDRESS_STREET"
-        required: Yes
+        required: true
       - name: mailing_streetAddress2
         selector: "#mailing_streetAddress2"
         value: "$ADDRESS_STREET_2"
+        required: false
       - name: mailing_city
         selector: "#mailing_city"
         value: "$ADDRESS_CITY"
-        required: Yes
+        required: true
       - name: mailing_zipCode
         selector: "#mailing_zipCode"
         value: "$ADDRESS_ZIP5"
-        required: Yes
+        required: true
       - name: home_phone_number
         selector: "#home_phone_number"
         value: "$PHONE"
+        required: false
       - name: email_address
         selector: "#email"
         value: "$EMAIL"
-        required: Yes
+        required: true
       - name: verify_email
         selector: "#verify_email"
         value: "$EMAIL"
-        required: Yes
+        required: true
       - name: regarding
         selector: "#regarding"
         value: "$SUBJECT"
-        required: Yes
+        required: true
       - name: message
         selector: "#message"
         value: "$MESSAGE"
-        required: Yes
+        required: true
     - select:
       - name: salutation
         selector: "#salutation"
         value: "$NAME_PREFIX"
-        required: Yes
+        required: true
         options:
           "Mr.": "Mr."
           "Ms.": "Ms."
@@ -174,13 +176,13 @@ contact_form:
       - name: state
         selector: "#state"
         value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
+        required: true
         options: US_STATES_AND_TERRITORIES
     - check:
       - name: response
         selector: "#response_y"
         value: Yes
-        required: Yes
+        required: true
     - click_on:
       - value: Submit
         selector: "#side-search-btn"

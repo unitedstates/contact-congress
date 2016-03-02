@@ -4,15 +4,15 @@ contact_form:
   action: "https://amash.house.gov/htbin/formproc_za/zip-auth.txt&amp;form=/contact-me/email-me-zip-authenticated&amp;nobase&amp;fpGetVer=2"
   steps:
     - visit: "https://amash.house.gov/contact-me/email-me"
-    - fill_in: 
+    - fill_in:
       - name: required-zip5
         selector: "#required-zip5"
         value: $ADDRESS_ZIP5
-        required: Yes
+        required: true
       - name: zip4
         selector: "#zip4"
         value: $ADDRESS_ZIP4
-        required: Yes
+        required: true
     - click_on:
       - value: "Go To Next Step"
         selector: "#submit"
@@ -22,46 +22,48 @@ contact_form:
       - name: required-prefix
         selector: "#required-prefix"
         value: $NAME_PREFIX
-        required: Yes
+        required: true
       - name: required-first
         selector: "#required-first"
         value: $NAME_FIRST
-        required: Yes
+        required: true
       - name: required-last
         selector: "#required-last"
         value: $NAME_LAST
-        required: Yes
+        required: true
       - name: required-address
         selector: "#required-address"
         value: $ADDRESS_STREET
-        required: Yes
+        required: true
       - name: address2
         selector: "#address2"
         value: $ADDRESS_STREET_2
+        required: false
       - name: required-city
         selector: "#required-city"
         value: $ADDRESS_CITY
-        required: Yes
+        required: true
       - name: required-valid-email
         selector: "#required-valid-email"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: phone
         selector: "#phone"
         value: $PHONE
+        required: false
       - name: required-subject
         selector: "#required-subject"
         value: $SUBJECT
-        required: Yes
+        required: true
       - name: required-message
         selector: "#required-message"
         value: $MESSAGE
-        required: Yes
+        required: true
     - select:
       - name: required-issue
         selector: "#required-issue"
         value: $TOPIC
-        required: Yes
+        required: true
         options:
           "Agriculture": "WEB-AGR"
           "Animals": "WEB-ANM"
@@ -95,7 +97,7 @@ contact_form:
       - name: required-answer
         selector: "#required-answer"
         value: "Response Needed"
-        required: Yes
+        required: true
         options:
           "No Response Needed": "NRN"
           "Response Needed": "Response Needed"
@@ -103,7 +105,7 @@ contact_form:
       - name: "affl1_2"
         selector: "#affl1_2"
         value: "No Action"
-        required: Yes
+        required: true
     - click_on:
       - value: "Send Email"
         selector: "#submit"
