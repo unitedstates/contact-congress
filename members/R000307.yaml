@@ -9,6 +9,8 @@ contact_form:
           selector: input.primaryAction
     - find:
         - selector: "#field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB"
+    - wait:
+        - value: 2
     - fill_in:
         - name: field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB
           selector: "#field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB"
