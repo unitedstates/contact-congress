@@ -41,8 +41,6 @@ contact_form:
           selector: "#atform input[name='verify_email']"
           value: $EMAIL
           required: true
-    - find:
-        - selector: "#atform textarea[name='con_message']"
     - fill_in:
         - name: con_message
           selector: "#atform textarea[name='con_message']"
@@ -103,8 +101,6 @@ contact_form:
             Welfare/Poverty: WELFARE
             "Women's Issues": WOMEN
             Miscellaneous/Other: MISCELLANEOUS
-    - javascript:
-        - value: document.querySelector("#atform textarea[name='con_message']").value = document.querySelector("#atform textarea[name='con_message']").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#atform input[type='submit'][value='Submit']"
