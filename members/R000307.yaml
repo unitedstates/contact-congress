@@ -6,6 +6,8 @@ contact_form:
     - visit: "http://www.roberts.senate.gov/public/index.cfm?p=EmailPat"
     - wait:
         - value: 2
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB
           selector: "#field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB"
