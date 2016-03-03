@@ -107,7 +107,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#atform textarea[name='con_message']").value = document.querySelector("#atform textarea[name='con_message']").value.replace(/"/g, '').replace(/;/g, ',');
     - click_on:
-        - value: Submit
+        - value: "Submit"
           selector: "#atform input[type='submit'][value='Submit']"
   success:
     headers:
