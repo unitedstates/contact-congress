@@ -21,6 +21,10 @@ contact_form:
           selector: "#atform input[name='street_address']"
           value: $ADDRESS_STREET
           required: true
+        - name: street_address2
+          selector: "#atform input[name='street_address2']"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: city
           selector: "#atform input[name='city']"
           value: $ADDRESS_CITY
@@ -41,7 +45,6 @@ contact_form:
           selector: "#atform input[name='verify_email']"
           value: $EMAIL
           required: true
-    - fill_in:
         - name: con_message
           selector: "#atform textarea[name='con_message']"
           value: $MESSAGE
@@ -50,7 +53,7 @@ contact_form:
         - name: con_issue
           selector: "#atform select[name='con_issue']"
           value: $TOPIC
-          required: true
+          required: false
           options:
             Agriculture: AGRICULTURE
             Animals: ANIMALS
