@@ -41,6 +41,9 @@ contact_form:
           selector: "#atform input[name='verify_email']"
           value: $EMAIL
           required: true
+    - find:
+        - selector: "#atform textarea[name='con_message']"
+    - fill_in:
         - name: con_message
           selector: "#atform textarea[name='con_message']"
           value: $MESSAGE
