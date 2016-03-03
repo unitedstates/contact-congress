@@ -126,6 +126,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.-validate-form[name='thisForm'] input[name='formaction']"
+    - find:
+        - selector: "div.record-body"
+          value: Thank you
   success:
     headers:
       status: 200
