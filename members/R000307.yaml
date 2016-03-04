@@ -48,12 +48,10 @@ contact_form:
           selector: "#field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C"
           value: $MESSAGE
           required: true
-    - find:
-        - selector: "#captcha_image"
     - fill_in:
         - name: captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF
           selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF"
-          captcha_selector: "#captcha_image"
+          captcha_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img"
           captcha_id_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_hash"
           value: $CAPTCHA_SOLUTION
           required: true
