@@ -44,6 +44,12 @@ contact_form:
           selector: "#field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C"
           value: $MESSAGE
           required: true
+        - name: captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF
+          selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF"
+          captcha_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img"
+          captcha_id_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_hash"
+          value: $CAPTCHA_SOLUTION
+          required: true
     - select:
         - name: field_9E46D42D-A8A8-4014-AF7C-A316AA230D9F
           selector: "#field_9E46D42D-A8A8-4014-AF7C-A316AA230D9F"
@@ -91,13 +97,6 @@ contact_form:
             - Other
     - javascript:
         - value: document.querySelector("#field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C").value = document.querySelector("#field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C").value.replace(/"/g, '');
-    - fill_in:
-        - name: captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF
-          selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF"
-          captcha_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img"
-          captcha_id_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_hash"
-          value: $CAPTCHA_SOLUTION
-          required: true
     - click_on:
         - value: "Submit"
           selector: input.primaryAction2
