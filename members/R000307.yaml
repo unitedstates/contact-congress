@@ -14,7 +14,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#copyContainer").appendChild(document.createTextNode(document.querySelector("#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img").src));
     - javascript:
-        - value: document.querySelector("#copyContainer").appendChild(document.querySelector("#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img"));
+        - value: document.querySelector(".requirednote").appendChild(document.querySelector("#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img"));
     - wait:
         - value: 5
     - fill_in:
@@ -53,7 +53,7 @@ contact_form:
     - fill_in:
         - name: captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF
           selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF"
-          captcha_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img"
+          captcha_selector: ".requirednote img"
           captcha_id_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_hash"
           value: $CAPTCHA_SOLUTION
           required: true
