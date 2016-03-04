@@ -12,7 +12,7 @@ contact_form:
     - wait:
         - value: 5
     - javascript:
-        - value: "var img = document.createElement('img'); img.src = document.querySelector('#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img').src; img.id = 'captcha_image'; document.querySelector('#head').appendChild(img);"
+        - value: "var img = document.createElement('img'); img.src = document.querySelector('#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img').src; img.id = 'captcha_image'; var src = document.createTextNode(document.querySelector('#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img').src);  document.querySelector('#copyContainer').appendChild(src); document.querySelector('#copyContainer').appendChild(img);"
     - wait:
         - value: 5
     - fill_in:
