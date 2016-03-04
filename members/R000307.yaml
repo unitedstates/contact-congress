@@ -10,7 +10,7 @@ contact_form:
     - find:
         - selector: "#field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB"
     - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+        - value: "var img = document.createElement('img'); img.src = document.querySelector('#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img').src; img.id = 'captcha_image'; document.querySelector('#head').appendChild(img);"
     - fill_in:
         - name: field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB
           selector: "#field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB"
@@ -46,7 +46,7 @@ contact_form:
           required: true
         - name: captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF
           selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF"
-          captcha_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img"
+          captcha_selector: "#captcha_image"
           captcha_id_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_hash"
           value: $CAPTCHA_SOLUTION
           required: true
