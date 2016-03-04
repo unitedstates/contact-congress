@@ -9,12 +9,6 @@ contact_form:
           selector: input.primaryAction
     - find:
         - selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img"
-    - javascript:
-        - value: "document.querySelector('#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img').setAttribute(
-   'style', 'width: 100%; height: 100%; position: absolute; top: 0; left: 0;');"
-    - javascript:
-        - value: "document.querySelector('body').setAttribute(
-   'style', 'height: ' + document.querySelector('#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img').height + 'px; overflow: hidden;');"
     - fill_in:
         - name: field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB
           selector: "#field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB"
@@ -47,13 +41,6 @@ contact_form:
         - name: field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C
           selector: "#field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C"
           value: $MESSAGE
-          required: true
-    - fill_in:
-        - name: captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF
-          selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF"
-          captcha_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img"
-          captcha_id_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_hash"
-          value: $CAPTCHA_SOLUTION
           required: true
     - select:
         - name: field_9E46D42D-A8A8-4014-AF7C-A316AA230D9F
@@ -102,6 +89,17 @@ contact_form:
             - Other
     - javascript:
         - value: document.querySelector("#field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C").value = document.querySelector("#field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C").value.replace(/"/g, '');
+    - javascript:
+        - value: document.querySelector("body").setAttribute("style", "display: none;");
+    - javascript:
+        - value: document.querySelector("html").appendChild(document.querySelector("#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img"));   
+    - fill_in:
+        - name: captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF
+          selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF"
+          captcha_selector: "html > img"
+          captcha_id_selector: "#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_hash"
+          value: $CAPTCHA_SOLUTION
+          required: true
     - click_on:
         - value: "Submit"
           selector: input.primaryAction2
