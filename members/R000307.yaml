@@ -9,8 +9,8 @@ contact_form:
           selector: input.primaryAction
     - find:
         - selector: "#field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB"
-    - wait:
-        - value: 2
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB
           selector: "#field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB"
@@ -100,7 +100,7 @@ contact_form:
           required: true
     - click_on:
         - value: "Submit"
-          selector: input.primaryAction
+          selector: input.primaryAction2
     - wait:
         - value: 1
   success:
