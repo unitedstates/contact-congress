@@ -1,129 +1,139 @@
 bioguide: B001230
 contact_form:
   method: POST
-  action: http://www.baldwin.senate.gov/contact
+  action: http://www.baldwin.senate.gov/feedback/thank-you
   steps:
-    - visit: http://www.baldwin.senate.gov/contact
-    - select:
-      - name: action
-        selector: "#topic"
-        value: Share your comments or opinion on legislation
-        required: true
+    - visit: "https://www.baldwin.senate.gov/feedback"
     - find:
-      - selector: "#continue-form fieldset:nth-child(1)"
+      - selector: div#main_container div.opinion a.cell
+    - click_on:
+      - selector: div#main_container div.opinion a.cell
+    - find:
+      - selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
     - fill_in:
-      - name: fname
-        selector: "#fname"
+      - name: first
+        selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
         value: $NAME_FIRST
         required: true
-      - name: lname
-        selector: "#lname"
+      - name: last
+        selector: input#input-B03E04BD-4040-F985-52CD-48E090E769DA
         value: $NAME_LAST
         required: true
-      - name: mailing_streetAddress1
-        selector: "#mailing_streetAddress1"
+      - name: street
+        selector: input#input-B03E05F1-4040-F985-52CD-A580E72A7D41
         value: $ADDRESS_STREET
         required: true
-      - name: mailing_streetAddress2
-        selector: "#mailing_streetAddress2"
+      - name: street2
+        selector: input#input-B03E0518-4040-F985-52CD-CF33EF97DA3A
         value: $ADDRESS_STREET_2
         required: false
-      - name: mailing_city
-        selector: "#mailing_city"
+      - name: city
+        selector: input#input-B03E0595-4040-F985-52CD-C572364023FE
         value: $ADDRESS_CITY
         required: true
-      - name: mailing_zipCode
-        selector: "#mailing_zipCode"
+      - name: zip5
+        selector: input#input-B03E04CC-4040-F985-52CD-4DDB58DA474A
         value: $ADDRESS_ZIP5
         required: true
-      - name: home_phone_number
-        selector: "#home_phone_number"
+      - name: phone
+        selector: input#input-B03E046E-4040-F985-52CD-A2F10450D58D
         value: $PHONE
+        required: true
       - name: email
-        selector: "#email"
+        selector: input#email
         value: $EMAIL
         required: true
       - name: verify_email
-        selector: "#verify_email"
+        selector: input#input-B03E05A4-4040-F985-52CD-730C08912F4F
         value: $EMAIL
         required: true
+      - name: subject
+        selector: input#input-561C6766-5056-A066-60C9-A3C3AE42D8BE
+        value: $SUBJECT
+        required: true
       - name: message
-        selector: "#message"
+        selector: textarea#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2
         value: $MESSAGE
         required: true
     - select:
-      - name: salutation
-        selector: "#salutation"
+      - name: prefix
+        selector: select#input-B03E0527-4040-F985-52CD-C0DD6BEF325F
         value: $NAME_PREFIX
         required: true
         options:
           Mr.: Mr.
-          Mrs.: Mrs.
           Ms.: Ms.
-          Miss: Miss
-          Mr. and Mrs.: Mr. and Mrs.
+          Mrs.: Mrs.
+          Professor: Professor
           Dr.: Dr.
-          Dr. and Mrs.: Dr. and Mrs.
-          Dr. and Mr.: Dr. and Mr.
-          Mr. and Mr.: Mr. and Mr.
-          Mrs. and Mrs.: Mrs. and Mrs.
-          Ms. and Ms.: Ms. and Ms.
-          Rev.: Rev.
-          Sr.: Sr.
-      - name: subject
-        selector: "#subject"
+          Father: Father
+          Sister: Sister
+          Rabbi: Rabbi
+          Reverend: Reverend
+      - name: topic
+        selector: select#input-B03E04DB-4040-F985-52CD-18F332336F99
         value: $TOPIC
         required: true
         options:
-          Aging and Retirement: Aging and Retirement
+          Adoption: Adoption
+          Aging: Aging
           Agriculture: Agriculture
-          Armed Services and Defense: Armed Services and Defense
-          "Arts & Humanities": "Arts & Humanities"
-          Banking: Banking
-          Budget: Budget
-          Congress and Elections: Congress and Elections
-          Economy and Jobs: Economy and Jobs
-          Education: Education
-          Energy: Energy
+          Animal Welfare: Animal Welfare
+          Banking / Securities: Banking / Securities
+          Budget / Appropriations: Budget / Appropriations
+          Children: Children
+          Civil Rights: Civil Rights
+          Congratulations: Congratulations
+          Congressional Issues: Congressional Issues
+          Crime: Crime
+          Defense: Defense
+          Drugs: Drugs
+          Economy: Economy
+          Eagle Scout: Eagle Scout
+          Education Higher: Education Higher
+          Education K through 12: Education K through 12
+          Elections: Elections
+          Energy / Natural Resources: Energy / Natural Resources
           Environment: Environment
-          Federal Employees: Federal Employees
-          Foreign Relations: Foreign Relations
-          Government Contracting: Government Contracting
-          Gun Safety: Gun Safety
+          Foreign Affairs: Foreign Affairs
+          Government Reform: Government Reform
           Healthcare: Healthcare
-          Homeland Security: Homeland Security
           Housing: Housing
           Immigration: Immigration
+          Inauguration: Inauguration
           Judiciary: Judiciary
           Labor: Labor
-          LGBT Issues: LGBT Issues
-          Native Americans: Native Americans
-          Natural Resources: Natural Resources
-          Patents/Intellectual Property: Patents/Intellectual Property
+          Life Issues: Life Issues
+          Medicaid / Medicare: Medicaid / Medicare
+          Montana Values: Montana Values
+          NASA: NASA
+          Nutrition: Nutrition
+          Other: Other
+          Patents: Patents
           Pensions: Pensions
-          Postal Service: Postal Service
-          Science and Technology: Science and Technology
+          Second Amendment: Second Amendment
           Small Business: Small Business
           Social Security: Social Security
-          Sports: Sports
           Taxes: Taxes
           Telecommunication: Telecommunication
-          Trade: Trade
+          Trade / Commerce: Trade / Commerce
           Transportation: Transportation
           Veterans: Veterans
+          Welfare: Welfare
           Womens Issues: Womens Issues
       - name: state
-        selector: "#state"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
+        selector: select#input-B03E0669-4040-F985-52CD-11B231195172
+        value: WI
         required: true
-        options: US_STATES
+    - click_on:
+      - selector: input#response
+    - find:
+      - selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C div.controls input.btn
     - click_on:
       - value: Send
-        selector: "#side-search-btn"
-    - wait:
-      - value: 4
+        selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C div.controls input.btn
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: "As your United States Senator, I have made it my top priority"
