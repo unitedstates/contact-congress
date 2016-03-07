@@ -3,56 +3,128 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: http://www.coons.senate.gov/contact/
+    - visit: "https://www.coons.senate.gov/contact/email-chris"
     - fill_in:
-      - name: fname
-        selector: "#fname"
-        value: "$NAME_FIRST"
+      - name: first
+        selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
+        value: $NAME_FIRST
         required: true
-      - name: lname
-        selector: "#lname"
-        value: "$NAME_LAST"
-        required: true
-      - name: mailing_streetAddress1
-        selector: "#mailing_streetAddress1"
-        value: "$ADDRESS_STREET"
-        required: true
-      - name: mailing_streetAddress2
-        selector: "#mailing_streetAddress2"
-        value: "$ADDRESS_STREET_2"
-        required: false
-      - name: mailing_city
-        selector: "#mailing_city"
-        value: "$ADDRESS_CITY"
-        required: true
-      - name: mailing_zipCode
-        selector: "#mailing_zipCode"
-        value: "$ADDRESS_ZIP5"
-        required: true
-      - name: phone_number
-        selector: "#phone_number"
-        value: "$PHONE"
+      - name: last
+        selector: input#input-B03E04BD-4040-F985-52CD-48E090E769DA
+        value: $NAME_LAST
         required: true
       - name: email
-        selector: "#email_address"
-        value: "$EMAIL"
+        selector: input#email
+        value: $EMAIL
         required: true
       - name: verify_email
-        selector: "#verify_email"
-        value: "$EMAIL"
+        selector: input#input-B03E05A4-4040-F985-52CD-730C08912F4F
+        value: $EMAIL
         required: true
-      - name: comments
-        selector: "#comments"
-        value: "$MESSAGE"
+      - name: phone
+        selector: input#input-B03E046E-4040-F985-52CD-A2F10450D58D
+        value: $PHONE
+        required: true
+      - name: street
+        selector: input#input-B03E05F1-4040-F985-52CD-A580E72A7D41
+        value: $ADDRESS_STREET
+        required: true
+      - name: street2
+        selector: input#input-B03E0518-4040-F985-52CD-CF33EF97DA3A
+        value: $ADDRESS_STREET_2
+        required: false
+      - name: city
+        selector: input#input-B03E0595-4040-F985-52CD-C572364023FE
+        value: $ADDRESS_CITY
+        required: true
+      - name: zip5
+        selector: input#input-B03E04CC-4040-F985-52CD-4DDB58DA474A
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: message
+        selector: textarea#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2
+        value: $MESSAGE
         required: true
     - select:
-      - name: mailing_state
-        selector: "#mailing_state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+      - name: prefix
+        selector: select#input-B03E0527-4040-F985-52CD-C0DD6BEF325F
+        value: $NAME_PREFIX
         required: true
-        options: US_STATES_AND_TERRITORIES
-      - name: subject
-        selector: "#subject"
+        options:
+          Mr.: Mr.
+          Ms.: Ms.
+          Mrs.: Mrs.
+          Miss: Miss
+          Mr. and Mrs.: Mr. and Mrs.
+          Dr.: Dr.
+          Prof.: Prof.
+          Senator: Senator
+          Gov.: Gov.
+          Congressman: Congressman
+          Pastor: Pastor
+          Hon.: Hon.
+          Fr.: Fr.
+          Sister: Sister
+          Bishop: Bishop
+          Rabbi: Rabbi
+          Reverend: Reverend
+          Fleet Admiral: Fleet Admiral
+          Admiral: Admiral
+          1st Lt.: 1st Lt.
+          Vice Admiral: Vice Admiral
+          LCDR: LCDR
+          Rear Admiral (upper half): Rear Admiral (upper half)
+          Rear Admiral (lower half): Rear Admiral (lower half)
+          Captain: Captain
+          Commander: Commander
+          Lieutenant Commander: Lieutenant Commander
+          Lieutenant: Lieutenant
+          Lieutenant, Junior Grade: Lieutenant, Junior Grade
+          Ensign: Ensign
+          Master Chief Petty Officer of the Navy: Master Chief Petty Officer of the Navy
+          Master Chief Petty Officer: Master Chief Petty Officer
+          Senior Chief Petty Officer: Senior Chief Petty Officer
+          Chief Petty Officer: Chief Petty Officer
+          Petty Officer First Class: Petty Officer First Class
+          Petty Officer Second Class: Petty Officer Second Class
+          Petty Officer Third Class: Petty Officer Third Class
+          Seaman: Seaman
+          Seaman Apprentice: Seaman Apprentice
+          Seaman Recruit: Seaman Recruit
+          Chief Warrant Officer: Chief Warrant Officer
+          Warrant Officer: Warrant Officer
+          Sgt Major Of The Corps: Sgt Major Of The Corps
+          Sergeant Major: Sergeant Major
+          Master Gunnery Sgt: Master Gunnery Sgt
+          First Sergeant: First Sergeant
+          Master Sergeant: Master Sergeant
+          Gunnery Sergeant: Gunnery Sergeant
+          Staff Sergeant: Staff Sergeant
+          Sergeant: Sergeant
+          Corporal: Corporal
+          Lance Corporal: Lance Corporal
+          Private First Class: Private First Class
+          Private: Private
+          General of the Air Force: General of the Air Force
+          General: General
+          Lieutenant General: Lieutenant General
+          Major General: Major General
+          Brigadier General: Brigadier General
+          Colonel: Colonel
+          Lieutenant Colonel: Lieutenant Colonel
+          Major: Major
+          First Lieutenant: First Lieutenant
+          Second Lieutenant: Second Lieutenant
+          Chief Master Sergeant of the Air Force: Chief Master Sergeant of the Air Force
+          Command Chief Master Sergeant: Command sChief Master Sergeant
+          Chief Master Sergeant: Chief Master Sergeant
+          Senior Master Sergeant: Senior Master Sergeant
+          Technical Sergeant: Technical Sergeant
+          Senior Airman: Senior Airman
+          Airman First Class: Airman First Class
+          Airman: Airman
+      - name: topic
+        selector: select#input-B03E04DB-4040-F985-52CD-18F332336F99
         value: $TOPIC
         required: true
         options:
@@ -81,18 +153,18 @@ contact_form:
           LGBT Equality: LGBT Equality
           Manufacturing: Manufacturing
           Military Operations: Military Operations
-          "Seniors, Social Security and Medicare": "Seniors, Social Security and Medicare"
+          Seniors, Social Security and Medicare: Seniors, Social Security and Medicare
           Taxes: Taxes
           Trade: Trade
           Transportation and Infrastructure: Transportation and Infrastructure
           Veterans: Veterans
-          "Women's Issues": "Women's Issues"
+          Women's Issues: Women's Issues
           Other: Other
     - click_on:
       - value: Submit
-        selector: "#side-search-btn"
+        selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C div.controls input.btn
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting me"
+      contains: "Thank you for submitting your Request to our office."

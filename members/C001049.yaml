@@ -1,114 +1,127 @@
 bioguide: C001049
 contact_form:
   method: post
-  action: /contact-form/
+  action: ""
   steps:
-    - visit: "http://lacyclay.house.gov/contact-form/"
+    - visit: "https://lacyclay.house.gov/contact"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
+        - name: zip5
+          selector: input#required-zip5
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
+        - name: zip4
+          selector: input#zip4
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go to Form
-          selector: input.button
+        - value: Go to Next Step
+          selector: form#emailForm div.form-group button#submit
+    - find:
+        - selector: input#required-first
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: first
+          selector: input#required-first
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: last
+          selector: input#required-last
           value: $NAME_LAST
           required: true
         - name: street
-          selector: "#req_street"
+          selector: input#required-address
           value: $ADDRESS_STREET
           required: true
         - name: street2
-          selector: "#custom_form16 input[name='street2']"
+          selector: input#address2
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: "#req_city"
+          selector: input#required-city
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip2"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: email
+          selector: input#required-valid-email
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#custom_form16 input[name='phone']"
+          selector: input#required-phone
           value: $PHONE
-          required: false
+          required: true
         - name: message
-          selector: "#req_message"
+          selector: textarea#required-message
           value: $MESSAGE
           required: true
     - select:
         - name: prefix
-          selector: "#req_prefix"
+          selector: select#required-prefix
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
             Ms.: Ms.
             Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
             Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
             Rabbi: Rabbi
-        - name: subject
-          selector: "#req_subject"
+        - name: topic
+          selector: select#required-issue
           value: $TOPIC
           required: true
           options:
-            - Agriculture
-            - Budget
-            - Defense
-            - Economy
-            - Education and Labor
-            - Energy
-            - Environmental
-            - Government Reform
-            - Health
-            - Homeland Security
-            - Immigration
-            - International Relations
-            - Judicial
-            - Social Issues
-            - Social Security
-            - Taxes and Trade
-            - Telecommunications
-            - Transportation
-            - Veterans
-            - Welfare
-            - Other
+            Agriculture: Agriculture
+            Animals: Animals
+            Arts and Humanities: Arts and Humanities
+            Banking and Finance: Banking and Finance
+            Budget and Economy: Budget and Economy
+            Help With a Federal Agency: Help With a Federal Agency
+            Campaign Finance Reform: Campaign Finance Reform
+            Congress and Elections: Congress and Elections
+            Defense and Military: Defense and Military
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Federal Employees: Federal Employees
+            Foreign Relations: Foreign Relations
+            Government Reform: Government Reform
+            Guns: Guns
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing and Urban Development: Housing and Urban Development
+            Immigration: Immigration
+            International Relations: International Relations
+            Judiciary: Judiciary
+            Labor: Labor
+            LGBT: LGBT
+            Post Office: Post Office
+            Science and Technology: Science and Technology
+            Social Issues: Social Issues
+            Senior Citizens: Senior Citizens
+            Social Security: Social Security
+            Social Services: Social Services
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Tours: Tours
+            Transportation: Transportation
+            Trade: Trade
+            Veterans: Veterans
+            Women's Issues: Women's Issues
+            Welfare: Welfare
+            Other Issue: Other Issue
         - name: response
-          selector: "#req_response"
-          value: "ii"
+          selector: select#required-response
+          value: Yes, please contact me
           required: true
           options:
-            I do not need a response.: "i"
-            I would like a response.: "ii"
+            Yes, please contact me: Yes, please contact me
     - click_on:
-        - value: Submit
-          selector: "#submitButton"
+        - value: Send Email to Representative Clay
+          selector: button#submit
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting your information.
+      contains: "tbd"
