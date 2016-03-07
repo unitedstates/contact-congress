@@ -120,6 +120,8 @@ contact_form:
     - click_on:
       - value: Send
         selector: "#side-search-btn"
+    - wait:
+      - value: 4
   success:
     headers:
       status: 200
