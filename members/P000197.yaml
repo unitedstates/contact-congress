@@ -18,9 +18,9 @@ contact_form:
           selector: "#emailForm input[name='submit']"
     - fill_in:
         - name: prefix
-          selector: "#prefix"
+          selector: input#honorific-prefix
           value: $NAME_PREFIX
-          required: true
+          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
