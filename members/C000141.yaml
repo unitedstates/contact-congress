@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.cardin.senate.gov/contact/"
+    - find:
+      - selector: input#salutation
     - fill_in:
       - name: salutation
         selector: "#salutation"
