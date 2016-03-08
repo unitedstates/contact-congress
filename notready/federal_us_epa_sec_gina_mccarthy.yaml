@@ -1,0 +1,21 @@
+bioguide: federal_us_epa_sec_gina_mccarthy
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://compliancegov.zendesk.com/hc/en-us/requests/new"
+    - fill_in:
+      - name: message
+        selector:
+        value: $MESSAGE
+        required: true
+    - click_on:
+      - value:
+        selector:
+    - find:
+      - selector:
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "tbd"
