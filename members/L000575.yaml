@@ -4,15 +4,21 @@ contact_form:
   action: ""
   steps:
     - visit: "http://www.lankford.senate.gov/contact/email"
+    - wait:
+        - value: 1
+    - find:
+        - select: select#actions
     - select:
         - name: actions
-          selector: "#actions"
-          value: Send
+          selector: select#actions
+          value: Send an email to comment on legislation
           required: true
+          options:
+            Send an email to comment on legislation: Send an email to comment on legislation
     - wait:
-        - value: 3
+        - value: 5
     - find:
-        - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
+        - selector: input#input-AB59F0AE-4040-F985-52CD-AA63153C7925
     - fill_in:
         - name: first
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"

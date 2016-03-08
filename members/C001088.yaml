@@ -4,6 +4,10 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.coons.senate.gov/contact/email-chris"
+    - wait:
+      - value: 4
+    - find:
+      - selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
     - fill_in:
       - name: first
         selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
@@ -163,6 +167,8 @@ contact_form:
     - click_on:
       - value: Submit
         selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C div.controls input.btn
+    - wait:
+      - value: 3
   success:
     headers:
       status: 200
