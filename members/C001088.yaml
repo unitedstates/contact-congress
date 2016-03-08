@@ -1,170 +1,168 @@
 bioguide: C001088
 contact_form:
-  method: POST
-  action: ""
+  method: post
+  action: "https://www.coons.senate.gov/contact/email-chris"
   steps:
-    - visit: http://www.coons.senate.gov/contact/
+    - visit: "https://www.coons.senate.gov/contact/email-chris"
     - fill_in:
-      - name: fname
-        selector: "#fname"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: lname
-        selector: "#lname"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: mailing_streetAddress1
-        selector: "#mailing_streetAddress1"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: mailing_streetAddress2
-        selector: "#mailing_streetAddress2"
-        value: "$ADDRESS_STREET_2"
-      - name: mailing_city
-        selector: "#mailing_city"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: mailing_zipCode
-        selector: "#mailing_zipCode"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: phone_number
-        selector: "#phone_number"
-        value: "$PHONE"
-        required: Yes
-      - name: email
-        selector: "#email_address"
-        value: "$EMAIL"
-        required: Yes
-      - name: verify_email
-        selector: "#verify_email"
-        value: "$EMAIL"
-        required: Yes
-      - name: comments
-        selector: "#comments"
-        value: "$MESSAGE"
-        required: Yes
+        - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
+          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
+          value: $NAME_FIRST
+          required: true
+        - name: input_B03E04BD-4040-F985-52CD-48E090E769DA
+          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
+          value: $NAME_LAST
+          required: true
+        - name: input_B03E0536-4040-F985-52CD-AFE12CDE8D31
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: input_B03E05A4-4040-F985-52CD-730C08912F4F
+          selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
+          value: $EMAIL
+          required: true
+        - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
+          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
+          value: $PHONE
+          required: true
+        - name: input_B03E05F1-4040-F985-52CD-A580E72A7D41
+          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_B03E0595-4040-F985-52CD-C572364023FE
+          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
+          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
+          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: salutation
-        selector: "#salutation"
-        value: "$NAME_PREFIX"
-        options:
-          - "Mr."
-          - "Ms."
-          - "Mrs."
-          - "Miss"
-          - "Mr. and Mrs."
-          - "Dr."
-          - "Prof."
-          - "Senator"
-          - "Gov."
-          - "Congressman"
-          - "Pastor"
-          - "Hon."
-          - "Fr."
-          - "Sister"
-          - "Bishop"
-          - "Rabbi"
-          - "Reverend"
-          - "Fleet Admiral"
-          - "Admiral"
-          - "1st Lt."
-          - "Vice Admiral"
-          - "LCDR"
-          - "Rear Admiral (upper half)"
-          - "Rear Admiral (lower half)"
-          - "Captain"
-          - "Commander"
-          - "Lieutenant Commander"
-          - "Lieutenant"
-          - "Lieutenant, Junior Grade"
-          - "Ensign"
-          - "Master Chief Petty Officer of the Navy"
-          - "Master Chief Petty Officer"
-          - "Senior Chief Petty Officer"
-          - "Chief Petty Officer"
-          - "Petty Officer First Class"
-          - "Petty Officer Second Class"
-          - "Petty Officer Third Class"
-          - "Seaman"
-          - "Seaman Apprentice"
-          - "Seaman Recruit"
-          - "Chief Warrant Officer"
-          - "Warrant Officer"
-          - "Sgt Major Of The Corps"
-          - "Sergeant Major"
-          - "Master Gunnery Sgt"
-          - "First Sergeant"
-          - "Master Sergeant"
-          - "Gunnery Sergeant"
-          - "Staff Sergeant"
-          - "Sergeant"
-          - "Corporal"
-          - "Lance Corporal"
-          - "Private First Class"
-          - "Private"
-          - "General of the Air Force"
-          - "General"
-          - "Lieutenant General"
-          - "Major General"
-          - "Brigadier General"
-          - "Colonel"
-          - "Lieutenant Colonel"
-          - "Major"
-          - "First Lieutenant"
-          - "Second Lieutenant"
-          - "Chief Master Sergeant of the Air Force"
-          - "Command  Chief Master Sergeant"
-          - "Chief Master Sergeant"
-          - "Senior Master Sergeant"
-          - "Technical Sergeant"
-          - "Senior Airman"
-          - "Airman First Class"
-          - "Airman"
-      - name: subject
-        selector: "#subject"
-        value: $TOPIC
-        required: true
-        options:
-          - Agriculture
-          - Animal Welfare
-          - Banking and Financial Services
-          - Budget and Appropriations
-          - Civil Rights
-          - Climate Change
-          - Crime and Law Enforcement
-          - Defense
-          - Deficit Reduction
-          - Domestic Violence
-          - Drugs
-          - Economy
-          - Education
-          - Energy
-          - Environment
-          - Foreign Policy
-          - Guns
-          - Health Care
-          - Homeland Security
-          - Immigration
-          - Jobs
-          - Labor
-          - LGBT Equality
-          - Manufacturing
-          - Military Operations
-          - "Seniors, Social Security and Medicare"
-          - Taxes
-          - Trade
-          - Transportation and Infrastructure
-          - Veterans
-          - "Women's Issues"
-          - Other
+        - name: input_B03E0527-4040-F985-52CD-C0DD6BEF325F
+          selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Miss
+            - Mr. and Mrs.
+            - Dr.
+            - Prof.
+            - Senator
+            - Gov.
+            - Congressman
+            - Pastor
+            - Hon.
+            - Fr.
+            - Sister
+            - Bishop
+            - Rabbi
+            - Reverend
+            - Fleet Admiral
+            - Admiral
+            - 1st Lt.
+            - Vice Admiral
+            - LCDR
+            - Rear Admiral (upper half)
+            - Rear Admiral (lower half)
+            - Captain
+            - Commander
+            - Lieutenant Commander
+            - Lieutenant
+            - "Lieutenant, Junior Grade"
+            - Ensign
+            - Master Chief Petty Officer of the Navy
+            - Master Chief Petty Officer
+            - Senior Chief Petty Officer
+            - Chief Petty Officer
+            - Petty Officer First Class
+            - Petty Officer Second Class
+            - Petty Officer Third Class
+            - Seaman
+            - Seaman Apprentice
+            - Seaman Recruit
+            - Chief Warrant Officer
+            - Warrant Officer
+            - Sgt Major Of The Corps
+            - Sergeant Major
+            - Master Gunnery Sgt
+            - First Sergeant
+            - Master Sergeant
+            - Gunnery Sergeant
+            - Staff Sergeant
+            - Sergeant
+            - Corporal
+            - Lance Corporal
+            - Private First Class
+            - Private
+            - General of the Air Force
+            - General
+            - Lieutenant General
+            - Major General
+            - Brigadier General
+            - Colonel
+            - Lieutenant Colonel
+            - Major
+            - First Lieutenant
+            - Second Lieutenant
+            - Chief Master Sergeant of the Air Force
+            - Command Chief Master Sergeant
+            - Chief Master Sergeant
+            - Senior Master Sergeant
+            - Technical Sergeant
+            - Senior Airman
+            - Airman First Class
+            - Airman
+        - name: input_B03E04DB-4040-F985-52CD-18F332336F99
+          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture
+            - Animal Welfare
+            - Banking and Financial Services
+            - Budget and Appropriations
+            - Civil Rights
+            - Climate Change
+            - Crime and Law Enforcement
+            - Defense
+            - Deficit Reduction
+            - Domestic Violence
+            - Drugs
+            - Economy
+            - Education
+            - Energy
+            - Environment
+            - Foreign Policy
+            - Guns
+            - Health Care
+            - Homeland Security
+            - Immigration
+            - Jobs
+            - Labor
+            - LGBT Equality
+            - Manufacturing
+            - Military Operations
+            - "Seniors, Social Security and Medicare"
+            - Taxes
+            - Trade
+            - Transportation and Infrastructure
+            - Veterans
+            - "Women's Issues"
+            - Other
     - javascript:
-      - value: document.querySelector("#comments").value = document.querySelector("#comments").value.replace(/"/g, '');
+        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - click_on:
-      - value: Submit
-        selector: "#side-search-btn"
+        - value: Submit
+          selector: input.btn
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting me"
+      contains: Thank you
