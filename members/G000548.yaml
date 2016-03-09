@@ -1,9 +1,11 @@
 bioguide: G000548
 contact_form:
   method: post
-  action: "?zip5=07452&zip4=3321"
+  action: ""
   steps:
-    - visit: "https://garrettforms.house.gov/forms/writeyourrep/?zip5=07452&zip4=3321"
+    - visit: "https://garrettforms.house.gov/forms/writeyourrep/"
+    - find:
+        - selector: input#ctl00_ctl12_FirstName
     - fill_in:
         - name: ctl00$ctl12$FirstName
           selector: "#ctl00_ctl12_FirstName"
@@ -45,10 +47,9 @@ contact_form:
           selector: "#ctl00_ctl12_CampaignInfo"
           value: $CAMPAIGN_UUID
           required: false
-    - select: []
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl12_SubmitButton"
+          selector: form#aspnetForm input#ctl00_ctl12_SubmitButton
   success:
     headers:
       status: 200
