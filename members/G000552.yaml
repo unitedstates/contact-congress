@@ -3,7 +3,7 @@ contact_form:
   method: get
   action: /Contact/ContactForm.htm
   steps:
-    - visit: "http://gohmert.house.gov/contact/" 
+    - visit: "http://gohmert.house.gov/contact/"
     - fill_in:
         - name: zip5
           selector: "form.zipform input[name='zip5']"
@@ -13,78 +13,94 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "form[name='contact']"
+        - selector: form#aspnetForm input#ctl00_ctl10_FirstName
     - fill_in:
-        - name: required-prefix
-          selector: "form[name='contact'] input[name='required-prefix']"
-          value: $NAME_PREFIX
-          required: true
-        - name: required-first
-          selector: "form[name='contact'] input[name='required-first']"
+        - name: first
+          selector: input#ctl00_ctl10_FirstName
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "form[name='contact'] input[name='required-last']"
+        - name: last
+          selector: input#ctl00_ctl10_LastName
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "form[name='contact'] input[name='required-address']"
+        - name: street
+          selector: input#ctl00_ctl10_Street
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "form[name='contact'] input[name='required-city']"
+        - name: city
+          selector: input#ctl00_ctl10_City
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: "form[name='contact'] input[name='zip5']"
+          selector: input#ctl00_ctl10_Zip
           value: $ADDRESS_ZIP5
           required: true
-        - name: required-phone
-          selector: "form[name='contact'] input[name='required-phone']"
+        - name: phone
+          selector: input#ctl00_ctl10_Phone
           value: $PHONE
           required: true
-        - name: required-email
-          selector: "form[name='contact'] input[name='required-email']"
+        - name: email
+          selector: input#ctl00_ctl10_Email
           value: $EMAIL
           required: true
-        - name: required-message
-          selector: "form[name='contact'] textarea[name='required-message']"
+        - name: subject
+          selector: input#ctl00_ctl10_Subject
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: textarea#ctl00_ctl10_Body
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "form[name='contact'] select[name='required-issue']"
+        - name: prefix
+          selector: select#ctl00_ctl10_PrefixList
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Dr.: Dr.
+            Ms.: Ms.
+            Hon.: Hon.
+            Rev.: Rev.
+        - name: topic
+          selector: select#ctl00_ctl10_IssuesList
           value: $TOPIC
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Education and Labor: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            International Relations: WEBINT
-            Government Reform: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            Judiciary: WEBJUD
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Telecommunications: WEBTEL
-            Taxes and Trade: WEBTAX
-            Transportation: WEBTRA
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other: WEBOTH
+            Agriculture: Agriculture
+            Appropriations: Appropriations
+            Armed Services: Armed Services
+            Budget: Budget
+            Commerce: Commerce
+            Education: Education
+            Energy: Energy
+            Financial Services: Financial Services
+            Foreign Affairs: Foreign Affairs
+            Homeland Security: Homeland Security
+            House Administration: House Administration
+            Immigration: Immigration
+            Judiciary Committee: Judiciary Committee
+            Labor: Labor
+            Natural Resources Committee: Natural Resources Committee
+            Oversight and Government Reform: Oversight and Government Reform
+            Science and Technology: Science and Technology
+            Small Business Administration: Small Business Administration
+            Transportation and Infrastructure: Transportation and Infrastructure
+            US Postal Service: US Postal Service
+            Veterans Affairs: Veterans Affairs
+            Ways and Means: Ways and Means
     - click_on:
-        - value: Send Email
-          selector: "form[name='contact'] input[type='submit'][value='Send Email']"
+        - selector: input#ctl00_ctl10_ReplyChoice_0
     - find:
-        - selector: "span#ctl00_PageLink"
-          value: "Thank You"
+        - selector: input#ctl00_ctl10_SubmitButton
+    - click_on:
+        - value: Submit
+          selector: input#ctl00_ctl10_SubmitButton
+    - find:
+        - selector: spam#ctl00_ctl10_ConfirmationText
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for sending me your email. "
+      contains: "This message is confirmation that your email has been received in my inbox"
