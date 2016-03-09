@@ -1,86 +1,100 @@
 bioguide: state_ak_gov_bill_walker
 contact_form:
   method: post
-  action: "/Walker/contact/email-the-governor.html#wb_1428"
+  action: ""
   steps:
-    - visit: "http://gov.alaska.gov/Walker/contact/email-the-governor.html"
-    - select:
-      - name: field483[]
-        selector: "#field483"
-        value: $NAME_PREFIX
+    - visit: "http://aws.state.ak.us/CrmForms/Home/Feedback"
+    - fill_in:
+      - name: first
+        selector: input#FirstName
+        value: $NAME_FIRST
         required: true
+      - name: last
+        selector: input#LastName
+        value: $NAME_LAST
+        required: true
+      - name: street
+        selector: input#Address
+        value: $ADDRESS_STREET
+        required: false
+      - name: city
+        selector: input#City
+        value: $ADDRESS_CITY
+        required: true
+      - name: zip5
+        selector: input#Zip
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: phone
+        selector: input#HomePhone
+        value: $PHONE
+        required: false
+      - name: email
+        selector: input#Email
+        value: $EMAIL
+        required: true
+      - name: subject
+        selector: input#TopicDetails
+        value: $SUBJECT
+        required: false
+      - name: message
+        selector: textarea#Comments
+        value: $MESSAGE
+        required: false
+    - select:
+      - name: prefix
+        selector: select#Title
+        value: $NAME_PREFIX
+        required: false
         options:
           Mr.: Mr.
           Ms.: Ms.
           Mrs.: Mrs.
-      - name: field493[]
-        selector: "#field493"
+      - name: topic
+        selector: select#Topic
         value: $TOPIC
         required: true
         options:
-          - Administration
-          - Choose Respect - Ending Domestic Violence and Sexual Assault in Alaska
-          - Corrections
-          - Economic Growth / Opportunity
-          - Education
-          - Environment
-          - Fish & Game
-          - Health
-          - Jobs
-          - Kids
-          - Labor
-          - Military Affairs
-          - Natural Resources
-          - Oil and Gas
-          - Other
-          - Public Safety
-          - Revenue
-          - Rural Affairs
-          - Seniors
-          - Tourism
-          - Transportation
-    - fill_in:
-      - name: field485
-        selector: "#field485"
-        value: $NAME_FIRST
-        required: true
-      - name: field486
-        selector: "#field486"
-        value: $NAME_LAST
-        required: true
-      - name: field487
-        selector: "#field487"
-        value: $ADDRESS_STREET
-        required: true
-      - name: field488
-        selector: "#field488"
-        value: $ADDRESS_CITY
-        required: true
-      - name: field489
-        selector: "#field489"
-        value: $ADDRESS_STATE_FULL
-        required: true
-      - name: field490
-        selector: "#field490"
-        value: $ADDRESS_ZIP5
-        required: true
-      - name: field491
-        selector: "#field491"
-        value: $PHONE
-        required: true
-      - name: field492
-        selector: "#field492"
-        value: $EMAIL
-        required: true
-      - name: field494
-        selector: "#field494"
-        value: $MESSAGE
-        required: true
+          Other: Other
+          Administration: Administration
+          Alaska Court System: Alaska Court System
+          Alaska Marine Highway: Alaska Marine Highway
+          Alaska's Economy: Alaska's Economy
+          Arctic Issues: Arctic Issues
+          Budget: Budget
+          Business Concern: Business Concern
+          Commerce: Commerce
+          Community and Local Government Issues: Community and Local Government Issues
+          Corrections: Corrections
+          Education: Education
+          Environmental Concerns: Environmental Concerns
+          Fish and Game: Fish and Game
+          Health and Social Services: Health and Social Services
+          Labor and Employment: Labor and Employment
+          Law and Legal Concerns: Law and Legal Concerns
+          Law Enforcement: Law Enforcement
+          Legislation: Legislation
+          Medicaid Reform and Expansion: Medicaid Reform and Expansion
+          Military and Veterans: Military and Veterans
+          Mining: Mining
+          Natural Gas Pipeline: Natural Gas Pipeline
+          Oil and Gas Development: Oil and Gas Development
+          Public Safety: Public Safety
+          Revenue: Revenue
+          State Services: State Services
+          State/Federal Issues: State/Federal Issues
+          Sustainable Alaska Plan: Sustainable Alaska Plan
+          Transportation: Transportation
+          University of Alaska: University of Alaska
     - click_on:
-      - value: Send Email to the Governor!
-        selector: "#content input[name='submit']"
+      - value: Submit Feedback
+        selector: form input[name='submit']
+    - wait:
+      - value: 10
+    - find:
+      - selector: 
   success:
     headers:
       status: 200
     body:
-      contains: "Your email submission has been processed successfully."
+      contains: "tbd"
