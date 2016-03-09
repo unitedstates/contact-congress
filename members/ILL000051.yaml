@@ -1,31 +1,35 @@
 bioguide: ILL000051
 contact_form:
   method: post
-  action: http://www.senatormartinsandoval.com/index.php/contact-us
+  action: ""
   steps:
-    - visit: "http://www.senatormartinsandoval.com/index.php/contact-us"
+    - visit: "http://www.senatormartinsandoval.com/contact-us"
     - fill_in:
         - name: name
-          selector: "#contact_name"
+          selector: input#jform_contact_name
           value: $NAME_FULL
           required: true
         - name: email
-          selector: "#contact_email"
+          selector: input#jform_contact_email
           value: $EMAIL
           required: true
         - name: subject
-          selector: "#contact_subject"
+          selector: input#jform_contact_emailmsg
           value: $SUBJECT
           required: true
         - name: message
-          selector: "#contact_text"
+          selector: textarea#jform_contact_message
           value: $MESSAGE
           required: true
     - wait:
-        - value: 5
+        - value: 4
     - click_on:
-        - value: Submit
-          selector: "button[type='submit']"
+        - value: Send Email
+          selector: form#contact-form div.readon button.button
+    - wait:
+        - value: 4
+    - find:
+        - selector: div#system-message p.alert-message
   success:
     headers:
       status: 200
