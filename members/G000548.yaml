@@ -3,7 +3,19 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://garrettforms.house.gov/forms/writeyourrep/"
+    - visit: "http://garrettforms.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: form.zipform input[name='zip5']
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: form.zipform input[name='zip4']
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: form.zipform input[value='Submit']
     - find:
         - selector: input#ctl00_ctl12_FirstName
     - fill_in:
