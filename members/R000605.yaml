@@ -240,6 +240,10 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn
+    - wait:
+        - value: 3
+    - find:
+        - selector: "#ctl00_ctl11_ConfirmationText"
   success:
     headers:
       status: 200
