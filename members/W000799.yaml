@@ -1,120 +1,121 @@
 bioguide: W000799
 contact_form:
-  method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "http://walz.house.gov/contact"
+    - visit: "https://walzforms.house.gov/contact/"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
-    - find:
-        - selector: "#contactForm"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#required-first"
+        - name: ctl00$ctl26$FirstName
+          selector: "#ctl00_ctl26_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: ctl00$ctl26$LastName
+          selector: "#ctl00_ctl26_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: ctl00$ctl26$Street
+          selector: "#ctl00_ctl26_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "#required-city"
+        - name: ctl00$ctl26$City
+          selector: "#ctl00_ctl26_City"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
-          value: $EMAIL
+        - name: ctl00$ctl26$Zip
+          selector: "#ctl00_ctl26_Zip"
+          value: $ADDRESS_ZIP5
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: ctl00$ctl26$Phone
+          selector: "#ctl00_ctl26_Phone"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
+        - name: ctl00$ctl26$Email
+          selector: "#ctl00_ctl26_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl26$Subject
+          selector: "#ctl00_ctl26_Subject"
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: ctl00$ctl26$Body
+          selector: "#ctl00_ctl26_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
+        - name: ctl00$ctl26$PrefixList
+          selector: "#ctl00_ctl26_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
+        - name: ctl00$ctl26$IssuesList
+          selector: "#ctl00_ctl26_IssuesList"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Animals: AN
-            Arts and Humanities: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
-            Health: HEA
-            Homeland Security: HOM
-            Housing and Urban Development: HUD
-            Immigration: IMM
-            International Relations: INT
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            No Response Necessary: NRN
-            Post Office: POST
-            Science and Technology: SCI
-            Social Issues: SOC
-            Senior Citizens: SENIORS
-            Social Security: SSEC
-            Social Services: SOC.SERVICES
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRADE
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Welfare: WEL
-            Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
-          required: true
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
+            Agriculture: "72"
+            Animals: "9982"
+            "Arts snd Humanities ": "10039"
+            Banking and Finance: "10219"
+            Budget and Economy: "10135"
+            Campaign Finance Reform: "14887"
+            Congress and Elections: "10095"
+            Defense and Military: "10012"
+            Education: "73"
+            Energy: "10177"
+            Environment: "14814"
+            Federal Employees: "10250"
+            Foreign Affairs: "10370"
+            Government Reform: "14888"
+            Guns: "14889"
+            Health: "74"
+            Homeland Security: "14890"
+            Housing and Urban Development: "10346"
+            Immigration: "10360"
+            International Relations: "14891"
+            Judiciary: "14892"
+            "Labor ": "10390"
+            LGBT: "14893"
+            Other: "14903"
+            Post Office: "14894"
+            Science and Technology: "10447"
+            Senior Citizens: "14895"
+            Social Issues: "10471"
+            Social Security: "14896"
+            Social Services: "14897"
+            Taxes: "10493"
+            Telecommunications: "14898"
+            Trade: "14899"
+            Transportation: "81"
+            Veterans: "14900"
+            Welfare: "14902"
+            "Woman's Issues": "14901"
+    - check:
+        - name: ctl00$ctl26$ReplyChoice
+          selector: "#ctl00_ctl26_ReplyChoice_0"
+          value: Respond
     - javascript:
-        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+        - value: document.querySelector("#ctl00_ctl26_Body").value = document.querySelector("#ctl00_ctl26_Body").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit']"
+        - value: Submit
+          selector: "#ctl00_ctl26_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: Thank you
