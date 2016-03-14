@@ -1,12 +1,9 @@
 bioguide: state_ny_gov_andrew_cuomo
 contact_form:
   method: post
-  action: "http://www.cc.ny.gov/contactAction.cfm"
+  action: ""
   steps:
-    - visit: "http://www.governor.ny.gov/contact"
-    - iframe:
-      - name: iframe1
-        selector: "iframe[src='https://apps.cio.ny.gov/apps/widgets/nys-connects/contactForm.cfm']"
+    - visit: "https://apps.cio.ny.gov/apps/widgets/nys-connects/contactForm.cfm"
     - fill_in:
         - name: firstName
           selector: "#first_name"
@@ -172,14 +169,6 @@ contact_form:
     - click_on:
         - value: Submit
           selector: ".webform-submit"
-    - iframe:
-      - name: parent1
-        back: true
-    - wait:
-      - value: 1
-    - iframe:
-      - name: iframe1
-        selector: "iframe[src='https://apps.cio.ny.gov/apps/widgets/nys-connects/contactForm.cfm']"
     - find:
       - selector: ".pane-gov-contact-confirmation-message"
   success:
