@@ -15,9 +15,9 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+          selector: form#emailForm input#submit
     - find:
-        - selector: "#contactForm"
+        - selector: form#contactForm
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -112,13 +112,9 @@ contact_form:
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: Email.Optin
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: form#contactForm input#submit
   success:
     headers:
       status: 200
