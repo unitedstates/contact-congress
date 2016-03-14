@@ -6,29 +6,32 @@ contact_form:
     - visit: "http://asktheexpert.custhelp.com/app/ask"
     - fill_in:
       - name: email
-        selector: "input#rn_TextInput_6_email"
+        selector: form#rn_QuestionSubmit input.rn_Email
         value: $EMAIL
         required: true
       - name: message
-        selector: "textarea#rn_TextInput_8_thread"
+        selector: form#rn_QuestionSubmit textarea
         value: $MESSAGE
         required: true
-    - choose:
-      - name: dropdown
-        selector: "button#rn_ProductCategoryInput_4_products_Button"
-        required: true
-      - name: other-expander
-        selector: td#ygtvt17 a.ygtvspacer
-        required: true
+    - click_on:
+      - selector: button#rn_ProductCategoryInput_4_Product_Button
+    - find:
+      - selector: a#ygtvlabelel17
+    - click_on:
+      - selector: a#ygtvlabelel17
+    - find:
+      - selector: button#rn_ProductCategoryInput_4_Product_Button
+    - click_on:
+      - selector: button#rn_ProductCategoryInput_4_Product_Button
     - find:
       - selector: a#ygtvlabelel24
-    - choose:
-      - name: final-other
-        selector: td#ygtvcontentel24 a#ygtvlabelel24
-        required: true
+    - click_on:
+      - selector: a#ygtvlabelel24
+    - find:
+      - selector: input#rn_FormSubmit_10_Button
     - click_on:
       - value: Continue
-        selector: "input#rn_FormSubmit_10_Button"
+        selector: input#rn_FormSubmit_10_Button
     - find:
       - selector: div.rn_wrap div.rn_refno
   success:

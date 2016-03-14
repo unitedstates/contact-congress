@@ -6,62 +6,70 @@ contact_form:
     - visit: "https://iris.custhelp.com/app/ask/"
     - fill_in:
       - name: firstname
-        selector: "input#rn_TextLogicInput_7_first_name"
+        selector: "input#rn_TextLogicInput_12_first_name"
         value: $NAME_FIRST
         required: true
       - name: lastname
-        selector: "input#rn_TextLogicInput_9_last_name"
+        selector: "input#rn_TextLogicInput_14_last_name"
         value: $NAME_LAST
         required: true
       - name: phone
-        selector: "input#rn_TextLogicInput_12_telephone_number"
+        selector: "input#rn_TextLogicInput_17_telephone_number"
         value: $PHONE
         required: false
       - name: street
-        selector: "input#rn_TextLogicInput_14_street"
+        selector: "input#rn_TextLogicInput_19_street"
         value: $ADDRESS_STREET
         required: false
       - name: city
-        selector: "input#rn_TextLogicInput_15_city"
+        selector: "input#rn_TextLogicInput_20_city"
         value: $ADDRESS_CITY
         required: false
       - name: zip5
-        selector: "input#rn_TextLogicInput_17_zipcode"
+        selector: "input#rn_TextLogicInput_22_zipcode"
         value: $ADDRESS_ZIP5
         required: true
       - name: message
-        selector: "textarea#rn_TextLogicInput_0_thread"
+        selector: "textarea#rn_TextLogicInput_5_thread"
         value: $MESSAGE
         required: true
     - select:
       - name: topic
-        selector: "select#rn_ProductCategoryInputSimple_1_lvl1"
+        selector: "select#rn_ProductCategoryInputSimple_6_lvl1"
         value: All Health
         required: true
+        options:
+          All Health: All Health
     - find:
-      - selector: "select#rn_ProductCategoryInputSimple_1_lvl2"
+      - selector: "select#rn_ProductCategoryInputSimple_6_lvl2"
     - select:
       - name: sub-topic-1
-        selector: "select#rn_ProductCategoryInputSimple_1_lvl2"
+        selector: "select#rn_ProductCategoryInputSimple_6_lvl2"
         value: Health
         required: true
+        options:
+          Health: Health
     - find:
-      - selector: "select#rn_ProductCategoryInputSimple_1_lvl3"
+      - selector: "select#rn_ProductCategoryInputSimple_6_lvl3"
     - select:
       - name: sub-topic-2
-        selector: "select#rn_ProductCategoryInputSimple_1_lvl3"
+        selector: "select#rn_ProductCategoryInputSimple_6_lvl3"
         value: Medical Care for Veterans within USA
         required: true
       - name: inquiry-type
-        selector: select#rn_ProductCategoryInputSimple_4_lvl1
+        selector: select#rn_ProductCategoryInputSimple_9_lvl1
         value: Question
         required: true
+        options:
+          Question: Question
       - name: response
-        selector: select#rn_SelectionInput_5_form_of_response
+        selector: select#rn_SelectionInput_10_form_of_response
         value: E-Mail
         required: true
+        options:
+          E-Mail: E-Mail
       - name: prefix
-        selector: select#rn_SelectionLogicInput_6_form_of_address
+        selector: select#rn_SelectionLogicInput_11_form_of_address
         value: $NAME_PREFIX
         required: true
         options:
@@ -72,11 +80,13 @@ contact_form:
           Dr.: Dr.
           Rev.: Rev.
       - name: country
-        selector: select#rn_SelectionLogicInput_13_country
+        selector: select#rn_SelectionLogicInput_18_country
         value: United States
         required: true
+        options:
+          United States: United States
       - name: state
-        selector: select#rn_SelectionLogicInput_16_state
+        selector: select#rn_SelectionLogicInput_21_state
         value: $ADDRESS_STATE_FULL
         required: true
         options:
@@ -148,33 +158,37 @@ contact_form:
           Yukon: Yukon
           "Other/Not in US": "Other/Not in US"
       - name: veteran-status
-        selector: select#rn_SelectionLogicInput_18_vet_status
+        selector: select#rn_SelectionLogicInput_0_vet_status
         value: a General Question
         required: true
+        options:
+          a General Question: a General Question
     - fill_in:
       - name: email
-        selector: "input#rn_TextLogicInput_11_incomingemail"
+        selector: input#rn_TextLogicInput_16_incomingemail
         value: $EMAIL
         required: true
     - click_on:
-      - selector: label#rn_TextLogicInput_0_Label
+      - selector: label#rn_TextLogicInput_16_confirm_Label
     - fill_in:
       - name: email2
-        selector: "input#rn_TextLogicInput_11_incomingemail_confirm"
+        selector: "input#rn_TextLogicInput_16_incomingemail_confirm"
         value: $EMAIL
         required: true
     - click_on:
       - value: Submit
         selector: "input#rn_FormSubmit_55_Button"
+    - wait:
+      - value: 2
     - find:
       - selector: div#rnDialog1_c div#rnDialog1 div.ft span.button-group button#rnDialog1_Button_0
     - click_on:
       - value: Finish Submitting Question
         selector: div#rnDialog1_c div#rnDialog1 div.ft span.button-group button#rnDialog1_Button_0
+    - wait:
+      - value: 5
     - find:
       - selector: div.rn_AskQuestion div.rn_Padding
-    - wait:
-      - value: 30
   success:
     headers:
       status: 200
