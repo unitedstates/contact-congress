@@ -45,6 +45,8 @@ contact_form:
           selector: "#contactForm textarea[name='comments']"
           value: $MESSAGE
           required: false
+          options:
+            blacklist: "()"
     - select:
         - name: salutation
           selector: "#salutation"
