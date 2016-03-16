@@ -1,12 +1,14 @@
 bioguide: B001277
 contact_form:
   method: POST
-  action: https://www.blumenthal.senate.gov/contact
+  action: ""
   steps:
-    - visit: https://www.blumenthal.senate.gov/contact/
+    - visit: "https://www.blumenthal.senate.gov/contact/"
+    - find:
+      - selector: form#contactForm select#topic
     - select:
       - name: topic
-        selector: "#topic"
+        selector: select#topic
         value: "$TOPIC"
         required: true
         options:
@@ -41,11 +43,10 @@ contact_form:
           "Telecommunications": "Telecommunications"
           "Trade": "Trade"
           "Transportation": "Transportation"
-    - click_on:
-      - value: Clicksomewhere
-        selector: "#contact-sam-main"
+    - wait:
+      - value: 3
     - find:
-      - selector: "#fname"
+      - selector: div#continue-form input#fname
     - fill_in:
       - name: fname
         selector: "#fname"
@@ -110,9 +111,8 @@ contact_form:
         selector: "#mailing_state"
         value: "CT"  # only accepts mail from constituents
         required: true
-        options: US_STATES_AND_TERRITORIES
     - wait:
-      - value: 1
+      - value: 3
     - click_on:
       - value: Submit
         selector: "#side-search-btn"

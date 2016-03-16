@@ -4,9 +4,11 @@ contact_form:
   action: /contact
   steps:
     - visit: "http://www.schatz.senate.gov/contact"
+    - find:
+        - selector: form#contactForm select#subject
     - select:
         - name: subject
-          selector: "#subject"
+          selector: select#subject
           value: $TOPIC
           required: true
           options:
@@ -58,6 +60,10 @@ contact_form:
             - Veterans
             - Welfare
             - "Women's Issues"
+    - wait:
+        - value: 2
+    - find:
+        - selector: form#contactForm input#fname
     - fill_in:
         - name: fname
           selector: "#fname"
