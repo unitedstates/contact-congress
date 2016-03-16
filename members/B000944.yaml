@@ -1,9 +1,11 @@
 bioguide: B000944
 contact_form:
   method: POST
-  action: http://www.brown.senate.gov/contact
+  action: "http://www.brown.senate.gov/contact"
   steps:
-    - visit: http://www.brown.senate.gov/contact
+    - visit: "http://www.brown.senate.gov/contact/email"
+    - find:
+      - selector: form#contactForm
     - fill_in:
       - name: fname
         selector: "#fname"
@@ -20,6 +22,7 @@ contact_form:
       - name: mailing_streetAddress2
         selector: "#mailing_streetAddress2"
         value: "$ADDRESS_STREET_2"
+        required: false
       - name: mailing_city
         selector: "#mailing_city"
         value: "$ADDRESS_CITY"
@@ -290,7 +293,7 @@ contact_form:
           "Welfare & Poverty": "Welfare and Poverty"
     - click_on:
       - value: Submit
-        selector: input#side-search-btn
+        selector: form#contactForm input#side-search-btn
   success:
     headers:
       status: 200
