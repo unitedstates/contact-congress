@@ -1,7 +1,7 @@
 bioguide: K000380
 contact_form:
   method: post
-  action: "/contact/email-me/#gf_6"
+  action: "http://dankildee.house.gov/contact/email-me/#gf_6"
   steps:
     - visit: "http://dankildee.house.gov/contact/email-me"
     - fill_in:
@@ -57,6 +57,8 @@ contact_form:
           selector: "#input_6_12"
           value: $MESSAGE
           required: true
+          options:
+            max_length: 1500
     - click_on:
         - value: Send Email
           selector: "#gform_submit_button_6"
