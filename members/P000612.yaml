@@ -260,8 +260,10 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn
+    - wait:
+        - value: 5
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for submitting your Request to our office."
+      contains: "Thank you for submitting"
