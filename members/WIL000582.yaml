@@ -13,9 +13,13 @@ contact_form:
           selector: "input[id='a14d21df-bbc0-4b71-b9fb-3766ff6c1a2f']"
           value: $EMAIL
           required: true
-        - name: streetcityzip
+        - name: address
           selector: "input[id='73368fe5-2894-4c31-a58d-638258f1c2af']"
           value: $ADDRESS_STREET
+          required: true
+        - name: city_state_zip
+          selector: input[id='3605ba71-4a78-4d14-8dff-b1f2bf7ebfcf']
+          value: $ADDRESS_CITY_STATE_ZIP
           required: true
         - name: phone
           selector: "input[id='61edcd64-cb2f-4962-931a-2df73e30717f']"
