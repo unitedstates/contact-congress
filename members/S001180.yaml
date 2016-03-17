@@ -3,7 +3,22 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://schrader.house.gov/forms/writeyourrep/"
+    - visit: "http://schrader.house.gov/contact/"
+    - find:
+        - selector: form.zipform
+    - fill_in:
+        - name: zip5
+          selector: form.zipform input[name='zip5']
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: form.zipform input[name='zip4']
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - selector: form.zipform input[value='Submit']
+    - find:
+        - selector: form#aspnetForm input#ctl00_ctl14_FirstName
     - fill_in:
         - name: ctl00$ctl14$FirstName
           selector: "#ctl00_ctl14_FirstName"

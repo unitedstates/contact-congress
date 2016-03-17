@@ -1,9 +1,9 @@
 bioguide: D000607
 contact_form:
   method: POST
-  action: http://www.donnelly.senate.gov/contact/email-joe
+  action: ""
   steps:
-    - visit: http://www.donnelly.senate.gov/contact/email-joe
+    - visit: "https://www.donnelly.senate.gov/contact/email-joe"
     - find:
       - selector: "#subject"
     - select:
@@ -197,7 +197,7 @@ contact_form:
         required: true
     - click_on:
       - value: Submit
-        selector: "input.btn[value='Submit']"
+        selector: div#continue-form input.btn[value='Submit']
     - find:
       - selector: "h1"
         value: "Thank You"

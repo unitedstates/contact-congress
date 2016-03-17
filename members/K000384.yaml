@@ -3,7 +3,7 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: http://www.kaine.senate.gov/contact
+    - visit: "http://www.kaine.senate.gov/contact"
     - find:
       - selector: select#subject
     - select:
@@ -64,11 +64,8 @@ contact_form:
           "Transportation & Infrastructure": "Transportation & Infrastructure"
           Womens Issues: Womens Issues
           "Workforce & Labor": "Workforce & Labor"
-    - click_on:
-      - value: Clicksomewhere
-        selector: "#contact-sam-main"
     - wait:
-      - value: 5
+      - value: 8
     - find:
       - selector: div#continue-form input#fname
     - fill_in:
