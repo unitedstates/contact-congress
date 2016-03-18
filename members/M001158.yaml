@@ -1,55 +1,60 @@
 bioguide: M001158
 contact_form:
   method: post
-  action: /submit-contact.aspx
+  action: "https://marchant.house.gov/contact/#gf_1"
   steps:
-    - visit: "https://marchant.house.gov/contact/contactform.htm"
+    - visit: "https://marchant.house.gov/contact/"
+    - find:
+        - selector: form#gform_1 input#input_1_6
     - fill_in:
-        - name: required-prefix
-          selector: "#contact input[name='required-prefix']"
-          value: $NAME_PREFIX
-          required: true
-        - name: required-first
-          selector: "#contact input[name='required-first']"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "#contact input[name='required-last']"
-          value: $NAME_LAST
-          required: true
-        - name: required-address
-          selector: "#contact input[name='required-address']"
-          value: $ADDRESS_STREET
-          required: true
-        - name: required-city
-          selector: "#contact input[name='required-city']"
-          value: $ADDRESS_CITY
-          required: true
         - name: zip5
-          selector: "#contact input[name='zip5']"
+          selector: form#gform_1 input#input_1_6
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "#contact input[name='zip4']"
-          value: $ADDRESS_ZIP4
+    - click_on:
+        - selector: input#gform_next_button_1_7
+    - wait:
+        - value: 5
+    - find:
+        - selector: form#gform_1 input#input_1_16_3
+    - fill_in:
+        - name: first
+          selector: input#input_1_16_3
+          value: $NAME_FIRST
           required: true
-        - name: required-email
-          selector: "#contact input[name='required-email']"
+        - name: last
+          selector: input#input_1_16_6
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: input#input_1_15_1
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: input#input_1_15_3
+          value: $ADDRESS_CITY
+          required: true
+        - name: email
+          selector: input#input_1_3
           value: $EMAIL
           required: true
-        - name: required-message
-          selector: "#contact textarea[name='required-message']"
+        - name: message
+          selector: textarea#input_1_5
           value: $MESSAGE
           required: true
     - select:
-        - name: required-state
-          selector: "#contact select[name='required-state']"
-          value: "TX"
+        - name: prefix
+          selector: select#input_1_16_2
+          value: $NAME_PREFIX
           required: true
           options:
-            TX: TX
-        - name: required-issue
-          selector: "#contact select[name='required-issue']"
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Miss: Miss
+            Dr.: Dr.
+        - name: topic
+          selector: select#input_1_17
           value: $TOPIC
           required: true
           options:
@@ -105,12 +110,12 @@ contact_form:
             Washington Tours: TOUR
             Others: GEN
     - click_on:
-        - value: Send Email
-          selector: "input[type='submit'][value='Send Email']"
+        - value: Submit
+          selector: div.gform_page_footer input#gform_submit_button_1
     - wait:
-        - value: 4
+        - value: 5
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for sending
+      contains: "Thank you for your email. Your message has been sent."
