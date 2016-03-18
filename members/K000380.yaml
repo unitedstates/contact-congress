@@ -59,6 +59,7 @@ contact_form:
           required: true
           options:
             max_length: 1500
+            blacklist: "=~;`\'()"
     - click_on:
         - value: Send Email
           selector: "#gform_submit_button_6"
