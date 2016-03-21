@@ -40,8 +40,10 @@ contact_form:
           required: true
         - name: phone
           selector: input#ctl00_ctl25_Phone
-          value: $PHONE
+          value: 222-222-2222
           required: false
+          options:
+            max_length: 10
         - name: email
           selector: input#ctl00_ctl25_Email
           value: $EMAIL

@@ -20,44 +20,44 @@ contact_form:
         - selector: form#aspnetForm
     - fill_in:
         - name: first
-          selector: input#ctl00_ctl28_FirstName
+          selector: input#ctl00_ctl07_FirstName
           value: $NAME_FIRST
           required: true
         - name: last
-          selector: input#ctl00_ctl28_LastName
+          selector: input#ctl00_ctl07_LastName
           value: $NAME_LAST
           required: true
         - name: street
-          selector: input#ctl00_ctl28_Street
+          selector: input#ctl00_ctl07_Street
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: input#ctl00_ctl28_City
+          selector: input#ctl00_ctl07_City
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: input#ctl00_ctl28_Zip
+          selector: input#ctl00_ctl07_Zip
           value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector: input#ctl00_ctl28_Phone
+          selector: input#ctl00_ctl07_Phone
           value: $PHONE
           required: true
         - name: email
-          selector: input#ctl00_ctl28_Email
+          selector: input#ctl00_ctl07_Email
           value: $EMAIL
           required: true
         - name: required-subject
-          selector: input#ctl00_ctl28_Subject
+          selector: input#ctl00_ctl07_Subject
           value: $SUBJECT
           required: true
         - name: message
-          selector: textarea#ctl00_ctl28_Body
+          selector: textarea#ctl00_ctl07_Body
           value: $MESSAGE
           required: true
     - select:
         - name: prefix
-          selector: select#ctl00_ctl28_PrefixList
+          selector: select#ctl00_ctl07_PrefixList
           value: $NAME_PREFIX
           required: true
           options:
@@ -66,7 +66,7 @@ contact_form:
             Dr.: Dr.
             Ms.: Ms.
         - name: topic
-          selector: select#ctl00_ctl28_IssuesList
+          selector: select#ctl00_ctl07_IssuesList
           value: $TOPIC
           required: true
           options:
@@ -85,9 +85,9 @@ contact_form:
             Transportation: Transportation
     - click_on:
         - value: Respond
-          selector: input#ctl00_ctl28_ReplyChoice_0
+          selector: input#ctl00_ctl07_ReplyChoice_0
         - value: Submit
-          selector: input#ctl00_ctl28_SubmitButton
+          selector: input#ctl00_ctl07_SubmitButton
   success:
     headers:
       status: 200
