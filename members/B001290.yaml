@@ -1,7 +1,7 @@
 bioguide: B001290
 contact_form:
   method: post
-  action: "?zip5=23060&zip4=6149"
+  action: ""
   steps:
     - visit: "https://bratforms.house.gov/contact/"
     - fill_in:
@@ -19,47 +19,47 @@ contact_form:
     - wait:
         - value: 2
     - find:
-        - selector: "#ctl00_ctl07_FirstName"
+        - selector: "#ctl00_ctl09_FirstName"
     - fill_in:
         - name: first
-          selector: "#ctl00_ctl07_FirstName"
+          selector: "#ctl00_ctl09_FirstName"
           value: $NAME_FIRST
           required: true
         - name: last
-          selector: "#ctl00_ctl07_LastName"
+          selector: "#ctl00_ctl09_LastName"
           value: $NAME_LAST
           required: true
         - name: street
-          selector: "#ctl00_ctl07_Street"
+          selector: "#ctl00_ctl09_Street"
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: "#ctl00_ctl07_City"
+          selector: "#ctl00_ctl09_City"
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: "#ctl00_ctl07_Zip"
+          selector: "#ctl00_ctl09_Zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector: "#ctl00_ctl07_Phone"
+          selector: "#ctl00_ctl09_Phone"
           value: $PHONE
           required: true
         - name: email
-          selector: "#ctl00_ctl07_Email"
+          selector: "#ctl00_ctl09_Email"
           value: $EMAIL
           required: true
         - name: subject
-          selector: "#ctl00_ctl07_Subject"
+          selector: "#ctl00_ctl09_Subject"
           value: $SUBJECT
           required: true
         - name: message
-          selector: "#ctl00_ctl07_Body"
+          selector: "#ctl00_ctl09_Body"
           value: $MESSAGE
           required: true
     - select:
         - name: prefix
-          selector: "#ctl00_ctl07_PrefixList"
+          selector: "#ctl00_ctl09_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -69,7 +69,7 @@ contact_form:
             Miss: Miss
             Dr.: Dr.
         - name: topic
-          selector: "#ctl00_ctl07_IssuesList"
+          selector: "#ctl00_ctl09_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -99,11 +99,11 @@ contact_form:
             Transportation and Public Works: Transportation and Public Works
     - choose:
         - name: response
-          selector: "#ctl00_ctl07_ReplyChoice_0"
+          selector: "#ctl00_ctl09_ReplyChoice_0"
           required: true
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl07_SubmitButton"
+          selector: "#ctl00_ctl09_SubmitButton"
   success:
     headers:
       status: 200
