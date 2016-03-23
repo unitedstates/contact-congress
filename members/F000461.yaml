@@ -75,6 +75,10 @@ contact_form:
             Colonel: Colonel
             Captain: Captain
     - click_on:
+        - selector: input#ctl00_ctl15_ReplyChoice_0
+    - find:
+        - selector: "#ctl00_ctl15_SubmitButton"
+    - click_on:
         - value: Submit
           selector: "#ctl00_ctl15_SubmitButton"
   success:
