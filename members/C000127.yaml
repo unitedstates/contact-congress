@@ -3,65 +3,75 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: "http://www.cantwell.senate.gov/public/index.cfm/email-maria"
+    - visit: "http://www.cantwell.senate.gov/contact/email"
     - find:
-      - selector: form#form_51688F65-B665-49D7-9163-6F9328935422
+      - selector: div.summary a.item-link
+    - click_on:
+      - selector: div.summary a.item-link
+    - wait:
+      - value: 4
+    - find:
+      - selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C
     - fill_in:
       - name: first
-        selector: input#field_DA0E97C6-19D2-4B50-B2F6-8CB003E27913
+        selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
         value: $NAME_FIRST
         required: true
       - name: last
-        selector: input#field_87DE2E22-62AE-4520-8B11-964E4D9A438B
+        selector: input#input-B03E04BD-4040-F985-52CD-48E090E769DA
         value: $NAME_LAST
         required: true
       - name: street
-        selector: input#field_446DB533-7685-4B67-BC58-A07786B68350
+        selector: input#input-B03E05F1-4040-F985-52CD-A580E72A7D41
         value: $ADDRESS_STREET
         required: true
       - name: street2
-        selector: input#field_3723B57C-D046-43D2-A885-DAAEA4A6B81B
+        selector: input#input-B03E0518-4040-F985-52CD-CF33EF97DA3A
         value: $ADDRESS_STREET_2
+        required: false
       - name: city
-        selector: input#field_6F684076-6B0B-4E2F-9B0A-556A9BF086F3
+        selector: input#input-B03E0595-4040-F985-52CD-C572364023FE
         value: $ADDRESS_CITY
         required: true
       - name: zip5
-        selector: input#field_F78762B8-0FA6-4358-A981-FFCBD410B35F
+        selector: input#input-B03E04CC-4040-F985-52CD-4DDB58DA474A
         value: $ADDRESS_ZIP5
         required: true
       - name: phone
-        selector: input#field_DDBB058B-30E2-4DDE-B801-E1D7F1F3D45E
+        selector: input#input-B03E046E-4040-F985-52CD-A2F10450D58D
         value: $PHONE
         required: true
       - name: email
-        selector: input#field_0A235FD8-208A-4E9F-89A1-8365F3DA6EBD
+        selector: input#email
+        value: $EMAIL
+        required: true
+      - name: verify_email
+        selector: input#input-B03E05A4-4040-F985-52CD-730C08912F4F
         value: $EMAIL
         required: true
       - name: message
-        selector: textarea#field_8B3C545E-254E-4902-B51B-D26DB60BF711
+        selector: textarea#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2
         value: $MESSAGE
         required: true
     - select:
       - name: prefix
-        selector: select#field_B537A993-BF4A-42C3-BC9F-0E91C0D064F6
+        selector: select#title
         value: $NAME_PREFIX
         required: true
         options:
-          "Mr.": "Mr."
-          "Mrs.": "Mrs."
-          "Mr. and Mrs.": "Mr. and Mrs."
-          "Mr. and Mr.": "Mr. and Mr."
-          "Mrs. and Mrs.": "Mrs. and Mrs."
-          "Ms.": "Ms."
-          "Dr.": "Dr."
-          "Dr. and Mrs.": "Dr. and Mrs."
-          "Dr. and Mr.": "Dr. and Mr."
-          "Reverend": "Reverend"
-          "Sister": "Sister"
-          "Pastor": "Pastor"
+          Mr.: Mr.
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Miss: Miss
+          Mr. and Mrs.: Mr. and Mrs.
+          Proffesor: Proffesor
+          Dean: Dean
+          The Honorable: The Honorable
+          Dr.: Dr.
+          Dr. and Mrs.: Dr. and Mrs.
+          Dr. and Mr.: Dr. and Mr.
       - name: topic
-        selector: select#field_6544A2FF-BC89-4C03-B786-C7927F5BC6F7
+        selector: select#input-B03E04DB-4040-F985-52CD-18F332336F99
         value: $TOPIC
         required: true
         options:
@@ -91,14 +101,20 @@ contact_form:
           Transportation: Transportation
           Veterans: Veterans
     - click_on:
-      - selector: input#field_1F16BF7A-1773-4479-BC8F-995D37E73F17_1
+      - selector: input#response
     - find:
-      - selector: div.buttonHolder input
+      - selector: input#affl_toggle
+    - click_on:
+      - selector: input#affl_toggle
+    - find:
+      - selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C div.controls input.btn
     - click_on:
       - value: Submit
-        selector: div.buttonHolder input
+        selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C div.controls input.btn
+    - wait:
+      - value: 2
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for sharing your thoughts with us."
+      contains: "Thank you for submitting your Request to our office."
