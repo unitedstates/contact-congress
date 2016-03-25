@@ -24,6 +24,9 @@ The HTTP method used to submit the form in all caps, most likely `GET` or `POST`
 
 The URL the form should submit to. An empty string ('') can be used to represent the URL the form is located at, but otherwise, this should be an absolute URL like `http://github.com/unitedstates/congress-contact`, rather than `/unitedstates/congress-contact`, even if that is what appears in the form.
 
+**usePhantomJsLogging**
+This should be set to true when the contact form uses a browser alert to indicate a successful submission.
+
 **steps**
 
 A list of the steps that make up a successful submission of the form. Steps are
