@@ -13,13 +13,9 @@ contact_form:
           selector: "#plusfour"
           value: $ADDRESS_ZIP4
           required: true
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
-    - find:
-        - selector: "#ctl00_ctl35_FirstName"
     - fill_in:
         - name: ctl00$ctl35$FirstName
           selector: "#ctl00_ctl35_FirstName"
@@ -84,24 +80,65 @@ contact_form:
             - Pastor
             - Pvt.
             - Rev.
-            - Reverend
+            - The Reverend
             - SAC
             - Senator
             - Sgt.
             - Sr.
             - SSgt.
             - The Honorable
+            - "Mr. & Mrs."
+        - name: ctl00$ctl35$IssuesList
+          selector: "#ctl00_ctl35_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: "44694"
+            Agriculture: "44695"
+            Animal Rights: "44696"
+            Appropriations: "44697"
+            Budget: "44730"
+            Capitol/White House Tour: "44698"
+            Crime: "44699"
+            "Defense of Marriage & Traditional Values": "1622"
+            Defense/War: "44700"
+            Education: "44701"
+            Energy: "44702"
+            Environment: "1613"
+            Ethics/Government Reform/Lobbying: "44703"
+            FDA: "44704"
+            Financial Services/Banking/Commerce: "44705"
+            Guns: "44706"
+            Healthcare: "1617"
+            Housing: "44709"
+            Illegal Drugs: "44710"
+            "Immigration & Border Security": "2100"
+            "Infrastructure & Transportation": "1623"
+            International Relations: "44711"
+            Judiciary/Tort Reform/Legal Issues: "44712"
+            Medicare/Medicaid: "44714"
+            National Guard: "44715"
+            Native American Affairs: "44716"
+            Other - Not Listed: "44724"
+            Pension: "44717"
+            Phones/Internet/Television: "44718"
+            Postal Reform: "44719"
+            Prescription Drugs: "44720"
+            Science/Technology: "44721"
+            Small Businesses: "1625"
+            Strengthening Social Security: "1624"
+            Tax Relief: "1334"
+            Thank You: "44722"
+            The Economy: "44731"
+            Trade Policy: "1335"
+            Welfare: "44723"
     - javascript:
         - value: document.querySelector("#ctl00_ctl35_Body").value = document.querySelector("#ctl00_ctl35_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl35_SubmitButton"
-    - wait:
-        - value: 3
-    - find:
-        - selector: "span#ctl00_ctl35_ConfirmationText"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office with your concerns.
+      contains: Thank you
