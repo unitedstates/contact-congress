@@ -6,6 +6,8 @@ contact_form:
     - visit: "https://www.baldwin.senate.gov/feedback"
     - click_on:
         - selector: "#main_column .feedback-block.opinion > a"
+    - wait:
+        - value: 3
     - fill_in:
         - name: first
           selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
