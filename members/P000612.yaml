@@ -4,6 +4,8 @@ contact_form:
   action: "http://www.perdue.senate.gov/connect/email"
   steps:
     - visit: "http://www.perdue.senate.gov/connect/email"
+    - wait:
+        - value: 3
     - fill_in:
         - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
           selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
@@ -249,6 +251,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn
+    - wait:
+        - value: 3
     - find:
         - value: "Thank You"
           selector: "h1"
