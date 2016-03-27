@@ -49,6 +49,8 @@ contact_form:
             Welfare/Food Assistance: Welfare/Food Assistance
             Wildlife/Animal Welfare: Wildlife/Animal Welfare
             "Women's Issues": "Women's Issues"
+    - wait:
+        - value: 3
     - find:
         - selector: "#continue-form"
     - fill_in:
@@ -192,4 +194,3 @@ contact_form:
       status: 200
     body:
       contains: Thanks for taking the time to share your thoughts with me.
-
