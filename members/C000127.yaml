@@ -1,102 +1,113 @@
 bioguide: C000127
 contact_form:
   method: post
-  action: ""
+  action: "https://www.cantwell.senate.gov/contact/email/form"
   steps:
-    - visit: "http://www.cantwell.senate.gov/public/index.cfm/email-maria"
+    - visit: "https://www.cantwell.senate.gov/contact/email/form"
     - fill_in:
-        - name: field_DA0E97C6-19D2-4B50-B2F6-8CB003E27913
-          selector: "#field_DA0E97C6-19D2-4B50-B2F6-8CB003E27913"
+        - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
+          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
           value: $NAME_FIRST
           required: true
-        - name: field_87DE2E22-62AE-4520-8B11-964E4D9A438B
-          selector: "#field_87DE2E22-62AE-4520-8B11-964E4D9A438B"
+        - name: input_B03E04BD-4040-F985-52CD-48E090E769DA
+          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
           value: $NAME_LAST
           required: true
-        - name: field_446DB533-7685-4B67-BC58-A07786B68350
-          selector: "#field_446DB533-7685-4B67-BC58-A07786B68350"
+        - name: input_B03E05F1-4040-F985-52CD-A580E72A7D41
+          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
           value: $ADDRESS_STREET
           required: true
-        - name: field_6F684076-6B0B-4E2F-9B0A-556A9BF086F3
-          selector: "#field_6F684076-6B0B-4E2F-9B0A-556A9BF086F3"
+        - name: input_B03E0595-4040-F985-52CD-C572364023FE
+          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
           value: $ADDRESS_CITY
           required: true
-        - name: field_F78762B8-0FA6-4358-A981-FFCBD410B35F
-          selector: "#field_F78762B8-0FA6-4358-A981-FFCBD410B35F"
+        - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
+          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_DDBB058B-30E2-4DDE-B801-E1D7F1F3D45E
-          selector: "#field_DDBB058B-30E2-4DDE-B801-E1D7F1F3D45E"
+        - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
+          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
           value: $PHONE
           required: true
-        - name: field_0A235FD8-208A-4E9F-89A1-8365F3DA6EBD
-          selector: "#field_0A235FD8-208A-4E9F-89A1-8365F3DA6EBD"
+        - name: input_B03E0536-4040-F985-52CD-AFE12CDE8D31
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: field_8B3C545E-254E-4902-B51B-D26DB60BF711
-          selector: "#field_8B3C545E-254E-4902-B51B-D26DB60BF711"
+        - name: input_B03E05A4-4040-F985-52CD-730C08912F4F
+          selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
+          value: $EMAIL
+          required: true
+        - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
+          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
           value: $MESSAGE
           required: true
+        - name: email_address_validation_field
+          selector: "#email-address-validation-field"
+          value: $EMAIL
+          required: true
     - select:
-        - name: field_B537A993-BF4A-42C3-BC9F-0E91C0D064F6
-          selector: "#field_B537A993-BF4A-42C3-BC9F-0E91C0D064F6"
+        - name: input_549D12B1-5056-A066-6062-C139550076B3
+          selector: "#title"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Mrs.
-            - Mr. and Mrs.
-            - Mr. and Mr.
-            - Mrs. and Mrs.
             - Ms.
+            - Miss
+            - Mr. and Mrs.
+            - Professor
+            - Dean
+            - The Honorable
             - Dr.
             - Dr. and Mrs.
             - Dr. and Mr.
-            - Dr. and Dr.
-            - Reverend
-            - Sister
-            - Pastor
-        - name: field_6544A2FF-BC89-4C03-B786-C7927F5BC6F7
-          selector: "#field_6544A2FF-BC89-4C03-B786-C7927F5BC6F7"
+        - name: input_B03E04DB-4040-F985-52CD-18F332336F99
+          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGRICULTURE
-            Budget: BUDGET
-            Department of Defense: DEFENSE
-            Department of Homeland Security: HOMELAND
-            Economy and Jobs: JOBS
-            Education: EDUCATION
-            Energy: ENERGY
-            Environment: ENVIRONMENT
-            First Responders: FEMA
-            Foreign Affairs: FOREIGN RELATIONS
-            Gun Violence: GUN CONTROL
-            Health Care: HEALTH
-            Housing: HOUSING
-            Immigration: IMMIGRATION
-            Indian Affairs: INDIAN
-            Labor: LABOR
-            Law Enforcement: LAW ENFORCEMENT
-            Miscellaneous: OTHER
-            National Security: NATIONAL SECURITY
-            Social Security: SOCIAL SECURITY
-            Small Business: SMALL BUSINESS
-            Taxes: TAX
-            Technology: TECH
-            Transportation: TRANSPORTATION
-            Veterans: VETERANS
+            - Agriculture
+            - Budget
+            - Civil Liberties
+            - Department of Defense
+            - Economy and Jobs
+            - Education
+            - Energy
+            - Environment
+            - First Responders
+            - Foreign Affairs
+            - Gun Violence
+            - Health Care
+            - Homeland Security
+            - Housing
+            - Immigration
+            - Indian Affairs
+            - Labor
+            - Law Enforcement
+            - Miscellaneous
+            - National Security
+            - Social Security
+            - Small Business
+            - Taxes
+            - Technology
+            - Transportation
+            - Veterans
     - check:
-        - name: field_1F16BF7A-1773-4479-BC8F-995D37E73F17
-          selector: "#field_1F16BF7A-1773-4479-BC8F-995D37E73F17_1"
-          value: "Y"
+        - name: input_072CAC5F-5056-A066-6015-FC4219539F7B
+          selector: "#response"
+          value: "Yes"
+    - uncheck:
+        - name: input_072C623E-5056-A066-60FA-B3F4B01D5639
+          selector: "#affl_toggle"
+          value: eNews.optin
     - javascript:
-        - value: document.querySelector("#field_8B3C545E-254E-4902-B51B-D26DB60BF711").value = document.querySelector("#field_8B3C545E-254E-4902-B51B-D26DB60BF711").value.replace(/"/g, '');
+        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: div.buttonHolder input
+          selector: input.btn
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for sharing your thoughts with us
+      contains: Thank you
