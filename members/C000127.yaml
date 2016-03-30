@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "https://www.cantwell.senate.gov/contact/email/form"
     - wait:
-        - value: 3 
+        - value: 3
     - fill_in:
         - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
           selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
@@ -104,6 +104,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
