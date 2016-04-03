@@ -1,49 +1,49 @@
 bioguide: F000461
 contact_form:
   method: post
-  action: "?zip5=76710&zip4=2018"
+  action: "./?zip5=76710&zip4=2018"
   steps:
     - visit: "https://flores.house.gov/forms/writeyourrep/?zip5=76710&zip4=2018"
     - fill_in:
-        - name: ctl00$ctl16$FirstName
-          selector: "#ctl00_ctl16_FirstName"
+        - name: ctl00$ctl15$FirstName
+          selector: "#ctl00_ctl15_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl16$LastName
-          selector: "#ctl00_ctl16_LastName"
+        - name: ctl00$ctl15$LastName
+          selector: "#ctl00_ctl15_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl16$Street
-          selector: "#ctl00_ctl16_Street"
+        - name: ctl00$ctl15$Street
+          selector: "#ctl00_ctl15_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl16$City
-          selector: "#ctl00_ctl16_City"
+        - name: ctl00$ctl15$City
+          selector: "#ctl00_ctl15_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl16$Zip
-          selector: "#ctl00_ctl16_Zip"
+        - name: ctl00$ctl15$Zip
+          selector: "#ctl00_ctl15_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl16$Phone
-          selector: "#ctl00_ctl16_Phone"
+        - name: ctl00$ctl15$Phone
+          selector: "#ctl00_ctl15_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl16$Email
-          selector: "#ctl00_ctl16_Email"
+        - name: ctl00$ctl15$Email
+          selector: "#ctl00_ctl15_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl16$Subject
-          selector: "#ctl00_ctl16_Subject"
+        - name: ctl00$ctl15$Subject
+          selector: "#ctl00_ctl15_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl16$Body
-          selector: "#ctl00_ctl16_Body"
+        - name: ctl00$ctl15$Body
+          selector: "#ctl00_ctl15_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl16$PrefixList
-          selector: "#ctl00_ctl16_PrefixList"
+        - name: ctl00$ctl15$PrefixList
+          selector: "#ctl00_ctl15_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -55,8 +55,17 @@ contact_form:
             - Hon.
             - The Honorable
             - Reverend
-        - name: ctl00$ctl16$State
-          selector: "#ctl00_ctl16_State"
+            - Representative
+            - Lieutenant
+            - Speaker
+            - Whip
+            - Leader
+            - Chairman
+            - Senator
+            - Colonel
+            - Captain
+        - name: ctl00$ctl15$State
+          selector: "#ctl00_ctl15_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -120,11 +129,37 @@ contact_form:
             - MP
             - PR
             - VI
+        - name: ctl00$ctl15$IssuesList
+          selector: "#ctl00_ctl15_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: "73287"
+            "Budget, Spending, and Economy": "73288"
+            Business and Commerce: "73090"
+            Defense and National Security: "72909"
+            Education: "73286"
+            Entitlements: "72791"
+            Environment: "72729"
+            Government Reform: "73310"
+            Grant Requests: "73307"
+            Health Care: "105996"
+            Homeland Security and Law Enforcement: "105997"
+            International Affairs: "72899"
+            Judiciary: "118752"
+            Social Issues: "118746"
+            Social Security: "73304"
+            Taxes: "72777"
+            Telecommunications: "118744"
+            Transportation and Infrastructure: "106000"
+            Veterans: "106001"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl15_Body").value = document.querySelector("#ctl00_ctl15_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl16_SubmitButton"
+          selector: "#ctl00_ctl15_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to write me.
+      contains: Thank you

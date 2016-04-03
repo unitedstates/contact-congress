@@ -58,6 +58,7 @@ a subset of [Capybara methods](http://rubydoc.info/github/jnicklas/capybara/mast
     `form`.
 - [`wait`](#wait): **Experimental.** Indicates that the
     specified time interval should pass before proceeding.
+- [`javascript`](#javascript): Execute some javascript on current page
 
 **success**
 
@@ -140,6 +141,8 @@ many of which are common to most steps:
     the `value` is one of the following, `options` can be specified accordingly:
   - `$EMAIL`: `allows_plus: true` or `allows_plus: false`, depending on if the form
       allows a plus sign in the `email` field.
+  - `max_length`: This field will be present if a field has a maximum character length. 
+    This value should be a number. It's very useful where max length is only enforced server-side.
 
 **A note on CAPTCHAs**
 
@@ -197,6 +200,13 @@ that should be waited before performing the next action.
 
 _This step is not to be confused with the `wait` option under `find`, which
 denotes the maximum time that should pass while waiting for an element to appear._
+
+### javascript
+
+The `value` key determines what javascript to execute in this step. Note that
+this instruction should only be used sparingly. It is better to mimic user
+behavior as closely as possible, but if there is no way to proceed with normal
+ux steps, this instruction may be used.
 
 ---
 

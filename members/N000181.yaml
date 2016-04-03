@@ -158,6 +158,8 @@ contact_form:
             War in Iraq: "22"
             War on Terror: "21"
             Welfare: "11"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl10_Message").value = document.querySelector("#ctl00_ctl10_Message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#ctl00 input[name='ctl00$ctl10$ctl13']"

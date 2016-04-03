@@ -44,74 +44,15 @@ contact_form:
           selector: "#field_B3A39EB2-8C50-4FEE-B213-38108B884D37"
           value: $MESSAGE
           required: true
-    - find:
-        - selector: "#captcha_38AFC425-4C4C-44C3-B74B-1BFDDBBB3AE6_container img[height='50']"
-    - fill_in:
-        - name: captcha_38AFC425-4C4C-44C3-B74B-1BFDDBBB3AE6
-          selector: "#captcha_38AFC425-4C4C-44C3-B74B-1BFDDBBB3AE6"
-          captcha_selector: "#captcha_38AFC425-4C4C-44C3-B74B-1BFDDBBB3AE6_container img[height='50']"
-          value: $CAPTCHA_SOLUTION
-          required: true
-    - select:
-        - name: field_7B4F29DC-E2DD-4162-8DCA-665DFD02E53D
-          selector: "#field_7B4F29DC-E2DD-4162-8DCA-665DFD02E53D"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          options:
+            max_length: 4000
+        - name: "g-recaptcha-response"
+          captcha_selector: ".g-recaptcha iframe"
+          value: "$CAPTCHA_SOLUTION"
           required: true
           options:
-            "AA ": AA
-            "AE ": AE
-            "AP ": AP
-            Alabama: AL
-            Alaska: AK
-            Arizona: AZ
-            Arkansas: AR
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            Delaware: DE
-            District of Columbia: DC
-            Florida: FL
-            Georgia: GA
-            Hawaii: HI
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Iowa: IA
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Maine: ME
-            Maryland: MD
-            Massachusetts: MA
-            Michigan: MI
-            Minnesota: MN
-            Mississippi: MS
-            Missouri: MO
-            Montana: MT
-            Nebraska: NE
-            Nevada: NV
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            New York: NY
-            North Carolina: NC
-            North Dakota: ND
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Pennsylvania: PA
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Vermont: VT
-            Virginia: VA
-            Washington: WA
-            West Virginia: WV
-            Wisconsin: WI
-            Wyoming: WY
+            google_recaptcha: true
+    - select:
         - name: field_9FC33321-74A4-4940-8082-C5B5CEA8202B
           selector: "#field_9FC33321-74A4-4940-8082-C5B5CEA8202B"
           value: $TOPIC
@@ -123,25 +64,22 @@ contact_form:
             Banking: BANKING
             Boy Scouts: BOY SCOUTS
             Budget: BUDGET
-            Campaign Reform: ELECTIONS
+            Campaign Reform: CAMPAIGN REFORM
             "Defense/Military/Veterans,War": DEFENSE
             Disaster Relief: DISASTER REL
             Education: EDUC
             Energy: ENER
             Environment: ENV
-            Foreign Affairs: FAFF
+            Foreign Affairs: FOREIGN AFFAIRS
             Gay Marriage: GAYMAR
-            Grants: GRANT-INFO
             Gun Control: GUN
             Health: HEALTH
             Homeland Security: HOMESEC
             Immigration: IMMIG
-            Internet Freedom: PIRACY
+            Internet Freedom: INTERNET FREEDOM
             Jobs and the Economy: JOBS
-            Judiciary: JUDIC
             Labor: LABOR
             Medicare/Medicaid: MEDICARE
-            Military Academy Nominations: ACADEMY
             NASA/Space Exploration: NASA
             Post Office: POSTAL
             Religious Freedoms: RELIGION
@@ -151,7 +89,13 @@ contact_form:
             Technology: TECHNOLOGY
             Transportation: TRANS
             Welfare: WELFARE
+            Telecommunications: TELECOM
+            United Nations: UNITED NATIONS
+            Obamacare: OBAMACARE
+            "Women's Issues": WOMENS ISSUES
             Other: Other
+    - javascript:
+        - value: document.querySelector("#field_B3A39EB2-8C50-4FEE-B213-38108B884D37").value = document.querySelector("#field_B3A39EB2-8C50-4FEE-B213-38108B884D37").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
@@ -160,4 +104,3 @@ contact_form:
       status: 200
     body:
       contains: Thank
-

@@ -49,12 +49,8 @@ contact_form:
           selector: "#req_message"
           value: $MESSAGE
           required: true
-    - select:
-        - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options: []
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submitButton"

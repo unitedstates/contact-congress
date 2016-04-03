@@ -1,199 +1,169 @@
 bioguide: F000444
 contact_form:
   method: post
-  action: webformActionIQV2.cfm
+  action: ""
   steps:
-    - visit: "http://www.flake.senate.gov/contact.cfm"
+    - visit: "https://www.flake.senate.gov/public/index.cfm/contact-jeff"
     - fill_in:
-        - name: firstName
-          selector: "#firstName"
+        - name: field_6F2BA101-F309-4D6D-94DF-6E3A1C86AD7D
+          selector: "#field_6F2BA101-F309-4D6D-94DF-6E3A1C86AD7D"
           value: $NAME_FIRST
           required: true
-        - name: lastName
-          selector: "#lastName"
+        - name: field_A25E1505-6D87-455E-9F4A-524C8394129A
+          selector: "#field_A25E1505-6D87-455E-9F4A-524C8394129A"
           value: $NAME_LAST
           required: true
-        - name: Address1
-          selector: "#Address1"
+        - name: field_C7A1518E-CD55-43D5-A88F-2E64293BEE0C
+          selector: "#field_C7A1518E-CD55-43D5-A88F-2E64293BEE0C"
           value: $ADDRESS_STREET
           required: true
-        - name: Address2
-          selector: "#Address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#city"
+        - name: field_7ECDA6CF-A296-474B-A788-3791F6ACA3AA
+          selector: "#field_7ECDA6CF-A296-474B-A788-3791F6ACA3AA"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#zip"
+        - name: field_6A483FD1-64EB-47C4-842F-35E8E9FA3B71
+          selector: "#field_6A483FD1-64EB-47C4-842F-35E8E9FA3B71"
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: field_5EDDFD5F-D667-43C1-9DB0-AE36E2814CC3
+          selector: "#field_5EDDFD5F-D667-43C1-9DB0-AE36E2814CC3"
           value: $PHONE
           required: true
-        - name: email
-          selector: "#email"
+        - name: field_7E770959-172A-4C9D-8720-67A027916B7D
+          selector: "#field_7E770959-172A-4C9D-8720-67A027916B7D"
           value: $EMAIL
           required: true
-        - name: messageSubject
-          selector: "#messageSubject"
+        - name: field_73AFA19A-4375-49C3-B145-A618657C8EE8
+          selector: "#field_73AFA19A-4375-49C3-B145-A618657C8EE8"
           value: $SUBJECT
           required: true
-        - name: MessageBody
-          selector: "#thisForm textarea[name='MessageBody']"
+        - name: field_11C08DB8-4BD8-4CB6-BCC5-BCC5F4EB85B4
+          selector: "#field_11C08DB8-4BD8-4CB6-BCC5-BCC5F4EB85B4"
           value: $MESSAGE
           required: true
     - select:
-        - name: Prefix
-          selector: "#thisForm select[name='Prefix']"
+        - name: field_FAD36BBE-38F4-44C4-A418-1A7149FE811B
+          selector: "#field_FAD36BBE-38F4-44C4-A418-1A7149FE811B"
           value: $NAME_PREFIX
           required: true
           options:
-            " Mr. ": Mr.
-            " Mrs. ": Mrs.
-            " Ms. ": Ms.
-            " Mr. and Mrs. ": Mr. and Mrs.
-            " Dr. ": Dr.
-            " Dr. and Mrs. ": Dr. and Mrs.
-            " Reverend ": Reverend
-            " Sister ": Sister
-            " Pastor ": Pastor
-            " The Honorable ": The Honorable
-            " Representative ": Representative
-            " Senator ": Senator
-        - name: State
-          selector: "#thisForm select[name='State']"
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mrs.
+            - Reverend
+            - Sister
+            - Pastor
+            - The Honorable
+            - Representative
+            - Senator
+        - name: field_B2E8657C-E546-42D7-97A6-BAFF33E85780
+          selector: "#field_B2E8657C-E546-42D7-97A6-BAFF33E85780"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            #"----Military---- ": " "
-            "AA ": AA
-            "AE ": AE
-            "AP ": AP
-            #"----States---- ": " "
-            "Alabama ": AL
-            "Alaska ": AK
-            "Arizona ": AZ
-            "Arkansas ": AR
-            "California ": CA
-            "Colorado ": CO
-            "Connecticut ": CT
-            "Delaware ": DE
-            "District of Columbia ": DC
-            "Florida ": FL
-            "Georgia ": GA
-            "Hawaii ": HI
-            "Idaho ": ID
-            "Illinois ": IL
-            "Indiana ": IN
-            "Iowa ": IA
-            "Kansas ": KS
-            "Kentucky ": KY
-            "Louisiana ": LA
-            "Maine ": ME
-            "Maryland ": MD
-            "Massachusetts ": MA
-            "Michigan ": MI
-            "Minnesota ": MN
-            "Mississippi ": MS
-            "Missouri ": MO
-            "Montana ": MT
-            "Nebraska ": NE
-            "Nevada ": NV
-            "New Hampshire ": NH
-            "New Jersey ": NJ
-            "New Mexico ": NM
-            "New York ": NY
-            "North Carolina ": NC
-            "North Dakota ": ND
-            "Ohio ": OH
-            "Oklahoma ": OK
-            "Oregon ": OR
-            "Pennsylvania ": PA
-            "Rhode Island ": RI
-            "South Carolina ": SC
-            "South Dakota ": SD
-            "Tennessee ": TN
-            "Texas ": TX
-            "Utah ": UT
-            "Vermont ": VT
-            "Virginia ": VA
-            "Washington ": WA
-            "West Virginia ": WV
-            "Wisconsin ": WI
-            "Wyoming ": WY
-        - name: Subject
-          selector: "#thisForm select[name='Subject']"
+            - AA
+            - AE
+            - AP
+            - Alabama
+            - Alaska
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Puerto Rico
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+        - name: field_BF07744F-FC8C-45C9-B660-5BE4F2AA0B7E
+          selector: "#field_BF07744F-FC8C-45C9-B660-5BE4F2AA0B7E"
           value: $TOPIC
           required: true
           options:
-            "\n\t\t\t\t\t\t\tAbortion\n\t\t\t\t\t\t": Abortion
-            "\n\t\t\t\t\t\t\tAging\n\t\t\t\t\t\t": Aging
-            "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": Agriculture
-            "\n\t\t\t\t\t\t\tAnimal Welfare\n\t\t\t\t\t\t": Animal Welfare
-            "\n\t\t\t\t\t\t\tAppropriations\n\t\t\t\t\t\t": Appropriations
-            "\n\t\t\t\t\t\t\tBanking\n\t\t\t\t\t\t": Banking
-            "\n\t\t\t\t\t\t\tBudget/Economy\n\t\t\t\t\t\t": Budget/Economy
-            "\n\t\t\t\t\t\t\tCampaign Finance\n\t\t\t\t\t\t": Campaign Finance
-            "\n\t\t\t\t\t\t\tChildren\n\t\t\t\t\t\t": Children
-            "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": Civil Rights
-            "\n\t\t\t\t\t\t\tCommerce\n\t\t\t\t\t\t": Commerce
-            "\n\t\t\t\t\t\t\tCommunications\n\t\t\t\t\t\t": Communications
-            "\n\t\t\t\t\t\t\tCongratulations\n\t\t\t\t\t\t": Congratulations
-            "\n\t\t\t\t\t\t\tCongressional Issues\n\t\t\t\t\t\t": Congressional Issues
-            "\n\t\t\t\t\t\t\tCrime\n\t\t\t\t\t\t": Crime
-            "\n\t\t\t\t\t\t\tDefense\n\t\t\t\t\t\t": Defense
-            "\n\t\t\t\t\t\t\tDrugs\n\t\t\t\t\t\t": Drugs
-            "\n\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t": Economy
-            "\n\t\t\t\t\t\t\tEducation Higher\n\t\t\t\t\t\t": Education Higher
-            "\n\t\t\t\t\t\t\tEducation K through 12\n\t\t\t\t\t\t": Education K through 12
-            "\n\t\t\t\t\t\t\tElections\n\t\t\t\t\t\t": Elections
-            "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": Energy
-            "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": Environment
-            "\n\t\t\t\t\t\t\tFamily\n\t\t\t\t\t\t": Family
-            "\n\t\t\t\t\t\t\tFood Stamps\n\t\t\t\t\t\t": Food Stamps
-            "\n\t\t\t\t\t\t\tForeign Affairs\n\t\t\t\t\t\t": Foreign Affairs
-            "\n\t\t\t\t\t\t\tGun Control\n\t\t\t\t\t\t": Gun Control
-            "\n\t\t\t\t\t\t\tHealth\n\t\t\t\t\t\t": Health
-            "\n\t\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t\t": Homeland Security
-            "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": Housing
-            "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": Immigration
-            "\n\t\t\t\t\t\t\tInauguration\n\t\t\t\t\t\t": Inauguration
-            "\n\t\t\t\t\t\t\tInsurance Health\n\t\t\t\t\t\t": Insurance Health
-            "\n\t\t\t\t\t\t\tInsurance Other\n\t\t\t\t\t\t": Insurance Other
-            "\n\t\t\t\t\t\t\tInterior\n\t\t\t\t\t\t": Interior
-            "\n\t\t\t\t\t\t\tInternships\n\t\t\t\t\t\t": Internships
-            "\n\t\t\t\t\t\t\tIran\n\t\t\t\t\t\t": Iran
-            "\n\t\t\t\t\t\t\tIraq\n\t\t\t\t\t\t": Iraq
-            "\n\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t": Judiciary
-            "\n\t\t\t\t\t\t\tLabor\n\t\t\t\t\t\t": Labor
-            "\n\t\t\t\t\t\t\tMedicaid\n\t\t\t\t\t\t": Medicaid
-            "\n\t\t\t\t\t\t\tMedicare\n\t\t\t\t\t\t": Medicare
-            "\n\t\t\t\t\t\t\tMilitary\n\t\t\t\t\t\t": Military
-            "\n\t\t\t\t\t\t\tNASA\n\t\t\t\t\t\t": NASA
-            "\n\t\t\t\t\t\t\tNutrition\n\t\t\t\t\t\t": Nutrition
-            "\n\t\t\t\t\t\t\tOther\n\t\t\t\t\t\t": Other
-            "\n\t\t\t\t\t\t\tPatents\n\t\t\t\t\t\t": Patents
-            "\n\t\t\t\t\t\t\tPensions\n\t\t\t\t\t\t": Pensions
-            "\n\t\t\t\t\t\t\tSecurities\n\t\t\t\t\t\t": Securities
-            "\n\t\t\t\t\t\t\tSmall Business\n\t\t\t\t\t\t": Small Business
-            "\n\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t": Social Security
-            "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": Taxes
-            "\n\t\t\t\t\t\t\tTobacco\n\t\t\t\t\t\t": Tobacco
-            "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": Trade
-            "\n\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t": Transportation
-            "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": Veterans
-            "\n\t\t\t\t\t\t\tWelfare\n\t\t\t\t\t\t": Welfare
-            "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
+            - Animal Rights
+            - Agriculture
+            - Banking and Finance
+            - Commerce
+            - Budget/Government Spending
+            - Civil Rights
+            - Defense and Military
+            - Education
+            - Energy
+            - Environment
+            - Foreign Affairs
+            - Government Reform
+            - Guns/Second Amendment
+            - Healthcare
+            - Help with Federal Agencies
+            - Homeland Security
+            - Housing
+            - Immigration
+            - Intelligence
+            - Judiciary
+            - Labor
+            - Life
+            - Native American
+            - Other
+            - Postal Service
+            - Small Business
+            - Social Security
+            - Tax
+            - Telecom
+            - Trade
+            - Transportation
+            - Veterans Issues
+            - Welfare
+    - javascript:
+        - value: document.querySelector("#field_11C08DB8-4BD8-4CB6-BCC5-BCC5F4EB85B4").value = document.querySelector("#field_11C08DB8-4BD8-4CB6-BCC5-BCC5F4EB85B4").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#thisForm input[type='submit'][value='Submit']"
-    - find:
-        - selector: "div[align=center]"
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you!"
+      contains: Thank you

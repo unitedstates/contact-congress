@@ -79,6 +79,8 @@ contact_form:
             Welfare: WEL
             Women’s Health: WOM
             Other: OTH
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#submitButton"

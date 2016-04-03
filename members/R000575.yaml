@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt&form=/contact-mike/email-me-zip-authenticated&nobase&fpGetVer=2"
   steps:
-    - visit: "http://mike-rogers.house.gov/contact-mike/email-me"
+    - visit: "http://mikerogers.house.gov/contact-mike/email-me"
     - fill_in:
         - name: zip5
           selector: "#zip5"
@@ -112,6 +112,8 @@ contact_form:
             Veterans and Tricare Issues: VET
             Welfare: WELF
             "Women, Children, and Family": WOMEN
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Submit Information
           selector: "form.validate.wsbform input[name='submit']"

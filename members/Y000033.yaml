@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://donyoung.house.gov/forms/writeyourrep/"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: ctl00$ctl10$FirstName
           selector: "#ctl00_ctl10_FirstName"
@@ -41,14 +43,6 @@ contact_form:
           selector: "#ctl00_ctl10_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl10$CampaignID
-          selector: "#ctl00_ctl10_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl10$CampaignInfo
-          selector: "#ctl00_ctl10_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
         - name: ctl00$ctl10$PrefixList
           selector: "#ctl00_ctl10_PrefixList"
@@ -173,9 +167,13 @@ contact_form:
         - name: ctl00$ctl10$ReplyChoice
           selector: "#ctl00_ctl10_ReplyChoice_0"
           value: Respond
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl10_Body").value = document.querySelector("#ctl00_ctl10_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl10_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl10_ConfirmationText"
   success:
     headers:
       status: 200

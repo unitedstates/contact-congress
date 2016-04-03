@@ -38,7 +38,7 @@ contact_form:
         - name: ctl00$ctl11$Zip
           selector: "#ctl00_ctl11_Zip"
           value: $ADDRESS_ZIP5
-          required: false
+          required: true
         - name: ctl00$ctl11$Phone
           selector: "#ctl00_ctl11_Phone"
           value: $PHONE
@@ -55,14 +55,6 @@ contact_form:
           selector: "#ctl00_ctl11_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl11$CampaignID
-          selector: "#ctl00_ctl11_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl11$CampaignInfo
-          selector: "#ctl00_ctl11_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
         - name: ctl00$ctl11$PrefixList
           selector: "#ctl00_ctl11_PrefixList"
@@ -106,6 +98,8 @@ contact_form:
         - name: ctl00$ctl11$ReplyChoice
           selector: "#ctl00_ctl11_ReplyChoice_0"
           value: Respond
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl11_Body").value = document.querySelector("#ctl00_ctl11_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl11_SubmitButton"

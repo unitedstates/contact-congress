@@ -6,7 +6,7 @@ contact_form:
     - visit: "https://murphy.house.gov/contact-me"
     - fill_in:
         - name: firstname
-          selector: "#req_firstname"
+          selector: ".custom_form #req_firstname"
           value: $NAME_FIRST
           required: true
         - name: lastname
@@ -30,7 +30,7 @@ contact_form:
           value: $ADDRESS_ZIP5
           required: true
         - name: emailaddress
-          selector: "#req_email"
+          selector: ".custom_form #req_email"
           value: $EMAIL
           required: true
         - name: message
@@ -85,9 +85,11 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other Issues: OTH
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
-          selector: "#submitButton"
+          selector: ".custom_form #submitButton"
     - find:
         - selector: "h1"
           value: "THANK YOU"

@@ -12,6 +12,7 @@ contact_form:
       - name: zip4
         selector: "#zip4"
         value: $ADDRESS_ZIP4
+        required: Yes
     - click_on:
       - value: "Go To Next Step"
         selector: "#emailForm #submit"
@@ -109,6 +110,8 @@ contact_form:
         options:
           "Yes, please contact me": "Y"
           "No, I wanted to voice my opinion": "N"
+    - javascript:
+      - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
       - value: "Send Email"
         selector: "#contactForm #submit"

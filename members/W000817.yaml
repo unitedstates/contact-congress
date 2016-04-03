@@ -1,141 +1,133 @@
 bioguide: W000817
 contact_form:
-  method: POST
-  action: "http://www.warren.senate.gov/?p=email_senator#thisForm"
+  method: post
+  action: "/?p=email_senator&clear_cache=1"
   steps:
     - visit: "http://www.warren.senate.gov/?p=email_senator#thisForm"
     - fill_in:
-      - name: firstName
-        selector: "#firstName"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: lastName
-        selector: "#lastName"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: Address1
-        selector: "#Address1"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: Address2
-        selector: "#Address2"
-        value: "$ADDRESS_STREET_2"
-        required: No
-      - name: city
-        selector: "#city"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: zip
-        selector: "#thisForm #zip"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: phone
-        selector: "#phone"
-        value: "$PHONE"
-        required: Yes
-      - name: email
-        selector: "#thisForm #email"
-        value: "$EMAIL"
-        required: Yes
-      - name: vemail
-        selector: "#vemail"
-        value: "$EMAIL"
-        required: Yes
-      - name: messageSubject
-        selector: "#messageSubject"
-        value: "$SUBJECT"
-        required: Yes
-      - name: messageBody
-        selector: "#thisForm .textarea"
-        value: "$MESSAGE"
-        required: Yes
+        - name: firstName
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lastName
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
+        - name: Address1
+          selector: "#address1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#thisForm input[name='zip']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#thisForm input[name='email']"
+          value: $EMAIL
+          required: true
+        - name: vemail
+          selector: "#vemail"
+          value: $EMAIL
+          required: true
+        - name: messageSubject
+          selector: "#subject"
+          value: $SUBJECT
+          required: true
+        - name: MessageBody
+          selector: "#msgbody"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: Prefix
-        selector: "select[name=Prefix]"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Dr."
-      - name: State
-        selector: "select[name=State]"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_MPCS
-    - select:
-      - name: Subject
-        selector: "#thisForm select[name='Subject']"
-        value: $TOPIC
-        required: true
-        options:
-          "\n\t\t\t\t\t\t\tAbortion\n\t\t\t\t\t\t": Abortion
-          "\n\t\t\t\t\t\t\tAdoption/Foster Care\n\t\t\t\t\t\t": Adoption/Foster Care
-          "\n\t\t\t\t\t\t\tAging\n\t\t\t\t\t\t": Aging
-          "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": Agriculture
-          "\n\t\t\t\t\t\t\tAnimal Welfare\n\t\t\t\t\t\t": Animal Welfare
-          "\n\t\t\t\t\t\t\tAntitrust/Competition\n\t\t\t\t\t\t": Antitrust/Competition
-          "\n\t\t\t\t\t\t\tAppropriations\n\t\t\t\t\t\t": Appropriations
-          "\n\t\t\t\t\t\t\tArts and Culture\n\t\t\t\t\t\t": Arts and Culture
-          "\n\t\t\t\t\t\t\tBanking\n\t\t\t\t\t\t": Banking
-          "\n\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t": Budget
-          "\n\t\t\t\t\t\t\tCampaign Finance\n\t\t\t\t\t\t": Campaign Finance
-          "\n\t\t\t\t\t\t\tChild Care/Child Welfare\n\t\t\t\t\t\t": Child Care/Child Welfare
-          "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": Civil Rights
-          "\n\t\t\t\t\t\t\tCommerce\n\t\t\t\t\t\t": Commerce
-          "\n\t\t\t\t\t\t\tConsumer Protection\n\t\t\t\t\t\t": Consumer Protection
-          "\n\t\t\t\t\t\t\tCrime And Justice\n\t\t\t\t\t\t": Crime And Justice
-          "\n\t\t\t\t\t\t\tDefense and Military\n\t\t\t\t\t\t": Defense and Military
-          "\n\t\t\t\t\t\t\tDisability\n\t\t\t\t\t\t": Disability
-          "\n\t\t\t\t\t\t\tDomestic Violence\n\t\t\t\t\t\t": Domestic Violence
-          "\n\t\t\t\t\t\t\tDrugs (Illegal)\n\t\t\t\t\t\t": Drugs (Illegal)
-          "\n\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t": Economy
-          "\n\t\t\t\t\t\t\tEducation - Early Childhood\n\t\t\t\t\t\t": Education - Early Childhood
-          "\n\t\t\t\t\t\t\tEducation - Elementary and Secondary\n\t\t\t\t\t\t": Education - Elementary and Secondary
-          "\n\t\t\t\t\t\t\tEducation - Post-Secondary\n\t\t\t\t\t\t": Education - Post-Secondary
-          "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": Energy
-          "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": Environment
-          "\n\t\t\t\t\t\t\tFlag Requests\n\t\t\t\t\t\t": Flag Requests
-          "\n\t\t\t\t\t\t\tFood Safety\n\t\t\t\t\t\t": Food Safety
-          "\n\t\t\t\t\t\t\tForeign Affairs\n\t\t\t\t\t\t": Foreign Affairs
-          "\n\t\t\t\t\t\t\tGrants\n\t\t\t\t\t\t": Grants
-          "\n\t\t\t\t\t\t\tGuns\n\t\t\t\t\t\t": Guns
-          "\n\t\t\t\t\t\t\tHealth\n\t\t\t\t\t\t": Health
-          "\n\t\t\t\t\t\t\tHistorical Preservation\n\t\t\t\t\t\t": Historical Preservation
-          "\n\t\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t\t": Homeland Security
-          "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": Housing
-          "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": Immigration
-          "\n\t\t\t\t\t\t\tIntellectual Property\n\t\t\t\t\t\t": Intellectual Property
-          "\n\t\t\t\t\t\t\tJob Training\n\t\t\t\t\t\t": Job Training
-          "\n\t\t\t\t\t\t\tJudicial Nominations\n\t\t\t\t\t\t": Judicial Nominations
-          "\n\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t": Judiciary
-          "\n\t\t\t\t\t\t\tLabor and Unions\n\t\t\t\t\t\t": Labor and Unions
-          "\n\t\t\t\t\t\t\tMedicaid/Medicare\n\t\t\t\t\t\t": Medicaid/Medicare
-          "\n\t\t\t\t\t\t\tMeeting Request\n\t\t\t\t\t\t": Meeting Request
-          "\n\t\t\t\t\t\t\tMunicipal and State Government\n\t\t\t\t\t\t": Municipal and State Government
-          "\n\t\t\t\t\t\t\tNative Americans\n\t\t\t\t\t\t": Native Americans
-          "\n\t\t\t\t\t\t\tNatural Disasters\n\t\t\t\t\t\t": Natural Disasters
-          "\n\t\t\t\t\t\t\tPensions and Retirement\n\t\t\t\t\t\t": Pensions and Retirement
-          "\n\t\t\t\t\t\t\tPostal Issues\n\t\t\t\t\t\t": Postal Issues
-          "\n\t\t\t\t\t\t\tScience/Technology/Space\n\t\t\t\t\t\t": Science/Technology/Space
-          "\n\t\t\t\t\t\t\tSmall Business\n\t\t\t\t\t\t": Small Business
-          "\n\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t": Social Security
-          "\n\t\t\t\t\t\t\tStart-Ups and Entrepreneurs\n\t\t\t\t\t\t": Start-Ups and Entrepreneurs
-          "\n\t\t\t\t\t\t\tTANF and Low-Income Benefits\n\t\t\t\t\t\t": TANF and Low-Income Benefits
-          "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": Taxes
-          "\n\t\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t\t": Telecommunications
-          "\n\t\t\t\t\t\t\tTour Request\n\t\t\t\t\t\t": Tour Request
-          "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": Trade
-          "\n\t\t\t\t\t\t\tTransportation and Infrastructure\n\t\t\t\t\t\t": Transportation and Infrastructure
-          "\n\t\t\t\t\t\t\tUnemployment Insurance\n\t\t\t\t\t\t": Unemployment Insurance
-          "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": Veterans
-          "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
+        - name: Prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "\_": "-"
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Dr.: Dr.
+        - name: Subject
+          selector: "#issue_subject"
+          value: $TOPIC
+          required: true
+          options:
+            "\n\t\t\t\t\t\t\tAbortion\n\t\t\t\t\t\t": Abortion
+            "\n\t\t\t\t\t\t\tAdoption/Foster Care\n\t\t\t\t\t\t": Adoption/Foster Care
+            "\n\t\t\t\t\t\t\tAging\n\t\t\t\t\t\t": Aging
+            "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": Agriculture
+            "\n\t\t\t\t\t\t\tAnimal Welfare\n\t\t\t\t\t\t": Animal Welfare
+            "\n\t\t\t\t\t\t\tAntitrust/Competition\n\t\t\t\t\t\t": Antitrust/Competition
+            "\n\t\t\t\t\t\t\tAppropriations\n\t\t\t\t\t\t": Appropriations
+            "\n\t\t\t\t\t\t\tArts and Culture\n\t\t\t\t\t\t": Arts and Culture
+            "\n\t\t\t\t\t\t\tBanking\n\t\t\t\t\t\t": Banking
+            "\n\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t": Budget
+            "\n\t\t\t\t\t\t\tCampaign Finance\n\t\t\t\t\t\t": Campaign Finance
+            "\n\t\t\t\t\t\t\tChild Care/Child Welfare\n\t\t\t\t\t\t": Child Care/Child Welfare
+            "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": Civil Rights
+            "\n\t\t\t\t\t\t\tCommerce\n\t\t\t\t\t\t": Commerce
+            "\n\t\t\t\t\t\t\tConsumer Protection\n\t\t\t\t\t\t": Consumer Protection
+            "\n\t\t\t\t\t\t\tCrime And Justice\n\t\t\t\t\t\t": Crime And Justice
+            "\n\t\t\t\t\t\t\tDefense and Military\n\t\t\t\t\t\t": Defense and Military
+            "\n\t\t\t\t\t\t\tDisability\n\t\t\t\t\t\t": Disability
+            "\n\t\t\t\t\t\t\tDomestic Violence\n\t\t\t\t\t\t": Domestic Violence
+            "\n\t\t\t\t\t\t\tDrugs (Illegal)\n\t\t\t\t\t\t": Drugs (Illegal)
+            "\n\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t": Economy
+            "\n\t\t\t\t\t\t\tEducation - Early Childhood\n\t\t\t\t\t\t": Education - Early Childhood
+            "\n\t\t\t\t\t\t\tEducation - Elementary and Secondary\n\t\t\t\t\t\t": Education - Elementary and Secondary
+            "\n\t\t\t\t\t\t\tEducation - Post-Secondary\n\t\t\t\t\t\t": Education - Post-Secondary
+            "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": Energy
+            "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": Environment
+            "\n\t\t\t\t\t\t\tFlag Requests\n\t\t\t\t\t\t": Flag Requests
+            "\n\t\t\t\t\t\t\tFood Safety\n\t\t\t\t\t\t": Food Safety
+            "\n\t\t\t\t\t\t\tForeign Affairs\n\t\t\t\t\t\t": Foreign Affairs
+            "\n\t\t\t\t\t\t\tGrants\n\t\t\t\t\t\t": Grants
+            "\n\t\t\t\t\t\t\tGuns\n\t\t\t\t\t\t": Guns
+            "\n\t\t\t\t\t\t\tHealth\n\t\t\t\t\t\t": Health
+            "\n\t\t\t\t\t\t\tHistorical Preservation\n\t\t\t\t\t\t": Historical Preservation
+            "\n\t\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t\t": Homeland Security
+            "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": Housing
+            "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": Immigration
+            "\n\t\t\t\t\t\t\tIntellectual Property\n\t\t\t\t\t\t": Intellectual Property
+            "\n\t\t\t\t\t\t\tJob Training\n\t\t\t\t\t\t": Job Training
+            "\n\t\t\t\t\t\t\tJudicial Nominations\n\t\t\t\t\t\t": Judicial Nominations
+            "\n\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t": Judiciary
+            "\n\t\t\t\t\t\t\tLabor and Unions\n\t\t\t\t\t\t": Labor and Unions
+            "\n\t\t\t\t\t\t\tMedicaid/Medicare\n\t\t\t\t\t\t": Medicaid/Medicare
+            "\n\t\t\t\t\t\t\tMunicipal and State Government\n\t\t\t\t\t\t": Municipal and State Government
+            "\n\t\t\t\t\t\t\tNative Americans\n\t\t\t\t\t\t": Native Americans
+            "\n\t\t\t\t\t\t\tNatural Disasters\n\t\t\t\t\t\t": Natural Disasters
+            "\n\t\t\t\t\t\t\tPensions and Retirement\n\t\t\t\t\t\t": Pensions and Retirement
+            "\n\t\t\t\t\t\t\tPostal Issues\n\t\t\t\t\t\t": Postal Issues
+            "\n\t\t\t\t\t\t\tScience/Technology/Space\n\t\t\t\t\t\t": Science/Technology/Space
+            "\n\t\t\t\t\t\t\tSmall Business\n\t\t\t\t\t\t": Small Business
+            "\n\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t": Social Security
+            "\n\t\t\t\t\t\t\tStart-Ups and Entrepreneurs\n\t\t\t\t\t\t": Start-Ups and Entrepreneurs
+            "\n\t\t\t\t\t\t\tTANF and Low-Income Benefits\n\t\t\t\t\t\t": TANF and Low-Income Benefits
+            "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": Taxes
+            "\n\t\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t\t": Telecommunications
+            "\n\t\t\t\t\t\t\tTour Request\n\t\t\t\t\t\t": Tour Request
+            "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": Trade
+            "\n\t\t\t\t\t\t\tTransportation and Infrastructure\n\t\t\t\t\t\t": Transportation and Infrastructure
+            "\n\t\t\t\t\t\t\tUnemployment Insurance\n\t\t\t\t\t\t": Unemployment Insurance
+            "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": Veterans
+            "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
+    - javascript:
+        - value: document.querySelector("#msgbody").value = document.querySelector("#msgbody").value.replace(/"/g, '');
     - click_on:
-      - value: Submit
-        selector: ".normal-input[name=Submit]"
+        - value: Submit
+          selector: "#thisForm input[name='Submit']"
   success:
     headers:
       status: 200
     body:
-      contains: "Your message has been sent"
+      contains: Thank you

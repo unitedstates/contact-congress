@@ -92,6 +92,8 @@ contact_form:
             Veterans Affairs: VET
             Women’s Issues: WOM
             Other Issues: OTH
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#submitButton"

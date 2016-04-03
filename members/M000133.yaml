@@ -65,6 +65,8 @@ contact_form:
           - Transportation
           - Veterans
           - Welfare/SNAP
+    - wait:
+      - value: 1
     - find:
       - selector: "#continue-form"
     - fill_in:
@@ -183,6 +185,8 @@ contact_form:
             WY: WY
     - wait:
         - value: 1
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send
           selector: "#side-search-btn"

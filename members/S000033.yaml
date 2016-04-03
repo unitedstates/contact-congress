@@ -70,7 +70,6 @@ contact_form:
       - name: mailing_streetAddress2
         selector: "#mailing_streetAddress2"
         value: "$ADDRESS_STREET_2"
-        required: No
       - name: mailing_city
         selector: "#mailing_city"
         value: "$ADDRESS_CITY"
@@ -172,16 +171,13 @@ contact_form:
           - "Senior Airman"
           - "Airman First Class"
           - "Airman"
-      - name: state
-        selector: "#state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
     - check:
       - name: response
         selector: "#response_y"
         value: Yes
         required: Yes
+    - javascript:
+      - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#side-search-btn"

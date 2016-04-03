@@ -54,9 +54,14 @@ contact_form:
         - name: sub-education
           selector: "#main form input[name='sub-education']"
           value: ENEWS.EDUCATION
+    - javascript:
+        - value: document.querySelector("#your_comments").value = document.querySelector("#your_comments").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#main form input[type='submit'][value='Submit']"
+    - find:
+        - selector: "body"
+          value: ".*Thanks for contacting us.*"
   success:
     headers:
       status: 200

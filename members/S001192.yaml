@@ -12,6 +12,7 @@ contact_form:
       - name: zip4
         selector: "#zip4"
         value: $ADDRESS_ZIP4
+        required: Yes
     - click_on:
       - value: "Go To Next Step"
         selector: "#submit"
@@ -102,6 +103,8 @@ contact_form:
           "Women's Issues": "WOMEN"
           "Welfare": "WEL"
           "Other Issues": "OTHER"
+    - javascript:
+      - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
       - value: "Send Email"
         selector: "#submit"

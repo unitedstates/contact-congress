@@ -1,95 +1,125 @@
 bioguide: W000187
 contact_form:
   method: post
-  action: /submit-contact.aspx
+  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
   steps:
-    - visit: "https://waters.house.gov/contact/contactform.htm"
+    - visit: "https://waters.house.gov/contact"
     - fill_in:
-        - name: required-prefix
-          selector: "form.zipform[name='contact'] input[name='required-prefix']"
-          value: $NAME_PREFIX
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
           required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: ".btn-success"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - fill_in:
         - name: required-first
-          selector: "form.zipform[name='contact'] input[name='required-first']"
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "form.zipform[name='contact'] input[name='required-last']"
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "form.zipform[name='contact'] input[name='required-address']"
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
         - name: required-city
-          selector: "form.zipform[name='contact'] input[name='required-city']"
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: zip5
-          selector: "form.zipform[name='contact'] input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: phone
-          selector: "form.zipform[name='contact'] input[name='phone']"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
           required: true
-        - name: required-email
-          selector: "form.zipform[name='contact'] input[name='required-email']"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: required-message
-          selector: "form.zipform[name='contact'] textarea[name='required-message']"
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-state
-          selector: "form.zipform[name='contact'] select[name='required-state']"
-          value: CA
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
           required: true
-          options: []
+          options: 
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
         - name: required-issue
-          selector: "form.zipform[name='contact'] select[name='required-issue']"
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AG
+            Agriculture: AGR
+            Animals: AN
+            Arts and Humanities: ART
             Banking and Finance: BANK
             Budget and Economy: BUD
-            Commerce: CMRC
+            Campaign Finance Reform: CFR
             Congress and Elections: CONG
             Crime Issues: CRIME
             Defense and Military: DEF
-            Education: ED
-            Employment: EMP
-            Energy: EN
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
             Environment: ENV
+            Federal Employees: FED
             Foreign Relations: FR
-            Government Affairs: GOV
-            Health: HE
+            Government Reform: GOV
+            Guns: GUN
+            Health: HEA
+            Homeland Security: HOM
             Housing and Urban Development: HUD
-            Immigration: IM
-            Interior: INT
+            Immigration: IMM
+            International Relations: INT
             Judiciary: JUD
             Labor: LAB
-            Medicare and related issues: MEDICARE
-            Postal Issues: POST
-            Public Works: PW
+            LGBT: LGBT
+            Post Office: POST
             Science and Technology: SCI
-            Social Security: SS
+            Social Issues: SOC
+            Senior Citizens: SENIORS
+            Social Security: SSEC
+            Social Services: "SOC.SERVICES"
             Taxes: TAX
-            Transportation: TRAN
-            Trade: TRD
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRADE
             Veterans: VET
-            Voting: VOTE
-            Welfare: WELF
+            "Women's Issues": WOMEN
+            Welfare: WEL
+            Other Issue: OTHER
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, please contact me": Y
+            "No, I wanted to voice my opinion": N
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "form[name=contact] input[type=submit][value='Send Email']"
-    - find:
-        - selector: "#ctl00_PageLink"
-          value: "THANKS"
+        - value: Send Email to Representative Waters
+          selector: ".btn-success"
   success:
     headers:
       status: 200
     body:
-      contains: Thanks for your interest.
+      contains: your message has been sent

@@ -49,6 +49,8 @@ contact_form:
             Welfare/Food Assistance: Welfare/Food Assistance
             Wildlife/Animal Welfare: Wildlife/Animal Welfare
             "Women's Issues": "Women's Issues"
+    - wait:
+        - value: 3
     - find:
         - selector: "#continue-form"
     - fill_in:
@@ -177,6 +179,8 @@ contact_form:
             "Airman": "Airman"
     - wait:
         - value: 1
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.pull-right
@@ -190,4 +194,3 @@ contact_form:
       status: 200
     body:
       contains: Thanks for taking the time to share your thoughts with me.
-

@@ -1,126 +1,165 @@
 bioguide: B001261
 contact_form:
-  method: POST
-  action: http://www.barrasso.senate.gov/public/index.cfm?FuseAction=ContactUs.ContactForm
+  method: post
+  action: ""
   steps:
-    - visit: http://www.barrasso.senate.gov/public/index.cfm?FuseAction=ContactUs.ContactForm
+    - visit: "http://www.barrasso.senate.gov/public/index.cfm/contact-form"
     - fill_in:
-      - name: FirstName
-        selector: "#FirstName"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: LastName
-        selector: "#LastName"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: Address1
-        selector: "#Address1"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: Address2
-        selector: "#Address2"
-        value: "$ADDRESS_STREET_2"
-      - name: City
-        selector: "#City"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: ZipCode
-        selector: "#ZipCode"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: HomePhone
-        selector: "#HomePhone"
-        value: "$PHONE"
-      - name: WorkPhone
-        selector: "#WorkPhone"
-        value: "$PHONE"
-      - name: Email
-        selector: "#Email"
-        value: "$EMAIL"
-        required: Yes
-      - name: EmailCheck
-        selector: "#EmailCheck"
-        value: "$EMAIL"
-        required: Yes
-      - name: IssueOther
-        selector: "#IssueOther"
-        value: "$SUBJECT"
-        required: Yes
-      - name: Message
-        selector: "#MyMessage"
-        value: "$MESSAGE"
-        required: Yes
+        - name: field_4676565C-0170-462B-9D63-700A776BF7AC
+          selector: "#field_4676565C-0170-462B-9D63-700A776BF7AC"
+          value: $NAME_FIRST
+          required: true
+        - name: field_45CB27BD-28A7-432D-995C-4F9527B29E9D
+          selector: "#field_45CB27BD-28A7-432D-995C-4F9527B29E9D"
+          value: $NAME_LAST
+          required: true
+        - name: field_651CA95E-DCED-412B-B6D8-27EB6EE75C74
+          selector: "#field_651CA95E-DCED-412B-B6D8-27EB6EE75C74"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_BE9F26D8-9ED2-4EB1-8A5C-47A179DBF22E
+          selector: "#field_BE9F26D8-9ED2-4EB1-8A5C-47A179DBF22E"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_96DF0C39-34D1-4ED1-9F8B-955307BC507E
+          selector: "#field_96DF0C39-34D1-4ED1-9F8B-955307BC507E"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_FF59BB0A-1685-421F-81B4-6299B34BF028
+          selector: "#field_FF59BB0A-1685-421F-81B4-6299B34BF028"
+          value: $EMAIL
+          required: true
+        - name: field_40C203DD-A384-408D-84AB-26D1471756D8
+          selector: "#field_40C203DD-A384-408D-84AB-26D1471756D8"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: Prefix
-        selector: "tr:nth-child(1) select"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          " Mr. ": "Mr."
-          " Mrs. ": "Mrs."
-          " Ms. ": "Ms."
-          " Mr. and Mrs. ": "Mr. and Mrs."
-          " Dr. ": "Dr."
-          " Dr. and Mr. ": "Dr. and Mr."
-          " Dr. and Mrs. ": "Dr. and Mrs."
-          " Reverend ": "Reverend"
-          " Sister ": "Sister"
-          " Pastor ": "Pastor"
-          " The Honorable ": "The Honorable"
-          " Representative ": "Representative"
-          " Senator ": "Senator"
-      - name: State
-        selector: "td:nth-child(2) .select"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: issue
-        selector: "td:nth-child(1) .select"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          - "Agriculture"
-          - "Animals"
-          - "Assistance with a Federal Agency"
-          - "Banking and Finance"
-          - "Budget"
-          - "Business"
-          - "Campaign Reform/Elections"
-          - "Congratulations Letter Request"
-          - "Congress"
-          - "Constitution"
-          - "Defense"
-          - "Economy"
-          - "Education"
-          - "Employment"
-          - "Energy"
-          - "Environment"
-          - "Federal Debt"
-          - "Flag Request"
-          - "Government"
-          - "Healthcare"
-          - "Human Rights"
-          - "Immigration"
-          - "Inauguration Tickets"
-          - "Indian Affairs"
-          - "Internet/Telecommunications"
-          - "Internship"
-          - "Labor"
-          - "Medicare"
-          - "Other"
-          - "President"
-          - "Public Lands"
-          - "Second Amendment & Gun Rights"
-          - "Social Security"
-          - "Taxes"
-          - "Tour Request"
-          - "Trade"
-          - "Veterans"
+        - name: field_5A60F5CF-85BC-4C81-ACD1-76B917030069
+          selector: "#field_5A60F5CF-85BC-4C81-ACD1-76B917030069"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mrs.
+            - Dr. and Mr.
+            - Reverend
+            - Sister
+            - Pastor
+            - The Honorable
+            - Representative
+            - Senator
+        - name: field_9458AEF1-68E8-4306-B9E3-72BA1BE4AFAD
+          selector: "#field_9458AEF1-68E8-4306-B9E3-72BA1BE4AFAD"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AA
+            - AE
+            - AP
+            - Alabama
+            - Alaska
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+        - name: field_F4E8E3BF-A702-450E-AD14-7C7922CD28F3
+          selector: "#field_F4E8E3BF-A702-450E-AD14-7C7922CD28F3"
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture
+            - Animals
+            - Assistance with a Federal Agency
+            - Banking and Finance
+            - Budget
+            - Business
+            - Campaign Reform/Elections
+            - Congratulations Letter Request
+            - Congress
+            - Constitution
+            - Defense
+            - Economy
+            - Education
+            - Employment
+            - Energy
+            - Environment
+            - Federal Debt
+            - Flag Request
+            - Foreign Relations
+            - Government
+            - Healthcare
+            - Human Rights
+            - Immigration
+            - Inauguration Tickets
+            - Indian Affairs
+            - Internet/Telecommunications
+            - Internship
+            - Labor
+            - Medicare
+            - President
+            - Public Lands
+            - Second Amendment and Gun Rights
+            - Social Security
+            - Taxes
+            - Tour Request
+            - Trade
+            - "Veterans\t\t"
+    - javascript:
+        - value: document.querySelector("#field_40C203DD-A384-408D-84AB-26D1471756D8").value = document.querySelector("#field_40C203DD-A384-408D-84AB-26D1471756D8").value.replace(/"/g, '');
     - click_on:
-      - value: Submit
-        selector: ".buttonContact:nth-child(1)"
+        - value: Submit
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting my office"
+      contains: Thank you

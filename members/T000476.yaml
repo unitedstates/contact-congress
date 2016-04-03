@@ -1,0 +1,293 @@
+bioguide: T000476
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.tillis.senate.gov/public/index.cfm/email-me"
+    - fill_in:
+        - name: field_554EB441-1332-47D8-B817-87A030531FCC
+          selector: "#field_554EB441-1332-47D8-B817-87A030531FCC"
+          value: $NAME_FIRST
+          required: true
+        - name: field_77689247-ECBE-4E25-97D6-62F8A979E226
+          selector: "#field_77689247-ECBE-4E25-97D6-62F8A979E226"
+          value: $NAME_LAST
+          required: true
+        - name: field_47F809FC-8DE7-4768-95BE-6B94DCC7C8C8
+          selector: "#field_47F809FC-8DE7-4768-95BE-6B94DCC7C8C8"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_965E8165-21F8-49A4-AAD0-E72A361EC2DB
+          selector: "#field_965E8165-21F8-49A4-AAD0-E72A361EC2DB"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_F35EA2FD-C92A-4FFC-9CE0-637B8AEECB54
+          selector: "#field_F35EA2FD-C92A-4FFC-9CE0-637B8AEECB54"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_64322B9D-7F15-47DA-B656-9843D7D04866
+          selector: "#field_64322B9D-7F15-47DA-B656-9843D7D04866"
+          value: $PHONE
+          required: true
+        - name: field_5C0C729A-D702-46F1-9821-7DD7E565E136
+          selector: "#field_5C0C729A-D702-46F1-9821-7DD7E565E136"
+          value: $EMAIL
+          required: true
+        - name: field_E2D2548D-F3B7-48F7-9BD0-E29F4ED82A43
+          selector: "#field_E2D2548D-F3B7-48F7-9BD0-E29F4ED82A43"
+          value: $SUBJECT
+          required: true
+        - name: field_279EFB03-F78D-4924-8599-F04AEB99A7A6
+          selector: "#field_279EFB03-F78D-4924-8599-F04AEB99A7A6"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: field_700BE99B-C12A-4836-BD02-D87FCD7ADECD
+          selector: "#field_700BE99B-C12A-4836-BD02-D87FCD7ADECD"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mrs.
+            - "Mr. and Dr. "
+            - Reverend
+            - Sister
+            - Pastor
+            - Rabbi
+            - The Honorable
+            - Representative
+            - Senator
+            - Air Force - General
+            - Air Force - Lieutenant General
+            - Air Force - Major General
+            - Air Force - Brigadier General
+            - Air Force - Colonel
+            - Air Force - Lieutenant Colonel
+            - Air Force - Major
+            - Air Force - Captain
+            - Air Force - First Lieutenant
+            - Air Force - Second Lieutenant
+            - Air Force - Chief Master Sergeant of the Air Force
+            - Air Force - Command Chief Master Sergeant
+            - Air Force - First Sergeant (E-9)
+            - Air Force - Chief Master Sergeant
+            - Air Force - First Sergeant (E-8)
+            - Air Force - Senior Master Sergeant
+            - Air Force - First Sergeant (E-7)
+            - Air Force - Master Sergeant
+            - Air Force - Technical Sergeant
+            - Air Force - Staff Sergeant
+            - Air Force - Senior Airman
+            - Air Force - Airman First Class
+            - Air Force - Airman
+            - Air Force - Airman Basic
+            - Army - General
+            - Army - Lieutenant General
+            - Army - Major General
+            - Army - Brigadier General
+            - Army - Colonel
+            - Army - Lieutenant Colonel
+            - Army - Major
+            - Army - Captain
+            - Army - First Lieutenant
+            - Army - Second Lieutenant
+            - Army - Chief Warrant Officer - 5
+            - Army - Chief Warrant Officer - 4
+            - Army - Chief Warrant Officer - 3
+            - Army - Chief Warrant Officer - 2
+            - Army - Warrant Officer
+            - Army - Sergeant Major of the Army
+            - Army - Command Sergeant Major
+            - Army - Sergeant Major
+            - Army - First Sergeant
+            - Army - Master Sergeant
+            - Army - Sergeant First Class
+            - Army - Staff Sergeant
+            - Army - Sergeant
+            - Army - Corporal
+            - Army - Specialist
+            - Army - Private First Class
+            - Army - Private (E-2)
+            - Army - Private
+            - Coast Guard - Admiral
+            - Coast Guard - Vice Admiral
+            - "Coast Guard - Rear Admiral, Upper Half"
+            - "Coast Guard - Rear Admiral, Lower Half"
+            - Coast Guard - Captain
+            - Coast Guard - Commander
+            - Coast Guard - Lieutenant Commander
+            - Coast Guard - Lieutenant
+            - Coast Guard - Lieutenant Junior Grade
+            - Coast Guard - Ensign
+            - Coast Guard - Chief Warrant Officer - 4
+            - Coast Guard - Chief Warrant Officer - 3
+            - Coast Guard - Chief Warrant Officer - 2
+            - Coast Guard - Master Chief Petty Officer of the Coast Guard
+            - Coast Guard- Master Chief Petty Officer
+            - Coast Guard - Senior Chief Petty Officer
+            - Coast Guard - Chief Petty Officer
+            - Coast Guard - Petty Officer First Class
+            - Coast Guard - Petty Officer Second Class
+            - Coast Guard - Petty Officer Third Class
+            - Coast Guard - Seaman
+            - Coast Guard - Seaman Apprentice
+            - Coast Guard - Seaman Recruit
+            - Marine Corps - General
+            - Marine Corps - Lieutenant General
+            - Marine Corps - Major General
+            - Marine Corps - Brigadier General
+            - Marine Corps - Colonel
+            - Marine Corps - Lieutenant Colonel
+            - Marine Corps - Major
+            - Marine Corps - Captain
+            - Marine Corps - First Lieutenant
+            - Marine Corps - Second Lieutenant
+            - Marine Corps - Chief Warrant Officer - 5
+            - Marine Corps - Chief Warrant Officer - 4
+            - Marine Corps - Chief Warrant Officer - 3
+            - Marine Corps - Chief Warrant Officer - 2
+            - Marine Corps - Warrant Officer
+            - Marine Corps - Sergeant Major of the Marine Corps
+            - Marine Corps - Sergeant Major
+            - Marine Corps - Master Gunnery Sergeant
+            - Marine Corps - First Sergeant
+            - Marine Corps - Master Sergeant
+            - Marine Corps - Gunnery Sergeant
+            - Marine Corps - Staff Sergeant
+            - Marine Corps - Sergeant
+            - Marine Corps - Corporal
+            - Marine Corps - Lance Corporal
+            - Marine Corps - Private First Class
+            - Marine Corps - Private
+            - Navy - Admiral
+            - Navy - Vice Admiral
+            - "Navy - Rear Admiral, Upper Half"
+            - "Navy - Rear Admiral, Lower Half"
+            - Navy - Captain
+            - Navy - Commander
+            - Navy - Lieutenant Commander
+            - Navy - Lieutenant
+            - Navy - Lieutenant Junior Grade
+            - Navy - Ensign
+            - Navy - Chief Warrant Officer - 4
+            - Navy - Chief Warrant Officer - 3
+            - Navy - Chief Warrant Officer - 2
+            - Navy - Master Chief Petty Officer of the Navy
+            - Navy - Master Chief Petty Officer
+            - Navy - Senior Chief Petty Officer
+            - Navy - Chief Petty Officer
+            - Navy - Petty Officer First Class
+            - Navy - Petty Officer Second Class
+            - Navy - Petty Officer Third Class
+            - Navy - Seaman Apprentice
+            - Navy - Seaman
+            - Navy - Seaman Recruit
+        - name: field_575CA444-CC6F-441A-BB35-41F458536AD0
+          selector: "#field_575CA444-CC6F-441A-BB35-41F458536AD0"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "----Military---- ": "----Military---- "
+            "AA ": AA
+            "AE ": AE
+            "AP ": AP
+            "----States---- ": " "
+            "Alabama ": AL
+            "Alaska ": AK
+            "Arizona ": AZ
+            "Arkansas ": AR
+            "California ": CA
+            "Colorado ": CO
+            "Connecticut ": CT
+            "Delaware ": DE
+            "District of Columbia ": DC
+            "Florida ": FL
+            "Georgia ": GA
+            "Hawaii ": HI
+            "Idaho ": ID
+            "Illinois ": IL
+            "Indiana ": IN
+            "Iowa ": IA
+            "Kansas ": KS
+            "Kentucky ": KY
+            "Louisiana ": LA
+            "Maine ": ME
+            "Maryland ": MD
+            "Massachusetts ": MA
+            "Michigan ": MI
+            "Minnesota ": MN
+            "Mississippi ": MS
+            "Missouri ": MO
+            "Montana ": MT
+            "Nebraska ": NE
+            "Nevada ": NV
+            "New Hampshire ": NH
+            "New Jersey ": NJ
+            "New Mexico ": NM
+            "New York ": NY
+            "North Carolina ": NC
+            "North Dakota ": ND
+            "Ohio ": OH
+            "Oklahoma ": OK
+            "Oregon ": OR
+            "Pennsylvania ": PA
+            "Rhode Island ": RI
+            "South Carolina ": SC
+            "South Dakota ": SD
+            "Tennessee ": TN
+            "Texas ": TX
+            "Utah ": UT
+            "Vermont ": VT
+            "Virginia ": VA
+            "Washington ": WA
+            "West Virginia ": WV
+            "Wisconsin ": WI
+            Wyoming: WY
+        - name: field_957A77F6-59C6-4500-8A3B-9AE76484F733
+          selector: "#field_957A77F6-59C6-4500-8A3B-9AE76484F733"
+          value: $TOPIC
+          required: true
+          options:
+            Aging: SEN
+            Animal Welfare: ANI
+            Banking: BNK
+            Education: EDU
+            Energy: ENE
+            Environment: ENV
+            Foreign Affairs: FOF
+            Government Affairs: GAF
+            Health: HEA
+            Homeland Security: HOM
+            Housing: HOU
+            Immigration: IMM
+            Interior: INR
+            Judiciary: JUD
+            Justice/Crime: JUS
+            Labor: LAB
+            Military: MIL
+            Nutrition: NTR
+            Pensions: PEN
+            Science and Space: SCI
+            Second Amendment: SEC
+            Small Business: BUS
+            Social Issues: SOC
+            Social Security: SSEC
+            Taxes: TAX
+            Trade: TRD
+            Transportation: TRA
+            Veterans: VET
+            Welfare: WEL
+    - javascript:
+        - value: document.querySelector("#field_279EFB03-F78D-4924-8599-F04AEB99A7A6").value = document.querySelector("#field_279EFB03-F78D-4924-8599-F04AEB99A7A6").value.replace(/"/g, '');
+    - click_on:
+        - value: Submit
+          selector: input.btn.btn-primary
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

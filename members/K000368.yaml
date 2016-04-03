@@ -4,11 +4,10 @@ contact_form:
   action: "/htbin/formproc/contact/newsletter%26pass"
   steps:
     - visit: "https://kirkpatrick.house.gov/contact/email-me"
-    - find:
-        - selector: "#form-enews-cancel"
     - click_on:
-        - value: No thanks
-          selector: "#form-enews-cancel"
+        - selector: "#close-enews-popup"
+    - wait:
+        - value: 1
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -22,12 +21,11 @@ contact_form:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
     - find:
-        - selector: "#form-enews-cancel"
-    - click_on:
-        - value: No thanks
-          selector: "#form-enews-cancel"
-    - find:
         - selector: "#required-prefix"
+    - click_on:
+        - selector: "#close-enews-popup"
+    - wait:
+        - value: 1
     - fill_in:
         - name: required-prefix
           selector: "#required-prefix"
@@ -52,10 +50,6 @@ contact_form:
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
-          required: true
-        - name: required-state
-          selector: "#required-state"
-          value: AZ
           required: true
         - name: required-valid-email
           selector: "#required-valid-email"
@@ -122,7 +116,7 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "TRUE"
-          required: false
+          required: true
           options:
             "Yes, please contact me": "TRUE"
             "No, I wanted to voice my opinion": "FALSE"
@@ -130,6 +124,8 @@ contact_form:
         - name: subscribe
           selector: "#subscribe"
           value: "Y"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - selector: "input[name='submit'][value='Send Email']"
   success:

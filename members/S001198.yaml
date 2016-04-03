@@ -1,0 +1,294 @@
+bioguide: S001198
+contact_form:
+  method: post
+  action: "http://www.sullivan.senate.gov/contact/email"
+  steps:
+    - visit: "http://www.sullivan.senate.gov/contact/email"
+    - fill_in:
+        - name: input_34F91EAB-4040-F985-52CD-81AE445C8C28
+          selector: "#input-34F91EAB-4040-F985-52CD-81AE445C8C28"
+          value: $NAME_FIRST
+          required: true
+        - name: input_34F91D9B-4040-F985-52CD-2BBDF2DA8EF0
+          selector: "#input-34F91D9B-4040-F985-52CD-2BBDF2DA8EF0"
+          value: $NAME_LAST
+          required: true
+        - name: input_34F91ED4-4040-F985-52CD-C3FA09EEEFCE
+          selector: "#input-34F91ED4-4040-F985-52CD-C3FA09EEEFCE"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_34F91F3D-4040-F985-52CD-3F9525D2040D
+          selector: "#input-34F91F3D-4040-F985-52CD-3F9525D2040D"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_34F91DAF-4040-F985-52CD-D8C0BD03571F
+          selector: "#input-34F91DAF-4040-F985-52CD-D8C0BD03571F"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_34F91EBF-4040-F985-52CD-4B44900C300D
+          selector: "#input-34F91EBF-4040-F985-52CD-4B44900C300D"
+          value: $PHONE
+          required: true
+        - name: input_34F91F10-4040-F985-52CD-5CD1041AD005
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: input_34F91DEC-4040-F985-52CD-2C02CC403B72
+          selector: "#input-34F91DEC-4040-F985-52CD-2C02CC403B72"
+          value: $EMAIL
+          required: true
+        - name: input_366BBEB4-4040-F985-52CD-93A060BA3C65
+          selector: "#input-366BBEB4-4040-F985-52CD-93A060BA3C65"
+          value: $SUBJECT
+          required: true
+        - name: input_367803F9-4040-F985-52CD-372C846843B5
+          selector: "#input-367803F9-4040-F985-52CD-372C846843B5"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: input_34F91F24-4040-F985-52CD-C65030493AD6
+          selector: "#input-34F91F24-4040-F985-52CD-C65030493AD6"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Professor
+            - Dr.
+            - Father
+            - Sister
+            - Rabbi
+            - Reverend
+            - Air Force - General
+            - Air Force - Lieutenant General
+            - Air Force - Major General
+            - Air Force - Brigadier General
+            - Air Force - Colonel
+            - Air Force - Lieutenant Colonel
+            - Air Force - Major
+            - Air Force - Captain
+            - Air Force - First Lieutenant
+            - Air Force - Second Lieutenant
+            - Air Force - Chief Master Sergeant of the Air Force
+            - Air Force - Command Chief Master Sergeant
+            - Air Force - First Sergeant (E-9)
+            - Air Force - Chief Master Sergeant
+            - Air Force - First Sergeant (E-8)
+            - Air Force - Senior Master Sergeant
+            - Air Force - First Sergeant (E-7)
+            - Air Force - Master Sergeant
+            - Air Force - Technical Sergeant
+            - Air Force - Staff Sergeant
+            - Air Force - Senior Airman
+            - Air Force - Airman First Class
+            - Air Force - Airman
+            - Air Force - Airman Basic
+            - Army - General
+            - Army - Lieutenant General
+            - Army - Major General
+            - Army - Brigadier General
+            - Army - Colonel
+            - Army - Lieutenant Colonel
+            - Army - Major
+            - Army - Captain
+            - Army - First Lieutenant
+            - Army - Second Lieutenant
+            - Army - Chief Warrant Officer - 5
+            - Army - Chief Warrant Officer - 4
+            - Army - Chief Warrant Officer - 3
+            - Army - Chief Warrant Officer - 2
+            - Army - Warrant Officer
+            - Army - Sergeant Major of the Army
+            - Army - Command Sergeant Major
+            - Army - Sergeant Major
+            - Army - First Sergeant
+            - Army - Master Sergeant
+            - Army - Sergeant First Class
+            - Army - Staff Sergeant
+            - Army - Sergeant
+            - Army - Corporal
+            - Army - Specialist
+            - Army - Private First Class
+            - Army - Private (E-2)
+            - Army - Private
+            - Coast Guard - Admiral
+            - Coast Guard - Vice Admiral
+            - "Coast Guard - Rear Admiral, Upper Half"
+            - "Coast Guard - Rear Admiral, Lower Half"
+            - Coast Guard - Captain
+            - Coast Guard - Commander
+            - Coast Guard - Lieutenant Commander
+            - Coast Guard - Lieutenant
+            - Coast Guard - Lieutenant Junior Grade
+            - Coast Guard - Ensign
+            - Coast Guard - Chief Warrant Officer - 4
+            - Coast Guard - Chief Warrant Officer - 3
+            - Coast Guard - Chief Warrant Officer - 2
+            - Coast Guard - Master Chief Petty Officer of the Coast Guard
+            - Coast Guard - Master Chief Petty Officer
+            - Coast Guard - Senior Chief Petty Officer
+            - Coast Guard - Chief Petty Officer
+            - Coast Guard - Petty Officer First Class
+            - Coast Guard - Petty Officer Second Class
+            - Coast Guard - Petty Officer Third Class
+            - Coast Guard - Seaman
+            - Coast Guard - Seaman Apprentice
+            - Coast Guard - Seaman Recruit
+            - Marine Corps - General
+            - Marine Corps - Lieutenant General
+            - Marine Corps - Major General
+            - Marine Corps - Brigadier General
+            - Marine Corps - Colonel
+            - Marine Corps - Lieutenant Colonel
+            - Marine Corps - Major
+            - Marine Corps - Captain
+            - Marine Corps - First Lieutenant
+            - Marine Corps - Second Lieutenant
+            - Marine Corps - Chief Warrant Officer - 5
+            - Marine Corps - Chief Warrant Officer - 4
+            - Marine Corps - Chief Warrant Officer - 3
+            - Marine Corps - Chief Warrant Officer - 2
+            - Marine Corps - Warrant Officer
+            - Marine Corps - Sergeant Major of the Marine Corps
+            - Marine Corps - Sergeant Major
+            - Marine Corps - Master Gunnery Sergeant
+            - Marine Corps - First Sergeant
+            - Marine Corps - Master Sergeant
+            - Marine Corps - Gunnery Sergeant
+            - Marine Corps - Staff Sergeant
+            - Marine Corps - Sergeant
+            - Marine Corps - Corporal
+            - Marine Corps - Lance Corporal
+            - Marine Corps - Private First Class
+            - Marine Corps - Private
+            - Navy - Admiral
+            - Navy - Vice Admiral
+            - "Navy - Rear Admiral, Upper Half"
+            - "Navy - Rear Admiral, Lower Half"
+            - Navy - Captain
+            - Navy - Commander
+            - Navy - Lieutenant Commander
+            - Navy - Lieutenant
+            - Navy - Lieutenant Junior Grade
+            - Navy - Ensign
+            - Navy - Chief Warrant Officer - 4
+            - Navy - Chief Warrant Officer - 3
+            - Navy - Chief Warrant Officer - 2
+            - Navy - Master Chief Petty Officer of the Navy
+            - Navy - Master Chief Petty Officer
+            - Navy - Senior Chief Petty Officer
+            - Navy - Chief Petty Officer
+            - Navy - Petty Officer First Class
+            - Navy - Petty Officer Second Class
+            - Navy - Petty Officer Third Class
+            - Navy - Seaman Apprentice
+            - Navy - Seaman
+            - Navy - Seaman Recruit
+        - name: input_34F91D5A-4040-F985-52CD-20577F8880CF
+          selector: "#input-34F91D5A-4040-F985-52CD-20577F8880CF"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+        - name: input_3663600D-4040-F985-52CD-8F1E7A767A1F
+          selector: "#input-3663600D-4040-F985-52CD-8F1E7A767A1F"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: "AB\t"
+            Armed Forces: AF
+            Agriculture: AG
+            "Arts & Humanities": AR
+            Banking: BA
+            Budget: BU
+            "Crime & Law Enforcement": CR
+            Economic Development: EC
+            Education: ED
+            Elections: EL
+            Energy: EN
+            Ethics: ET
+            Environment: EV
+            Foreign Affairs: FA
+            "Gun Control\t": GC
+            Government: GO
+            Health Care: HC
+            Housing: HO
+            Immigration: IM
+            Judiciary/Judicial: JU
+            Labor: LA
+            Natural Resources: NR
+            Postal Service: PO
+            Small Business: SB
+            "Science & Technology": SC
+            Social Security: SS
+            Telecommunications: TC
+            Transportation: TN
+            Tourism: TO
+            Trade: TR
+            Taxes: TX
+            Veterans: VT
+            "Women & Children": WC
+    - javascript:
+        - value: document.querySelector("#input-367803F9-4040-F985-52CD-372C846843B5").value = document.querySelector("#input-367803F9-4040-F985-52CD-372C846843B5").value.replace(/"/g, '');
+    - click_on:
+        - value: Submit
+          selector: input.btn
+    - find:
+        - selector: "h1"
+          value: "Thank You"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank You

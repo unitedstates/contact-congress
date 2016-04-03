@@ -44,19 +44,12 @@ contact_form:
             - Mrs.
             - "Mr. & Mrs."
             - Dr.
-        - name: required-state
-          selector: "#contactForm select[name='required-state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options: []
         - name: required-issue
           selector: "#contactForm select[name='required-issue']"
           value: $TOPIC
           required: true
           options:
-            Abortion: "AB\t"
             Adoption/Child Care and Support: ADOPT
-            Agriculture: "AG\t"
             Animal Rights: ANIMALS
             Arts and Humanities: ART
             Banking/Finance: BANKING
@@ -103,12 +96,13 @@ contact_form:
             Science and Technology: SCI
             Social Security Administration: SSA
             Taxes: TAX
-            Thank You for Support: "THANKS\t"
             Tour Request: TOUR
             "Transportation & Infrastructure": TRAN
             Veterans Affairs: VET
             Welfare: WELF
             Youth: YOUTH
+    - javascript:
+        - value: document.querySelector("#contactForm textarea[name='required-message']").value = document.querySelector("#contactForm textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[type='submit'][value='Send Email']"

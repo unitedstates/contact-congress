@@ -1,147 +1,110 @@
 bioguide: C001069
 contact_form:
   method: post
-  action: /email-joe1/
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://courtney.house.gov/email-joe1"
+    - visit: "https://courtney.house.gov/contact/email"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
-          value: $NAME_FIRST
-          required: true
-        - name: lastname
-          selector: "#req_lastname"
-          value: $NAME_LAST
-          required: true
-        - name: street
-          selector: "#req_street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#req_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
+        - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
-        - name: emailaddress
-          selector: "#req_email"
+    - click_on:
+        - selector: button.btn.btn-success
+    - find:
+        - selector: "#required-first"
+    - fill_in:
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
-          required: false
-        - name: subject
-          selector: "#req_subject"
+          required: true
+        - name: required-subject
+          selector: "#required-subject"
           value: $SUBJECT
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
+        - name: required-prefix
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
+        - name: required-issue
+          selector: "#required-issue"
+          value: $TOPIC
           required: true
           options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-        - name: response
-          selector: "#response"
-          value: "Yes"
-          required: false
+            Agriculture: AGR
+            Defense and Homeland Security: DEF
+            Education Policy: EDU
+            Energy and the Environment: ENV
+            Government Oversight: GOV
+            Gun Control Policy: GUN
+            Healthcare and Retirement: HEA
+            Immigration: IMM
+            Judicial: JUD
+            Labor: LABOR
+            "Science, Technology, Telecommunications, and Space": SCIENCE
+            "Social, Judicial, and Civil Rights Policy": SOC
+            Economic and Tax Policy: ECO
+            Transportation and Infrastructure: TRAN
+            International Affairs and Trade: INTL
+            Veterans Affairs: VET
+            Welfare: WEL
+            Casework: CASEWORK
+            Tour and Flag Requests: FLAG
+            Other Issues: MISC
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
           options:
-            "Yes": "Yes"
-            "No": "No"
-    - uncheck:
-        - name: newsletter
-          selector: "#newsletter"
-          value: ENEWS.SUBSCRIBE
-        - name: newsletter2
-          selector: "#newsletter2"
-          value: ENEWS.SENIORS
-        - name: newsletter3
-          selector: "#newsletter3"
-          value: ENEWS.GRANTS
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - selector: button.btn.btn-success
+    - find:
+        - selector: ".data"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted
+      contains: your message has been sent

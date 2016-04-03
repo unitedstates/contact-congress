@@ -17,10 +17,10 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - find:
-        - selector: "#contactForm"
+        - selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
+        - name: required-prefix
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
         - name: required-first
@@ -35,10 +35,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -63,14 +59,13 @@ contact_form:
           options:
             "Yes": "Y"
             "No": "N"
-        - name: required-affl1
-          selector: "#required-affl1"
-          value: "No"
+        - name: subscribe
+          selector: "#subscribe"
+          value: "False"
           required: true
           options:
-            "Yes": EMAIL.OPTIN
-            "No": "No"
-            I already receive it: EMAIL.OPTIN
+            "Yes": "True"
+            "No": "False"
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -107,6 +102,8 @@ contact_form:
             Transportation: WEBTRA
             Trade: WEBTRAD
             Veterans Affairs: WEBVET
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"
@@ -114,4 +111,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:" 
+      contains: The following information has been submitted

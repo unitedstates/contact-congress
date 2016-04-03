@@ -192,6 +192,8 @@ contact_form:
           "\n\t\t\t\t\t\t\tWelfare\n\t\t\t\t\t\t": "Welfare"
           "\n\t\t\t\t\t\t\tWolves\n\t\t\t\t\t\t": "Wolves"
           "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
+    - javascript:
+      - value: document.querySelector(".textarea").value = document.querySelector(".textarea").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#thisForm input[name='Submit']"

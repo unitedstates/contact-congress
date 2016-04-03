@@ -1,91 +1,76 @@
 bioguide: J000293
 contact_form:
-  method: POST
-  action: http://www.ronjohnson.senate.gov/public/index.cfm/contact
+  method: post
+  action: ""
   steps:
-    - visit: http://www.ronjohnson.senate.gov/public/index.cfm/contact
+    - visit: "https://www.ronjohnson.senate.gov/public/index.cfm/email-the-senator"
     - fill_in:
-      - name: field_252e85f4-2fe5-4d71-8e62-9df6919d1ab8
-        selector: "#field_252e85f4-2fe5-4d71-8e62-9df6919d1ab8"
-        value: "$NAME_PREFIX"
-      - name: field_ac036d04-8d06-4d4c-bcad-4c0d66c7c34e
-        selector: "#field_ac036d04-8d06-4d4c-bcad-4c0d66c7c34e"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_7eef1fe1-3d81-4d19-a76f-cf33c2a30826
-        selector: "#field_7eef1fe1-3d81-4d19-a76f-cf33c2a30826"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_94d4b402-7674-450b-90a6-0078f36313ff
-        selector: "#field_94d4b402-7674-450b-90a6-0078f36313ff"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_8a8a4b80-5131-4ec0-8148-75efe5075229
-        selector: "#field_8a8a4b80-5131-4ec0-8148-75efe5075229"
-        value: "$ADDRESS_STREET_2"
-      - name: field_7f0b420d-88de-4310-973f-0d16736688cc
-        selector: "#field_7f0b420d-88de-4310-973f-0d16736688cc"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_acf15530-9220-49be-86f4-5e8d51c49324
-        selector: "#field_acf15530-9220-49be-86f4-5e8d51c49324"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_beb949a7-79b1-4a0e-80c2-2275c551866a
-        selector: "#field_beb949a7-79b1-4a0e-80c2-2275c551866a"
-        value: "$PHONE"
-      - name: field_4a5576fa-7ed1-4ad0-8f54-e50fd425edeb
-        selector: "#field_4a5576fa-7ed1-4ad0-8f54-e50fd425edeb"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_fe704981-7f09-46c3-884f-1e10c4de29ee
-        selector: "#field_fe704981-7f09-46c3-884f-1e10c4de29ee"
-        value: "$SUBJECT"
-        required: Yes
-      - name: field_24b273cc-4761-49a6-ac70-cbcacccad0da
-        selector: "#field_24b273cc-4761-49a6-ac70-cbcacccad0da"
-        value: "$MESSAGE"
-        required: Yes
+        - name: field_AC036D04-8D06-4D4C-BCAD-4C0D66C7C34E
+          selector: "#field_AC036D04-8D06-4D4C-BCAD-4C0D66C7C34E"
+          value: $NAME_FIRST
+          required: true
+        - name: field_7EEF1FE1-3D81-4D19-A76F-CF33C2A30826
+          selector: "#field_7EEF1FE1-3D81-4D19-A76F-CF33C2A30826"
+          value: $NAME_LAST
+          required: true
+        - name: field_94D4B402-7674-450B-90A6-0078F36313FF
+          selector: "#field_94D4B402-7674-450B-90A6-0078F36313FF"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_7F0B420D-88DE-4310-973F-0D16736688CC
+          selector: "#field_7F0B420D-88DE-4310-973F-0D16736688CC"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_ACF15530-9220-49BE-86F4-5E8D51C49324
+          selector: "#field_ACF15530-9220-49BE-86F4-5E8D51C49324"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_4A5576FA-7ED1-4AD0-8F54-E50FD425EDEB
+          selector: "#field_4A5576FA-7ED1-4AD0-8F54-E50FD425EDEB"
+          value: $EMAIL
+          required: true
+        - name: field_FE704981-7F09-46C3-884F-1E10C4DE29EE
+          selector: "#field_FE704981-7F09-46C3-884F-1E10C4DE29EE"
+          value: $SUBJECT
+          required: true
+        - name: field_24B273CC-4761-49A6-AC70-CBCACCCAD0DA
+          selector: "#field_24B273CC-4761-49A6-AC70-CBCACCCAD0DA"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: field_f062734c-8f9c-4e35-8a6d-e8c120afcdf8
-        selector: "#field_f062734c-8f9c-4e35-8a6d-e8c120afcdf8"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: field_f33b2309-b7af-40ca-aaf8-e40952fff259
-        selector: "#field_f33b2309-b7af-40ca-aaf8-e40952fff259"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          "Casework (Help With a Federal Agency)": "CASEWORK"
-          "Agriculture": "AGR"
-          "Budget": "BUD"
-          "Defense": "DEF"
-          "Economy & Jobs": "ECO"
-          "Education and Labor": "EDU"
-          "Energy": "ENE"
-          "Environmental": "ENV"
-          "Governmental Reform": "GOV"
-          "Health": "HEA"
-          "Homeland Security": "HOM"
-          "Immigration": "IMM"
-          "International Relations": "INT"
-          "Judiciary": "JUD"
-          "Social Issues": "SOC"
-          "Social Security": "SSEC"
-          "Taxes and Trade": "TAX"
-          "Telecommunications": "TEL"
-          "Transportation": "TRA"
-          "Veterans": "VET"
-          "Welfare": "WEL"
+        - name: field_F33B2309-B7AF-40CA-AAF8-E40952FFF259
+          selector: "#field_F33B2309-B7AF-40CA-AAF8-E40952FFF259"
+          value: $TOPIC
+          required: true
+          options:
+            Casework (Help With a Federal Agency): CASEWORK
+            Agriculture: AGR
+            Budget: BUD
+            Defense: DEF
+            "Economy & Jobs": ECO
+            Education and Labor: EDU
+            Energy: ENE
+            Environmental: ENV
+            Foreign Relations: INT
+            Health: HEA
+            Homeland Security: HOM
+            Immigration: IMM
+            Judiciary: JUD
+            Social Issues: SOC
+            Social Security: SSEC
+            Taxes and Trade: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Veterans: VET
+            Welfare: WEL
+            Other: OTH
+    - javascript:
+        - value: document.querySelector("#field_24B273CC-4761-49A6-AC70-CBCACCCAD0DA").value = document.querySelector("#field_24B273CC-4761-49A6-AC70-CBCACCCAD0DA").value.replace(/"/g, '');
     - click_on:
-      - value: Submit
-        selector: ".buttonHolder input"
-    - find:
-      - selector: "span"
-        value: "THANK YOU!"
+        - value: Submit
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for sharing your opinions and concerns with me"
+      contains: Thank you

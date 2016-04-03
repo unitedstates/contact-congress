@@ -1,132 +1,116 @@
 bioguide: G000386
 contact_form:
   method: post
-  action: /constituents/questions-and-comments
+  action: /form_process/questions-and-comments-thank-you
   steps:
     - visit: "http://www.grassley.senate.gov/constituents/questions-and-comments"
     - fill_in:
-        - name: "submitted[first_name]"
-          selector: "#edit-submitted-first-name"
+        - name: first
+          selector: "#first"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[last_name]"
-          selector: "#edit-submitted-last-name"
+        - name: last
+          selector: "#last"
           value: $NAME_LAST
           required: true
-        - name: "submitted[address]"
-          selector: "#edit-submitted-address"
-          value: $ADDRESS_STREET
-          required: true
-        - name: "submitted[address_2]"
-          selector: "#edit-submitted-address-2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: "submitted[city]"
-          selector: "#edit-submitted-city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: "submitted[zip]"
-          selector: "#edit-submitted-zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: "submitted[email]"
-          selector: "#edit-submitted-email"
+        - name: Email
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: "submitted[home_phone]"
-          selector: "#edit-submitted-home-phone"
+        - selector: "#email2"
+          value: $EMAIL
+          required: true
+        - name: addr1
+          selector: "#addr1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: addr2
+          selector: "#addr2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#phone"
           value: $PHONE
           required: false
-        - name: "submitted[subject]"
-          selector: "#edit-submitted-subject"
+        - name: subject
+          selector: "#subject"
           value: $SUBJECT
           required: true
-        - name: "submitted[message]"
-          selector: "#edit-submitted-message"
+        - name: message
+          selector: "#message"
           value: $MESSAGE
           required: true
     - select:
-        - name: "submitted[prefix]"
-          selector: "#edit-submitted-prefix"
+        - name: prefix
+          selector: "#prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "1"
-            Mrs.: "2"
-            Ms.: "3"
-            Miss: "4"
-            Dr.: "5"
-            Rev.: "6"
-            Mr. and Mrs.: "7"
-            Sister: "8"
-        - name: "submitted[state]"
-          selector: "#edit-submitted-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+            - Rev.
+            - Mr. and Mrs.
+            - Sister
+        - name: issue
+          selector: "#issue"
+          value: $TOPIC
           required: true
           options:
-            Alabama: AL
-            Alaska: AK
-            American Samoa: AS
-            Arizona: AZ
-            Arkansas: AR
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            Delaware: DE
-            District of Columbia: DC
-            Florida: FL
-            Georgia: GA
-            Guam: GU
-            Hawaii: HI
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Iowa: IA
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Maine: ME
-            Marshall Islands: MH
-            Maryland: MD
-            Massachusetts: MA
-            Michigan: MI
-            Minnesota: MN
-            Mississippi: MS
-            Missouri: MO
-            Montana: MT
-            Nebraska: NE
-            Nevada: NV
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            New York: NY
-            North Carolina: NC
-            North Dakota: ND
-            Northern Marianas Islands: MP
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Palau: PW
-            Pennsylvania: PA
-            Puerto Rico: PR
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Vermont: VT
-            Virgin Islands: VI
-            Virginia: VA
-            Washington: WA
-            West Virginia: WV
-            Wisconsin: WI
-            Wyoming: WY
+            "Adoption/Foster Care": AD
+            "Agriculture": AGR
+            Animal: ANI
+            Banking: BA
+            Campaign Finance: CF
+            Consumer Protection: CP
+            Defense: DEF
+            Education: EDU
+            Energy: ENE
+            Environmental: ENV
+            Federal Government Employees Operations: GOV
+            Health: HEA
+            Homeland Security: HOM
+            Housing: HOU
+            Indian Affairs: IA
+            Immigration: IMM
+            International Relations: INT
+            Job Creation - Economy: EC
+            Judicial Nominees: NM
+            Judiciary (civil): JUD
+            Judiciary (crime): CR
+            Labor: LAB
+            Life Issues: AB
+            Medicare and Medicaid: MED
+            Postal Service: PS
+            Science/NASA: SC
+            Social Security: SSEC
+            Taxes: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRD
+            Veterans: VET
+            Welfare: WEL
+            Other: OT
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send Message
-          selector: "#edit-submit"
+          selector: "form.fullform.validate input[type='submit'][value='Send Message']"
+    - find:
+        - selector: "#page-title"
+          value: Thank You
   success:
     headers:
       status: 200
     body:
-      contains: Thanks for your submission
+      contains: Thank You

@@ -4,6 +4,8 @@ contact_form:
   action: http://www.whitehouse.senate.gov/contact
   steps:
     - visit: http://www.whitehouse.senate.gov/contact
+    - javascript:
+      - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
       - name: fname
         selector: "#contactfname"
@@ -127,11 +129,8 @@ contact_form:
           - "Airman First Class"
           - "Airman"
           - "Brother"
-      - name: state
-        selector: "#state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
+    - javascript:
+      - value: document.querySelector("#comments").value = document.querySelector("#comments").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#side-search-btn"

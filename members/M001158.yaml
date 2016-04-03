@@ -1,82 +1,81 @@
 bioguide: M001158
 contact_form:
   method: post
-  action: /submit-contact.aspx
+  action: "/contact/#gf_1"
   steps:
-    - visit: "https://marchant.house.gov/contact/contactform.htm"
+    - visit: "https://marchant.house.gov/contact/"
     - fill_in:
-        - name: required-prefix
-          selector: "#contact input[name='required-prefix']"
-          value: $NAME_PREFIX
-          required: true
-        - name: required-first
-          selector: "#contact input[name='required-first']"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "#contact input[name='required-last']"
-          value: $NAME_LAST
-          required: true
-        - name: required-address
-          selector: "#contact input[name='required-address']"
-          value: $ADDRESS_STREET
-          required: true
-        - name: required-city
-          selector: "#contact input[name='required-city']"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zip5
-          selector: "#contact input[name='zip5']"
+        - name: input_6
+          selector: "#input_1_6"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "#contact input[name='zip4']"
-          value: $ADDRESS_ZIP4
+    - click_on:
+        - value: Next
+          selector: "#gform_next_button_1_7"
+    - wait:
+        - value: 3
+    - fill_in:
+        - name: input_16.3
+          selector: "#input_1_16_3"
+          value: $NAME_FIRST
           required: true
-        - name: required-email
-          selector: "#contact input[name='required-email']"
+        - name: input_16.6
+          selector: "#input_1_16_6"
+          value: $NAME_LAST
+          required: true
+        - name: input_15.1
+          selector: "#input_1_15_1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_15.3
+          selector: "#input_1_15_3"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_3
+          selector: "#input_1_3"
           value: $EMAIL
           required: true
-        - name: required-message
-          selector: "#contact textarea[name='required-message']"
+        - name: input_5
+          selector: "#input_1_5"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-state
-          selector: "#contact select[name='required-state']"
-          value: "TX"
+        - name: input_16.2
+          selector: "#input_1_16_2"
+          value: $NAME_PREFIX
           required: true
           options:
-            TX: TX
-        - name: required-issue
-          selector: "#contact select[name='required-issue']"
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Miss
+            - Dr.
+        - name: input_17
+          selector: "#input_1_17"
           value: $TOPIC
           required: true
           options:
             Abortion: ABORTION
             Agriculture: AG
             Animals: ANIMALS
-            ANWR: ANWR
             Aviation and Planes: AVIATION
             Budget: BUD
             Casework: CASE
-            Campaign Finance Reform: CFR
             Child Welfare: CHILD
             Consumer Product Safety: CONSUMER
             Credit and Personal Finance: CRED
             Defense and Military: DEF
-            Diseases and Genetics: DISEA
+            Disease and Genetics: DISEA
             Drugs and Pharmaceuticals: DRUG
             Economy: ECON
             Education: ED
             Energy: EN
             Environment: ENV
             Flag Requests: FLAG
-            Foreign Affairs: FR
+            Foreign Affairs: FOR
             Government Affairs: GOV
-            Grant Information: GRANT
             Guns: GUN
-            Health: HEA
+            Health: HHEA
             Homeland Security: HOME.SEC
             Housing: HOU
             Immigration: IMM
@@ -86,7 +85,6 @@ contact_form:
             Medicare: MED
             Mental Health: MENT
             Miscellaneous: MISC
-            Prescription Drug Coverage: HE
             Religion: REL
             Retirement: RET
             Science and Technology: SCI
@@ -95,24 +93,21 @@ contact_form:
             Social Security: SS
             Taxes: TAX
             Telecommunications: TELECOM
-            Terrorism Issues: TERRORISM
+            Terrorism Issues: TERROR
             Tour Requests: TOURS
             Trade: TRADE
             Transportation: TRAN
             Veterans Affairs: VET
-            War in Iraq: IRQWAR
-            "Women's Health": WOMHEA
-            Washington Tours: TOUR
-            Others: GEN
+            War in Iraq: IRAQ
+            Women’s Health: WOMHEA
+            Other: GEN
     - click_on:
-        - value: Send Email
-          selector: "#contact input[type='submit'][value='Send Email']"
-    - find:
-        - selector: "span#ctl00_PageLink"
-          value: "Thank You"
+        - value: Submit
+          selector: "#gform_submit_button_1"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: Thank
-
+      contains: Thank you

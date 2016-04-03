@@ -24,7 +24,7 @@ contact_form:
         - name: zip5
           selector: "#contactForm input[name='zip5']"
           value: $ADDRESS_ZIP5
-          required: false
+          required: true
         - name: zip4
           selector: "#contactForm input[name='zip4']"
           value: $ADDRESS_ZIP4
@@ -52,11 +52,6 @@ contact_form:
             - Mrs.
             - "Mr. & Mrs."
             - Dr.
-        - name: required-state
-          selector: "#contactForm select[name='required-state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: false
-          options: []
         - name: required-issue
           selector: "#contactForm select[name='required-issue']"
           value: $TOPIC
@@ -81,15 +76,18 @@ contact_form:
             Right to Life: RIGHT_TO_LIFE
             Science/Technology: TECH
             Social Security: SOCIAL SECURITY
+            Taxes: TAX
             Telecommunications: TELECOMMUNICATIONS
             Trade: TRADE
             Transportation: TRANSPORTATION
             Veterans: VETERANS
+    - javascript:
+        - value: document.querySelector("#contactForm textarea[name='required-message']").value = document.querySelector("#contactForm textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[type='submit'][value='Send Email']"
     - find:
-        - selector: "span#ctl00_ctl10_ctl00_Header"
+        - selector: "span#ctl00_ctl14_ctl00_Header"
           value: "Thank you"
   success:
     headers:

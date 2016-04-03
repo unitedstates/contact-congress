@@ -9,10 +9,6 @@ contact_form:
           selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "form.zipform input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: true
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
@@ -55,14 +51,6 @@ contact_form:
           selector: "#ctl00_ctl14_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl14$CampaignID
-          selector: "#ctl00_ctl14_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl14$CampaignInfo
-          selector: "#ctl00_ctl14_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
         - name: ctl00$ctl14$PrefixList
           selector: "#ctl00_ctl14_PrefixList"
@@ -257,6 +245,8 @@ contact_form:
         - name: ctl00$ctl14$ReplyChoice
           selector: "#ctl00_ctl14_ReplyChoice_0"
           value: Respond
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl14_Body").value = document.querySelector("#ctl00_ctl14_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl14_SubmitButton"

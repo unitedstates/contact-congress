@@ -1,0 +1,119 @@
+bioguide: A000372
+contact_form:
+  method: get
+  action: /forms/writeyourrep/
+  steps:
+    - visit: "http://allen.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl16_FirstName"
+    - fill_in:
+        - name: ctl00$ctl16$FirstName
+          selector: "#ctl00_ctl16_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl16$LastName
+          selector: "#ctl00_ctl16_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl16$Street
+          selector: "#ctl00_ctl16_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl16$City
+          selector: "#ctl00_ctl16_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl16$Zip
+          selector: "#ctl00_ctl16_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl16$Email
+          selector: "#ctl00_ctl16_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl16$Subject
+          selector: "#ctl00_ctl16_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl16$Body
+          selector: "#ctl00_ctl16_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$ctl16$PrefixList
+          selector: "#ctl00_ctl16_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Dr.
+            - Ms.
+        - name: ctl00$ctl16$IssuesList
+          selector: "#ctl00_ctl16_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Advocacy: "14886"
+            Agriculture and Food: "72"
+            Animals: "9982"
+            Armed Forces and National Security: "10012"
+            "Arts, Culture, Religion": "10039"
+            "Civil Rights and Liberties, Minority Issues": "10055"
+            Commerce: "10073"
+            Congress: "10095"
+            Crime and Law Enforcement: "10109"
+            Economics and Public Finance: "10135"
+            Education: "73"
+            Emergency Management: "10168"
+            Energy: "10177"
+            Environmental Protection: "14814"
+            Families: "10209"
+            Finance and Financial Sector: "10219"
+            Foreign Trade and International Finance: "10236"
+            Government Operations and Politics: "10250"
+            Health: "74"
+            Housing and Community Development: "10346"
+            Immigration: "10360"
+            International Affairs: "10370"
+            Labor and Employment: "10390"
+            Law: "10406"
+            Native Americans: "10424"
+            Private Legislation: "14873"
+            Public Lands and Natural Resources: "10432"
+            "Science, Technology, Communications": "10447"
+            Social Sciences and History: "10471"
+            Social Welfare: "10479"
+            Sports and Recreation: "10485"
+            Taxation: "10493"
+            Transportation and Public Works: "81"
+            Water Resources Development: "10528"
+    - check:
+        - name: ctl00$ctl16$ReplyChoice
+          selector: "#ctl00_ctl16_ReplyChoice_0"
+          value: Respond
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl16_Body").value = document.querySelector("#ctl00_ctl16_Body").value.replace(/"/g, '');
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl16_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl16_ConfirmationText"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time to write me. I carefully consider the views of my constituents as I serve in Washington.
+      

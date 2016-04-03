@@ -99,6 +99,8 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Womens Issues: WOMENS ISSUES
+    - javascript:
+        - value: document.querySelector("#contactForm textarea[name='required-message']").value = document.querySelector("#contactForm textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[type='submit'][value='Send Email']"

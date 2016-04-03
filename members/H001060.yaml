@@ -89,6 +89,8 @@ contact_form:
         - name: frontrunner_connect_optin
           selector: "form.uniForm input[name='frontrunner_connect_optin']"
           value: "1"
+    - javascript:
+        - value: document.querySelector("#field_59E68B70-1F23-4B9A-A19C-E40156896A9B").value = document.querySelector("#field_59E68B70-1F23-4B9A-A19C-E40156896A9B").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

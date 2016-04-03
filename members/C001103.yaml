@@ -1,0 +1,98 @@
+bioguide: C001103
+contact_form:
+  method: get
+  action: /contact/contactform.htm
+  steps:
+    - visit: "http://buddycarter.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#contact input[name='required-first']"
+    - fill_in:
+        - name: required-prefix
+          selector: "#contact input[name='required-prefix']"
+          value: $NAME_PREFIX
+          required: true
+        - name: required-first
+          selector: "#contact input[name='required-first']"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#contact input[name='required-last']"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#contact input[name='required-address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#contact input[name='required-city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#contact input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: required-email
+          selector: "#contact input[name='required-email']"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#contact input[name='phone']"
+          value: $PHONE
+          required: true
+        - name: required-message
+          selector: "#contact textarea[name='required-message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-issue
+          selector: "#subject"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: WEBAGR
+            Budget: WEBBUD
+            Defense: WEBDEF
+            Education: WEBEDU
+            Energy: WEBENE
+            Environmental: WEBENV
+            Government Issues: WEBGOV
+            Health: WEBHEA
+            Homeland Security: WEBHOM
+            Immigration: WEBIMM
+            International Relations: WEBINT
+            Judicial: WEBJUD
+            Labor: WEBLAB
+            Social Issues: WEBSOC
+            Social Security: WEBSSEC
+            Taxes: WEBTAX
+            Telecommunications: WEBTEL
+            Transportation: WEBTRA
+            Trade: WEBTRADE
+            Veterans: WEBVET
+            Welfare: WEBWEL
+            Other Issues: WEBOTH
+    - check:
+        - name: response
+          selector: "input[type='radio'][name='response'][value='Yes']"
+          value: "Yes"
+    - javascript:
+        - value: document.querySelector("#contact textarea[name='required-message']").value = document.querySelector("#contact textarea[name='required-message']").value.replace(/"/g, '');
+    - click_on:
+        - value: Send Email
+          selector: "#contact input[type='submit'][value='Send Email']"
+    - find:
+        - selector: "span#ctl00_PageLink"
+          value: "Thank You"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you. Your form has been successfully submitted.

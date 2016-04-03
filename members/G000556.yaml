@@ -108,11 +108,16 @@ contact_form:
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"
+    - find:
+        - selector: "a"
+          value: "Here"
   success:
     headers:
       status: 200
     body:
-      contains: Your email should automatically be sent in a few seconds.
+      contains: I appreciate that you have taken the time to share your concerns

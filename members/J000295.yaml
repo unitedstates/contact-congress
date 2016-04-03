@@ -16,8 +16,6 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: "#zipauthform input.button"
-    - find:
-        - selector: "#custom_form62"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -156,21 +154,13 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other Issues: OTH
-        - name: response
-          selector: "#response"
-          value: "Y"
-          required: false
-          options:
-            "No": "N"
-            "Yes": "Y"
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submitButton"
-    - find:
-        - selector: "h1"
-          value: "THANK YOU"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted.
+      contains: THANK YOU

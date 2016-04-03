@@ -25,11 +25,11 @@ contact_form:
           value: $NAME_PREFIX
           required: false
         - name: required-first
-          selector: "#required-first"
+          selector: "#contactForm #required-first"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#required-last"
+          selector: "#contactForm #required-last"
           value: $NAME_LAST
           required: true
         - name: required-address
@@ -45,7 +45,7 @@ contact_form:
           value: $ADDRESS_CITY
           required: true
         - name: required-valid-email
-          selector: "#required-valid-email"
+          selector: "#contactForm #required-valid-email"
           value: $EMAIL
           required: true
         - name: required-phone
@@ -67,6 +67,10 @@ contact_form:
           value: "$CAPTCHA_SOLUTION"
           required: true
     - select:
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -112,13 +116,14 @@ contact_form:
             "Women's Issues": WOMEN
             Welfare: WEL
             Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
-          required: true
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
+    - find:
+        - value: Thank You
+          selector: '#page-title'
   success:
     headers:
       status: 200

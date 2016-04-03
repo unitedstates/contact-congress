@@ -100,7 +100,7 @@ contact_form:
         - name: required-response
           selector: "#required-response"
           value: "Y"
-          required: false
+          required: true
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
@@ -108,6 +108,8 @@ contact_form:
         - name: subscribe
           selector: "#subscribe"
           value: Email.Optin
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"

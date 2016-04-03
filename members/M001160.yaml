@@ -134,6 +134,8 @@ contact_form:
         - name: aff1
           selector: "input[type='radio'][name='aff1'][value='<AFFL_DEL>Subscribe</AFFL_DEL>']"
           value: "<AFFL_DEL>Subscribe</AFFL_DEL>"
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submitButton"

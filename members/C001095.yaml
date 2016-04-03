@@ -1,0 +1,192 @@
+bioguide: C001095
+contact_form:
+  method: post
+  action: "/?p=contact&clear_cache=1"
+  steps:
+    - visit: "http://www.cotton.senate.gov/?p=contact"
+    - fill_in:
+        - name: firstName
+          selector: "#firstName"
+          value: $NAME_FIRST
+          required: true
+        - name: lastName
+          selector: "#lastName"
+          value: $NAME_LAST
+          required: true
+        - name: Address1
+          selector: "#Address1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: "#zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#phone"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: vemail
+          selector: "#vemail"
+          value: $EMAIL
+          required: true
+        - name: messageSubject
+          selector: "#messageSubject"
+          value: $SUBJECT
+          required: true
+        - name: MessageBody
+          selector: "#MessageBody"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: Prefix
+          selector: "#Prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Miss
+            - Dr.
+            - Dr. and Mrs.
+            - Dr. and Mr.
+            - Admiral
+            - Captain
+            - Chief Master Sergeant
+            - Colonel
+            - Commander
+            - Corporal
+            - Father
+            - Lieutenant
+            - Lieutenant Colonel
+            - Master Sergeant
+            - Reverend
+            - Sergeant
+            - Second Lieutenant
+            - Sergeant Major
+            - Sister
+            - Technical Sergeant
+        - name: State
+          selector: "#State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "----Military---- ": " "
+            "AA ": AA
+            "AE ": AE
+            "AP ": AP
+            "----States---- ": " "
+            "Alabama ": AL
+            "Alaska ": AK
+            "Arizona ": AZ
+            "Arkansas ": AR
+            "California ": CA
+            "Colorado ": CO
+            "Connecticut ": CT
+            "Delaware ": DE
+            "District of Columbia ": DC
+            "Florida ": FL
+            "Georgia ": GA
+            "Hawaii ": HI
+            "Idaho ": ID
+            "Illinois ": MT
+            "Indiana ": IN
+            "Iowa ": IA
+            "Kansas ": KS
+            "Kentucky ": KY
+            "Louisiana ": LA
+            "Maine ": ME
+            "Maryland ": MD
+            "Massachusetts ": MA
+            "Michigan ": MI
+            "Minnesota ": MN
+            "Mississippi ": MS
+            "Missouri ": MO
+            "Montana ": MT
+            "Nebraska ": NE
+            "Nevada ": NV
+            "New Hampshire ": NH
+            "New Jersey ": NJ
+            "New Mexico ": NM
+            "New York ": NY
+            "North Carolina ": NC
+            "North Dakota ": ND
+            "Ohio ": OH
+            "Oklahoma ": OK
+            "Oregon ": OR
+            "Pennsylvania ": PA
+            "Rhode Island ": RI
+            "South Carolina ": SC
+            "South Dakota ": SD
+            "Tennessee ": TN
+            "Texas ": TX
+            "Utah ": UT
+            "Vermont ": VT
+            "Virginia ": VA
+            "Washington ": WA
+            "West Virginia ": WV
+            "Wisconsin ": WI
+            "Wyoming ": WY
+        - name: Subject
+          selector: "form.-validate-form.form-contact[name='thisForm'] select[name='Subject']"
+          value: $TOPIC
+          required: true
+          options:
+            "\n\t\t\t\t\t\t\t\t\t\t\tAbortion\n\t\t\t\t\t\t\t\t\t\t": Abortion
+            "\n\t\t\t\t\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t\t\t\t\t": Agriculture
+            "\n\t\t\t\t\t\t\t\t\t\t\tAnimal Welfare\n\t\t\t\t\t\t\t\t\t\t": Animal Welfare
+            "\n\t\t\t\t\t\t\t\t\t\t\tBanking\n\t\t\t\t\t\t\t\t\t\t": Banking
+            "\n\t\t\t\t\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t\t\t\t\t": Budget
+            "\n\t\t\t\t\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t\t\t\t\t": Civil Rights
+            "\n\t\t\t\t\t\t\t\t\t\t\tCongratulations\n\t\t\t\t\t\t\t\t\t\t": Congratulations
+            "\n\t\t\t\t\t\t\t\t\t\t\tCrime\n\t\t\t\t\t\t\t\t\t\t": Crime
+            "\n\t\t\t\t\t\t\t\t\t\t\tEducation\n\t\t\t\t\t\t\t\t\t\t": Education
+            "\n\t\t\t\t\t\t\t\t\t\t\tElections\n\t\t\t\t\t\t\t\t\t\t": Elections
+            "\n\t\t\t\t\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t\t\t\t\t": Energy
+            "\n\t\t\t\t\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t\t\t\t\t": Environment
+            "\n\t\t\t\t\t\t\t\t\t\t\tFamily\n\t\t\t\t\t\t\t\t\t\t": Family
+            "\n\t\t\t\t\t\t\t\t\t\t\tGovernment Affairs\n\t\t\t\t\t\t\t\t\t\t": Government Affairs
+            "\n\t\t\t\t\t\t\t\t\t\t\tGuns\n\t\t\t\t\t\t\t\t\t\t": Guns
+            "\n\t\t\t\t\t\t\t\t\t\t\tHealth\n\t\t\t\t\t\t\t\t\t\t": Health
+            "\n\t\t\t\t\t\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t\t\t\t\t\t": Homeland Security
+            "\n\t\t\t\t\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t\t\t\t\t": Housing
+            "\n\t\t\t\t\t\t\t\t\t\t\tInternational Relations\n\t\t\t\t\t\t\t\t\t\t": International Relations
+            "\n\t\t\t\t\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t\t\t\t\t": Judiciary
+            "\n\t\t\t\t\t\t\t\t\t\t\tLabor\n\t\t\t\t\t\t\t\t\t\t": Labor
+            "\n\t\t\t\t\t\t\t\t\t\t\tMedicaid\n\t\t\t\t\t\t\t\t\t\t": Medicaid
+            "\n\t\t\t\t\t\t\t\t\t\t\tMedicare\n\t\t\t\t\t\t\t\t\t\t": Medicare
+            "\n\t\t\t\t\t\t\t\t\t\t\tMilitary\n\t\t\t\t\t\t\t\t\t\t": Military
+            "\n\t\t\t\t\t\t\t\t\t\t\tNASA\n\t\t\t\t\t\t\t\t\t\t": NASA
+            "\n\t\t\t\t\t\t\t\t\t\t\tNatural Resources\n\t\t\t\t\t\t\t\t\t\t": Natural Resources
+            "\n\t\t\t\t\t\t\t\t\t\t\tOther\n\t\t\t\t\t\t\t\t\t\t": Other
+            "\n\t\t\t\t\t\t\t\t\t\t\tPatents\n\t\t\t\t\t\t\t\t\t\t": Patents
+            "\n\t\t\t\t\t\t\t\t\t\t\tReligious Issues\n\t\t\t\t\t\t\t\t\t\t": Religious Issues
+            "\n\t\t\t\t\t\t\t\t\t\t\tRequest\n\t\t\t\t\t\t\t\t\t\t": Request
+            "\n\t\t\t\t\t\t\t\t\t\t\tSocial Issues\n\t\t\t\t\t\t\t\t\t\t": Social Issues
+            "\n\t\t\t\t\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t\t\t\t\t": Social Security
+            "\n\t\t\t\t\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t\t\t\t\t": Taxes
+            "\n\t\t\t\t\t\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t\t\t\t\t\t": Telecommunications
+            "\n\t\t\t\t\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t\t\t\t\t": Trade
+            "\n\t\t\t\t\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t\t\t\t\t": Transportation
+            "\n\t\t\t\t\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t\t\t\t\t": Veterans
+            "\n\t\t\t\t\t\t\t\t\t\t\tWelfare\n\t\t\t\t\t\t\t\t\t\t": Welfare
+            "\n\t\t\t\t\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t\t\t\t\t": "Women's Issues"
+    - javascript:
+        - value: document.querySelector("#MessageBody").value = document.querySelector("#MessageBody").value.replace(/"/g, '');
+    - click_on:
+        - value: Send
+          selector: "form.-validate-form.form-contact[name='thisForm'] input[name='Submit']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

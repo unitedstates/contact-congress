@@ -13,43 +13,35 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "form input[name='required-first']"
+        - selector: "#ctl00_ctl11_ctl00_Text form input[name='required-first']"
     - fill_in:
         - name: required-first
-          selector: "form input[name='required-first']"
+          selector: "#ctl00_ctl11_ctl00_Text form input[name='required-first']"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "form input[name='required-last']"
+          selector: "#ctl00_ctl11_ctl00_Text form input[name='required-last']"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "form input[name='required-address']"
+          selector: "#ctl00_ctl11_ctl00_Text form input[name='required-address']"
           value: $ADDRESS_STREET
           required: true
         - name: required-city
-          selector: "form input[name='required-city']"
+          selector: "#ctl00_ctl11_ctl00_Text form input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
-        - name: zip5
-          selector: "form input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
         - name: required-email
-          selector: "form input[name='required-email']"
+          selector: "#ctl00_ctl11_ctl00_Text form input[name='required-email']"
           value: $EMAIL
-          required: false
-        - name: phone
-          selector: "form input[name='phone']"
-          value: $PHONE
-          required: false
+          required: true
         - name: required-message
           selector: "#message"
           value: $MESSAGE
           required: true
     - select:
         - name: required-prefix
-          selector: "form select[name='required-prefix']"
+          selector: "#ctl00_ctl11_ctl00_Text form select[name='required-prefix']"
           value: $NAME_PREFIX
           required: true
           options:
@@ -126,8 +118,8 @@ contact_form:
             - Amn
             - A1C
             - SrA
-        - name: Issues
-          selector: "form select[name='Issues']"
+        - name: Issues1
+          selector: "#ctl00_ctl11_ctl00_Text form select[name='Issues1']"
           value: $TOPIC
           required: true
           options:
@@ -141,6 +133,7 @@ contact_form:
             Foreign Affairs: IR-FOREIGNAFFAIRS
             Health: HEALTH
             Housing: HOUSING
+            Immigration: IMMIGRATION
             Indian Affairs: INDIAN
             Labor/Jobs: LABOR
             Judiciary: JUDICIARY
@@ -158,9 +151,11 @@ contact_form:
         - name: reqresponse
           selector: "#responseYes"
           value: "yes"
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send Message
-          selector: "form input[name='WR_Submit']"
+          selector: "#ctl00_ctl11_ctl00_Text form input[name='WR_Submit']"
     - find:
         - selector: "span"
           value: "Thank You"
@@ -168,4 +163,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: THANK YOU
+      contains: Thank You for your interest.

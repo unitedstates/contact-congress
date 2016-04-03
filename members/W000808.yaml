@@ -1,185 +1,116 @@
 bioguide: W000808
 contact_form:
   method: post
-  action: /contact-form/
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://wilsonforms.house.gov/contact-form"
+    - visit: "https://wilson.house.gov/contact"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
+        - name: zip4
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go to Form
-          selector: input.button
+        - value: Go To Next Step
+          selector: "#emailForm input[name='submit']"
+    - find:
+        - selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#custom_form6 input[name='prefix']"
-          value: $NAME_PREFIX
-          required: false
-        - name: firstname
-          selector: "#req_firstname"
+        - name: required-first
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: required-last
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: required-address
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#custom_form6 input[name='street2']"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#req_city"
+        - name: required-city
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zip2"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#custom_form6 input[name='phone']"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
-          required: false
-        - name: message
-          selector: "#req_message"
+          required: true
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            Florida: FL
-            North Carolina: NC
-            Alaska: AK
-            Alabama: AL
-            Arkansas: AR
-            Arizona: AZ
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            District of Columbia: DC
-            Delaware: DE
-            Georgia: GA
-            Hawaii: HI
-            Iowa: IA
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Massachusetts: MA
-            Maryland: MD
-            Maine: ME
-            Michigan: MI
-            Minnesota: MN
-            Missouri: MO
-            Mississippi: MS
-            Montana: MT
-            North Dakota: ND
-            Nebraska: NE
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            Nevada: NV
-            New York: NY
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Pennsylvania: PA
-            Puerto Rico: PR
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Virginia: VA
-            Vermont: VT
-            Washington: WA
-            Wisconsin: WI
-            West Virginia: WV
-            Wyoming: WY
-        - name: subject
-          selector: "#req_subject"
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Help with Federal Agency: CW
-            Grant Information: GRANTS
-            Military Academy Nomination: MILAPS
-            Abortion: ABORT
-            Animal Issues: ANIMALS
-            Budget: BUDGET
-            Children: CHILDREN
-            Civil Liberties: CIV_LIB
-            Civil Rights: CIV_RTS
-            Congratulations: CONGRATS
-            Congress and Executive: CONG_EXEC
-            Crime: CRIME
-            Defense: DEFENSE
-            Economy: ECONOMY
-            Education: EDDUCATION
-            Energy: ENERGY
-            Environment: ENVIRONMENT
-            Foreign Affairs: FOREIGN_AFFFAIRS
-            Gun Control: GUN_CONTROL
-            Health: HEALTH
-            Homeland Security: HOMELAND_SECURITY
-            Immigration: IMMIGRATION
-            Iraq: IRAQ
-            Judiciary: JUDICIARY
-            Labor: LABOR
-            Other: OTHER
-            Pension Issues: PENSION
+            Agriculture: AGR
+            Animals: AN
+            Arts and Humanities: ART
+            Banking and Finance: BANK
+            Budget and Economy: BUD
+            Campaign Finance Reform: CFR
+            Congress and Elections: CONG
+            District of Columbia--Tours: TOUR
+            Defense and Military: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
+            Environment: ENV
+            Federal Employees: FED
+            Foreign Relations: FR
+            Government Reform: GOV
+            Guns: GUN
+            Health: HEA
+            Homeland Security: HOM
+            Housing and Urban Development: HUD
+            Immigration: IMM
+            International Relations: INT
+            Judiciary: JUD
+            Labor: LAB
+            LGBT: LGBT
+            No Response Necessary: NRN
+            Post Office: POST
             Science and Technology: SCI
-            Small Business Issues: SMALL BUS
-            Social Security: SS
-            Taxes: TAXES
-            Telecommunications: TELECOM
-            Thank You: THANK_YOU
-            Transportation: TRANSPO
-            Trade: TRD
+            Social Issues: SOC
+            Senior Citizens: SENIORS
+            Social Security: SSEC
+            Social Services: SOC.SERVICES
+            Taxes: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRADE
             Veterans: VET
-            Welfare: WELF
-        - name: response
-          selector: "#req_response"
-          value: "Yes"
-          required: false
+            "Women's Issues": WOMEN
+            Welfare: WEL
+            Other Issues: OTHER
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
           options:
-            I do not need a response.: NO_RESPONSE_REQUIRED
-            I would like a response.: "Yes"
-    - check:
-        - name: aff1
-          selector: "input[type='radio'][name='aff1'][value='N']"
-          value: "N"
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - value: Submit
-          selector: "#submitButton"
-    - find:
-        - selector: "h1"
-          value: "Thank You"
+        - value: Send Email
+          selector: "#contactForm input[name='submit']"
   success:
     headers:
       status: 200
     body:
-      contains: submitting your information
+      contains: The following information has been submitted

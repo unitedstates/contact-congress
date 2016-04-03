@@ -85,6 +85,8 @@ contact_form:
             Transportation: Transportation
             Veterans: Veterans
             Welfare: Welfare
+    - javascript:
+        - value: document.querySelector("#mainbodyContentleft form textarea[name='required-comments']").value = document.querySelector("#mainbodyContentleft form textarea[name='required-comments']").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#mainbodyContentleft form input[name='submit']"

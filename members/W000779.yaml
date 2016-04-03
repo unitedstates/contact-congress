@@ -1,9 +1,12 @@
 bioguide: W000779
 contact_form:
   method: POST
-  action: http://www.wyden.senate.gov/contact
+  action: "/contact"
   steps:
-    - visit: http://www.wyden.senate.gov/contact
+    - visit: https://www.wyden.senate.gov/contact
+    - javascript:
+      - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ 
+try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
       - name: fname
         selector: "#contactForm #fname"
@@ -155,7 +158,6 @@ contact_form:
           - "Hunger"
           - "Immigration"
           - "Intelligence"
-          - "International Trade"
           - "Internet, Technology, Broadband"
           - "Judicial Nominations"
           - "Medicare/ Medicaid"
@@ -182,6 +184,8 @@ contact_form:
           - "Tour Request"
           - "Academy Nomination"
           - "Autographed Photo Request"
+    - javascript:
+      - value: document.querySelector("#contactForm #message").value = document.querySelector("#contactForm #message").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#contactForm #side-search-btn"

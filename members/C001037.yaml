@@ -1,9 +1,9 @@
 bioguide: C001037
 contact_form:
   method: post
-  action: "/htbin/formproc_za/capuano/contact/contact_parm.txt&form=/capuano/contact/message.shtml"
+  action: "/htbin/formproc_za.pl?/capuano/contact/contact_parm.txt&form=/capuano/contact/message.shtml"
   steps:
-    - visit: "http://www.house.gov/capuano/contact/email.shtml"
+    - visit: "http://capuano.house.gov/contact/email.shtml"
     - fill_in:
         - name: required-first
           selector: "#firstname"
@@ -24,6 +24,8 @@ contact_form:
     - click_on:
         - value: Next
           selector: "div.paddingmain form input[name='submit']"
+    - find:
+        - selector: "#firstname"
     - fill_in:
         - name: required-first
           selector: "#firstname"
@@ -58,37 +60,78 @@ contact_form:
             - Mr.
             - Mrs.
             - Ms.
-            - Miss
+            - Mx.
+            - Dr.
+            - Hon.
+            - Rabbi
+            - Rev.
         - name: required-issue
           selector: "#topic"
           value: $TOPIC
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Education: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            International Relations: WEBINT
-            Government Reform: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Housing and Community Development: WEBHUD
-            Immigration: WEBIMM
-            Judiciary: WEBJUD
-            Labor: WEBLABOR
-            Resources: WEBRSC
-            Science: WEBSCI
-            Small Business: WEBSBUS
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Telecommunications: WEBTEL
-            Taxes and Trade: WEBTAX
-            Transportation: WEBTRA
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other: WEBOTH
+            "## Flag Requests": Flag Requests
+            "## Tour Requests": Tour Request
+            "## Appointments": Appointments
+            "## Casework": Casework
+            "## Citizenship/Naturalization": Citizenship/Naturalization
+            "## Media Inquiries": Media Inquiries
+            Agriculture: Agriculture
+            Animal Welfare: Animal Welfare
+            Appropriations: Appropriations
+            Arts and Culture: Arts and Culture
+            Banking: Banking
+            Budget: Budget
+            Child Care/Child Welfare: Child Care/Child Welfare
+            Civil Liberties: Civil Liberties
+            Commerce: Commerce
+            Consumer Protection: Consumer Protection
+            Crime and Justice: Crime and Justice
+            Defense and Military: Defense and Military
+            Disability: Disability
+            Domestic Violence: Domestic Violence
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Financial Services: Financial Services
+            Foreign Affairs: Foreign Affairs
+            Government Reform: Government Reform
+            Gun Control: Gun Control
+            Health Care: Health Care
+            Homeland Security: Homeland Security
+            Housing and Communities: Housing and Communities
+            Human Rights/Civil Rights: Human Rights/Civil Rights
+            Immigration: Immigration
+            International Relations: International Relations
+            Jobs: Jobs
+            Judiciary: Judiciary
+            Labor and Unions: Labor and Unions
+            Medicaid/Medicare: Medicaid/Medicare
+            Natural Resources: Natural Resources
+            Pensions and Retirement: Pensions and Retirement
+            Science and Technology: Science and Technology
+            Small Business: Small Business
+            Social Issues: Social Issues
+            Social Security: Social Security
+            Sudan: Sudan
+            TANF and Low-Income Benefits: TANF and Low-Income Benefits
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Terrorism: Terrorism
+            Trade: Trade
+            Transportation and Infrastructure: Transportation and Infrastructure
+            Unemployment Insurance: Unemployment Insurance
+            Veterans: Veterans
+            Welfare: Welfare
+            "Women's Issues": "Women's Issues"
+            OTHER: Other
+    - check:
+        - name: affl1
+          selector: "#noaction"
+          value: ""
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send my message
           selector: "div.paddingmain form input[name='Submit']"
@@ -96,4 +139,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Your message has been received!"

@@ -21,18 +21,6 @@ contact_form:
           selector: "#contactForm input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
-        - name: zip5
-          selector: "#contactForm input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#contactForm input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: phone
-          selector: "#contactForm input[name='phone']"
-          value: $PHONE
-          required: false
         - name: required-email
           selector: "#contactForm input[name='required-email']"
           value: $EMAIL
@@ -57,42 +45,35 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Animal: "WEB ANI"
-            Agriculture: "WEB AG"
-            Banking/Housing: "WEB BH"
-            Budget: "WEB BDG"
-            Defense: "WEB DEF"
-            Economy and Jobs: "WEB BUS"
-            Education/Labor: "WEB ED"
-            Energy: "WEB EGY"
-            Environment: "WEB ENV"
-            Foreign Affairs: "WEB FA"
-            Government Reform: "WEB GR"
-            Healthcare: "WEB HE"
-            Homeland Security: "WEB HOM"
-            Immigration: "WEB IM"
-            Judiciary: "WEB JUD"
-            Science and Technology: "WEB SAT"
-            Social Security/Medicare: "WEB SSM"
-            Taxes: "WEB TX"
-            Trade: "WEB TRD"
-            Transportation: "WEB TNS"
-            Veterans: "WEB VA"
-            Other: "WEB OTHER"
-    - uncheck:
-        - name: rsp
-          selector: "#contactForm input[name='rsp']"
-          value: "no"
+            Animal: WEB ANI
+            Agriculture: WEB AG
+            Banking/Housing: WEB BH
+            Budget: WEB BDG
+            Defense: WEB DEF
+            Economy and Jobs: WEB BUS
+            Education/Labor: WEB ED
+            Energy: WEB EGY
+            Environment: WEB ENV
+            Foreign Affairs: WEB FA
+            Government Reform: WEB GR
+            Healthcare: WEB HE
+            Homeland Security: WEB HOM
+            Immigration: WEB IM
+            Judiciary: WEB JUD
+            Science and Technology: WEB SAT
+            Social Security/Medicare: WEB SSM
+            Taxes: WEB TX
+            Trade: WEB TRD
+            Transportation: WEB TNS
+            Veterans: WEB VA
+            Other: WEB OTHER
+    - javascript:
+        - value: document.querySelector("#contactForm textarea[name='required-message']").value = document.querySelector("#contactForm textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[type='submit'][value='Send Email']"
-    - find:
-        - selector: "span#ctl00_PageLink"
-          value: "THANKS"
   success:
     headers:
       status: 200
     body:
-      contains: "Your message has been received."
-      
-      
+      contains: Thank you for contacting me

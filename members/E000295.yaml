@@ -1,0 +1,122 @@
+bioguide: E000295
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.ernst.senate.gov/public/index.cfm/contact"
+    - fill_in:
+        - name: field_DB3CFA78-D300-4859-B087-3057FBA587ED
+          selector: "#field_DB3CFA78-D300-4859-B087-3057FBA587ED"
+          value: $NAME_FIRST
+          required: true
+        - name: field_141F094C-93F0-44FB-9400-56F367E16BD5
+          selector: "#field_141F094C-93F0-44FB-9400-56F367E16BD5"
+          value: $NAME_LAST
+          required: true
+        - name: field_0057F417-9E25-4887-8E27-B2BDA7DB8125
+          selector: "#field_0057F417-9E25-4887-8E27-B2BDA7DB8125"
+          value: $ADDRESS_STREET
+          required: true
+        - name: field_3556DD50-C891-4153-BCFC-806B555999E7
+          selector: "#field_3556DD50-C891-4153-BCFC-806B555999E7"
+          value: $ADDRESS_CITY
+          required: true
+        - name: field_7671E429-2E68-47F4-8F6C-F4E7E2D272E1
+          selector: "#field_7671E429-2E68-47F4-8F6C-F4E7E2D272E1"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: field_09E12330-CB2E-4652-BEAA-DC119831E64E
+          selector: "#field_09E12330-CB2E-4652-BEAA-DC119831E64E"
+          value: $PHONE
+          required: true
+        - name: field_AE6F4B6C-CF43-4983-9235-B62D675AC9AA
+          selector: "#field_AE6F4B6C-CF43-4983-9235-B62D675AC9AA"
+          value: $EMAIL
+          required: true
+        - name: field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0
+          selector: "#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: field_40B41E59-8BAB-4655-BE10-0EF1A105D108
+          selector: "#field_40B41E59-8BAB-4655-BE10-0EF1A105D108"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr
+            Mrs.: Mrs
+            Ms.: Ms
+            Miss: Miss
+            Dr.: Dr
+            Reverend: Reverend
+            Mr. and Mrs.: Mr and Mrs
+            Sister: Sister
+        - name: field_86870AAB-C6FB-4506-8503-2FA7F5CEF532
+          selector: "#field_86870AAB-C6FB-4506-8503-2FA7F5CEF532"
+          value: $TOPIC
+          required: true
+          options:
+            - Abortion
+            - Adoption
+            - Agriculture
+            - Animal Welfare
+            - Appropriations
+            - Banking
+            - Budget
+            - Campaign Finance
+            - Children
+            - Civil Rights
+            - Commerce
+            - Communications
+            - Congratulations
+            - Crime
+            - Defense
+            - Drugs
+            - Economy
+            - Education
+            - Energy
+            - Entitlements
+            - Environment
+            - Export-Import Bank
+            - Family
+            - Flood Insurance
+            - Food Stamps
+            - Foreign Affairs
+            - Guns
+            - Health
+            - Homeland Security
+            - Housing
+            - Immigration
+            - Inauguration
+            - Intellectual Property
+            - Judiciary
+            - Labor
+            - Medicaid
+            - Medicare
+            - Miscellaneous
+            - Monetary Policy
+            - NASA
+            - Nutrition
+            - Other
+            - Patents
+            - Pensions
+            - Postal Issue
+            - Regulatory Reform
+            - Securities
+            - Small Business
+            - Social Issues
+            - Social Security
+            - Taxes
+            - Trade
+            - Transportation
+            - Veterans
+    - javascript:
+        - value: document.querySelector("#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0").value = document.querySelector("#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0").value.replace(/"/g, '');
+    - click_on:
+        - value: Submit
+          selector: input.btn.btn-primary
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

@@ -109,6 +109,8 @@ contact_form:
         - name: MessageType
           selector: "#MessageType_1"
           value: Express an opinion or share your views with me
+    - javascript:
+        - value: document.querySelector("#Message").value = document.querySelector("#Message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.primaryAction

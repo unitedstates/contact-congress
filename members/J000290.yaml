@@ -17,10 +17,6 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
@@ -34,28 +30,14 @@ contact_form:
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: "#req_phone"
           value: $PHONE
-          required: false
+          required: true
         - name: message
           selector: "#req_message"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#req_prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-            Other: Other
         - name: state
           selector: "#req_state"
           value: KS
@@ -88,13 +70,8 @@ contact_form:
             Veterans: WEBVET
             Welfare: WEBWEL
             Other: WEBOTH
-        - name: response
-          selector: "#response"
-          value: "Y"
-          required: false
-          options:
-            "Yes": "Y"
-            "No": "N"
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submitButton"
@@ -102,4 +79,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting your information.
+      contains: Thank you
