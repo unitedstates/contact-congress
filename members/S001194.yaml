@@ -3,61 +3,22 @@ contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "http://www.schatz.senate.gov/contact"
+    - visit: "https://www.schatz.senate.gov/contact"
     - select:
-        - name: subject
-          selector: "#subject"
-          value: $TOPIC
+        - name: actions
+          selector: "#actions"
+          value: opinion
           required: true
           options:
-            - Agriculture
-            - Animal Welfare
-            - Army Corps/Public Works/Infrastructure
-            - Arts and Humanities
-            - Asians and Pacific Islanders
-            - Banking
-            - Budget
-            - Census
-            - Children/Family/Adoption
-            - Civil Rights
-            - Consumer Affairs
-            - Defense
-            - Education
-            - Elections and Campaign Finance
-            - Energy
-            - Environment
-            - Federal Workforce
-            - Flag Requests
-            - Foreign Relations
-            - Governmental Affairs
-            - Gun Control
-            - Health
-            - Homeland Security and Intelligence
-            - Help with a Federal Agency
-            - Housing
-            - Immigration
-            - Judiciary
-            - Labor
-            - Meeting Request
-            - Native Americans and Indigenous Peoples
-            - Native Hawaiians
-            - Natural Resources
-            - New Parks
-            - Oceans and Fisheries
-            - Postal Service
-            - Science and Space
-            - Seniors
-            - Small Business and Economic Development
-            - Social Security
-            - Tax
-            - Telecommunications/Internet
-            - Tourism
-            - Tour Requests
-            - Trade
-            - Transportation
-            - Veterans
-            - Welfare
-            - "Women's Issues"    
+            "--Select an Option--": select
+            Request help with a federal Agency: federal_agency
+            Schedule a Meeting with Senator Schatz or Staff: meeting
+            Request a Flag to be flown over the Capitol: flag
+            Request help with a tour of the D.C. area: tours
+            Apply for an Internship or Academy Nomination: students
+            Share your opinion or comments on bills or other issues: opinion
+    - wait:
+        - value: 3
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -71,10 +32,6 @@ contact_form:
           selector: "#mailing_streetAddress1"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: mailing_city
           selector: "#mailing_city"
           value: $ADDRESS_CITY
@@ -83,10 +40,6 @@ contact_form:
           selector: "#mailing_zipCode"
           value: $ADDRESS_ZIP5
           required: true
-        - name: home_phone_number
-          selector: "#home_phone_number"
-          value: $PHONE
-          required: false
         - name: email_address
           selector: "#email"
           value: $EMAIL
@@ -148,6 +101,7 @@ contact_form:
             - First Sergeant
             - Master Sergeant
             - Gunnery Sergeant
+            - Sergeant First Class
             - Staff Sergeant
             - Sergeant
             - Corporal
@@ -172,80 +126,71 @@ contact_form:
             - Senior Airman
             - Airman First Class
             - Airman
-        - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+        - name: subject
+          selector: "#subject"
+          value: $TOPIC
           required: true
           options:
-            "--": "null"
-            AK: AK
-            AL: AL
-            AR: AR
-            AZ: AZ
-            CA: CA
-            CO: CO
-            CT: CT
-            DC: DC
-            DE: DE
-            FL: FL
-            GA: GA
-            HI: HI
-            IA: IA
-            ID: ID
-            IL: IL
-            IN: IN
-            KS: KS
-            KY: KY
-            LA: LA
-            MA: MA
-            MD: MD
-            ME: ME
-            MI: MI
-            MN: MN
-            MO: MO
-            MS: MS
-            MT: MT
-            NC: NC
-            ND: ND
-            NE: NE
-            NH: NH
-            NJ: NJ
-            NM: NM
-            NV: NV
-            NY: NY
-            OH: OH
-            OK: OK
-            OR: OR
-            PA: PA
-            RI: RI
-            SC: SC
-            SD: SD
-            TN: TN
-            TX: TX
-            UT: UT
-            VA: VA
-            VT: VT
-            WA: WA
-            WI: WI
-            WV: WV
-            WY: WY
+            Agriculture: AGR
+            Animal Welfare: ANIMAL
+            Arts and Humanities: ART
+            Aviation: AVIATION
+            Banking: BANKS
+            Budget: BUD
+            Census: CENSUS
+            Children/Family/Adoption: FAMILY
+            Civil Rights: CIV
+            Technology/Telecommunications: COMM
+            Defense: DEF
+            Education: EDU
+            Elections and Campaign Finance and Congress: ELECT
+            Energy: ENE
+            Environment: ENV
+            Federal Workforce: FEDWORK
+            Foreign Relations: FORAFF
+            Grants: GRANTS
+            Gun Control: GUN
+            Native Hawaiians: HAWAIIAN
+            Health: HEA
+            Help With a Federal Agency: CASEWORK
+            Homeland Security: HOM
+            Immigration: IMM
+            Native Americans and Indigenous Peoples: INDIAN
+            Intellectual Property: INT PROP
+            Intelligence: INTEL
+            Judiciary: JUD
+            Labor: LABOR
+            Maritime: MARITIME
+            Natural Resources: NATURALRES
+            Nutrition: NUTRITION
+            Oceans and Fisheries: OCEANS
+            Postal Service: POSTAL
+            Religion: RELIGION
+            Science and Space: SCIENCE
+            Seniors: AGE
+            Small Business and Economic Development: BUS
+            Social Security: SSEC
+            Tax: TAX
+            Territories and Insular Affairs: TER
+            Tourism: TOURISM
+            "Transportation & Infrastructure": TRA
+            Trade: TRADE
+            Veterans: VET
+            Welfare: WEL
+            "Women's Issues": WOMEN
     - check:
         - name: response
           selector: "#response_y"
           value: "Y"
-    - wait:
-        - value: 1
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send
           selector: "#side-search-btn"
-    - find:
-        - selector: "h2"
-          value: "Thank You"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me.
-
+      contains: Thank you
