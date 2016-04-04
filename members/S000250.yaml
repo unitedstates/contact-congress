@@ -9,11 +9,11 @@ contact_form:
     - fill_in:
         - name: zip5
           selector: form#emailForm input#required-zip5
-          value: ADDRESS_ZIP5
+          value: $ADDRESS_ZIP5
           required: true
         - name: zip4
           selector: form#emailForm input#required-zip4
-          value: ADDRESS_ZIP4
+          value: $ADDRESS_ZIP4
           required: true
     - click_on:
         - selector: form#emailForm button#submit
