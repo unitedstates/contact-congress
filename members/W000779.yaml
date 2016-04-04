@@ -185,7 +185,7 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
           - "Academy Nomination"
           - "Autographed Photo Request"
     - javascript:
-      - value: document.querySelector("#contactForm #message").value = document.querySelector("#contactForm #message").value.replace(/"/g, '');
+      - value: 'document.querySelector("#contactForm #message").value = document.querySelector("#contactForm #message").value.replace(/"/g, "");'
     - click_on:
       - value: Submit
         selector: "#contactForm #side-search-btn"
