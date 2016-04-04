@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/htbin/formproc/email-me.txt%26display%3D/contact/email-me/email-me-thank-you%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "http://lujangrisham.house.gov/contact"
+    - visit: "https://lujangrisham.house.gov/contact"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -72,7 +72,7 @@ contact_form:
             Trade: TRADE
             Veterans: VET
             Welfare: WEL
-            Other Issues: OTH
+            Other Issues: Other Issues
         - name: required-response
           selector: "#required-response"
           value: "Y"
