@@ -49,6 +49,8 @@ contact_form:
         selector: ".textarea"
         value: "$MESSAGE"
         required: true
+        options:
+          blacklist: "()"
     - select:
       - name: Prefix
         selector: "#thisForm select[name='Prefix']"
