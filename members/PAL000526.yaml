@@ -1,0 +1,74 @@
+bioguide: PAL000526
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.pahouse.com/McClinton/Contact"
+    - find:
+      - selector: form#Form1 input#input-page-ContactForm-fName
+    - fill_in:
+      - name: first
+        selector: "#input-page-ContactForm-fName"
+        value: $NAME_FIRST
+        required: true
+      - name: last
+        selector: "#input-page-ContactForm-lName"
+        value: $NAME_LAST
+        required: true
+      - name: street
+        selector: "#input-page-ContactForm-Address"
+        value: $ADDRESS_STREET
+        required: true
+      - name: city
+        selector: "#input-page-ContactForm-City"
+        value:  $ADDRESS_CITY
+        required: true
+      - name: zip5
+        selector: "#input-page-ContactForm-Zip"
+        value:  $ADDRESS_ZIP5
+        required: true
+      - name: phone
+        selector: "#input-page-ContactForm-Phone"
+        value: $PHONE
+        required: true
+      - name: email
+        selector: "#input-page-ContactForm-Email"
+        value: $EMAIL
+        required: true
+      - name: subject
+        selector: "#input-page-ContactForm-Subject"
+        value: $SUBJECT
+        required: true
+      - name: message
+        selector: "#input-page-ContactForm-Message"
+        value: $MESSAGE
+        required: true
+    - click_on:
+      - selector: "#page-ContactForm-EmailAlertCHECK"
+    - recaptcha:
+      - name: recaptcha_response_field
+        grid_selector: "#rc-imageselect-target"
+        img_selector: "#rc-imageselect-target img"
+        phrase_selector: "html body div.rc-imageselect-desc > strong"
+        phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+        simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+        simple_textbox_selector: "#default-response"
+        audio_selector: "html body a.rc-audiochallenge-download-link"
+        audio_response_selector: "#audio-response"
+        audio_switch_selector: "#recaptcha-audio-button"
+        checkbox_iframe_selector: "div.g-recaptcha div div iframe[src^='https://www.google.com/recaptcha/api2/anchor']"
+        checkbox_selector: "div.recaptcha-checkbox-checkmark"
+        main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+        verify_selector: "#recaptcha-verify-button"
+        value: $CAPTCHA_SOLUTION
+        types: [image, audio]
+    - click_on:
+      - value: Submit
+        selector: "#pageContactForm-submit"
+    - wait:
+      - value: 3
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you. Your feedback has been sent.

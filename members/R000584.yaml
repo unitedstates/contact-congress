@@ -1,0 +1,138 @@
+bioguide: R000584
+contact_form:
+  method: POST
+  action: ""
+  steps:
+    - visit: "http://www.risch.senate.gov/public/index.cfm?p=Email"
+    - fill_in:
+      - name: first
+        selector: input#field_5B32FE1C-2B47-4F0E-87C1-E658F39D899D
+        value: $NAME_FIRST
+        required: true
+      - name: last
+        selector: input#field_793E9DC5-0695-46B7-904C-9EB27A761D3A
+        value: $NAME_LAST
+        required: true
+      - name: street
+        selector: input#field_7A0F9104-79DC-4CCE-AEE5-328456AFDA7C
+        value: $ADDRESS_STREET
+        required: true
+      - name: street2
+        selector: input#field_BB805A36-FF77-44CA-9137-2B9946690C74
+        value: $ADDRESS_STREET_2
+      - name: city
+        selector: input#field_73D2B9A5-2B33-475B-8E83-F33EA7F2B6F1
+        value: $ADDRESS_CITY
+        required: true
+      - name: zip5
+        selector: input#field_63BD55D8-F99E-4097-8F02-4B1D030EFC55
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: phone
+        selector: input#field_B1169F16-2DEA-4B04-B3EC-A20A18A0C18B
+        value: $PHONE
+        required: true
+      - name: email
+        selector: input#field_B0E2E8D3-6EF6-42B4-B195-97567D284026
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: textarea#field_B3546A94-6FC9-4491-B49E-491AB436132C
+        value: $MESSAGE
+        required: true
+    - recaptcha:
+      - name: recaptcha_response_field
+        grid_selector: "#rc-imageselect-target"
+        img_selector: "#rc-imageselect-target img"
+        phrase_selector: "html body div.rc-imageselect-desc > strong"
+        phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+        simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+        simple_textbox_selector: "#default-response"
+        audio_selector: "html body a.rc-audiochallenge-download-link"
+        audio_response_selector: "#audio-response"
+        audio_switch_selector: "#recaptcha-audio-button"
+        checkbox_iframe_selector: "div.g-recaptcha div div iframe[src^='https://www.google.com/recaptcha/api2/anchor']"
+        checkbox_selector: "div.recaptcha-checkbox-checkmark"
+        main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+        verify_selector: "#recaptcha-verify-button"
+        value: $CAPTCHA_SOLUTION
+        types: [image, audio]
+        required: true
+    - select:
+      - name: prefix
+        selector: select#field_0CB45ECA-A067-4502-A126-3BF34074A15A
+        value: $NAME_PREFIX
+        required: true
+        options:
+          "Mr.": "Mr."
+          "Mrs.": "Mrs."
+          "Ms.": "Ms."
+          "Mr. and Mrs.": "Mr. and Mrs."
+          "Dr.": v
+          "Dr. and Mrs.": "Dr. and Mrs."
+          "Dr. and Mr.": "Dr. and Mr."
+          "Reverend": "Reverend"
+          "Pastor": "Pastor"
+          "Sister": "Sister"
+      - name: topic
+        selector: select#field_2170B182-5ED8-4BEB-AFB3-6152D226A3BB
+        value: $TOPIC
+        required: true
+        options:
+          Abortion: Abortion
+          Agriculture: Agriculture
+          Animal Rights: Animal Rights
+          Appropriations: Appropriations
+          Autographed Photo: Autographed Photo
+          Banking: Banking
+          Budget: Budget
+          Crime: Crime
+          Civil Rights: Civil Rights
+          Constituent Services: Constituent Services
+          Constitution: Constitution
+          Defense/Military: Defense/Military
+          Eagle Scouts: Eagle Scouts
+          Economy: Economy
+          Education: Education
+          Energy: Energy
+          Environment: Environment
+          FEMA: FEMA
+          Finance: Finance
+          Foreign Affairs: Foreign Affairs
+          Government Affairs: Government Affairs
+          Guns: Guns
+          Health Care: Health Care
+          Health Insurance: Health Insurance
+          Homeland Security: Homeland Security
+          Housing and Urban Development: Housing and Urban Development
+          Immigration: Immigration
+          Inauguration 2009: Inauguration 2009
+          Insurance: Insurance
+          Intelligence: Intelligence
+          Judiciary: Judiciary
+          Labor: Labor
+          NASA: NASA
+          Nominations: Nominations
+          Science/Technology: Science/Technology
+          Small Business: Small Business
+          Social Security: Social Security
+          Tax: Tax
+          Telecommunications: Telecommunications
+          Tort Reform: Tort Reform
+          Trade: Trade
+          Transportation: Transportation
+          U.S. Military Academies: U.S. Military Academies
+          Veterans Affairs: Veterans Affairs
+          War in Iraq: War in Iraq
+          War on Terror: War on Terror
+          Welfare: Welfare
+          Women's Issues: Women's Issues
+          Other: Other
+    - click_on:
+      - value: Submit
+        selector: form.uniForm div.buttonHolder input
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting my office to express your views and concerns. "

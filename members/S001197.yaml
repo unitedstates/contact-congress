@@ -5,38 +5,42 @@ contact_form:
   steps:
     - visit: "http://www.sasse.senate.gov/public/index.cfm/email-ben"
     - fill_in:
-        - name: field_8B37EAA4-2FC8-4F36-A6B6-F3414A7A9AA5
+        - name: first
           selector: "#field_8B37EAA4-2FC8-4F36-A6B6-F3414A7A9AA5"
           value: $NAME_FIRST
           required: true
-        - name: field_70D11ACD-1BB0-4DB0-B12E-670C8FDC9590
+        - name: last
           selector: "#field_70D11ACD-1BB0-4DB0-B12E-670C8FDC9590"
           value: $NAME_LAST
           required: true
-        - name: field_93686B46-A6D1-4977-A951-81396A4E94CA
+        - name: street
           selector: "#field_93686B46-A6D1-4977-A951-81396A4E94CA"
           value: $ADDRESS_STREET
           required: true
-        - name: field_664E68C6-1D34-46D1-B232-496B48DAB108
+        - name: street2
+          selector: input#field_A35656C0-AF6B-4B8E-B823-AD582B5D9F55
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
           selector: "#field_664E68C6-1D34-46D1-B232-496B48DAB108"
           value: $ADDRESS_CITY
           required: true
-        - name: field_EFE8B729-6D88-4FAF-94C4-EEA0383D403A
+        - name: zip5
           selector: "#field_EFE8B729-6D88-4FAF-94C4-EEA0383D403A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_2515A2B7-E9CD-40F8-8135-64CC47B8A7B5
+        - name: phone
           selector: "#field_2515A2B7-E9CD-40F8-8135-64CC47B8A7B5"
           value: $PHONE
-          required: true
-        - name: field_9023DC4C-36F1-4E2B-B5F1-5173345C1A56
+          required: false
+        - name: email
           selector: "#field_9023DC4C-36F1-4E2B-B5F1-5173345C1A56"
           value: $EMAIL
           required: true
-        - name: field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4
+        - name: message
           selector: "#field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4"
           value: $MESSAGE
-          required: false
+          required: true
     - recaptcha:
       - name: recaptcha_response_field
         grid_selector: "#rc-imageselect-target"
@@ -56,7 +60,7 @@ contact_form:
         types: [image, audio]
         required: true
     - select:
-        - name: field_2647C301-6F8A-4A2F-A7AD-6AB2BA694E46
+        - name: prefix
           selector: "#field_2647C301-6F8A-4A2F-A7AD-6AB2BA694E46"
           value: $NAME_PREFIX
           required: true
@@ -73,7 +77,7 @@ contact_form:
             The Honorable: The Honorable
             Representative: Representative
             Senator: Senator
-        - name: field_2B460AD9-C6A4-4448-B9A5-58A73BE3F005
+        - name: topic
           selector: "#field_2B460AD9-C6A4-4448-B9A5-58A73BE3F005"
           value: $TOPIC
           required: true
@@ -133,7 +137,7 @@ contact_form:
             - Veterans
     - click_on:
         - value: Submit
-          selector: input.btn.btn-primary
+          selector: div.buttonHolder input.btn.btn-primary
     - wait:
         - value: 5
     - click_on:

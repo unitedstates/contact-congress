@@ -1,47 +1,49 @@
-bioguide: PAL000526
+bioguide: PAL000534
 contact_form:
   method: post
   action: ""
   steps:
-    - visit: http://www.pahouse.com/McClinton/Contact
+    - visit: "http://www.pahouse.com/Parker/Contact/"
+    - find:
+      - selector: form#Form1 input#input-page-ContactForm-fName
     - fill_in:
-      - name: firstname
+      - name: first
         selector: "#input-page-ContactForm-fName"
-        value: "$NAME_FIRST"
+        value: $NAME_FIRST
         required: true
-      - name: lastname
+      - name: last
         selector: "#input-page-ContactForm-lName"
-        value: "$NAME_LAST"
+        value: $NAME_LAST
         required: true
-      - name: address1
+      - name: street
         selector: "#input-page-ContactForm-Address"
-        value: "$ADDRESS_STREET"
+        value: $ADDRESS_STREET
         required: true
       - name: city
         selector: "#input-page-ContactForm-City"
-        value:  "$ADDRESS_CITY"
+        value:  $ADDRESS_CITY
         required: true
       - name: zip5
         selector: "#input-page-ContactForm-Zip"
-        value:  "$ADDRESS_ZIP5"
+        value:  $ADDRESS_ZIP5
         required: true
       - name: phone
         selector: "#input-page-ContactForm-Phone"
-        value: "$PHONE"
+        value: $PHONE
         required: true
       - name: email
         selector: "#input-page-ContactForm-Email"
-        value: "$EMAIL"
+        value: $EMAIL
         required: true
       - name: subject
         selector: "#input-page-ContactForm-Subject"
-        value: "$SUBJECT"
+        value: $SUBJECT
         required: true
       - name: message
         selector: "#input-page-ContactForm-Message"
-        value: "$MESSAGE"
+        value: $MESSAGE
         required: true
-    - uncheck:
+    - click_on:
       - selector: "#page-ContactForm-EmailAlertCHECK"
     - recaptcha:
       - name: recaptcha_response_field

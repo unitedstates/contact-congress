@@ -1,9 +1,11 @@
 bioguide: A000368
 contact_form:
   method: POST
-  action: http://www.ayotte.senate.gov/?p=submit
+  action: "http://www.ayotte.senate.gov/?p=submit"
   steps:
-    - visit: http://www.ayotte.senate.gov/?p=contact
+    - visit: "https://www.ayotte.senate.gov/?p=contact"
+    - find:
+      - selector: form#standard_form input#prefix
     - fill_in:
       - name: prefix
         selector: "#prefix"
