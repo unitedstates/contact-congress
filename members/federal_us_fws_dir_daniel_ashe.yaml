@@ -1,0 +1,106 @@
+bioguide: federal_us_fws_dir_daniel_ashe
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.fws.gov/duspit/contactus.htm"
+    - find:
+      - selector: form#theForm input[name='FirstName']
+    - fill_in:
+      - name: first
+        selector: form#theForm input[name='FirstName']
+        value: $NAME_FIRST
+        required: true
+      - name: last
+        selector: form#theForm input[name='LastName']
+        value: $NAME_LAST
+        required: true
+      - name: email
+        selector: form#theForm input[name='Email']
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: form#theForm textarea[name='Message']
+        value: $MESSAGE
+        required: true
+    - select:
+      - name: state
+        selector: form#theForm select[name='State']
+        value: $ADDRESS_STATE_FULL
+        required: true
+        options:
+          Alabama: Alabama
+          Alaska: Alaska
+          American Samoa: American Samoa
+          Arkansas: Arkansas
+          Arizona: Arizona
+          California: California
+          Colorado: Colorado
+          Connecticut: Connecticut
+          Delaware: Delaware
+          District of Columbia: District of Columbia
+          Florida: Florida
+          Federated States of Micronesia: Federated States of Micronesia
+          Georgia: Georgia
+          Guam: Guam
+          Hawaii: Hawaii
+          Iowa: Iowa
+          Idaho: Idaho
+          Illinois: Illinois
+          Indiana: Indiana
+          Kansas: Kansas
+          Kentucky: Kentucky
+          Louisiana: Louisiana
+          Massachusetts: Massachusetts
+          Maryland: Maryland
+          Maine: Maine
+          Marshall Islands: Marshall Islands
+          Michigan: Michigan
+          Minnesota: Minnesota
+          Missouri: Missouri
+          Northern Mariana Islands: Northern Mariana Islands
+          Mississippi : Mississippi
+          Montana: Montana
+          North Carolina: North Carolina
+          North Dakota: North Dakota
+          Nebraska: Nebraska
+          New Hampshire: New Hampshire
+          New Jersey: New Jersey
+          New Mexico: New Mexico
+          Nevada: Nevada
+          New York: New York
+          Ohio: Ohio
+          Oklahoma: Oklahoma
+          Oregon: Oregon
+          Pennsylvania: Pennsylvania
+          Puerto Rico: Puerto Rico
+          Rhode Island: Rhode Island
+          South Carolina: South Carolina
+          South Dakota: South Dakota
+          Tennessee: Tennessee
+          Texas: Texas
+          Utah: Utah
+          Vermont: Vermont
+          Virginia: Virginia
+          Virgin Islands, U.S.: Virgin Islands, U.S.
+          Washington: Washington
+          Wisconsin: Wisconsin
+          West Virginia: West Virginia
+          Wyoming: Wyoming
+          Armed Forces the Americas: Armed Forces the Americas
+          Armed Forces Europe: Armed Forces Europe
+          Armed Forces the Pacific: Armed Forces the Pacific
+      - name: country
+        selector: form#theForm select[name='Country']
+        value: United States
+        required: true
+        options:
+          United States: United States
+    - click_on:
+      - value: Submit Form
+        selector: form#theForm input[type='submit']
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "We have received your message and if you provided an e-mail address we will be responding soon."
