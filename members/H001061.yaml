@@ -3,196 +3,196 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: "http://www.hoeven.senate.gov/public/index.cfm/email-the-senator"
+    - visit: "https://www.hoeven.senate.gov/contact/email-the-senator"
     - find:
-      - selector: input#field_EDBEE5A8-1500-4783-A711-F1E737DF406F
+      - selector: div#form-77F3C43D-4040-F985-52CD-FEDFC04F94E5 input#input-781129F8-4040-F985-52CD-46DE47AD5D2C
     - fill_in:
       - name: first
-        selector: input#field_EDBEE5A8-1500-4783-A711-F1E737DF406F
+        selector: input#input-781129F8-4040-F985-52CD-46DE47AD5D2C
         value: $NAME_FIRST
         required: true
       - name: last
-        selector: input#field_E3AD017A-566E-4911-81A5-A8611192B357
+        selector: input#input-78112A2E-4040-F985-52CD-BA5873CADBC1
         value: $NAME_LAST
         required: true
       - name: street
-        selector: input#field_10554E6C-6B6F-427A-A865-D714BD2FE5A1
+        selector: input#input-7811EA94-4040-F985-52CD-A0C8B5E9A7D7
         value: $ADDRESS_STREET
         required: true
       - name: street2
-        selector: input#field_4C3AF2EA-A686-49B4-A847-859AF8E7D23A
+        selector: input#input-7811EB4F-4040-F985-52CD-CE7F1433F2BC
         value: $ADDRESS_STREET_2
         required: false
       - name: city
-        selector: input#field_B7EFE8E9-C929-4B92-8328-7B7F6F8C7274
+        selector: input#input-7811EC8E-4040-F985-52CD-9F736859134A
         value: $ADDRESS_CITY
         required: true
       - name: zip5
-        selector: input#field_A80A2A87-2F31-4C21-8BEB-AFBF12327276
+        selector: input#input-7811ECEE-4040-F985-52CD-7531B698E92C
         value: $ADDRESS_ZIP5
         required: true
       - name: phone
-        selector: input#field_62CAC646-C6C0-4B48-8637-86B77D2C9700
+        selector: input#input-7812E0DC-4040-F985-52CD-9D9A4BDC8EE8
         value: $PHONE_HYPHENS
         required: true
       - name: email
-        selector: input#field_4A2966D5-E9EA-4195-B486-B5D3D04D185A
+        selector: input#email
         value: $EMAIL
         required: true
+      - name: verify_email
+        selector: input#input-7813561C-4040-F985-52CD-4A79B42F821F
+        value: $EMAIL
+        required: true
+      - name: subject
+        selector: input#input-78156E99-4040-F985-52CD-A3EA1D68A55C
+        value: $SUBJECT
+        required: true
       - name: message
-        selector: textarea#field_55B09216-2B91-470F-AF68-AE9D197787B0
+        selector: textarea#input-78163367-4040-F985-52CD-D4AD6E614C69
         value: $MESSAGE
         required: true
     - select:
       - name: prefix
-        selector: select#field_89F02D5D-F5D9-46E9-880E-BB15E9254713
+        selector: select#input-781129BE-4040-F985-52CD-9967749C1AD6
         value: $NAME_PREFIX
         required: true
         options:
           Mr.: Mr.
-          Mrs.: Mrs.
-          Mr. and Mrs.: Mr. and Mrs.
           Ms.: Ms.
+          Mrs.: Mrs.
+          Professor: Professor
           Dr.: Dr.
-          Dr. and Mrs.: Dr. and Mrs.
-          The Honorable: The Honorable
-          The Honorable and Mrs.: The Honorable and Mrs.
-          Master: Master
-          Miss: Miss
-          The Reverend: The Reverend
-          The Reverend and Mrs.: The Reverend and Mrs.
-          First Lieutenant: First Lieutenant
-          First Sergeant: First Sergeant
-          1st Lt.: 1st Lt.
-          2nd Lt.: 2nd Lt.
-          Admiral: Admiral
-          Airman: Airman
-          Airman First Class: Airman First Class
-          Airman Basic: Airman Basic
-          Brigadier General: Brigadier General
-          Cadet: Cadet
-          Cap.: Cap.
-          Capt.: Capt.
-          Captain: Captain
-          Chaplain: Chaplain
-          Chief Master Sergeant: Chief Master Sergeant
-          Chief Petty Officer: Chief Petty Officer
-          Chief Warrant Officer: Chief Warrant Officer
-          Cmdr.: Cmdr.
-          Col.: Col.
-          Colonel: Colonel
-          Commander: Commander
-          Command Sergeant Major: Command Sergeant Major
-          Commodore Admiral: Commodore Admiral
-          Congressman: Congressman
-          Congressman-Elect: Congressman-Elect
-          Congresswoman: Congresswoman
-          Congresswoman-Elect: Congresswoman-Elect
-          Corporal: Corporal
-          Cpl.: Cpl.
-          CPO: CPO
-          Cpt.: Cpt.
-          CWO: CWO
-          Delegate-Elect: Delegate-Elect
-          Dr.: Dr.
-          Drs.: Drs.
-          Ensign: Ensign
-          Ensign: Ensign
           Father: Father
-          First Lieutenant: First Lieutenant
-          First Sergeant: First Sergeant
-          Fleet Admiral: Fleet Admiral
-          General: General
-          General of the Army: General of the Army
-          General of the Air Force: General of the Air Force
-          Gunnery Sergeant: Gunnery Sergeant
-          Gy. Sgt.: Gy. Sgt.
-          The Hon.: The Hon.
-          The Hon. and Mr.: The Hon. and Mr.
-          The Hon. and Mrs.: The Hon. and Mrs.
-          The Honorable: The Honorable
-          The Honorable and Mr.: The Honorable and Mr.
-          The Honorable and Mrs.: The Honorable and Mrs.
-          Lance Corporal: Lance Corporal
-          LCpl.: LCpl.
-          Lieutenant: Lieutenant
-          Lieutenant Colonel: Lieutenant Colonel
-          Lieutenant Commander: Lieutenant Commander
-          Lieutenant General: Lieutenant General
-          Lieutenant Junior Grade: Lieutenant Junior Grade
-          Lt.: Lt.
-          Lt. Cmdr.: Lt. Cmdr.
-          Lt. Col.: Lt. Col.
-          Maj.: Maj.
-          Major: Major
-          Major General: Major General
-          Mr. and Mrs.: Mr. and Mrs.
-          Master: Master
-          Master Chief Petty Officer: Master Chief Petty Officer
-          Master Gunnery Sergeant: Master Gunnery Sergeant
-          Master Sergeant: Master Sergeant
-          MGSgt.: MGSgt.
-          Midshipman: Midshipman
-          Miss: Miss
-          Mr.: Mr.
-          Mr.: Mr.
-          Mr. and Dr.: Mr. and Dr.
-          Mr. and Mrs.: Mr. and Mrs.
-          Mrs.: Mrs.
-          Ms.: Ms.
-          MSgt.: MSgt.
-          The Honorable: The Honorable
-          Pastor: Pastor
-          Pastor and Mrs.: Pastor and Mrs.
-          Petty Officer First Class: Petty Officer First Class
-          Petty Officer Second Class: Petty Officer Second Class
-          Petty Officer Third Class: Petty Officer Third Class
-          PFC: PFC
-          Private: Private
-          Private First Class: Private First Class
-          Pvt.: Pvt.
-          Rabbi: Rabbi
-          Rabbi and Mrs.: Rabbi and Mrs.
-          Representative: Representative
-          The Rev.: The Rev.
-          The Rev. and Mrs.: The Rev. and Mrs.
-          The Rev. Dr.: The Rev. Dr.
-          The Rev. Dr. and Mrs.: The Rev. Dr. and Mrs.
-          The Reverend and Mrs.: The Reverend and Mrs.
-          The Reverend Doctor: The Reverend Doctor
-          The Reverend Doctor and Mrs.: The Reverend Doctor and Mrs.
-          Seaman: Seaman
-          Seaman Apprentice: Seaman Apprentice
-          Seaman Recruit: Seaman Recruit
-          Sen.: Sen.
-          Sen. and Mr.: Sen. and Mr.
-          Sen. and Mrs.: Sen. and Mrs.
-          Senator: Senator
-          Senator and Mr.: Senator and Mr.
-          Senator and Mrs.: Senator and Mrs.
-          Senator-Elect: Senator-Elect
-          Senior Airman: Senior Airman
-          Senior Chief Petty Officer: Senior Chief Petty Officer
-          Senior Master Sergeant: Senior Master Sergeant
-          Sr.: Sr.
-          Sr. and Sra.: Sr. and Sra.
-          Sergeant: Sergeant
-          Sergeant First Class: Sergeant First Class
-          Sergeant Major: Sergeant Major
-          Sgt.: Sgt.
-          Sgt. Maj.: Sgt. Maj.
-          Sheriff: Sheriff
-          Sheriff and Mrs.: Sheriff and Mrs.
           Sister: Sister
-          Sr.: Sr.
-          Sr. and Sra.: Sr. and Sra.
-          SSgt.: SSgt.
-          Staff Sergeant: Staff Sergeant
-          Technical Sergeant: Technical Sergeant
-          Warrant Officer: Warrant Officer
-          Your Highness: Your Highness
+          Rabbi: Rabbi
+          Reverend: Reverend
+          Air Force - General: Air Force - General
+          Air Force - Lieutenant General: Air Force - Lieutenant General
+          Air Force - Major General: Air Force - Major General
+          Air Force - Brigadier General: Air Force - Brigadier General
+          Air Force - Colonel: Air Force - Colonel
+          Air Force - Lieutenant Colonel: Air Force - Lieutenant Colonel
+          Air Force - Major: Air Force - Major
+          Air Force - Captain:   Air Force - Captain
+          Air Force - First Lieutenant: Air Force - First Lieutenant
+          Air Force - Second Lieutenant: Air Force - Second Lieutenant
+          Air Force - Chief Master Sergeant of the Air Force: Air Force - Chief Master Sergeant of the Air Force
+          Air Force - Command Chief Master Sergeant: Air Force - Command Chief Master Sergeant
+          Air Force - First Sergeant (E-9):   Air Force - First Sergeant (E-9)
+          Air Force - Chief Master Sergeant: Air Force - Chief Master Sergeant
+          Air Force - First Sergeant (E-8): Air Force - First Sergeant (E-8)
+          Air Force - Senior Master Sergeant: Air Force - Senior Master Sergeant
+          Air Force - First Sergeant (E-7): Air Force - First Sergeant (E-7)
+          Air Force - Master Sergeant: Air Force - Master Sergeant
+          Air Force - Technical Sergeant: Air Force - Technical Sergeant
+          Air Force - Staff Sergeant: Air Force - Staff Sergeant
+          Air Force - Senior Airman: Air Force - Senior Airman
+          Air Force - Airman First Class: Air Force - Airman First Class
+          Air Force - Airman: Air Force - Airman
+          Air Force - Airman Basic: Air Force - Airman Basic
+          Army - General: Army - General
+          Army - Lieutenant General: Army - Lieutenant General
+          Army - Major General: Army - Major General
+          Army - Brigadier General: Army - Brigadier General
+          Army - Colonel: Army - Colonel
+          Army - Lieutenant Colonel: Army - Lieutenant Colonel
+          Army - Major: Army - Major
+          Army - Captain: Army - Captain
+          Army - First Lieutenant: Army - First Lieutenant
+          Army - Second Lieutenant: Army - Second Lieutenant
+          Army - Chief Warrant Officer - 5: Army - Chief Warrant Officer - 5
+          Army - Chief Warrant Officer - 4: Army - Chief Warrant Officer - 4
+          Army - Chief Warrant Officer - 3: Army - Chief Warrant Officer - 3
+          Army - Chief Warrant Officer - 2: Army - Chief Warrant Officer - 2
+          Army - Warrant Officer: Army - Warrant Officer
+          Army - Sergeant Major of the Army: Army - Sergeant Major of the Army
+          Army - Command Sergeant Major: Army - Command Sergeant Major
+          Army - Sergeant Major: Army - Sergeant Major
+          Army - First Sergeant: Army - First Sergeant
+          Army - Master Sergeant: Army - Master Sergeant
+          Army - Sergeant First Class: Army - Sergeant First Class
+          Army - Staff Sergeant: Army - Staff Sergeant
+          Army - Sergeant: Army - Sergeant
+          Army - Corporal: Army - Corporal
+          Army - Specialist: Army - Specialist
+          Army - Private First Class: Army - Private First Class
+          Army - Private (E-2): Army - Private (E-2)
+          Army - Private: Army - Private
+          Coast Guard - Admiral: Coast Guard - Admiral
+          Coast Guard - Vice Admiral: Coast Guard - Vice Admiral
+          "Coast Guard - Rear Admiral, Upper Half": "Coast Guard - Rear Admiral, Upper Half"
+          "Coast Guard - Rear Admiral, Lower Half": "Coast Guard - Rear Admiral, Lower Half"
+          Coast Guard - Captain: Coast Guard - Captain
+          Coast Guard - Commander: Coast Guard - Commander
+          Coast Guard - Lieutenant Commander: Coast Guard - Lieutenant Commander
+          Coast Guard - Lieutenant: Coast Guard - Lieutenant
+          Coast Guard - Lieutenant Junior Grade: Coast Guard - Lieutenant Junior Grade
+          Coast Guard - Ensign: Coast Guard - Ensign
+          Coast Guard - Chief Warrant Officer - 4: Coast Guard - Chief Warrant Officer - 4
+          Coast Guard - Chief Warrant Officer - 3: Coast Guard - Chief Warrant Officer - 3
+          Coast Guard - Chief Warrant Officer - 2: Coast Guard - Chief Warrant Officer - 2
+          Coast Guard - Master Chief Petty Officer of the Coast Guard: Coast Guard - Master Chief Petty Officer of the Coast Guard
+          Coast Guard - Master Chief Petty Officer: Coast Guard - Master Chief Petty Officer
+          Coast Guard - Senior Chief Petty Officer: Coast Guard - Senior Chief Petty Officer
+          Coast Guard - Chief Petty Officer: Coast Guard - Chief Petty Officer
+          Coast Guard - Petty Officer First Class: Coast Guard - Petty Officer First Class
+          Coast Guard - Petty Officer Second Class: Coast Guard - Petty Officer Second Class
+          Coast Guard - Petty Officer Third Class: Coast Guard - Petty Officer Third Class
+          Coast Guard - Seaman: Coast Guard - Seaman
+          Coast Guard - Seaman Apprentice: Coast Guard - Seaman Apprentice
+          Coast Guard - Seaman Recruit: Coast Guard - Seaman Recruit
+          Marine Corps - General: Marine Corps - General
+          Marine Corps - Lieutenant General: Marine Corps - Lieutenant General
+          Marine Corps - Major General: Marine Corps - Major General
+          Marine Corps - Brigadier General: Marine Corps - Brigadier General
+          Marine Corps - Colonel: Marine Corps - Colonel
+          Marine Corps - Lieutenant Colonel: Marine Corps - Lieutenant Colonel
+          Marine Corps - Major: Marine Corps - Major
+          Marine Corps - Captain: Marine Corps - Captain
+          Marine Corps - First Lieutenant: Marine Corps - First Lieutenant
+          Marine Corps - Second Lieutenant: Marine Corps - Second Lieutenant
+          Marine Corps - Chief Warrant Officer - 5: Marine Corps - Chief Warrant Officer - 5
+          Marine Corps - Chief Warrant Officer - 4: Marine Corps - Chief Warrant Officer - 4
+          Marine Corps - Chief Warrant Officer - 3: Marine Corps - Chief Warrant Officer - 3
+          Marine Corps - Chief Warrant Officer - 2: Marine Corps - Chief Warrant Officer - 2
+          Marine Corps - Warrant Officer: Marine Corps - Warrant Officer
+          Marine Corps - Sergeant Major of the Marine Corps: Marine Corps - Sergeant Major of the Marine Corps
+          Marine Corps - Sergeant Major: Marine Corps - Sergeant Major
+          Marine Corps - Master Gunnery Sergeant: Marine Corps - Master Gunnery Sergeant
+          Marine Corps - First Sergeant: Marine Corps - First Sergeant
+          Marine Corps - Master Sergeant: Marine Corps - Master Sergeant
+          Marine Corps - Gunnery Sergeant: Marine Corps - Gunnery Sergeant
+          Marine Corps - Staff Sergeant: Marine Corps - Staff Sergeant
+          Marine Corps - Sergeant: Marine Corps - Sergeant
+          Marine Corps - Corporal: Marine Corps - Corporal
+          Marine Corps - Lance Corporal: Marine Corps - Lance Corporal
+          Marine Corps - Private First Class: Marine Corps - Private First Class
+          Marine Corps - Private: Marine Corps - Private
+          Navy - Admiral: Navy - Admiral
+          Navy - Vice Admiral: Navy - Vice Admiral
+          "Navy - Rear Admiral, Upper Half": "Navy - Rear Admiral, Upper Half"
+          "Navy - Rear Admiral, Lower Half": "Navy - Rear Admiral, Lower Half"
+          Navy - Captain: Navy - Captain
+          Navy - Commander: Navy - Commander
+          Navy - Lieutenant Commander: Navy - Lieutenant Commander
+          Navy - Lieutenant: Navy - Lieutenant
+          Navy - Lieutenant Junior Grade: Navy - Lieutenant Junior Grade
+          Navy - Ensign: Navy - Ensign
+          Navy - Chief Warrant Officer - 4: Navy - Chief Warrant Officer - 4
+          Navy - Chief Warrant Officer - 3: Navy - Chief Warrant Officer - 3
+          Navy - Chief Warrant Officer - 2: Navy - Chief Warrant Officer - 2
+          Navy - Master Chief Petty Officer of the Navy: Navy - Master Chief Petty Officer of the Navy
+          Navy - Master Chief Petty Officer: Navy - Master Chief Petty Officer
+          Navy - Senior Chief Petty Officer: Navy - Senior Chief Petty Officer
+          Navy - Chief Petty Officer: Navy - Chief Petty Officer
+          Navy - Petty Officer First Class: Navy - Petty Officer First Class
+          Navy - Petty Officer Second Class: Navy - Petty Officer Second Class
+          Navy - Petty Officer Third Class: Navy - Petty Officer Third Class
+          Navy - Seaman Apprentice: Navy - Seaman Apprentice
+          Navy - Seaman: Navy - Seaman
+          Navy - Seaman Recruit: Navy - Seaman Recruit
       - name: topic
-        selector: select#field_0CF6BFDA-3AD1-4F31-9F42-FBF81148E3CF
+        selector: select#input-7815E456-4040-F985-52CD-EBDC0E13DD74
         value: $TOPIC
         required: true
         options:
@@ -228,9 +228,9 @@ contact_form:
           "Other/Multiple Issues": "Other/Multiple Issues"
     - click_on:
       - value: Submit
-        selector: form.uniForm div.buttonHolder input
+        selector: div#form-77F3C43D-4040-F985-52CD-FEDFC04F94E5 form div.control-group > div.controls > input.btn
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for sharing your concerns with me."
+      contains: "Thank You for submitting your request to my office."

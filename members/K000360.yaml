@@ -3,9 +3,9 @@ contact_form:
   method: POST
   action: "http://www.kirk.senate.gov/?p=comment_on_legislation&clear_cache=1"
   steps:
-    - visit: http://www.kirk.senate.gov/?p=comment_on_legislation
+    - visit: "http://www.kirk.senate.gov/?p=comment_on_legislation"
     - find:
-      - selector: "#firstName"
+      - selector: form#thisForm input#firstName
     - fill_in:
       - name: firstName
         selector: "#firstName"
@@ -142,6 +142,8 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "form#thisForm input[type='submit']"
+    - wait:
+      - value: 4
     - find:
       - selector: "p"
         value: "Thank you!"
