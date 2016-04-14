@@ -4,6 +4,8 @@ contact_form:
   action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
   steps:
   - visit: https://mikebishop.house.gov/contact
+  - find:
+    - selector: form#emailForm button#submit
   - fill_in:
     - name: required-zip5
       selector: "#required-zip5"
@@ -13,8 +15,8 @@ contact_form:
       selector: "#zip4"
       value: $ADDRESS_ZIP4
       required: true
-  - find:
-    - selector: form#emailForm button#submit
+  - wait:
+    - value: 1
   - click_on:
     - value: Go To Next Step
       selector: form#emailForm button#submit
