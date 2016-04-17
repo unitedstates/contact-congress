@@ -35,6 +35,10 @@ contact_form:
           selector: "#input_1_3"
           value: $EMAIL
           required: true
+        - name: input_4
+          selector: "#input_1_4"
+          value: $PHONE
+          required: true
         - name: input_5
           selector: "#input_1_5"
           value: $MESSAGE
@@ -101,6 +105,8 @@ contact_form:
             War in Iraq: IRAQ
             Women’s Health: WOMHEA
             Other: GEN
+    - javascript:
+        - value: document.querySelector("#input_1_5").value = document.querySelector("#input_1_5").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_1"
