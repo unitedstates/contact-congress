@@ -1,9 +1,9 @@
 bioguide: F000461
 contact_form:
   method: post
-  action: "./?zip5=76710&zip4=2018"
+  action: ./
   steps:
-    - visit: "https://flores.house.gov/forms/writeyourrep/?zip5=76710&zip4=2018"
+    - visit: "https://flores.house.gov/forms/writeyourrep/"
     - fill_in:
         - name: ctl00$ctl15$FirstName
           selector: "#ctl00_ctl15_FirstName"
@@ -48,11 +48,8 @@ contact_form:
           required: true
           options:
             - Mr.
-            - Mrs.
             - Ms.
-            - Miss
             - Dr.
-            - Hon.
             - The Honorable
             - Reverend
             - Representative
@@ -64,71 +61,9 @@ contact_form:
             - Senator
             - Colonel
             - Captain
-        - name: ctl00$ctl15$State
-          selector: "#ctl00_ctl15_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - AA
-            - AE
-            - AP
-            - FM
-            - GU
-            - MH
-            - MP
-            - PR
-            - VI
+            - General
+            - Major General
+            - Deputy
         - name: ctl00$ctl15$IssuesList
           selector: "#ctl00_ctl15_IssuesList"
           value: $TOPIC
@@ -153,6 +88,10 @@ contact_form:
             Telecommunications: "118744"
             Transportation and Infrastructure: "106000"
             Veterans: "106001"
+    - check:
+        - name: ctl00$ctl15$ReplyChoice
+          selector: "#ctl00_ctl15_ReplyChoice_0"
+          value: Respond
     - javascript:
         - value: document.querySelector("#ctl00_ctl15_Body").value = document.querySelector("#ctl00_ctl15_Body").value.replace(/"/g, '');
     - click_on:
