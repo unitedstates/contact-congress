@@ -118,6 +118,8 @@ The `options` attribute for the `find` step may be specified as `wait: x`,
 where `x` is an integer number of seconds.  If the element is not found within
 this number of seconds, the form fill will be abandoned and should return an error to the caller.
 
+The `within_frame` attribute is optional and consists of a string denoting the selector of an iframe on the page. If present, the find step will be executed in the context of the matching iframe.
+
 ### fill_in
 
 The value of a fill_in step can be a single field, or a list of hashes
@@ -143,6 +145,8 @@ many of which are common to most steps:
       allows a plus sign in the `email` field.
   - `max_length`: This field will be present if a field has a maximum character length. 
     This value should be a number. It's very useful where max length is only enforced server-side.
+- `within_frame` (optional): Consists of a string denoting the selector of an iframe on the page. If present, the fill_in step will be executed in the context of the matching iframe.
+
 
 **A note on CAPTCHAs**
 
@@ -151,6 +155,8 @@ to deal with in an automated fashion. CAPTCHAs should be handled as `fill_in`
 fields with the variable `$CAPTCHA_SOLUTION` as the value. These fields should
 also describe a `captcha_selector` key for retrieving the captcha image and
 returning it to a solver of the implementer's choosing.
+
+Google's new ReCAPTCHAs have special syntax. In this case, the `captcha_selctor` should be the iframe containing the ReCAPTCHA. The `google_recaptcha` option should be set to true as well. See [here](https://github.com/unitedstates/contact-congress/blob/master/members/S001197.yaml) for an example.
 
 ### check/uncheck/choose
 
@@ -162,6 +168,9 @@ The attributes of these steps are the same as those of `fill_in`, and should
 be treated as such with the exception of `value`. In a checkbox or radio
 button context, `value` describes the actual `value` attribute of the checkbox
 that should be checked/unchecked/chosen, in case several have the same `name` attribute.
+
+The `within_frame` attribute is optional and consists of a string denoting the selector of an iframe on the page. If present, the check/uncheck/choose step will be executed in the context of the matching iframe.
+
 
 ### select
 
@@ -179,6 +188,8 @@ Currently the only available constants are a list of the postal codes of the
 encountered in options lists comprise the keys in `constants.yaml` so the resulting
 constants hash can be indexed directly with them.
 
+The `within_frame` attribute is optional and consists of a string denoting the selector of an iframe on the page. If present, the select step will be executed in the context of the matching iframe.
+
 ### click_on 
 
 A click_on step terminates the preceding list of input-related steps, by
@@ -188,6 +199,9 @@ button or link to click, and `value` is the HTML value attribute if present,
 both to disambiguate and for the benefit of clients which may be POSTing
 directly instead of using a headless browser, though this is not recommended.
 `selector` is the only attribute you must provide/should expect to be guaranteed.
+
+The `within_frame` attribute is optional and consists of a string denoting the selector of an iframe on the page. If present, the click_on step will be executed in the context of the matching iframe.
+
 
 ### wait
 
@@ -207,6 +221,9 @@ The `value` key determines what javascript to execute in this step. Note that
 this instruction should only be used sparingly. It is better to mimic user
 behavior as closely as possible, but if there is no way to proceed with normal
 ux steps, this instruction may be used.
+
+The `within_frame` attribute is optional and consists of a string denoting the selector of an iframe on the page. If present, the javascript step will be executed in the context of the matching iframe.
+
 
 ---
 
