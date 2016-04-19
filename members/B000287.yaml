@@ -27,7 +27,7 @@ contact_form:
           required: true
         - name: ctl00$ctl17$Phone
           selector: "#ctl00_ctl17_Phone"
-          value: $PHONE
+          value: $PHONE_HYPHENS
           required: true
         - name: ctl00$ctl17$Email
           selector: "#ctl00_ctl17_Email"
@@ -49,7 +49,6 @@ contact_form:
           selector: "#ctl00_ctl17_CampaignInfo"
           value: $CAMPAIGN_UUID
           required: false
-    - select: []
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl17_SubmitButton"
