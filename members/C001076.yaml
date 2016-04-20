@@ -17,45 +17,45 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - fill_in:
-        - name: ctl00$ctl28$FirstName
-          selector: "#ctl00_ctl28_FirstName"
+        - name: ctl00$ctl07$FirstName
+          selector: "#ctl00_ctl07_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl28$LastName
-          selector: "#ctl00_ctl28_LastName"
+        - name: ctl00$ctl07$LastName
+          selector: "#ctl00_ctl07_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl28$Street
-          selector: "#ctl00_ctl28_Street"
+        - name: ctl00$ctl07$Street
+          selector: "#ctl00_ctl07_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl28$City
-          selector: "#ctl00_ctl28_City"
+        - name: ctl00$ctl07$City
+          selector: "#ctl00_ctl07_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl28$Zip
-          selector: "#ctl00_ctl28_Zip"
+        - name: ctl00$ctl07$Zip
+          selector: "#ctl00_ctl07_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl28$Phone
-          selector: "#ctl00_ctl28_Phone"
+        - name: ctl00$ctl07$Phone
+          selector: "#ctl00_ctl07_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl28$Email
-          selector: "#ctl00_ctl28_Email"
+        - name: ctl00$ctl07$Email
+          selector: "#ctl00_ctl07_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl28$Subject
-          selector: "#ctl00_ctl28_Subject"
+        - name: ctl00$ctl07$Subject
+          selector: "#ctl00_ctl07_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl28$Body
-          selector: "#ctl00_ctl28_Body"
+        - name: ctl00$ctl07$Body
+          selector: "#ctl00_ctl07_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl28$PrefixList
-          selector: "#ctl00_ctl28_PrefixList"
+        - name: ctl00$ctl07$PrefixList
+          selector: "#ctl00_ctl07_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -63,8 +63,8 @@ contact_form:
             - Mrs.
             - Dr.
             - Ms.
-        - name: ctl00$ctl28$IssuesList
-          selector: "#ctl00_ctl28_IssuesList"
+        - name: ctl00$ctl07$IssuesList
+          selector: "#ctl00_ctl07_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -82,14 +82,14 @@ contact_form:
             Technology: "10447"
             Transportation: "81"
     - check:
-        - name: ctl00$ctl28$ReplyChoice
-          selector: "#ctl00_ctl28_ReplyChoice_0"
+        - name: ctl00$ctl07$ReplyChoice
+          selector: "#ctl00_ctl07_ReplyChoice_0"
           value: Respond
     - javascript:
-        - value: document.querySelector("#ctl00_ctl28_Body").value = document.querySelector("#ctl00_ctl28_Body").value.replace(/"/g, '');
+        - value: document.querySelector("#ctl00_ctl07_Body").value = document.querySelector("#ctl00_ctl07_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl28_SubmitButton"
+          selector: "#ctl00_ctl07_SubmitButton"
   success:
     headers:
       status: 200
