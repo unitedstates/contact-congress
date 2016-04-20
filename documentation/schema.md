@@ -35,16 +35,16 @@ a subset of [Capybara methods](http://rubydoc.info/github/jnicklas/capybara/mast
 
 - [`visit`](#visit): The act of navigating to a given url.
 - [`iframe`](#visit): Locates an iframe to switch focus to.
-- [`find`](#find): Locating a selector on the page, an indication that no further 
+- [`find`](#find): Locating a selector on the page, an indication that no further
     steps should be executed until the selector is present and visible.
 - [`fill_in`](#fill_in): Entering text into a text `input` or `textarea`.
 - [`select`](#select): Choosing a value from a `select` list.
 - [`wait`](#wait): Waits a time in seconds
 - [`check`](#checkuncheckchoose): Ticking a checkbox `input`.
 - [`uncheck`](#checkuncheckchoose) The opposite of `check`.
-- [`choose`](#checkuncheckchoose) Ticking a specific item in a set of radio 
+- [`choose`](#checkuncheckchoose) Ticking a specific item in a set of radio
     buttons.
-- [`click_on`](#click_on) Clicking a link or `button`, most likely to submit a 
+- [`click_on`](#click_on) Clicking a link or `button`, most likely to submit a
     `form`.
 - [`remove`](#remove) Removes DOM element
 - [`picker`](#picker) Uses provided key-selector mapping to select element based on provided value
@@ -55,13 +55,13 @@ a subset of [Capybara methods](http://rubydoc.info/github/jnicklas/capybara/mast
 A basic description of what a successful HTTP response looks like. This is a hash of `headers` and `body` content:
 
 - `headers`  
-    Any standard HTTP header can be expected here, but most implementations won't 
+    Any standard HTTP header can be expected here, but most implementations won't
     need this information. `status` is provided as an example.
   - `status`: The numeric http code the response should match, eg `200`
 - `body`
-  - `contains`: A plain string that should be present in the body. This is 
+  - `contains`: A plain string that should be present in the body. This is
     preferred over `matches` unless a more complex rule is necessary.
-  - `matches`: A regular expression bounded by plain string delimiters ("") for portability. It's preferable to provide a pattern (if one is needed) that can 
+  - `matches`: A regular expression bounded by plain string delimiters ("") for portability. It's preferable to provide a pattern (if one is needed) that can
     be matched case-insensitively and on one line.
 
 ---
@@ -89,20 +89,20 @@ The value is a number of seconds to wait before performing another action. Find 
 The value of a fill_in step can be a single field, or a list of hashes defining a batch of fields to fill in at once, but should be defined as a list either way. Each hash describes a form field by a few attributes, many of which are common to most steps:
 
 - `name`: The `name` HTML attribute of the field to be filled out.
-- `selector`: It's expected that a specific CSS selector will be provided in 
-    addition to the `name` field, because it's possible that more than one field 
+- `selector`: It's expected that a specific CSS selector will be provided in
+    addition to the `name` field, because it's possible that more than one field
     with the same name (`email`, for example) may be present on the page.
-- `value`: Either a string value to enter into the form, or a 'variable' 
-    placeholder, such as `$EMAIL`. These placeholders are listed and explained in 
+- `value`: Either a string value to enter into the form, or a 'variable'
+    placeholder, such as `$EMAIL`. These placeholders are listed and explained in
     [variables.yaml](../support/variables.yaml) in the support folder of this repo.
-    The leading dollar sign is used to help disambiguate these special values from 
-    an all-caps string value that might be intended to go directly into the form 
+    The leading dollar sign is used to help disambiguate these special values from
+    an all-caps string value that might be intended to go directly into the form
     field.
-- `required` (ironically, optional): This field will be present if a field *must* 
+- `required` (ironically, optional): This field will be present if a field *must*
     be filled out with a value in order for the form to be valid.
-- `max_length` (optional): This field will be present if a field has a maximum length. 
+- `max_length` (optional): This field will be present if a field has a maximum length.
     It's very useful where max length is only enforced server-side. Must be within an `options` block, like so:
-    
+
     ```yaml
     - fill_in
       - name: test
@@ -157,7 +157,7 @@ Clicks the reCAPTCHA checkbox to open the challenge, then fetchs either the imag
 - `simple_textbox_selector`: Select for textbox, in the event a simple reCAPTCHA challenge is presented
 - `audio_selector`: Selector for the download link for the audio file
 - `audio_response_selector`: Selector for the response to the audio challenge
-- `audio_switch_selector`: Selector for the button to switch between image and audio challenges 
+- `audio_switch_selector`: Selector for the button to switch between image and audio challenges
 - `checkbox_iframe_selector`: Selector for IFrame that contains the initial checkbox (to begin reCAPTCHA)
 - `checkbox_selector`: Selector for checkbox to click to begin reCAPTCHA
 - `main_iframe_selector`: Selector for IFrame that contains main challenge content
@@ -198,7 +198,7 @@ The attributes of these steps are the same as those of `fill_in`, and should be 
 
 Like the other input-related steps, `select`s can list either one or many hashes. Attributes are the same as `fill_in` with the addition of `options`, a list of the possible options which can be selected. If the `value` attributes of the select's options are obscure abbreviations or otherwise non-human-readable, the value of `options` can be a hash where the key is the text that appears in the select box when the option is selected, and the value is the option's `value` attribute. In cases where the options are common across several members' forms, a *constant* may be used as a placeholder. Available constants are listed in [constants.yaml](../support/constants.yaml) in this repository. Currently the only available constants are a list of the postal codes of the 50 US states plus DC, and the full list of states and territories. The constants encountered in options lists comprise the keys in `constants.yaml` so the resulting constants hash can be indexed directly with them.
 
-### click_on 
+### click_on
 
 A click_on step terminates the preceding list of input-related steps, by submitting the web form. It is a list containing a hash with only two possible keys: `selector` and `value`. `selector` is the CSS selector for finding the button or link to click, and `value` is the HTML value attribute if present, both to disambiguate and for the benefit of clients which may be POSTing directly instead of using a headless browser, though this is not recommended. `selector` is the only attribute you must provide/should expect to be guaranteed.
 
@@ -219,7 +219,7 @@ contact_form:
       - name: q
         selector: "#gbqfq"
         value: $NAME_LAST
-        required: Yes
+        required: true
     - click_on:
       - selector: "#gbqfba"
   success:
@@ -232,4 +232,3 @@ Here is a list of examples that may help you:
 - [Handling non human readable options](https://github.com/unitedstates/contact-congress/blob/master/members/S000033.yaml)
 - [Handling radio buttons](https://github.com/unitedstates/contact-congress/blob/master/members/H001049.yaml) - checkboxes are the same concept except with "- check"
 - [Finding created forms](https://github.com/unitedstates/contact-congress/blob/master/members/I000024.yaml)
-      

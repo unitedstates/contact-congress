@@ -8,46 +8,46 @@ contact_form:
       - name: fname
         selector: "#contactForm #fname"
         value: $NAME_FIRST
-        required: Yes
+        required: true
       - name: lname
         selector: "#contactForm #lname"
         value: $NAME_LAST
-        required: Yes
+        required: true
       - name: mailing_streetAddress1
         selector: "#contactForm #mailing_streetAddress1"
         value: $ADDRESS_STREET
-        required: Yes
+        required: true
       - name: mailing_streetAddress2
         selector: "#contactForm #mailing_streetAddress2"
         value: $ADDRESS_STREET_2
       - name: mailing_city
         selector: "#contactForm #mailing_city"
         value: $ADDRESS_CITY
-        required: Yes
+        required: true
       - name: mailing_zipCode
         selector: "#contactForm #mailing_zipCode"
         value: $ADDRESS_ZIP5
-        required: Yes
+        required: true
       - name: home_phone_number
         selector: "#contactForm #home_phone_number"
         value: $PHONE
       - name: email_address
         selector: "#contactForm #email_address"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: verify_email
         selector: "#contactForm #verify_email"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: message
         selector: "#contactForm #message"
         value: $MESSAGE
-        required: Yes
+        required: true
     - select:
       - name: salutation
         selector: "#contactForm select#salutation"
         value: $NAME_PREFIX
-        required: Yes
+        required: true
         options:
           "Mr.": "Mr."
           "Ms.": "Ms."
@@ -120,12 +120,12 @@ contact_form:
       - name: state
         selector: "#contactForm #state"
         value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: Yes
+        required: true
         options: US_STATES
       - name: subject
         selector: "#contactForm #subject"
         value: $TOPIC
-        required: Yes
+        required: true
         options:
           - "Afghanistan"
           - "Agriculture"

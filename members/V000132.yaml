@@ -8,56 +8,56 @@ contact_form:
       - name: required-prefix
         selector: "#required-prefix"
         value: $NAME_PREFIX
-        required: Yes
+        required: true
       - name: required-first
         selector: "#required-first"
         value: $NAME_FIRST
-        required: Yes
+        required: true
       - name: required-last
         selector: "#required-last"
         value: $NAME_LAST
-        required: Yes
+        required: true
       - name: required-address
         selector: "#required-address"
         value: $ADDRESS_STREET
-        required: Yes
+        required: true
       - name: required-city
         selector: "#required-city"
         value: $ADDRESS_CITY
-        required: Yes
+        required: true
       - name: required-state
         selector: "#required-state"
         value: $ADDRESS_STATE_POSTAL_ABBREV #unsure if this works (textbox)
-        required: Yes
+        required: true
       - name: required-zip5
         selector: "#required-zip5"
         value: $ADDRESS_ZIP5
-        required: Yes
+        required: true
       - name: zip4
         selector: "#zip4"
         value: $ADDRESS_ZIP4
-        required: Yes
+        required: true
       - name: required-phone
         selector: "#required-phone"
         value: $PHONE
-        required: Yes
+        required: true
       - name: required-valid-email
         selector: "#required-valid-email"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: required-subject
         selector: "#required-subject"
         value: $SUBJECT
-        required: Yes
+        required: true
       - name: required-message
         selector: "#required-message"
         value: $MESSAGE
-        required: Yes
+        required: true
     - select:
       - name: required-issue
         selector: "#required-issue"
         value: $TOPIC
-        required: Yes
+        required: true
         options:
           "Agriculture": "AGR"
           "Animals": "AN"
@@ -102,7 +102,7 @@ contact_form:
       - name: required-response
         selector: "#required-response"
         value: "Y"
-        required: Yes
+        required: true
         options:
           "Yes, please contact me": "Y"
           "No, I wanted to voice my opinion": "N"
