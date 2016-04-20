@@ -8,42 +8,42 @@ contact_form:
       - name: prefix
         selector: "#field_25884FEA-C5D5-4B0B-9C27-15F4BACFC56F"
         value: "$NAME_PREFIX"
-        required: Yes
+        required: true
       - name: firstname
         selector: "#field_D7ADEB21-90A5-424C-A235-DB096D07B1D2"
         value: "$NAME_FIRST"
-        required: Yes
+        required: true
       - name: lastname
         selector: "#field_8B8DFDF2-72A5-4788-A6A4-7C2DBD2D2568"
         value: "$NAME_LAST"
-        required: Yes
+        required: true
       - name: address
         selector: "#field_747DFD27-739C-44C4-B324-442107DB7766"
         value: "$ADDRESS_STREET"
-        required: Yes
+        required: true
       - name: street2
         selector: "#field_29C06860-FADA-4ED8-AE41-B833B60FF548"
         value: "$ADDRESS_STREET_2"
       - name: city
         selector: "#field_E16290C2-1A9B-4F39-80D9-02F4A566D765"
         value: "$ADDRESS_CITY"
-        required: Yes
+        required: true
       - name: zip
         selector: "#field_F03896A0-75F1-4062-BE69-7DD97923A577"
         value: "$ADDRESS_ZIP5"
-        required: Yes
+        required: true
       - name: phone
         selector: "#field_4E018EBC-52FB-452E-AC80-B5E34C3A3D9D"
         value: "$PHONE"
-        required: Yes
+        required: true
       - name: email
         selector: "#field_07CFC8EA-5B3C-47CC-B8EC-A6DA08C19A9D"
         value: "$EMAIL"
-        required: Yes
+        required: true
       - name: message
         selector: "#field_4D8403A8-273C-4280-AE1E-3D764FE53D83"
         value: "$MESSAGE"
-        required: Yes
+        required: true
     - find:
       - selector: "#recaptcha-anchor-label"
     - recaptcha:
@@ -68,7 +68,7 @@ contact_form:
       - name: topic
         selector: "#field_7C977D17-0A1A-464D-80CA-135D0ABBFDD1"
         value: "$TOPIC"
-        required: Yes
+        required: true
         options:
           "Agriculture": "AGRI"
           "Animal rights": "ANML"

@@ -8,39 +8,39 @@ contact_form:
       - name: name
         selector: "#name"
         value: $NAME_FIRST
-        required: Yes
+        required: true
       - name: lname
         selector: "#lname"
         value: $NAME_LAST
-        required: Yes
+        required: true
       - name: email
         selector: "#email"
         value: $EMAIL
-        required: Yes
+        required: true
       - name: phone
         selector: "#phone"
         value: $PHONE
-        required: No
+        required: false
       - name: street
         selector: "#street"
         value: $ADDRESS_STREET
-        required: No
+        required: false
       - name: city
         selector: "#city"
         value: $ADDRESS_CITY
-        required: No
+        required: false
       - name: state
         selector: "#state"
         value: $ADDRESS_STATE_FULL
-        required: No
+        required: false
       - name: zip
         selector: "#zip"
         value: $ADDRESS_ZIP5
-        required: No
+        required: false
       - name: comments
         selector: "#comments"
         value: $MESSAGE
-        required: Yes
+        required: true
     - click_on:
       - selector: "#Submit"
   success:
