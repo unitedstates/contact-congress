@@ -4,6 +4,24 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.roberts.senate.gov/public/?p=EmailPat"
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha div div iframe[src^='https://www.google.com/recaptcha/api2/anchor']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
     - fill_in:
         - name: prefix
           selector: input#field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB
@@ -44,12 +62,6 @@ contact_form:
         - name: message
           selector: textarea#field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C
           value: $MESSAGE
-          required: true
-        - name: captcha
-          selector: input#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF
-          captcha_selector: div#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_container img
-          captcha_id_selector: input#captcha_56E0E9D8-904D-4C9E-81B8-19474EE968AF_hash
-          value: $CAPTCHA_SOLUTION
           required: true
     - select:
         - name: topic
