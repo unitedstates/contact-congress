@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /contact/email-chuck
   steps:
-    - visit: http://www.schumer.senate.gov/contact/email-chuck
+    - visit: "https://www.schumer.senate.gov/contact/email-chuck"
     - select:
         - name: actions
           selector: select#actions
@@ -105,7 +105,7 @@ contact_form:
             Other: Other
     - click_on:
         - value: Send
-          selector: form#contactForm input#side-search-btn
+          selector: div#content input#side-search-btn
   success:
     headers:
       status: 200
