@@ -17,10 +17,6 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -58,6 +54,16 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: select#prefix
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -118,4 +124,3 @@ contact_form:
       status: 200
     body:
       contains: "The following information has been submitted:"
-
