@@ -1,43 +1,43 @@
 bioguide: CTL000055
 contact_form:
   method: post
-  action: feedout.php
+  action: ""
   steps:
-    - visit: "http://www.housedems.ct.gov/Becker/contact.asp"
+    - visit: "http://www.housedems.ct.gov/Becker/Contact"
     - fill_in:
         - name: name
-          selector: "#nameis"
+          selector: input#edit-submitted-name
           value: $NAME_FULL
           required: true
         - name: email
-          selector: "input[name='visitormail'][size='40']"
+          selector: input#edit-submitted-email
           value: $EMAIL
           required: true
         - name: address
-          selector: "#address"
+          selector: input#edit-submitted-street-address
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: "#city"
+          selector: input#edit-submitted-city
           value: $ADDRESS_CITY
           required: true
         - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          selector: input#edit-submitted-state
+          value: CT
           required: true
         - name: zip
-          selector: "#Contact #zip"
+          selector: form#webform-client-form-1743 input#edit-submitted-zip
           value: $ADDRESS_ZIP5
           required: true
         - name: message
-          selector: "#comments"
+          selector: textarea#edit-submitted-comments
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: "form[id='Contact'] input[type='submit']"
+          selector: form#webform-client-form-1743 div.form-actions input.webform-submit
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me
+      contains: Thank you for your message.
