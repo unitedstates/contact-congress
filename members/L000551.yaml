@@ -3,65 +3,214 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: http://lee.house.gov/contact-the-office/email-me
+    - visit: "https://lee.house.gov/contact/email-me"
+    - find:
+        - selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C
     - fill_in:
         - name: zip5
-          selector: input#required-zip5
+          selector: input#zip-input
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: input#zip4
-          value: $ADDRESS_ZIP4
-          required: true
     - click_on:
-        - value: Go To Next Step
-          selector: form#emailForm button#submit
+        - value: Submit
+          selector: div#zip-submit
     - find:
-        - selector: input#required-first
+        - selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
     - fill_in:
-        - name: prefix
-          selector: input#prefix
-          value: $NAME_PREFIX
-          required: false
         - name: first
-          selector: input#required-first
+          selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
           value: $NAME_FIRST
           required: true
         - name: last
-          selector: input#required-last
+          selector: input#input-B03E04BD-4040-F985-52CD-48E090E769DA
           value: $NAME_LAST
           required: true
         - name: street
-          selector: input#required-address
+          selector: input#input-B03E05F1-4040-F985-52CD-A580E72A7D41
           value: $ADDRESS_STREET
           required: true
         - name: street2
-          selector: input#address2
+          selector: input#input-B03E0518-4040-F985-52CD-CF33EF97DA3A
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: input#required-city
+          selector: input#input-B03E0595-4040-F985-52CD-C572364023FE
           value: $ADDRESS_CITY
           required: true
         - name: email
-          selector: input#required-valid-email
+          selector: input#email
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: input#input-07B5CE5B-4040-F985-52CD-AD00E44A55AD
           value: $EMAIL
           required: true
         - name: phone
-          selector: input#required-phone
+          selector: input#input-B03E046E-4040-F985-52CD-A2F10450D58D
           value: $PHONE
           required: true
         - name: subject
-          selector: input#required-subject
+          selector: input#input-0852FF21-4040-F985-52CD-2898C04B2364
           value: $SUBJECT
           required: true
         - name: message
-          selector: textarea#required-message
+          selector: textarea#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: select#input-B03E0527-4040-F985-52CD-C0DD6BEF325F
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Professor: Professor
+            Dr.: Dr.
+            Father: Father
+            Sister: Sister
+            Rabbi: Rabbi
+            Reverend: Reverend
+            Air Force - General: Air Force - General
+            Air Force - Lieutenant General: Air Force - Lieutenant General
+            Air Force - Major General: Air Force - Major General
+            Air Force - Brigadier General: Air Force - Brigadier General
+            Air Force - Colonel: Air Force - Colonel
+            Air Force - Lieutenant Colonel: Air Force - Lieutenant Colonel
+            Air Force - Major: Air Force - Major
+            Air Force - Captain:   Air Force - Captain
+            Air Force - First Lieutenant: Air Force - First Lieutenant
+            Air Force - Second Lieutenant: Air Force - Second Lieutenant
+            Air Force - Chief Master Sergeant of the Air Force: Air Force - Chief Master Sergeant of the Air Force
+            Air Force - Command Chief Master Sergeant: Air Force - Command Chief Master Sergeant
+            Air Force - First Sergeant (E-9):   Air Force - First Sergeant (E-9)
+            Air Force - Chief Master Sergeant: Air Force - Chief Master Sergeant
+            Air Force - First Sergeant (E-8): Air Force - First Sergeant (E-8)
+            Air Force - Senior Master Sergeant: Air Force - Senior Master Sergeant
+            Air Force - First Sergeant (E-7): Air Force - First Sergeant (E-7)
+            Air Force - Master Sergeant: Air Force - Master Sergeant
+            Air Force - Technical Sergeant: Air Force - Technical Sergeant
+            Air Force - Staff Sergeant: Air Force - Staff Sergeant
+            Air Force - Senior Airman: Air Force - Senior Airman
+            Air Force - Airman First Class: Air Force - Airman First Class
+            Air Force - Airman: Air Force - Airman
+            Air Force - Airman Basic: Air Force - Airman Basic
+            Army - General: Army - General
+            Army - Lieutenant General: Army - Lieutenant General
+            Army - Major General: Army - Major General
+            Army - Brigadier General: Army - Brigadier General
+            Army - Colonel: Army - Colonel
+            Army - Lieutenant Colonel: Army - Lieutenant Colonel
+            Army - Major: Army - Major
+            Army - Captain: Army - Captain
+            Army - First Lieutenant: Army - First Lieutenant
+            Army - Second Lieutenant: Army - Second Lieutenant
+            Army - Chief Warrant Officer - 5: Army - Chief Warrant Officer - 5
+            Army - Chief Warrant Officer - 4: Army - Chief Warrant Officer - 4
+            Army - Chief Warrant Officer - 3: Army - Chief Warrant Officer - 3
+            Army - Chief Warrant Officer - 2: Army - Chief Warrant Officer - 2
+            Army - Warrant Officer: Army - Warrant Officer
+            Army - Sergeant Major of the Army: Army - Sergeant Major of the Army
+            Army - Command Sergeant Major: Army - Command Sergeant Major
+            Army - Sergeant Major: Army - Sergeant Major
+            Army - First Sergeant: Army - First Sergeant
+            Army - Master Sergeant: Army - Master Sergeant
+            Army - Sergeant First Class: Army - Sergeant First Class
+            Army - Staff Sergeant: Army - Staff Sergeant
+            Army - Sergeant: Army - Sergeant
+            Army - Corporal: Army - Corporal
+            Army - Specialist: Army - Specialist
+            Army - Private First Class: Army - Private First Class
+            Army - Private (E-2): Army - Private (E-2)
+            Army - Private: Army - Private
+            Coast Guard - Admiral: Coast Guard - Admiral
+            Coast Guard - Vice Admiral: Coast Guard - Vice Admiral
+            "Coast Guard - Rear Admiral, Upper Half": "Coast Guard - Rear Admiral, Upper Half"
+            "Coast Guard - Rear Admiral, Lower Half": "Coast Guard - Rear Admiral, Lower Half"
+            Coast Guard - Captain: Coast Guard - Captain
+            Coast Guard - Commander: Coast Guard - Commander
+            Coast Guard - Lieutenant Commander: Coast Guard - Lieutenant Commander
+            Coast Guard - Lieutenant: Coast Guard - Lieutenant
+            Coast Guard - Lieutenant Junior Grade: Coast Guard - Lieutenant Junior Grade
+            Coast Guard - Ensign: Coast Guard - Ensign
+            Coast Guard - Chief Warrant Officer - 4: Coast Guard - Chief Warrant Officer - 4
+            Coast Guard - Chief Warrant Officer - 3: Coast Guard - Chief Warrant Officer - 3
+            Coast Guard - Chief Warrant Officer - 2: Coast Guard - Chief Warrant Officer - 2
+            Coast Guard - Master Chief Petty Officer of the Coast Guard: Coast Guard - Master Chief Petty Officer of the Coast Guard
+            Coast Guard - Master Chief Petty Officer: Coast Guard - Master Chief Petty Officer
+            Coast Guard - Senior Chief Petty Officer: Coast Guard - Senior Chief Petty Officer
+            Coast Guard - Chief Petty Officer: Coast Guard - Chief Petty Officer
+            Coast Guard - Petty Officer First Class: Coast Guard - Petty Officer First Class
+            Coast Guard - Petty Officer Second Class: Coast Guard - Petty Officer Second Class
+            Coast Guard - Petty Officer Third Class: Coast Guard - Petty Officer Third Class
+            Coast Guard - Seaman: Coast Guard - Seaman
+            Coast Guard - Seaman Apprentice: Coast Guard - Seaman Apprentice
+            Coast Guard - Seaman Recruit: Coast Guard - Seaman Recruit
+            Marine Corps - General: Marine Corps - General
+            Marine Corps - Lieutenant General: Marine Corps - Lieutenant General
+            Marine Corps - Major General: Marine Corps - Major General
+            Marine Corps - Brigadier General: Marine Corps - Brigadier General
+            Marine Corps - Colonel: Marine Corps - Colonel
+            Marine Corps - Lieutenant Colonel: Marine Corps - Lieutenant Colonel
+            Marine Corps - Major: Marine Corps - Major
+            Marine Corps - Captain: Marine Corps - Captain
+            Marine Corps - First Lieutenant: Marine Corps - First Lieutenant
+            Marine Corps - Second Lieutenant: Marine Corps - Second Lieutenant
+            Marine Corps - Chief Warrant Officer - 5: Marine Corps - Chief Warrant Officer - 5
+            Marine Corps - Chief Warrant Officer - 4: Marine Corps - Chief Warrant Officer - 4
+            Marine Corps - Chief Warrant Officer - 3: Marine Corps - Chief Warrant Officer - 3
+            Marine Corps - Chief Warrant Officer - 2: Marine Corps - Chief Warrant Officer - 2
+            Marine Corps - Warrant Officer: Marine Corps - Warrant Officer
+            Marine Corps - Sergeant Major of the Marine Corps: Marine Corps - Sergeant Major of the Marine Corps
+            Marine Corps - Sergeant Major: Marine Corps - Sergeant Major
+            Marine Corps - Master Gunnery Sergeant: Marine Corps - Master Gunnery Sergeant
+            Marine Corps - First Sergeant: Marine Corps - First Sergeant
+            Marine Corps - Master Sergeant: Marine Corps - Master Sergeant
+            Marine Corps - Gunnery Sergeant: Marine Corps - Gunnery Sergeant
+            Marine Corps - Staff Sergeant: Marine Corps - Staff Sergeant
+            Marine Corps - Sergeant: Marine Corps - Sergeant
+            Marine Corps - Corporal: Marine Corps - Corporal
+            Marine Corps - Lance Corporal: Marine Corps - Lance Corporal
+            Marine Corps - Private First Class: Marine Corps - Private First Class
+            Marine Corps - Private: Marine Corps - Private
+            Navy - Admiral: Navy - Admiral
+            Navy - Vice Admiral: Navy - Vice Admiral
+            "Navy - Rear Admiral, Upper Half": "Navy - Rear Admiral, Upper Half"
+            "Navy - Rear Admiral, Lower Half": "Navy - Rear Admiral, Lower Half"
+            Navy - Captain: Navy - Captain
+            Navy - Commander: Navy - Commander
+            Navy - Lieutenant Commander: Navy - Lieutenant Commander
+            Navy - Lieutenant: Navy - Lieutenant
+            Navy - Lieutenant Junior Grade: Navy - Lieutenant Junior Grade
+            Navy - Ensign: Navy - Ensign
+            Navy - Chief Warrant Officer - 4: Navy - Chief Warrant Officer - 4
+            Navy - Chief Warrant Officer - 3: Navy - Chief Warrant Officer - 3
+            Navy - Chief Warrant Officer - 2: Navy - Chief Warrant Officer - 2
+            Navy - Master Chief Petty Officer of the Navy: Navy - Master Chief Petty Officer of the Navy
+            Navy - Master Chief Petty Officer: Navy - Master Chief Petty Officer
+            Navy - Senior Chief Petty Officer: Navy - Senior Chief Petty Officer
+            Navy - Chief Petty Officer: Navy - Chief Petty Officer
+            Navy - Petty Officer First Class: Navy - Petty Officer First Class
+            Navy - Petty Officer Second Class: Navy - Petty Officer Second Class
+            Navy - Petty Officer Third Class: Navy - Petty Officer Third Class
+            Navy - Seaman Apprentice: Navy - Seaman Apprentice
+            Navy - Seaman: Navy - Seaman
+            Navy - Seaman Recruit: Navy - Seaman Recruit
+        - name: state
+          selector: select#input-B03E0669-4040-F985-52CD-11B231195172
+          value: CA
+          required: true
+          options:
+            CA: CA
+        - name: phone_type
+          selector: select#input-07BD37E7-4040-F985-52CD-DFD842BA739E
+          value: Voice
+          required: true
+          options:
+            Voice: Voice
         - name: topic
-          selector: select#required-issue
+          selector: select#input-B03E04DB-4040-F985-52CD-18F332336F99
           value: $TOPIC
           required: true
           options:
@@ -106,16 +255,18 @@ contact_form:
             Welfare: Welfare
             Other Issues: Other Issues
         - name: response
-          selector: select#required-response
+          selector: select#input-087A0742-4040-F985-52CD-1172DB57D8BF
           value: "Yes, please contact me"
           required: true
           options:
             "Yes, please contact me": "Yes, please contact me"
     - click_on:
-        - value: Send Email to Representative Lee
-          selector: form#contactForm button#submit
+        - value: Submit
+          selector: div.control-group div.controls input.btn
+    - wait:
+        - value: 2
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "Thank you for submitting your Request to our office."
