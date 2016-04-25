@@ -1,10 +1,10 @@
 bioguide: P000609
-contact_form: 
+contact_form:
   method: post
-  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
-  steps: 
-  - visit: https://palmer.house.gov/contact
-  - fill_in: 
+  action: ""
+  steps:
+  - visit: "https://palmer.house.gov/contact/email"
+  - fill_in:
     - name: required-zip5
       selector: "#required-zip5"
       value: $ADDRESS_ZIP5
@@ -13,46 +13,50 @@ contact_form:
       selector: "#zip4"
       value: $ADDRESS_ZIP4
       required: true
-  - click_on: 
+  - click_on:
     - value: Go To Next Step
-      selector: "form[id='emailForm'] button[id='submit']"
-  - find: 
-    - selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #required-prefix"
-  - fill_in: 
-    - name: required-first
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #required-first"
+      selector: form#emailForm button#submit
+  - find:
+    - selector: form#contactForm input#required-first
+  - fill_in:
+    - name: first
+      selector: input#required-first
       value: $NAME_FIRST
       required: true
-    - name: required-last
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #required-last"
+    - name: last
+      selector: input#required-last
       value: $NAME_LAST
       required: true
-    - name: required-address
-      selector: "#required-address"
+    - name: street
+      selector: input#required-address
       value: $ADDRESS_STREET
       required: true
+    - name: street2
+      selector: input#address2
+      value: $ADDRESS_STREET_2
+      required: false
     - name: required-city
-      selector: "#required-city"
+      selector: input#required-city
       value: $ADDRESS_CITY
       required: true
-    - name: required-valid-email
-      selector: "form[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] input[id='required-valid-email']"
+    - name: email
+      selector: input#required-valid-email
       value: $EMAIL
       required: true
-    - name: required-phone
-      selector: "#required-phone"
+    - name: phone
+      selector: input#required-phone
       value: $PHONE
       required: true
-    - name: required-message
-      selector: "#required-message"
+    - name: message
+      selector: textarea#required-message
       value: $MESSAGE
       required: true
-  - select: 
-    - name: required-prefix
-      selector: "#required-prefix"
+  - select:
+    - name: prefix
+      selector: select#required-prefix
       value: $NAME_PREFIX
       required: true
-      options: 
+      options:
         Ms.: Ms.
         Miss: Miss
         Mrs.: Mrs.
@@ -62,11 +66,11 @@ contact_form:
         Dr.: Dr.
         The Honorable: The Honorable
         Rabbi: Rabbi
-    - name: required-issue
-      selector: "#required-issue"
+    - name: topic
+      selector: select#required-issue
       value: $TOPIC
       required: true
-      options: 
+      options:
         Agriculture: AGR
         Animals: AN
         Arts and Humanities: ART
@@ -106,19 +110,18 @@ contact_form:
         Veterans: VET
         "Women's Issues": WOMEN
         Welfare: WEL
-        Other Issues: OTHER
+        Other Issue: OTHER
     - name: required-response
-      selector: "#required-response"
-      value: Y
+      selector: select#required-response
+      value: Yes, please contact me
       required: true
-      options: 
-        Yes, please contact me: Y
-        No, I wanted to voice my opinion: N
-  - click_on: 
-    - value: Send Email to Representative Emmer
-      selector: "form[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] button[id='submit']"
-  success: 
-    headers: 
+      options:
+        Yes, please contact me: Yes, please contact me
+  - click_on:
+    - value: Send Email to Representative Palmer
+      selector: form#contactForm button#submit
+  success:
+    headers:
       status: 200
-    body: 
+    body:
       contains: your message has been sent

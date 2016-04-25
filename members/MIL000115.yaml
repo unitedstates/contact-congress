@@ -1,7 +1,7 @@
 bioguide: MIL000115
 contact_form:
   method: post
-  action: #contact-form-853
+  action: "#contact-form-853"
   steps:
     - visit: "http://gophouse.org/representatives/westmi/hooker/contacthooker/"
     - fill_in:
@@ -36,8 +36,6 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "input[type='submit'][value='Send']"
-    - wait:
-        - value: 5
   success:
     headers:
       status: 200

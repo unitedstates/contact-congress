@@ -1,22 +1,22 @@
 bioguide: C001075
 contact_form:
   method: post
-  action: http://www.cassidy.senate.gov/contact
+  action: ""
   steps:
-    - visit: "http://www.cassidy.senate.gov/contact"
+    - visit: "https://www.cassidy.senate.gov/contact"
     - wait:
-      - value: 5
+      - value: 7
     - select:
-      - name: Actions
-        selector: "#actions"
-        value: Share
+      - name: actions
+        selector: select#actions
+        value: Share your opinion or comments on bills or other issues
         required: true
         options:
-          - Request help with a federal agency
-          - Request a flag to be flown over the Capitol
-          - Share your opinion or comments on bills or other issues
+          Share your opinion or comments on bills or other issues: Share your opinion or comments on bills or other issues
+    - wait:
+      - value: 3
     - find:
-       - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
+      - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
       - name: firstname
         selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
@@ -199,60 +199,7 @@ contact_form:
         value: LA
         required: true
         options:
-          - AA
-          - AE
-          - AP
-          - AL
-          - AK
-          - AZ
-          - AR
-          - CA
-          - CO
-          - CT
-          - DE
-          - DC
-          - FL
-          - GA
-          - HI
-          - ID
-          - IL
-          - IN
-          - IA
-          - KS
-          - KY
-          - LA
-          - ME
-          - MD
-          - MA
-          - MI
-          - MN
-          - MS
-          - MO
-          - MT
-          - NE
-          - NV
-          - NH
-          - NJ
-          - NM
-          - NY
-          - NC
-          - ND
-          - OH
-          - OK
-          - OR
-          - PA
-          - RI
-          - SC
-          - SD
-          - TN
-          - TX
-          - UT
-          - VT
-          - VA
-          - WA
-          - WV
-          - WI
-          - WY
+          LA: LA
       - name: topic
         selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
         value: $TOPIC
