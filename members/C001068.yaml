@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
   steps:
-    - visit: "https://cohen.house.gov/contact-me/email-me"
+    - visit: "https://cohen.house.gov/contact/email"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -15,61 +15,113 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: button#submit
     - find:
-        - selector: "#contactForm"
+        - selector: form#contactForm input#required-first
     - fill_in:
-        - name: name_first
-          selector: "#name_first"
+        - name: first
+          selector: input#required-first
           value: $NAME_FIRST
           required: true
-        - name: name_last
-          selector: "#name_last"
+        - name: last
+          selector: input#required-last
           value: $NAME_LAST
           required: true
-        - name: address
-          selector: "#address"
+        - name: street
+          selector: input#required-address
           value: $ADDRESS_STREET
           required: true
+        - name: street2
+          selector: input#address2
+          value: $ADDRESS_STREET_2
+          required: false
         - name: city
-          selector: "#city"
+          selector: input#required-city
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
+        - name: email
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: input#required-phone
           value: $PHONE
-          required: false
+          required: true
         - name: message
-          selector: "#message"
+          selector: textarea#required-message
           value: $MESSAGE
           required: true
     - select:
-        - name: title
-          selector: "#title"
+        - name: prefix
+          selector: select#required-prefix
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: Mr.
-            Mrs.: Mrs.
-            "Mr. & Mrs.": "Mr. & Mrs."
             Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
             Dr.: Dr.
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
+            The Honorable: The Honorable
+            Rabbi: Rabbi
+        - name: topic
+          selector: select#required-issue
+          value: $TOPIC
           required: true
           options:
-            "Yes": "Y"
-            "No": "N"
+            Agriculture: Agriculture
+            Animals: Animals
+            Arts and Humanities: Arts and Humanities
+            Banking and Finance: Banking and Finance
+            Budget and Economy: Budget and Economy
+            Help With a Federal Agency: Help With a Federal Agency
+            Campaign Finance Reform: Campaign Finance Reform
+            Congress and Elections: Congress and Elections
+            Defense and Military: Defense and Military
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Federal Employees: Federal Employees
+            Foreign Relations: Foreign Relations
+            Government Reform: Government Reform
+            Guns: Guns
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing and Urban Development: Housing and Urban Development
+            Immigration: Immigration
+            International Relations: International Relations
+            Judiciary: Judiciary
+            Labor: Labor
+            LGBT: LGBT
+            Post Office: Post Office
+            Science and Technology: Science and Technology
+            Social Issues: Social Issues
+            Senior Citizens: Senior Citizens
+            Social Security: Social Security
+            Social Services: Social Services
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Tours: Tours
+            Transportation: Transportation
+            Trade: Trade
+            Veterans: Veterans
+            Women's Issues: Women's Issues
+            Welfare: Welfare
+            Other Issue: Other Issue
+        - name: required-response
+          selector: select#required-response
+          value: Y
+          required: true
+          options:
+            Yes, please contact me: Y
     - click_on:
-        - value: Send Message
-          selector: "#submit"
+        - value: Send Email to Representative Cohen
+          selector: button#submit
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: your message has been sent
