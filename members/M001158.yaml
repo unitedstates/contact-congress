@@ -14,7 +14,7 @@ contact_form:
     - click_on:
         - selector: input#gform_next_button_1_7
     - wait:
-        - value: 3
+        - value: 1
     - find:
         - selector: form#gform_1 input#input_1_16_3
     - fill_in:
@@ -117,7 +117,7 @@ contact_form:
         - value: Submit
           selector: div.gform_page_footer input#gform_submit_button_1
     - wait:
-        - value: 5
+        - value: 10
   success:
     headers:
       status: 200
