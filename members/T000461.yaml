@@ -1,9 +1,11 @@
 bioguide: T000461
 contact_form:
   method: post
-  action: /?p=contact
+  action: ""
   steps:
     - visit: "http://www.toomey.senate.gov/?p=contact"
+    - find:
+        - selector: div#block15 div.record-body form input[name='FIRST']
     - fill_in:
         - name: FIRST
           selector: "input[name='FIRST']"
@@ -84,64 +86,6 @@ contact_form:
             Sergeant Major: Sergeant Major
             Sister: Sister
             Technical Sergeant: Technical Sergeant
-        - name: STATE
-          selector: "select[name='STATE']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AA
-            - AE
-            - AP
-            - Alabama
-            - Alaska
-            - Arizona
-            - Arkansas
-            - California
-            - Colorado
-            - Connecticut
-            - Delaware
-            - District of Columbia
-            - Florida
-            - Georgia
-            - Hawaii
-            - Idaho
-            - Illinois
-            - Indiana
-            - Iowa
-            - Kansas
-            - Kentucky
-            - Louisiana
-            - Maine
-            - Maryland
-            - Massachusetts
-            - Michigan
-            - Minnesota
-            - Mississippi
-            - Missouri
-            - Montana
-            - Nebraska
-            - Nevada
-            - New Hampshire
-            - New Jersey
-            - New Mexico
-            - New York
-            - North Carolina
-            - North Dakota
-            - Ohio
-            - Oklahoma
-            - Oregon
-            - Pennsylvania
-            - Rhode Island
-            - South Carolina
-            - South Dakota
-            - Tennessee
-            - Texas
-            - Utah
-            - Vermont
-            - Virginia
-            - Washington
-            - West Virginia
-            - Wyoming
         - name: TOPIC
           selector: "select[name='TOPIC']"
           value: $TOPIC
@@ -184,10 +128,9 @@ contact_form:
             Veterans: Veterans
     - click_on:
         - value: Submit
-          selector: "input[name='formaction']"
-    - find:
-        - selector: "p"
-          value: "Thank you!"
+          selector: div#block15 div.record-body form input[name='formaction']
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
