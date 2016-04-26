@@ -33,9 +33,13 @@ contact_form:
           selector: "textarea[id='contact-form-comment-853-message']"
           value: $MESSAGE
           required: true
+    - wait:
+        - value: 1
     - click_on:
         - value: Submit
           selector: "input[type='submit'][value='Send']"
+    - wait:
+        - value: 1
   success:
     headers:
       status: 200
