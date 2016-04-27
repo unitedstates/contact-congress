@@ -2,9 +2,9 @@ bioguide: A000371
 contact_form: 
   method: post
   action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
-  steps: 
-  - visit: https://aguilar.house.gov/contact
-  - fill_in: 
+  steps:
+  - visit: "https://aguilar.house.gov/contact"
+  - fill_in:
     - name: required-zip5
       selector: "#required-zip5"
       value: $ADDRESS_ZIP5
@@ -13,14 +13,14 @@ contact_form:
       selector: "#zip4"
       value: $ADDRESS_ZIP4
       required: true
-  - click_on: 
+  - click_on:
     - value: Go To Next Step
       selector: "#emailForm #submit"
-  - find: 
+  - find:
     - selector: "#required-prefix"
   - wait:
     - value: 1
-  - fill_in: 
+  - fill_in:
     - name: required-first
       selector: "#required-first"
       value: $NAME_FIRST
@@ -55,12 +55,12 @@ contact_form:
       captcha_id_selector: "input#recaptcha_challenge_field"
       value: "$CAPTCHA_SOLUTION"
       required: true
-  - select: 
+  - select:
     - name: required-prefix
       selector: "#required-prefix"
       value: $NAME_PREFIX
       required: true
-      options: 
+      options:
         Ms.: Ms.
         Miss: Miss
         Mrs.: Mrs.
@@ -74,7 +74,7 @@ contact_form:
       selector: "#required-issue"
       value: $TOPIC
       required: true
-      options: 
+      options:
         Agriculture: AGR
         Animals: AN
         Arts and Humanities: ART
@@ -119,14 +119,14 @@ contact_form:
       selector: "#required-response"
       value: Y
       required: true
-      options: 
+      options:
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
-  - click_on: 
+  - click_on:
     - value: Send Email to Representative Aguilar
       selector: "#contactForm #submit"
-  success: 
-    headers: 
+  success:
+    headers:
       status: 200
-    body: 
+    body:
       contains: your message has been sent
