@@ -4,6 +4,8 @@ contact_form:
   action: /Forms/WriteYourRep/
   steps:
     - visit: "http://mchenry.house.gov/contact/zipauth.htm"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: zip5
           selector: "#zipcode"
@@ -16,6 +18,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: ctl00$ctl35$FirstName
           selector: "#ctl00_ctl35_FirstName"
