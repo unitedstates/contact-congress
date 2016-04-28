@@ -1,9 +1,9 @@
 bioguide: C001098
 contact_form:
   method: post
-  action: /?p=email_senator
+  action: ""
   steps:
-    - visit: "http://www.cruz.senate.gov/?p=email_senator"
+    - visit: "http://www.cruz.senate.gov/?p=form&id=16"
     - fill_in:
         - name: FIRST
           selector: "#gen-fieldid-3"
@@ -17,6 +17,10 @@ contact_form:
           selector: "#gen-fieldid-7"
           value: $ADDRESS_STREET
           required: true
+        - name: ADDR2
+          selector: "#gen-fieldid-9"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: CITY
           selector: "#gen-fieldid-11"
           value: $ADDRESS_CITY
@@ -75,64 +79,6 @@ contact_form:
             Sergeant Major: Sergeant Major
             Sister: Sister
             Technical Sergeant: Technical Sergeant
-        - name: STATE
-          selector: "#gen-fieldid-13"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AA
-            - AE
-            - AP
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WY
         - name: TOPIC
           selector: "#gen-fieldid-23"
           value: $TOPIC
@@ -169,13 +115,13 @@ contact_form:
             Veterans: Veterans
             Welfare: Welfare
             Other: Other
-    - check:
-        - name: respond
-          selector: "input[type='radio'][name='respond'][value='Yes']"
-          value: "Yes"
+    - click_on:
+        - selector: "input[type='radio'][name='respond'][value='Yes']"
+    - find:
+        - selector: form div.buttons-bottom input[type='submit'][name='formaction']
     - click_on:
         - value: Submit
-          selector: "#block5 form input[name='formaction']"
+          selector: form div.buttons-bottom input[type='submit'][name='formaction']
     - find:
         - value: "Thank you! Your message has been sent."
           selector: "p"
