@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "http://www.cassidy.senate.gov/contact"
     - wait:
-        - value: 2
+        - value: 5
     - select:
         - name: "input_AE7457DD-4040-F985-52CD-B99385041C51"
           selector: "#actions"
@@ -16,7 +16,7 @@ contact_form:
             "Request a flag to be flown over the Capitol": "flag"
             "Share your opinion or comments on bills or other issues": "opinion"
     - wait:
-        - value: 2
+        - value: 5
     - find:
         - selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
     - fill_in:
@@ -328,7 +328,7 @@ contact_form:
         - value: Submit
           selector: ".btn"
     - wait:
-        - value: 2
+        - value: 5
     - find:
         - selector: "h1"
           value: "Thank You"
