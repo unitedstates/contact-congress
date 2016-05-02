@@ -1,9 +1,9 @@
 bioguide: C001098
 contact_form:
   method: post
-  action: /?p=email_senator
+  action: "/?p=form&id=16"
   steps:
-    - visit: "http://www.cruz.senate.gov/?p=email_senator"
+    - visit: "http://www.cruz.senate.gov/?p=form&id=16"
     - fill_in:
         - name: FIRST
           selector: "#gen-fieldid-3"
@@ -51,6 +51,7 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
+            "-- please select a prefix --": "null"
             Mr.: Mr.
             Mrs.: Mrs.
             Ms.: Ms.
@@ -75,69 +76,12 @@ contact_form:
             Sergeant Major: Sergeant Major
             Sister: Sister
             Technical Sergeant: Technical Sergeant
-        - name: STATE
-          selector: "#gen-fieldid-13"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AA
-            - AE
-            - AP
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WY
         - name: TOPIC
           selector: "#gen-fieldid-23"
           value: $TOPIC
           required: true
           options:
+            "-- please select a topic --": "null"
             Agriculture: Agriculture
             Animal Welfare: Animal Welfare
             Banking/Housing: Banking/Housing
@@ -178,11 +122,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#block5 form input[name='formaction']"
-    - find:
-        - value: "Thank you! Your message has been sent."
-          selector: "p"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you! Your message has been sent."
+      contains: Thank you
