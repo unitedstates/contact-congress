@@ -56,14 +56,14 @@ contact_form:
         - name: subject
           selector: "input[name='ESubject']"
           value: $SUBJECT
-          required: false
+          required: true
         - name: message
           selector: "textarea[name='Message']"
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: "input[type='button'][value='Submit Email']"
+          selector: input#senddata
   success:
     headers:
       status: 200
