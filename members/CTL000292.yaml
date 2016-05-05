@@ -1,39 +1,43 @@
 bioguide: CTL000292
 contact_form:
   method: post
-  action: feedout.php
+  action: ""
   steps:
-    - visit: "http://www.housedems.ct.gov/Adams/contact.asp"
+    - visit: "http://www.housedems.ct.gov/Adams/Contact"
     - fill_in:
         - name: name
-          selector: "#nameis"
+          selector: input#edit-submitted-name
           value: $NAME_FULL
           required: true
+        - name: email
+          selector: input#edit-submitted-email
+          value: $EMAIL
+          required: true
         - name: address
-          selector: "#address"
+          selector: input#edit-submitted-street-address
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: "#city"
+          selector: input#edit-submitted-city
           value: $ADDRESS_CITY
           required: true
+        - name: state
+          selector: input#edit-submitted-state
+          value: CT
+          required: true
         - name: zip
-          selector: ".city-state-zip"
+          selector: form#webform-client-form-1304 input#edit-submitted-zip
           value: $ADDRESS_ZIP5
           required: true
-        - name: email
-          selector: "input[type='email']"
-          value: $EMAIL
-          required: true
         - name: message
-          selector: "textarea[rows='4']"
+          selector: textarea#edit-submitted-comments
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: "input[type='submit'][value='Submit']"
+          selector: form#webform-client-form-1304 div.form-actions input.webform-submit
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me
+      contains: Thank you for your message.
