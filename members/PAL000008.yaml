@@ -3,58 +3,67 @@ contact_form:
   method: post
   action: /contact#usermessage2a
   steps:
-    - visit: "http://www.senatorcosta.com/contact/email-me"
+    - visit: "http://www.senatorcosta.com/contact"
     - fill_in:
         - name: fname
-          selector: "#cf_field_2"
+          selector: "#field_qh4icy2"
           value: $NAME_FIRST
           required: true
         - name: lname
-          selector: "#cf_field_3"
+          selector: "#field_ocfup12"
           value: $NAME_LAST
           required: true
         - name: address
-          selector: "#cf_field_4"
+          selector: "#field_ge1gd1"
           value: $ADDRESS_STREET
           required: true
         - name: address2
-          selector: "#cf_field_5"
+          selector: "#field_y6hyzk"
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: "#cf_field_6"
+          selector: "#field_i8x71e"
           value: $ADDRESS_CITY
           required: true
         - name: zip
-          selector: "#cf_field_8"
+          selector: "#field_iixr7v"
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
-          selector: "#cf_field_9"
-          value: $PHONE
-          required: true
         - name: email
-          selector: "#cf_field_10"
+          selector: "#field_29yf4d2"
           value: $EMAIL
           required: true
+        - name: phone
+          selector: "#field_ldro11"
+          value: $PHONE
+          required: false
         - name: message
-          selector: "#cf_field_11"
+          selector: "#field_9jv0r12"
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: "#cforms_captcha"
-          captcha_selector: "#cf_captcha_img"
-          value: "$CAPTCHA_SOLUTION"
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha div div iframe[src^='https://www.google.com/recaptcha/api2/anchor']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
           required: true
-    - select:
-        - name: issue
-          selector: "#cf_field_1"
-          value: "Other"
     - click_on:
         - value: Submit
-          selector: "#sendbutton"
+          selector: form#form_contact2 div.frm_submit input
   success:
     headers:
       status: 200
     body:
-      contains: taking the time to contact me
+      contains: "Your form was successfully submitted"
