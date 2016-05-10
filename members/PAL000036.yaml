@@ -43,6 +43,12 @@ contact_form:
           selector: "#txtComments"
           value: $MESSAGE
           required: true
+    - click_on:
+      - selector: input#ddlIssue_Input
+    - find:
+      - selector: div#ddlIssue_DropDown li:nth-child(2)
+    - click_on:
+      - selector: div#ddlIssue_DropDown li:nth-child(2)
     - wait:
       - value: 5
     - click_on:
