@@ -15,11 +15,11 @@ contact_form:
       selector: "#zip4"
       value: $ADDRESS_ZIP4
       required: true
-  - wait:
-    - value: 1
   - click_on:
     - value: Go To Next Step
       selector: form#emailForm button#submit
+  - wait:
+    - value: 1
   - find:
     - selector: "#required-first"
   - fill_in:
