@@ -1,14 +1,14 @@
-bioguide: PAL000219
+bioguide: PAL000011
 contact_form:
   method: post
   action:
   steps:
-    - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=40"
+    - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=30"
     - wait:
       - value: 5
     - fill_in:
         - name: fname
-          selector: "input[id='txtFirstname']"
+          selector: "#txtFirstname"
           value: $NAME_FIRST
           required: true
         - name: lname
@@ -18,26 +18,6 @@ contact_form:
         - name: email
           selector: "#txtEmail"
           value: $EMAIL
-          required: true
-        - name: phone
-          selector: "#txtPhone"
-          value: $PHONE_PARENTHESES
-          required: true
-        - name: address
-          selector: "#txtAddress1"
-          value: $ADDRESS_STREET
-          required: true
-        - name: address2
-          selector: "#txtAddress2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#txtCity"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zip
-          selector: "#txtZip"
-          value: $ADDRESS_ZIP5
           required: true
         - name: message
           selector: "#txtComments"
@@ -49,6 +29,10 @@ contact_form:
       - selector: div#ddlIssue_DropDown li:nth-child(2)
     - click_on:
       - selector: div#ddlIssue_DropDown li:nth-child(2)
+    - find:
+      - selector: div#lbLists input.rlbCheck
+    - click_on:
+      - selector: div#lbLists input.rlbCheck
     - wait:
       - value: 5
     - click_on:
@@ -58,4 +42,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: the time you took
+      contains: Thank you for contacting us

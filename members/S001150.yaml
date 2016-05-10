@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "https://schiff.house.gov/contact"
     - wait:
-        - value: 5
+        - value: 2
     - find:
         - selector: select#subject
     - select:
@@ -16,13 +16,13 @@ contact_form:
           options:
             Share your opinion or comments on bills or other issues: Share your opinion or comments on bills or other issues
     - wait:
-        - value: 4
+        - value: 2
     - click_on:
         - selector: div#contact-sam-main
     - wait:
-        - value: 8
+        - value: 10
     - find:
-      - selector: "#fname"
+      - selector: "#prefix"
     - fill_in:
         - name: fname
           selector: "#fname"

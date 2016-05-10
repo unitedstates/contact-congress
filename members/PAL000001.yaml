@@ -1,7 +1,7 @@
 bioguide: PAL000001
 contact_form:
   method: post
-  action: 
+  action:
   steps:
     - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=33"
     - wait:
@@ -47,6 +47,12 @@ contact_form:
           selector: "#txtComments"
           value: $MESSAGE
           required: true
+    - click_on:
+      - selector: input#ddlIssue_Input
+    - find:
+      - selector: div#ddlIssue_DropDown li:nth-child(2)
+    - click_on:
+      - selector: div#ddlIssue_DropDown li:nth-child(2)
     - wait:
       - value: 5
     - click_on:
