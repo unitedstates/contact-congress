@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "http://dankildee.house.gov/contact/email-me/#gf_6"
   steps:
-    - visit: "http://dankildee.house.gov/contact/email-me"
+    - visit: "http://dankildee.house.gov/contact/email-me/"
     - fill_in:
         - name: input_1
           selector: "#gform_6 #input_6_1"
@@ -11,12 +11,16 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#gform_next_button_6_2"
+          selector: form#gform_6 div.gform_page_footer input#gform_next_button_6_2
+    - wait:
+        - value: 2
+    - find:
+        - selector: input#input_6_3_2
     - fill_in:
         - name: input_3.2
-          selector: "#input_6_3_2"
+          selector: input#input_6_3_2
           value: $NAME_PREFIX
-          required: false
+          required: true
         - name: input_3.3
           selector: "#input_6_3_3"
           value: $NAME_FIRST
