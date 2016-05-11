@@ -3,7 +3,7 @@ contact_form:
   method: get
   action: /forms/writeyourrep/
   steps:
-    - visit: "https://loudermilkforms.house.gov/contact/"
+    - visit: "http://loudermilk.house.gov/contact/"
     - fill_in:
         - name: zip5
           selector: "form.zipform input[name='zip5']"
@@ -16,44 +16,42 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
-    - find:
-        - selector: "#ctl00_ctl19_FirstName"
     - fill_in:
-        - name: ctl00$ctl19$FirstName
-          selector: "#ctl00_ctl19_FirstName"
+        - name: ctl00$ctl18$FirstName
+          selector: "#ctl00_ctl18_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl19$LastName
-          selector: "#ctl00_ctl19_LastName"
+        - name: ctl00$ctl18$LastName
+          selector: "#ctl00_ctl18_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl19$Street
-          selector: "#ctl00_ctl19_Street"
+        - name: ctl00$ctl18$Street
+          selector: "#ctl00_ctl18_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl19$City
-          selector: "#ctl00_ctl19_City"
+        - name: ctl00$ctl18$City
+          selector: "#ctl00_ctl18_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl19$Zip
-          selector: "#ctl00_ctl19_Zip"
+        - name: ctl00$ctl18$Zip
+          selector: "#ctl00_ctl18_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl19$Email
-          selector: "#ctl00_ctl19_Email"
+        - name: ctl00$ctl18$Email
+          selector: "#ctl00_ctl18_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl19$Subject
-          selector: "#ctl00_ctl19_Subject"
+        - name: ctl00$ctl18$Subject
+          selector: "#ctl00_ctl18_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl19$Body
-          selector: "#ctl00_ctl19_Body"
+        - name: ctl00$ctl18$Body
+          selector: "#ctl00_ctl18_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl19$PrefixList
-          selector: "#ctl00_ctl19_PrefixList"
+        - name: ctl00$ctl18$PrefixList
+          selector: "#ctl00_ctl18_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -61,19 +59,57 @@ contact_form:
             - Mrs.
             - Dr.
             - Ms.
+            - Col.
+            - Capt.
+            - Lt. Col.
+        - name: ctl00$ctl18$IssuesList
+          selector: "#ctl00_ctl18_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            "": "10424"
+            Advocacy: "14886"
+            Animals: "9982"
+            Armed Forces and National Security: "10012"
+            "Arts, Culture, Religion": "10039"
+            "Civil Rights and Liberties, Minority Issues": "10055"
+            Commerce: "10073"
+            Congress: "10095"
+            Crime and Law Enforcement: "10109"
+            Economics and Public Finance: "10135"
+            Education: "73"
+            Emergency Management: "10168"
+            Energy: "10177"
+            Environmental Protection: "14814"
+            Families: "10209"
+            Finance and Financial Sector: "10219"
+            Government Operations and Politics: "10250"
+            Health: "74"
+            Housing and Community Development: "10346"
+            Immigration: "10360"
+            International Affairs: "10370"
+            Labor and Employment: "10390"
+            Law: "10406"
+            Private Legislation: "14873"
+            Public Lands and Natural Resources: "10432"
+            "Science, Technology, Communications": "10447"
+            Social Sciences and History: "10471"
+            Social Welfare: "10479"
+            Sports and Recreation: "10485"
+            Taxation: "10493"
+            Transportation and Public Works: "81"
+            Water Resources Development: "10528"
     - check:
-        - name: ctl00$ctl19$ReplyChoice
-          selector: "#ctl00_ctl19_ReplyChoice_0"
+        - name: ctl00$ctl18$ReplyChoice
+          selector: "#ctl00_ctl18_ReplyChoice_0"
           value: Respond
     - javascript:
-        - value: document.querySelector("#ctl00_ctl19_Body").value = document.querySelector("#ctl00_ctl19_Body").value.replace(/"/g, '');
+        - value: document.querySelector("#ctl00_ctl18_Body").value = document.querySelector("#ctl00_ctl18_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl19_SubmitButton"
-    - find:
-        - selector: "#ctl00_ctl19_ConfirmationText"
+          selector: "#ctl00_ctl18_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to write me.
+      contains: Thank you
