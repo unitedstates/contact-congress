@@ -17,51 +17,51 @@ contact_form:
     - value: Submit
       selector: form.zipform input[type='submit']
   - find:
-    - selector: "#ctl00_ctl19_FirstName"
+    - selector: "#ctl00_ctl18_FirstName"
   - fill_in:
     - name: ctl00$ctl16$FirstName
-      selector: "#ctl00_ctl19_FirstName"
+      selector: "#ctl00_ctl18_FirstName"
       value: $NAME_FIRST
       required: true
     - name: ctl00$ctl16$LastName
-      selector: "#ctl00_ctl19_LastName"
+      selector: "#ctl00_ctl18_LastName"
       value: $NAME_LAST
       required: true
     - name: ctl00$ctl16$Street
-      selector: "#ctl00_ctl19_Street"
+      selector: "#ctl00_ctl18_Street"
       value: $ADDRESS_STREET
       required: true
     - name: ctl00$ctl16$City
-      selector: "#ctl00_ctl19_City"
+      selector: "#ctl00_ctl18_City"
       value: $ADDRESS_CITY
       required: true
     - name: ctl00$ctl16$Zip
-      selector: "#ctl00_ctl19_Zip"
+      selector: "#ctl00_ctl18_Zip"
       value: $ADDRESS_ZIP5
       required: true
     - name: ctl00$ctl16$Email
-      selector: "#ctl00_ctl19_Email"
+      selector: "#ctl00_ctl18_Email"
       value: $EMAIL
       required: true
     - name: ctl00$ctl16$Phone
-      selector: "#ctl00_ctl19_Phone"
+      selector: "#ctl00_ctl18_Phone"
       value: $PHONE
       required: true
     - name: ctl00$ctl16$Body
-      selector: "#ctl00_ctl19_Body"
+      selector: "#ctl00_ctl18_Body"
       value: $MESSAGE
       required: true
     - name: ctl00$ctl16$Subject
-      selector: "#ctl00_ctl19_Subject"
+      selector: "#ctl00_ctl18_Subject"
       value: $SUBJECT
       required: true
   - choose:
     - name: ctl00$ctl16$ReplyChoice
-      selector: "#ctl00_ctl19_ReplyChoice_0"
+      selector: "#ctl00_ctl18_ReplyChoice_0"
       value: Respond
   - select:
     - name: ctl00$ctl16$PrefixList
-      selector: "#ctl00_ctl19_PrefixList"
+      selector: "#ctl00_ctl18_PrefixList"
       value: $NAME_PREFIX
       required: true
       options:
@@ -73,7 +73,7 @@ contact_form:
           Capt.: Capt.
           Lt. Col.: Lt. Col.
     - name: ctl00$ctl16$State
-      selector: "#ctl00_ctl19_State"
+      selector: "#ctl00_ctl18_State"
       value: $ADDRESS_STATE_POSTAL_ABBREV
       required: true
       options:
@@ -138,7 +138,7 @@ contact_form:
           - PR
           - VI
     - name: ctl00$ctl16$IssuesList
-      selector: "#ctl00_ctl19_IssuesList"
+      selector: "#ctl00_ctl18_IssuesList"
       value: $TOPIC
       required: true
       options:
@@ -175,12 +175,12 @@ contact_form:
           "Water Resources Development": "10528"
   - click_on:
     - name: ctl00$ctl16$SubscribeChoice
-      selector: "#ctl00_ctl19_SubscribeChoice"
+      selector: "#ctl00_ctl18_SubscribeChoice"
   - click_on:
     - value: Submit
-      selector: "#ctl00_ctl19_SubmitButton"
+      selector: "#ctl00_ctl18_SubmitButton"
   - find:
-    - selector: "span#ctl00_ctl19_ConfirmationText"
+    - selector: "span#ctl00_ctl18_ConfirmationText"
       value: Thank you
   success:
     headers:
