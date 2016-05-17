@@ -21,10 +21,6 @@ contact_form:
           selector: "#edit-submitted-message"
           value: $MESSAGE
           required: true
-    - math:
-        - name: math_qna
-          question_selector: "span[class='field-prefix']"
-          answer_selector: "#edit-captcha-response"
     - click_on:
         - value: Submit
           selector: "#edit-submit"

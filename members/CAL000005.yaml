@@ -10,11 +10,13 @@ contact_form:
           value: $NAME_FIRST
           required: true
           options:
-            blacklist: "&."
+            blacklist: "&.,"
         - name: txtLastName
           selector: "#txtLastName"
           value: $NAME_LAST
           required: true
+          options:
+            blacklist: ".,"
         - name: txtAddress
           selector: "#txtAddress"
           value: $ADDRESS_STREET
