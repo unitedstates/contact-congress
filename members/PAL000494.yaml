@@ -6,6 +6,11 @@ contact_form:
     - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=32"
     - wait:
       - value: 5
+    - select:
+        - name: issue
+          selector: "#ddlIssue_Input"
+          value: "g"
+          required: true
     - fill_in:
         - name: fname
           selector: "input[id='txtFirstname']"
