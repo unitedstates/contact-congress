@@ -1,7 +1,7 @@
 bioguide: W000187
 contact_form:
   method: post
-  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
     - visit: "https://waters.house.gov/contact"
     - fill_in:
@@ -13,11 +13,12 @@ contact_form:
           selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
-    - click_on:
-        - value: Go To Next Step
-          selector: ".btn-success"
     - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} 
+});"
+    - click_on:
+        - 
+          selector: button.btn.btn-success
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -35,13 +36,13 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-phone
-          selector: "#required-phone"
-          value: $PHONE
-          required: true
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
           required: true
         - name: required-message
           selector: "#required-message"
@@ -52,16 +53,16 @@ contact_form:
           selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
-          options: 
-            Ms.: Ms.
-            Miss: Miss
-            Mrs.: Mrs.
-            Mr.: Mr.
-            Mr. and Mrs.: Mr. and Mrs.
-            Rev.: Rev.
-            Dr.: Dr.
-            The Honorable: The Honorable
-            Rabbi: Rabbi
+          options:
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -72,9 +73,9 @@ contact_form:
             Arts and Humanities: ART
             Banking and Finance: BANK
             Budget and Economy: BUD
+            Help With a Federal Agency: Casework
             Campaign Finance Reform: CFR
             Congress and Elections: CONG
-            Crime Issues: CRIME
             Defense and Military: DEF
             Economy: ECON
             Education: EDU
@@ -92,14 +93,16 @@ contact_form:
             Judiciary: JUD
             Labor: LAB
             LGBT: LGBT
+            No Response Necessary: NRN
             Post Office: POST
             Science and Technology: SCI
             Social Issues: SOC
             Senior Citizens: SENIORS
             Social Security: SSEC
-            Social Services: "SOC.SERVICES"
+            Social Services: SOC.SERVICES
             Taxes: TAX
             Telecommunications: TEL
+            Tours: Tours
             Transportation: TRA
             Trade: TRADE
             Veterans: VET
@@ -111,15 +114,18 @@ contact_form:
           value: "Y"
           required: true
           options:
-            "Yes, please contact me": Y
-            "No, I wanted to voice my opinion": N
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} 
+});"
     - click_on:
-        - value: Send Email to Representative Waters
-          selector: ".btn-success"
+        - 
+          selector: button.btn.btn-success
   success:
     headers:
       status: 200
     body:
-      contains: your message has been sent
+      contains: Thank you
