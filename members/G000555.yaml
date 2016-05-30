@@ -222,7 +222,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#contactForm textarea[name='comments']").value = document.querySelector("#contactForm textarea[name='comments']").value.replace(/"/g, '');
     - click_on:
-        - selector: input.rollover
+        - selector: "#contactForm .submit input.rollover"
     - wait:
         - value: 3
     - find:
