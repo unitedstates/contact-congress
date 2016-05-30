@@ -94,8 +94,12 @@ contact_form:
   - click_on: 
     - value: Send Email
       selector: "#contact input[type='submit'][value='Send Email']"
+  - wait:
+    - value: 3
+  - find: 
+    - selector: "#ctl00_ctl17_ctl00_Text"
   success: 
     headers: 
       status: 200
     body: 
-      contains: Your form has been successfully submitted.
+      contains: Thank you
