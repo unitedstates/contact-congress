@@ -44,6 +44,8 @@ contact_form:
         selector: "#edit-submitted-description"
         value: $MESSAGE
         required: True
+        options:
+          max_length: 2500
     - select:
       - name: state
         selector: "#edit-submitted-us-states"
