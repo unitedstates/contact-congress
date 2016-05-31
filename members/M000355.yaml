@@ -3,7 +3,7 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: https://www.mcconnell.senate.gov/public/?p=ContactForm
+    - visit: "https://www.mcconnell.senate.gov/public/?p=ContactForm"
     - fill_in:
       - name: first
         selector: input#field_061FC3B2-E4C0-4511-BD3D-962FFFA4F9AF
@@ -122,7 +122,7 @@ contact_form:
           VETERANS: VETERANS
     - click_on:
       - value: Submit
-        selector: div.buttonHolder input.primaryAction
+        selector: form#form_2A1CD1E7-C5A2-44AE-8451-1A352299C051 div.buttonHolder input.btn-primary
   success:
     headers:
       status: 200
