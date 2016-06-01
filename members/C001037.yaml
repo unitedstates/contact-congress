@@ -124,9 +124,12 @@ contact_form:
           value: ""
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
-    - click_on:
-        - value: Send my message
-          selector: "div.paddingmain form input[name='Submit']"
+    - javascript:
+        - value: "$('.paddingmain form').submit();"
+    - wait:
+        - value: 3
+    - find:
+        - selector: ".paddingmain p br"
   success:
     headers:
       status: 200
