@@ -4,9 +4,6 @@ contact_form:
   action: "/contact"
   steps:
     - visit: https://www.wyden.senate.gov/contact
-    - javascript:
-      - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ 
-try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
       - name: fname
         selector: "#contactForm #fname"
@@ -186,9 +183,8 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
           - "Autographed Photo Request"
     - javascript:
       - value: 'document.querySelector("#contactForm #message").value = document.querySelector("#contactForm #message").value.replace(/"/g, "");'
-    - click_on:
-      - value: Submit
-        selector: "#contactForm #side-search-btn"
+    - javascript:
+      - value: "document.getElementById('contactForm').submit();"
   success:
     headers:
       status: 200
