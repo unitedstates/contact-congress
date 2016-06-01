@@ -101,6 +101,8 @@ contact_form:
     - javascript:
         - value: "document.getElementById('ctl00_ctl11_ReplyChoice_0').checked = true;"
     - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - javascript:
         - value: "document.getElementById('aspnetForm').submit();"
     - wait:
         - value: 3
