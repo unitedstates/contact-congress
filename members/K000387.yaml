@@ -13,9 +13,8 @@ contact_form:
           selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
-    - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
+    - javascript:
+        - value: "$('.zipform').submit();"
     - fill_in:
         - name: ctl00$ctl11$FirstName
           selector: "#ctl00_ctl11_FirstName"
@@ -103,9 +102,8 @@ contact_form:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - check:
         - selector: "#ctl00_ctl11_ReplyChoice_0"
-    - click_on:
-        - value: Submit
-          selector: "#ctl00_ctl11_SubmitButton"
+    - javascript:
+        - value: "document.getElementById('aspnetForm').submit();"
   success:
     headers:
       status: 200
