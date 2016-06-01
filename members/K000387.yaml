@@ -102,6 +102,10 @@ contact_form:
         - value: "document.getElementById('ctl00_ctl11_ReplyChoice_0').checked = true;"
     - javascript:
         - value: "document.getElementById('aspnetForm').submit();"
+    - wait:
+        - value: 3
+    - find:
+        - selector: "#ctl00_ctl11_ConfirmationText"
   success:
     headers:
       status: 200
