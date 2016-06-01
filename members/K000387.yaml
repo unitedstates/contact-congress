@@ -98,8 +98,8 @@ contact_form:
             Taxation: "10493"
             Transportation and Public Works: "81"
             Water Resources Development: "10528"
-    - check:
-        - selector: "#ctl00_ctl11_ReplyChoice_0"
+    - javascript:
+        - value: "document.getElementById('ctl00_ctl11_ReplyChoice_0').checked = true;"
     - javascript:
         - value: "document.getElementById('aspnetForm').submit();"
   success:
