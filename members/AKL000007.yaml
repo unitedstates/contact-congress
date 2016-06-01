@@ -1,9 +1,13 @@
 bioguide: AKL000007
 contact_form:
   method: post
-  action: 
+  action:
   steps:
     - visit: "http://alaskasenatedems.com/egan/contact-me/"
+    - find:
+        - selector: div#mc_embed_signup div.email-close
+    - click_on:
+        - selector: div#mc_embed_signup div.email-close
     - fill_in:
         - name: name
           selector: "input[name='your-name']"
