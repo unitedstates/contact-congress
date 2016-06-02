@@ -28,7 +28,7 @@ contact_form:
           required: true
         - name: phone
           selector: "#ctl00_DataContentPlaceHolder_PhoneNumber"
-          value: $$PHONE_HYPHENS
+          value: $PHONE_HYPHENS
         - name: email
           selector: "#ctl00_DataContentPlaceHolder_EmailAddress"
           value: $EMAIL
@@ -40,7 +40,7 @@ contact_form:
     - select:
         - name: prefix
           selector: "#ctl00_DataContentPlaceHolder_ddNameTitle"
-          value: NAME_PREFIX
+          value: $NAME_PREFIX
           options:
             - "Mr.": "Mr."
             - "Mrs.": "Mrs."
