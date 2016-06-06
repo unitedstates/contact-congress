@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://dennisross.house.gov/forms/writeyourrep/"
+    - find:
+        - selector: "#ctl00_ctl02_FirstName"
     - fill_in:
         - name: ctl00$ctl02$FirstName
           selector: "#ctl00_ctl02_FirstName"
