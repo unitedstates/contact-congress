@@ -226,6 +226,8 @@ contact_form:
     - click_on:
         - value: Send Message
           selector: input[type='submit'][name='WR_Submit']
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
