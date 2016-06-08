@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm #submit"
+    - wait:
+        - value: 3
     - find:
         - selector: "#required-first"
     - fill_in:
@@ -35,24 +37,16 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
         - name: required-valid-email
-          selector: "#contactForm #required-valid-email"
+          selector: form#contactForm input#required-valid-email
           value: $EMAIL
           required: true
         - name: required-subject
-          selector: "#required-subject"
+          selector: form#contactForm input#required-subject
           value: $SUBJECT
           required: true
         - name: required-message
-          selector: "#required-message"
+          selector: form#contactForm textarea#required-message
           value: $MESSAGE
           required: true
     - select:
