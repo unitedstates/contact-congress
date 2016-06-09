@@ -3,11 +3,7 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: "https://www.cantwell.senate.gov/contact/email"
-    - find:
-      - selector: div.summary a.item-link
-    - click_on:
-      - selector: div.summary a.item-link
+    - visit: "https://www.cantwell.senate.gov/contact/email/form"
     - wait:
       - value: 3
     - find:
