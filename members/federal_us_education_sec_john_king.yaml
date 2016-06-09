@@ -4,17 +4,21 @@ contact_form:
   action: ""
   steps:
     - visit: "https://answers.ed.gov/ics/support/ticketnewwizard.asp?style=classic"
+    - wait:
+      - value: 2
+    - find:
+      - selector: input#customerFullName
     - fill_in:
       - name: name
-        selector: "input#customerFullName"
+        selector: input#customerFullName
         value: $NAME_FULL
         required: true
       - name: email
-        selector: "input#email"
+        selector: input#email
         value: $EMAIL
         required: true
       - name: message
-        selector: "textarea#FIELD_89537_TEXTAREA_varchar"
+        selector: textarea#FIELD_89537_TEXTAREA_varchar
         value: $MESSAGE
         required: true
         options:
@@ -87,7 +91,7 @@ contact_form:
           Wyoming: Wyoming
     - click_on:
       - value: Finish
-        selector: "input#finish"
+        selector: input#finish
     - find:
       - selector: div.parature_page_content p#ticketConfirmation
   success:
