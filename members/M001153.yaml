@@ -3,69 +3,73 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: http://www.murkowski.senate.gov/public/index.cfm?p=EMailLisa
+    - visit: "https://www.murkowski.senate.gov/contact/email"
+    - find:
+      - selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
     - fill_in:
       - name: first
-        selector: input#field_FD355A73-439B-4DEE-B95F-297384E45CE2
+        selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
         value: $NAME_FIRST
         required: true
       - name: last
-        selector: input#field_A89CB2C3-B15C-46B4-8401-0E5FC313F7FC
+        selector: input#input-B03E04BD-4040-F985-52CD-48E090E769DA
         value: $NAME_LAST
         required: true
       - name: street
-        selector: input#field_586DA5BB-DF0D-43F8-A63A-5CB5E1A8D3E9
+        selector: input#input-B03E05F1-4040-F985-52CD-A580E72A7D41
         value: $ADDRESS_STREET
         required: true
       - name: street2
-        selector: input#field_EBC8B166-DD5A-4F7D-A47E-CCD640C5036F
+        selector: input#input-B03E0518-4040-F985-52CD-CF33EF97DA3A
         value: $ADDRESS_STREET_2
         required: false
       - name: city
-        selector: input#field_5EF77FCA-E8EF-43EF-B34F-5F69133BFF45
+        selector: input#input-B03E0595-4040-F985-52CD-C572364023FE
         value: $ADDRESS_CITY
         required: true
       - name: zip5
-        selector: input#field_15EC24A3-FA2A-46B7-9BFC-DEED21407553
+        selector: input#input-B03E04CC-4040-F985-52CD-4DDB58DA474A
         value: $ADDRESS_ZIP5
         required: true
       - name: phone
-        selector: input#field_BB56937C-3A1A-487E-BDAF-01FC996BD56F
+        selector: input#input-B03E046E-4040-F985-52CD-A2F10450D58D
         value: $PHONE
-        required: false
+        required: true
       - name: email
-        selector: input#field_3A56BC3B-7EDF-4848-AF0A-4373D7082579
+        selector: input#email
+        value: $EMAIL
+        required: true
+      - name: verify_email
+        selector: input#input-B03E05A4-4040-F985-52CD-730C08912F4F
         value: $EMAIL
         required: true
       - name: message
-        selector: textarea#field_FEEEAF70-4711-4741-8937-5F65035115E6
+        selector: textarea#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2
         value: $MESSAGE
         required: true
     - select:
       - name: prefix
-        selector: select#field_90095E33-25EE-4E43-90FF-C6AF67FD24F0
+        selector: select#input-B03E0527-4040-F985-52CD-C0DD6BEF325F
         value: $NAME_PREFIX
         required: true
         options:
-          "Mr.": "Mr."
-          "Mrs.": "Mrs."
-          "Ms.": "Ms."
-          "Miss": "Miss"
-          "Mr. and Mrs.": "Mr. and Mrs."
-          "Dr.": "Dr."
-          "Reverend": "Reverend"
-          "Sister": "Sister"
-          "Pastor": "Pastor"
-          "The Honorable": "The Honorable"
-          "Representative": "Representative"
-          "Senator": "Senator"
+          Mr.: Mr.
+          Ms.: Ms.
+          Mrs.: Mrs.
+          Professor: Professor
+          Dr.: Dr.
+          Father: Father
+          Sister: Sister
+          Rabbi: Rabbi
+          Reverend: Reverend
       - name: state
-        selector: select#field_D2ED9DFD-FC6B-463C-89B4-C258786F2B2A
-        value: $ADDRESS_STATE_POSTAL_ABBREV
+        selector: select#input-B03E0669-4040-F985-52CD-11B231195172
+        value: AK
         required: true
-        options: US_STATES_AND_TERRITORIES
+        options:
+          AK: AK
       - name: topic
-        selector: select#field_D196A0DD-3603-495B-987E-7C8B5A06050C
+        selector: select#input-B03E04DB-4040-F985-52CD-18F332336F99
         value: $TOPIC
         required: true
         options:
@@ -75,7 +79,6 @@ contact_form:
           "Arts": "Arts"
           "Banking": "Banking"
           "Budget ": "Budget "
-          "Budget , Economy": " Economy"
           "Climate Change": "Climate Change"
           "Coast Guard": "Coast Guard"
           "Communications": "Communications"
@@ -115,9 +118,9 @@ contact_form:
           "Other": "Other"
     - click_on:
       - value: Submit
-        selector: form#form_983A1BCB-715C-4B22-BDC6-4EDC82C14CC4 input.btn-primary
+        selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C div.control-group div.controls input.btn
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you very much for contacting"
+      contains: "tbd"
