@@ -26,6 +26,8 @@ contact_form:
           selector: "div.paddingmain form input[name='submit']"
     - find:
         - selector: "#address"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: required-address
           selector: "#address"
@@ -124,8 +126,9 @@ contact_form:
           value: ""
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
-    - javascript:
-        - value: "$('.paddingmain form').submit();"
+    - click_on:
+        - value: Next
+          selector: "div.paddingmain form input[name='Submit']"
     - wait:
         - value: 3
     - find:
