@@ -109,7 +109,8 @@ contact_form:
     - click_on:
       - value: Submit
         selector: form#form_A52D2670-5183-4901-9285-7CEDA8BB2953 div.buttonHolder input.btn-primary
-    - wait: 4
+    - wait:
+      - value: 4
   success:
     headers:
       status: 200

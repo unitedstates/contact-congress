@@ -1,106 +1,114 @@
 bioguide: state_co_gov_john_hickenlooper
 contact_form:
   method: post
-  action: /Correspondence/WebformPage
+  action: ""
   steps:
-    - visit: "http://stateofco.force.com/Correspondence?type=Share%20Your%20Opinion&amp;retUrl=http://www.colorado.gov/govhdir/confirm/share-opinion.html"
+    - visit: "https://www.tfaforms.com/406958?faIframeUniqueId=mxk20dzl93&hostURL=https%3A%2F%2Fwww.colorado.gov%2Fgovernor%2Fshare-your-comments"
+    - find:
+        - selector: form#tfa_0 div.inputWrapper input#tfa_2745
+    - click_on:
+        - selector: form#tfa_0 div.inputWrapper input#tfa_2745
+    - find:
+        - selector: form#tfa_0 input#tfa_2748
     - fill_in:
-        - name: firstName
-          selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:0:j_id70']"
+        - name: subject
+          selector: form#tfa_0 input#tfa_2748
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: textarea#tfa_2725
+          value: $MESSAGE
+          required: true
+        - name: first
+          selector: input#tfa_62
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:1:j_id70']"
+        - name: last
+          selector: input#tfa_63
           value: $NAME_LAST
           required: true
         - name: email
-          selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:2:j_id70']"
+          selector: input#tfa_64
           value: $EMAIL
-          required: true
-        - name: address
-          selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:4:j_id70']"
-          value: $ADDRESS_STREET
-          required: true
-        - name: city
-          selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:6:j_id70']"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zip
-          selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:8:j_id70']"
-          value: $ADDRESS_ZIP5
           required: true
     - select:
         - name: county
-          selector: "select[name='j_id0:j_id2:j_id3:j_id4:j_id61:j_id64:9:j_id70']"
-          value: Adams
+          selector: select#tfa_71
+          value: $ADDRESS_COUNTY
           required: true
           options:
-            - Adams
-        - name: topic
-          selector: "select[name='j_id0:j_id2:j_id3:j_id4:j_id11:j_id16']"
-          value: $TOPIC
-          required: true
-          options:
-            Attorney General: "AG"
-            Agriculture: "CDE"
-            Higher Education: "CDHE"
-            Human Services: "CDHS"
-            Labor and Employment: "CDLE"
-            Transportation: "CDOT"
-            Public Health and Environment: "CDPHE"
-            Energy: "CEO"
-            Military and Veterans: "DMVA"
-            Natural Resources: "DNR"
-            Corrections: "DOC"
-            Local: "DOLA"
-            Revenue: "DOR"
-            Regulatory Affairs: "DORA"
-            State Personnel: "DPA"
-            Public Safety: "DPS"
-            Federal Issue: "Federal"
-            Health Care: "HCPF"
-            Immigration: "Immigration"
-            "Judicial/Courts": "Judicial"
-            Lieutenant Governor: "Lieutenant Governor"
-            Economic Development: "OEDIT"
-            Information Technology: "OIT"
-            Budget: "OSPB"
-            Other: "Other"
-            Secretary of State: "SoS"
-            Treasury: "Treasury"
-    - wait:
-        - value: 5
-    - click_on:
-        - value: Click
-          selector: ".webform_title"
-    - wait:
-        - value: 5
-    - select:
-        - name: subtopic
-          selector: "select[name='j_id0:j_id2:j_id3:j_id4:j_id20:j_id25']"
-          value: $SUBTOPIC1
-          required: true
-          options:
-            Other: Other
-    - fill_in:
-        - name: subject
-          selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id39:j_id42:0:j_id48']"
-          value: $SUBJECT
-          required: true
-    - fill_in:
-        - name: message
-          selector: "textarea[name='j_id0:j_id2:j_id3:j_id4:j_id39:j_id42:1:j_id48']"
-          value: $MESSAGE
-          required: true
-    - wait:
-        - value: 5
+            Out of State: Out of State
+            Adams: Adams
+            Alamosa: Alamosa
+            Arapahoe: Arapahoe
+            Archuleta: Archuleta
+            Baca: Baca
+            Bent: Bent
+            Boulder: Boulder
+            Broomfield: Broomfield
+            Chaffee: Chaffee
+            Cheyenne: Cheyenne
+            Clear Creek: Clear Creek
+            Conejos: Conejos
+            Costilla: Costilla
+            Crowley: Crowley
+            Custer: Custer
+            Delta: Delta
+            Denver: Denver
+            Dolores: Dolores
+            Douglas: Douglas
+            Eagle: Eagle
+            Elbert: Elbert
+            El Paso: El Paso
+            Fremont: Fremont
+            Garfield: Garfield
+            Gilpin: Gilpin
+            Grand: Grand
+            Gunnison: Gunnison
+            Hinsdale: Hinsdale
+            Huerfano: Huerfano
+            Jackson: Jackson
+            Jefferson: Jefferson
+            Kiowa: Kiowa
+            Kit Carson: Kit Carson
+            Lake: Lake
+            La Plata: La Plata
+            Larimer: Larimer
+            Las Animas: Las Animas
+            Lincoln: Lincoln
+            Logan: Logan
+            Mesa: Mesa
+            Mineral: Mineral
+            Moffat: Moffat
+            Montezuma: Montezuma
+            Montrose: Montrose
+            Morgan: Morgan
+            Otero: Otero
+            Ouray: Ouray
+            Park: Park
+            Phillips: Phillips
+            Pitkin: Pitkin
+            Prowers: Prowers
+            Pueblo: Pueblo
+            Rio Blanco: Rio Blanco
+            Rio Grande: Rio Grande
+            Routt: Routt
+            Saguache: Saguache
+            San Juan: San Juan
+            San Miguel: San Miguel
+            Sedgwick: Sedgwick
+            Summit: Summit
+            Teller: Teller
+            Washington: Washington
+            Weld: Weld
+            Yuma: Yuma
     - click_on:
         - value: Submit
-          selector: "input[name='j_id0:j_id2:j_id3:j_id4:j_id72:j_id75']"
+          selector: form#tfa_0 div#tfa_0-A input.primaryAction
     - wait:
-        - value: 5
+        - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: Thank you!
+      contains: "Thank you for submitting your comments."
