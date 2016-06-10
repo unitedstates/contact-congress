@@ -110,8 +110,10 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_1"
+    - wait:
+        - value: 5
     - find:
-        - value: "Email Confirmation"
+        - value: "EMAIL CONFIRMATION"
           selector: "h1"
   success:
     headers:
