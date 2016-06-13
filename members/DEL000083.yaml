@@ -14,24 +14,16 @@ contact_form:
         value: $NAME_LAST
         required: true
       - name: emailaddress
-        selector: "#input-217446283743303914" 
+        selector: "#input-217446283743303914"
         value: $EMAIL
         required: true
       - name: confirmemailaddress
-        selector: "#input-331315442337300299" 
+        selector: "#input-331315442337300299"
         value: $EMAIL
         required: true
-      - name: phone1
-        selector: "#input-617471095962006928" 
-        value: $PHONE_AREA_CODE
-        required: true
-      - name: phone2
-        selector: "#input-617471095962006928-1" 
-        value: $PHONE_EXCHANGE_CODE
-        required: true
-      - name: phone3
-        selector: "#input-617471095962006928-2" 
-        value: $PHONE_SUBSCRIBER_NUMBER
+      - name: phone
+        selector: "#input-617471095962006928"
+        value: $PHONE
         required: true
       - name: message
         selector: "#input-373262579114842069"
@@ -48,7 +40,7 @@ contact_form:
     - click_on:
       - value: Submit
         selector: ".wsite-button-inner"
-  success: 
+  success:
     headers:
       status: 200
     body:
