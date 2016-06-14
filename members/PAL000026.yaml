@@ -5,24 +5,7 @@ contact_form:
   steps:
     - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=24"
     - wait:
-      - value: 5
-    - select:
-        - name: issue
-          selector: "#ddlIssue_Input"
-          value: "g"
-          required: true
-        - name: county
-          selector: "#ddlCounty_Input"
-          value: "mmmmmm"
-          required: true
-    - click_on:
-        - value: muni
-          selector: "#ddlMunicipality_Input"
-    - select:
-        - name: muni
-          selector: "#ddlMunicipality_Input"
-          value: "r"
-          required: true
+      - value: 1
     - fill_in:
         - name: fname
           selector: "input[id='txtFirstname']"
@@ -60,8 +43,34 @@ contact_form:
           selector: "#txtComments"
           value: $MESSAGE
           required: true
+    - find:
+        - selector: div#ddlIssue a#ddlIssue_Arrow
+    - click_on:
+        - selector: div#ddlIssue a#ddlIssue_Arrow
+    - find:
+        - selector: div#ddlIssue_DropDown li:nth-child(5)
+    - click_on:
+        - selector: div#ddlIssue_DropDown li:nth-child(5)
+    - find:
+        - selector: div#ddlCounty a#ddlCounty_Arrow
+    - click_on:
+        - selector: div#ddlCounty a#ddlCounty_Arrow
+    - find:
+        - selector: div#ddlCounty_DropDown li:nth-child(3)
+    - click_on:
+        - selector: div#ddlCounty_DropDown li:nth-child(3)
     - wait:
-      - value: 5
+        - value: 5
+    - find:
+        - selector: a#ddlMunicipality_Arrow
+    - click_on:
+        - selector: a#ddlMunicipality_Arrow
+    - find:
+        - selector: div#ddlMunicipality_DropDown li:nth-child(3)
+    - click_on:
+        - selector: div#ddlMunicipality_DropDown li:nth-child(3)
+    - wait:
+      - value: 1
     - click_on:
         - value: Submit
           selector: "#bSubmit_input"
