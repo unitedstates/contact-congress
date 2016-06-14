@@ -49,10 +49,12 @@ contact_form:
           value: $MESSAGE
           required: true
     - wait:
-      - value: 5
+      - value: 1
     - click_on:
         - value: Submit
           selector: "#bSubmit_input"
+    - wait:
+        - value: 4
   success:
     headers:
       status: 200
