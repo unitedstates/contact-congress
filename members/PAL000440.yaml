@@ -4,60 +4,51 @@ contact_form:
   action: /contact#usermessage2a
   steps:
     - visit: "http://www.senatorwiley.com/contact"
+    - find:
+        - selector: form#form_contactwiley input#field_qh4icy22
     - fill_in:
         - name: fname
-          selector: "#cf_field_2"
+          selector: input#field_qh4icy22
           value: $NAME_FIRST
           required: true
         - name: lname
-          selector: "#cf_field_3"
+          selector: input#field_ocfup122
           value: $NAME_LAST
           required: true
         - name: address
-          selector: "#cf_field_4"
+          selector: input#field_ge1gd1
           value: $ADDRESS_STREET
           required: true
         - name: address2
-          selector: "#cf_field_5"
+          selector: input#field_y6hyzk
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: "#cf_field_6"
+          selector: input#field_i8x71e
           value: $ADDRESS_CITY
           required: true
         - name: zip
-          selector: "#cf_field_8"
+          selector: input#field_iixr7v
           value: $ADDRESS_ZIP5
           required: true
         - name: email
-          selector: "#cf_field_9"
+          selector: input#field_29yf4d22
           value: $EMAIL
           required: true
+        - name: phone
+          selector: input#field_ldro11
+          value: $PHONE
+          required: false
         - name: message
-          selector: "#cf_field_10"
+          selector: textarea#field_9jv0r122
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: "#cforms_captcha"
-          captcha_selector: "#cf_captcha_img"
-          value: "$CAPTCHA_SOLUTION"
-          required: true
-    - select:
-        - name: prefix
-          selector: "#cf_field_1"
-          value: $NAME_PREFIX
-          options:
-            Mr.: Mr.
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
     - click_on:
-        - value: Submit
-          selector: "#sendbutton"
+        - selector: form#form_contactwiley div.frm_submit input[type='submit']
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me
+      contains: "Your form was successfully submitted."
