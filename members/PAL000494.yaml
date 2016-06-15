@@ -5,15 +5,10 @@ contact_form:
   steps:
     - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=32"
     - wait:
-      - value: 5
-    - select:
-        - name: issue
-          selector: "#ddlIssue_Input"
-          value: "g"
-          required: true
+        - value: 1
     - fill_in:
         - name: fname
-          selector: "input[id='txtFirstname']"
+          selector: input#txtFirstname
           value: $NAME_FIRST
           required: true
         - name: lname
@@ -48,13 +43,23 @@ contact_form:
           selector: "#txtComments"
           value: $MESSAGE
           required: true
+    - find:
+        - selector: div#ddlIssue a#ddlIssue_Arrow
+    - click_on:
+        - selector: div#ddlIssue a#ddlIssue_Arrow
     - wait:
-      - value: 1
+        - value: 1
+    - find:
+        - selector: div#ddlIssue_DropDown li:nth-child(2)
+    - click_on:
+        - selector: div#ddlIssue_DropDown li:nth-child(2)
+    - wait:
+        - value: 1
     - click_on:
         - value: Submit
           selector: "#bSubmit_input"
     - wait:
-        - value: 4
+        - value: 1
   success:
     headers:
       status: 200
