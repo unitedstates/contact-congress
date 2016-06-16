@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.capito.senate.gov/contact/contact-shelley"
+    - find:
+        - selector: div#form-4873565B-4040-F985-52CD-58F5E3BCC94D select#actions
     - select:
         - name: actions
           selector: select#actions
@@ -12,7 +14,7 @@ contact_form:
           options:
             Send an email to comment on Legislation: Send an email to comment on Legislation
     - wait:
-        - value: 10
+        - value: 3
     - find:
         - selector: div#continue-form input#input-AB59F0AE-4040-F985-52CD-AA63153C7925
     - fill_in:
