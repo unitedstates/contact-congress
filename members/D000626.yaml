@@ -1,0 +1,127 @@
+bioguide: D000626
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://davidson.house.gov/contact"
+    - find:
+      - selector: form#emailForm input#required-zip5
+    - fill_in:
+      - name: zip5
+        selector: input#required-zip5
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: zip4
+        selector: input#zip4
+        value: $ADDRESS_ZIP4
+        required: true
+    - click_on:
+      - selector: form#emailForm button#submit
+    - find:
+      - selector: form#contactForm input#required-first
+    - fill_in:
+      - name: first
+        selector: input#required-first
+        value: $NAME_FIRST
+        required: true
+      - name: last
+        selector: input#required-last
+        value: $NAME_LAST
+        required: true
+      - name: street
+        selector: input#required-address
+        value: $ADDRESS_STREET
+        required: true
+      - name: street2
+        selector: input#address2
+        value: $ADDRESS_STREET_2
+        required: false
+      - name: city
+        selector: input#required-city
+        value: $ADDRESS_CITY
+        required: true
+      - name: email
+        selector: input#required-valid-email
+        value: $EMAIL
+        required: true
+      - name: phone
+        selector: input#required-phone
+        value: $PHONE
+        required: true
+      - name: message
+        selector: textarea#required-message
+        value: $MESSAGE
+        required: true
+    - select:
+      - name: prefix
+        selector: select#required-honorific-prefix
+        value: $NAME_PREFIX
+        required: true
+        options:
+          Ms.: Ms.
+          Miss: Miss
+          Mrs.: Mrs.
+          Mr.: Mr.
+          Mr. and Mrs.: Mr. and Mrs.
+          Rev.: Rev.
+          Dr.: Dr.
+          Dr. and Mrs.: Dr. and Mrs.
+          The Honorable: The Honorable
+          Rabbi: Rabbi
+      - name: topic
+        selector: select#required-issue
+        value: $TOPIC
+        required: true
+        options:
+          Agriculture: Agriculture
+          Animals: Animals
+          Arts and Humanities: Arts and Humanities
+          Banking and Finance: Banking and Finance
+          Budget and Economy: Budget and Economy
+          Help With a Federal Agency: Help With a Federal Agency
+          Campaign Finance Reform: Campaign Finance Reform
+          Congress and Elections: Congress and Elections
+          Defense and Military: Defense and Military
+          Economy: Economy
+          Education: Education
+          Energy: Energy
+          Environment: Environment
+          Federal Employees: Federal Employees
+          Foreign Relations: Foreign Relations
+          Government Reform: Government Reform
+          Guns: Guns
+          Health: Health
+          Homeland Security: Homeland Security
+          Housing and Urban Development: Housing and Urban Development
+          Immigration: Immigration
+          International Relations: International Relations
+          Judiciary: Judiciary
+          Labor: Labor
+          LGBT: LGBT
+          Post Office: Post Office
+          Science and Technology: Science and Technology
+          Social Issues: Social Issues
+          Senior Citizens: Senior Citizens
+          Social Security: Social Security
+          Social Services: Social Services
+          Taxes: Taxes
+          Telecommunications: Telecommunications
+          Transportation: Transportation
+          Trade: Trade
+          Veterans: Veterans
+          Women's Issues: Women's Issues:
+          Welfare: Welfare
+          Other Issue: Other Issue
+      - name: response
+        selector: select#required-response
+        value: Yes, please contact me
+        required: true
+        options:
+          Yes, please contact me: Yes, please contact me
+    - click_on:
+      - selector: form#contactForm button#submit
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "your message has been sent."
