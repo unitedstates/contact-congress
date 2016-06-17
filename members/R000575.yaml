@@ -18,6 +18,8 @@ contact_form:
           selector: "#submit"
     - find:
         - selector: form.validate.wsbform
+    - wait:
+        - value: 5
     - fill_in:
         - name: required-prefix
           selector: "#prefix"
