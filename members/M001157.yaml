@@ -4,20 +4,22 @@ contact_form:
   action: "https://mccaul.house.gov/htbin/formproc/email-me.txt%26display%3D/contact/email-me/email-me-thank-you%26nobase%26fpGetVer%3D2"
   steps:
     - visit: "https://mccaul.house.gov/contact/email-me"
+    - find:
+        - selector: form#emailForm input#required-zip5
     - fill_in:
         - name: required-zip5
-          selector: "#required-zip5"
+          selector: form#emailForm input#required-zip5
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: form#emailForm input#zip4
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: form#emailForm input#submit
     - find:
-        - selector: "#required-first"
+        - selector: form#contactForm input#required-first
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -123,8 +125,7 @@ contact_form:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
     - click_on:
-        - value: Send Email
-          selector: "#submit"
+        - selector: form#contactForm input#submit
   success:
     headers:
       status: 200
