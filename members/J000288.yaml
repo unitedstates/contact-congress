@@ -15,12 +15,12 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: form.wsbform input#submit
     - fill_in:
         - name: prefix
-          selector: "#prefix"
+          selector: input#required-honorific-prefix
           value: $NAME_PREFIX
-          required: false
+          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -46,9 +46,9 @@ contact_form:
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: input#required-phone
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -97,6 +97,12 @@ contact_form:
             Veterans: VET
             "Women's Issues": WOMEN
             Other Issues: OTHER
+        - name: response
+          selector: select#required-response
+          value: Yes, please contact me
+          required: true
+          options:
+            Yes, please contact me: Yes, please contact me
     - click_on:
         - value: Send Email
           selector: "#submit"
