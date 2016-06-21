@@ -70,6 +70,10 @@ contact_form:
     - click_on:
       - value: "Send Email"
         selector: "input[type=submit][value='Send Email']"
+    - wait:
+      - value: 3
+    - find:
+      - selector: "#ctl00_ctl16_ctl00_Text.middlecopy"
   success:
     headers:
       status: 200
