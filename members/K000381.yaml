@@ -1,67 +1,84 @@
 bioguide: K000381
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: ""
   steps:
-    - visit: "https://kilmer.house.gov/contact/email-me"
+    - visit: "http://kilmer.house.gov/contact/email-me"
+    - find:
+        - selector: div#sam-main div.loaded form div.control-group input#zip-input
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: div#sam-main div.loaded form div.control-group input#zip-input
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
     - click_on:
-        - value: Go To Next Step
-          selector: form#emailForm input#submit
+        - selector: div#sam-main div.loaded form div#zip-submit
     - find:
-        - selector: form#contactForm input#required-first
+        - selector: fieldset.show-form input#input-AACDE709-4040-F985-52CD-75A45D1A0141
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#required-first"
+        - name: first
+          selector: input#input-AACDE709-4040-F985-52CD-75A45D1A0141
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: last
+          selector: input#input-AACDE74F-4040-F985-52CD-05C1A30716E7
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: street
+          selector: input#input-AAD59EAB-4040-F985-52CD-4814F7123375
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
+        - name: street2
+          selector: input#input-AAD59ED0-4040-F985-52CD-F3829DBFA5CA
           value: $ADDRESS_STREET_2
           required: false
-        - name: required-city
-          selector: "#required-city"
+        - name: city
+          selector: input#input-AAD59EF2-4040-F985-52CD-51C8012622B6
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: email
+          selector: input#email
           value: $EMAIL
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: verify_email
+          selector: input#input-AAD814BE-4040-F985-52CD-CD7AACCF5210
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: input#input-AAE2F61F-4040-F985-52CD-6B85A78D1FF2
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
+        - name: subject
+          selector: input#input-AAFBB3DE-4040-F985-52CD-B11D1B0A745A
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: message
+          selector: textarea#input-AAFC2325-4040-F985-52CD-FDCD58979CB9
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
+        - name: prefix
+          selector: select#input-AACDE6D2-4040-F985-52CD-4D1667116532
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Professor: Professor
+            Dr.: Dr.
+            Father: Father
+            Sister: Sister
+            Rabbi: Rabbi
+            Reverend: Reverend
+        - name: phone-type
+          selector: select#input-AD296937-4040-F985-52CD-8E7EE8DE5534
+          value: Voice
+          required: true
+          options:
+            Voice: Voice
+        - name: topic
+          selector: select#input-AAFB3FE5-4040-F985-52CD-892F5AE50362
           value: $TOPIC
           required: true
           options:
@@ -104,18 +121,17 @@ contact_form:
             Veterans: VET
             "Women's Issues": WOMEN
             Welfare: WEL
-            Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Yes, please contact me"
-          required: true
-          options:
-            "Yes, please contact me": "Yes, please contact me"
+            Other Issues: Other Issues
     - click_on:
-        - value: Send Email
-          selector: form#contactForm input#submit
+        - selector: input#input-AAFF2C8E-4040-F985-52CD-F7FEE1E90A5F
+    - find:
+        - selector: div#form-8338AD0F-4040-F985-52CD-C120404820C8 input.btn
+    - click_on:
+        - selector: div#form-8338AD0F-4040-F985-52CD-C120404820C8 input.btn
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "Thank you for submitting your Request to our office."
