@@ -197,10 +197,11 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "#thisForm input[name='Submit']"
+    - wait:
+      - value: 3
     - find:
       - selector: "p"
         value: "Thank you"
-        
   success:
     headers:
       status: 200
