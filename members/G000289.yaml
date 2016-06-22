@@ -1,9 +1,9 @@
 bioguide: G000289
 contact_form:
   method: POST
-  action: http://goodlatte.house.gov/contacts
+  action: "http://goodlatte.house.gov/submit-contact-iq.aspx"
   steps:
-    - visit: https://goodlatte.house.gov/contact/
+    - visit: "https://goodlatte.house.gov/contact/"
     - find:
       - selector: form.zipform input[name='zip5']
     - fill_in:
