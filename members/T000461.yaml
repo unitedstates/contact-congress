@@ -183,6 +183,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "input[name='formaction']"
+    - wait:
+        - value: 1
     - find:
         - selector: "p"
           value: "Thank you!"
