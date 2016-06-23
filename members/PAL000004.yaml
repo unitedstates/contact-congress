@@ -41,6 +41,11 @@ contact_form:
           selector: "#cf_field_11"
           value: $MESSAGE
           required: true
+        - name: captcha
+          selector: input#cforms_captcha
+          captcha_selector: img#cf_captcha_img
+          value: $CAPTCHA_SOLUTION
+          required: true
     - select:
         - name: issue
           selector: "#cf_field_1"

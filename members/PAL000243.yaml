@@ -6,11 +6,6 @@ contact_form:
     - visit: "http://wpcontact.pasenategop.com/contact.aspx?websiteid=38"
     - wait:
       - value: 5
-    - select:
-        - name: issue
-          selector: "#ddlIssue_Input"
-          value: "g"
-          required: true
     - fill_in:
         - name: fname
           selector: "input[id='txtFirstname']"
@@ -44,15 +39,23 @@ contact_form:
           selector: "#txtZip"
           value: $ADDRESS_ZIP5
           required: true
+        - name: subject
+          selector: "#txtSubject"
+          value: $SUBJECT
+          required: true
         - name: message
           selector: "#txtComments"
           value: $MESSAGE
           required: true
+    - click_on:
+      - selector: input#ddlIssue_Input
+    - find:
+      - selector: div#ddlIssue_DropDown li:nth-child(2)
+    - click_on:
+      - selector: div#ddlIssue_DropDown li:nth-child(2)
     - wait:
       - value: 5
     - click_on:
-        - value: Submit
-          selector: "#bSubmit_input"
         - value: Submit
           selector: "#bSubmit_input"
   success:
