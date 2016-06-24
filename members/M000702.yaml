@@ -3,12 +3,14 @@ contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "http://www.mikulski.senate.gov/contact"
+    - visit: "https://www.mikulski.senate.gov/contact"
+    - find:
+        - selector: form#contactForm select#actions
     - select:
         - name: actions
-          selector: "#actions"
+          selector: form#contactForm select#actions
           value: Share your opinion or comments on bills or other issues
-          required: false
+          required: true
           options:
             Share your opinion or comments on bills or other issues: Share your opinion or comments on bills or other issues
     - find:

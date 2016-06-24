@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: https://moulton.house.gov/htbin/formproc.pl?/moulton/wp-content/themes/Moulton/formfiles/contact.txt&display=/moulton/wp-content/themes/Moulton/formfiles/redirect.html&nobase&fpGetVer=2
   steps:
-  - visit: https://moulton.house.gov/contact
+  - visit: "https://moulton.house.gov/contact/"
   - fill_in:
     - name: prefix
       selector: input[name='salutation']
@@ -108,9 +108,10 @@ contact_form:
       selector: select[name='con_respond']
       value: Yes
       required: true
+  - find:
+    - selector: form#atform input[type='submit']
   - click_on:
-    - value: Submit
-      selector: "#atform input[value='Submit']"
+    - selector: form#atform input[type='submit']
   - wait:
     - value: 6
   - find:
