@@ -17,6 +17,10 @@ contact_form:
           selector: div.email > div > input
           value: $EMAIL
           required: true
+        - name: street
+          selector: div.address > div > input
+          value: $ADDRESS_STREET
+          required: true
         - name: phone
           selector: div.phonenumber > div > input
           value: $PHONE
