@@ -1,9 +1,9 @@
 bioguide: G000577
 contact_form:
   method: post
-  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
+  action: ""
   steps:
-  - visit: https://garretgraves.house.gov/contact
+  - visit: "https://garretgraves.house.gov/contact"
   - fill_in:
     - name: required-zip5
       selector: "#required-zip5"
@@ -15,7 +15,7 @@ contact_form:
       required: true
   - click_on:
     - value: Go To Next Step
-      selector: "#emailForm #submit"
+      selector: form#emailForm button#submit
   - find:
     - selector: "#required-prefix"
   - fill_in:
@@ -67,46 +67,41 @@ contact_form:
       value: $TOPIC
       required: true
       options:
-        Agriculture: AGR
-        Animals: AN
-        Arts and Humanities: ART
-        Banking and Finance: BANK
-        Budget and Economy: BUD
-        Campaign Finance Reform: CFR
-        Congress and Elections: CONG
-        District of Columbia--Tours: TOUR
-        Defense and Military: DEF
-        Economy: ECON
-        Education: EDU
-        Energy: ENE
-        Environment: ENV
-        Federal Employees: FED
-        Foreign Relations: FR
-        Government Reform: GOV
-        Guns: GUN
-        Health: HEA
-        Homeland Security: HOM
-        Housing and Urban Development: HUD
-        Immigration: IMM
-        International Relations: INT
-        Judiciary: JUD
-        Labor: LAB
-        LGBT: LGBT
-        No Response Necessary: NRN
-        Post Office: POST
-        Science and Technology: SCI
-        Social Issues: SOC
-        Senior Citizens: SENIORS
-        Social Security: SSEC
-        Social Services: SOC.SERVICES
-        Taxes: TAX
-        Telecommunications: TEL
-        Transportation: TRA
-        Trade: TRADE
-        Veterans: VET
-        "Women's Issues": WOMEN
-        Welfare: WEL
-        Other Issues: OTHER
+        Agriculture: Agriculture
+        Animal Issues: Animal Issues
+        Arts and Humanities: Arts and Humanities
+        Banking and Finance: Banking and Finance
+        Corps. Of Engineers, Maritime Issues: Corps. Of Engineers, Maritime Issues
+        Defense and National Security: Defense and National Security
+        Economy and Monetary Policy: Economy and Monetary Policy
+        Education: Education
+        Elections and Party Issues: Elections and Party Issues
+        Energy Policy - Oil and Gas, Carbon Policy: Energy Policy - Oil and Gas, Carbon Policy
+        Environment: Environment
+        Executive Branch - The President: Executive Branch - The President
+        Family Issues - Adoption, Child Protective Services, etc.: Family Issues - Adoption, Child Protective Services, etc.
+        Federal Budget - National Debt and Deficit : Federal Budget - National Debt and Deficit
+        FEMA and Dept. of Homeland Security: FEMA and Dept. of Homeland Security
+        Firearms - 2nd Amendment Issues: Firearms - 2nd Amendment Issues
+        Fisheries and Ocean Policies: Fisheries and Ocean Policies
+        Foreign Affairs: Foreign Affairs
+        Health - Insurance, Regulations, Research: Health - Insurance, Regulations, Research
+        Immigration Policy: Immigration Policy
+        Judicial and Legal Issues - Judges, Sentencing, etc.: Judicial and Legal Issues - Judges, Sentencing, etc.
+        LA State Issues, Local and Parish Concerns: LA State Issues, Local and Parish Concerns
+        Labor Issues - Min Wage, Unions, Labor Regulations: Labor Issues - Min Wage, Unions, Labor Regulations
+        Medicare and Medicaid: Medicare and Medicaid
+        National Parks and Federal Lands: National Parks and Federal Lands
+        Science, Space and Technology: Science, Space and Technology
+        Social Issues - LGBT, Marriage, Faith, Abortion: Social Issues - LGBT, Marriage, Faith, Abortion
+        Social Security, Retirement and Disability Insurance: Social Security, Retirement and Disability Insurance
+        Taxes: Taxes
+        Telecommunications, Internet: Telecommunications, Internet
+        Tours and Flag Requests: Tours and Flag Requests
+        Transportation Issues: Transportation Issues
+        Trade and Commerce: Trade and Commerce
+        Veteran Affairs: Veteran Affairs
+        Welfare - SNAP, TANF, Unemployment: Welfare - SNAP, TANF, Unemployment
     - name: required-response
       selector: "#required-response"
       value: Y
@@ -115,10 +110,9 @@ contact_form:
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
   - click_on:
-    - value: Send Email to Representative Graves
-      selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"
+    - selector: form#contactForm button#submit
   success:
-    headers: 
+    headers:
       status: 200
     body:
       contains: "Your email has been sent."
