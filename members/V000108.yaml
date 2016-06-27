@@ -17,12 +17,8 @@ contact_form:
         - value: Go To Next Step
           selector: form#emailForm button#submit
     - find:
-        - selector: "#contactForm"
+        - selector: form#contactForm input#required-first
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -60,6 +56,20 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: select#prefix
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
         - name: required-response
           selector: "#required-response"
           value: Y
@@ -69,9 +79,9 @@ contact_form:
             No, I wanted to voice my opinion: N
     - click_on:
         - value: Send Email
-          selector: "input[value='Send Email']"
+          selector: form#contactForm button#submit
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: "The following information has been submitted"
