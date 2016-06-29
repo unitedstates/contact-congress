@@ -3,7 +3,7 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: http://www.hirono.senate.gov/contact/email
+    - visit: "http://www.hirono.senate.gov/contact/email"
     - fill_in:
       - name: fname
         selector: "#fname"
@@ -40,6 +40,10 @@ contact_form:
       - name: verify_email
         selector: "#verify_email"
         value: $EMAIL
+        required: true
+      - name: subject
+        selector: input#subject_field
+        value: $SUBJECT
         required: true
       - name: message
         selector: "#message"
