@@ -85,6 +85,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#submitButton"
+    - find: 
+        - selector: "#centerbox > p:nth-child(2)"
   success:
     headers:
       status: 200
