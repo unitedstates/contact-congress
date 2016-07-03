@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "http://buchanan.house.gov/contact"
+    - visit: "https://buchanan.house.gov/contact"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -17,10 +17,6 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -33,10 +29,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -54,12 +46,27 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Ms.: Ms
+            Miss.: Miss
+            Mrs.: Mrs
+            Mr.: Mr
+            "Mr & Mrs": MrandMrs
+            Rev.: Rev
+            Dr.: Dr
+            Hon.: Hon
+            Rabbi: Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
+            "": Mail Issue
+            Agriculture: " agr"
             Defense: DEF
             Education: EDU
             Energy: ENE
@@ -82,16 +89,21 @@ contact_form:
             Veterans Issues: VET
             "Women's Issues": WOMEN
             Other Issues: OTHER
+    - check:
+        - 
+          selector: "#response"
+          value: "yes"
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"
+    - wait:
+        - value: 3
     - find:
-        - value: The following information has been submitted
-          selector: "p"
+        - selector: "#block-system-main > div > div > div > div > div > div > div > div > div > div > p:nth-child(6) > span:nth-child(4)"
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: Thank You
