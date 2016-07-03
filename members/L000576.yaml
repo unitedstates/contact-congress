@@ -82,9 +82,10 @@ contact_form:
             I would like a response.: "Y"
     - javascript:
         - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
-    - click_on:
-        - value: Submit
-          selector: "#submitButton"
+    - javascript:
+        - value: "document.querySelector('form#custom_form6').submit();"
+    - wait:
+        - value: 3
     - find: 
         - selector: "#centerbox > p:nth-child(2)"
   success:
