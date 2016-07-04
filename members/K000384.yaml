@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: http://www.kaine.senate.gov/contact
+    - wait:
+      - value: 1
     - select:
       - name: subject
         selector: "#subject"
@@ -61,6 +63,8 @@ contact_form:
           - "Transportation & Infrastructure"
           - "Womens Issues"
           - "Workforce & Labor"
+    - wait:
+      - value: 3
     - find:  # waits for dom element to appear before proceeding
       - selector: "#continue-form fieldset #prefname"
     - fill_in:
@@ -197,12 +201,14 @@ contact_form:
         required: Yes
         # I would like to receive email updates from the Senator
     - wait:
-        - value: 1
+      - value: 1
     - javascript:
       - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#contactForm input[type='submit']"
+    - wait:
+      - value: 3
     - find:
       - selector: "h1"
         value: "THANK YOU"
@@ -211,4 +217,3 @@ contact_form:
       status: 200
     body:
       contains: THANK YOU
-      # matches: "thank you, [a-z\. ]+ for contacting"
