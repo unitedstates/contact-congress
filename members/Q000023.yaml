@@ -92,9 +92,10 @@ contact_form:
             Water Resources Development: "109094"
     - javascript:
         - value: document.querySelector("#ctl00_ctl29_Body").value = document.querySelector("#ctl00_ctl29_Body").value.replace(/"/g, '');
-    - click_on:
-        - value: Submit
-          selector: "#ctl00_ctl29_SubmitButton"
+    - javascript:
+        - value: "document.getElementById('aspnetForm').submit();"
+    - wait:
+        - value: 3
     - find:
         - selector: "#ctl00_ctl29_ConfirmationText"
   success:
