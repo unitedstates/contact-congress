@@ -4,6 +4,8 @@ contact_form:
   action: "https://www.peters.senate.gov/contact/email-gary"
   steps:
     - visit: "https://www.peters.senate.gov/contact/email-gary"
+    - wait:
+        - value: 3
     - select:
         - name: input_AE7457DD-4040-F985-52CD-B99385041C51
           selector: "#actions"
@@ -16,6 +18,8 @@ contact_form:
             Office Locations: Office Locations
             Student Resources: Student Resources
             Veterans Resources: Veterans Resources
+    - wait:
+        - value: 3
     - find:
         - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
@@ -253,6 +257,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn
+    - wait:
+        - value: 3
     - find:
         - value: "THANK YOU"
           selector: "h1"
