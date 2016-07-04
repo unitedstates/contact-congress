@@ -88,6 +88,8 @@ contact_form:
     - javascript:
         - value: document.querySelector("#ctl00_ctl26_Body").value = document.querySelector("#ctl00_ctl26_Body").value.replace(/"/g, '');
     - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - javascript:
         - value: document.querySelector("form#aspnetForm").submit();
     - wait:
         - value: 3
