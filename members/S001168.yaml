@@ -10,34 +10,27 @@ contact_form:
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#emailForm input[name='zip4']"
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - selector: "#emailForm input[value='Go To Next Step']"
+        - value: Go To Next Step
+          selector: "#emailForm input[name='submit']"
     - fill_in:
-        - name: prefix
-          selector: "#contactForm input[name='prefix']"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
-          selector: "#contactForm input[name='required-first']"
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#contactForm input[name='required-last']"
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#contactForm input[name='required-address']"
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#contactForm input[name='address2']"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
-          selector: "#contactForm input[name='required-city']"
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
         - name: required-valid-email
@@ -45,57 +38,28 @@ contact_form:
           value: $EMAIL
           required: true
         - name: required-phone
-          selector: "#contactForm input[name='required-phone']"
+          selector: "#required-phone"
           value: $PHONE
           required: true
+        - name: required-subject
+          selector: "#required-subject"
+          value: $SUBJECT
+          required: true
         - name: required-message
-          selector: "#contactForm textarea[name='required-message']"
+          selector: "#required-message"
           value: $MESSAGE
           required: true
-    - select:
-        - name: required-subject
-          selector: "#contactForm select[name='required-subject']"
-          value: $TOPIC
-          required: true
-          options:
-            - Agriculture
-            - Budget/Economy
-            - Campaign Finance
-            - Chesapeake Bay
-            - Consumer Protection
-            - Defense/Military
-            - Education
-            - Energy
-            - Environment
-            - Federal Employee Issues
-            - Foreign Affairs
-            - Government Reform
-            - Health
-            - Human Rights
-            - Immigration
-            - Judiciary/Crime
-            - Labor Issues
-            - Religious Freedom
-            - "Science & Tech"
-            - Small Business Issues
-            - Retirement Security
-            - Tax
-            - Trade
-            - Transportation
-            - Veterans Affairs
-            - Wildlife/Animal Welfare
-            - "Women's Health"
     - check:
-        - selector: "#contactForm input#response"
+        - 
+          selector: "#response"
           value: "yes"
-          required: true
     - javascript:
-        - value: document.querySelector("#contactForm textarea[name='required-message']").value = document.querySelector("#contactForm textarea[name='required-message']").value.replace(/"/g, '');
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - selector: "#contactForm input[type='submit']"
+        - value: Send Email
+          selector: "#contactForm input[name='submit']"
     - find:
-        - selector: "h1#page-title"
-          value: "Thank You"
+        - selector: "#block-system-main span.data"
   success:
     headers:
       status: 200
