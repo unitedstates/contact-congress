@@ -15,14 +15,17 @@ contact_form:
             Comment on an Issue: opinion
             Help with a Federal Agency: Help with a Federal Agency
             Meeting Requests: Meeting Requests
+            Tour Requests: Tour Requests
             Office Locations: Office Locations
             Student Resources: Student Resources
             Veterans Resources: Veterans Resources
     - wait:
         - value: 3
-    - find:
-        - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
+        - name: input_260E577D-5056-A066-6070-226296904340
+          selector: "#input-260E577D-5056-A066-6070-226296904340"
+          value: $NAME_PREFIX
+          required: true
         - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
           value: $NAME_FIRST
@@ -64,194 +67,55 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: input_AB59F08A-4040-F985-52CD-7633AA11C65E
-          selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Professor
-            - Dr.
-            - Father
-            - Sister
-            - Rabbi
-            - Reverend
-            - Air Force - General
-            - Air Force - Lieutenant General
-            - Air Force - Major General
-            - Air Force - Brigadier General
-            - Air Force - Colonel
-            - Air Force - Lieutenant Colonel
-            - Air Force - Major
-            - Air Force - Captain
-            - Air Force - First Lieutenant
-            - Air Force - Second Lieutenant
-            - Air Force - Chief Master Sergeant of the Air Force
-            - Air Force - Command Chief Master Sergeant
-            - Air Force - First Sergeant (E-9)
-            - Air Force - Chief Master Sergeant
-            - Air Force - First Sergeant (E-8)
-            - Air Force - Senior Master Sergeant
-            - Air Force - First Sergeant (E-7)
-            - Air Force - Master Sergeant
-            - Air Force - Technical Sergeant
-            - Air Force - Staff Sergeant
-            - Air Force - Senior Airman
-            - Air Force - Airman First Class
-            - Air Force - Airman
-            - Air Force - Airman Basic
-            - Army - General
-            - Army - Lieutenant General
-            - Army - Major General
-            - Army - Brigadier General
-            - Army - Colonel
-            - Army - Lieutenant Colonel
-            - Army - Major
-            - Army - Captain
-            - Army - First Lieutenant
-            - Army - Second Lieutenant
-            - Army - Chief Warrant Officer - 5
-            - Army - Chief Warrant Officer - 4
-            - Army - Chief Warrant Officer - 3
-            - Army - Chief Warrant Officer - 2
-            - Army - Warrant Officer
-            - Army - Sergeant Major of the Army
-            - Army - Command Sergeant Major
-            - Army - Sergeant Major
-            - Army - First Sergeant
-            - Army - Master Sergeant
-            - Army - Sergeant First Class
-            - Army - Staff Sergeant
-            - Army - Sergeant
-            - Army - Corporal
-            - Army - Specialist
-            - Army - Private First Class
-            - Army - Private (E-2)
-            - Army - Private
-            - Coast Guard - Admiral
-            - Coast Guard - Vice Admiral
-            - "Coast Guard - Rear Admiral, Upper Half"
-            - "Coast Guard - Rear Admiral, Lower Half"
-            - Coast Guard - Captain
-            - Coast Guard - Commander
-            - Coast Guard - Lieutenant Commander
-            - Coast Guard - Lieutenant
-            - Coast Guard - Lieutenant Junior Grade
-            - Coast Guard - Ensign
-            - Coast Guard - Chief Warrant Officer - 4
-            - Coast Guard - Chief Warrant Officer - 3
-            - Coast Guard - Chief Warrant Officer - 2
-            - Coast Guard - Master Chief Petty Officer of the Coast Guard
-            - Coast Guard - Master Chief Petty Officer
-            - Coast Guard - Senior Chief Petty Officer
-            - Coast Guard - Chief Petty Officer
-            - Coast Guard - Petty Officer First Class
-            - Coast Guard - Petty Officer Second Class
-            - Coast Guard - Petty Officer Third Class
-            - Coast Guard - Seaman
-            - Coast Guard - Seaman Apprentice
-            - Coast Guard - Seaman Recruit
-            - Marine Corps - General
-            - Marine Corps - Lieutenant General
-            - Marine Corps - Major General
-            - Marine Corps - Brigadier General
-            - Marine Corps - Colonel
-            - Marine Corps - Lieutenant Colonel
-            - Marine Corps - Major
-            - Marine Corps - Captain
-            - Marine Corps - First Lieutenant
-            - Marine Corps - Second Lieutenant
-            - Marine Corps - Chief Warrant Officer - 5
-            - Marine Corps - Chief Warrant Officer - 4
-            - Marine Corps - Chief Warrant Officer - 3
-            - Marine Corps - Chief Warrant Officer - 2
-            - Marine Corps - Warrant Officer
-            - Marine Corps - Sergeant Major of the Marine Corps
-            - Marine Corps - Sergeant Major
-            - Marine Corps - Master Gunnery Sergeant
-            - Marine Corps - First Sergeant
-            - Marine Corps - Master Sergeant
-            - Marine Corps - Gunnery Sergeant
-            - Marine Corps - Staff Sergeant
-            - Marine Corps - Sergeant
-            - Marine Corps - Corporal
-            - Marine Corps - Lance Corporal
-            - Marine Corps - Private First Class
-            - Marine Corps - Private
-            - Navy - Admiral
-            - Navy - Vice Admiral
-            - "Navy - Rear Admiral, Upper Half"
-            - "Navy - Rear Admiral, Lower Half"
-            - Navy - Captain
-            - Navy - Commander
-            - Navy - Lieutenant Commander
-            - Navy - Lieutenant
-            - Navy - Lieutenant Junior Grade
-            - Navy - Ensign
-            - Navy - Chief Warrant Officer - 4
-            - Navy - Chief Warrant Officer - 3
-            - Navy - Chief Warrant Officer - 2
-            - Navy - Master Chief Petty Officer of the Navy
-            - Navy - Master Chief Petty Officer
-            - Navy - Senior Chief Petty Officer
-            - Navy - Chief Petty Officer
-            - Navy - Petty Officer First Class
-            - Navy - Petty Officer Second Class
-            - Navy - Petty Officer Third Class
-            - Navy - Seaman Apprentice
-            - Navy - Seaman
-            - Navy - Seaman Recruit
         - name: input_AB8156A0-4040-F985-52CD-49CE65770EFC
           selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
           value: $TOPIC
           required: true
           options:
-            - Arts and Humanities
-            - Animal Protection
-            - Agriculture
-            - Auto Industry
-            - "Children's Issues"
-            - Civil Rights
-            - Consumer Protection / Cybersecurity
-            - Criminal Justice Reform
-            - Defense and Military
-            - Drug Policy
-            - Economic Policy
-            - Education
-            - Election and Campaign Finance Reform
-            - Energy
-            - Environment
-            - Financial Regulation and Banking
-            - Foreign Policy
-            - Gun Safety
-            - Health Care / Public Health
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Jobs and Employment
-            - Judiciary
-            - Labor
-            - Law Enforcement / Crime
-            - LGTBQ Issues
-            - Manufacturing
-            - Medicaid
-            - Medicare
-            - Native Americans
-            - Pensions / Retirement Security
-            - Postal Services
-            - Poverty
-            - Religion
-            - Reproductive Rights / Family Planning
-            - Science and NASA
-            - Social Security
-            - Taxes
-            - Telecommunications / Internet
-            - Trade
-            - Transportation
-            - Veterans
-            - "Women's Issues"
+            Adoption: ADOPT- GENERAL
+            Agriculture: AGRI- GENERAL
+            "Animal Protection ": ANIM PROT- GENERAL
+            "Appropriations ": APPROPS- GENERAL
+            "Arts ": ARTS- GENERAL
+            "Banking ": BANK- GENERAL
+            "Budget ": BUDG- General
+            Campaigns and Elections: CAMPAIGN
+            "Civil Rights ": CIV RGHTS- GENERAL
+            Congratulatory Correspondence: CONGRATS
+            "Consumer Protection ": CSMR PROT- GENERAL
+            "Crime ": CRIME- GENERAL
+            Defense/Military: DEF- GENERAL
+            "Economy ": ECON- GENERAL
+            "Education ": EDU- GENERAL
+            "Energy ": ENR- GENERAL
+            "Environment ": ENVIR-GENERAL
+            "Foreign Affairs ": FOR AFF- GENERAL
+            "Great Lakes ": GRT LAKES- GENERAL
+            Gun Safety: GUN SAFETY
+            "Health ": HEAL- GENERAL
+            "Homeland Security ": HOM- GENERAL
+            "Housing ": HOUS- GENERAL
+            "Immigration ": IMMG- General
+            Inauguration: INAUGUR
+            "Judiciary ": JUDIC- GENERAL
+            Labor/Employment: LAB- GENERAL
+            "Medicaid ": MDCA- GENERAL
+            "Medicare ": MDCR- GENERAL
+            Nutrition: NUTR- GENERAL
+            Pensions and Retirement Security: PENSION- GENERAL
+            Postal Services: POST ISSUES
+            "Science ": SCI- GENERAL
+            "Small Business ": SM BUSI- GENERAL
+            "Social Security ": SOC SECUR- GENERAL
+            State Issues: STATES ISSUES
+            "Taxes ": TAX- GENERAL
+            "Telecommunications ": COMMS- GENERAL
+            "Trade ": TRADE- General
+            "Transportation ": TRANSP- GENERAL
+            Tribal Issues: TRIB ISSUES
+            "Veterans ": VET- GENERAL
+            "Welfare ": WELF- GENERAL
+            "Women's Issues": WOM ISSUES
     - javascript:
         - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
     - click_on:
@@ -266,4 +130,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to contact Gary to share your views.
+      contains: THANK YOU
