@@ -3,174 +3,110 @@ contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "http://www.merkley.senate.gov/contact/"
-    - select:
-        - name: actions
-          selector: "#contactForm select[name='actions']"
-          value: opinion
-          options:
-            Share your opinion or comments on bills or other issues: opinion
-            Media Inquiries: media_inquires
-            Request help with a federal agency: federal_agency
-            Request a flag to be flown over the Capitol: flag
-    - fill_in:
-        - name: fname
-          selector: "#fname"
-          value: $NAME_FIRST
-          required: true
-        - name: lname
-          selector: "#lname"
-          value: $NAME_LAST
-          required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
-          value: $ADDRESS_STREET
-          required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: mailing_city
-          selector: "#mailing_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: home_phone_number
-          selector: "#home_phone_number"
-          value: $PHONE
-          required: true
-        - name: email_address
-          selector: "#email"
-          value: $EMAIL
-          required: true
-        - name: verify_email
-          selector: "#verify_email"
-          value: $EMAIL
-          required: true
-        - name: message
-          selector: "#message"
-          value: $MESSAGE
-          required: true
-    - select:
-        - name: salutation
-          selector: "#salutation"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Dr.
-        - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            AK: AK
-            AL: AL
-            AR: AR
-            AZ: AZ
-            CA: CA
-            CO: CO
-            CT: CT
-            DC: DC
-            DE: DE
-            FL: FL
-            GA: GA
-            HI: HI
-            IA: IA
-            ID: ID
-            IL: IL
-            IN: IN
-            KS: KS
-            KY: KY
-            LA: LA
-            MA: MA
-            MD: MD
-            ME: ME
-            MI: MI
-            MN: MN
-            MO: MO
-            MS: MS
-            MT: MT
-            NC: NC
-            ND: ND
-            NE: NE
-            NH: NH
-            NJ: NJ
-            NM: NM
-            NV: NV
-            NY: NY
-            OH: OH
-            OK: OK
-            OR: OR
-            PA: PA
-            RI: RI
-            SC: SC
-            SD: SD
-            TN: TN
-            TX: TX
-            UT: UT
-            VA: VA
-            VT: VT
-            WA: WA
-            WI: WI
-            WV: WV
-            WY: WY
-        - name: subject
-          selector: "#subject"
-          value: $TOPIC
-          required: true
-          options:
-            Abortion/Reproductive Rights: Abortion
-            Afghanistan/Iraq: Afghanistan
-            Agriculture: Agriculture
-            Animal Rights: Animal Rights
-            Arts and Humanities: Arts and Humanities
-            Banking: Banking
-            Budget: Budget
-            Campaign Finance Reform: Campaign Finance Reform
-            Children and Families: Children and Families
-            Civil Rights: Civil Rights
-            Crime and Drugs: Crime and Drugs
-            Defense: Defense
-            Education: Education
-            Elections and Congressional Affairs: Elections and Congressional Affairs
-            Energy: Energy
-            Environment and Public Works: Environment and Public Works
-            Foreign Affairs: Foreign Affairs
-            Government Shutdown: Government Shutdown
-            Guns: Guns
-            Health Care: Health Care
-            Housing: Housing
-            Help with a Government Agency / Casework: Casework
-            Immigration: Immigration
-            Indian Affairs: Indian Affairs
-            Insurance Health: Insurance Health
-            Interior/Forestry: Interior
-            Jobs and the Economy: Jobs and the Economy
-            Judiciary: Judiciary
-            Labor: Labor
-            LIHEAP: LIHEAP
-            LGBT Issues: LGBT Issues
-            Medicare/Medicaid: Medicare/Medicaid
-            "Military, Retiree Health Care": Military Health Care
-            Other: Other
-            Small Business: Small Business
-            Social Security: Social Security
-            Taxes: Taxes
-            Trade: Trade
-            Transportation: Transportation
-            Veterans: Veterans
-    - click_on:
-        - value: Send
-          selector: "#side-search-btn"
-    - find:
-        - selector: "h2"
-          value: "Thank You"
+  - visit: http://www.merkley.senate.gov/contact/
+  - javascript:
+    - value: Array.prototype.forEach.call(document.querySelectorAll('style,[rel="stylesheet"],[type="text/css"]'),
+        function(element){ try{ element.parentNode.removeChild(element) } catch(err){}
+        });
+  - select:
+    - name: actions
+      selector: '#contactForm select[name=''actions'']'
+      value: opinion
+      options:
+        Share your opinion or comments on bills or other issues: opinion
+  - fill_in:
+    - name: fname
+      selector: '#fname'
+      value: $NAME_FIRST
+      required: true
+    - name: lname
+      selector: '#lname'
+      value: $NAME_LAST
+      required: true
+    - name: mailing_streetAddress1
+      selector: '#mailing_streetAddress1'
+      value: $ADDRESS_STREET
+      required: true
+    - name: mailing_streetAddress2
+      selector: '#mailing_streetAddress2'
+      value: $ADDRESS_STREET_2
+      required: false
+    - name: mailing_city
+      selector: '#mailing_city'
+      value: $ADDRESS_CITY
+      required: true
+    - name: mailing_zipCode
+      selector: '#mailing_zipCode'
+      value: $ADDRESS_ZIP5
+      required: true
+    - name: home_phone_number
+      selector: '#home_phone_number'
+      value: $PHONE
+      required: true
+    - name: email_address
+      selector: '#email'
+      value: $EMAIL
+      required: true
+    - name: verify_email
+      selector: '#verify_email'
+      value: $EMAIL
+      required: true
+    - name: message
+      selector: '#message'
+      value: $MESSAGE
+      required: true
+  - select:
+    - name: subject
+      selector: '#subject'
+      value: $TOPIC
+      required: true
+      options:
+        Abortion/Reproductive Rights: Abortion
+        Afghanistan/Iraq: Afghanistan
+        Agriculture: Agriculture
+        Animal Rights: Animal Rights
+        Arts and Humanities: Arts and Humanities
+        Banking: Banking
+        Budget: Budget
+        Campaign Finance Reform: Campaign Finance Reform
+        Children and Families: Children and Families
+        Civil Rights: Civil Rights
+        Crime and Drugs: Crime and Drugs
+        Defense: Defense
+        Education: Education
+        Elections and Congressional Affairs: Elections and Congressional Affairs
+        Energy: Energy
+        Environment and Public Works: Environment and Public Works
+        Foreign Affairs: Foreign Affairs
+        Government Shutdown: Government Shutdown
+        Guns: Guns
+        Health Care: Health Care
+        Housing: Housing
+        Help with a Government Agency / Casework: Casework
+        Immigration: Immigration
+        Indian Affairs: Indian Affairs
+        Insurance Health: Insurance Health
+        Interior/Forestry: Interior
+        Jobs and the Economy: Jobs and the Economy
+        Judiciary: Judiciary
+        Labor: Labor
+        LIHEAP: LIHEAP
+        LGBT Issues: LGBT Issues
+        Medicare/Medicaid: Medicare/Medicaid
+        Military, Retiree Health Care: Military Health Care
+        Other: Other
+        Small Business: Small Business
+        Social Security: Social Security
+        Taxes: Taxes
+        Trade: Trade
+        Transportation: Transportation
+        Veterans: Veterans
+  - click_on:
+    - value: Send
+      selector: '#side-search-btn'
+  - find:
+    - selector: h2
+      value: Thank You
   success:
     headers:
       status: 200
