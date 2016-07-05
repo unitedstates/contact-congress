@@ -1,100 +1,239 @@
 bioguide: H001061
 contact_form:
-  method: POST
-  action: http://www.hoeven.senate.gov/public/index.cfm/email-the-senator
+  method: post
+  action: "https://www.hoeven.senate.gov/contact/email-the-senator"
   steps:
-    - visit: http://www.hoeven.senate.gov/public/index.cfm/email-the-senator
+    - visit: "https://www.hoeven.senate.gov/contact/email-the-senator"
+    - wait:
+        - value: 3
     - fill_in:
-      - name: field_edbee5a8-1500-4783-a711-f1e737df406f
-        selector: "#field_edbee5a8-1500-4783-a711-f1e737df406f"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: field_e3ad017a-566e-4911-81a5-a8611192b357
-        selector: "#field_e3ad017a-566e-4911-81a5-a8611192b357"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: field_10554e6c-6b6f-427a-a865-d714bd2fe5a1
-        selector: "#field_10554e6c-6b6f-427a-a865-d714bd2fe5a1"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: field_4c3af2ea-a686-49b4-a847-859af8e7d23a
-        selector: "#field_4c3af2ea-a686-49b4-a847-859af8e7d23a"
-        value: "$ADDRESS_STREET_2"
-      - name: field_b7efe8e9-c929-4b92-8328-7b7f6f8c7274
-        selector: "#field_b7efe8e9-c929-4b92-8328-7b7f6f8c7274"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: field_a80a2a87-2f31-4c21-8beb-afbf12327276
-        selector: "#field_a80a2a87-2f31-4c21-8beb-afbf12327276"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: field_62cac646-c6c0-4b48-8637-86b77d2c9700
-        selector: "#field_62cac646-c6c0-4b48-8637-86b77d2c9700"
-        value: "$PHONE_PARENTHESES"
-        required: true
-      - name: field_4a2966d5-e9ea-4195-b486-b5d3d04d185a
-        selector: "#field_4a2966d5-e9ea-4195-b486-b5d3d04d185a"
-        value: "$EMAIL"
-        required: Yes
-      - name: field_55b09216-2b91-470f-af68-ae9d197787b0
-        selector: "#field_55b09216-2b91-470f-af68-ae9d197787b0"
-        value: "$MESSAGE"
-        required: Yes
+        - name: input_781129F8-4040-F985-52CD-46DE47AD5D2C
+          selector: "#input-781129F8-4040-F985-52CD-46DE47AD5D2C"
+          value: $NAME_FIRST
+          required: true
+        - name: input_78112A2E-4040-F985-52CD-BA5873CADBC1
+          selector: "#input-78112A2E-4040-F985-52CD-BA5873CADBC1"
+          value: $NAME_LAST
+          required: true
+        - name: input_7811EA94-4040-F985-52CD-A0C8B5E9A7D7
+          selector: "#input-7811EA94-4040-F985-52CD-A0C8B5E9A7D7"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_7811EC8E-4040-F985-52CD-9F736859134A
+          selector: "#input-7811EC8E-4040-F985-52CD-9F736859134A"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_7811ECEE-4040-F985-52CD-7531B698E92C
+          selector: "#input-7811ECEE-4040-F985-52CD-7531B698E92C"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_7812E0DC-4040-F985-52CD-9D9A4BDC8EE8
+          selector: "#input-7812E0DC-4040-F985-52CD-9D9A4BDC8EE8"
+          value: $PHONE
+          required: true
+        - name: input_781355F0-4040-F985-52CD-9C3EA41700C2
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: input_7813561C-4040-F985-52CD-4A79B42F821F
+          selector: "#input-7813561C-4040-F985-52CD-4A79B42F821F"
+          value: $EMAIL
+          required: true
+        - name: input_78156E99-4040-F985-52CD-A3EA1D68A55C
+          selector: "#input-78156E99-4040-F985-52CD-A3EA1D68A55C"
+          value: $SUBJECT
+          required: true
+        - name: input_78163367-4040-F985-52CD-D4AD6E614C69
+          selector: "#input-78163367-4040-F985-52CD-D4AD6E614C69"
+          value: $MESSAGE
+          required: true
     - select:
-      - name: field_89f02d5d-f5d9-46e9-880e-bb15e9254713
-        selector: "#field_89f02d5d-f5d9-46e9-880e-bb15e9254713"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          "Mr.": 1
-          "Mrs.": 2
-          "Mr. and Mrs.": 3
-          "Ms.": 4
-      - name: field_629c9999-8309-4a0b-b0ff-67c167b712b5
-        selector: "#field_629c9999-8309-4a0b-b0ff-67c167b712b5"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
-      - name: field_0cf6bfda-3ad1-4f31-9f42-fbf81148e3cf
-        selector: "#field_0cf6bfda-3ad1-4f31-9f42-fbf81148e3cf"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          - "Agriculture"
-          - "Budget"
-          - "Civil Rights"
-          - "Communications"
-          - "Defense"
-          - "Economic Development"
-          - "Commerce"
-          - "Education"
-          - "Energy"
-          - "Environment"
-          - "Flooding Issues"
-          - "Foreign Relations"
-          - "Government Reform"
-          - "Firearms"
-          - "Health"
-          - "Homeland Security"
-          - "Housing"
-          - "Immigration"
-          - "Indian Affairs"
-          - "Insurance"
-          - "Judiciary and Law"
-          - "Medicare"
-          - "Social Issues"
-          - "Social Security"
-          - "Taxes"
-          - "Trade"
-          - "Transportation"
-          - "Veterans Affairs"
-          - "Welfare"
-          - "Other/Multiple Issues"
+        - name: input_781129BE-4040-F985-52CD-9967749C1AD6
+          selector: "#input-781129BE-4040-F985-52CD-9967749C1AD6"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Professor
+            - Dr.
+            - Father
+            - Sister
+            - Rabbi
+            - Reverend
+            - Air Force - General
+            - Air Force - Lieutenant General
+            - Air Force - Major General
+            - Air Force - Brigadier General
+            - Air Force - Colonel
+            - Air Force - Lieutenant Colonel
+            - Air Force - Major
+            - Air Force - Captain
+            - Air Force - First Lieutenant
+            - Air Force - Second Lieutenant
+            - Air Force - Chief Master Sergeant of the Air Force
+            - Air Force - Command Chief Master Sergeant
+            - Air Force - First Sergeant (E-9)
+            - Air Force - Chief Master Sergeant
+            - Air Force - First Sergeant (E-8)
+            - Air Force - Senior Master Sergeant
+            - Air Force - First Sergeant (E-7)
+            - Air Force - Master Sergeant
+            - Air Force - Technical Sergeant
+            - Air Force - Staff Sergeant
+            - Air Force - Senior Airman
+            - Air Force - Airman First Class
+            - Air Force - Airman
+            - Air Force - Airman Basic
+            - Army - General
+            - Army - Lieutenant General
+            - Army - Major General
+            - Army - Brigadier General
+            - Army - Colonel
+            - Army - Lieutenant Colonel
+            - Army - Major
+            - Army - Captain
+            - Army - First Lieutenant
+            - Army - Second Lieutenant
+            - Army - Chief Warrant Officer - 5
+            - Army - Chief Warrant Officer - 4
+            - Army - Chief Warrant Officer - 3
+            - Army - Chief Warrant Officer - 2
+            - Army - Warrant Officer
+            - Army - Sergeant Major of the Army
+            - Army - Command Sergeant Major
+            - Army - Sergeant Major
+            - Army - First Sergeant
+            - Army - Master Sergeant
+            - Army - Sergeant First Class
+            - Army - Staff Sergeant
+            - Army - Sergeant
+            - Army - Corporal
+            - Army - Specialist
+            - Army - Private First Class
+            - Army - Private (E-2)
+            - Army - Private
+            - Coast Guard - Admiral
+            - Coast Guard - Vice Admiral
+            - "Coast Guard - Rear Admiral, Upper Half"
+            - "Coast Guard - Rear Admiral, Lower Half"
+            - Coast Guard - Captain
+            - Coast Guard - Commander
+            - Coast Guard - Lieutenant Commander
+            - Coast Guard - Lieutenant
+            - Coast Guard - Lieutenant Junior Grade
+            - Coast Guard - Ensign
+            - Coast Guard - Chief Warrant Officer - 4
+            - Coast Guard - Chief Warrant Officer - 3
+            - Coast Guard - Chief Warrant Officer - 2
+            - Coast Guard - Master Chief Petty Officer of the Coast Guard
+            - Coast Guard - Master Chief Petty Officer
+            - Coast Guard - Senior Chief Petty Officer
+            - Coast Guard - Chief Petty Officer
+            - Coast Guard - Petty Officer First Class
+            - Coast Guard - Petty Officer Second Class
+            - Coast Guard - Petty Officer Third Class
+            - Coast Guard - Seaman
+            - Coast Guard - Seaman Apprentice
+            - Coast Guard - Seaman Recruit
+            - Marine Corps - General
+            - Marine Corps - Lieutenant General
+            - Marine Corps - Major General
+            - Marine Corps - Brigadier General
+            - Marine Corps - Colonel
+            - Marine Corps - Lieutenant Colonel
+            - Marine Corps - Major
+            - Marine Corps - Captain
+            - Marine Corps - First Lieutenant
+            - Marine Corps - Second Lieutenant
+            - Marine Corps - Chief Warrant Officer - 5
+            - Marine Corps - Chief Warrant Officer - 4
+            - Marine Corps - Chief Warrant Officer - 3
+            - Marine Corps - Chief Warrant Officer - 2
+            - Marine Corps - Warrant Officer
+            - Marine Corps - Sergeant Major of the Marine Corps
+            - Marine Corps - Sergeant Major
+            - Marine Corps - Master Gunnery Sergeant
+            - Marine Corps - First Sergeant
+            - Marine Corps - Master Sergeant
+            - Marine Corps - Gunnery Sergeant
+            - Marine Corps - Staff Sergeant
+            - Marine Corps - Sergeant
+            - Marine Corps - Corporal
+            - Marine Corps - Lance Corporal
+            - Marine Corps - Private First Class
+            - Marine Corps - Private
+            - Navy - Admiral
+            - Navy - Vice Admiral
+            - "Navy - Rear Admiral, Upper Half"
+            - "Navy - Rear Admiral, Lower Half"
+            - Navy - Captain
+            - Navy - Commander
+            - Navy - Lieutenant Commander
+            - Navy - Lieutenant
+            - Navy - Lieutenant Junior Grade
+            - Navy - Ensign
+            - Navy - Chief Warrant Officer - 4
+            - Navy - Chief Warrant Officer - 3
+            - Navy - Chief Warrant Officer - 2
+            - Navy - Master Chief Petty Officer of the Navy
+            - Navy - Master Chief Petty Officer
+            - Navy - Senior Chief Petty Officer
+            - Navy - Chief Petty Officer
+            - Navy - Petty Officer First Class
+            - Navy - Petty Officer Second Class
+            - Navy - Petty Officer Third Class
+            - Navy - Seaman Apprentice
+            - Navy - Seaman
+            - Navy - Seaman Recruit
+        - name: input_7815E456-4040-F985-52CD-EBDC0E13DD74
+          selector: "#input-7815E456-4040-F985-52CD-EBDC0E13DD74"
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture
+            - Budget
+            - Civil Rights
+            - Communications
+            - Defense
+            - Economic Development
+            - Economy and Jobs
+            - Education
+            - Energy
+            - Environment
+            - Flooding Issues
+            - Foreign Relations
+            - Government Affairs
+            - Guns
+            - Health
+            - Homeland Security
+            - Housing
+            - Immigration
+            - Indian Affairs
+            - Insurance
+            - Judiciary
+            - Medicare
+            - Social Security
+            - Taxes
+            - Trade
+            - Transportation
+            - Veterans
+            - Welfare
+            - Other/Multiple Issues
+    - javascript:
+        - value: "document.getElementById('input_7812E0DC-4040-F985-52CD-9D9A4BDC8EE8').value = document.getElementById('input_7812E0DC-4040-F985-52CD-9D9A4BDC8EE8').value.replace(/([0-9]{3})([0-9]{3})([0-9]{4})/, '$1-$2-$3');"
+    - javascript:
+        - value: document.querySelector("#input-78163367-4040-F985-52CD-D4AD6E614C69").value = document.querySelector("#input-78163367-4040-F985-52CD-D4AD6E614C69").value.replace(/"/g, '');
     - click_on:
-      - value: Submit
-        selector: ".buttonHolder input"
+        - value: Submit
+          selector: input.btn
+    - wait:
+        - value: 3
+    - find:
+        - selector: "#form-77F3C43D-4040-F985-52CD-FEDFC04F94E5 strong"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for sharing your concerns with me"
+      contains: Thank You

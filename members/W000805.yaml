@@ -3,126 +3,121 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.warner.senate.gov/public//index.cfm?p=ContactPage#form_f9db6196-2dc7-4cda-8add-f8435a71318a"
+    - visit: "https://www.warner.senate.gov/public/index.cfm/contactpage#form_f9db6196-2dc7-4cda-8add-f8435a71318a"
     - fill_in:
-        - name: field_db042583-9e58-4b92-8979-a28769f48db6
-          selector: "#field_db042583-9e58-4b92-8979-a28769f48db6"
+        - name: field_DB042583-9E58-4B92-8979-A28769F48DB6
+          selector: "#field_DB042583-9E58-4B92-8979-A28769F48DB6"
           value: $NAME_FIRST
           required: true
-        - name: field_b5ec1754-a087-456b-8adb-7d3b19cf9997
-          selector: "#field_b5ec1754-a087-456b-8adb-7d3b19cf9997"
+        - name: field_B5EC1754-A087-456B-8ADB-7D3B19CF9997
+          selector: "#field_B5EC1754-A087-456B-8ADB-7D3B19CF9997"
           value: $NAME_LAST
           required: true
-        - name: field_35ed0d76-065e-41f1-b5c8-5f8de89ecf90
-          selector: "#field_35ed0d76-065e-41f1-b5c8-5f8de89ecf90"
+        - name: field_35ED0D76-065E-41F1-B5C8-5F8DE89ECF90
+          selector: "#field_35ED0D76-065E-41F1-B5C8-5F8DE89ECF90"
           value: $ADDRESS_STREET
           required: true
-        - name: field_85957133-1789-436c-b14c-0fb68fcddb25
-          selector: "#field_85957133-1789-436c-b14c-0fb68fcddb25"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: field_3d314fc8-c88d-42f9-843e-163ad337d87c
-          selector: "#field_3d314fc8-c88d-42f9-843e-163ad337d87c"
+        - name: field_3D314FC8-C88D-42F9-843E-163AD337D87C
+          selector: "#field_3D314FC8-C88D-42F9-843E-163AD337D87C"
           value: $ADDRESS_CITY
           required: true
-        - name: field_0f85608e-fb00-4c2c-a32a-82b202f738c9
-          selector: "#field_0f85608e-fb00-4c2c-a32a-82b202f738c9"
+        - name: field_0F85608E-FB00-4C2C-A32A-82B202F738C9
+          selector: "#field_0F85608E-FB00-4C2C-A32A-82B202F738C9"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_050c394f-5f4c-40fd-92c0-5dd66961745d
-          selector: "#field_050c394f-5f4c-40fd-92c0-5dd66961745d"
+        - name: field_050C394F-5F4C-40FD-92C0-5DD66961745D
+          selector: "#field_050C394F-5F4C-40FD-92C0-5DD66961745D"
           value: $PHONE
           required: true
-        - name: field_9c7d925d-cfd3-40bc-9cf6-961fc04333d6
-          selector: "#field_9c7d925d-cfd3-40bc-9cf6-961fc04333d6"
+        - name: field_9C7D925D-CFD3-40BC-9CF6-961FC04333D6
+          selector: "#field_9C7D925D-CFD3-40BC-9CF6-961FC04333D6"
           value: $EMAIL
-          disallow_plus: Yes
           required: true
-        - name: field_7a0144ec-734e-4c09-8992-734ac3e6e337
-          selector: "#field_7a0144ec-734e-4c09-8992-734ac3e6e337"
-          value: $SUBJECT
+        - name: field_7A0144EC-734E-4C09-8992-734AC3E6E337
+          selector: "#field_7A0144EC-734E-4C09-8992-734AC3E6E337"
+          value: $MESSAGE
           required: true
-        - name: field_6fa5f44f-28ca-45fd-9142-3c29c257b186
-          selector: "#field_6fa5f44f-28ca-45fd-9142-3c29c257b186"
+        - name: field_6FA5F44F-28CA-45FD-9142-3C29C257B186
+          selector: "#field_6FA5F44F-28CA-45FD-9142-3C29C257B186"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_eec119b6-f19d-4f37-8035-f4a46c2d7c2f
-          selector: "#field_eec119b6-f19d-4f37-8035-f4a46c2d7c2f"
+        - name: field_EEC119B6-F19D-4F37-8035-F4A46C2D7C2F
+          selector: "#field_EEC119B6-F19D-4F37-8035-F4A46C2D7C2F"
           value: $NAME_PREFIX
           required: true
           options:
-            "Mr.": Mr.
-            "Mrs.": Mrs.
-            "Ms.": Ms.
-            "Mr. and Mrs.": Mr. and Mrs.
-            "Dr.": Dr.
-            "Dr. and Mrs.": Dr. and Mrs.
-            "Dr. and Mr.": Dr. and Mr.
-            "Reverend": Reverend
-            "Pastor": Pastor
-            "Sister": Sister
-            "Rabbi": RABBI
-            "Imam": Imam
-            "-----Military Ranks-----": OTHMIL
-            "Admiral": ADMIRAL
-            "Airman": AIRMAN
-            "Airman Basic": AIRMANBASIC
-            "Airman First Class": AIRMAN1
-            "Brigadier General": BRIGADIERGENERAL 
-            "Captain": CAPTAIN
-            "Chief Master Sergeant": CHIEFMASTERSERGEANT
-            "Chief Master Sergeant of the Air Force": CHIEFMASTERSGTAF
-            "Chief Petty Officer ": CHIEFPETTYOFFICER
-            "Chief Warrant Officer": CHIEFWARRENTOFFICER
-            "Colonel": COLONEL
-            "Command Chief Master Sergeant": CMDCHIEFMASTERSGT
-            "Command Sergeant Major": COMMANDSERGEANTMAJOR
-            "Commander": COMMANDER
-            "Corporal": CORPORAL
-            "Ensign": ENSIGN
-            "First Lieutenant": FIRSTLIEUTENANT
-            "First Sergeant": FIRSTSERGEANT
-            "General": GENERAL
-            "Gunnery Sergeant": GUNNERYSERGEANT
-            "Lance Corporal": LANCECORPORAL
-            "Lieutenant": LIEUTENANT
-            "Lieutenant Colonel": LIEUTENANTCOLONEL
-            "Lieutenant Commander": LIEUTENANTCOMMANDER
-            "Lieutenant General": LIEUTENANTGENERAL
-            "Lieutenant, Junior Grade": LIEUTENANTJRGRD
-            "Major": MAJOR
-            "Major General": MAJORGENERAL
-            "Master Chief Petty Officer": MASTERCHIEFPETTYOFFICER
-            "Master Chief Petty Officer of the Navy": MSTCHIEFPETTYOFCNAVY
-            "Master Gunnery Sergeant": MASTERGUNNERYSERGEANT
-            "Master Sergeant": MASTERSERGEANT
-            "Petty Officer First Class": PETTYOFFICER1
-            "Petty Officer Second Class": PETTYOFFICER2
-            "Petty Officer Third Class": PETTYOFFICER3
-            "Private": PRIVATE
-            "Private First Class": PRIVATE1
-            "Rear Admiral (lower half)": REARADMLOWER
-            "Rear Admiral (upper half)": REARADMUPPER
-            "Seaman": SEAMAN
-            "Seaman Apprentice": SEAMANAPPRENTICE
-            "Seaman Recruit": SEAMANRECRUIT
-            "Second Lieutenant": SECLIEUTENANT
-            "Senior Airman": SENIORAIRMAN
-            "Senior Chief Petty Officer": SENIORCHIEFPETTYOFFICER
-            "Senior Master Sergeant": SENIORMASTERSERGEANT
-            "Sergeant": SERGEANT
-            "Sergeant First Class ": SERGEANT1
-            "Sergeant Major": SERGEANTMAJOR
-            "Sergeant Major of the Army ": SERGEANTMAJORA
-            "Sergeant Major of the Corps": SERGEANTMAJORC
-            "Specialist ": SPECIALIS
-            "Staff Sergeant": STAFFSERGEANT
-            "Technical Sergeant": TECHNICALSERGEANT
-            "Vice Admiral": VICEADMIRA
-            "Warrant Officer": WARRANTOFFICER
-        - name: field_abec110b-7e92-4b85-b94a-5ccc8a7a046d
-          selector: "#field_abec110b-7e92-4b85-b94a-5ccc8a7a046d"
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mrs.
+            - Dr. and Mr.
+            - Reverend
+            - Pastor
+            - Sister
+            - Rabbi
+            - Imam
+            - "-----Military Ranks-----"
+            - Admiral
+            - Airman
+            - Airman Basic
+            - Airman First Class
+            - Brigadier General
+            - Captain
+            - Chief Master Sergeant
+            - Chief Master Sergeant of the Air Force
+            - "Chief Petty Officer "
+            - Chief Warrant Officer
+            - Colonel
+            - Command Chief Master Sergeant
+            - Command Sergeant Major
+            - Commander
+            - Corporal
+            - Ensign
+            - First Lieutenant
+            - First Sergeant
+            - General
+            - Gunnery Sergeant
+            - Lance Corporal
+            - Lieutenant
+            - Lieutenant Colonel
+            - Lieutenant Commander
+            - Lieutenant General
+            - "Lieutenant, Junior Grade"
+            - Major
+            - Major General
+            - Master Chief Petty Officer
+            - Master Chief Petty Officer of the Navy
+            - Master Gunnery Sergeant
+            - Master Sergeant
+            - Petty Officer First Class
+            - Petty Officer Second Class
+            - Petty Officer Third Class
+            - Private
+            - Private First Class
+            - Rear Admiral (lower half)
+            - Rear Admiral (upper half)
+            - Seaman
+            - Seaman Apprentice
+            - Seaman Recruit
+            - Second Lieutenant
+            - Senior Airman
+            - Senior Chief Petty Officer
+            - Senior Master Sergeant
+            - Sergeant
+            - "Sergeant First Class "
+            - Sergeant Major
+            - "Sergeant Major of the Army "
+            - Sergeant Major of the Corps
+            - "Specialist "
+            - Staff Sergeant
+            - Technical Sergeant
+            - Vice Admiral
+            - Warrant Officer
+        - name: field_ABEC110B-7E92-4B85-B94A-5CCC8A7A046D
+          selector: "#field_ABEC110B-7E92-4B85-B94A-5CCC8A7A046D"
           value: $TOPIC
           required: true
           options:
@@ -145,7 +140,7 @@ contact_form:
             Energy: Ene
             Environment: Env
             Foreign Affairs: fr
-            Gun Ownership: gun
+            Guns: gun
             Healthcare Reform: hc.ref
             Health and Wellness: hc
             High Technology: hi.tech
@@ -166,20 +161,22 @@ contact_form:
             Supreme Court: JUD
             Taxes: Tax
             Telecommunications: comm.telc
-            Term Limits: ELECT
             Tickets and Tours: Tour
             Trade: fr.trd
             Transportation: Tra
             Tricare: VET.TRI
             Veterans: Vet
             Voting Rights: VOTE
-        - name: field_4815620b-0631-45d2-b52e-a9420a813de5
-          selector: "#field_4815620b-0631-45d2-b52e-a9420a813de5"
-          value: "No"
-          required: true
+            Opt out of communications: OptOut
+        - name: field_4815620B-0631-45D2-B52E-A9420A813DE5
+          selector: "#field_4815620B-0631-45D2-B52E-A9420A813DE5"
+          value: "Yes"
+          required: false
           options:
             "Yes": "Yes"
             "No": "No"
+    - javascript:
+        - value: document.querySelector("#field_6FA5F44F-28CA-45FD-9142-3C29C257B186").value = document.querySelector("#field_6FA5F44F-28CA-45FD-9142-3C29C257B186").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input
@@ -187,4 +184,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting our office.
+      contains: Thank you

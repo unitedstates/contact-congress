@@ -17,10 +17,6 @@ contact_form:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -33,10 +29,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -63,45 +55,40 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Animals: AN
-            Arts and Humanities: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
-            Health: HEA
-            Homeland Security: HOM
-            Housing and Urban Development: HUD
-            Immigration: IMM
-            International Relations: INT
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            No Response Necessary: NRN
-            Post Office: POST
-            Science and Technology: SCI
-            Social Issues: SOC
-            Senior Citizens: SENIORS
-            Social Security: SSEC
-            Social Services: SOC.SERVICES
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRADE
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Welfare: WEL
+            Help with a Federal Agency: CASE
+            Tour Request: TOURS
+            Agriculture: WEBAGR
+            Animals: WEBAN
+            Arts: WEBART
+            Civil Rights: WEBCIVIL
+            Consumer Safety: WEBCS
+            Defense: WEBDEF
+            Economy: WEBECON
+            Education: WEBEDU
+            Election Reform: WEBER
+            "Energy & Environment": WEBENE
+            Financial Services: WEBFS
+            Foreign Relations: WEBFR
+            LGBT Rights: WEBLGBT
+            Gun Control: WEBGUN
+            Health Care: WEBHEA
+            Homeland Security: WEBHOM
+            Housing: WEBHOUSE
+            Human Rights: WEBHR
+            Immigration: WEBIMM
+            Judiciary: WEBJUD
+            Labor: WEBLAB
+            Native Americans: WEBNATIVE
+            Postal Issues: WEBPOST
+            Religious Affairs: WEBRA
+            Social Security: WEBSSEC
+            "Science & Technology": WEBSCI
+            Small Business: WEBSB
+            Taxes: WEBTAX
+            Telecommunications: WEBTEL
+            Trade: WEBTRADE
+            Transportation: WEBTRA
+            Veterans: WEBVET
             Other Issues: OTHER
         - name: required-response
           selector: "#required-response"
@@ -110,15 +97,13 @@ contact_form:
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: Email.Optin
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: "#contactForm #submit"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank You

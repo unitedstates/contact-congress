@@ -6,7 +6,7 @@ contact_form:
     - visit: "https://forms.house.gov/speier/webforms/email_jackie.shtml"
     - fill_in:
         - name: required-prefix
-          selector: "#mainbodyContentleft form input[name='required-prefix']"
+          selector: "#sp-component form input[name='required-prefix']"
           value: $NAME_PREFIX
           required: true
         - name: required-first-name
@@ -21,10 +21,6 @@ contact_form:
           selector: "#addr1"
           value: $ADDRESS_STREET
           required: true
-        - name: addr2
-          selector: "#mainbodyContentleft form input[name='addr2']"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#city"
           value: $ADDRESS_CITY
@@ -51,7 +47,7 @@ contact_form:
           required: true
     - select:
         - name: required-issue
-          selector: "#mainbodyContentleft form select[name='required-issue']"
+          selector: "#sp-component form select[name='required-issue']"
           value: $TOPIC
           required: true
           options:
@@ -90,17 +86,17 @@ contact_form:
             Women: WOM
             Other: OTH
         - name: required-rsp
-          selector: "#mainbodyContentleft form select[name='required-rsp']"
-          value: "No"
-          required: true
+          selector: "#sp-component form select[name='required-rsp']"
+          value: "Y"
+          required: false
           options:
             "Yes": "Y"
             "No": "no"
     - click_on:
         - value: Submit
-          selector: "#mainbodyContentleft form input[name='submit']"
+          selector: "#sp-component form input[name='submit']"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your correspondence.
+      contains: Thank you

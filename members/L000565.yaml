@@ -41,14 +41,6 @@ contact_form:
           selector: "#ctl00_ctl03_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl03$CampaignID
-          selector: "#ctl00_ctl03_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl03$CampaignInfo
-          selector: "#ctl00_ctl03_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
         - name: ctl00$ctl03$PrefixList
           selector: "#ctl00_ctl03_PrefixList"
@@ -87,6 +79,8 @@ contact_form:
             "Trade": "74587"
             "Transportation": "3769"
             "Veterans": "74588"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl03_Body").value = document.querySelector("#ctl00_ctl03_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl03_SubmitButton"

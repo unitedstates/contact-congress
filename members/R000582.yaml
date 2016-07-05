@@ -67,38 +67,24 @@ contact_form:
             - Ms.
         - name: required-issue
           selector: "form[name='contact'] select[name='required-issue']"
-          value: $TOPIC
+          value: OPINION
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Economy: WEBECON
-            Education and Labor: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            Government Reform: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            International Relations: WEBINT
-            Judicial: WEBJUD
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Taxes and Trade: WEBTAX
-            Telecommunications: WEBTEL
-            Transportation: WEBTRA
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other: WEBOTH
+            Share Your Opinion: OPINION
+            Help with a Federal Agency: CASEWORK
+            Tour Request: MEETING REQUEST
+            Schedule a Meeting: TOUR REQUEST
+    - javascript:
+        - value: document.querySelector("form[name='contact'] textarea[name='required-message']").value = document.querySelector("form[name='contact'] textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "form[name='contact'] input[type='submit'][value='Send Email']"
+    - wait:
+        - value: 1
     - find:
-        - selector: "#ctl00_PageLink"
-          value: "THANK YOU"
+        - selector: "#ctl00_ctl12_ctl00_Text"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for sending me your email."
+      contains: Thank you

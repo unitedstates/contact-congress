@@ -51,6 +51,8 @@ contact_form:
           selector: "#ctl00_ctl03_ctl00_Text form textarea[name='required-message']"
           value: $MESSAGE
           required: true
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl03_ctl00_Text form textarea[name='required-message']").value = document.querySelector("#ctl00_ctl03_ctl00_Text form textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#ctl00_ctl03_ctl00_Text form input[type='submit'][value='Send Email']"

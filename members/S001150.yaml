@@ -17,7 +17,7 @@ contact_form:
             Schedule a Meeting: meeting
             Share your opinion or comments on bills or other issues: opinion
     - wait:
-        value: 2
+        - value: 5
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -243,6 +243,8 @@ contact_form:
             "Women's Rights/Choice": AB
     - click_on:
         - selector: "label[for='subscribe']"
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "input[type='submit'][value='Submit']"

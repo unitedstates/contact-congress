@@ -41,14 +41,6 @@ contact_form:
           selector: "#ctl00_ctl09_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl09$CampaignID
-          selector: "#ctl00_ctl09_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl09$CampaignInfo
-          selector: "#ctl00_ctl09_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
         - name: ctl00$ctl09$PrefixList
           selector: "#ctl00_ctl09_PrefixList"
@@ -164,6 +156,8 @@ contact_form:
             Trade: "52888"
             Veterans: "47879"
             Water Resources Development: "47896"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl09_Body").value = document.querySelector("#ctl00_ctl09_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl09_SubmitButton"

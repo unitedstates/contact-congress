@@ -3,51 +3,47 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.flake.senate.gov/public/index.cfm/contact-jeff"
-    - click_on:
-        - selector: ".skip"
-    - find:
-        - selector: "#field_11c08db8-4bd8-4cb6-bcc5-bcc5f4eb85b4"
+    - visit: "https://www.flake.senate.gov/public/index.cfm/contact-jeff"
     - fill_in:
-        - name: field_6f2ba101-f309-4d6d-94df-6e3a1c86ad7d
-          selector: "#field_6f2ba101-f309-4d6d-94df-6e3a1c86ad7d"
+        - name: field_6F2BA101-F309-4D6D-94DF-6E3A1C86AD7D
+          selector: "#field_6F2BA101-F309-4D6D-94DF-6E3A1C86AD7D"
           value: $NAME_FIRST
           required: true
-        - name: field_a25e1505-6d87-455e-9f4a-524c8394129a
-          selector: "#field_a25e1505-6d87-455e-9f4a-524c8394129a"
+        - name: field_A25E1505-6D87-455E-9F4A-524C8394129A
+          selector: "#field_A25E1505-6D87-455E-9F4A-524C8394129A"
           value: $NAME_LAST
           required: true
-        - name: field_c7a1518e-cd55-43d5-a88f-2e64293bee0c
-          selector: "#field_c7a1518e-cd55-43d5-a88f-2e64293bee0c"
+        - name: field_C7A1518E-CD55-43D5-A88F-2E64293BEE0C
+          selector: "#field_C7A1518E-CD55-43D5-A88F-2E64293BEE0C"
           value: $ADDRESS_STREET
           required: true
-        - name: field_7ecda6cf-a296-474b-a788-3791f6aca3aa
-          selector: "#field_7ecda6cf-a296-474b-a788-3791f6aca3aa"
+        - name: field_7ECDA6CF-A296-474B-A788-3791F6ACA3AA
+          selector: "#field_7ECDA6CF-A296-474B-A788-3791F6ACA3AA"
           value: $ADDRESS_CITY
           required: true
-        - name: field_6a483fd1-64eb-47c4-842f-35e8e9fa3b71
-          selector: "#field_6a483fd1-64eb-47c4-842f-35e8e9fa3b71"
+        - name: field_6A483FD1-64EB-47C4-842F-35E8E9FA3B71
+          selector: "#field_6A483FD1-64EB-47C4-842F-35E8E9FA3B71"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_5eddfd5f-d667-43c1-9db0-ae36e2814cc3
-          selector: "#field_5eddfd5f-d667-43c1-9db0-ae36e2814cc3"
+        - name: field_5EDDFD5F-D667-43C1-9DB0-AE36E2814CC3
+          selector: "#field_5EDDFD5F-D667-43C1-9DB0-AE36E2814CC3"
           value: $PHONE
           required: true
-        - name: field_7e770959-172a-4c9d-8720-67a027916b7d
-          selector: "#field_7e770959-172a-4c9d-8720-67a027916b7d"
+        - name: field_7E770959-172A-4C9D-8720-67A027916B7D
+          selector: "#field_7E770959-172A-4C9D-8720-67A027916B7D"
           value: $EMAIL
           required: true
-        - name: field_73afa19a-4375-49c3-b145-a618657c8ee8
-          selector: "#field_73afa19a-4375-49c3-b145-a618657c8ee8"
+        - name: field_73AFA19A-4375-49C3-B145-A618657C8EE8
+          selector: "#field_73AFA19A-4375-49C3-B145-A618657C8EE8"
           value: $SUBJECT
           required: true
-        - name: field_11c08db8-4bd8-4cb6-bcc5-bcc5f4eb85b4
-          selector: "#field_11c08db8-4bd8-4cb6-bcc5-bcc5f4eb85b4"
+        - name: field_11C08DB8-4BD8-4CB6-BCC5-BCC5F4EB85B4
+          selector: "#field_11C08DB8-4BD8-4CB6-BCC5-BCC5F4EB85B4"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_fad36bbe-38f4-44c4-a418-1a7149fe811b
-          selector: "#field_fad36bbe-38f4-44c4-a418-1a7149fe811b"
+        - name: field_FAD36BBE-38F4-44C4-A418-1A7149FE811B
+          selector: "#field_FAD36BBE-38F4-44C4-A418-1A7149FE811B"
           value: $NAME_PREFIX
           required: true
           options:
@@ -63,8 +59,68 @@ contact_form:
             - The Honorable
             - Representative
             - Senator
-        - name: field_bf07744f-fc8c-45c9-b660-5be4f2aa0b7e
-          selector: "#field_bf07744f-fc8c-45c9-b660-5be4f2aa0b7e"
+        - name: field_B2E8657C-E546-42D7-97A6-BAFF33E85780
+          selector: "#field_B2E8657C-E546-42D7-97A6-BAFF33E85780"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AA
+            - AE
+            - AP
+            - Alabama
+            - Alaska
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Puerto Rico
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+        - name: field_BF07744F-FC8C-45C9-B660-5BE4F2AA0B7E
+          selector: "#field_BF07744F-FC8C-45C9-B660-5BE4F2AA0B7E"
           value: $TOPIC
           required: true
           options:
@@ -101,14 +157,13 @@ contact_form:
             - Transportation
             - Veterans Issues
             - Welfare
+    - javascript:
+        - value: document.querySelector("#field_11C08DB8-4BD8-4CB6-BCC5-BCC5F4EB85B4").value = document.querySelector("#field_11C08DB8-4BD8-4CB6-BCC5-BCC5F4EB85B4").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
-    - find:
-        - selector: "p"
-          value: Senator Jeff Flake
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me to share your concerns and opinions.
+      contains: Thank you

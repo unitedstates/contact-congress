@@ -4,6 +4,8 @@ contact_form:
   action: http://www.donnelly.senate.gov/contact/email-joe
   steps:
     - visit: http://www.donnelly.senate.gov/contact/email-joe
+    - wait:
+      - value: 3
     - select:
       - name: subject
         selector: "#subject"
@@ -64,6 +66,8 @@ contact_form:
           "Veterans": "VET"
           "Visiting DC": "Tour"
           "Welfare": "WEL"
+    - wait:
+      - value: 3
     - find:
       - selector: "#continue-form"
     - fill_in:
@@ -194,9 +198,13 @@ contact_form:
         selector: "#response_y"
         value: Yes
         required: Yes
+    - javascript:
+      - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "input.btn[value='Submit']"
+    - wait:
+      - value: 3
     - find:
       - selector: "h1"
         value: "Thank You"

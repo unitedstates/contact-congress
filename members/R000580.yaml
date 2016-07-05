@@ -14,8 +14,10 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+        - 
+          selector: "#submit"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -29,10 +31,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -45,10 +43,6 @@ contact_form:
           selector: "#required-phone"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
-          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
@@ -59,49 +53,61 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            Ms.: Ms.
-            Miss: Miss.
-            Mrs.: Mrs.
-            Mr.: Mr.
-            Rev.: Rev.
-            Fr.: Fr.
-            Dr.: Dr.
-            Prof.: Prof.
-            Hon.: Hon.
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGRICULTURE
-            Animal Issues: ANIMAL ISSUES
-            Armed Services: ARMED SERVICES
-            Budget: BUDGET
-            Constituent Issue: CONSTITUENT ISSUE
-            Defense: DEFENSE
-            Education: EDUCATION
-            Energy: ENERGY
-            Environment: ENVIRONMENT
-            Finance/Banking: FINANCE/BANKING
-            Foreign Affairs: FOREIGN AFFAIRS
-            General: GENERAL
-            Gun Control: GUN CONTROL
-            Health Care: HEALTH CARE
-            Homeland Security: HOMELAND SECURITY
-            Illinois State Issue: ILLINOIS STATE ISSUE
-            Immigration: IMMIGRATION
-            Judiciary: JUDICIARY
-            Labor: LABOR
-            Postal Service: POSTAL SERVICE
-            Science: SCIENCE
-            Social Issue: SOCIAL ISSUE
-            Social Security: SOCIAL SECURITY
-            Taxes: TAXES
-            Technology: TECHNOLOGY
+            Agriculture: AGR
+            Animals: AN
+            Arts and Humanities: ART
+            Banking and Finance: BANK
+            Budget and Economy: BUD
+            Help With a Federal Agency: Casework
+            Campaign Finance Reform: CFR
+            Congress and Elections: CONG
+            Defense and Military: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
+            Environment: ENV
+            Federal Employees: FED
+            Foreign Relations: FR
+            Government Reform: GOV
+            Guns: GUN
+            Health: HEA
+            Homeland Security: HOM
+            Housing and Urban Development: HUD
+            Immigration: IMM
+            International Relations: INT
+            Judiciary: JUD
+            Labor: LAB
+            LGBT: LGBT
+            No Response Necessary: NRN
+            Post Office: POST
+            Science and Technology: SCI
+            Social Issues: SOC
+            Senior Citizens: SENIORS
+            Social Security: SSEC
+            Social Services: SOC.SERVICES
+            Taxes: TAX
+            Telecommunications: TEL
+            Tours: Tours
+            Transportation: TRA
             Trade: TRADE
-            Transportation: TRANSPORTATION
-            Veterans: VETERANS
-            "Women's Issues": WOMENS ISSUES
+            Veterans: VET
+            "Women's Issues": WOMEN
+            Welfare: WEL
+            Other Issue: OTHER
         - name: required-response
           selector: "#required-response"
           value: "Y"
@@ -109,14 +115,13 @@ contact_form:
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit']"
-    - find:
-        - selector: "h1#page-title"
-          value: "Thank You"
+        - 
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: Thank You

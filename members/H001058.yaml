@@ -4,6 +4,8 @@ contact_form:
   action: /Contact/ContactForm.htm
   steps:
     - visit: "http://huizenga.house.gov/contact/"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: zip5
           selector: "#zip input[name='zip5']"
@@ -16,6 +18,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#zip input[name='find']"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - find:
         - selector: "#prefix"
     - fill_in:
@@ -96,6 +100,8 @@ contact_form:
             Veterans: VET
             "Women's Issues": WOMEN
             Other Issues: OTHER
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"

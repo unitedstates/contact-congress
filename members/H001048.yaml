@@ -16,12 +16,8 @@ contact_form:
     - click_on:
         - selector: "button.ideal-button"
     - find:
-        - selector: "#required-prefix"
+        - selector: "#required-first"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -34,17 +30,9 @@ contact_form:
           selector: "#required-addr1"
           value: $ADDRESS_STREET
           required: true
-        - name: addr2
-          selector: "#addr2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
-          required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
         - name: required-valid-email
           selector: "#required-valid-email"
@@ -87,6 +75,8 @@ contact_form:
             Veterans: VET
             Welfare: WEL
             Other: OTH
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - selector: "button.ideal-button"
   success:

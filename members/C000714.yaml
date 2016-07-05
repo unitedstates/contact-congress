@@ -1,106 +1,137 @@
 bioguide: C000714
 contact_form:
   method: post
-  action: ""
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://conyers.house.gov/index.cfm/online-contact-form"
+    - visit: "https://conyers.house.gov/contact/email"
     - fill_in:
-        - name: field_BECA980B-379B-4D82-A550-DD74B5C2EDA6
-          selector: "#field_BECA980B-379B-4D82-A550-DD74B5C2EDA6"
-          value: $NAME_FIRST
-          required: true
-        - name: field_012721F4-961B-4576-8DA0-7E6A82DB3B49
-          selector: "#field_012721F4-961B-4576-8DA0-7E6A82DB3B49"
-          value: $NAME_LAST
-          required: true
-        - name: field_D522C353-80E6-4841-B9DC-ABBBEDFD3AEB
-          selector: "#field_D522C353-80E6-4841-B9DC-ABBBEDFD3AEB"
-          value: $ADDRESS_STREET
-          required: true
-        - name: field_0C4491E5-F534-4F84-B442-AA559C738A09
-          selector: "#field_0C4491E5-F534-4F84-B442-AA559C738A09"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: field_972B1D49-7D50-403A-993C-CE385933EB37
-          selector: "#field_972B1D49-7D50-403A-993C-CE385933EB37"
-          value: $ADDRESS_CITY
-          required: true
-        - name: field_2BE8FA04-907B-41AD-8612-870D74C5E768
-          selector: "#field_2BE8FA04-907B-41AD-8612-870D74C5E768"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_2F22B4C2-FC72-4517-98C8-725BD2F94656
-          selector: "#field_2F22B4C2-FC72-4517-98C8-725BD2F94656"
-          value: $PHONE
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
           required: true
-        - name: field_63703832-4DFE-47CF-BD13-9091FA41FA32
-          selector: "#field_63703832-4DFE-47CF-BD13-9091FA41FA32"
-          value: $EMAIL
+    - click_on:
+        - 
+          selector: "#submit"
+    - fill_in:
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
           required: true
-        - name: field_7BA0636B-6395-4402-81EE-E6F78720E9E8
-          selector: "#field_7BA0636B-6395-4402-81EE-E6F78720E9E8"
-          value: $MESSAGE
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
           required: true
-        - name: captcha_3F492369-C9E2-4693-BAAA-BCB55BAD679C
-          selector: "#captcha_3F492369-C9E2-4693-BAAA-BCB55BAD679C"
-          captcha_selector: .multiField img[height="50"][width="300"]
-          captcha_id_selector: "#captcha_3F492369-C9E2-4693-BAAA-BCB55BAD679C_hash"
-          value: $CAPTCHA_SOLUTION
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
           required: true
-    - select:
-        - name: field_C9D6A780-B426-462F-8D90-D9553C792A65
-          selector: "#field_C9D6A780-B426-462F-8D90-D9553C792A65"
-          value: $NAME_PREFIX
-          required: false
-          options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mr.
-            - Dr. and Mrs.
-            - Reverend
-            - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
-        - name: field_E2BC480A-E285-45CA-9F22-C919E45B5134
-          selector: "#field_E2BC480A-E285-45CA-9F22-C919E45B5134"
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-state
+          selector: "#required-state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
-          options: US_STATES_AND_MPCS
-        - name: field_32F0733B-76D3-4B2B-8E7C-8F9879C0C1C9
-          selector: "#field_32F0733B-76D3-4B2B-8E7C-8F9879C0C1C9"
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: false
+        - name: required-valid-email
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: required-message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Africa: Africa
-            American Reinvestment and Recovery Act in Michigan: "American Reinvestment and Recovery Act in Michigan "
-            Appropriations: "Appropriations "
-            Education: Education
-            Foreign Relations: Foreign Relations
-            Haiti: Haiti
-            "Health Care ": "Health Care "
-            Jazz: Jazz
-            Jobs: Jobs
-            Judiciary: Judiciary
-            Out of Afghanistan Caucus: Out of Afghanistan Caucus
-            Reparations: Reparations
-            Social Security: Social Security
-            Surface Transportation High Priority Project Program: Surface Transportation High Priority Project Program
-            Toxic Mold: Toxic Mold
-            Weatherization: Weatherization
-            What does the new health care law mean for me and my family?: What does the new health care law mean for me and my family?
+            Agriculture: AGR
+            Animals: AN
+            Arts and Humanities: ART
+            Banking and Finance: BANK
+            Budget and Economy: BUD
+            Help With a Federal Agency: Casework
+            Campaign Finance Reform: CFR
+            Congress and Elections: CONG
+            Defense and Military: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
+            Environment: ENV
+            Federal Employees: FED
+            Foreign Relations: FR
+            Government Reform: GOV
+            Guns: GUN
+            Health: HEA
+            Homeland Security: HOM
+            Housing and Urban Development: HUD
+            Immigration: IMM
+            International Relations: INT
+            Judiciary: JUD
+            Labor: LAB
+            LGBT: LGBT
+            No Response Necessary: NRN
+            Post Office: POST
+            Science and Technology: SCI
+            Social Issues: SOC
+            Senior Citizens: SENIORS
+            Social Security: SSEC
+            Social Services: SOC.SERVICES
+            Taxes: TAX
+            Telecommunications: TEL
+            Tours: Tours
+            Transportation: TRA
+            Trade: TRADE
+            Veterans: VET
+            "Women's Issues": WOMEN
+            Welfare: WEL
+            Other Issue: OTHER
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - value: Submit
-          selector: div.buttonHolder input
-    - find:
-        - selector: "strong"
-          value: "Thank you"
+        - 
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: We received your request
+      contains: your message has been sent.

@@ -51,9 +51,13 @@ contact_form:
           selector: "#input_6_12"
           value: $MESSAGE
           required: true
+    - javascript:
+        - value: document.querySelector("#input_6_12").value = document.querySelector("#input_6_12").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#gform_submit_button_6"
+    - find:
+        - selector: "#gform_confirmation_message_6"
   success:
     headers:
       status: 200

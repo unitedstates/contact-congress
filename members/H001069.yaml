@@ -3,51 +3,43 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.heitkamp.senate.gov/public/index.cfm/email-heidi"
+    - visit: "https://www.heitkamp.senate.gov/public/index.cfm/email-heidi"
     - fill_in:
-        - name: field_98246390-b734-489d-b114-dd3e27dd74b1
-          selector: "#field_98246390-b734-489d-b114-dd3e27dd74b1"
+        - name: field_98246390-B734-489D-B114-DD3E27DD74B1
+          selector: "#field_98246390-B734-489D-B114-DD3E27DD74B1"
           value: $NAME_FIRST
           required: true
-        - name: field_fab82e40-11d6-4165-8a1f-69d633d543b9
-          selector: "#field_fab82e40-11d6-4165-8a1f-69d633d543b9"
+        - name: field_FAB82E40-11D6-4165-8A1F-69D633D543B9
+          selector: "#field_FAB82E40-11D6-4165-8A1F-69D633D543B9"
           value: $NAME_LAST
           required: true
-        - name: field_37b1d0df-fd27-4864-8a93-e5e18134d847
-          selector: "#field_37b1d0df-fd27-4864-8a93-e5e18134d847"
+        - name: field_37B1D0DF-FD27-4864-8A93-E5E18134D847
+          selector: "#field_37B1D0DF-FD27-4864-8A93-E5E18134D847"
           value: $ADDRESS_STREET
           required: true
-        - name: field_d5594c7e-758f-450e-87a3-8090465fcf6e
-          selector: "#field_d5594c7e-758f-450e-87a3-8090465fcf6e"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: field_26182c02-1aa8-482b-a578-228bf7f11582
-          selector: "#field_26182c02-1aa8-482b-a578-228bf7f11582"
+        - name: field_26182C02-1AA8-482B-A578-228BF7F11582
+          selector: "#field_26182C02-1AA8-482B-A578-228BF7F11582"
           value: $ADDRESS_CITY
           required: true
-        - name: field_49e219b7-8099-4674-8610-e353012344f2
-          selector: "#field_49e219b7-8099-4674-8610-e353012344f2"
+        - name: field_49E219B7-8099-4674-8610-E353012344F2
+          selector: "#field_49E219B7-8099-4674-8610-E353012344F2"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_465edbf0-a4a4-4a60-b12a-a25fb7b97477
-          selector: "#field_465edbf0-a4a4-4a60-b12a-a25fb7b97477"
-          value: $PHONE
-          required: false
-        - name: field_aef0763a-c3d0-4f00-a7e2-f7c0e1856d53
-          selector: "#field_aef0763a-c3d0-4f00-a7e2-f7c0e1856d53"
+        - name: field_AEF0763A-C3D0-4F00-A7E2-F7C0E1856D53
+          selector: "#field_AEF0763A-C3D0-4F00-A7E2-F7C0E1856D53"
           value: $EMAIL
           required: true
-        - name: field_5bf02de2-5948-4452-bd23-3d714792b5ec
-          selector: "#field_5bf02de2-5948-4452-bd23-3d714792b5ec"
+        - name: field_5BF02DE2-5948-4452-BD23-3D714792B5EC
+          selector: "#field_5BF02DE2-5948-4452-BD23-3D714792B5EC"
           value: $SUBJECT
           required: true
-        - name: field_d57a0ad2-172c-477e-a580-86a6c8b69dd6
-          selector: "#field_d57a0ad2-172c-477e-a580-86a6c8b69dd6"
+        - name: field_D57A0AD2-172C-477E-A580-86A6C8B69DD6
+          selector: "#field_D57A0AD2-172C-477E-A580-86A6C8B69DD6"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_8d7b0b71-2228-4184-8931-eccbaef74929
-          selector: "#field_8d7b0b71-2228-4184-8931-eccbaef74929"
+        - name: field_8D7B0B71-2228-4184-8931-ECCBAEF74929
+          selector: "#field_8D7B0B71-2228-4184-8931-ECCBAEF74929"
           value: $NAME_PREFIX
           required: true
           options:
@@ -58,75 +50,23 @@ contact_form:
             - Dr.
             - Dr. and Mr.
             - Dr. and Mrs.
+            - Mrs. and Mrs.
+            - "Mr. and Mr. "
             - Reverend
             - Sister
             - Pastor
             - The Honorable
             - Representative
             - Senator
-        - name: field_4cbbd473-5f06-4162-b56c-5bd9c77797da
-          selector: "#field_4cbbd473-5f06-4162-b56c-5bd9c77797da"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AA
-            - AE
-            - AP
-            - Alabama
-            - Alaska
-            - Arizona
-            - Arkansas
-            - California
-            - Colorado
-            - Connecticut
-            - Delaware
-            - District of Columbia
-            - Florida
-            - Georgia
-            - Hawaii
-            - Idaho
-            - Illinois
-            - Indiana
-            - Iowa
-            - Kansas
-            - Kentucky
-            - Louisiana
-            - Maine
-            - Maryland
-            - Massachusetts
-            - Michigan
-            - Minnesota
-            - Mississippi
-            - Missouri
-            - Montana
-            - Nebraska
-            - Nevada
-            - New Hampshire
-            - New Jersey
-            - New Mexico
-            - New York
-            - North Carolina
-            - North Dakota
-            - Ohio
-            - Oklahoma
-            - Oregon
-            - Pennsylvania
-            - Rhode Island
-            - South Carolina
-            - South Dakota
-            - Tennessee
-            - Texas
-            - Utah
-            - Vermont
-            - Virginia
-            - Washington
-            - West Virginia
-            - Wisconsin
-            - Wyoming
-        - name: field_2443af65-5fb0-455b-b747-645741ead991
-          selector: "#field_2443af65-5fb0-455b-b747-645741ead991"
+            - U.S.M.C.
+            - U.S.N.
+            - U.S.A.F.
+            - U.S.A.
+            - U.S.C.G.
+        - name: field_2443AF65-5FB0-455B-B747-645741EAD991
+          selector: "#field_2443AF65-5FB0-455B-B747-645741EAD991"
           value: $TOPIC
-          required: false
+          required: true
           options:
             - Other
             - Aging
@@ -172,6 +112,8 @@ contact_form:
             - Veterans
             - Welfare
             - "Women's Issues"
+    - javascript:
+        - value: document.querySelector("#field_D57A0AD2-172C-477E-A580-86A6C8B69DD6").value = document.querySelector("#field_D57A0AD2-172C-477E-A580-86A6C8B69DD6").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
@@ -179,4 +121,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting
+      contains: Thank you

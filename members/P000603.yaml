@@ -4,10 +4,6 @@ contact_form:
   action: "http://www.paul.senate.gov/connect/email-rand"
   steps:
     - visit: "http://www.paul.senate.gov/connect/email-rand"
-    - wait:
-        - value: 2
-    - find:
-        - selector: "#input-35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD"
     - fill_in:
         - name: input_35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD
           selector: "#input-35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD"
@@ -45,6 +41,12 @@ contact_form:
           selector: "#messagebody"
           value: $MESSAGE
           required: true
+        - name: "g-recaptcha-response"
+          captcha_selector: ".g-recaptcha iframe"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+          options:
+            google_recaptcha: true
     - select:
         - name: input_35B67D45-0EE9-695F-CF75-CB73E9531F2A
           selector: "#input-35B67D45-0EE9-695F-CF75-CB73E9531F2A"
@@ -186,59 +188,63 @@ contact_form:
             - Navy - Seaman
             - Navy - Seaman Recruit
         - name: input_F86363CE-4040-F985-52CD-25BC1B061358
-          selector: "#topic"
+          selector: "#input-F86363CE-4040-F985-52CD-25BC1B061358"
           value: $TOPIC
           required: true
           options:
-            - Abortion / Sanctity of Life
+            - Abortion / Pro-Life
+            - Academy
+            - Adoption
             - Agriculture
+            - Appropriations
             - Arts
-            - Banking & Finance
-            - Border Security
+            - Banking
             - Budget
+            - Casework
             - Census
-            - Congressional / Judicial / Investigations
+            - Constitutional Issues
             - "Crime & Law Enforcement"
-            - Defense / National Security
-            - Economic Development / Trade / Commerce
+            - Defense and Armed Services
+            - Economic Development
             - Education
-            - Elections
             - Energy
             - Environment
             - FDA
-            - Firearms
+            - FEMA
             - Foreign Affairs
-            - Healthcare
-            - Homeland Security
+            - Government Reform
+            - Health Care
+            - Homeland Security and TSA
             - Housing
-            - Immigration
-            - Internet
-            - Iraq & Afghanistan
-            - Labor Issues
-            - Medicare / Medicaid
-            - Overcriminalization of Drugs
-            - Science & Technology
-            - Postal
-            - Retirement
+            - Illegal Drugs
+            - Immigration and Border Security
+            - "Judicial "
+            - Labor / Pensions
+            - Natural Resources
+            - Post Offices
+            - Referral
+            - Religion
+            - Rural Development
+            - "Science, Space and Technology"
+            - Second Amendment
             - Small Business
-            - Social Issues
             - Social Security
+            - Special Letter
+            - Trade and Commerce
             - Taxes
             - Telecommunications
             - Transportation
             - Veterans Issues
-    - find:
-        - selector: ".recaptcha-checkbox-checkmark"
-    - click_on:
-        - selector: ".recaptcha-checkbox-checkmark"
     - wait:
-        - value: 3
+        - value: 2
+    - javascript:
+        - value: document.querySelector("#messagebody").value = document.querySelector("#messagebody").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn
     - find:
-        - selector: "#form-3572B654-E248-A5D9-D70B-8968CF7308EC p"
-          value: "Thank you for submitting your request. You should hear from the office soon."
+        - value: "Thank you for submitting your request. You should hear from the office soon."
+          selector: "p"
   success:
     headers:
       status: 200

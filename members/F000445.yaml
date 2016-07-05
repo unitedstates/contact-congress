@@ -4,6 +4,8 @@ contact_form:
   action: /submit-contact.aspx
   steps:
     - visit: "https://forbes.house.gov/contact/contactform.htm"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: Firstname
           selector: "form.zipform input[name='Firstname']"
@@ -17,10 +19,6 @@ contact_form:
           selector: "form.zipform input[name='Address1']"
           value: $ADDRESS_STREET
           required: true
-        - name: Address2
-          selector: "form.zipform input[name='Address2']"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: City
           selector: "#City"
           value: $ADDRESS_CITY
@@ -185,11 +183,11 @@ contact_form:
             Active Duty Military Personnel: AD
             Agriculture: AG
             Animal Rights: AR
-            Arts & Humanities: AH
-            Banking & Finance: BK
+            "Arts & Humanities": AH
+            "Banking & Finance": BK
             Budget: BU
             China Issues: IR
-            Crime & Drugs: CR
+            "Crime & Drugs": CR
             Defense: DF
             Economy/Business/Jobs: EC
             Education: ED
@@ -210,7 +208,7 @@ contact_form:
             Labor/Pensions: LB
             Medicare/Medicaid: MC
             Prescription Drugs: HC
-            Science & Technology/Space: SC
+            "Science & Technology/Space": SC
             Small Business: SB
             Social Security: SS
             Taxes: TX
@@ -218,13 +216,15 @@ contact_form:
             Trade: TR
             Transportation/Infrastructure: TI
             Veteran Affairs: VA
+    - javascript:
+        - value: document.querySelector("#Message").value = document.querySelector("#Message").value.replace(/"/g, '');
     - click_on:
         - value: Send Message
           selector: "form.zipform input[name='WR_Submit']"
     - find:
-        - selector: "#ctl00_ctl11_ctl00_Text > table"
+        - selector: ".thanks-box"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Thank you for contacting me.

@@ -49,12 +49,6 @@ contact_form:
           selector: "textarea[name='MSG']"
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: "#captcha"
-          captcha_selector: "img[height='75'][width='363']"
-          captcha_id_selector: "input[name='captcha_check']"
-          value: $CAPTCHA_SOLUTION
-          required: true
     - select:
         - name: PREFIX
           selector: "select[name='PREFIX']"
@@ -184,9 +178,13 @@ contact_form:
             Trade: Trade
             Transportation: Transportation
             Veterans: Veterans
+    - javascript:
+        - value: document.querySelector("textarea[name='MSG']").value = document.querySelector("textarea[name='MSG']").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "input[name='formaction']"
+    - wait:
+        - value: 3
     - find:
         - selector: "p"
           value: "Thank you!"

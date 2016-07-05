@@ -84,11 +84,6 @@ contact_form:
           - "ergeant Major"
           - "Sister"
           - "Technical Sergeant"
-      - name: State
-        selector: "#contact_form select[name='State']"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
       - name: Subject
         selector: "#Subject"
         value: "$TOPIC"
@@ -133,9 +128,13 @@ contact_form:
           "\n\t\t\t\t\t\tTrade\n\t\t\t\t\t": "Trade"
           "\n\t\t\t\t\t\tTransportation\n\t\t\t\t\t": "Transportation"
           "\n\t\t\t\t\t\tVeterans\n\t\t\t\t\t": "Veterans"
+    - javascript:
+      - value: document.querySelector(".textarea").value = document.querySelector(".textarea").value.replace(/"/g, '');
     - click_on:
       - value: Submit
         selector: "#contact_form input[src='/images/btn-submit.gif']"
+    - wait:
+      - value: 3
     - find:
       - selector: ".notice"
   success:

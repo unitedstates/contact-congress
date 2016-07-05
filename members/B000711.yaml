@@ -1,9 +1,9 @@
 bioguide: B000711
 contact_form:
   method: post
-  action: shareyourviews.php
+  action: /?p=shareyourviews
   steps:
-    - visit: "https://www.boxer.senate.gov/contact/shareyourviews.html"
+    - visit: "https://www.boxer.senate.gov/?p=shareyourviews"
     - fill_in:
         - name: firstName
           selector: "#firstName"
@@ -17,16 +17,12 @@ contact_form:
           selector: "#address1"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#city"
           value: $ADDRESS_CITY
           required: true
         - name: zip
-          selector: "#zip"
+          selector: "#block3 form input[name='zip']"
           value: $ADDRESS_ZIP5
           required: true
         - name: phone
@@ -34,15 +30,15 @@ contact_form:
           value: $PHONE
           required: true
         - name: email
-          selector: "#email"
+          selector: "#block3 form input[name='email']"
           value: $EMAIL
           required: true
-        - name: email_confirmation
-          selector: "#email_confirmation"
+        - name: vemail
+          selector: "#vemail"
           value: $EMAIL
           required: true
-        - name: msubject
-          selector: "#msubject"
+        - name: msgsubject
+          selector: "#msgsubject"
           value: $SUBJECT
           required: true
         - name: message
@@ -50,82 +46,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            " Mr. ": Mr.
-            " Mrs. ": Mrs.
-            " Miss ": Miss
-            " Ms. ": Ms.
-            " Dr. ": Dr.
-            " Mr. and Mrs. ": Mr. and Mrs.
-            " Dr. and Mrs. ": Dr. and Mrs.
-            Dr. and Mr.: Dr. and Mr.
-            Dr. and Dr.: Dr. and Dr.
-            " Mr. and Mr. ": Mr. and Mr.
-            " Ms. and Ms. ": Ms. and Ms.
-            Brother: Brother
-            Father: Father
-            Imam: Imam
-            Pastor: Pastor
-            Professor: Professor
-            Rabbi: Rabbi
-            Reverend: Reverend
-            Sister: Sister
-            General: General
-            Admiral: Admiral
-            Lt General: Lt General
-            Vice Admiral: Vice Admiral
-            Maj General: Maj General
-            Rear Admiral: Rear Admiral
-            Brig General: Brig General
-            Colonel: Colonel
-            Captain: Captain
-            Lt Colonel: Lt Colonel
-            Commander: Commander
-            Major: Major
-            Lt Commander: Lt Commander
-            Lieutenant: Lieutenant
-            1st Lieutenant: 1st Lieutenant
-            Lieutenant JG: Lieutenant JG
-            2nd Lieutenant: 2nd Lieutenant
-            Ensign: Ensign
-            Warrant Officer: Warrant Officer
-            Cmd Sgt Major: Cmd Sgt Major
-            Force/Fleet Cmd Master Sgt: Force/Fleet Cmd Master Sgt
-            Cmd Chief Master Sgt: Cmd Chief Master Sgt
-            Sgt Major: Sgt Major
-            Chief Master Sergeant: Chief Master SGT
-            Master Gunnery Sergeant: Master Gunnery SGT
-            Master CPO: Master CPO
-            Master Sergeant: Master Sergeant
-            1st Sergeant: 1st Sergeant
-            Sr Master Sergeant: Sr Master Sergeant
-            Sr CPO: Sr CPO
-            Sergeant 1st Class: Sergeant 1st Class
-            Gunnery Sergeant: Gunnery Sergeant
-            CPO: CPO
-            Staff Sergeant: Staff Sergeant
-            Technical Sgt: Technical Sgt
-            PO 1st Class: PO 1st Class
-            Sergeant: Sergeant
-            PO 2nd Class: PO 2nd Class
-            Corporal: Corporal
-            PO 3rd Class: PO 3rd Class
-            Specialist: Specialist
-            Sr Airman: Sr Airman
-            Private 1st Class: Private 1st Class
-            Airman 1st Class: Airman 1st Class
-            Lance Corporal: Lance Corporal
-            Seaman: Seaman
-            Private: Private
-            Airman: Airman
-            Seaman Apprentice: Seaman Apprentice
-            Private (Recruit): Private (Recruit)
-            Airman Basic: Airman Basic
-            Seaman Recruit: Seaman Recruit
         - name: state
           selector: "#state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -187,9 +107,6 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Climate Change: HT_ClimateChange
-            Campaign Finance Reform: HT_CampaignFinance
-            Net Neutrality: HT_NetNeutrality
             Abortion: ABORTION
             Afghanistan: AFGHANISTAN
             Agriculture: AGRICULTURE
@@ -234,14 +151,13 @@ contact_form:
             Veterans: VETERANS
             Welfare: WELFARE
             "Women's Issues": WOMEN
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
-        - value: Send
-          selector: "#submit"
-    - find:
-        - value: Thank You!
-          selector: "#form-messages"
+        - value: Submit
+          selector: "#block3 form button[name='submit']"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank You! Your message has been sent."
+      contains: Thanks

@@ -98,6 +98,8 @@ contact_form:
           options:
             "Yes, I would like a response.": "Y"
             "No, I do not require a response.": "N"
+    - javascript:
+        - value: document.querySelector("form[name='contact'] textarea[name='required-message']").value = document.querySelector("form[name='contact'] textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "form[name='contact'] input[type='submit'][value='Send Email']"

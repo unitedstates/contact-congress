@@ -17,7 +17,7 @@ contact_form:
         - value: Go To Next Step
           selector: "#submit"
     - find:
-        - selector: "#required-prefix"
+        - selector: "#required-first"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -39,16 +39,16 @@ contact_form:
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone1
-          selector: "#phone1"
+        - name: required-phone1
+          selector: "#required-phone1"
           value: $PHONE
           required: true
-        - name: phone2
-          selector: "#phone2"
+        - name: required-phone2
+          selector: "#required-phone2"
           value: $PHONE
           required: true
-        - name: phone3
-          selector: "#phone3"
+        - name: required-phone3
+          selector: "#required-phone3"
           value: $PHONE
           required: true
         - name: required-subject
@@ -111,12 +111,11 @@ contact_form:
             "": Please select a response
             "Yes": "Y"
             "No": "N"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"
-    - find:
-        - selector: "p"
-          value: "The following information has been submitted:"
   success:
     headers:
       status: 200

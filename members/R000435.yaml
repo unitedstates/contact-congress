@@ -53,6 +53,8 @@ contact_form:
           selector: "#required-message"
           value: $MESSAGE
           required: true
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"

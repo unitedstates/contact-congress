@@ -1,65 +1,208 @@
 bioguide: K000381
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "http://kilmer.house.gov/contact/email-me"
   steps:
-    - visit: "https://kilmer.house.gov/contact/email-me"
+    - visit: "http://kilmer.house.gov/contact/email-me"
+    - wait:
+        - value: 3
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: input_837F20EE-4040-F985-52CD-D8D50D18EDFA
+          selector: "#zip-input"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+        - value: Submit
+          selector: input.btn
+    - wait:
+        - value: 3
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#required-first"
+        - name: input_AACDE709-4040-F985-52CD-75A45D1A0141
+          selector: "#input-AACDE709-4040-F985-52CD-75A45D1A0141"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: input_AACDE74F-4040-F985-52CD-05C1A30716E7
+          selector: "#input-AACDE74F-4040-F985-52CD-05C1A30716E7"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: input_AAD59EAB-4040-F985-52CD-4814F7123375
+          selector: "#input-AAD59EAB-4040-F985-52CD-4814F7123375"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
+        - name: input_AAD59EF2-4040-F985-52CD-51C8012622B6
+          selector: "#input-AAD59EF2-4040-F985-52CD-51C8012622B6"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: input_AAD81497-4040-F985-52CD-429999D9B7BE
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: input_AAD814BE-4040-F985-52CD-CD7AACCF5210
+          selector: "#input-AAD814BE-4040-F985-52CD-CD7AACCF5210"
+          value: $EMAIL
+          required: true
+        - name: input_AAE2F61F-4040-F985-52CD-6B85A78D1FF2
+          selector: "#input-AAE2F61F-4040-F985-52CD-6B85A78D1FF2"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
+        - name: input_AAFBB3DE-4040-F985-52CD-B11D1B0A745A
+          selector: "#input-AAFBB3DE-4040-F985-52CD-B11D1B0A745A"
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: input_AAFC2325-4040-F985-52CD-FDCD58979CB9
+          selector: "#input-AAFC2325-4040-F985-52CD-FDCD58979CB9"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
+        - name: input_AACDE6D2-4040-F985-52CD-4D1667116532
+          selector: "#input-AACDE6D2-4040-F985-52CD-4D1667116532"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Professor
+            - Dr.
+            - Father
+            - Sister
+            - Rabbi
+            - Reverend
+            - Air Force - General
+            - Air Force - Lieutenant General
+            - Air Force - Major General
+            - Air Force - Brigadier General
+            - Air Force - Colonel
+            - Air Force - Lieutenant Colonel
+            - Air Force - Major
+            - Air Force - Captain
+            - Air Force - First Lieutenant
+            - Air Force - Second Lieutenant
+            - Air Force - Chief Master Sergeant of the Air Force
+            - Air Force - Command Chief Master Sergeant
+            - Air Force - First Sergeant (E-9)
+            - Air Force - Chief Master Sergeant
+            - Air Force - First Sergeant (E-8)
+            - Air Force - Senior Master Sergeant
+            - Air Force - First Sergeant (E-7)
+            - Air Force - Master Sergeant
+            - Air Force - Technical Sergeant
+            - Air Force - Staff Sergeant
+            - Air Force - Senior Airman
+            - Air Force - Airman First Class
+            - Air Force - Airman
+            - Air Force - Airman Basic
+            - Army - General
+            - Army - Lieutenant General
+            - Army - Major General
+            - Army - Brigadier General
+            - Army - Colonel
+            - Army - Lieutenant Colonel
+            - Army - Major
+            - Army - Captain
+            - Army - First Lieutenant
+            - Army - Second Lieutenant
+            - Army - Chief Warrant Officer - 5
+            - Army - Chief Warrant Officer - 4
+            - Army - Chief Warrant Officer - 3
+            - Army - Chief Warrant Officer - 2
+            - Army - Warrant Officer
+            - Army - Sergeant Major of the Army
+            - Army - Command Sergeant Major
+            - Army - Sergeant Major
+            - Army - First Sergeant
+            - Army - Master Sergeant
+            - Army - Sergeant First Class
+            - Army - Staff Sergeant
+            - Army - Sergeant
+            - Army - Corporal
+            - Army - Specialist
+            - Army - Private First Class
+            - Army - Private (E-2)
+            - Army - Private
+            - Coast Guard - Admiral
+            - Coast Guard - Vice Admiral
+            - "Coast Guard - Rear Admiral, Upper Half"
+            - "Coast Guard - Rear Admiral, Lower Half"
+            - Coast Guard - Captain
+            - Coast Guard - Commander
+            - Coast Guard - Lieutenant Commander
+            - Coast Guard - Lieutenant
+            - Coast Guard - Lieutenant Junior Grade
+            - Coast Guard - Ensign
+            - Coast Guard - Chief Warrant Officer - 4
+            - Coast Guard - Chief Warrant Officer - 3
+            - Coast Guard - Chief Warrant Officer - 2
+            - Coast Guard - Master Chief Petty Officer of the Coast Guard
+            - Coast Guard - Master Chief Petty Officer
+            - Coast Guard - Senior Chief Petty Officer
+            - Coast Guard - Chief Petty Officer
+            - Coast Guard - Petty Officer First Class
+            - Coast Guard - Petty Officer Second Class
+            - Coast Guard - Petty Officer Third Class
+            - Coast Guard - Seaman
+            - Coast Guard - Seaman Apprentice
+            - Coast Guard - Seaman Recruit
+            - Marine Corps - General
+            - Marine Corps - Lieutenant General
+            - Marine Corps - Major General
+            - Marine Corps - Brigadier General
+            - Marine Corps - Colonel
+            - Marine Corps - Lieutenant Colonel
+            - Marine Corps - Major
+            - Marine Corps - Captain
+            - Marine Corps - First Lieutenant
+            - Marine Corps - Second Lieutenant
+            - Marine Corps - Chief Warrant Officer - 5
+            - Marine Corps - Chief Warrant Officer - 4
+            - Marine Corps - Chief Warrant Officer - 3
+            - Marine Corps - Chief Warrant Officer - 2
+            - Marine Corps - Warrant Officer
+            - Marine Corps - Sergeant Major of the Marine Corps
+            - Marine Corps - Sergeant Major
+            - Marine Corps - Master Gunnery Sergeant
+            - Marine Corps - First Sergeant
+            - Marine Corps - Master Sergeant
+            - Marine Corps - Gunnery Sergeant
+            - Marine Corps - Staff Sergeant
+            - Marine Corps - Sergeant
+            - Marine Corps - Corporal
+            - Marine Corps - Lance Corporal
+            - Marine Corps - Private First Class
+            - Marine Corps - Private
+            - Navy - Admiral
+            - Navy - Vice Admiral
+            - "Navy - Rear Admiral, Upper Half"
+            - "Navy - Rear Admiral, Lower Half"
+            - Navy - Captain
+            - Navy - Commander
+            - Navy - Lieutenant Commander
+            - Navy - Lieutenant
+            - Navy - Lieutenant Junior Grade
+            - Navy - Ensign
+            - Navy - Chief Warrant Officer - 4
+            - Navy - Chief Warrant Officer - 3
+            - Navy - Chief Warrant Officer - 2
+            - Navy - Master Chief Petty Officer of the Navy
+            - Navy - Master Chief Petty Officer
+            - Navy - Senior Chief Petty Officer
+            - Navy - Chief Petty Officer
+            - Navy - Petty Officer First Class
+            - Navy - Petty Officer Second Class
+            - Navy - Petty Officer Third Class
+            - Navy - Seaman Apprentice
+            - Navy - Seaman
+            - Navy - Seaman Recruit
+        - name: input_AD296937-4040-F985-52CD-8E7EE8DE5534
+          selector: "#input-AD296937-4040-F985-52CD-8E7EE8DE5534"
+          value: Voice
+          required: true
+          options:
+            - Voice
+            - VP
+            - TTD
+        - name: input_AAFB3FE5-4040-F985-52CD-892F5AE50362
+          selector: "#input-AAFB3FE5-4040-F985-52CD-892F5AE50362"
           value: $TOPIC
           required: true
           options:
@@ -67,11 +210,11 @@ contact_form:
             Animals: AN
             Arts and Humanities: ART
             Banking and Finance: BANK
-            Budget and Economy: BUD
+            Budget And Economy: BUD
             Campaign Finance Reform: CFR
             Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
+            District of Columbia -- Tours: TOUR
+            Defense And Military: DEF
             Economy: ECON
             Education: EDU
             Energy: ENE
@@ -94,7 +237,6 @@ contact_form:
             Social Issues: SOC
             Senior Citizens: SENIORS
             Social Security: SSEC
-            Social Services: SOC.SERVICES
             Taxes: TAX
             Telecommunications: TEL
             Transportation: TRA
@@ -103,22 +245,17 @@ contact_form:
             "Women's Issues": WOMEN
             Welfare: WEL
             Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
-          required: false
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: Email.Optin
+    - javascript:
+        - value: document.querySelector("#input-AAFC2325-4040-F985-52CD-FDCD58979CB9").value = document.querySelector("#input-AAFC2325-4040-F985-52CD-FDCD58979CB9").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit']"
+        - value: Submit
+          selector: input.btn
+    - wait:
+        - value: 3
+    - find: 
+        - selector: "#form-8338AD0F-4040-F985-52CD-C120404820C8 > div > h1"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank You

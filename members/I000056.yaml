@@ -110,8 +110,10 @@ contact_form:
             - Other
     - check:
         - name: input_17
-          selector: "#choice_17_1"
+          selector: "#choice_1_17_1"
           value: "No"
+    - javascript:
+        - value: document.querySelector("#input_1_16").value = document.querySelector("#input_1_16").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_1"

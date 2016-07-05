@@ -4,6 +4,8 @@ contact_form:
   action: default.aspx
   steps:
     - visit: "https://polis.house.gov/forms/writeyourrep/default.aspx"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: ctl00$ctl11$FirstName
           selector: "#ctl00_ctl11_FirstName"
@@ -52,6 +54,8 @@ contact_form:
         - name: ctl00$ctl11$ReplyChoice
           selector: "#ctl00_ctl11_ReplyChoice_0"
           value: Respond
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl11_Body").value = document.querySelector("#ctl00_ctl11_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl11_SubmitButton"

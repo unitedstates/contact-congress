@@ -1,57 +1,49 @@
 bioguide: Q000023
 contact_form:
   method: post
-  action: ""
+  action: ./
   steps:
     - visit: "https://quigleyforms.house.gov/forms/writeyourrep/"
     - fill_in:
-        - name: ctl00$ctl22$FirstName
-          selector: "#ctl00_ctl22_FirstName"
+        - name: ctl00$ctl29$FirstName
+          selector: "#ctl00_ctl29_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl22$LastName
-          selector: "#ctl00_ctl22_LastName"
+        - name: ctl00$ctl29$LastName
+          selector: "#ctl00_ctl29_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl22$Street
-          selector: "#ctl00_ctl22_Street"
+        - name: ctl00$ctl29$Street
+          selector: "#ctl00_ctl29_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl22$City
-          selector: "#ctl00_ctl22_City"
+        - name: ctl00$ctl29$City
+          selector: "#ctl00_ctl29_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl22$Zip
-          selector: "#ctl00_ctl22_Zip"
+        - name: ctl00$ctl29$Zip
+          selector: "#ctl00_ctl29_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl22$Phone
-          selector: "#ctl00_ctl22_Phone"
+        - name: ctl00$ctl29$Phone
+          selector: "#ctl00_ctl29_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl22$Email
-          selector: "#ctl00_ctl22_Email"
+        - name: ctl00$ctl29$Email
+          selector: "#ctl00_ctl29_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl22$Subject
-          selector: "#ctl00_ctl22_Subject"
+        - name: ctl00$ctl29$Subject
+          selector: "#ctl00_ctl29_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl22$Body
-          selector: "#ctl00_ctl22_Body"
+        - name: ctl00$ctl29$Body
+          selector: "#ctl00_ctl29_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl22$CampaignID
-          selector: "#ctl00_ctl22_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl22$CampaignInfo
-          selector: "#ctl00_ctl22_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
-        - name: ctl00$ctl22$PrefixList
-          selector: "#ctl00_ctl22_PrefixList"
+        - name: ctl00$ctl29$PrefixList
+          selector: "#ctl00_ctl29_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -60,8 +52,8 @@ contact_form:
             - " Ms."
             - " Miss"
             - " Dr."
-        - name: ctl00$ctl22$IssuesList
-          selector: "#ctl00_ctl22_IssuesList"
+        - name: ctl00$ctl29$IssuesList
+          selector: "#ctl00_ctl29_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -98,12 +90,16 @@ contact_form:
             Taxation: "109129"
             Transportation and Public Works: "109638"
             Water Resources Development: "109094"
-    - click_on:
-        - value: Submit
-          selector: "#ctl00_ctl22_SubmitButton"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl29_Body").value = document.querySelector("#ctl00_ctl29_Body").value.replace(/"/g, '');
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - javascript:
+        - value: "document.getElementById('aspnetForm').submit();"
+    - wait:
+        - value: 3
     - find:
-        - value: Thank you
-          selector: "span#ctl00_ctl22_ConfirmationText"
+        - selector: "#ctl00_ctl29_ConfirmationText"
   success:
     headers:
       status: 200

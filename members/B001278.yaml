@@ -99,13 +99,8 @@ contact_form:
             Veterans: VET
             "Women's Issues": WMN
             Other Issues: OTHER
-        - name: response
-          selector: "#response"
-          value: "Y"
-          required: true
-          options:
-            "Yes, I would like a response": "Y"
-            "No, I do not require a response": "N"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"

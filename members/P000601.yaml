@@ -55,14 +55,6 @@ contact_form:
           selector: "#ctl00_ctl13_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl13$CampaignID
-          selector: "#ctl00_ctl13_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl13$CampaignInfo
-          selector: "#ctl00_ctl13_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
         - name: ctl00$ctl13$PrefixList
           selector: "#ctl00_ctl13_PrefixList"
@@ -119,6 +111,8 @@ contact_form:
             Taxation: "100765"
             Transportation and Public Works: "101274"
             Water Resources Development: "100730"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl13_Body").value = document.querySelector("#ctl00_ctl13_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl13_SubmitButton"

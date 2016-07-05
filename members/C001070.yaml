@@ -337,6 +337,8 @@ contact_form:
             Trade: Trade
             Transportation: Transportation
             Veterans: Veterans
+    - javascript:
+        - value: document.querySelector("#comments").value = document.querySelector("#comments").value.replace(/"/g, '');
     - click_on:
         - value: Send
           selector: "#side-search-btn"
