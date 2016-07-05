@@ -45,10 +45,6 @@ contact_form:
           selector: input#required-phone
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
-          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
@@ -120,4 +116,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: "your message has been sent"
