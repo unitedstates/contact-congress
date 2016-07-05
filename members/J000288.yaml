@@ -15,12 +15,8 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: form.wsbform input#submit
+          selector: form#emailForm button#submit
     - fill_in:
-        - name: prefix
-          selector: input#required-honorific-prefix
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -49,15 +45,25 @@ contact_form:
           selector: input#required-phone
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
-          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: select#required-honorific-prefix
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -105,9 +111,9 @@ contact_form:
             Yes, please contact me: Yes, please contact me
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: form#contactForm button#submit
   success:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: "your message has been sent"
