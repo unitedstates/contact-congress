@@ -114,6 +114,8 @@ contact_form:
         - name: field_C118293D-C266-4EF6-9F9D-3DD4D9DCFD7F
           selector: "#field_C118293D-C266-4EF6-9F9D-3DD4D9DCFD7F_1"
           value: EMAIL.OPTIN
+    - javascript:
+        - value: document.querySelector("#field_9DC462DD-C8EB-40B8-AC58-337805FD6D96").value = document.querySelector("#field_9DC462DD-C8EB-40B8-AC58-337805FD6D96").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

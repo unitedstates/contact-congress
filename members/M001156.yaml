@@ -4,6 +4,8 @@ contact_form:
   action: /Forms/WriteYourRep/
   steps:
     - visit: "http://mchenry.house.gov/contact/zipauth.htm"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: zip5
           selector: "#zipcode"
@@ -16,48 +18,50 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
-    - find:
-        - selector: "#aspnetForm"
+    - wait:
+        - value: 3
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
-        - name: ctl00$ctl12$FirstName
-          selector: "#ctl00_ctl12_FirstName"
+        - name: ctl00$ctl35$FirstName
+          selector: "#ctl00_ctl35_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl35$LastName
+          selector: "#ctl00_ctl35_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl12$LastName
-          selector: "#ctl00_ctl12_LastName"
-          value: $NAME_LAST
-          required: true
-        - name: ctl00$ctl12$Street
-          selector: "#ctl00_ctl12_Street"
+        - name: ctl00$ctl35$Street
+          selector: "#ctl00_ctl35_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl12$City
-          selector: "#ctl00_ctl12_City"
+        - name: ctl00$ctl35$City
+          selector: "#ctl00_ctl35_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl12$Zip
-          selector: "#ctl00_ctl12_Zip"
+        - name: ctl00$ctl35$Zip
+          selector: "#ctl00_ctl35_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl12$Phone
-          selector: "#ctl00_ctl12_Phone"
+        - name: ctl00$ctl35$Phone
+          selector: "#ctl00_ctl35_Phone"
           value: $PHONE
           required: true
-        - name: ctl00$ctl12$Email
-          selector: "#ctl00_ctl12_Email"
+        - name: ctl00$ctl35$Email
+          selector: "#ctl00_ctl35_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl12$Subject
-          selector: "#ctl00_ctl12_Subject"
+        - name: ctl00$ctl35$Subject
+          selector: "#ctl00_ctl35_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl12$Body
-          selector: "#ctl00_ctl12_Body"
+        - name: ctl00$ctl35$Body
+          selector: "#ctl00_ctl35_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: ctl00$ctl12$PrefixList
-          selector: "#ctl00_ctl12_PrefixList"
+        - name: ctl00$ctl35$PrefixList
+          selector: "#ctl00_ctl35_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -82,80 +86,16 @@ contact_form:
             - Pastor
             - Pvt.
             - Rev.
-            - Reverend
+            - The Reverend
             - SAC
             - Senator
             - Sgt.
             - Sr.
             - SSgt.
             - The Honorable
-        - name: ctl00$ctl12$State
-          selector: "#ctl00_ctl12_State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - AA
-            - AE
-            - AP
-            - FM
-            - GU
-            - MH
-            - MP
-            - PR
-            - VI
-        - name: ctl00$ctl12$IssuesList
-          selector: "#ctl00_ctl12_IssuesList"
+            - "Mr. & Mrs."
+        - name: ctl00$ctl35$IssuesList
+          selector: "#ctl00_ctl35_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -198,14 +138,13 @@ contact_form:
             The Economy: "44731"
             Trade Policy: "1335"
             Welfare: "44723"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl35_Body").value = document.querySelector("#ctl00_ctl35_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl12_SubmitButton"
-    - find:
-        - selector: "span#ctl00_ctl12_ConfirmationText"
-          value: "Thank you"
+          selector: "#ctl00_ctl35_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office with your concerns. 
+      contains: Thank you

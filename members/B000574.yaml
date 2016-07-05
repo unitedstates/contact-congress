@@ -5,10 +5,6 @@ contact_form:
   steps:
     - visit: "https://forms.house.gov/blumenauer/webforms/issue_subscribe.html"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#name_first"
           value: $NAME_FIRST
@@ -37,77 +33,17 @@ contact_form:
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
         - name: required-message
           selector: "#message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-state
-          selector: "#int-left form select[name='required-state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - DC
         - name: required-issue
           selector: "#int-left form select[name='required-issue']"
           value: $TOPIC
           required: true
           options:
-            I Need Help: CASE
+            I Need Help with Casework: I_Need_Help
             "Afghanistan, Iraq Wars and Defense": IRQ
             Agriculture: AG
             Budget and Taxes: BU
@@ -120,10 +56,13 @@ contact_form:
             "Health, Medicare, and Social Security": HE
             Livable Communities: LIV
             Native Americans: NA
+            Passports and Visas: Passports_and_Visas
             Trade and the Economy: TRD
             Transportation: TRAN
             Veterans: VET
             Other: OTH
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Send Message
           selector: "#int-left form input[type='submit'][value='Send Message']"
@@ -131,4 +70,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Your email should automatically be sent
+      contains: Thank you

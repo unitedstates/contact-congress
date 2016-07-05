@@ -13,9 +13,10 @@ contact_form:
       selector: "#zip4"
       value: $ADDRESS_ZIP4
       required: true
-  - click_on: 
-    - value: Go To Next Step
-      selector: "#emailForm #submit"
+  - wait:
+    - value: 1
+  - javascript:
+    - value: "document.querySelector('#emailForm #submit').click();"
   - find: 
     - selector: "#required-prefix"
   - fill_in: 
@@ -117,6 +118,12 @@ contact_form:
   - click_on: 
     - value: Send Email to Representative Bost
       selector: "#contactForm #submit"
+  - javascript:
+    - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+  - javascript:
+    - value: "document.querySelector('#contactForm #submit').click();"
+  - find:
+    - selector: ".data"
   success: 
     headers: 
       status: 200

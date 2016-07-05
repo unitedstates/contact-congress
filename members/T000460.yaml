@@ -120,6 +120,8 @@ contact_form:
         - name: subscribe
           selector: "#subscribe"
           value: Email.Optin
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"

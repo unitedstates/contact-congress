@@ -16,8 +16,12 @@ contact_form:
   - click_on: 
     - value: Go To Next Step
       selector: "#emailForm #submit"
+  - javascript:
+    - value: "document.querySelector('#emailForm #submit').click();"
   - find: 
     - selector: "#required-prefix"
+  - javascript:
+    - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
   - fill_in: 
     - name: required-first
       selector: "#required-first"
@@ -35,13 +39,13 @@ contact_form:
       selector: "#required-city"
       value: $ADDRESS_CITY
       required: true
-    - name: required-valid-email
-      selector: "#required-valid-email"
-      value: $EMAIL
-      required: true
     - name: required-phone
       selector: "#required-phone"
       value: $PHONE
+      required: true
+    - name: required-valid-email
+      selector: "#required-valid-email"
+      value: $EMAIL
       required: true
     - name: required-message
       selector: "#required-message"
@@ -114,9 +118,11 @@ contact_form:
       options: 
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
+  - javascript:
+    - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
   - click_on: 
     - value: Send Email to Representative Costello
-      selector: "#contactForm #submit"
+      selector: "#submit"
   success: 
     headers: 
       status: 200

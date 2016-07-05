@@ -75,14 +75,19 @@ contact_form:
             Other: WEBOTH
         - name: response
           selector: "#req_response"
-          value: I do not need a response.
+          value: "Y"
           required: true
           options:
             I do not need a response.: "N"
             I would like a response.: "Y"
-    - click_on:
-        - value: Submit
-          selector: "#submitButton"
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
+    - javascript:
+        - value: "document.querySelector('form#custom_form6').submit();"
+    - wait:
+        - value: 3
+    - find: 
+        - selector: "#centerbox > p:nth-child(2)"
   success:
     headers:
       status: 200

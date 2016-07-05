@@ -1,164 +1,83 @@
 bioguide: S001189
 contact_form:
   method: post
-  action: /email-me/
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://austinscott.house.gov/email-me/"
+    - visit: "https://austinscott.house.gov/contact/email"
     - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go to Form
-          selector: "#zipauthform input.button"
-    - fill_in:
-        - name: required-first
-          selector: "#req_firstname"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "#req_lastname"
-          value: $NAME_LAST
-          required: true
-        - name: required-street
-          selector: "#req_street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: required-city
-          selector: "#req_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zip5
-          selector: "#req_zip"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
+    - click_on:
+        - 
+          selector: "#submit"
+    - fill_in:
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
         - name: required-valid-email
-          selector: "#custom_form24 #req_email"
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
+        - name: required-issue
+          selector: "#required-issue"
+          value: $SUBJECT
+          required: true
         - name: required-message
-          selector: "#req_message"
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
         - name: required-prefix
-          selector: "#req_prefix"
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: required-state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
           required: true
           options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-        - name: issue
-          selector: "#req_issue"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: AGRI
-            Budget: BUD
-            Defense: DEF
-            Education: EDU
-            Energy: ENR
-            Environmental: ENV
-            Foreign Affairs: FAFF
-            Government Issues: GOV
-            Health: HLTH
-            Homeland Security: HOM
-            Immigration: IMM
-            International Relations: INT
-            Judicial: JUD
-            Labor: LAB
-            Social Security: SOC
-            Taxes: TAX
-            Telecommunications: TELE
-            Transportation: TRANS
-            Trade: TRD
-            Veterans: VET
-            Welfare: WEL
-            Other Issues: OTH
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "#custom_form24 #submitButton"
-    - find:
-        - selector: "h1"
-          value: "Thank you"
+        - 
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: "Your message has been successfully submitted"
+      contains: Thank you

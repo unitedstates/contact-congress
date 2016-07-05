@@ -77,6 +77,8 @@ contact_form:
             Taxes: WEBTAX
             Transportation: WEBTRAN
             Veterans Affairs: WEBVET
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"

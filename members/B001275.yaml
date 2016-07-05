@@ -6,16 +6,20 @@ contact_form:
     - visit: "https://bucshon.house.gov/contact-me/email-me"
     - fill_in:
         - name: required-zip5
-          selector: "#required-zip5"
+          selector: "#emailForm #required-zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: "#emailForm #zip4"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: "#emailForm #submit"
+    - wait:
+        - value: 3
+    - find:
+        - selector: "#required-first"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -33,53 +37,50 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
-          value: $EMAIL
-          required: true
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
           required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
           required: true
+        - name: required-valid-email
+          selector: ".field-item #contactForm #required-valid-email"
+          value: $EMAIL
+          required: true
     - select:
-        - name: issue
-          selector: "#issue"
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Abortion: " "
-            Agriculture: " "
-            Banking and Finance: " "
-            Budget: " "
-            Defense and Military: " "
-            Economy and Job Creation: " "
-            Education: " "
-            Energy: " "
-            Environment: " "
-            Foreign Relations: " "
-            Health: " "
-            Homeland Security: " "
-            Immigration: " "
-            Judiciary: " "
-            Labor: " "
-            Science and Technology: " "
-            Social Issues: " "
-            Social Security: " "
-            Social Services: " "
-            Taxes: " "
-            Telecommunications: " "
-            Transportation: " "
-            Trade: " "
-            Veterans: " "
-            Other: " "
+            Abortion: ABO
+            Agriculture: AGR
+            Banking and Finance: BANK
+            Budget: BUD
+            Defense and Military: DEF
+            Economy and Job Creation: ECON
+            Education: EDU
+            Energy: ENE
+            Environment: ENV
+            Foreign Relations: FR
+            Health: HEA
+            Homeland Security: HOM
+            Immigration: IMM
+            Judiciary: JUD
+            Labor: LAB
+            No Response Necessary: NRN
+            Science and Technology: SCI
+            Social Issues: SOC
+            Social Security: SSEC
+            Social Services: SOC.SERVICES
+            Taxes: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Trade: TRADE
+            Veterans: VET
+            Other Issue: OTHER
         - name: required-response
           selector: "#required-response"
           value: "Y"
@@ -87,11 +88,12 @@ contact_form:
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "#submit"
+        - selector: "#region-content form.bootstrap button.btn.btn-success"
   success:
     headers:
       status: 200
     body:
-      contains: Please take time to fill out my online survey so I may better know your thoughts on certain issues
+      contains: your message has been sent

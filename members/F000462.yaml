@@ -1,122 +1,120 @@
 bioguide: F000462
 contact_form:
-  method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  method: get
+  action: /contact/contactform.htm
   steps:
-    - visit: "https://frankel.house.gov/contact/email-me"
+    - visit: "http://frankel.house.gov/contact/email-me/"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#contactForm"
+        - selector: "#ctl00_ctl13_FirstName"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
-          selector: "#required-first"
+          selector: "#ctl00_ctl13_FirstName"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#required-last"
+          selector: "#ctl00_ctl13_LastName"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#required-address"
+          selector: "#ctl00_ctl13_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
-          selector: "#required-city"
+          selector: "#ctl00_ctl13_City"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: zip5
+          selector: "#ctl00_ctl13_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#ctl00_ctl13_Zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+        - name: required-email
+          selector: "#ctl00_ctl13_Email"
           value: $EMAIL
           required: true
-        - name: required-phone
-          selector: "#required-phone"
-          value: $PHONE
-          required: true
         - name: required-subject
-          selector: "#required-subject"
+          selector: "#ctl00_ctl13_Subject"
           value: $SUBJECT
           required: true
         - name: required-message
-          selector: "#required-message"
+          selector: "#ctl00_ctl13_Body"
           value: $MESSAGE
           required: true
     - select:
+        - name: required-prefix
+          selector: "#ctl00_ctl13_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+            - "Mr. & Mrs."
+            - "Dr. & Mrs."
+            - "Dr. & Mr."
+            - C.O.
+            - Representative
+            - Senator
+            - The Honorable
+            - Col.
         - name: required-issue
-          selector: "#required-issue"
+          selector: "#ctl00_ctl13_IssuesList"
           value: $TOPIC
           required: true
           options:
+            Abortion: ABORTION
             Agriculture: AGR
-            Animals: AN
-            Arts and Humanities: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
+            Animal Rights: AN
+            Banking: BANK
+            Budget: BUD
+            Defense: DEF
             Economy: ECON
             Education: EDU
             Energy: ENE
             Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
             Government Reform: GOV
-            Guns: GUN
-            Health: HEA
+            Health Care: HEA
             Homeland Security: HOM
-            Housing and Urban Development: HUD
+            Housing: HUD
             Immigration: IMM
-            International Relations: INT
-            Judiciary: JUD
+            International Affairs: INT
             Labor: LAB
-            LGBT: LGBT
-            No Response Necessary: NRN
-            Post Office: POST
-            Science and Technology: SCI
+            Outdoor Sporting: OUT-DOOR
+            Postal Service: POST
+            Second Amendment: GUN
             Social Issues: SOC
-            Senior Citizens: SENIORS
             Social Security: SSEC
-            Social Services: SOC.SERVICES
-            Taxes: TAX
+            Taxation: TAX
             Telecommunications: TEL
-            Transportation: TRA
             Trade: TRADE
+            Transportation: TRA
             Veterans: VET
-            "Women's Issues": WOMEN
-            Welfare: WEL
-            Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
-          required: false
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl13_Body").value = document.querySelector("#ctl00_ctl13_Body").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit']"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl15_ctl00_Text"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank you. Your form has been successfully submitted.

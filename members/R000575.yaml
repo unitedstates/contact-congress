@@ -18,6 +18,8 @@ contact_form:
           selector: "#submit"
     - find:
         - selector: form.validate.wsbform
+    - wait:
+        - value: 5
     - fill_in:
         - name: required-prefix
           selector: "#prefix"
@@ -62,6 +64,12 @@ contact_form:
         - name: msg
           selector: "#message"
           value: $MESSAGE
+          required: true
+        - name: recaptcha_response_field
+          selector: "input#recaptcha_response_field"
+          captcha_selector: "img#recaptcha_challenge_image"
+          captcha_id_selector: "input#recaptcha_challenge_field"
+          value: "$CAPTCHA_SOLUTION"
           required: true
     - select:
         - name: required-issue
@@ -112,6 +120,8 @@ contact_form:
             Veterans and Tricare Issues: VET
             Welfare: WELF
             "Women, Children, and Family": WOMEN
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
         - value: Submit Information
           selector: "form.validate.wsbform input[name='submit']"

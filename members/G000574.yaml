@@ -18,6 +18,8 @@ contact_form:
       selector: "#emailForm #submit"
   - find: 
     - selector: "#required-prefix"
+  - javascript:
+    - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
   - fill_in: 
     - name: required-first
       selector: "#required-first"
@@ -74,7 +76,6 @@ contact_form:
         Budget and Economy: BUD
         Campaign Finance Reform: CFR
         Congress and Elections: CONG
-        District of Columbia--Tours: TOUR
         Defense and Military: DEF
         Economy: ECON
         Education: EDU
@@ -114,6 +115,8 @@ contact_form:
       options: 
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
+  - javascript:
+    - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
   - click_on: 
     - value: Send Email to Representative Gallego
       selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"

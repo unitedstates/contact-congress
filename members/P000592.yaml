@@ -1,9 +1,9 @@
 bioguide: P000592
 contact_form:
   method: post
-  action: "https://poe.house.gov/index.cfm/contact-form#form_D05B44B5-B782-4DC7-BED6-FF0C90951FFF"
+  action: "https://poe.house.gov/index.cfm/contact-form"
   steps:
-    - visit: "https://poe.house.gov/index.cfm/contact-form#form_D05B44B5-B782-4DC7-BED6-FF0C90951FFF"
+    - visit: "https://poe.house.gov/index.cfm/contact-form"
     - fill_in:
         - name: field_4B38B3F2-54EA-4E44-9B93-7E7907BCB9B9
           selector: "#field_4B38B3F2-54EA-4E44-9B93-7E7907BCB9B9"
@@ -49,6 +49,12 @@ contact_form:
           selector: "#field_077EA4A1-BF28-451C-9BD0-D33DB5A71AD0"
           value: $MESSAGE
           required: true
+        - name: "g-recaptcha-response"
+          captcha_selector: ".g-recaptcha iframe"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+          options:
+            google_recaptcha: true
     - select:
         - name: field_DDD852CB-EA6C-45CD-B87C-6CB9F18F22B5
           selector: "#field_DDD852CB-EA6C-45CD-B87C-6CB9F18F22B5"
@@ -108,6 +114,8 @@ contact_form:
           options:
             I do not need a response: "N"
             I would like a response: "Y"
+    - javascript:
+        - value: document.querySelector("#field_077EA4A1-BF28-451C-9BD0-D33DB5A71AD0").value = document.querySelector("#field_077EA4A1-BF28-451C-9BD0-D33DB5A71AD0").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

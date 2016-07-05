@@ -22,7 +22,7 @@ contact_form:
           value: $NAME_FIRST
           required: true
         - name: lastname
-          selector: "#req_lastname"
+          selector: "form[action='/contact-me/'] #req_lastname"
           value: $NAME_LAST
           required: true
         - name: street
@@ -105,6 +105,8 @@ contact_form:
         - name: aff1
           selector: "input[type='radio'][name='aff1'][value='<AFFL_DEL>Subscribe</AFFL_DEL>']"
           value: "<AFFL_DEL>Subscribe</AFFL_DEL>"
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "form[action='/contact-me/'] #submitButton"

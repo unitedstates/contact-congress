@@ -50,10 +50,6 @@ contact_form:
           selector: "#home_phone_number"
           value: $PHONE
           required: false
-        - name: work_phone_number
-          selector: "#work_phone_number"
-          value: $PHONE
-          required: false
         - name: email_address
           selector: "#email"
           value: $EMAIL
@@ -193,9 +189,13 @@ contact_form:
         - name: response
           selector: "#response_y"
           value: "Y"
-    - click_on:
-        - value: Send
-          selector: "#side-search-btn"
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+    - javascript:
+        - value: "document.querySelector('form#contactForm').submit();"
+    - find:
+        - value: Thank you
+          selector: p
   success:
     headers:
       status: 200

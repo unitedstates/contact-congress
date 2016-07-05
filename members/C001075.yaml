@@ -1,182 +1,339 @@
 bioguide: C001075
 contact_form:
   method: post
-  action: /content/contact-bill
+  action: /contact
   steps:
-    - visit: "http://www.cassidy.senate.gov/content/contact-bill"
+    - visit: "http://www.cassidy.senate.gov/contact"
+    - wait:
+        - value: 5
+    - select:
+        - name: "input_AE7457DD-4040-F985-52CD-B99385041C51"
+          selector: "#actions"
+          value: opinion
+          required: true
+          options:
+            "Request help with a federal agency": "federal_agency"
+            "Request a flag to be flown over the Capitol": "flag"
+            "Share your opinion or comments on bills or other issues": "opinion"
+    - wait:
+        - value: 5
+    - find:
+        - selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
     - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
+        - name: "input_AB59F0AE-4040-F985-52CD-AA63153C7925"
+          selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
+        - name: "input_AB59F0ED-4040-F985-52CD-265D9CF13F5E"
+          selector: "#input-AB59F0ED-4040-F985-52CD-265D9CF13F5E"
           value: $NAME_LAST
           required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
+        - name: "input_AB5B6829-4040-F985-52CD-BF81DCC1F57D"
+          selector: "#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
+        - name: "input_AB5B6875-4040-F985-52CD-909541CB4B6C"
+          selector: "#input-AB5B6875-4040-F985-52CD-909541CB4B6C"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
+        - name: "input_AB5B68B4-4040-F985-52CD-269A4338D057"
+          selector: "#input-AB5B68B4-4040-F985-52CD-269A4338D057"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
+        - name: "input_AB67BC2F-4040-F985-52CD-007A86DA4D47"
+          selector: "#input-AB67BC2F-4040-F985-52CD-007A86DA4D47"
+          value: $PHONE
+          required: true
+        - name: "input_AB721CC4-4040-F985-52CD-76D1474A55F4"
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: "submitted[message_details][message]"
-          selector: "#edit-submitted-message-details-message"
+        - name: "input_AB721CE8-4040-F985-52CD-9E550E8A76AA"
+          selector: "#input-AB721CE8-4040-F985-52CD-9E550E8A76AA"
+          value: $EMAIL
+          required: true
+        - name: "input_ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
+          selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
           value: $MESSAGE
           required: true
     - select:
-        - name: "submitted[constituent_information][prefix]"
-          selector: "#edit-submitted-constituent-information-prefix"
+        - name: "input_AB59F08A-4040-F985-52CD-7633AA11C65E"
+          selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mrs.
-            - Reverend
-            - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
-        - name: "submitted[constituent_information][state]"
-          selector: "#edit-submitted-constituent-information-state"
+            "Mr.": "Mr."
+            "Ms.": "Ms."
+            "Mrs.": "Mrs."
+            "Professor": "Professor"
+            "Dr.": "Dr."
+            "Father": "Father"
+            "Sister": "Sister"
+            "Rabbi": "Rabbi"
+            "Reverend": "Reverend"
+            "Air Force - General": "General"
+            "Air Force - Lieutenant General": "Lieutenant General"
+            "Air Force - Major General": "Major General"
+            "Air Force - Brigadier General": "Brigadier General"
+            "Air Force - Colonel": "Colonel"
+            "Air Force - Lieutenant Colonel": "Lieutenant Colonel"
+            "Air Force - Major": "Major"
+            "Air Force - Captain": "Captain"
+            "Air Force - First Lieutenant": "First Lieutenant"
+            "Air Force - Second Lieutenant": "Second Lieutenant"
+            "Air Force - Chief Master Sergeant of the Air Force": "Chief Master Sergeant of the Air Force"
+            "Air Force - Command Chief Master Sergeant": "Command Chief Master Sergeant"
+            "Air Force - First Sergeant (E-9)": "First Sergeant (E-9)"
+            "Air Force - Chief Master Sergeant": "Chief Master Sergeant"
+            "Air Force - First Sergeant (E-8)": "First Sergeant (E-8)"
+            "Air Force - Senior Master Sergeant": "Senior Master Sergeant"
+            "Air Force - First Sergeant (E-7)": "First Sergeant (E-7)"
+            "Air Force - Master Sergeant": "Master Sergeant"
+            "Air Force - Technical Sergeant": "Technical Sergeant"
+            "Air Force - Staff Sergeant": "Staff Sergeant"
+            "Air Force - Senior Airman": "Senior Airman"
+            "Air Force - Airman First Class": "Airman First Class"
+            "Air Force - Airman": "Airman"
+            "Air Force - Airman Basic": "Airman Basic"
+            "Army - General": "General"
+            "Army - Lieutenant General": "Lieutenant General"
+            "Army - Major General": "Major General"
+            "Army - Brigadier General": "Brigadier General"
+            "Army - Colonel": "Colonel"
+            "Army - Lieutenant Colonel": "Lieutenant Colonel"
+            "Army - Major": "Major"
+            "Army - Captain": "Captain"
+            "Army - First Lieutenant": "First Lieutenant"
+            "Army - Second Lieutenant": "Second Lieutenant"
+            "Army - Chief Warrant Officer - 5": "Chief Warrant Officer - 5"
+            "Army - Chief Warrant Officer - 4": "Chief Warrant Officer - 4"
+            "Army - Chief Warrant Officer - 3": "Chief Warrant Officer - 3"
+            "Army - Chief Warrant Officer - 2": "Chief Warrant Officer - 2"
+            "Army - Warrant Officer": "Warrant Officer"
+            "Army - Sergeant Major of the Army": "Sergeant Major of the Army"
+            "Army - Command Sergeant Major": "Command Sergeant Major"
+            "Army - Sergeant Major": "Sergeant Major"
+            "Army - First Sergeant": "First Sergeant"
+            "Army - Master Sergeant": "Master Sergeant"
+            "Army - Sergeant First Class": "Sergeant First Class"
+            "Army - Staff Sergeant": "Staff Sergeant"
+            "Army - Sergeant": "Sergeant"
+            "Army - Corporal": "Corporal"
+            "Army - Specialist": "Specialist"
+            "Army - Private First Class": "Private First Class"
+            "Army - Private (E-2)": "Private (E-2)"
+            "Army - Private": "Private"
+            "Coast Guard - Admiral": "Admiral"
+            "Coast Guard - Vice Admiral": "Vice Admiral"
+            "Coast Guard - Rear Admiral, Upper Half": "Rear Admiral, Upper Half"
+            "Coast Guard - Rear Admiral, Lower Half": "Rear Admiral, Lower Half"
+            "Coast Guard - Captain": "Captain"
+            "Coast Guard - Commander": "Commander"
+            "Coast Guard - Lieutenant Commander": "Lieutenant Commander"
+            "Coast Guard - Lieutenant": "Lieutenant"
+            "Coast Guard - Lieutenant Junior Grade": "Lieutenant Junior Grade"
+            "Coast Guard - Ensign": "Ensign"
+            "Coast Guard - Chief Warrant Officer - 4": "Chief Warrant Officer - 4"
+            "Coast Guard - Chief Warrant Officer - 3": "Chief Warrant Officer - 3"
+            "Coast Guard - Chief Warrant Officer - 2": "Chief Warrant Officer - 2"
+            "Coast Guard - Master Chief Petty Officer of the Coast Guard": "Master Chief Petty Officer of the Coast Guard"
+            "Coast Guard - Master Chief Petty Officer": "Master Chief Petty Officer"
+            "Coast Guard - Senior Chief Petty Officer": "Senior Chief Petty Officer"
+            "Coast Guard - Chief Petty Officer": "Chief Petty Officer"
+            "Coast Guard - Petty Officer First Class": "Petty Officer First Class"
+            "Coast Guard - Petty Officer Second Class": "Petty Officer Second Class"
+            "Coast Guard - Petty Officer Third Class": "Petty Officer Third Class"
+            "Coast Guard - Seaman": "Seaman"
+            "Coast Guard - Seaman Apprentice": "Seaman Apprentice"
+            "Coast Guard - Seaman Recruit": "Seaman Recruit"
+            "Marine Corps - General": "General"
+            "Marine Corps - Lieutenant General": "Lieutenant General"
+            "Marine Corps - Major General": "Major General"
+            "Marine Corps - Brigadier General": "Brigadier General"
+            "Marine Corps - Colonel": "Colonel"
+            "Marine Corps - Lieutenant Colonel": "Lieutenant Colonel"
+            "Marine Corps - Major": "Major"
+            "Marine Corps - Captain": "Captain"
+            "Marine Corps - First Lieutenant": "First Lieutenant"
+            "Marine Corps - Second Lieutenant": "Second Lieutenant"
+            "Marine Corps - Chief Warrant Officer - 5": "Chief Warrant Officer - 5"
+            "Marine Corps - Chief Warrant Officer - 4": "Chief Warrant Officer - 4"
+            "Marine Corps - Chief Warrant Officer - 3": "Chief Warrant Officer - 3"
+            "Marine Corps - Chief Warrant Officer - 2": "Chief Warrant Officer - 2"
+            "Marine Corps - Warrant Officer": "Warrant Officer"
+            "Marine Corps - Sergeant Major of the Marine Corps": "Sergeant Major of the Marine Corps"
+            "Marine Corps - Sergeant Major": "Sergeant Major"
+            "Marine Corps - Master Gunnery Sergeant": "Master Gunnery Sergeant"
+            "Marine Corps - First Sergeant": "First Sergeant"
+            "Marine Corps - Master Sergeant": "Master Sergeant"
+            "Marine Corps - Gunnery Sergeant": "Gunnery Sergeant"
+            "Marine Corps - Staff Sergeant": "Staff Sergeant"
+            "Marine Corps - Sergeant": "Sergeant"
+            "Marine Corps - Corporal": "Corporal"
+            "Marine Corps - Lance Corporal": "Lance Corporal"
+            "Marine Corps - Private First Class": "Private First Class"
+            "Marine Corps - Private": "Private"
+            "Navy - Admiral": "Admiral"
+            "Navy - Vice Admiral": "Vice Admiral"
+            "Navy - Rear Admiral, Upper Half": "Rear Admiral, Upper Half"
+            "Navy - Rear Admiral, Lower Half": "Rear Admiral, Lower Half"
+            "Navy - Captain": "Captain"
+            "Navy - Commander": "Commander"
+            "Navy - Lieutenant Commander": "Lieutenant Commander"
+            "Navy - Lieutenant": "Lieutenant"
+            "Navy - Lieutenant Junior Grade": "Lieutenant Junior Grade"
+            "Navy - Ensign": "Ensign"
+            "Navy - Chief Warrant Officer - 4": "Chief Warrant Officer - 4"
+            "Navy - Chief Warrant Officer - 3": "Chief Warrant Officer - 3"
+            "Navy - Chief Warrant Officer - 2": "Chief Warrant Officer - 2"
+            "Navy - Master Chief Petty Officer of the Navy": "Master Chief Petty Officer of the Navy"
+            "Navy - Master Chief Petty Officer": "Master Chief Petty Officer"
+            "Navy - Senior Chief Petty Officer": "Senior Chief Petty Officer"
+            "Navy - Chief Petty Officer": "Chief Petty Officer"
+            "Navy - Petty Officer First Class": "Petty Officer First Class"
+            "Navy - Petty Officer Second Class": "Petty Officer Second Class"
+            "Navy - Petty Officer Third Class": "Petty Officer Third Class"
+            "Navy - Seaman Apprentice": "Seaman Apprentice"
+            "Navy - Seaman": "Seaman"
+            "Navy - Seaman Recruit": "Seaman Recruit"
+        - name: "input_AB5B6894-4040-F985-52CD-DFC6D3C729DF"
+          selector: "#input-AB5B6894-4040-F985-52CD-DFC6D3C729DF"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            - AA
-            - AE
-            - AP
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - DC
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
+            "AL": "AL"
+            "AK": "AK"
+            "APO AA": "APO AA"
+            "APO AE": "APO AE"
+            "APO AP": "APO AP"
+            "AR": "AR"
+            "AZ": "AZ"
+            "CA": "CA"
+            "CO": "CO"
+            "CT": "CT"
+            "DC": "DC"
+            "DE": "DE"
+            "DPO AA": "DPO AA"
+            "DPO AE": "DPO AE"
+            "DPO AP": "DPO AP"
+            "FL": "FL"
+            "FPO AA": "FPO AA"
+            "FPO AE": "FPO AE"
+            "FPO AP": "FPO AP"
+            "GA": "GA"
+            "HI": "HI"
+            "ID": "ID"
+            "IL": "IL"
+            "IN": "IN"
+            "IA": "IA"
+            "KS": "KS"
+            "KY": "KY"
+            "LA": "LA"
+            "ME": "ME"
+            "MD": "MD"
+            "MA": "MA"
+            "MI": "MI"
+            "MN": "MN"
+            "MS": "MS"
+            "MO": "MO"
+            "MT": "MT"
+            "NE": "NE"
+            "NV": "NV"
+            "NH": "NH"
+            "NJ": "NJ"
+            "NM": "NM"
+            "NY": "NY"
+            "NC": "NC"
+            "ND": "ND"
+            "OH": "OH"
+            "OK": "OK"
+            "OR": "OR"
+            "PA": "PA"
+            "RI": "RI"
+            "SC": "SC"
+            "SD": "SD"
+            "TN": "TN"
+            "TX": "TX"
+            "UT": "UT"
+            "VT": "VT"
+            "VA": "VA"
+            "WA": "WA"
+            "WV": "WV"
+            "WI": "WI"
+            "WY": "WY"
+        - name: "input_AB8156A0-4040-F985-52CD-49CE65770EFC"
+          selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
           value: $TOPIC
           required: true
           options:
-            - Abortion
-            - Adoption
-            - Aging
-            - Agriculture
-            - Animal Welfare
-            - Appropriations
-            - Banking
-            - Campaign Finance
-            - Children
-            - Civil Rights
-            - Commerce
-            - Communications
-            - Congratulations
-            - Congressional Issues
-            - Crime
-            - Defense
-            - Drugs
-            - Economy
-            - Education Higher
-            - Education K through 12
-            - Elections
-            - Energy
-            - Environment
-            - Family
-            - Food Stamps
-            - Foreign Affairs
-            - Gun Control
-            - Health
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Inauguration
-            - Insurance Health
-            - Insurance Other
-            - Interior
-            - Iran
-            - Iraq
-            - Judiciary
-            - Labor
-            - Medicaid
-            - Medicare
-            - Military
-            - NASA
-            - Nutrition
-            - Other
-            - Patents
-            - Pensions
-            - Securities
-            - Small Business
-            - Social Security
-            - Taxes
-            - Tobacco
-            - Trade
-            - Transportation
-            - Veterans
-            - Welfare
-            - "Women's Issues"
+            "Abortion": "Abortion"
+            "Adoption": "adoption"
+            "Aging": "Aging"
+            "Agriculture": "Agriculture"
+            "Animal Welfare": "Animal Welfare"
+            "Appropriations": "Appropriations"
+            "Banking": "Banking"
+            "Campaigns Finance": "Campaign Finance"
+            "Children": "Children"
+            "Civil Rights": "Civil Rights"
+            "Commerce": "Commerce"
+            "Communications": "Communications"
+            "Congratulations": "Congratulations"
+            "Congressional Issues": "Congressional Issues"
+            "Crime": "Crime"
+            "Defense": "Defense"
+            "Drugs": "Drugs"
+            "Economy": "Economy"
+            "Education Higher": "Education Higher"
+            "Education K - 12": "Education K thru 12"
+            "Elections": "Elections"
+            "Energy": "Energy"
+            "Environment": "Environment"
+            "Family": "Family"
+            "Food Stamps": "Food Stamps"
+            "Foreign Affairs": "Foreign Affairs"
+            "Gun Control": "Gun Control"
+            "Health": "Health"
+            "Homeland Security": "Homeland Security"
+            "Housing": "Housing"
+            "Immigration": "Immigration"
+            "Innauguration": "Innauguration"
+            "Insurance Health": "Insurance Health"
+            "Insurance Other": "Insurance Other"
+            "Iran": "Iran"
+            "Iraq": "Iraq"
+            "Judiciary": "Judiciary"
+            "Labor": "Labor"
+            "Medicare": "Medicare"
+            "Medicaid": "Medicaid"
+            "Military": "Military"
+            "NASA": "NASA"
+            "Nutrition": "Nutrition"
+            "Other": "Other"
+            "Patents": "Patents"
+            "Pensions": "Pensions"
+            "Securities": "Securities"
+            "Small Business": "Small Business"
+            "Social Security": "Social Security"
+            "Taxes": "Taxes"
+            "Tobacco": "Tobacco"
+            "Trade": "Trade"
+            "Transportation": "Transportation"
+            "Veterans": "Veterans"
+            "Welfare": "Welfare"
+            "Women's Issues": "Women's Issues"
+    - javascript:
+        - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
+          selector: ".btn"
+    - wait:
+        - value: 5
+    - find:
+        - selector: "h1"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: "Thank you for submitting your Request to our office."

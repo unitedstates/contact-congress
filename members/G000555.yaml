@@ -4,6 +4,8 @@ contact_form:
   action: /contact/index.cfm
   steps:
     - visit: "http://www.gillibrand.senate.gov/contact/"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -192,7 +194,6 @@ contact_form:
             Energy: Energy
             Environment: Environment
             Ethics Reform: Ethics Reform
-            Federal Grant Applications: Federal Grant Applications
             Financial Services: Financial Services
             Foreign Relations: Foreign Relations
             Gun Violence: Gun Violence
@@ -202,7 +203,6 @@ contact_form:
             Immigration Reform: Immigration Reform
             Iraq: Iraq
             Israel: Israel
-            Job Creation: Job Creation
             Judiciary: Judiciary
             Labor and Pensions: Labor and Pensions
             LGBT Rights: LGBT Rights
@@ -213,16 +213,18 @@ contact_form:
             Social Security: Social Security
             Taxes: Taxes
             Telecommunications: Telecommunications
-            Tours: tours
             Veterans: Veterans
-            Womens Issues: Womens Issues
+            "Women's Issues": "Women's Issues"
     - uncheck:
         - name: newsletter
           selector: "#newsletter"
           value: newsletter
-    - click_on:
-        - value: submit
-          selector: input.rollover
+    - javascript:
+        - value: document.querySelector("#contactForm textarea[name='comments']").value = document.querySelector("#contactForm textarea[name='comments']").value.replace(/"/g, '');
+    - javascript:
+        - value: "document.getElementById('contactForm').submit();"
+    - wait:
+        - value: 3
     - find:
         - selector: "p"
           value: "Thank you for contacting Senator Gillibrand."

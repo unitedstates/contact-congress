@@ -16,8 +16,6 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: input.button
-    - find:
-        - selector: "#custom_form42"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -31,26 +29,14 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
           required: true
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
         - name: message
           selector: "#req_message"
           value: $MESSAGE
@@ -131,36 +117,35 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGRI
-            Budget: BUD
-            Defense: DEF
-            Education: EDU
-            Energy: ENR
-            Environmental: ENV
-            Foreign Affairs: FAFF
-            Government Issues: GOV
-            Health: HLTH
-            Homeland Security: HOM
-            Immigration: IMM
-            International Relations: INT
-            Judicial: JUD
-            Labor: LAB
-            Social Security: SOC
-            Taxes: TAX
-            Telecommunications: TELE
-            Transportation: TRANS
-            Trade: TRD
-            Veterans: VET
-            Welfare: WEL
-            Other Issues: OTH
+            Agriculture: agriculture
+            Budget: budget
+            Defense: defense
+            Education: education
+            Energy: energy
+            Environmental: environmental
+            Foreign Affairs: foreign affairs
+            Government Issues: government
+            Health: health
+            Homeland Security: homeland security
+            Immigration: immigration
+            International Relations: international relations
+            Judicial: judicial
+            Labor: labor
+            Social Security: social security
+            Taxes: tax
+            Telecommunications: telecommunications
+            Transportation: transportation
+            Trade: trade
+            Veterans: veterans
+            Welfare: welfare
+            Miscellaneous Issues: miscellaneous
+    - javascript:
+        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submitButton"
-    - find:
-        - selector: "h1"
-          value: "THANK YOU"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted.
+      contains: THANK YOU

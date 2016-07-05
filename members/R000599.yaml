@@ -1,135 +1,103 @@
 bioguide: R000599
 contact_form:
   method: post
-  action: /email-me/
+  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
   steps:
-    - visit: "https://ruiz.house.gov/email-me"
+    - visit: "https://ruiz.house.gov/contact/email"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
-          value: $NAME_FIRST
-          required: true
-        - name: lastname
-          selector: "#req_lastname"
-          value: $NAME_LAST
-          required: true
-        - name: street
-          selector: "#req_street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: city
-          selector: "#req_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
+        - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
-        - name: emailaddress
-          selector: "#req_email"
+    - click_on:
+        - selector: ".btn-success"
+    - find:
+        - selector: "#required-first"
+    - fill_in:
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: subject
-          selector: "#req_subject"
-          value: $SUBJECT
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: state
-          selector: "select[name='state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
           required: true
           options:
-            CA: CA
-            CO: CO
-            CT: CT
-            DC: DC
-            DE: DE
-            FL: FL
-            GA: GA
-            HI: HI
-            IA: IA
-            ID: ID
-            IL: IL
-            IN: IN
-            KS: KS
-            KY: KY
-            LA: LA
-            MA: MA
-            MD: MD
-            ME: ME
-            MI: MI
-            MN: MN
-            MO: MO
-            MS: MS
-            MT: MT
-            NC: NC
-            ND: ND
-            NE: NE
-            NH: NH
-            NJ: NJ
-            NM: NM
-            NV: NV
-            NY: NY
-            OH: OH
-            OK: OK
-            OR: OR
-            PA: PA
-            PR: PR
-            RI: RI
-            SC: SC
-            SD: SD
-            TN: TN
-            TX: TX
-            UT: UT
-            VA: VA
-            VT: VT
-            WA: WA
-            WI: WI
-            WV: WV
-            WY: WY
-        - name: issue
-          selector: "#req_issue"
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Education: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            Government Issues: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            International Relations: WEBINT
-            Judicial: WEBJUD
-            Labor: WEBLAB
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Taxes: WEBTAX
-            Telecommunications: WEBTEL
-            Transportation: WEBTRA
-            Trade: WEBTRADE
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other Issues: WEBOTH
+            Agriculture: Agriculture
+            Budget: Budget
+            Defense: Defense
+            Education: Education
+            Energy: Energy
+            Environmental: Environmental
+            Government Issues: Government Issues
+            Health: Health
+            Homeland Security: Homeland Security
+            Immigration: Immigration
+            International Relations: International Relations
+            Judicial: Judicial
+            Labor: Labor
+            Social Issues: Social Issues
+            Social Security: Social Security
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Transportation: Transportation
+            Trade: Trade
+            Veterans: Veterans
+            Welfare: Welfare
+            Other Issues: Other Issues
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - selector: ".btn-success"
+    - javascript:
+        - value: "document.querySelector('.btn-success').click();"
     - find:
-        - selector: "h1"
-          value: "Thank You"
+        - selector: ".data"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your input.
+      contains: your message has been sent

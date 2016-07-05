@@ -1,118 +1,109 @@
 bioguide: B001290
 contact_form:
-  method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  method: get
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://brat.house.gov/contact/email-me"
+    - visit: "https://brat.house.gov/contact/"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: "form.zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm #submit"
-    - find:
-        - selector: "#required-prefix"
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
-          required: true
-        - name: required-first
-          selector: "#required-first"
+        - name: ctl00$ctl16$FirstName
+          selector: "#ctl00_ctl16_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: ctl00$ctl16$LastName
+          selector: "#ctl00_ctl16_LastName"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: ctl00$ctl16$Street
+          selector: "#ctl00_ctl16_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "#required-city"
+        - name: ctl00$ctl16$City
+          selector: "#ctl00_ctl16_City"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
-          value: $EMAIL
+        - name: ctl00$ctl16$Zip
+          selector: "#ctl00_ctl16_Zip"
+          value: $ADDRESS_ZIP5
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: ctl00$ctl16$Phone
+          selector: "#ctl00_ctl16_Phone"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
+        - name: ctl00$ctl16$Email
+          selector: "#ctl00_ctl16_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl16$Subject
+          selector: "#ctl00_ctl16_Subject"
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: ctl00$ctl16$Body
+          selector: "#ctl00_ctl16_Body"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#required-issue"
+        - name: ctl00$ctl16$PrefixList
+          selector: "#ctl00_ctl16_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Dr.
+        - name: ctl00$ctl16$IssuesList
+          selector: "#ctl00_ctl16_IssuesList"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Animals: AN
-            Arts and Humanities: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
-            Health: HEA
-            Homeland Security: HOM
-            Housing and Urban Development: HUD
-            Immigration: IMM
-            International Relations: INT
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            No Response Necessary: NRN
-            Post Office: POST
-            Science and Technology: SCI
-            Social Issues: SOC
-            Senior Citizens: SENIORS
-            Social Security: SSEC
-            Social Services: SOC.SERVICES
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRADE
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Welfare: WEL
-            Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
-          required: true
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
+            Agriculture: "72"
+            Animals: "9982"
+            Appropriations: "14887"
+            Budget: "14888"
+            Commerce: "10073"
+            Education: "73"
+            Energy: "10177"
+            Environment: "14814"
+            Financial Services: "10219"
+            Government Reform: "14889"
+            Guns: "14890"
+            Healthcare: "74"
+            Homeland Security: "14891"
+            Immigration: "10360"
+            International Relations: "10370"
+            Judiciary: "10406"
+            Labor: "10390"
+            Land: "14892"
+            Military: "14893"
+            Social Issues: "14894"
+            Taxes: "10493"
+            Telecommunications: "14896"
+            Trade: "14895"
+            Transportation and Public Works: "81"
+    - check:
+        - name: ctl00$ctl16$ReplyChoice
+          selector: "#ctl00_ctl16_ReplyChoice_0"
+          value: Respond
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl16_Body").value = document.querySelector("#ctl00_ctl16_Body").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "#contactForm #submit"
+        - value: Submit
+          selector: "#ctl00_ctl16_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank you

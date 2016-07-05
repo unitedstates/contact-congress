@@ -85,6 +85,8 @@ contact_form:
         - name: required-affl1
           selector: "#required-affl1-1"
           value: TEST
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#submit"

@@ -1,67 +1,73 @@
 bioguide: W000791
 contact_form:
   method: post
-  action: /e-mail-greg/
+  action: "/htbin/formproc/email.txt%26display%3D/contact-greg/e-mail-greg/email-sent-thank-you%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://walden.house.gov/e-mail-greg"
+    - visit: "https://walden.house.gov/contact-greg/email-me"
     - fill_in:
-        - name: prefix
-          selector: "#req_prefix"
-          value: $NAME_PREFIX
-          required: true
-        - name: firstname
-          selector: "#req_firstname"
+        - name: required-first
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: required-last
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: required-address
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#custom_form12 input[name='street2']"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: city
-          selector: "#req_city"
+        - name: required-city
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zipcode"
+        - name: required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zipfour"
+        - name: zip4
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
-        - name: phone
-          selector: "#req_phone"
-          value: $PHONE
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: subject
-          selector: "#req_subject"
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: required-subject
+          selector: "#required-subject"
           value: $SUBJECT
           required: true
-        - name: msg
-          selector: "#req_message"
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
-    - select: []
+    - select:
+        - name: required-prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+        - selector: "#submit"
     - find:
-        - selector: "h1"
-          value: "Thank You"
+        - selector: ".data"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for taking the time to let me know your thoughts"
+      contains: "your message has been sent"

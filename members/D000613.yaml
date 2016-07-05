@@ -13,14 +13,6 @@ contact_form:
           selector: "#field_E420FDDF-DD89-450B-8B8F-3C460D78BD29"
           value: $NAME_LAST
           required: true
-        - name: field_B57205AF-77B7-4BEE-9849-D7C344BF55AE
-          selector: "#field_B57205AF-77B7-4BEE-9849-D7C344BF55AE"
-          value: $ADDRESS_STREET
-          required: true
-        - name: field_B2C0A555-967B-4810-B44C-E2BEFDFD6BBF
-          selector: "#field_B2C0A555-967B-4810-B44C-E2BEFDFD6BBF"
-          value: $ADDRESS_CITY
-          required: true
         - name: field_9855926F-23AB-4D16-9483-716FEE40110C
           selector: "#field_9855926F-23AB-4D16-9483-716FEE40110C"
           value: $ADDRESS_ZIP5
@@ -69,14 +61,13 @@ contact_form:
             Transportation: TRA
             Trade: TRADE
             Veterans: VET
+    - javascript:
+        - value: document.querySelector("#field_79A3A867-623E-4816-AE38-F10965A1B758").value = document.querySelector("#field_79A3A867-623E-4816-AE38-F10965A1B758").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
-    - find:
-        - selector: "#group_eadd2adc-ca3a-49ee-9a51-4aa6e9ec0481 span#dtx-highlighting-item"
-          value: "and"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting our office. Your thoughts and opinions are very important to us.
+      contains: Thank you

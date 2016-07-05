@@ -17,12 +17,8 @@ contact_form:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "form.zipform[name='contact'] input[name='required-prefix']"
+        - selector: "form.zipform[name='contact'] input[name='required-first']"
     - fill_in:
-        - name: required-prefix
-          selector: "form.zipform[name='contact'] input[name='required-prefix']"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "form.zipform[name='contact'] input[name='required-first']"
           value: $NAME_FIRST
@@ -31,10 +27,6 @@ contact_form:
           selector: "form.zipform[name='contact'] input[name='required-last']"
           value: $NAME_LAST
           required: true
-        - name: org
-          selector: "form.zipform[name='contact'] input[name='org']"
-          value: $ORG_NAME
-          required: false
         - name: required-address
           selector: "form.zipform[name='contact'] input[name='required-address']"
           value: $ADDRESS_STREET
@@ -43,10 +35,6 @@ contact_form:
           selector: "form.zipform[name='contact'] input[name='required-city']"
           value: $ADDRESS_CITY
           required: true
-        - name: phone
-          selector: "form.zipform[name='contact'] input[name='phone']"
-          value: $PHONE
-          required: false
         - name: required-email
           selector: "form.zipform[name='contact'] input[name='required-email']"
           value: $EMAIL
@@ -57,8 +45,8 @@ contact_form:
           required: true
     - select:
         - name: required-issue
-          selector: "select:nth-child(1)"
-          value: AG
+          selector: "select[name='required-issue']:first-child"
+          value: $TOPIC
           required: true
           options:
             " Agriculture": AG
@@ -90,18 +78,16 @@ contact_form:
         - name: rsp
           selector: "input[type='radio'][name='rsp'][value='yes']"
           value: "yes"
-    - uncheck:
-        - name: subscribe
-          selector: "form.zipform[name='contact'] input[name='subscribe']"
-          value: subscribe
+    - javascript:
+        - value: document.querySelector("form.zipform[name='contact'] textarea[name='required-message']").value = document.querySelector("form.zipform[name='contact'] textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
     - find:
-      - selector: "#ctl00_PageCrumb"
-        value: "Thank You"
+        - value: "Thank You"
+          selector: "#ctl00_PageLink"
   success:
     headers:
       status: 200
     body:
-      contains: Your e-mail message has been sent to Congressman Paul Ryan.
+      contains: Your e-mail message has been sent to Congressman Paul Ryan

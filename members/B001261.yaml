@@ -5,45 +5,37 @@ contact_form:
   steps:
     - visit: "http://www.barrasso.senate.gov/public/index.cfm/contact-form"
     - fill_in:
-        - name: field_4676565c-0170-462b-9d63-700a776bf7ac
-          selector: "#field_4676565c-0170-462b-9d63-700a776bf7ac"
+        - name: field_4676565C-0170-462B-9D63-700A776BF7AC
+          selector: "#field_4676565C-0170-462B-9D63-700A776BF7AC"
           value: $NAME_FIRST
           required: true
-        - name: field_45cb27bd-28a7-432d-995c-4f9527b29e9d
-          selector: "#field_45cb27bd-28a7-432d-995c-4f9527b29e9d"
+        - name: field_45CB27BD-28A7-432D-995C-4F9527B29E9D
+          selector: "#field_45CB27BD-28A7-432D-995C-4F9527B29E9D"
           value: $NAME_LAST
           required: true
-        - name: field_651ca95e-dced-412b-b6d8-27eb6ee75c74
-          selector: "#field_651ca95e-dced-412b-b6d8-27eb6ee75c74"
+        - name: field_651CA95E-DCED-412B-B6D8-27EB6EE75C74
+          selector: "#field_651CA95E-DCED-412B-B6D8-27EB6EE75C74"
           value: $ADDRESS_STREET
           required: true
-        - name: field_187d5dea-54f0-4957-b75a-a00e2144a011
-          selector: "#field_187d5dea-54f0-4957-b75a-a00e2144a011"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: field_be9f26d8-9ed2-4eb1-8a5c-47a179dbf22e
-          selector: "#field_be9f26d8-9ed2-4eb1-8a5c-47a179dbf22e"
+        - name: field_BE9F26D8-9ED2-4EB1-8A5C-47A179DBF22E
+          selector: "#field_BE9F26D8-9ED2-4EB1-8A5C-47A179DBF22E"
           value: $ADDRESS_CITY
           required: true
-        - name: field_96df0c39-34d1-4ed1-9f8b-955307bc507e
-          selector: "#field_96df0c39-34d1-4ed1-9f8b-955307bc507e"
+        - name: field_96DF0C39-34D1-4ED1-9F8B-955307BC507E
+          selector: "#field_96DF0C39-34D1-4ED1-9F8B-955307BC507E"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_d2bb608a-1c26-41f5-aa6d-7bb9ae611ce1
-          selector: "#field_d2bb608a-1c26-41f5-aa6d-7bb9ae611ce1"
-          value: $PHONE
-          required: false
-        - name: field_ff59bb0a-1685-421f-81b4-6299b34bf028
-          selector: "#field_ff59bb0a-1685-421f-81b4-6299b34bf028"
+        - name: field_FF59BB0A-1685-421F-81B4-6299B34BF028
+          selector: "#field_FF59BB0A-1685-421F-81B4-6299B34BF028"
           value: $EMAIL
           required: true
-        - name: field_40c203dd-a384-408d-84ab-26d1471756d8
-          selector: "#field_40c203dd-a384-408d-84ab-26d1471756d8"
+        - name: field_40C203DD-A384-408D-84AB-26D1471756D8
+          selector: "#field_40C203DD-A384-408D-84AB-26D1471756D8"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_5a60f5cf-85bc-4c81-acd1-76b917030069
-          selector: "#field_5a60f5cf-85bc-4c81-acd1-76b917030069"
+        - name: field_5A60F5CF-85BC-4C81-ACD1-76B917030069
+          selector: "#field_5A60F5CF-85BC-4C81-ACD1-76B917030069"
           value: $NAME_PREFIX
           required: true
           options:
@@ -60,8 +52,8 @@ contact_form:
             - The Honorable
             - Representative
             - Senator
-        - name: field_9458aef1-68e8-4306-b9e3-72ba1be4afad
-          selector: "#field_9458aef1-68e8-4306-b9e3-72ba1be4afad"
+        - name: field_9458AEF1-68E8-4306-B9E3-72BA1BE4AFAD
+          selector: "#field_9458AEF1-68E8-4306-B9E3-72BA1BE4AFAD"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -119,8 +111,8 @@ contact_form:
             - West Virginia
             - Wisconsin
             - Wyoming
-        - name: field_f4e8e3bf-a702-450e-ad14-7c7922cd28f3
-          selector: "#field_f4e8e3bf-a702-450e-ad14-7c7922cd28f3"
+        - name: field_F4E8E3BF-A702-450E-AD14-7C7922CD28F3
+          selector: "#field_F4E8E3BF-A702-450E-AD14-7C7922CD28F3"
           value: $TOPIC
           required: true
           options:
@@ -142,6 +134,7 @@ contact_form:
             - Environment
             - Federal Debt
             - Flag Request
+            - Foreign Relations
             - Government
             - Healthcare
             - Human Rights
@@ -152,7 +145,6 @@ contact_form:
             - Internship
             - Labor
             - Medicare
-            - Other
             - President
             - Public Lands
             - Second Amendment and Gun Rights
@@ -160,15 +152,14 @@ contact_form:
             - Taxes
             - Tour Request
             - Trade
-            - Veterans
+            - "Veterans\t\t"
+    - javascript:
+        - value: document.querySelector("#field_40C203DD-A384-408D-84AB-26D1471756D8").value = document.querySelector("#field_40C203DD-A384-408D-84AB-26D1471756D8").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
-    - find:
-        - value: "Thank you for contacting my office. "
-          selector: "p"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting my office. "
+      contains: Thank you

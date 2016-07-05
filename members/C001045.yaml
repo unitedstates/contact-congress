@@ -29,10 +29,6 @@ contact_form:
           selector: "#field_254430C0-0CDD-49D1-8147-0887FA546D33"
           value: $ADDRESS_CITY
           required: false
-        - name: field_887D6209-D4E9-4F7C-85FF-9C5ED2B0BF65
-          selector: "#field_887D6209-D4E9-4F7C-85FF-9C5ED2B0BF65"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: false
         - name: field_31B3457F-EDB1-4A60-9932-7A6697BE9B2D
           selector: "#field_31B3457F-EDB1-4A60-9932-7A6697BE9B2D"
           value: $ADDRESS_ZIP5
@@ -49,6 +45,8 @@ contact_form:
           selector: "#field_AD3C2CD1-4332-48E1-A080-BB1B4B5F082C"
           value: $MESSAGE
           required: true
+    - javascript:
+        - value: document.querySelector("#field_AD3C2CD1-4332-48E1-A080-BB1B4B5F082C").value = document.querySelector("#field_AD3C2CD1-4332-48E1-A080-BB1B4B5F082C").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

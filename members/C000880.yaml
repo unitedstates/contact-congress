@@ -4,8 +4,8 @@ contact_form:
   action: http://www.crapo.senate.gov/webformActionIAV1.cfm
   steps:
     - visit: http://www.crapo.senate.gov/contact/email.cfm
-    - click_on:
-      - selector: ".modal-backdrop"
+    - javascript:
+      - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
       - name: firstName
         selector: "#firstName"
@@ -49,15 +49,11 @@ contact_form:
         value: "$MESSAGE"
         required: Yes
     - wait:
-      - value: 1
+      - value: 5
     - fill_in:
       - name: captcha_code
         selector: "#captcha_code"
         captcha_selector: "img.img-polaroid"
-        # There is no id field for matching up the captcha on the backend; rather the solution itself appears in the page
-        # You can get it via a simple dom query from the audio version, conveniently titled with the solution in the filename:
-        #
-        # jQuery('a[href$=".wav"]').attr('href').match(/_([a-z0-9]+)\.wav/)[1]
         value: "$CAPTCHA_SOLUTION"
         required: Yes
     - select:
@@ -78,11 +74,6 @@ contact_form:
           " The Honorable ": "The Honorable"
           " Representative ": "Representative"
           " Senator ": "Senator"
-      - name: State
-        selector: ".required[name='State']"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: Yes
-        options: US_STATES_AND_TERRITORIES
       - name: Subject
         selector: "#Subject"
         value: $TOPIC
@@ -105,8 +96,10 @@ contact_form:
           Not Listed/Other: EMAIL
     - find:
       - selector: ".btn-primary"
+    - javascript:
+      - value: document.querySelector(".required[name='MessageBody']").value = document.querySelector(".required[name='MessageBody']").value.replace(/"/g, '');
     - click_on:
-      - value: Submit
+      - value: Submit Information
         selector: ".btn-primary"
     - find:
         - selector: "h1"

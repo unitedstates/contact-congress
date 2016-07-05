@@ -36,7 +36,7 @@ contact_form:
       value: $ADDRESS_CITY
       required: true
     - name: required-valid-email
-      selector: "#required-valid-email"
+      selector: "#block-system-main #contactForm #required-valid-email"
       value: $EMAIL
       required: true
     - name: required-phone
@@ -106,9 +106,11 @@ contact_form:
       options: 
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
+  - javascript:
+    - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
   - click_on: 
     - value: Send Email to Representative DeSaulnier
-      selector: "#contactForm #submit"
+      selector: "#block-system-main #contactForm #submit"
   - find:
     - value: Thank you
       selector: "p"

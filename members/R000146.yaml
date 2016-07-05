@@ -163,9 +163,15 @@ contact_form:
             "Veterans": "VETS"
             "Website Problems": "WEBSITE_PROBLEMS"
             "Yucca Mountain": "YUCCAMTN"
+    - javascript:
+        - value: document.querySelector("#cf_field_13").value = document.querySelector("#cf_field_13").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#sendbutton"
+    - find:
+        - selector: "#usermessagea.waiting"
+    - wait:
+        - value: 2
     - find:
         - selector: "#usermessagea.success"
   success:

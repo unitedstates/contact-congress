@@ -41,15 +41,9 @@ contact_form:
           selector: "#ctl00_ctl17_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl17$CampaignID
-          selector: "#ctl00_ctl17_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl17$CampaignInfo
-          selector: "#ctl00_ctl17_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select: []
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl17_Body").value = document.querySelector("#ctl00_ctl17_Body").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl17_SubmitButton"

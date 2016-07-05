@@ -27,6 +27,10 @@ contact_form:
           selector: "#required-last"
           value: $NAME_LAST
           required: true
+        - name: organization
+          selector: "#organization"
+          value: $NAME_FIRST
+          required: false
         - name: required-address
           selector: "#required-address"
           value: $ADDRESS_STREET
@@ -85,6 +89,8 @@ contact_form:
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
+    - javascript:
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"

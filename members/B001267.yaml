@@ -121,9 +121,18 @@ contact_form:
             U.S. Military Academies: U.S. Military Academies
             "Women's Issues": "Women's Issues"
             Other: Other
+    - javascript:
+        - value: document.querySelector("#gen-fieldid-27").value = document.querySelector("#gen-fieldid-27").value.replace(/"/g, '');
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - value: Submit
           selector: "form.-validate-form[name='thisForm'] input[name='formaction']"
+    - wait:
+        - value: 3
+    - find:
+        - selector: "div.record-body"
+          value: Thank you
   success:
     headers:
       status: 200
