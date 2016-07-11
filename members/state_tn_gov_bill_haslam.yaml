@@ -1,0 +1,66 @@
+bioguide: state_tn_gov_bill_haslam
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.tn.gov/governor/topic/contact"
+    - find:
+        - selector: div.content dl.accordion dt.icon-angle-right
+    - click_on:
+        - selector: div.content dl.accordion dt.icon-angle-right
+    - find:
+        - selector: form#form1 table#main_table input#q_1_first_name
+    - fill_in:
+        - name: prefix
+          selector: input#q_1_prefix
+          value: $NAME_PREFIX
+          required: false
+        - name: first
+          selector: input#q_1_first_name
+          value: $NAME_FIRST
+          required: true
+        - name: last
+          selector: input#q_1_last_name
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: input#q_1_addr_1
+          value: $ADDRESS_STREET
+          required: false
+        - name: city
+          selector: input#q_1_city
+          value: $ADDRESS_CITY
+          required: false
+        - name: zip5
+          selector: input#q_1_zip
+          value: $ADDRESS_ZIP5
+          required: false
+        - name: email
+          selector: input#q_1_email
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: input#q_1_hphone
+          value: $PHONE
+          required: false
+        - name: subject
+          selector: input#q_3
+          value: $SUBJECT
+          required: false
+        - name: message
+          selector: textarea#q_4
+          value: $MESSAGE
+          required: false
+    - select:
+        - name: state
+          selector: select#q_1_state
+          value: Tennessee
+          required: false
+    - click_on:
+        - value: Send
+          selector: form#form1 input#btn_submit
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your message."
