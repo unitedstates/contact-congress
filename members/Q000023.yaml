@@ -4,6 +4,8 @@ contact_form:
   action: ./
   steps:
     - visit: "https://quigleyforms.house.gov/forms/writeyourrep/"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: ctl00$ctl29$FirstName
           selector: "#ctl00_ctl29_FirstName"
@@ -92,12 +94,8 @@ contact_form:
             Water Resources Development: "109094"
     - javascript:
         - value: document.querySelector("#ctl00_ctl29_Body").value = document.querySelector("#ctl00_ctl29_Body").value.replace(/"/g, '');
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - javascript:
-        - value: "document.getElementById('aspnetForm').submit();"
-    - wait:
-        - value: 3
+    - click_on:
+        - selector: "#ctl00_ctl29_SubmitButton"
     - find:
         - selector: "#ctl00_ctl29_ConfirmationText"
   success:
