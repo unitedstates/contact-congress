@@ -2,12 +2,9 @@ bioguide: state_tn_gov_bill_haslam
 contact_form:
   method: post
   action: ""
+  usePhantomJsLogging: true
   steps:
-    - visit: "http://www.tn.gov/governor/topic/contact"
-    - find:
-        - selector: div.content dl.accordion dt.icon-angle-right
-    - click_on:
-        - selector: div.content dl.accordion dt.icon-angle-right
+    - visit: "https://iqconnect.lmhostediq.com/iqextranet/EForm.aspx?__cid=FSL_TN_DFA&__fid=100000"
     - find:
         - selector: form#form1 table#main_table input#q_1_first_name
     - fill_in:
@@ -63,4 +60,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank you for your message."
+      contains: "Your message has been submitted. Thank you."
