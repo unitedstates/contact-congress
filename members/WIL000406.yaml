@@ -3,37 +3,35 @@ contact_form:
   method: post
   action: Contact.aspx
   steps:
-    - visit: "http://legis.wisconsin.gov/senate/petrowski/Pages/Request-Assistance.aspx"
+    - visit: "http://legis.wisconsin.gov/senate/29/petrowski/request-assistance/"
+    - find:
+        - selector: div#contour_form_RequestAssistance input#b4bcca0d-c84f-4791-c032-4d1d1bf6b356
     - fill_in:
         - name: email
-          selector: "#legis-cf-email"
+          selector: input#b4bcca0d-c84f-4791-c032-4d1d1bf6b356
           value: $EMAIL
-          required: true
+          required: false
         - name: name
-          selector: "#legis-cf-name"
+          selector: input#fcfd7988-36af-4cf8-c1ac-aaac6d053798
           value: $NAME_FULL
           required: true
         - name: address
-          selector: "#legis-cf-address"
+          selector: input#fc32bd94-ff3e-423d-a242-260529b35f86
           value: $ADDRESS_STREET
           required: true
         - name: citystatezip
-          selector: "#legis-cf-city-state"
+          selector: input#54a360be-50a1-4740-c624-a50112ffe9e4
           value: $ADDRESS_CITY_STATE_ZIP
           required: true
-        - name: phone
-          selector: "#legis-cf-bestphone"
-          value: $PHONE
-          required: true
         - name: message
-          selector: "#legis-cf-caseissue"
+          selector: div.pleaseleaveacommentorbrieflydescribeyourproblem > div > textarea
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: ".legis-email-submit-btn"
+          selector: div#contour_form_RequestAssistance input[name='submitbtn']
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Page Not Found
