@@ -1,10 +1,10 @@
 bioguide: MNL000189
 contact_form:
   method: post
-  action: /members/member_emailform.php?mem_id=1191&ls=89
+  action: ""
   usePhantomJsLogging: true
   steps:
-    - visit: "http://www.senate.mn/members/member_emailform.php?mem_id=1191&ls="
+    - visit: "https://www.senate.mn/members/member_emailform.php?mem_id=1191&ls=89"
     - find:
         - selector: form[name='Emailform'] select[name='form_title']
     - select:

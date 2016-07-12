@@ -3,7 +3,7 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: "http://www.murray.senate.gov/public/index.cfm/contactme"
+    - visit: "https://www.murray.senate.gov/public/index.cfm/contactme"
     - find:
       - selector: input#field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5
     - fill_in:
@@ -51,7 +51,7 @@ contact_form:
       - name: prefix
         selector: select#field_B104BE44-176D-4CD9-9FDA-DBCBAEB5AAF9
         value: $NAME_PREFIX
-        required: true
+        required: false
         options:
           "Mr.": "Mr."
           "Ms.": "Ms."
