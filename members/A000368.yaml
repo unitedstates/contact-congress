@@ -5,12 +5,8 @@ contact_form:
   steps:
     - visit: "https://www.ayotte.senate.gov/?p=contact"
     - find:
-      - selector: form#standard_form input#prefix
+      - selector: form#standard_form input#firstname
     - fill_in:
-      - name: prefix
-        selector: "#prefix"
-        value: "$NAME_PREFIX"
-        required: true
       - name: firstname
         selector: "#firstname"
         value: "$NAME_FIRST"
@@ -56,11 +52,22 @@ contact_form:
         selector: "#messagebody"
         value: "$MESSAGE"
     - select:
-      - name: state
-        selector: "#state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+      - name: prefix
+        selector: select#prefix
+        value: "$NAME_PREFIX"
         required: true
-        options: US_STATES
+        options:
+          Mr.: Mr.
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Mr. and Mrs.: Mr. and Mrs.
+          Dr.: Dr.
+          Dr. and Mr.: Dr. and Mr.
+          Dr. and Mrs.: Dr. and Mrs.
+          Rev.: Rev.
+          Pastor: Pastor
+          Brother: Brother
+          Sister: Sister
       - name: topic
         selector: "#topic"
         value: "$TOPIC"
