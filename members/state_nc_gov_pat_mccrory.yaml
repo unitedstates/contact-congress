@@ -21,6 +21,10 @@ contact_form:
           selector: "#edit-submitted-message"
           value: $MESSAGE
           required: true
+        - name: captcha
+          selector: input#edit-captcha-response
+          value: 5
+          required: true
     - click_on:
         - value: Submit
           selector: "#edit-submit"
