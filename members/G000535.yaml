@@ -19,57 +19,57 @@ contact_form:
     - find:
         - selector: "#aspnetForm"
     - fill_in:
-        - name: ctl00$ctl19$FirstName
-          selector: "#ctl00_ctl19_FirstName"
+        - name: ctl00$ctl26$FirstName
+          selector: "#ctl00_ctl26_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: ctl00$ctl19$LastName
-          selector: "#ctl00_ctl19_LastName"
+        - name: ctl00$ctl26$LastName
+          selector: "#ctl00_ctl26_LastName"
           value: $NAME_LAST
           required: true
-        - name: ctl00$ctl19$Street
-          selector: "#ctl00_ctl19_Street"
+        - name: ctl00$ctl26$Street
+          selector: "#ctl00_ctl26_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: ctl00$ctl19$City
-          selector: "#ctl00_ctl19_City"
+        - name: ctl00$ctl26$City
+          selector: "#ctl00_ctl26_City"
           value: $ADDRESS_CITY
           required: true
-        - name: ctl00$ctl19$Zip
-          selector: "#ctl00_ctl19_Zip"
+        - name: ctl00$ctl26$Zip
+          selector: "#ctl00_ctl26_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: ctl00$ctl19$Phone
-          selector: "#ctl00_ctl19_Phone"
+        - name: ctl00$ctl26$Phone
+          selector: "#ctl00_ctl26_Phone"
           value: 2222222222
           required: true
-        - name: ctl00$ctl19$Email
-          selector: "#ctl00_ctl19_Email"
+        - name: ctl00$ctl26$Email
+          selector: "#ctl00_ctl26_Email"
           value: $EMAIL
           required: true
-        - name: ctl00$ctl19$Subject
-          selector: "#ctl00_ctl19_Subject"
+        - name: ctl00$ctl26$Subject
+          selector: "#ctl00_ctl26_Subject"
           value: $SUBJECT
           required: true
-        - name: ctl00$ctl19$Body
-          selector: "#ctl00_ctl19_Body"
+        - name: ctl00$ctl26$Body
+          selector: "#ctl00_ctl26_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl19$CampaignID
-          selector: "#ctl00_ctl19_CampaignID"
+        - name: ctl00$ctl26$CampaignID
+          selector: "#ctl00_ctl26_CampaignID"
           value: $CAMPAIGN_UUID
           required: false
-        - name: ctl00$ctl19$Organization
-          selector: "#ctl00_ctl19_Organization"
+        - name: ctl00$ctl26$Organization
+          selector: "#ctl00_ctl26_Organization"
           value: $ORG_NAME
           required: false
-        - name: ctl00$ctl19$OrganizationContact
-          selector: "#ctl00_ctl19_OrganizationContact"
+        - name: ctl00$ctl26$OrganizationContact
+          selector: "#ctl00_ctl26_OrganizationContact"
           value: $ORG_URL
           required: false
     - select:
-        - name: ctl00$ctl19$PrefixList
-          selector: "#ctl00_ctl19_PrefixList"
+        - name: ctl00$ctl26$PrefixList
+          selector: "#ctl00_ctl26_PrefixList"
           value: $NAME_PREFIX
           required: true
           options:
@@ -77,8 +77,8 @@ contact_form:
             Mrs.: Mrs.
             Dr.: Dr.
             Ms.: Ms.
-        - name: ctl00$ctl19$State
-          selector: "#ctl00_ctl19_State"
+        - name: ctl00$ctl26$State
+          selector: "#ctl00_ctl26_State"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -142,8 +142,8 @@ contact_form:
             - MP
             - PR
             - VI
-        - name: ctl00$ctl19$IssuesList
-          selector: "#ctl00_ctl19_IssuesList"
+        - name: ctl00$ctl26$IssuesList
+          selector: "#ctl00_ctl26_IssuesList"
           value: $TOPIC
           required: true
           options:
@@ -163,14 +163,14 @@ contact_form:
             Taxation: "101909"
             Transportation and Infrastructure: "102418"
     - check:
-        - name: ctl00$ctl19$ReplyChoice
-          selector: "#ctl00_ctl19_ReplyChoice_0"
+        - name: ctl00$ctl26$ReplyChoice
+          selector: "#ctl00_ctl26_ReplyChoice_0"
           value: Respond
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl19_SubmitButton"
+          selector: "#ctl00_ctl26_SubmitButton"
     - find:
-        - selector: "span#ctl00_ctl19_ConfirmationText"
+        - selector: "span#ctl00_ctl26_ConfirmationText"
           value: "Thank you"
   success:
     headers:
