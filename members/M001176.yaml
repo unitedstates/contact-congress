@@ -105,10 +105,6 @@ contact_form:
     - click_on:
         - value: Send
           selector: "#side-search-btn"
-    - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
-    - javascript:
-        - value: "document.querySelector('#side-search-btn').click();"
     - find:
         - selector: "h2"
           value: "Thank You"
