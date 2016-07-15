@@ -4,6 +4,8 @@ contact_form:
   action: ContactPopupSubmit.php
   steps:
     - visit: "https://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=SD15"
+    - find:
+        - selector: form#ContactForm input#txtFirstName
     - fill_in:
         - name: txtFirstName
           selector: "#txtFirstName"
@@ -37,11 +39,12 @@ contact_form:
           options:
             max_length: 2000
           required: true
+    - find:
+        - selector: input#submitButton
     - click_on:
-        - value: Submit
-          selector: "#submitButton"
+        - selector: input#submitButton
   success:
     headers:
       status: 200
     body:
-      contains: "We appreciate your comments but"
+      contains: "My staff and I will endeavor"
