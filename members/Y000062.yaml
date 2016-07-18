@@ -4,20 +4,22 @@ contact_form:
   action: /contact-john2/
   steps:
     - visit: "http://yarmuth.house.gov/contact-john2/"
+    - find:
+        - selector: form#zipauthform input#zipcode
     - fill_in:
         - name: zipcode
-          selector: "#zipcode"
+          selector: input#zipcode
           value: $ADDRESS_ZIP5
           required: true
         - name: zipfour
-          selector: "#zipfour"
+          selector: input#four
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
         - value: Go to Form
-          selector: "#zipauthform input.button"
+          selector: form#zipauthform input.button
     - find:
-        - selector: "#custom_form80"
+        - selector: form#custom_form80 input#req_firstname
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -123,6 +125,12 @@ contact_form:
             - WI
             - WV
             - WY
+        - name: casework
+          selector: select#choose
+          value: No
+          required: true
+          options:
+            No: No
     - click_on:
         - value: Send Email
           selector: "#submitButton"
