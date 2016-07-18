@@ -123,8 +123,10 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"
+    - wait:
+        - value: 5
   success:
     headers:
       status: 200
     body:
-      contains: "the following information"
+      contains: "EMAIL ME - THANK YOU"
