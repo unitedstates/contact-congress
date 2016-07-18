@@ -1,49 +1,74 @@
 bioguide: V000081
 contact_form:
   method: POST
-  action: "/htbin/formproc_za/velazquez/IMA/issue_subscribe_parm.txt&form=/velazquez/IMA/issue_subscribe_verify.shtml&nobase"
+  action: ""
   steps:
-    - visit: "http://velazquez.house.gov/IMA/issue_subscribe.shtml"
+    - visit: "https://velazquez.house.gov/contact"
+    - find:
+        - selector: form#emailForm input#required-zip5
     - fill_in:
-        - name: required-prefix
-          selector: "#lipsum form input[name='required-prefix']"
-          value: $NAME_PREFIX
-          required: true
-        - name: required-first
-          selector: "#lipsum form input[name='required-first']"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "#lipsum form input[name='required-last']"
-          value: $NAME_LAST
-          required: true
-        - name: required-address
-          selector: "#lipsum form input[name='required-address']"
-          value: $ADDRESS_STREET
-          required: true
-        - name: required-city
-          selector: "#lipsum form input[name='required-city']"
-          value: $ADDRESS_CITY
-          required: true
         - name: zip5
-          selector: "#lipsum form input[name='zip5']"
+          selector: input#required-zip5
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#lipsum form input[name='zip4']"
+          selector: input#zip4
           value: $ADDRESS_ZIP4
           required: true
-        - name: required-email
-          selector: "#lipsum form input[name='required-email']"
+    - click_on:
+        - selector: form#emailForm button#submit
+    - find:
+        - selector: form#contactForm input#required-first
+    - fill_in:
+        - name: first
+          selector: input#required-first
+          value: $NAME_FIRST
+          required: true
+        - name: last
+          selector: input#required-last
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: input#required-address
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: input#address2
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: input#required-city
+          value: $ADDRESS_CITY
+          required: true
+        - name: email
+          selector: input#required-valid-email
           value: $EMAIL
           required: true
-        - name: required-message
-          selector: "#lipsum form textarea[name='required-message']"
+        - name: phone
+          selector: input#required-phone
+          value: $PHONE
+          required: true
+        - name: message
+          selector: textarea#required-message
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
-          selector: "#lipsum form select[name='required-issue']"
+        - name: prefix
+          selector: select#required-prefix
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
+        - name: topic
+          selector: select#required-issue
           value: $TOPIC
           required: true
           options:
@@ -88,10 +113,9 @@ contact_form:
             Welfare Issues: WELFARE
             Women’s Issues: WOMEN
     - click_on:
-        - value: Send Email
-          selector: "#lipsum form input[name='submit']"
+        - selector: form#contactForm button#submit
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your correspondence.
+      contains: "your message has been sent."
