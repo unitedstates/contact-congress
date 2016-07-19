@@ -4,6 +4,8 @@ contact_form:
   action: "/contact/#gf_1"
   steps:
     - visit: "https://marchant.house.gov/contact/"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: input_6
           selector: "#input_1_6"
@@ -12,8 +14,10 @@ contact_form:
     - click_on:
         - value: Next
           selector: "#gform_next_button_1_7"
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#input_1_16_3"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: input_16.3
           selector: "#input_1_16_3"
