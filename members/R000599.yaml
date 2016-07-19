@@ -4,18 +4,19 @@ contact_form:
   action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
   steps:
     - visit: "https://ruiz.house.gov/contact/email"
+    - find:
+        - selector: form#emailForm input#required-zip5
     - fill_in:
         - name: zip5
-          selector: "#required-zip5"
+          selector: input#required-zip5
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: input#zip4
           value: $ADDRESS_ZIP4
-          required: false
+          required: true
     - click_on:
-        - value: Next
-          selector: ".btn-success"
+        - selector: form#emailForm button#submit
     - fill_in:
         - name: firstname
           selector: "#required-first"
@@ -88,8 +89,7 @@ contact_form:
             - Welfare
             - Other Issues
     - click_on:
-        - value: Send Email
-          selector: ".btn-success"
+        - selector: button#submit
   success:
     headers:
       status: 200
