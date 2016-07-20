@@ -5,6 +5,10 @@ contact_form:
   steps:
     - visit: "http://www.oregon.gov/gov/Pages/share-your-opinion.aspx"
     - fill_in:
+        - name: Prefix
+          selector: form#aspnetForm input[name='Prefix']
+          value: $NAME_PREFIX
+          required: true
         - name: First Name
           selector: "#aspnetForm input[name='First Name']"
           value: $NAME_FIRST
@@ -38,15 +42,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: Prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Mrs: Mrs
-            Ms: Ms
-            Mr: Mr
-            Dr: Dr
         - name: state
           selector: "#state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
