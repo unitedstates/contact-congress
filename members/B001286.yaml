@@ -1,7 +1,7 @@
 bioguide: B001286
 contact_form:
   method: post
-  action: "/htbin/formproc/email-me.txt%26display%3D/contact/email-me/email-me-thank-you%26nobase%26fpGetVer%3D2"
+  action: ""
   steps:
     - visit: "http://bustos.house.gov/contact"
     - fill_in:
@@ -10,15 +10,15 @@ contact_form:
           value: $NAME_PREFIX
           required: false
         - name: required-first
-          selector: "#required-first"
+          selector: "#first-name"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#required-last"
+          selector: "#last-name"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#required-address"
+          selector: "#address"
           value: $ADDRESS_STREET
           required: true
         - name: address2
@@ -26,11 +26,11 @@ contact_form:
           value: $ADDRESS_STREET_2
           required: false
         - name: required-city
-          selector: "#required-city"
+          selector: "#city"
           value: $ADDRESS_CITY
           required: true
         - name: required-zip5
-          selector: "#required-zip5"
+          selector: "#zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
@@ -38,40 +38,32 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
         - name: required-valid-email
-          selector: "#required-valid-email"
+          selector: "#email"
           value: $EMAIL
           required: true
         - name: required-phone
-          selector: "#required-phone"
+          selector: "#phone"
           value: $PHONE
           required: true
         - name: required-subject
-          selector: "#required-subject"
+          selector: "#subject"
           value: $SUBJECT
           required: true
         - name: required-message
-          selector: "#required-message"
+          selector: "#message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-response
-          selector: "#required-response"
-          value: Yes, please contact me
+        - name: state
+          selector: "#state"
+          value: IL
           required: true
           options:
-            Yes, please contact me: Yes, please contact me
+            IL: IL
     - click_on:
-        - selector: input#subscribe
-    - find:
-        - selector: input#submit
-    - click_on:
-        - value: Send Email
-          selector: input#submit
-    - find:
-        - selector: "h1#page-title"
-          value: "Thank You"
+        - selector: input[value='Send Email']
   success:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: "Thank you for your message. It has been sent."
