@@ -47,6 +47,8 @@ contact_form:
           selector: "#input_1_5"
           value: $MESSAGE
           required: true
+          options:
+            max_length: 5000
     - select:
         - name: input_16.2
           selector: "#input_1_16_2"
@@ -113,11 +115,11 @@ contact_form:
         - value: document.querySelector("#input_1_5").value = document.querySelector("#input_1_5").value.replace(/"/g, '');
     - javascript:
         - value: document.getElementById("gform_submit_button_1").disabled = false;
+    - wait:
+        - value: 2
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_1"
-    - wait:
-        - value: 20
     - find:
         - value: "EMAIL CONFIRMATION"
           selector: "h1"
