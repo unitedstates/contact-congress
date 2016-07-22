@@ -111,6 +111,8 @@ contact_form:
             Other: GEN
     - javascript:
         - value: document.querySelector("#input_1_5").value = document.querySelector("#input_1_5").value.replace(/"/g, '');
+    - javascript:
+        - value: document.getElementById("gform_submit_button_1").disabled = false;
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_1"
