@@ -120,6 +120,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_1"
+    - wait:
+        - value: 20
     - find:
         - value: "EMAIL CONFIRMATION"
           selector: "h1"
