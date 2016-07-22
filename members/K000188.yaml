@@ -13,10 +13,10 @@ contact_form:
           selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
-    - javascript:
-        - value: document.querySelector("#required-message").click();
-    - wait:
-        - value: 5
+    -javascript:
+        - value: document.querySelector("#cboxClose").click();
+    - click_on:
+        - selector: "#submit"
     - find:
         - selector: "#required-first"
     - fill_in:
