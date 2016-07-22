@@ -119,6 +119,13 @@ contact_form:
             - WI
             - WV
             - WY
+        - name: choose
+          selector: "#choose"
+          value: "No"
+          required: true
+          options:
+            - Yes
+            - No
     - javascript:
         - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
