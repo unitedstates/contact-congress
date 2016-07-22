@@ -1,80 +1,63 @@
 bioguide: B001286
 contact_form:
   method: post
-  action: "/htbin/formproc/email-me.txt%26display%3D/contact/email-me/email-me-thank-you%26nobase%26fpGetVer%3D2"
+  action: "/contact/#wpcf7-f4-p5-o1"
   steps:
-    - visit: "http://bustos.house.gov/contact"
+    - visit: "https://bustos.house.gov/contact/"
     - fill_in:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#required-first"
+          required: true
+        - name: first-name
+          selector: "#first-name"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: last-name
+          selector: "#last-name"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: address
+          selector: "#address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: required-city
-          selector: "#required-city"
+        - name: city
+          selector: "#city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: "#zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
           selector: "#zip4"
           value: $ADDRESS_ZIP4
-          required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+          required: false
+        - name: email
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: required-phone
-          selector: "#required-phone"
+        - name: phone
+          selector: "#phone"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
+        - name: subject
+          selector: "#subject"
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: message
+          selector: "#message"
           value: $MESSAGE
           required: true
-    - select:
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
-          required: true
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: Email.Optin
     - javascript:
-        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+        - value: document.querySelector("#message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: input.wpcf7-form-control.wpcf7-submit.btn.btn-blue
     - find:
-        - selector: "h1#page-title"
-          value: "Thank You"
+        - selector: ".wpcf7-response-output.wpcf7-display-none.wpcf7-mail-sent-ok"
   success:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: Thank you for your message. It has been sent.
