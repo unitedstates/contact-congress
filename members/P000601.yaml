@@ -41,7 +41,7 @@ contact_form:
           required: true
         - name: ctl00$ctl13$Phone
           selector: "#ctl00_ctl13_Phone"
-          value: $PHONE
+          value: $PHONE_PARENTHESES
           required: true
         - name: ctl00$ctl13$Email
           selector: "#ctl00_ctl13_Email"
@@ -55,14 +55,6 @@ contact_form:
           selector: "#ctl00_ctl13_Body"
           value: $MESSAGE
           required: true
-        - name: ctl00$ctl13$CampaignID
-          selector: "#ctl00_ctl13_CampaignID"
-          value: $CAMPAIGN_UUID
-          required: false
-        - name: ctl00$ctl13$CampaignInfo
-          selector: "#ctl00_ctl13_CampaignInfo"
-          value: $CAMPAIGN_UUID
-          required: false
     - select:
         - name: ctl00$ctl13$PrefixList
           selector: "#ctl00_ctl13_PrefixList"
