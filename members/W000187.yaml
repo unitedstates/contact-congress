@@ -15,7 +15,7 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: ".btn-success"
+          selector: form#emailForm button#submit
     - find:
         - selector: "#required-first"
     - fill_in:
@@ -52,7 +52,7 @@ contact_form:
           selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
-          options: 
+          options:
             Ms.: Ms.
             Miss: Miss
             Mrs.: Mrs.
@@ -114,8 +114,7 @@ contact_form:
             "Yes, please contact me": Y
             "No, I wanted to voice my opinion": N
     - click_on:
-        - value: Send Email to Representative Waters
-          selector: ".btn-success"
+        - selector: form#contactForm button#submit
     - find:
         - selector: ".data"
   success:
