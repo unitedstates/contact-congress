@@ -115,12 +115,8 @@ contact_form:
             "No, I wanted to voice my opinion": "N"
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
-    - javascript:
-        - value: "document.querySelector('form#contactForm').submit();"
-    - wait:
-        - value: 3
-    - find:
-        - selector: "#block-system-main span.data"
+    - click_on:
+        - selector: "#submit"
   success:
     headers:
       status: 200
