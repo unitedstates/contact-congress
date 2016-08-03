@@ -1,7 +1,7 @@
 bioguide: MIL000002
 contact_form:
   method: post
-  action: 
+  action:
   steps:
     - visit: "http://senatedems.com/johnson/contact/"
     - fill_in:
@@ -14,25 +14,25 @@ contact_form:
           value: $NAME_LAST
           required: true
         - name: email
-          selector: "#email" 
+          selector: "#email"
           value: $EMAIL
           required: true
         - name: address
-          selector: "#address" 
+          selector: "#address"
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: "#city" 
+          selector: "#city"
           value: $ADDRESS_CITY
           required: true
         - name: zip
-          selector: "#zip" 
+          selector: "#zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: phone
           selector: "#phone"
           value: $PHONE
-          required: false
+          required: true
         - name: subject
           selector: "#subject"
           value: $SUBJECT
