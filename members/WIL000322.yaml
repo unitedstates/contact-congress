@@ -1,12 +1,12 @@
 bioguide: WIL000322
 contact_form:
   method: post
-  action: Contact.aspx
+  action: ""
   steps:
-    - visit: "http://legis.wisconsin.gov/senate/erpenbach/Pages/Contact.aspx"
+    - visit: "http://legis.wisconsin.gov/senate/27/erpenbach/contact/"
     - fill_in:
         - name: email
-          selector: "#legis-cf-email"
+          selector: div.email input
           value: $EMAIL
           required: true
         - name: name
