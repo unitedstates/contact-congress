@@ -102,13 +102,14 @@ contact_form:
             - Veterans
             - War on Terrorism
             - Other
-    - check:
-        - name: input_17
-          selector: "#choice_17_1"
-          value: "No"
+    - find:
+        - selector: "#choice_17_1"
     - click_on:
-        - value: Submit
-          selector: "#gform_submit_button_1"
+        - selector: "#choice_17_1"
+    - find:
+        - selector: "#gform_submit_button_1"
+    - click_on:
+        - selector: "#gform_submit_button_1"
   success:
     headers:
       status: 200
