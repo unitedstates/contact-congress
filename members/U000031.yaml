@@ -55,29 +55,6 @@ contact_form:
           selector: "form.zipform[name='contact'] textarea[name='required-message']"
           value: $MESSAGE
           required: true
-    - select:
-        - name: required-issue
-          selector: "form.zipform[name='contact'] select[name='required-issue']"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: AG
-            Defense/National Security: DEF
-            Economy/Business: EB
-            Education: ED
-            Energy/Gas Prices: EN
-            Environment: EI
-            Ethics: GV
-            Foreign Policy: IR
-            Healthcare: HE
-            Immigration: IM
-            Iraq/Afghanistan: IR
-            Job Creation: EB
-            Pro-Family/Protecting our Children: SO
-            Social Security/Medicare: SS
-            Taxes/Fiscal Responsibility: TX
-            Telecommunications: CT
-            Veterans Affairs: VA
     - click_on:
         - value: Send Email
           selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
