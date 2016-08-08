@@ -19,10 +19,6 @@ contact_form:
     - find:
         - selector: "#contactForm"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -43,8 +39,12 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
-          selector: "#contactForm input[name='required-valid-email']"
+        - name: email
+          selector: form#contactForm input#required-valid-email
+          value: $EMAIL
+          required: true
+        - name: email2
+          selector: form#contactForm input#required-valid-email2
           value: $EMAIL
           required: true
         - name: phone
@@ -60,6 +60,21 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: select#honorific-prefix
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Mr. and Mrs.: Mr. and Mrs.
+            Mr. and Mr.: Mr. and Mr.
+            Mrs. and Mrs.: Mrs. and Mrs.
+            Miss: Miss
+            Dr.: Dr.
+            Dr. and Mr: Dr. and Mr
+            Dr. and Mrs.: Dr. and Mrs.
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -99,9 +114,14 @@ contact_form:
             Veterans: VET
             "Women's Issues": WMN
             Other Issues: OTHER
+    - find:
+        - selector: input#subscribe_2
     - click_on:
-        - value: Send Email
-          selector: "#submit"
+        - selector: input#subscribe_2
+    - find:
+        - selector: form#contactForm input#submit
+    - click_on:
+        - selector: form#contactForm input#submit
     - find:
         - selector: "h1#page-title-no-line"
           value: "Thank You"
