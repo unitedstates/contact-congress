@@ -110,6 +110,9 @@ contact_form:
             I would like a response: "Y"
     - recaptcha:
         - value: true
+    - click_on:
+        - value: Submit
+          selector: input.btn.btn-primary
   success:
     body:
       contains: We have received your message
