@@ -108,8 +108,8 @@ contact_form:
           options:
             I do not need a response: "N"
             I would like a response: "Y"
-    - wait:
-        - value: 20
+    - recaptcha:
+        - value: true
   success:
     body:
       contains: We have received your message
