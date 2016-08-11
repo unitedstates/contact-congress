@@ -41,6 +41,12 @@ contact_form:
           selector: "#messagebody"
           value: $MESSAGE
           required: true
+        - name: "g-recaptcha-response"
+          captcha_selector: ".g-recaptcha iframe"
+          value: "$CAPTCHA_SOLUTION"
+          required: true
+          options:
+            google_recaptcha: true
     - select:
         - name: input_35B67D45-0EE9-695F-CF75-CB73E9531F2A
           selector: "#input-35B67D45-0EE9-695F-CF75-CB73E9531F2A"
@@ -233,6 +239,9 @@ contact_form:
         - value: 2
     - javascript:
         - value: document.querySelector("#messagebody").value = document.querySelector("#messagebody").value.replace(/"/g, '');
+    - click_on:
+        - value: Submit
+          selector: input.btn
     - find:
         - value: "Thank you for submitting your request. You should hear from the office soon."
           selector: "p"
