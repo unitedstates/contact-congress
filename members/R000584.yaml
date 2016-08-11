@@ -39,12 +39,6 @@ contact_form:
           selector: "#field_B3546A94-6FC9-4491-B49E-491AB436132C"
           value: $MESSAGE
           required: true
-        - name: "g-recaptcha-response"
-          captcha_selector: ".g-recaptcha iframe"
-          value: "$CAPTCHA_SOLUTION"
-          required: true
-          options:
-            google_recaptcha: true
     - select:
         - name: field_0CB45ECA-A067-4502-A126-3BF34074A15A
           selector: "#field_0CB45ECA-A067-4502-A126-3BF34074A15A"
@@ -118,6 +112,8 @@ contact_form:
             - Other
     - javascript:
         - value: document.querySelector("#field_B3546A94-6FC9-4491-B49E-491AB436132C").value = document.querySelector("#field_B3546A94-6FC9-4491-B49E-491AB436132C").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

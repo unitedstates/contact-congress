@@ -156,7 +156,7 @@ fields with the variable `$CAPTCHA_SOLUTION` as the value. These fields should
 also describe a `captcha_selector` key for retrieving the captcha image and
 returning it to a solver of the implementer's choosing.
 
-Google's new ReCAPTCHAs have special syntax. In this case, the `captcha_selctor` should be the iframe containing the ReCAPTCHA. The `google_recaptcha` option should be set to true as well. See [here](https://github.com/unitedstates/contact-congress/blob/master/members/S001197.yaml) for an example.
+Google's new ReCAPTCHAs have a special command, `recaptcha` with `value: true` under it. This command should be placed directly before the final form submission step, after all info has been filled in. ReCAPTCHAs are run offline after submission by administrators. See [here](https://github.com/unitedstates/contact-congress/blob/master/members/S001197.yaml) for an example and [here](https://github.com/EFForg/phantom-of-the-capitol) for how it works with Phantom of the Capitol.
 
 ### check/uncheck/choose
 

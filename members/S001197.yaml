@@ -37,12 +37,6 @@ contact_form:
           selector: "#field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4"
           value: $MESSAGE
           required: true
-        - name: "g-recaptcha-response"
-          captcha_selector: ".g-recaptcha iframe"
-          value: "$CAPTCHA_SOLUTION"
-          required: true
-          options:
-            google_recaptcha: true
     - select:
         - name: field_2647C301-6F8A-4A2F-A7AD-6AB2BA694E46
           selector: "#field_2647C301-6F8A-4A2F-A7AD-6AB2BA694E46"
@@ -121,6 +115,8 @@ contact_form:
             - Veterans
     - javascript:
         - value: document.querySelector("#field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4").value = document.querySelector("#field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
