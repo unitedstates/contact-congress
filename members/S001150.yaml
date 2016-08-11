@@ -245,6 +245,8 @@ contact_form:
         - selector: "label[for='subscribe']"
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "input[type='submit'][value='Submit']"
