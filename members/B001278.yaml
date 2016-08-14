@@ -16,13 +16,7 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#submit"
-    - find:
-        - selector: "#contactForm"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -35,10 +29,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -47,10 +37,10 @@ contact_form:
           selector: "#contactForm input[name='required-valid-email']"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
+        - name: required-valid-email2
+          selector: "#required-valid-email2"
+          value: $EMAIL
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -60,6 +50,43 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: honorific-prefix
+          selector: "#honorific-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "": " "
+            Mr.: Mr
+            Ms.: Ms
+            Mrs.: Mrs.
+            Mr. and Mrs.: Mr. and Mrs.
+            Mr. and Mr.: Mr. and Mr.
+            Mrs. and Mrs.: Mrs. and Mrs.
+            Miss: Miss
+            Dr.: Dr.
+            Dr. and Mr: Dr. and Mr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Admiral: Admiral
+            Captain: Captain
+            Chief Master Sergeant: Chief Master Sergeant
+            Colonel: Colonel
+            Commander: Commander
+            Corporal: Corporal
+            Dean: Dean
+            Father: Father
+            General: General
+            Lieutenant: Lieutenant
+            Lieutenant Colonel: Lieutenant Colonel
+            Major: Major
+            Master Sergeant: Master Sergeant
+            Pastor: Pastor
+            Professor: Professor
+            Rabbi: Rabbi
+            Reverend: Reverend
+            Second Lieutenant: Second Lieutenant
+            Sergeant: Sergeant
+            Sergeant Major: Sergeant Major
+            The Honorable: The Honorable
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -68,12 +95,12 @@ contact_form:
             Agriculture: AGR
             Animals: ANI
             Arts and Humanities: ART
-            Badger Army Ammunition Plant: BAAP
             Banking and Finance: BNK
             Budget and Economy: BUD
             Campaign Finance Reform: CFR
+            Civil Rights: CVL
             Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
+            Consumer Protection: CONSUMER PROTECTION
             Defense and Military: DEF
             Education: EDU
             Energy: ENE
@@ -94,6 +121,7 @@ contact_form:
             Social Services: SOC.SERVICES
             Taxes: TAX
             Telecommunications: TEL
+            "Tours – Washington, DC": TOUR
             Transportation: TRAN
             Trade: TRADE
             Veterans: VET
@@ -104,11 +132,12 @@ contact_form:
     - click_on:
         - value: Send Email
           selector: "#submit"
+    - wait:
+        - value: 3
     - find:
-        - selector: "h1#page-title-no-line"
-          value: "Thank You"
+        - selector: "#node-139 > div > div > div > div > p:nth-child(3) > span.data"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank You
