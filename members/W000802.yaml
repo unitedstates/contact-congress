@@ -1,60 +1,60 @@
 bioguide: W000802
 contact_form:
   method: POST
-  action: http://www.whitehouse.senate.gov/contact
+  action: ""
   steps:
-    - visit: http://www.whitehouse.senate.gov/contact
+    - visit: "https://www.whitehouse.senate.gov/contact/email-sheldon"
+    - wait:
+      - value: 1
     - fill_in:
-      - name: fname
-        selector: "#contactfname"
-        value: "$NAME_FIRST"
+      - name: first
+        selector: input#input-BA74A312-4040-F985-52CD-FBFBC7F20F79
+        value: $NAME_FIRST
         required: true
-      - name: lname
-        selector: "#contactlname"
-        value: "$NAME_LAST"
+      - name: last
+        selector: input#input-BA74A346-4040-F985-52CD-483856F835FA
+        value: $NAME_LAST
         required: true
-      - name: mailing_streetAddress1
-        selector: "#mailing_streetAddress1"
-        value: "$ADDRESS_STREET"
+      - name: street
+        selector: input#input-BA9181F5-4040-F985-52CD-D7BB0D3341A1
+        value: $ADDRESS_STREET
         required: true
-      - name: mailing_streetAddress2
-        selector: "#mailing_streetAddress2"
-        value: "$ADDRESS_STREET_2"
-      - name: mailing_city
-        selector: "#mailing_city"
-        value: "$ADDRESS_CITY"
+      - name: street2
+        selector: input#input-BA91821A-4040-F985-52CD-04BF0889FE45
+        value: $ADDRESS_STREET_2
+        required: false
+      - name: city
+        selector: input#input-BA91824A-4040-F985-52CD-B89C6257E587
+        value: $ADDRESS_CITY
         required: true
-      - name: mailing_zipCode
-        selector: "#mailing_zipCode"
-        value: "$ADDRESS_ZIP5"
-        required: true
-      - name: phone_number
-        selector: "#phone_number"
-        value: "$PHONE"
+      - name: zip5
+        selector: input#input-BA91828C-4040-F985-52CD-9A1353F3777D
+        value: $ADDRESS_ZIP5
         required: true
       - name: email
-        selector: "#email_address"
-        value: "$EMAIL"
+        selector: input#email
+        value: $EMAIL
         required: true
       - name: verify_email
-        selector: "#verify_email"
-        value: "$EMAIL"
+        selector: input#input-BA923648-4040-F985-52CD-00040397CA33
+        value: $EMAIL
+        required: true
+      - name: phone
+        selector: input#input-BA92CAF6-4040-F985-52CD-121FCA966D3A
+        value: $PHONE
         required: true
       - name: subject
-        selector: "#subject"
-        value: "$SUBJECT"
+        selector: input#input-BA954B7C-4040-F985-52CD-CB3A0A43C0DA
+        value: $SUBJECT
         required: true
-      - name: comments
-        selector: "#comments"
-        value: "$MESSAGE"
+      - name: message
+        selector: textarea#input-BA957EB0-4040-F985-52CD-CF349BA209E1
+        value: $MESSAGE
         required: true
-      - name: company
-        selector: "#company"
-        value: ""
     - select:
-      - name: salutation
-        selector: "#salutation"
-        value: "$NAME_PREFIX"
+      - name: prefix
+        selector: select#input-BA74A203-4040-F985-52CD-D9912DECAEFB
+        value: $NAME_PREFIX
         required: true
         options:
           "Mr.": "Mr."
@@ -72,73 +72,18 @@ contact_form:
           "Sister": "Sister"
           "Rabbi": "Rabbi"
           "Reverend": "Reverend"
-          "Fleet Admiral": "Fleet Admiral"
-          "Admiral": "Admiral"
-          "Vice Admiral": "Vice Admiral"
-          "Rear Admiral (upper half)": "Rear Admiral (upper half)"
-          "Rear Admiral (lower half)": "Rear Admiral (lower half)"
-          "Captain": "Captain"
-          "Commander": "Commander"
-          "Lieutenant Commander": "Lieutenant Commander"
-          "Lieutenant": "Lieutenant"
-          "Lieutenant, Junior Grade": "Lieutenant, Junior Grade"
-          "Ensign": "Ensign"
-          "Master Chief Petty Officer of the Navy": "Master Chief Petty Officer of the Navy"
-          "Master Chief Petty Officer": "Master Chief Petty Officer"
-          "Senior Chief Petty Officer": "Senior Chief Petty Officer"
-          "Chief Petty Officer": "Chief Petty Officer"
-          "Petty Officer First Class": "Petty Officer First Class"
-          "Petty Officer Second Class": "Petty Officer Second Class"
-          "Petty Officer Third Class": "Petty Officer Third Class"
-          "Seaman": "Seaman"
-          "Seaman Apprentice": "Seaman Apprentice"
-          "Seaman Recruit": "Seaman Recruit"
-          "Chief Warrant Officer": "Chief Warrant Officer"
-          "Warrant Officer": "Warrant Officer"
-          "Sgt Major Of The Corps": "Sgt Major Of The Corps"
-          "Sergeant Major": "Sergeant Major"
-          "Master Gunnery Sgt": "Master Gunnery Sgt"
-          "First Sergeant": "First Sergeant"
-          "Master Sergeant": "Master Sergeant"
-          "Gunnery Sergeant": "Gunnery Sergeant"
-          "Staff Sergeant": "Staff Sergeant"
-          "Sergeant": "Sergeant"
-          "Corporal": "Corporal"
-          "Lance Corporal": "Lance Corporal"
-          "Private First Class": "Private First Class"
-          "Private": "Private"
-          "General of the Air Force": "General of the Air Force"
-          "General": "General"
-          "Lieutenant General": "Lieutenant General"
-          "Major General": "Major General"
-          "Brigadier General": "Brigadier General"
-          "Colonel": "Colonel"
-          "Lieutenant Colonel": "Lieutenant Colonel"
-          "Major": "Major"
-          "First Lieutenant": "First Lieutenant"
-          "Second Lieutenant": "Second Lieutenant"
-          "Chief Master Sergeant of the Air Force": "Chief Master Sergeant of the Air Force"
-          "Command  Chief Master Sergeant": "Command  Chief Master Sergeant"
-          "Chief Master Sergeant": "Chief Master Sergeant"
-          "Senior Master Sergeant": "Senior Master Sergeant"
-          "Technical Sergeant": "Technical Sergeant"
-          "Senior Airman": "Senior Airman"
-          "Airman First Class": "Airman First Class"
-          "Airman": "Airman"
-          "Brother": "Brother"
       - name: state
-        selector: "#state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+        selector: select#input-BA91826A-4040-F985-52CD-419255C3C6C3
+        value: RI
         required: true
-        options: US_STATES_AND_TERRITORIES
+        options:
+          RI: RI
     - click_on:
-      - value: Submit
-        selector: "#side-search-btn"
-    - find:
-      - selector: "h1"
-        value: "THANK YOU"
+      - selector: form#BA386D29-4040-F985-52CD-7B7B5096213C div.controls input.btn
+    - wait:
+      - value: 4
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for reaching out to my office."
+      contains: "Your message has been received by my office"
