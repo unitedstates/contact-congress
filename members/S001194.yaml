@@ -5,63 +5,18 @@ contact_form:
   steps:
     - visit: "http://www.schatz.senate.gov/contact"
     - find:
-        - selector: form#contactForm select#subject
+        - selector: form#contactForm select#actions
     - select:
-        - name: subject
-          selector: select#subject
-          value: $TOPIC
+        - name: action
+          selector: select#actions
+          value: Share your opinion or comments on bills or other issues
           required: true
           options:
-            - Agriculture
-            - Animal Welfare
-            - Army Corps/Public Works/Infrastructure
-            - Arts and Humanities
-            - Asians and Pacific Islanders
-            - Banking
-            - Budget
-            - Census
-            - Children/Family/Adoption
-            - Civil Rights
-            - Consumer Affairs
-            - Defense
-            - Education
-            - Elections and Campaign Finance
-            - Energy
-            - Environment
-            - Federal Workforce
-            - Flag Requests
-            - Foreign Relations
-            - Governmental Affairs
-            - Gun Control
-            - Health
-            - Homeland Security and Intelligence
-            - Help with a Federal Agency
-            - Housing
-            - Immigration
-            - Judiciary
-            - Labor
-            - Meeting Request
-            - Native Americans and Indigenous Peoples
-            - Native Hawaiians
-            - Natural Resources
-            - New Parks
-            - Oceans and Fisheries
-            - Postal Service
-            - Science and Space
-            - Seniors
-            - Small Business and Economic Development
-            - Social Security
-            - Tax
-            - Telecommunications/Internet
-            - Tourism
-            - Tour Requests
-            - Trade
-            - Transportation
-            - Veterans
-            - Welfare
-            - "Women's Issues"
+            Share your opinion or comments on bills or other issues: Share your opinion or comments on bills or other issues
+    - click_on:
+        - selector: abbr
     - wait:
-        - value: 2
+        - value: 4
     - find:
         - selector: form#contactForm input#fname
     - fill_in:
@@ -184,7 +139,6 @@ contact_form:
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            "--": "null"
             AK: AK
             AL: AL
             AR: AR
@@ -236,15 +190,66 @@ contact_form:
             WI: WI
             WV: WV
             WY: WY
-    - check:
-        - name: response
-          selector: "#response_y"
-          value: "Y"
+        - name: subject
+          selector: select#subject
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture
+            - Animal Welfare
+            - Army Corps/Public Works/Infrastructure
+            - Arts and Humanities
+            - Asians and Pacific Islanders
+            - Banking
+            - Budget
+            - Census
+            - Children/Family/Adoption
+            - Civil Rights
+            - Consumer Affairs
+            - Defense
+            - Education
+            - Elections and Campaign Finance
+            - Energy
+            - Environment
+            - Federal Workforce
+            - Flag Requests
+            - Foreign Relations
+            - Governmental Affairs
+            - Gun Control
+            - Health
+            - Homeland Security and Intelligence
+            - Help with a Federal Agency
+            - Housing
+            - Immigration
+            - Judiciary
+            - Labor
+            - Meeting Request
+            - Native Americans and Indigenous Peoples
+            - Native Hawaiians
+            - Natural Resources
+            - New Parks
+            - Oceans and Fisheries
+            - Postal Service
+            - Science and Space
+            - Seniors
+            - Small Business and Economic Development
+            - Social Security
+            - Tax
+            - Telecommunications/Internet
+            - Tourism
+            - Tour Requests
+            - Trade
+            - Transportation
+            - Veterans
+            - Welfare
+            - "Women's Issues"
+    - click_on:
+        - selector: input#response_y
     - wait:
         - value: 1
     - click_on:
         - value: Send
-          selector: "#side-search-btn"
+          selector: input#side-search-btn
     - find:
         - selector: "h2"
           value: "Thank You"
