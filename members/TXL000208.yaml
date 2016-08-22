@@ -9,6 +9,10 @@ contact_form:
           selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #sender"
           value: $EMAIL
           required: true
+        - name: prefix
+          selector: form.memForm input#prefix
+          value: $NAME_PREFIX
+          required: true
         - name: firstname
           selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #fname"
           value: $NAME_FIRST
