@@ -1,9 +1,11 @@
 bioguide: G000359
 contact_form:
   method: POST
-  action: http://www.lgraham.senate.gov/public/index.cfm?p=contact-form
+  action: ""
   steps:
-    - visit: http://www.lgraham.senate.gov/public/index.cfm?p=contact-form
+    - visit: "http://www.lgraham.senate.gov/public/index.cfm?p=contact-form"
+    - find:
+      - selector: form#form_681E5539-EF3E-41C6-A4D7-9DD228D90AA6 input#field_BC705BBD-A0D1-4D9B-A1FD-0A9E63162CE8
     - fill_in:
       - name: "field_BC705BBD-A0D1-4D9B-A1FD-0A9E63162CE8"
         selector: "#field_BC705BBD-A0D1-4D9B-A1FD-0A9E63162CE8"
@@ -24,6 +26,10 @@ contact_form:
       - name: "field_1891FB67-76B5-4874-971A-1464BF40D4AD"
         selector: "#field_1891FB67-76B5-4874-971A-1464BF40D4AD"
         value: $ADDRESS_ZIP5
+        required: true
+      - name: phone
+        selector: input#field_ABF591AC-4D97-4E60-877F-3FFA6422DBA0
+        value: 2223334444
         required: true
       - name: "field_3A4385B4-BCDB-41EC-896F-5E07E51142DD"
         selector: "#field_3A4385B4-BCDB-41EC-896F-5E07E51142DD"
