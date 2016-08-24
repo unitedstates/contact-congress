@@ -246,6 +246,27 @@ contact_form:
             "Women's Rights": "WOM"
             "Welfare": "WEL"
             "Other Issues": "OTHER"
+        - name: "input_E35107F3-5056-BE32-812B-8D063CF79D28"
+          selector: "#veterantoggle"
+          value: "No"
+          required: true
+          options:
+            Yes: "Yes"
+            No: "No"
+        - name: "input_0E2F2EE3-5056-BE32-8187-A313AAE0FC37"
+          selector: "#bilingual-toggle"
+          value: "No"
+          required: true
+          options:
+            Yes: "Yes"
+            No: "No"
+        - name: "input_71F781C7-5056-BE32-81AA-DA78B4CB76F6"
+          selector: "#input-71F781C7-5056-BE32-81AA-DA78B4CB76F6"
+          value: "N"
+          required: true
+          options:
+            Yes: "EMAIL.OPTIN"
+            No: "N"
     - javascript:
         - value: document.querySelector("#input-36466B2D-9324-A3EC-8F49-33D7F83F9C08").value = document.querySelector("#input-36466B2D-9324-A3EC-8F49-33D7F83F9C08").value.replace(/"/g, '');
     - click_on:
