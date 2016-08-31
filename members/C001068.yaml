@@ -16,7 +16,8 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - selector: "#submit"
+        - 
+          selector: "#submit"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
@@ -78,7 +79,7 @@ contact_form:
             Congress and Elections: CONG
             Defense and Military: DEF
             Economy: ECON
-            Education: EDU
+            Education: EDU.EDU
             Energy: ENE
             Environment: ENV
             Federal Employees: FED
@@ -119,7 +120,12 @@ contact_form:
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - selector: "#submit"
+        - 
+          selector: "#submit"
+    - wait:
+        - value: 3
+    - find:
+        - selector: "#block-system-main p > span.data"
   success:
     headers:
       status: 200
