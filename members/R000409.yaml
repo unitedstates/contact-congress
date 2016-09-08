@@ -74,28 +74,28 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-          Agriculture: AG
-          Crime: CRIM
-          Education: ED
-          Energy: EN
-          Environment: ENV
-          Healthcare: HE
-          Homeland Security: HLS
-          Immigration: IM
-          Veterans: VET
-          Trade: TRD
-          Taxes: TAX
-          Telecommunications: TELE
-          Social Security: SS
-          Retirement: RET
-          Foreign Relations: FR
-          Family Values: FAMILY
-          Transportation: TRAN
-          Workforce: WRKF
-          Financial Services: FIN
-          Housing: HUD
-          Defense: DEF
-          Other: MISC
+            Agriculture: AG
+            Crime: CRIM
+            Education: ED
+            Energy: EN
+            Environment: ENV
+            Healthcare: HE
+            Homeland Security: HLS
+            Immigration: IM
+            Veterans: VET
+            Trade: TRD
+            Taxes: TAX
+            Telecommunications: TELE
+            Social Security: SS
+            Retirement: RET
+            Foreign Relations: FR
+            Family Values: FAMILY
+            Transportation: TRAN
+            Workforce: WRKF
+            Financial Services: FIN
+            Housing: HUD
+            Defense: DEF
+            Other: MISC
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
