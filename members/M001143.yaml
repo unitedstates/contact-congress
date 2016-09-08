@@ -5,10 +5,6 @@ contact_form:
   steps:
     - visit: "https://mccollum.house.gov/contact-me/email-me"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -25,10 +21,6 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
         - name: required-zip5
           selector: "#required-zip5"
           value: $ADDRESS_ZIP5
@@ -41,10 +33,6 @@ contact_form:
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -76,7 +64,7 @@ contact_form:
             Guns: GUN
             Health: HE
             Housing and Urban Development: HUD
-            Immigration: IM
+            Immigration: IMM
             Judiciary: JUD
             Labor: LAB
             LGBT: LGBT
@@ -101,11 +89,14 @@ contact_form:
             "No": "N"
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
-    - click_on:
-        - value: Send Email
-          selector: "#submit"
+    - javascript:
+        - value: "document.getElementById('contactForm').submit();"
+    - wait:
+        - value: 3
+    - find:
+        - selector: "#node-139 > div > div > div > div > p:nth-child(2) > span.data"
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: Thank You
