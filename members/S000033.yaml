@@ -1,9 +1,9 @@
 bioguide: S000033
 contact_form:
   method: POST
-  action: http://www.sanders.senate.gov/contact/comment
+  action: ""
   steps:
-    - visit: http://www.sanders.senate.gov/contact/comment
+    - visit: "http://www.sanders.senate.gov/contact/comment"
     - wait:
       - value: 2
     - click_on:
@@ -173,11 +173,6 @@ contact_form:
           "Senior Airman": "Senior Airman"
           "Airman First Class": "Airman First Class"
           "Airman": "Airman"
-      - name: state
-        selector: "#state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: true
-        options: US_STATES_AND_TERRITORIES
     - check:
       - name: response
         selector: "#response_y"

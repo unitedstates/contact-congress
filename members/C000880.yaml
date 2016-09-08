@@ -3,7 +3,7 @@ contact_form:
   method: POST
   action: http://www.crapo.senate.gov/webformActionIAV1.cfm
   steps:
-    - visit: http://www.crapo.senate.gov/contact/email.cfm
+    - visit: "http://www.crapo.senate.gov/contact/email.cfm"
     - find:
       - selector: div.modal-header button.close
     - click_on:
@@ -79,11 +79,6 @@ contact_form:
           " The Honorable ": "The Honorable"
           " Representative ": "Representative"
           " Senator ": "Senator"
-      - name: State
-        selector: ".required[name='State']"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: true
-        options: US_STATES_AND_TERRITORIES
       - name: Subject
         selector: "#Subject"
         value: $TOPIC

@@ -3,7 +3,7 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: https://www.blunt.senate.gov/public/index.cfm/contact-roy
+    - visit: "https://www.blunt.senate.gov/public/index.cfm/contact-roy"
     - fill_in:
       - name: prefix
         selector: input#field_4F83841C-3472-434F-9981-A5C91D68B253
@@ -48,11 +48,6 @@ contact_form:
         options:
           max_length: 1950
     - select:
-      - name: state
-        selector: select#field_30614977-CEE4-4A77-BA62-10169D06445B
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: true
-        options: US_STATES_AND_TERRITORIES
       - name: topic
         selector: select#field_FF576494-50CE-42FC-AFF0-A14F510DC4D8
         value: $TOPIC

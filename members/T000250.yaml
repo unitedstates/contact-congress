@@ -1,9 +1,9 @@
 bioguide: T000250
 contact_form:
   method: POST
-  action: http://www.thune.senate.gov/public/index.cfm/contact
+  action: ""
   steps:
-    - visit: http://www.thune.senate.gov/public/index.cfm/contact
+    - visit: "http://www.thune.senate.gov/public/index.cfm/contact"
     - fill_in:
       - name: prefix
         selector: input#field_1315AE35-232E-4F1B-B9E9-5338D7FA2C7A
@@ -46,11 +46,6 @@ contact_form:
         value: "$MESSAGE"
         required: true
     - select:
-      - name: states
-        selector: select#field_FDFC66C1-E24B-455A-B36E-5F3803372580
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: true
-        options: US_STATES_AND_TERRITORIES
       - name: topic
         selector: select#field_6F8F9AF6-B16C-4ADD-9B4F-88F7A910C63F
         value: "$TOPIC"
