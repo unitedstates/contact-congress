@@ -3,7 +3,7 @@ contact_form:
   method: POST
   action: http://www.inhofe.senate.gov/contact
   steps:
-    - visit: http://www.inhofe.senate.gov/contact
+    - visit: "http://www.inhofe.senate.gov/contact"
     - select:
       - name: subject
         selector: "#subject"
@@ -146,11 +146,6 @@ contact_form:
           "Senior Airman": "Senior Airman"
           "Airman First Class": "Airman First Class"
           "Airman": "Airman"
-      - name: mailing_state
-        selector: "#mailing_state"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: true
-        options: US_STATES
     - wait:
       - value: 1
     - click_on:
