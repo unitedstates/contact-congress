@@ -4,6 +4,10 @@ contact_form:
   action: ""
   steps:
     - visit: "http://www.cornyn.senate.gov/contact"
+    - find:
+      - selector: input#edit-submitted-please-select-one-1
+    - click_on:
+      - selector: input#edit-submitted-please-select-one-1
     - fill_in:
       - name: Prefix
         selector: input#edit-submitted-prefix-optional
@@ -45,8 +49,6 @@ contact_form:
         selector: textarea#edit-submitted-message
         value: $MESSAGE
         required: true
-    - choose:
-      - selector: input#edit-submitted-please-select-one-1
     - find:
       - selector: select#edit-submitted-issue
     - select:
