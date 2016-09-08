@@ -244,7 +244,7 @@ contact_form:
     - click_on:
         - selector: "label[for='subscribe']"
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '').replace('(','[').replace(')',']');
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '').replace(/\(/g,'[').replace(/\)/g,']');
     - recaptcha:
         - value: true
     - click_on:
