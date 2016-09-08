@@ -164,9 +164,10 @@ contact_form:
           value: "true"
     - javascript:
         - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
-    - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+    - javascript:
+        - value: "document.getElementById('custom_form42').submit();"
+    - wait:
+        - value: 3
     - find:
         - selector: "h1"
           value: "THANK YOU"
@@ -175,4 +176,3 @@ contact_form:
       status: 200
     body:
       contains: Your message has been successfully submitted.
- 
