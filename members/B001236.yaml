@@ -3,7 +3,7 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: http://www.boozman.senate.gov/public/index.cfm/e-mail-me
+    - visit: "http://www.boozman.senate.gov/public/index.cfm/e-mail-me"
     - fill_in:
       - name: fname
         selector: "#field_AB4DFB2A-39F2-4EA3-AD48-98FF4203C4EB"
@@ -56,11 +56,6 @@ contact_form:
           "Reverend": "Reverend"
           "Sister": "Sister"
           "Pastor": "Pastor"
-      - name: state
-        selector: "#field_A0A55B05-FE7B-4A1D-BA45-C5CE1FF522E5"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
-        required: true
-        options: US_STATES_AND_TERRITORIES
     - click_on:
       - value: Submit
         selector: "#submit_ED3BC819-9B16-4EE9-B32C-0B529718DF3F"
