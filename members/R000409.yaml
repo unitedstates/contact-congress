@@ -1,7 +1,7 @@
 bioguide: R000409
 contact_form:
   method: post
-  action: the url
+  action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
   steps:
     - visit: "https://rohrabacher.house.gov/contact/email-me"
     - javascript:
@@ -74,29 +74,28 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Agriculture: Webag
-            Crime: Webcrime
-            Education: Webbed
-            Energy: Weben
-            Environment: Webenv
-            Healthcare: Webhea
-            Homeland Security: Webhomsec
-            Immigration: Webimm
-            Veterans: Webvet
-            Trade: Webtrade
-            Taxes: Webtax
-            Telecommunications: Webtele
-            Social Security: Websocsec
-            Retirement: Webret
-            Foreign Relations: Webfor
-            Family Values: Webfam
-            Transportation: Webtran
-            Workforce: Webwork
-            Financial Services: Webfin
-            Housing: Webhou
-            Defense: Webdef
-            Request for Assistance: Webreq
-            Other: Weboth
+          Agriculture: AG
+          Crime: CRIM
+          Education: ED
+          Energy: EN
+          Environment: ENV
+          Healthcare: HE
+          Homeland Security: HLS
+          Immigration: IM
+          Veterans: VET
+          Trade: TRD
+          Taxes: TAX
+          Telecommunications: TELE
+          Social Security: SS
+          Retirement: RET
+          Foreign Relations: FR
+          Family Values: FAMILY
+          Transportation: TRAN
+          Workforce: WRKF
+          Financial Services: FIN
+          Housing: HUD
+          Defense: DEF
+          Other: MISC
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
