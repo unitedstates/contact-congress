@@ -1,7 +1,7 @@
 bioguide: N000147
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
     - visit: "https://norton.house.gov/contact/email"
     - fill_in:
@@ -9,11 +9,13 @@ contact_form:
           selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#emailForm button#submit"
-    - find:
-        - selector: "#contactForm"
+        - 
+          selector: "#submit"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -27,10 +29,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -53,15 +51,15 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            "Ms.": "Ms."
-            "Miss": "Miss"
-            "Mrs.": "Mrs."
-            "Mr.": "Mr."
-            "Mr. and Mrs.": "Mr. and Mrs."
-            "Rev.": "Rev."
-            "Dr.": "Dr."
-            "The Honorable": "The Honorable"
-            "Rabbi": "Rabbi"
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -72,9 +70,9 @@ contact_form:
             Arts and Humanities: ART
             Banking and Finance: BANK
             Budget and Economy: BUD
+            Help With a Federal Agency: Casework
             Campaign Finance Reform: CFR
             Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
             Defense and Military: DEF
             Economy: ECON
             Education: EDU
@@ -101,12 +99,13 @@ contact_form:
             Social Services: SOC.SERVICES
             Taxes: TAX
             Telecommunications: TEL
+            Tours: Tours
             Transportation: TRA
             Trade: TRADE
             Veterans: VET
             "Women's Issues": WOMEN
             Welfare: WEL
-            Other Issues: OTHER
+            Other Issue: OTHER
         - name: required-response
           selector: "#required-response"
           value: "Y"
@@ -114,17 +113,13 @@ contact_form:
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: Email.Optin
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "#contactForm button#submit"
+        - 
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: "your message has been sent"
+      contains: Thank you
