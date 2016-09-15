@@ -5,10 +5,6 @@ contact_form:
   steps:
     - visit: http://www.ayotte.senate.gov/?p=contact
     - fill_in:
-      - name: prefix
-        selector: "#prefix"
-        value: "$NAME_PREFIX"
-        required: Yes
       - name: firstname
         selector: "#firstname"
         value: "$NAME_FIRST"
@@ -54,11 +50,23 @@ contact_form:
         value: "$MESSAGE"
         required: Yes
     - select:
-      - name: state
-        selector: "#state"
-        value: "$ADDRESS_STATE_POSTAL_ABBREV"
+      - name: prefix
+        selector: "#prefix"
+        value: "$NAME_PREFIX"
         required: Yes
-        options: US_STATES
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mrs. and Mrs."
+          - "Dr."
+          - "Dr. and Mr."
+          - "Dr. and Mrs."
+          - "Rev."
+          - "Pastor"
+          - "Brother"
+          - "Sister"
+          - "Abortion / Family Planning"
       - name: topic
         selector: "#topic"
         value: "$TOPIC"

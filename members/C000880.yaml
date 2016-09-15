@@ -6,6 +6,8 @@ contact_form:
     - visit: http://www.crapo.senate.gov/contact/email.cfm
     - javascript:
       - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - wait:
+      - value: 5
     - fill_in:
       - name: firstName
         selector: "#firstName"
@@ -48,9 +50,6 @@ contact_form:
         selector: ".required[name='MessageBody']"
         value: "$MESSAGE"
         required: Yes
-    - wait:
-      - value: 5
-    - fill_in:
       - name: captcha_code
         selector: "#captcha_code"
         captcha_selector: "img.img-polaroid"

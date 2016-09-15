@@ -12,10 +12,9 @@ contact_form:
           value: $ADDRESS_ZIP5
           required: true
     - click_on:
-        - value: Submit
-          selector: input.btn
-    - wait:
-        - value: 3
+        - selector: "#zip-submit"
+    - find:
+        - selector: "#input-AACDE709-4040-F985-52CD-75A45D1A0141"
     - fill_in:
         - name: input_AACDE709-4040-F985-52CD-75A45D1A0141
           selector: "#input-AACDE709-4040-F985-52CD-75A45D1A0141"

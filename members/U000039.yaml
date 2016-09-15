@@ -130,9 +130,8 @@ contact_form:
           "\n\t\t\t\t\t\tVeterans\n\t\t\t\t\t": "Veterans"
     - javascript:
       - value: document.querySelector(".textarea").value = document.querySelector(".textarea").value.replace(/"/g, '');
-    - click_on:
-      - value: Submit
-        selector: "#contact_form input[src='/images/btn-submit.gif']"
+    - javascript:
+      - value: "document.getElementById('contact_form').submit();"
     - wait:
       - value: 3
     - find:

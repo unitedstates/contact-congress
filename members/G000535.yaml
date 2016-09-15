@@ -16,6 +16,10 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl26_FirstName"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: ctl00$ctl26$FirstName
           selector: "#ctl00_ctl26_FirstName"
@@ -87,12 +91,8 @@ contact_form:
         - value: document.getElementById("ctl00_ctl26_ReplyChoice_0").checked = true;
     - javascript:
         - value: document.querySelector("#ctl00_ctl26_Body").value = document.querySelector("#ctl00_ctl26_Body").value.replace(/"/g, '');
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - javascript:
-        - value: document.querySelector("form#aspnetForm").submit();
-    - wait:
-        - value: 3
+    - click_on:
+        - selector: "#ctl00_ctl26_SubmitButton"
     - find:
         - selector: "#ctl00_ctl26_ConfirmationText"
   success:

@@ -41,12 +41,6 @@ contact_form:
           selector: "#field_4D8403A8-273C-4280-AE1E-3D764FE53D83"
           value: $MESSAGE
           required: true
-        - name: "g-recaptcha-response"
-          captcha_selector: ".g-recaptcha iframe"
-          value: "$CAPTCHA_SOLUTION"
-          required: true
-          options:
-            google_recaptcha: true
     - select:
         - name: field_7C977D17-0A1A-464D-80CA-135D0ABBFDD1
           selector: "#field_7C977D17-0A1A-464D-80CA-135D0ABBFDD1"
@@ -88,6 +82,8 @@ contact_form:
             Other-not Listed: OTHER
     - javascript:
         - value: document.querySelector("#field_4D8403A8-273C-4280-AE1E-3D764FE53D83").value = document.querySelector("#field_4D8403A8-273C-4280-AE1E-3D764FE53D83").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

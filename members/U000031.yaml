@@ -51,36 +51,12 @@ contact_form:
           selector: "form.zipform[name='contact'] textarea[name='required-message']"
           value: $MESSAGE
           required: true
-    - select:
-        - name: required-issue
-          selector: "form.zipform[name='contact'] select[name='required-issue']"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: AG
-            Defense/National Security: DEF
-            Economy/Business: EB
-            Education: ED
-            Energy/Gas Prices: EN
-            Environment: EI
-            Ethics: GV
-            Foreign Policy: IR
-            Healthcare: HE
-            Immigration: IM
-            Iraq/Afghanistan: IR
-            Job Creation: EB
-            Pro-Family/Protecting our Children: SO
-            Social Security/Medicare: SS
-            Taxes/Fiscal Responsibility: TX
-            Telecommunications: CT
-            Veterans Affairs: VA
     - javascript:
         - value: document.querySelector("form.zipform[name='contact'] textarea[name='required-message']").value = document.querySelector("form.zipform[name='contact'] textarea[name='required-message']").value.replace(/"/g, '');
-    - find:
-        - selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
-    - click_on:
-        - value: Send Email
-          selector: "form.zipform[name='contact'] input[type='submit'][value='Send Email']"
+    - javascript:
+        - value: "document.querySelector('form.zipform').submit();"
+    - wait:
+        - value: 3
     - find:
         - selector: "span#ctl00_PageLink"
           value: "Thank You"
@@ -89,4 +65,3 @@ contact_form:
       status: 200
     body:
       contains: Thanks for your request. We will try to address your message as soon as we are able
-

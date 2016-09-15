@@ -36,7 +36,7 @@ contact_form:
         - name: input_8
           selector: "#input_1_8"
           value: $PHONE
-          required: false
+          required: true
         - name: input_9
           selector: "#input_1_9"
           value: $EMAIL
@@ -44,12 +44,6 @@ contact_form:
         - name: input_16
           selector: "#input_1_16"
           value: $MESSAGE
-          required: true
-        - name: captcha
-          selector: "input#recaptcha_response_field"
-          captcha_selector: "img#recaptcha_challenge_image"
-          captcha_id_selector: "input#recaptcha_challenge_field"
-          value: "$CAPTCHA_SOLUTION"
           required: true
     - select:
         - name: input_12
@@ -114,6 +108,8 @@ contact_form:
           value: "No"
     - javascript:
         - value: document.querySelector("#input_1_16").value = document.querySelector("#input_1_16").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_1"

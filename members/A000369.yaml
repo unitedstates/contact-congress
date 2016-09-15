@@ -1,9 +1,9 @@
 bioguide: A000369
 contact_form:
   method: post
-  action: /contact-us/
+  action: /email-me/
   steps:
-    - visit: "https://amodei.house.gov/contact-us"
+    - visit: "https://amodei.house.gov/email-me/"
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go to Form
           selector: input.button
+    - find:
+        - selector: "#req_firstname"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -29,24 +31,16 @@ contact_form:
           selector: "#req_street"
           value: $ADDRESS_STREET
           required: true
-        - name: street2
-          selector: "#custom_form6 input[name='street2']"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: city
           selector: "#req_city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: false
         - name: emailaddress
           selector: "#req_email"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#custom_form6 input[name='phone']"
+          selector: "#req_phone"
           value: $PHONE
           required: true
         - name: topic
@@ -71,12 +65,6 @@ contact_form:
             Hon.: Hon.
             Rev.: Rev.
             Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: "NV"
-          required: true
-          options:
-            NV: NV
         - name: subject
           selector: "#req_subject"
           value: $TOPIC
@@ -132,11 +120,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#submitButton"
-    - find:
-        - selector: "h1"
-          value: "Thank you"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted
+      contains: "Your message has been successfully submitted!"

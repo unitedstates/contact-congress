@@ -173,26 +173,27 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Education and Labor: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            International Relations: WEBINT
-            Government Reform: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            Judiciary: WEBJUD
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Telecommunications: WEBTEL
-            Taxes and Trade: WEBTAX
-            Transportation: WEBTRA
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other: WEBOTH
+            Agriculture: AG
+            Budget: BUD
+            Defense: DEF
+            Economy: BUD
+            Education and Labor: ED
+            Energy: ENV.ENERGY
+            Environmental: ENV
+            Government Reform: GOV
+            Health: HE
+            Homeland Security: HOMELAND
+            Immigration: JUD.IMIG
+            International Relations: INTL
+            Judiciary: JUD
+            Social Issues: JUD
+            Social Security: SS
+            Telecommunications: COMM.NET
+            Taxes: TAX
+            Trade: TRADE
+            Transportation: TRAN
+            Veterans: VET
+            Welfare: WELF
     - javascript:
         - value: document.querySelector("#ctl00_ctl15_ctl01_Text form textarea[name='required-message']").value = document.querySelector("#ctl00_ctl15_ctl01_Text form textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:

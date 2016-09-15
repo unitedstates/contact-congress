@@ -4,6 +4,8 @@ contact_form:
   action: "/contact/#gf_1"
   steps:
     - visit: "https://marchant.house.gov/contact/"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: input_6
           selector: "#input_1_6"
@@ -12,8 +14,10 @@ contact_form:
     - click_on:
         - value: Next
           selector: "#gform_next_button_1_7"
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#input_1_16_3"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: input_16.3
           selector: "#input_1_16_3"
@@ -43,6 +47,8 @@ contact_form:
           selector: "#input_1_5"
           value: $MESSAGE
           required: true
+          options:
+            max_length: 5000
     - select:
         - name: input_16.2
           selector: "#input_1_16_2"
@@ -107,6 +113,10 @@ contact_form:
             Other: GEN
     - javascript:
         - value: document.querySelector("#input_1_5").value = document.querySelector("#input_1_5").value.replace(/"/g, '');
+    - javascript:
+        - value: document.getElementById("gform_submit_button_1").disabled = false;
+    - wait:
+        - value: 20
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_1"

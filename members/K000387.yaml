@@ -15,6 +15,10 @@ contact_form:
           required: true
     - javascript:
         - value: "$('.zipform').submit();"
+    - find:
+        - selector: "#ctl00_ctl11_FirstName"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: ctl00$ctl11$FirstName
           selector: "#ctl00_ctl11_FirstName"
@@ -54,7 +58,6 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Select
             - Mr.
             - Mrs.
             - Dr.
@@ -101,11 +104,7 @@ contact_form:
     - javascript:
         - value: "document.getElementById('ctl00_ctl11_ReplyChoice_0').checked = true;"
     - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - javascript:
-        - value: "document.getElementById('aspnetForm').submit();"
-    - wait:
-        - value: 5
+        - value: "document.querySelector('#ctl00_ctl11_SubmitButton').click();"
     - find:
         - selector: "#ctl00_ctl11_ConfirmationText"
   success:

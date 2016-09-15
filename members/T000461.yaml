@@ -4,6 +4,8 @@ contact_form:
   action: /?p=contact
   steps:
     - visit: "http://www.toomey.senate.gov/?p=contact"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: FIRST
           selector: "input[name='FIRST']"
@@ -80,64 +82,6 @@ contact_form:
             - Sergeant Major
             - Sister
             - Technical Sergeant
-        - name: STATE
-          selector: "select[name='STATE']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AA
-            - AE
-            - AP
-            - Alabama
-            - Alaska
-            - Arizona
-            - Arkansas
-            - California
-            - Colorado
-            - Connecticut
-            - Delaware
-            - District of Columbia
-            - Florida
-            - Georgia
-            - Hawaii
-            - Idaho
-            - Illinois
-            - Indiana
-            - Iowa
-            - Kansas
-            - Kentucky
-            - Louisiana
-            - Maine
-            - Maryland
-            - Massachusetts
-            - Michigan
-            - Minnesota
-            - Mississippi
-            - Missouri
-            - Montana
-            - Nebraska
-            - Nevada
-            - New Hampshire
-            - New Jersey
-            - New Mexico
-            - New York
-            - North Carolina
-            - North Dakota
-            - Ohio
-            - Oklahoma
-            - Oregon
-            - Pennsylvania
-            - Rhode Island
-            - South Carolina
-            - South Dakota
-            - Tennessee
-            - Texas
-            - Utah
-            - Vermont
-            - Virginia
-            - Washington
-            - West Virginia
-            - Wyoming
         - name: TOPIC
           selector: "select[name='TOPIC']"
           value: $TOPIC
@@ -181,10 +125,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("textarea[name='MSG']").value = document.querySelector("textarea[name='MSG']").value.replace(/"/g, '');
     - click_on:
-        - value: Submit
-          selector: "input[name='formaction']"
-    - wait:
-        - value: 3
+        - selector: "input.btn-primary"
     - find:
         - selector: "p"
           value: "Thank you!"
