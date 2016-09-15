@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /contact-us/
   steps:
-    - visit: "https://amodei.house.gov/contact-us"
+    - visit: "https://amodei.house.gov/email-me/"
     - fill_in:
         - name: zipcode
           selector: "#zipcode"
@@ -46,7 +46,7 @@ contact_form:
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#custom_form6 input[name='phone']"
+          selector: "#req_phone"
           value: $PHONE
           required: true
         - name: topic
