@@ -1,7 +1,7 @@
 bioguide: CTL000170
 contact_form:
   method: post
-  action:
+  action: 
   steps:
     - visit: "http://ctsenaterepublicans.com/contact-hwang/"
     - fill_in:
@@ -33,6 +33,11 @@ contact_form:
           selector: "textarea[name='question']"
           value: $MESSAGE
           required: true
+    - click_on:
+        - value: unsubscribe
+          selector: "input[type='checkbox'][value='Yes']"
+        - value: Submit
+          selector: ".wpcf7-submit"
   success:
     headers:
       status: 200
