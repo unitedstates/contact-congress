@@ -110,8 +110,7 @@ contact_form:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
     - javascript:
-        - value: document.querySelector("#required-message").value = document.query
-Selector("#required-message").value.replace(/"/g, '');
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
         - 
           selector: "#submit"
