@@ -14,8 +14,7 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - 
-          selector: "#submit"
+        - selector: "#submit"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -112,8 +111,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - 
-          selector: "#submit"
+        - selector: "#submit"
   success:
     headers:
       status: 200
