@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "http://www.sasse.senate.gov/public/index.cfm/email-ben"
+    - wait:
+        - value: 3
     - fill_in:
         - name: field_8B37EAA4-2FC8-4F36-A6B6-F3414A7A9AA5
           selector: "#field_8B37EAA4-2FC8-4F36-A6B6-F3414A7A9AA5"
