@@ -142,7 +142,7 @@ contact_form:
         - name: opt
           selector: "#ctl00_ctl15_ctl01_Text form input[name='opt']"
           value: "yes"
-     - javascript:
+    - javascript:
         - value: document.querySelector("#ctl00_ctl15_ctl01_Text form textarea[name='required-message']").value = document.querySelector("#ctl00_ctl15_ctl01_Text form textarea[name='required-message']").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
