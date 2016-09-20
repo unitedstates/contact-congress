@@ -18,7 +18,8 @@ contact_form:
           selector: "#emailForm input[name='submit']"
     - find :
         - selector: "#contactForm"
-        - selector: "#recaptcha_image img"
+    - wait:
+        - value: 1
     - fill_in:
         - name: prefix
           selector: "#prefix"
