@@ -124,3 +124,52 @@ contact_form:
       status: 200
     body:
       contains: "The following information has been submitted:"
+
+
+bioguide: W000813
+contact_form:
+  method: post
+  action: "/contact/email/#wpcf7-f93-p1445-o1"
+  steps:
+    - visit: "http://walorski.house.gov/contact/email/"
+    - fill_in:
+        - name: formField_First_Name
+          selector: "#formField_First_Name"
+          value: $NAME_FIRST
+          required: true
+        - name: formField_Last_Name
+          selector: "#formField_Last_Name"
+          value: $NAME_LAST
+          required: true
+        - name: formField_Email
+          selector: "#formField_Email"
+          value: $EMAIL
+          required: true
+        - name: formField_Zip
+          selector: "#formField_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: formField_Message_Subject
+          selector: "#formField_Message_Subject"
+          value: $SUBJECT
+          required: true
+        - name: formField_text_message
+          selector: "#formField_text_message"
+          value: $MESSAGE
+          required: true
+    - uncheck:
+        - name: "formField_NewsletterSub[]"
+          selector: "form.wpcf7-form input[name='formField_NewsletterSub[]']"
+          value: I would like to receive updates via email
+    - javascript:
+        - value: document.querySelector("#formField_text_message").value = document.querySelector("#formField_text_message").value.replace(/"/g, '');
+    - click_on:
+        - value: Submit
+          selector: input.wpcf7-form-control.wpcf7-submit.btn.btn-primary.pull-right
+    - find:
+        - selector: ".wpcf7-mail-sent-ok"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your message. It has been sent.
