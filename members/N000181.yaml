@@ -4,6 +4,8 @@ contact_form:
   action: default.aspx
   steps:
     - visit: "https://nunes.house.gov/contactform/default.aspx"
+    - wait:
+        - value: 1
     - fill_in:
         - name: ctl00$ctl10$Prefix
           selector: "#ctl00_ctl10_Prefix"
