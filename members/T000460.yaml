@@ -16,6 +16,8 @@ contact_form:
     - click_on:
         - value: Go To Next Step
           selector: "#emailForm input[name='submit']"
+    - wait:
+        - value: 1
     - fill_in:
         - name: prefix
           selector: "#prefix"
