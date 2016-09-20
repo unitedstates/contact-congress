@@ -4,6 +4,8 @@ contact_form:
   action: "/htbin/formproc/email.txt%26display%3D/contact-greg/e-mail-greg/email-sent-thank-you%26nobase%26fpGetVer%3D2"
   steps:
     - visit: "https://walden.house.gov/contact-greg/email-me"
+    - wait:
+        - value: 1
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -44,6 +46,12 @@ contact_form:
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
+          required: true
+        - name: recaptcha_response_field
+          selector: "input#recaptcha_response_field"
+          captcha_selector: "img#recaptcha_challenge_image"
+          captcha_id_selector: "input#recaptcha_challenge_field"
+          value: "$CAPTCHA_SOLUTION"
           required: true
     - select:
         - name: required-prefix
