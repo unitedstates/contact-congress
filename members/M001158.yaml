@@ -117,13 +117,9 @@ contact_form:
         - value: document.querySelector("#input_1_16_4").value = "N/A";
     - javascript:
         - value: document.getElementById("gform_submit_button_1").disabled = false;
-    - wait:
-        - value: 20
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_1"
-    - wait:
-        - value: 20
     - find:
         - value: "EMAIL CONFIRMATION"
           selector: "h1"
