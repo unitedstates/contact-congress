@@ -136,6 +136,10 @@ contact_form:
         - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - javascript:
         - value: "document.querySelector('#custom_form63').submit();"
+    - wait:
+        - value: 3
+    - find:
+        - selector: '#centerbox > script'
   success:
     headers:
       status: 200
