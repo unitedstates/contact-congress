@@ -3,7 +3,9 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.murray.senate.gov/public/index.cfm/contactme"
+    - visit: "https://www.murray.senate.gov/public/index.cfm/contactme"
+    - find:
+        - selector: '#field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5'
     - fill_in:
         - name: field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5
           selector: "#field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5"
