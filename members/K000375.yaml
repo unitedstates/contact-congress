@@ -1,14 +1,24 @@
-bioguide: K000375
+bioguide: E000293
 contact_form:
   method: post
-  action: "/htbin/formproc/keating/webforms/email-me.txt&display=/webforms/thank_you.shtml"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://forms.house.gov/keating/webforms/contact.shtml"
+    - visit: "https://keating.house.gov/contact/email"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: "#submit"
+    - find:
+        - selector: "#required-first"
+    - fill_in:
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -21,79 +31,85 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
-          required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
           required: true
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
           selector: "#required-subject"
-          value: $SUBJECT
+          value: $MESSAGE
           required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
+        - name: required-honorific-prefix
+          selector: "#required-honorific-prefix"
+          required: true
+          value: $NAME_PREFIX
+          options:
+            Ms.:Ms.
+            Miss:Miss
+            Mrs.:Mrs.
+            Mr.:Mr.
+            Mr. and Mrs.:Mr. and Mrs.
+            Rev.:Rev.
+            Dr.:Dr.
+            The Honorable:The Honorable
+            Rabbi:Rabbi
         - name: required-issue
           selector: "#required-issue"
+          required: true
           value: $TOPIC
+          options:
+            Casework:WEBCAS
+            Agriculture:WEBAGR
+            Budget:WEBBUD
+            Defense:WEBDEF
+            Education:WEBEDU
+            Energy:WEBENE
+            Environmental Protection:WEBENV
+            Government Issues:WEBGOV
+            Healthcare:WEBHEA
+            Homeland Security:WEBHOM
+            Immigration:WEBIMM
+            International Relations:WEBINT
+            Judicial:WEBJUD
+            Labor:WEBLAB
+            Social Issues:WEBSOC
+            Social Security:WEBSSEC
+            Taxes:WEBTAX
+            Telecommunications:WEBTEL
+            Transportation:WEBTRA
+            Trade:WEBTRADE
+            Veterans &amp; Military Families:WEBVET
+            Welfare:WEBWEL
+            Other Issues:WEBOTH
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
           required: true
           options:
-            Agriculture: WEBAGR
-            Budget: WEBBUD
-            Defense: WEBDEF
-            Education: WEBEDU
-            Energy: WEBENE
-            Environmental: WEBENV
-            Government Issues: WEBGOV
-            Health: WEBHEA
-            Homeland Security: WEBHOM
-            Immigration: WEBIMM
-            International Relations: WEBINT
-            Judicial: WEBJUD
-            Labor: WEBLAB
-            Social Issues: WEBSOC
-            Social Security: WEBSSEC
-            Taxes: WEBTAX
-            Telecommunications: WEBTEL
-            Transportation: WEBTRA
-            Trade: WEBTRADE
-            Veterans: WEBVET
-            Welfare: WEBWEL
-            Other Issues: WEBOTH
-    - check:
-        - name: response
-          selector: "input[type='radio'][name='response'][value='Y']"
-          value: "Y"
-        - name: aff1
-          selector: "input[name='aff1'][value='']"
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
-        - value: Send Email
-          selector: "#submit2"
+        - value: Send Email to Representative Keating
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your correspondence.
+      contains: your message has been sent
