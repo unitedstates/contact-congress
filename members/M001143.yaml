@@ -4,11 +4,9 @@ contact_form:
   action: "/htbin/formproc/email-me.txt&display=/contact-me/email-me-thankyou&nobase&fpGetVer=2"
   steps:
     - visit: "https://mccollum.house.gov/contact-me/email-me"
+    - find:
+        - selector: input#required-first
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -24,10 +22,6 @@ contact_form:
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
-          required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
         - name: required-zip5
           selector: "#required-zip5"
@@ -52,6 +46,11 @@ contact_form:
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
+          required: true
+        - name: captcha
+          selector: input#recaptcha_response_field
+          captcha_selector: div#recaptcha_image img#recaptcha_challenge_image
+          value: $CAPTCHA_SOLUTION
           required: true
     - select:
         - name: required-issue
