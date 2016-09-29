@@ -46,62 +46,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: required-state
-          selector: "#int-left form select[name='required-state']"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AZ
-            - AR
-            - CA
-            - CO
-            - CT
-            - DE
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-            - DC
         - name: required-issue
           selector: "#int-left form select[name='required-issue']"
           value: $TOPIC
@@ -128,9 +72,9 @@ contact_form:
         - value: Send Message
           selector: "#int-left form input[type='submit'][value='Send Message']"
     - wait:
-      - value: 15
+      - value: 10
   success:
     headers:
       status: 200
     body:
-      contains: "VOTING RECORD"
+      contains: "Serving You"
