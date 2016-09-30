@@ -4,8 +4,8 @@ contact_form:
   action: "https://lee.house.gov/contact/email-me"
   steps:
     - visit: "https://lee.house.gov/contact/email-me"
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#zip-input"
     - fill_in:
         - name: input_078D32EE-4040-F985-52CD-2947CE521466
           selector: "#zip-input"
@@ -13,8 +13,8 @@ contact_form:
           required: true
     - click_on:
         - selector: "#form-B03E03FC-4040-F985-52CD-BCD7E00A8A6C #zip-submit"
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
     - fill_in:
         - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
           selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
@@ -291,8 +291,6 @@ contact_form:
             - Science and Technology
             - Social Issues
             - Senior Citizens
-            - Social Issues
-            - Senior Citizens
             - Social Securities
             - Social Services
             - Taxes
@@ -315,8 +313,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn
-    - wait:
-        - value: 3
+    - find:
+        - selector: "h1"
+          value: "Thank You"
   success:
     headers:
       status: 200
