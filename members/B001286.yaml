@@ -51,6 +51,8 @@ contact_form:
           required: true
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Send Email
           selector: input.wpcf7-form-control.wpcf7-submit.btn.btn-blue
