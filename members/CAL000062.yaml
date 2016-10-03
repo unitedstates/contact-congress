@@ -40,8 +40,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#submitButton"
-  success:
+  success:,
     headers:
       status: 200
     body:
-      contains: "My staff and I will endeavor to respond"
+      contains: "Your message has been received"
