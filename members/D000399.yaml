@@ -41,7 +41,7 @@ contact_form:
         - name: required-phone
           selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
@@ -116,7 +116,7 @@ contact_form:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
     - javascript:
-        - value: document.querySelector("#mainbodyContentleft form textarea[name='required-message']").value = document.querySelector("#mainbodyContentleft form textarea[name='required-message']").value.replace(/"/g, '');
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - recaptcha:
         - value: true
     - click_on:
