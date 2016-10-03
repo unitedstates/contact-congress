@@ -50,7 +50,7 @@ contact_form:
           value: $MESSAGE
           required: true
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - recaptcha:
         - value: true
     - click_on:
