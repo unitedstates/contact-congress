@@ -1,19 +1,19 @@
 bioguide: S001175
 contact_form:
-  method: POST
-  action: "/htbin/formproc/speier/webforms/email-jackie.txt&display=thank-you.shtml"
+  method: post
+  action: "/htbin/formproc/email.txt%26display%3D/contact/email/email-thank-you%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://forms.house.gov/speier/webforms/email_jackie.shtml"
+    - visit: "https://speier.house.gov/contact"
     - fill_in:
         - name: required-prefix
-          selector: "#sp-component form input[name='required-prefix']"
+          selector: "#emailForm input[name='required-prefix']"
           value: $NAME_PREFIX
           required: true
-        - name: required-first-name
+        - name: required-first
           selector: "#firstname"
           value: $NAME_FIRST
           required: true
-        - name: required-last-name
+        - name: required-last
           selector: "#lastname"
           value: $NAME_LAST
           required: true
@@ -47,14 +47,13 @@ contact_form:
           required: true
     - select:
         - name: required-issue
-          selector: "#sp-component form select[name='required-issue']"
+          selector: "#emailForm select[name='required-issue']"
           value: $TOPIC
           required: true
           options:
-            "Please select one:": selected
             Agriculture: AGR
             Animals: ANI
-            "Arts ": ART
+            "Arts\_": ART
             Budget: BUD
             Casework: CAS
             Civil Rights: "CIV "
@@ -85,18 +84,17 @@ contact_form:
             Veterans: VET
             Women: WOM
             Other: OTH
-        - name: required-rsp
-          selector: "#sp-component form select[name='required-rsp']"
+        - name: required-response
+          selector: "#emailForm select[name='required-response']"
           value: "Y"
-          required: false
+          required: true
           options:
             "Yes": "Y"
             "No": "no"
     - click_on:
-        - value: Submit
-          selector: "#sp-component form input[name='submit']"
+        - selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: your message has been sent
