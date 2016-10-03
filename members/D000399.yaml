@@ -1,49 +1,68 @@
 bioguide: D000399
 contact_form:
-  method: POST
-  action: "/htbin/formproc_za/doggett/webforms/issue_parm.txt&form=/doggett/webforms/issue_subscribe_verify.htm&nobase"
+  method: post
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://forms.house.gov/doggett/webforms/issue_subscribe.htm"
+    - visit: "https://doggett.house.gov/contact/email"
     - fill_in:
-        - name: required-prefix
-          selector: "#mainbodyContentleft form input[name='required-prefix']"
-          value: $NAME_PREFIX
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
           required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - selector: "#submit"
+    - find:
+        - selector: "#required-first"
+    - fill_in:
         - name: required-first
-          selector: "#mainbodyContentleft form input[name='required-first']"
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#mainbodyContentleft form input[name='required-last']"
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#mainbodyContentleft form input[name='required-address']"
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
         - name: required-city
-          selector: "#mainbodyContentleft form input[name='required-city']"
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: zip5
-          selector: "#mainbodyContentleft form input[name='zip5']"
-          value: $ADDRESS_ZIP5
-          required: true
         - name: required-valid-email
-          selector: "#mainbodyContentleft form input[name='required-valid-email']"
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: required-phone
-          selector: "#mainbodyContentleft form input[name='required-phone']"
+          selector: "#required-phone"
           value: $PHONE
-          required: true
+          required: false
         - name: required-message
-          selector: "#mainbodyContentleft form textarea[name='required-message']"
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
+        - name: required-honorific-prefix
+          selector: "#required-honorific-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
         - name: required-issue
-          selector: "#mainbodyContentleft form select[name='required-issue']"
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
@@ -58,6 +77,7 @@ contact_form:
             Crime: cr
             Defense: de
             DC Tour Request: tours
+            Drug Pricing: RX
             Economy and Jobs: ta
             Education: ed
             Energy: en
@@ -88,16 +108,21 @@ contact_form:
             Welfare: we
             2nd Amendment: gc
             Other: other
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
     - javascript:
         - value: document.querySelector("#mainbodyContentleft form textarea[name='required-message']").value = document.querySelector("#mainbodyContentleft form textarea[name='required-message']").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
-        - value: Send Email
-          selector: "#mainbodyContentleft form input[type='submit'][value='Send Email']"
-    - find:
-        - value: "Thank you for your correspondence."
-          selector: "b"
+        - selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your correspondence.
+      contains: your message has been sent
