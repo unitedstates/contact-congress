@@ -1,14 +1,23 @@
 bioguide: K000375
 contact_form:
   method: post
-  action: "/htbin/formproc/keating/webforms/email-me.txt&display=/webforms/thank_you.shtml"
+  action: ""
   steps:
-    - visit: "https://forms.house.gov/keating/webforms/contact.shtml"
+    - visit: "https://keating.house.gov/contact/email"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
+        - name: zip5
+          selector: "required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - selector: form#emailForm button#submit
+    - find:
+        - selector: form#contactForm input#required-first
+    - fill_in:
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -29,22 +38,14 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -54,6 +55,12 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: select#required-honorific-prefix
+          value: $NAME_PREFIX
+          required: true
+          options:
+            blah
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
