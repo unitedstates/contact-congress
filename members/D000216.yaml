@@ -115,7 +115,7 @@ contact_form:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
     - javascript:
-        - value: document.querySelector("#mainbodyContentleft form textarea[name='required-comments']").value = document.querySelector("#mainbodyContentleft form textarea[name='required-comments']").value.replace(/"/g, '');
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - recaptcha:
         - value: true
     - click_on:
