@@ -123,9 +123,12 @@ contact_form:
             "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
     - javascript:
         - value: document.querySelector("#msgbody").value = document.querySelector("#msgbody").value.replace(/"/g, '');
-    - click_on:
-        - value: Submit
-          selector: "#thisForm input[name='Submit']"
+    - javascript:
+        - value: "document.getElementById('thisForm').submit();"
+    - wait:
+        - value: 3
+    - find:
+        - selector: '#r1c1 > div.note > p'
   success:
     headers:
       status: 200
