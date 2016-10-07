@@ -6,47 +6,6 @@ contact_form:
     - visit: "https://www.murray.senate.gov/public/index.cfm/contactme"
     - find:
       - selector: input#field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5
-    - fill_in:
-      - name: first
-        selector: input#field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5
-        value: $NAME_FIRST
-        required: true
-      - name: last
-        selector: input#field_ADE71885-03E5-482F-A2A9-D7A3436BBD32
-        value: $NAME_LAST
-        required: true
-      - name: street
-        selector: input#field_CC02A0B7-1663-41B2-8B89-AB05498D3EED
-        value: $ADDRESS_STREET
-        required: true
-      - name: street2
-        selector: input#field_C8F81223-F4A8-4C04-8DE5-9530CDC95079
-        value: $ADDRESS_STREET_2
-        required: false
-      - name: city
-        selector: input#field_5A2C4A60-5CA8-476B-B29B-414A7F6934FE
-        value: $ADDRESS_CITY
-        required: true
-      - name: zip5
-        selector: input#field_53D3B15C-3710-44B7-B6CD-731DAB06BC92
-        value: $ADDRESS_ZIP5
-        required: true
-      - name: phone
-        selector: input#field_5A8CFD28-F121-4B4E-A8E7-BDD361D8BFE4
-        value: $PHONE
-        required: false
-      - name: email
-        selector: input#field_654CAEAA-E603-4A35-8210-B2DAC7D95E51
-        value: $EMAIL
-        required: true
-      - name: subject
-        selector: input#field_250A9CB8-13DC-40F7-94FB-D301593DB4C9
-        value: $SUBJECT
-        required: true
-      - name: message
-        selector: textarea#field_5722C424-8601-4ABF-A8D1-AC11B9C45F87
-        value: $MESSAGE
-        required: true
     - select:
       - name: prefix
         selector: select#field_B104BE44-176D-4CD9-9FDA-DBCBAEB5AAF9
@@ -114,9 +73,52 @@ contact_form:
           "Veterans" : "VETS"
           "Welfare" : "WELF"
           "Women" : "WOMENS"
+    - fill_in:
+      - name: first
+        selector: input#field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5
+        value: $NAME_FIRST
+        required: true
+      - name: last
+        selector: input#field_ADE71885-03E5-482F-A2A9-D7A3436BBD32
+        value: $NAME_LAST
+        required: true
+      - name: street
+        selector: input#field_CC02A0B7-1663-41B2-8B89-AB05498D3EED
+        value: $ADDRESS_STREET
+        required: true
+      - name: street2
+        selector: input#field_C8F81223-F4A8-4C04-8DE5-9530CDC95079
+        value: $ADDRESS_STREET_2
+        required: false
+      - name: city
+        selector: input#field_5A2C4A60-5CA8-476B-B29B-414A7F6934FE
+        value: $ADDRESS_CITY
+        required: true
+      - name: zip5
+        selector: input#field_53D3B15C-3710-44B7-B6CD-731DAB06BC92
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: phone
+        selector: input#field_5A8CFD28-F121-4B4E-A8E7-BDD361D8BFE4
+        value: $PHONE
+        required: false
+      - name: email
+        selector: input#field_654CAEAA-E603-4A35-8210-B2DAC7D95E51
+        value: $EMAIL
+        required: true
+      - name: subject
+        selector: input#field_250A9CB8-13DC-40F7-94FB-D301593DB4C9
+        value: $SUBJECT
+        required: true
+      - name: message
+        selector: textarea#field_5722C424-8601-4ABF-A8D1-AC11B9C45F87
+        value: $MESSAGE
+        required: true
+        options:
+          blacklist: "•"
     - click_on:
       - value: Submit
-        selector: form.uniForm div.buttonHolder input
+        selector: div#copy form.uniForm div.buttonHolder input
   success:
     headers:
       status: 200
