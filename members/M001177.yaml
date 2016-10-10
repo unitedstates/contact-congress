@@ -49,12 +49,6 @@ contact_form:
           selector: "#message"
           value: $MESSAGE
           required: true
-        - name: recaptcha_response_field
-          selector: "#recaptcha_response_field"
-          captcha_selector: "img#recaptcha_challenge_image"
-          captcha_id_selector: "#recaptcha_challenge_field"
-          value: $CAPTCHA_SOLUTION
-          required: true
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
