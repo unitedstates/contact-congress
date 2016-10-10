@@ -64,6 +64,8 @@ contact_form:
         - value: document.querySelector("#Message").value = document.querySelector("#Message").value.replace(/"/g, '');
     - javascript:
         - value: "document.getElementById('emailForm').submit();"
+    - click_on:
+        - selector: "#submit"
     - wait:
         - value: 3
     - find:
