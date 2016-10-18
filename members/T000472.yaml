@@ -1,4 +1,4 @@
-bioguide: T000472 
+bioguide: T000472
 contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
@@ -12,12 +12,11 @@ contact_form:
           value: $ADDRESS_ZIP5
           required: true
     - click_on:
-        - value: Next
-          selector: ".formheader"
+        - selector: ".formheader"
     - wait:
       - value: 3
     - find:
-        - selector: "#continue-form"
+        - selector: div#continue-form
     - fill_in:
         - name: required-first
           selector: "#input-FE907558-4040-F985-52CD-A091B0824193"
@@ -247,6 +246,24 @@ contact_form:
         - name: required-response
           selector: "#input-7244B1CA-5056-BE32-8188-4FFD3A19F87D"
           value: "Y"
+          required: true
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
           required: true
     - click_on:
         - value: Send Email
