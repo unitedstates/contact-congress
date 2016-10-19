@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: ""
   steps:
-  - visit: https://love.house.gov/email-me/
+  - visit: "https://love.house.gov/email-me/"
   - fill_in:
     - name: zip5
       selector: input#zipcode
@@ -50,6 +50,11 @@ contact_form:
     - name: message
       selector: textarea#req_message
       value: $MESSAGE
+      required: true
+    - name: captcha
+      captcha_selector: img#captchaImage
+      selector: input#captchaTextBox
+      value: $CAPTCHA_SOLUTION
       required: true
   - check:
     - selector: input#newsletter
