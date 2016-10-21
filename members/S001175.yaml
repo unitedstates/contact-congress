@@ -3,12 +3,12 @@ contact_form:
   method: POST
   action: "/htbin/formproc/speier/webforms/email-jackie.txt&display=thank-you.shtml"
   steps:
-    - visit: "https://forms.house.gov/speier/webforms/email_jackie.shtml"
+    - visit: "https://speier.house.gov/contact"
     - find:
-        - selector: div#sp-component form input[name='required-prefix']
+        - selector: form#emailForm input[name='required-prefix']
     - fill_in:
         - name: prefix
-          selector: div#sp-component form input[name='required-prefix']
+          selector: form#emailForm input[name='required-prefix']
           value: $NAME_PREFIX
           required: true
         - name: first
@@ -24,7 +24,7 @@ contact_form:
           value: $ADDRESS_STREET
           required: true
         - name: addr2
-          selector: div#sp-component form input[name='addr2']
+          selector: form#emailForm input[name='address2']
           value: $ADDRESS_STREET_2
           required: false
         - name: required-city
@@ -53,7 +53,7 @@ contact_form:
           required: true
     - select:
         - name: required-issue
-          selector: div#sp-component form select[name='required-issue']
+          selector: form#emailForm select[name='required-issue']
           value: $TOPIC
           required: true
           options:
@@ -91,16 +91,16 @@ contact_form:
             Women: WOM
             Other: OTH
         - name: required-rsp
-          selector: div#sp-component form select[name='required-rsp']
+          selector: form#emailForm select[name='required-response']
           value: Yes
           required: true
           options:
             Yes: Yes
     - click_on:
         - value: Submit
-          selector: div#sp-component form input[name='submit']
+          selector: form#emailForm button#submit
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for your correspondence."
+      contains: "your message has been sent"
