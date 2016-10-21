@@ -1,14 +1,24 @@
-bioguide: D000197
+bioguide: D000617
 contact_form:
   method: post
-  action: "/htbin/formproc/email-me.txt%26display%3D/contact/email-me/email-me-thank-you%26nobase%26fpGetVer%3D2"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact-me/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://degette.house.gov/contact/send-me-an-email/email-me"
+    - visit: "http://delbene.house.gov/contact-me/email-me"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
+        - name: zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: form#emailForm button#submit
+    - find:
+        - selector: form#contactForm
+    - fill_in:
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -29,14 +39,6 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
@@ -45,16 +47,26 @@ contact_form:
           selector: "#required-phone"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
-          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
+        - name: prefix
+          selector: select#required-prefix
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
+        - name: topic
           selector: "#required-issue"
           value: $TOPIC
           required: true
@@ -101,16 +113,33 @@ contact_form:
             Other Issues: OTHER
         - name: required-response
           selector: "#required-response"
-          value: "Y"
-          required: false
+          value: "Yes, please contact me"
+          required: true
           options:
-            "No, I only wanted to voice my opinion.": "N"
-            "Yes, please contact me.": "Y"
+            "Yes, please contact me": "Yes, please contact me"
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit']"
+        - value: Send Email to Representative DelBene
+          selector: form#contactForm button#submit
   success:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: "I appreciate you sharing your views and concerns with me."

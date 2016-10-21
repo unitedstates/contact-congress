@@ -1,11 +1,11 @@
-bioguide: W000816
+bioguide: W000808
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: ""
   steps:
-    - visit: "https://williams.house.gov/contact/email-me"
+    - visit: "https://wilson.house.gov/contact"
     - fill_in:
-        - name: required-zip5
+        - name: zip5
           selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
@@ -15,46 +15,52 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+          selector: div.form-100 > input#submit
+    - find:
+        - selector: "#prefix"
     - fill_in:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
           required: false
-        - name: required-first
+        - name: firstname
           selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: required-last
+        - name: lastname
           selector: "#required-last"
           value: $NAME_LAST
           required: true
-        - name: required-address
+        - name: street
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
+        - name: street2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-valid-email
+        - name: email
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: required-phone
+        - name: phone
           selector: "#required-phone"
           value: $PHONE
           required: true
-        - name: required-subject
+        - name: subject
           selector: "#required-subject"
           value: $SUBJECT
           required: true
-        - name: required-message
+        - name: message
           selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-issue
+        - name: topic
           selector: "#required-issue"
           value: $TOPIC
           required: true
@@ -98,24 +104,34 @@ contact_form:
             Veterans: VET
             "Women's Issues": WOMEN
             Welfare: WEL
-            Other Issues: OTHER
-        - name: required-response
+            Other Issues: Other Issues
+        - name: response
           selector: "#required-response"
-          value: "Y"
-          required: false
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
-    - uncheck:
-        - name: subscribe
-          selector: "#subscribe"
-          value: Email.Optin
+          value: Yes
+          required: true
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
     - click_on:
         - value: Send Email
-          selector: "#contactForm input[name='submit']"
+          selector: div.form-100 > input#submit
   success:
     headers:
       status: 200
     body:
-      contains: Thank You
-
+      contains: "The following information has been submitted:"
