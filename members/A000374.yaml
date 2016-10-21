@@ -1,10 +1,10 @@
 bioguide: A000374
-contact_form: 
+contact_form:
   method: post
   action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2
-  steps: 
-  - visit: https://abraham.house.gov/contact
-  - fill_in: 
+  steps:
+  - visit: "https://abraham.house.gov/contact"
+  - fill_in:
     - name: required-zip5
       selector: "#required-zip5"
       value: $ADDRESS_ZIP5
@@ -13,12 +13,12 @@ contact_form:
       selector: "#zip4"
       value: $ADDRESS_ZIP4
       required: true
-  - click_on: 
+  - click_on:
     - value: Go To Next Step
       selector: "#emailForm #submit"
-  - find: 
+  - find:
     - selector: "#required-prefix"
-  - fill_in: 
+  - fill_in:
     - name: required-first
       selector: "#required-first"
       value: $NAME_FIRST
@@ -47,12 +47,12 @@ contact_form:
       selector: "#required-message"
       value: $MESSAGE
       required: true
-  - select: 
+  - select:
     - name: required-prefix
       selector: "#required-prefix"
       value: $NAME_PREFIX
       required: true
-      options: 
+      options:
         Ms.: Ms.
         Miss: Miss
         Mrs.: Mrs.
@@ -66,7 +66,7 @@ contact_form:
       selector: "#required-issue"
       value: $TOPIC
       required: true
-      options: 
+      options:
         Agriculture: AGR
         Animals: AN
         Arts and Humanities: ART
@@ -111,14 +111,32 @@ contact_form:
       selector: "#required-response"
       value: Y
       required: true
-      options: 
+      options:
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
-  - click_on: 
+  - recaptcha:
+    - name: recaptcha_response_field
+      grid_selector: "#rc-imageselect-target"
+      img_selector: "#rc-imageselect-target img"
+      phrase_selector: "html body div.rc-imageselect-desc > strong"
+      phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+      simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+      simple_textbox_selector: "#default-response"
+      audio_selector: "html body a.rc-audiochallenge-download-link"
+      audio_response_selector: "#audio-response"
+      audio_switch_selector: "#recaptcha-audio-button"
+      checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+      checkbox_selector: "div.recaptcha-checkbox-checkmark"
+      main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+      verify_selector: "#recaptcha-verify-button"
+      value: $CAPTCHA_SOLUTION
+      types: [image, audio]
+      required: true
+  - click_on:
     - value: Send Email to Representative Abraham
       selector: "#contactForm #submit"
-  success: 
-    headers: 
+  success:
+    headers:
       status: 200
-    body: 
+    body:
       contains: your message has been sent
