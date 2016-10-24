@@ -1,24 +1,24 @@
 bioguide: state_ms_gov_phil_bryant
 contact_form:
   method: post
-  action: http://www.governorbryant.com/contact/#wpcf7-f622-p8-o1
+  action: ""
   steps:
-    - visit: "http://www.governorbryant.com/contact/"
+    - visit: "https://uat.msi.ms.gov/gov/governor_forms/contact"
     - fill_in:
         - name: fullName
-          selector: span.your-name > input
+          selector: input#YourName
           value: $NAME_FULL
           required: true
         - name: email
-          selector: span.your-email > input
+          selector: input#YourEmail
           value: $EMAIL
           required: true
         - name: subject
-          selector: span.your-subject > input
+          selector: input#Subject
           value: $SUBJECT
           required: true
         - name: message
-          selector: span.your-message > textarea
+          selector: textarea#Message
           value: $MESSAGE
           required: true
     - click_on:
@@ -28,4 +28,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Your message was sent successfully"
+      contains: "processing your request"
