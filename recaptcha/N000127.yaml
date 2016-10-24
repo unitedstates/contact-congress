@@ -1,26 +1,28 @@
-bioguide: M001157
+bioguide: N000127
 contact_form:
   method: post
-  action: "https://mccaul.house.gov/htbin/formproc/email-me.txt%26display%3D/contact/email-me/email-me-thank-you%26nobase%26fpGetVer%3D2"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://mccaul.house.gov/contact/email-me"
-    - find:
-        - selector: form#emailForm input#required-zip5
+    - visit: "https://nolan.house.gov/contact/email-me"
     - fill_in:
         - name: required-zip5
-          selector: form#emailForm input#required-zip5
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: form#emailForm input#zip4
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: form#emailForm input#submit
+          selector: "#emailForm input[name='submit']"
     - find:
-        - selector: form#contactForm input#required-first
+        - selector: "#contactForm"
     - fill_in:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -41,14 +43,14 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: email
+        - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -58,20 +60,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-          options:
-            Ms.: Ms.
-            Miss: Miss
-            Mrs.: Mrs.
-            Mr.: Mr.
-            Mr. and Mrs.: Mr. and Mrs.
-            Rev.: Rev.
-            Dr.: Dr.
-            The Honorable: The Honorable
-            Rabbi: Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -119,15 +107,36 @@ contact_form:
             Other Issues: OTHER
         - name: required-response
           selector: "#required-response"
-          value: "Y"
+          value: Yes, please contact me
           required: true
           options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
+            Yes, please contact me: Yes, please contact me
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
     - click_on:
-        - selector: form#contactForm input#submit
+        - value: Send Email
+          selector: "#contactForm input[name='submit']"
+    - find:
+        - selector: "h1"
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: Thank You

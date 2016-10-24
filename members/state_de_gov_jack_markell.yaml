@@ -1,9 +1,9 @@
 bioguide: state_de_gov_jack_markell
 contact_form:
   method: post
-  action: /cgi-bin/mailer.php
+  action: ""
   steps:
-    - visit: "http://smu.governor.delaware.gov/cgi-bin/mail.php?contact"
+    - visit: "http://governor.delaware.gov/forms/emailthegovernor.shtml"
     - fill_in:
         - name: formName
           selector: "#formName"
@@ -23,7 +23,7 @@ contact_form:
           required: true
     - click_on:
         - value: Submit
-          selector: "#contact input[name='Submit']"
+          selector: form#emailthegovernor div#submit_buttons input[type=submit]
   success:
     headers:
       status: 200

@@ -1,9 +1,9 @@
-bioguide: B000911
+bioguide: L000557
 contact_form:
   method: POST
   action: ""
   steps:
-    - visit: "https://corrinebrown.house.gov/contact-me/email-me"
+    - visit: "https://larson.house.gov/contact/email"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -70,17 +70,30 @@ contact_form:
             Rabbi: Rabbi
         - name: topic
           selector: select#required-issue
-          value: $TOPIC
+          value: Comment on Policy
           required: true
           options:
-            Other Issue: Other Issue
-        - name: response
-          selector: select#required-response
-          value: Yes, please contact me
+            Comment on Policy: Comment on Policy
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
           required: true
-          options:
-            Yes, please contact me: Yes, please contact me
     - click_on:
+        - selector: input#required-response
         - selector: form#contactForm button#submit
   success:
     headers:

@@ -1,9 +1,9 @@
-bioguide: M001166
+bioguide: D000625
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://mcnerney.house.gov/contact/email-me"
+    - visit: "https://donovan.house.gov/contact/email"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -15,9 +15,9 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#emailForm input[name='submit']"
+          selector: "#submit"
     - find:
-        - selector: "#contactForm"
+        - selector: "#required-first"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -31,10 +31,6 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
@@ -47,23 +43,25 @@ contact_form:
           selector: "#required-phone"
           value: $PHONE
           required: true
-        - name: required-subject
-          selector: "#required-subject"
-          value: $SUBJECT
-          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-prefix
+        - name: prefix
           selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: Mr.
             Ms.: Ms.
+            Miss: Miss
             Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -71,17 +69,16 @@ contact_form:
           options:
             Agriculture: AGR
             Animals: AN
-            Arts and Humanities: ART
-            Banking and Finance: BANK
+            "Arts and Humanities": ART
+            "Banking and Finance": BANK
             Budget and Economy: BUD
             Campaign Finance Reform: CFR
             Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Economy: ECON
+            "Defense and Military": DEF
+            "Economy": ECON
             Education: EDU
             Energy: ENE
-            Environment: ENV
+            "Environment": ENV
             Federal Employees: FED
             Foreign Relations: FR
             Government Reform: GOV
@@ -94,13 +91,12 @@ contact_form:
             Judiciary: JUD
             Labor: LAB
             LGBT: LGBT
-            No Response Necessary: NRN
             Post Office: POST
             Science and Technology: SCI
             Social Issues: SOC
             Senior Citizens: SENIORS
             Social Security: SSEC
-            Social Services: SOC.SERVICES
+            Social Services: "SOC.SERVICES"
             Taxes: TAX
             Telecommunications: TEL
             Transportation: TRA
@@ -108,22 +104,37 @@ contact_form:
             Veterans: VET
             "Women's Issues": WOMEN
             Welfare: WEL
-            Other Issues: OTHER
+            Other Issue: OTHER
         - name: required-response
           selector: "#required-response"
-          value: "Y"
-          required: false
+          value: Y
+          required: true
           options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
+            Yes, please contact me: Y
+            No, I wanted to voice my opinion: N
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit']"
-    - find:
-        - selector: "h1#page-title"
-          value: "Thank You"
+        - value: Send Email to Congressman Donovan
+          selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: Email Me - Thank You
+      contains: "Thank you"
