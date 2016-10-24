@@ -1,14 +1,23 @@
 bioguide: B000911
 contact_form:
   method: POST
-  action: "/htbin/formproc/corrinebrown/webforms/email-me.txt&display=/webforms/email-me-thankyou.shtml"
+  action: ""
   steps:
-    - visit: "https://forms.house.gov/corrinebrown/webforms/contact-me.shtml"
+    - visit: "https://corrinebrown.house.gov/contact-me/email-me"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
           required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - selector: form#emailForm button#submit
+    - find:
+        - selector: form#contactForm input#required-first
+    - fill_in:
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -29,26 +38,14 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: false
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
           required: true
         - name: phone
-          selector: "#phone"
+          selector: input#required-phone
           value: $PHONE
-          required: false
+          required: true
         - name: required-subject
           selector: "#required-subject"
           value: $SUBJECT
@@ -57,15 +54,36 @@ contact_form:
           selector: "#required-message"
           value: $MESSAGE
           required: true
-    - check:
-        - name: required-response
-          selector: "input[type='radio'][name='required-response'][value='WEB.RN']"
-          value: WEB.RN
+    - select:
+        - name: prefix
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
+        - name: topic
+          selector: select#required-issue
+          value: $TOPIC
+          required: true
+          options:
+            Other Issue: Other Issue
+        - name: response
+          selector: select#required-response
+          value: Yes, please contact me
+          required: true
+          options:
+            Yes, please contact me: Yes, please contact me
     - click_on:
-        - value: Send Email
-          selector: "#Submit"
+        - selector: form#contactForm button#submit
   success:
     headers:
       status: 200
     body:
-      contains: The following information has been submitted
+      contains: "your message has been sent"
