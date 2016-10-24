@@ -1,80 +1,79 @@
 bioguide: B000574
 contact_form:
   method: POST
-  action: "/htbin/formproc_za/blumenauer/webforms/issue_subscribe_parm.txt&form=/blumenauer/webforms/issue_subscribe_verify.htm"
+  action: ""
   steps:
-    - visit: "https://forms.house.gov/blumenauer/webforms/issue_subscribe.html"
+    - visit: "https://blumenauerforms.house.gov/contact/"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: false
-        - name: required-first
-          selector: "#name_first"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "#name_last"
-          value: $NAME_LAST
-          required: true
-        - name: required-address
-          selector: "#address"
-          value: $ADDRESS_STREET
-          required: true
-        - name: required-city
-          selector: "#city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: table#ctl00_ctl34_ContentTable form.zipform input[name=zip5]
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#int-left form input[name='zip4']"
+          selector: table#ctl00_ctl34_ContentTable form.zipform input[name=zip4]
           value: $ADDRESS_ZIP4
           required: true
-        - name: required-valid-email
-          selector: "#email"
-          value: $EMAIL
+    - click_on:
+        - selector: table#ctl00_ctl34_ContentTable form.zipform input[type=submit]
+    - find:
+        - selector: form#aspnetForm input#ctl00_ctl34_FirstName
+    - fill_in:
+        - name: required-first
+          selector: input#ctl00_ctl34_FirstName
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: input#ctl00_ctl34_LastName
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: input#ctl00_ctl34_Street
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: input#ctl00_ctl34_City
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-zip5
+          selector: input#ctl00_ctl34_Zip
+          value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector: "#phone"
+          selector: input#ctl00_ctl34_Phone
           value: $PHONE
           required: false
+        - name: required-valid-email
+          selector: input#ctl00_ctl34_Email
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: input#ctl00_ctl34_Subject
+          value: $SUBJECT
+          required: true
         - name: required-message
-          selector: "#message"
+          selector: textarea#ctl00_ctl34_Body
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: select#ctl00_ctl34_PrefixList
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
         - name: required-issue
-          selector: "#int-left form select[name='required-issue']"
+          selector: select#ctl00_ctl34_IssuesList
           value: $TOPIC
           required: true
           options:
-            I Need Help: CASE
-            "Afghanistan, Iraq Wars and Defense": IRQ
-            Agriculture: AG
-            Budget and Taxes: BU
-            "Civil Liberties, Immigration and Judicial Issues": LIB
-            Education and Technology: EDU
-            "Environment, Energy, and Global Warming": EV
-            Foreign Affairs: FA
-            Government Reform: REF
-            Gun Safety: GUN_SAFETY
-            "Health, Medicare, and Social Security": HE
-            Livable Communities: LIV
-            Native Americans: NA
-            Trade and the Economy: TRD
-            Transportation: TRAN
-            Veterans: VET
-            Other: OTH
+            Economics and Public Finance: Economics and Public Finance
     - click_on:
-        - value: Send Message
-          selector: "#int-left form input[type='submit'][value='Send Message']"
-    - wait:
-      - value: 10
+        - selector: input#ctl00_ctl34_ReplyChoice_0
+        - selector: input#ctl00_ctl34_SubmitButton
   success:
     headers:
       status: 200
     body:
-      contains: "Serving You"
+      contains: "Your message has been sent"
