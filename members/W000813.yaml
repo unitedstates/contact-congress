@@ -5,120 +5,57 @@ contact_form:
   steps:
     - visit: "http://walorski.house.gov/contact/email/"
     - find:
-        - selector: "#boxes-box-congress_enews_popup"
-    - click_on:
-        - selector: "#close-enews-popup"
-    - find:
-        - selector: "#emailForm"
-    - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go To Next Step
-          selector: "#submit"
-    - find:
-        - selector: "#boxes-box-congress_enews_popup"
-    - click_on:
-        - selector: "#close-enews-popup"
-    - find:
-        - selector: "#contactForm"
+        - selector: form.wpcf7-form input#formField_First_Name
     - fill_in:
         - name: required-first
-          selector: "#required-first"
+          selector: input#formField_First_Name
           value: $NAME_FIRST
           required: true
         - name: required-last
-          selector: "#required-last"
+          selector: input#formField_Last_Name
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
-          value: $ADDRESS_STREET
-          required: true
-        - name: required-city
-          selector: "#required-city"
-          value: $ADDRESS_CITY
-          required: true
         - name: required-valid-email
-          selector: "#required-valid-email"
+          selector: input#formField_Email
           value: $EMAIL
           required: true
         - name: required-phone
-          selector: "#required-phone"
+          selector: input#formField_Phone
           value: $PHONE
+          required: false
+        - name: required-address
+          selector: input#formField_Address
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: input#formField_Address2
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: required-city
+          selector: input#formField_City
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: input#formField_Zip
+          value: $ADDRESS_ZIP5
           required: true
         - name: required-subject
-          selector: "#required-subject"
+          selector: input#formField_Message_Subject
           value: $SUBJECT
           required: true
         - name: required-message
-          selector: "#required-message"
+          selector: textarea#formField_text_message
           value: $MESSAGE
           required: true
-    - select:
-        - name: required-issue
-          selector: "#required-issue"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: AGR
-            Animals: AN
-            Arts and Humanities: ART
-            Banking and Finance: BANK
-            Budget and Economy: BUD
-            Campaign Finance Reform: CFR
-            Congress and Elections: CONG
-            District of Columbia--Tours: TOUR
-            Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Federal Employees: FED
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
-            Health: HEA
-            Homeland Security: HOM
-            Housing and Urban Development: HUD
-            Immigration: IMM
-            International Relations: INT
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            No Response Necessary: NRN
-            Post Office: POST
-            Science and Technology: SCI
-            Social Issues: SOC
-            Senior Citizens: SENIORS
-            Social Security: SSEC
-            Social Services: SOC.SERVICES
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRADE
-            Veterans: VET
-            "Women's Issues": WOMEN
-            Welfare: WEL
-            Other Issues: OTHER
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
-          required: true
-          options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
     - click_on:
-        - value: Send Email
-          selector: "#submit"
+        - selector: span#formField_NewsletterSub input[type=checkbox]
+        - selector: div.form-actions input[type=submit]
+    - wait:
+        - value: 2
+    - find:
+        - selector: div.wpcf7-mail-sent-ok
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "Thank you for your message"
