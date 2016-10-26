@@ -1,0 +1,95 @@
+bioguide: T000460
+contact_form:
+  method: post
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  steps:
+    - visit: "https://mikethompsonforms.house.gov/contact/"
+    - fill_in:
+        - name: required-zip5
+          selector: form.zipform input[name=zip5]
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: form.zipform input[name=zip4]
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: form.zipform input[type=submit]
+    - find:
+        - selector: input#ctl00_ctl27_FirstName
+    - fill_in:
+        - name: required-first
+          selector: input#ctl00_ctl27_FirstName
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: input#ctl00_ctl27_LastName
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: input#ctl00_ctl27_Street
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: input#ctl00_ctl27_City
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: input#ctl00_ctl27_Zip
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: required-phone
+          selector: input#ctl00_ctl27_Phone
+          value: $PHONE
+          required: false
+        - name: required-valid-email
+          selector: input#ctl00_ctl27_Email
+          value: $EMAIL
+          required: true
+        - name: required-subject
+          selector: input#ctl00_ctl27_Subject
+          value: $SUBJECT
+          required: true
+        - name: required-message
+          selector: textarea#ctl00_ctl27_Body
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: select#ctl00_ctl27_PrefixList
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+    - click_on:
+        - selector: input#ctl00_ctl27_ReplyChoice_0
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - find:
+        - selector: input#ctl00_ctl27_SubmitButton
+    - click_on:
+        - selector: input#ctl00_ctl27_SubmitButton
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting me."

@@ -1,0 +1,114 @@
+bioguide: B001287
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://beraforms.house.gov/forms/writeyourrep/"
+    - fill_in:
+        - name: ctl00$ctl08$FirstName
+          selector: "#ctl00_ctl09_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl08$LastName
+          selector: "#ctl00_ctl09_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl08$Street
+          selector: "#ctl00_ctl09_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl08$City
+          selector: "#ctl00_ctl09_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl08$Zip
+          selector: "#ctl00_ctl09_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl08$Email
+          selector: "#ctl00_ctl09_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl08$Subject
+          selector: "#ctl00_ctl09_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl08$Body
+          selector: "#ctl00_ctl09_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$ctl08$PrefixList
+          selector: "#ctl00_ctl09_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Dr.: Dr.
+            Ms.: Ms.
+            The Honorable: The Honorable
+        - name: ctl00$ctl08$State
+          selector: "#ctl00_ctl09_State"
+          value: CA
+          required: true
+          options:
+            CA: CA
+        - name: ctl00$ctl08$IssuesList
+          selector: "#ctl00_ctl09_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture and Food: "65336"
+            Animals: "65331"
+            Budget: "107376"
+            Civil Rights and Liberties: "65258"
+            Crime and Law Enforcement: "65204"
+            Defense: "65301"
+            Economy and jobs: "65178"
+            Education: "65335"
+            Energy: "65136"
+            Environment: "65119"
+            Government reform and operations: "65063"
+            Health Care: "65334"
+            Homeland Security: "64770"
+            Housing and Community Development: "64967"
+            Immigration: "64953"
+            International Affairs: "64943"
+            Other.: "107399"
+            "Science, Technology, Communications": "64867"
+            Seniors and Retirement Security: "64774"
+            Social issues: "100674"
+            Taxation: "64821"
+            Transportation and Infrastructure: "65333"
+            Veterans Affairs: "64769"
+    - check:
+        - name: ctl00$ctl08$ReplyChoice
+          selector: "#ctl00_ctl09_ReplyChoice_0"
+          value: Respond
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl09_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "I wanted to take a moment to"

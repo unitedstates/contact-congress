@@ -1,0 +1,141 @@
+bioguide: L000480
+contact_form:
+  method: post
+  action: /contact-form/
+  steps:
+    - visit: "https://lowey.house.gov/contact/email"
+    - fill_in:
+        - name: zipcode
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go to Next Step
+          selector: "#submit"
+    - fill_in:
+        - name: firstname
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: emailaddress
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+           Ms.: Ms.
+           Miss: Miss
+           Mrs.: Mrs.
+           Mr.: Mr.
+           Mr. and Mrs.: Mr. and Mrs.
+           Rev.: Rev.
+           Dr.: Dr.
+           The Honorable: The Honorable
+           Rabbi: Rabbi
+        - name: issue
+          selector: "#required-issue"
+          value: $TOPIC
+          required: true
+          options:
+           - Agriculture
+           - Animals
+           - Arts and Humanities
+           - Banking and Finance
+           - Budget and Economy
+           - Help With a Federal Agency
+           - Campaign Finance Reform
+           - Congress and Elections
+           - Defense and Military
+           - Economy
+           - Education
+           - Energy
+           - Environment
+           - Federal Employees
+           - Foreign Relations
+           - Government Reform
+           - Guns
+           - Health
+           - Homeland Security
+           - Housing and Urban Development
+           - Immigration
+           - International Relations
+           - Judiciary
+           - Labor
+           - LGBT
+           - No Response Necessary
+           - Post Office
+           - Science and Technology
+           - Social Issues
+           - Senior Citizens
+           - Social Security
+           - Social Services
+           - Taxes
+           - Telecommunications
+           - Tours
+           - Transportation
+           - Trade
+           - Veterans
+           - Women's Issues
+           - Welfare
+           - Other Issue
+        - name: response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+           - Yes
+           - No
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - click_on:
+        - value: Send Email
+          selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: your message has been sent
