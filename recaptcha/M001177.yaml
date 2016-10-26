@@ -49,11 +49,23 @@ contact_form:
           selector: "#message"
           value: $MESSAGE
           required: true
+    - recaptcha:
         - name: recaptcha_response_field
-          selector: "#recaptcha_response_field"
-          captcha_selector: "img#recaptcha_challenge_image"
-          captcha_id_selector: "#recaptcha_challenge_field"
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
           value: $CAPTCHA_SOLUTION
+          types: [image, audio]
           required: true
     - click_on:
         - value: Send Email
