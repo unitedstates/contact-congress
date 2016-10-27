@@ -1,0 +1,90 @@
+bioguide: G000565
+contact_form:
+  method: get
+  action: /forms/writeyourrep/
+  steps:
+    - visit: "http://paulgosar.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl24_FirstName"
+    - fill_in:
+        - name: ctl00$ctl24$FirstName
+          selector: "#ctl00_ctl24_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl24$LastName
+          selector: "#ctl00_ctl24_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl24$Street
+          selector: "#ctl00_ctl24_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl24$City
+          selector: "#ctl00_ctl24_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl24$Zip
+          selector: "#ctl00_ctl24_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl24$Email
+          selector: "#ctl00_ctl24_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl24$Subject
+          selector: "#ctl00_ctl24_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl24$Body
+          selector: "#ctl00_ctl24_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$ctl24$PrefixList
+          selector: "#ctl00_ctl24_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Rev.: Rev.
+            Dr.: Dr.
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl24_SubmitButton"
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time to write me. I carefully consider the views of Arizona residents as I serve the 4th District.

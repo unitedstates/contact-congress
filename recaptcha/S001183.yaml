@@ -1,0 +1,120 @@
+bioguide: S001183
+contact_form:
+  method: get
+  action: /forms/writeyourrep/
+  steps:
+    - visit: "http://davidschweikert.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl12_FirstName"
+    - fill_in:
+        - name: first
+          selector: "#ctl00_ctl12_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: last
+          selector: "#ctl00_ctl12_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#ctl00_ctl12_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#ctl00_ctl12_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#ctl00_ctl12_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#ctl00_ctl12_Phone"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#ctl00_ctl12_Email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#ctl00_ctl12_Subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#ctl00_ctl12_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#ctl00_ctl12_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Miss.: Miss.
+            Ms.: Ms.
+            Dr.: Dr.
+        - name: topic
+          selector: "#ctl00_ctl12_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: "72"
+            Budget: "14819"
+            Defense: "14820"
+            Education: "73"
+            Energy: "10177"
+            Environment: "14814"
+            Governmental Issues: "10250"
+            Health Care: "74"
+            Homeland security: "10175"
+            Immigration: "10360"
+            International Relations: "10370"
+            Judicial: "14821"
+            Labor: "10390"
+            Social Issues: "14822"
+            Social Security: "10483"
+            Taxation: "10493"
+            Telecommunications: "14823"
+            Trade: "10236"
+            Transportation: "81"
+            Veterans: "14824"
+            Welfare: "10479"
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl12_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for taking the time to write me.

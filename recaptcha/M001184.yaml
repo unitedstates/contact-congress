@@ -1,0 +1,206 @@
+bioguide: M001184
+contact_form:
+  method: get
+  action: /forms/writeyourrep/
+  steps:
+    - visit: "http://massieforms.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#aspnetForm"
+    - fill_in:
+        - name: ctl00$ctl15$FirstName
+          selector: "#ctl00_ctl32_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl15$LastName
+          selector: "#ctl00_ctl32_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl15$Street
+          selector: "#ctl00_ctl32_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl15$City
+          selector: "#ctl00_ctl32_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl15$Zip
+          selector: "#ctl00_ctl32_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl15$Phone
+          selector: "#ctl00_ctl32_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl15$Email
+          selector: "#ctl00_ctl32_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl15$Subject
+          selector: "#ctl00_ctl32_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl15$Body
+          selector: "#ctl00_ctl32_Body"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$ctl15$CampaignID
+          selector: "#ctl00_ctl32_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl15$Organization
+          selector: "#ctl00_ctl32_Organization"
+          value: $ORG_NAME
+          required: false
+        - name: ctl00$ctl15$OrganizationContact
+          selector: "#ctl00_ctl32_OrganizationContact"
+          value: $ORG_URL
+          required: false
+    - select:
+        - name: ctl00$ctl15$PrefixList
+          selector: "#ctl00_ctl32_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Dr.: Dr.
+            Ms.: Ms.
+            Col.: Col.
+            Major: Major
+            Rear Admiral: Rear Admiral
+            Captain: Captain
+            Major General: Major General
+            General: General
+            Commander: Commander
+            The Honorable: The Honorable
+            "Mr. & Mrs.": "Mr. & Mrs."
+            Representative: Representative
+            Sr.: Sr.
+            Mayor: Mayor
+            Commissioner: Commissioner
+            Reverend: Reverend
+        - name: ctl00$ctl15$State
+          selector: "#ctl00_ctl32_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl15$IssuesList
+          selector: "#ctl00_ctl32_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture and Food: "59814"
+            Armed Forces and National Security: "59779"
+            Economics and Public Finance: "59656"
+            Energy: "59614"
+            Environment: "59251"
+            Immigration: "59431"
+            Law: "59385"
+            "Science, Technology, Communications": "59345"
+            Social Welfare: "59313"
+            Taxation: "59299"
+    - check:
+        - name: ctl00$ctl15$ReplyChoice
+          selector: "#ctl00_ctl32_ReplyChoice_0"
+          value: Respond
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl32_SubmitButton"
+    - find:
+        - selector: "span#ctl00_ctl32_ConfirmationText"
+          value: "Thank you"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been submitted"

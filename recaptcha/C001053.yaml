@@ -1,0 +1,247 @@
+bioguide: C001053
+contact_form:
+  method: POST
+  action: "https://coleforms.house.gov/forms/writeyourrep/?Confirmation=true"
+  steps:
+    - visit: "https://coleforms.house.gov/contact/default.aspx"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#aspnetForm"
+    - fill_in:
+        - name: ctl00$ctl15$FirstName
+          selector: "#ctl00_ctl16_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl15$LastName
+          selector: "#ctl00_ctl16_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl15$Street
+          selector: "#ctl00_ctl16_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl15$City
+          selector: "#ctl00_ctl16_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl15$Zip
+          selector: "#ctl00_ctl16_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl15$Phone
+          selector: "#ctl00_ctl16_Phone"
+          value: $PHONE
+          required: false
+        - name: ctl00$ctl15$Email
+          selector: "#ctl00_ctl16_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl15$Subject
+          selector: "#ctl00_ctl16_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl15$Body
+          selector: "#ctl00_ctl16_Body"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$ctl15$CampaignInfo
+          selector: "#ctl00_ctl16_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl15$PrefixList
+          selector: "#ctl00_ctl16_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Mr. and Mrs.: Mr. and Mrs.
+            Miss: Miss
+            Dr.: Dr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Dr. and Mr.: Dr. and Mr.
+            Drs.: Drs.
+            Professor: Professor
+            The Honorable: The Honorable
+            Reverend: Reverend
+            Pastor: Pastor
+            Representative: Representative
+            The Reverend Mosignor: The Reverend Mosignor
+            The Reverend Dr: The Reverend Dr
+            Sister: Sister
+            Brother: Brother
+            Rabbi: Rabbi
+            Gen: Gen
+            LtGen: LtGen
+            MajGen: MajGen
+            BrigGen: BrigGen
+            Col: Col
+            LtCol: LtCol
+            Maj: Maj
+            Capt.: Capt.
+            1stLt: 1stLt
+            2ndLt: 2ndLt
+            CWO: CWO
+            WO: WO
+            SgtMaj: SgtMaj
+            MGySgt: MGySgt
+            1stSgt: 1stSgt
+            MSgt: MSgt
+            GvSgt: GvSgt
+            SSgt: SSgt
+            Sgt: Sgt
+            Cpl: Cpl
+            LCpl: LCpl
+            PFC: PFC
+            Pvt: Pvt
+            CMSAF: CMSAF
+            CMSgt: CMSgt
+            SMSgt: SMSgt
+            MSgt: MSgt
+            TSgt: TSgt
+            SFC: SFC
+            SSG: SSG
+            SP: SP
+            ADM: ADM
+            VADM: VADM
+            RADM: RADM
+            RDML: RDML
+            ENS: ENS
+            CDR: CDR
+            LCDR: LCDR
+            LT: LT
+            LTJG: LTJG
+        - name: ctl00$ctl15$State
+          selector: "#ctl00_ctl16_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl15$IssuesList
+          selector: "#ctl00_ctl16_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: "108460"
+            Animals: "108459"
+            "Budget, Spending & Taxes": "108458"
+            Casework: "108457"
+            "Defense & National Security": "108456"
+            Education: "35971"
+            Energy: "35772"
+            Foreign Affairs: "108455"
+            Health Care: "35970"
+            Immigration: "35589"
+            "Jobs & Economy": "108454"
+            "Military & Veterans": "108453"
+            Natural Resources: "108452"
+            "Science & Technology": "108451"
+            Second Amendment: "108450"
+            Social Security: "108449"
+            Traditional Values: "108448"
+            Transportation: "108447"
+            Tribal Relations: "108446"
+    - check:
+        - name: ctl00$ctl15$ReplyChoice
+          selector: "#ctl00_ctl16_ReplyChoice_0"
+          value: Respond
+    - uncheck:
+        - name: ctl00$ctl15$SubscribeChoice
+          selector: "#ctl00_ctl16_SubscribeChoice"
+        - name: ctl00$ctl15$ReplyChoice
+          selector: "#ctl00_ctl16_ReplyChoice_1"
+          value: Comment
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl16_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: I value the opinions of Oklahomans as I serve you in Washington.

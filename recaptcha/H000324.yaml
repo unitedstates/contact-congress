@@ -1,0 +1,69 @@
+bioguide: H000324
+contact_form:
+  method: post
+  action: "?zip5=33407&zip4=3224"
+  steps:
+    - visit: "https://alceehastings.house.gov/forms/writeyourrep/?zip5=33407&zip4=3224"
+    - fill_in:
+        - name: ctl00$ctl14$FirstName
+          selector: "#ctl00_ctl14_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl14$LastName
+          selector: "#ctl00_ctl14_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl14$Street
+          selector: "#ctl00_ctl14_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl14$City
+          selector: "#ctl00_ctl14_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl14$Zip
+          selector: "#ctl00_ctl14_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl14$Email
+          selector: "#ctl00_ctl14_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl14$Subject
+          selector: "#ctl00_ctl14_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl14$Body
+          selector: "#ctl00_ctl14_Body"
+          value: $MESSAGE
+          required: true
+    - check:
+        - name: ctl00$ctl14$ReplyChoice
+          selector: "#ctl00_ctl14_ReplyChoice_0"
+          value: Respond
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl14_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you for your correspondence.

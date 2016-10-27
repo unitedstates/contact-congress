@@ -1,0 +1,206 @@
+bioguide: C001048
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://culbersonforms.house.gov/forms/writeyourrep/default.aspx"
+    - fill_in:
+        - name: firstname
+          selector: "#ctl00_ctl15_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#ctl00_ctl15_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#ctl00_ctl15_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: "#ctl00_ctl15_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: "#ctl00_ctl15_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: "#ctl00_ctl15_Phone"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#ctl00_ctl15_Email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#ctl00_ctl15_Subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#ctl00_ctl15_Body"
+          value: $MESSAGE
+          required: true
+        - name: CampaignID
+          selector: "#ctl00_ctl15_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: CampaignInfo
+          selector: "#ctl00_ctl15_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: prefix
+          selector: "#ctl00_ctl15_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            1LT: 1LT
+            1SGT: 1SGT
+            2LT: 2LT
+            Admiral: Admiral
+            Agent: Agent
+            Ambassador: Ambassador
+            BG: BG
+            Brigadier General: Brigadier General
+            Captain: Captain
+            Chairman: Chairman
+            Chairwoman: Chairwoman
+            Chief: Chief
+            Coach: Coach
+            Colonel: Colonel
+            Commissioner: Commissioner
+            Congressman: Congressman
+            Congresswoman: Congresswoman
+            CPT: CPT
+            CSM: CSM
+            CTSRN: CTSRN
+            CW4: CW4
+            Deputy Commissioner: Deputy Commissioner
+            Eagle Scout: Eagle Scout
+            Deputy: Deputy
+            Director: Director
+            Dr.: Dr.
+            Emperor: Emperor
+            Fr.: Fr.
+            General: General
+            Governor: Governor
+            FSEFN: FSEFN
+            LCDR: LCDR
+            Lieutenant: Lieutenant
+            LTC: LTC
+            LtCol: LtCol
+            LTG: LTG
+            LtGen: LtGen
+            Major General: Major General
+            Major: Major
+            Master: Master
+            Mayor: Mayor
+            Miss: Miss
+            Mr. and Mrs.: Mr. and Mrs.
+            Mr. Speaker: Mr. Speaker
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            MSG: MSG
+            Officer: Officer
+            PFC: PFC
+            President: President
+            Professor: Professor
+            Rev.: Rev.
+            Rear: Rear
+            Admiral: Admiral
+            Representative: Representative
+            Senator: Senator
+            Sergeant: Sergeant
+            SFC: SFC
+            SGT: SGT
+            SH: SH
+            SN: SN
+            SPC: SPC
+            SSG: SSG
+            The Honorable and Mrs.: The Honorable and Mrs.
+            The Honorable: The Honorable
+            The Reverend: The Reverend
+            Vice Admiral: Vice Admiral
+            CMSgt.: CMSgt.
+            SSgt.: SSgt.
+            The: The
+            Cadet: Cadet
+            Secretary: Secretary
+            Sergeant Major: Sergeant Major
+            Commissioner: Commissioner
+            Rabbi: Rabbi
+            Pastor: Pastor
+            MSgt.: MSgt.
+            Chief Deputy Coroner: Chief Deputy Coroner
+            Commander: Commander
+            CW2: CW2
+            SOC: SOC
+            Lieutenant Colonel: Lieutenant Colonel
+            Lance Corporal: Lance Corporal
+            First Sergeant: First Sergeant
+        - name: topic
+          selector: "#ctl00_ctl15_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: "12225"
+            Budget: "12163"
+            Commerce: "12129"
+            Defense: "12093"
+            Education: "12224"
+            Energy: "12025"
+            Environment: "12008"
+            Financial Services: "12067"
+            Foreign Affairs: "45915"
+            Government Reform: "11952"
+            Health Care: "12223"
+            Homeland Security: "11856"
+            Immigration: "11842"
+            Judiciary: "57402"
+            Labor: "11812"
+            Medicare/Medicaid: "11796"
+            NASA: "11778"
+            Small Business: "45923"
+            Social Security: "45924"
+            Taxes: "12147"
+            Telecommunications: "45926"
+            Trade/Commerce: "45928"
+            Transportation: "12222"
+            Veterans: "45929"
+    - check:
+        - name: replychoice
+          selector: "#ctl00_ctl15_ReplyChoice_0"
+          value: Respond
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl15_SubmitButton"
+    - find:
+        - selector: "#ctl00_ctl15_ConfirmationText"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thanks for submitting your comments.

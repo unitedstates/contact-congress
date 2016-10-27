@@ -1,0 +1,131 @@
+bioguide: C001069
+contact_form:
+  method: post
+  action: /email-joe1/
+  steps:
+    - visit: "https://courtney.house.gov/contact/email"
+    - fill_in:
+        - name: zip5
+          selector: input#required-zip5
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: input#zip4
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go To Next Step
+          selector: form#emailForm button#submit
+    - find:
+        - selector: input#required-first
+    - fill_in:
+        - name: first
+          selector: input#required-first
+          value: $NAME_FIRST
+          required: true
+        - name: last
+          selector: input#required-last
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: input#required-address
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: input#address2
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: input#required-city
+          value: $ADDRESS_CITY
+          required: true
+        - name: email
+          selector: input#required-valid-email
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: input#required-phone
+          value: $PHONE
+          required: true
+        - name: subject
+          selector: input#required-subject
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: textarea#required-message
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: select#required-prefix
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
+        - name: topic
+          selector: select#required-issue
+          value: $TOPIC
+          required: true
+          options:
+            "Agriculture": "AGR"
+            "Defense and Homeland Security": "DEF"
+            "Education Policy": "EDU"
+            "Energy and the Environment": "ENV"
+            "Government Oversight": "GOV"
+            "Gun Control Policy": "GUN"
+            "Healthcare and Retirement": "HEA"
+            "Immigration": "IMM"
+            "Judicial": "JUD"
+            "Labor": "LABOR"
+            "Science, Technology, Telecommunications, and Space": "SCIENCE"
+            "Social, Judicial, and Civil Rights Policy": "SOC"
+            "Economic and Tax Policy": "ECO"
+            "Transportation and Infrastructure": "TRAN"
+            "International Affairs and Trade": "INTL"
+            "Veterans Affairs": "VET"
+            "Welfare": "WEL"
+            "Casework": "CASEWORK"
+            "Tour and Flag Requests": "Tour and Flag Requests"
+            "Other Issues": "MISC"
+        - name: response
+          selector: select#required-response
+          value: "Yes"
+          required: true
+          options:
+            "Yes": "Yes"
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - click_on:
+        - value: Send Email to Representative Courtney
+          selector: form#contactForm button#submit
+    - find:
+        - selector: span.data
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "your message has been sent."

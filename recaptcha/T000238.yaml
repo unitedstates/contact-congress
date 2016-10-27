@@ -1,0 +1,168 @@
+bioguide: T000238
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://thornberry.house.gov/forms/writeyourrep/"
+    - fill_in:
+        - name: ctl00$ctl13$FirstName
+          selector: "#ctl00_ctl13_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl13$LastName
+          selector: "#ctl00_ctl13_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl13$Street
+          selector: "#ctl00_ctl13_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl13$City
+          selector: "#ctl00_ctl13_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl13$Zip
+          selector: "#ctl00_ctl13_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl13$Email
+          selector: "#ctl00_ctl13_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl13$Subject
+          selector: "#ctl00_ctl13_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl13$Body
+          selector: "#ctl00_ctl13_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+
+        - name: ctl00$ctl13$State
+          selector: "#ctl00_ctl13_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+            - AA
+            - AE
+            - AP
+            - FM
+            - GU
+            - MH
+            - MP
+            - PR
+            - VI
+        - name: ctl00$ctl13$IssuesList
+          selector: "#ctl00_ctl13_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: "8405"
+            Economy: "8401"
+            Education: "58078"
+            Energy: "9845"
+            Environment: "58079"
+            Federal Budget: "44611"
+            FLAG - Flag Requests: "59241"
+            Government Issues: "58097"
+            Gun Control: "58081"
+            Health: "58099"
+            Help with a Federal Agency: "58096"
+            Housing: "59240"
+            Immigration: "9905"
+            International Relations: "58082"
+            Labor: "58084"
+            Medicare: "43449"
+            National Security: "8402"
+            Natural Resources: "58085"
+            Other: "58095"
+            Postal Service: "58086"
+            Religious Issues: "58087"
+            "Science & Technology": "58088"
+            Social Security: "8407"
+            Taxes: "58098"
+            Tour Requests: "58090"
+            Trade: "58091"
+            Transportation: "58093"
+            Veterans: "58094"
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl13_SubmitButton"
+    - find:
+        - selector: "#ctl00_PageLink"
+          value: "Thank you"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

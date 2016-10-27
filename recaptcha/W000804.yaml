@@ -1,0 +1,144 @@
+bioguide: W000804
+contact_form:
+  method: get
+  action: /forms/writeyourrep/
+  steps:
+    - visit: "http://wittman.house.gov/contact/"
+    - fill_in:
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: "#ctl00_ctl13_FirstName"
+    - fill_in:
+        - name: ctl00$ctl13$FirstName
+          selector: "#ctl00_ctl13_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl13$LastName
+          selector: "#ctl00_ctl13_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl13$Street
+          selector: "#ctl00_ctl13_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl13$City
+          selector: "#ctl00_ctl13_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl13$Zip
+          selector: "#ctl00_ctl13_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl13$Phone
+          selector: "#ctl00_ctl13_Phone"
+          value: $PHONE
+          required: true
+        - name: ctl00$ctl13$Email
+          selector: "#ctl00_ctl13_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl13$Subject
+          selector: "#ctl00_ctl13_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl13$Body
+          selector: "#ctl00_ctl13_Body"
+          value: $MESSAGE
+          required: true
+        - name: ctl00$ctl13$CampaignID
+          selector: "#ctl00_ctl13_CampaignID"
+          value: $CAMPAIGN_UUID
+          required: false
+        - name: ctl00$ctl13$CampaignInfo
+          selector: "#ctl00_ctl13_CampaignInfo"
+          value: $CAMPAIGN_UUID
+          required: false
+    - select:
+        - name: ctl00$ctl13$PrefixList
+          selector: "#ctl00_ctl13_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Hon.: Hon.
+            Rev.: Rev.
+            Rabbi: Rabbi
+            Ambassador: Ambassador
+            Colonel: Colonel
+            Consul General: Consul General
+        - name: ctl00$ctl13$IssuesList
+          selector: "#ctl00_ctl13_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture and Food: "127371"
+            Animals: "127366"
+            Budget and Spending: "127383"
+            Defense: "127375"
+            Economy and Jobs: "127382"
+            Education: "127370"
+            Energy: "127172"
+            Environment: "126811"
+            Families: "127141"
+            Federal Workforce: "127384"
+            Government Reform: "127386"
+            Health Care: "127369"
+            Help with a Federal Agency: "127381"
+            Immigration: "126991"
+            International Affairs: "126981"
+            Judiciary: "127372"
+            Labor: "126961"
+            National Security: "127374"
+            Science: "127378"
+            Second Amendment: "127376"
+            Social Issues: "127377"
+            Social Security: "126869"
+            Taxation: "126859"
+            Telecommunications: "127379"
+            Transportation and Public Works: "127368"
+            Veterans: "127385"
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - click_on:
+        - value: Response
+          selector: "#ctl00_ctl13_ReplyChoice_0"
+        - value: Submit
+          selector: "#ctl00_ctl13_SubmitButton"
+    - find:
+        - value: Thank you
+          selector: "#ctl00_ctl13_ConfirmationText"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you

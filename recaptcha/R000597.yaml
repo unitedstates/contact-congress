@@ -1,0 +1,182 @@
+bioguide: R000597
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://tomriceforms.house.gov/forms/writeyourrep/"
+    - fill_in:
+        - name: ctl00$ctl14$FirstName
+          selector: "#ctl00_ctl23_FirstName"
+          value: $NAME_FIRST
+          required: true
+        - name: ctl00$ctl14$LastName
+          selector: "#ctl00_ctl23_LastName"
+          value: $NAME_LAST
+          required: true
+        - name: ctl00$ctl14$Street
+          selector: "#ctl00_ctl23_Street"
+          value: $ADDRESS_STREET
+          required: true
+        - name: ctl00$ctl14$City
+          selector: "#ctl00_ctl23_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: ctl00$ctl14$Zip
+          selector: "#ctl00_ctl23_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: ctl00$ctl14$Phone
+          selector: "#ctl00_ctl23_Phone"
+          value: $PHONE
+          required: false
+        - name: ctl00$ctl14$Email
+          selector: "#ctl00_ctl23_Email"
+          value: $EMAIL
+          required: true
+        - name: ctl00$ctl14$Subject
+          selector: "#ctl00_ctl23_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl14$Body
+          selector: "#ctl00_ctl23_Body"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: ctl00$ctl14$PrefixList
+          selector: "#ctl00_ctl23_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Miss: Miss
+            Ms.: Ms.
+            Mr. & Mrs.: Mr. & Mrs.
+            Dr.: Dr.
+            The Reverend: The Reverend
+            Dr. & Mrs.: Dr. & Mrs.
+            Mr. & Dr.: Mr. & Dr.
+            The Honorable: The Honorable
+            1LT: 1LT
+            1SG: 1SG
+            1st Lt: 1st Lt
+            1stSgt: 1stSgt
+            2d Lt: 2d Lt
+            A1C: A1C
+            AB: AB
+            ADM: ADM
+            Amn: Amn
+            BG.: BG.
+            BGen: BGen
+            Brig Gen: Brig Gen
+            Brother: Brother
+            CAPT: CAPT
+            Capt: Capt
+            CDR: CDR
+            Chaplain: Chaplain
+            Chief: Chief
+            CMSAF: CMSAF
+            CMSgt: CMSgt
+            Col: Col
+            COL: COL
+            CPL: CPL
+            Cpl: Cpl
+            CPO: CPO
+            CPT: CPT
+            CSM: CSM
+            CW2: CW2
+            CW3: CW3
+            CW4: CW4
+            CW5: CW5
+            CWO-1: CWO-1
+            CWO2: CWO2
+            CWO-2: CWO-2
+            CWO3: CWO3
+            CWO-3: CWO-3
+            CWO4: CWO4
+            CWO-4: CWO-4
+            CWO-5: CWO-5
+            Dean: Dean
+            Drs.: Drs.
+            Elder: Elder
+            ENS: ENS
+            Father: Father
+            Gen: Gen
+            GEN: GEN
+            GySgt: GySgt
+            LCDR: LCDR
+            LCpl: LCpl
+            LT: LT
+            Lt Col: Lt Col
+            Major: Major
+            SPC: SPC
+        - name: ctl00$ctl14$IssuesList
+          selector: "#ctl00_ctl23_IssuesList"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture and Food: "110205"
+            Animals: "110200"
+            Armed Forces and National Security: "110170"
+            "Arts, Culture, Religion": "110143"
+            "Civil Rights and Liberties, Minority Issues": "110127"
+            Commerce: "110109"
+            Congress: "110087"
+            Crime and Law Enforcement: "110074"
+            Economics and Public Finance: "110048"
+            Education: "110204"
+            Emergency Management: "110015"
+            Energy: "110006"
+            Environment: "109645"
+            Families: "109975"
+            Finance and Financial Sector: "109965"
+            Foreign Affairs: "114197"
+            Foreign Trade and International Finance: "109948"
+            Government Operations and Politics: "109934"
+            Health Care: "110203"
+            Housing and Community Development: "109839"
+            Immigration: "109825"
+            Labor and Employment: "109795"
+            Law: "109779"
+            Native Americans: "109761"
+            Public Lands and Natural Resources: "109754"
+            "Science, Technology, Communications": "109739"
+            Social Sciences and History: "109715"
+            Social Welfare: "109707"
+            Sports and Recreation: "109701"
+            Taxation: "109693"
+            Transportation and Public Works: "110202"
+            Water Resources Development: "109658"
+    - check:
+        - name: ctl00$ctl14$ReplyChoice
+          selector: "#ctl00_ctl23_ReplyChoice_0"
+          value: Respond
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#ctl00_ctl23_SubmitButton"
+    - find:
+        - selector: "span#ctl00_ctl23_ConfirmationText"
+          value: "Your correspondence"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your correspondence has been sent
