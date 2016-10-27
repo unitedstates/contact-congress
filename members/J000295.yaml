@@ -4,18 +4,6 @@ contact_form:
   action: /email-me/
   steps:
     - visit: "https://joyce.house.gov/email-me"
-    - fill_in:
-        - name: zipcode
-          selector: "#zipcode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zipfour
-          selector: "#zipfour"
-          value: $ADDRESS_ZIP4
-          required: true
-    - click_on:
-        - value: Go to Form
-          selector: "#zipauthform input.button"
     - find:
         - selector: "#custom_form62"
     - fill_in:
@@ -54,11 +42,6 @@ contact_form:
         - name: message
           selector: "#req_message"
           value: $MESSAGE
-          required: true
-        - name: captcha
-          captcha_selector: img#captchaImage
-          selector: input#captchaTextBox
-          value: $CAPTCHA_SOLUTION
           required: true
     - select:
         - name: prefix
