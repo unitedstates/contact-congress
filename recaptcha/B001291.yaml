@@ -1,10 +1,10 @@
 bioguide: B001291
-contact_form: 
+contact_form:
   method: get
   action: /forms/writeyourrep/
-  steps: 
-  - visit: https://Babinforms.house.gov/contact
-  - fill_in: 
+  steps:
+  - visit: "https://Babinforms.house.gov/contact"
+  - fill_in:
     - name: zip5
       selector: form.zipform input[name='zip5']
       value: $ADDRESS_ZIP5
@@ -13,12 +13,12 @@ contact_form:
       selector: form.zipform input[name='zip4']
       value: $ADDRESS_ZIP4
       required: true
-  - click_on: 
+  - click_on:
     - value: Submit
       selector: form.zipform input[type='submit']
-  - find: 
+  - find:
     - selector: "#ctl00_ctl13_FirstName"
-  - fill_in: 
+  - fill_in:
     - name: ctl00$ctl13$FirstName
       selector: "#ctl00_ctl13_FirstName"
       value: $NAME_FIRST
@@ -55,16 +55,16 @@ contact_form:
       selector: "#ctl00_ctl13_Subject"
       value: $SUBJECT
       required: true
-  - choose: 
+  - choose:
     - name: ctl00$ctl13$ReplyChoice
       selector: "#ctl00_ctl13_ReplyChoice_0"
       value: Respond
-  - select: 
+  - select:
     - name: ctl00$ctl13$PrefixList
       selector: "#ctl00_ctl13_PrefixList"
       value: $NAME_PREFIX
       required: true
-      options: 
+      options:
       - Mr.
       - Mrs.
       - Ms.
@@ -73,7 +73,7 @@ contact_form:
       selector: "#ctl00_ctl13_State"
       value: $ADDRESS_STATE_POSTAL_ABBREV
       required: true
-      options: 
+      options:
       - AL
       - AK
       - AZ
@@ -138,7 +138,7 @@ contact_form:
       selector: "#ctl00_ctl13_IssuesList"
       value: $TOPIC
       required: true
-      options: 
+      options:
         Advocacy: "14886"
         Agriculture and Food: "72"
         Animals: "9982"
@@ -173,17 +173,35 @@ contact_form:
         Taxation: "10493"
         Transportation and Public Works: "81"
         Water Resources Development: "10528"
-  - uncheck: 
+  - uncheck:
     - name: ctl00$ctl13$SubscribeChoice
       selector: "#ctl00_ctl13_SubscribeChoice"
-  - click_on: 
+  - recaptcha:
+    - name: recaptcha_response_field
+      grid_selector: "#rc-imageselect-target"
+      img_selector: "#rc-imageselect-target img"
+      phrase_selector: "html body div.rc-imageselect-desc > strong"
+      phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+      simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+      simple_textbox_selector: "#default-response"
+      audio_selector: "html body a.rc-audiochallenge-download-link"
+      audio_response_selector: "#audio-response"
+      audio_switch_selector: "#recaptcha-audio-button"
+      checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+      checkbox_selector: "div.recaptcha-checkbox-checkmark"
+      main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+      verify_selector: "#recaptcha-verify-button"
+      value: $CAPTCHA_SOLUTION
+      types: [image, audio]
+      required: true
+  - click_on:
     - value: Submit
       selector: "#ctl00_ctl13_SubmitButton"
-  - find: 
+  - find:
     - selector: "span#ctl00_ctl13_ConfirmationText"
       value: Thank you
-  success: 
-    headers: 
+  success:
+    headers:
       status: 200
-    body: 
+    body:
       contains: I carefully consider the views of my constituents
