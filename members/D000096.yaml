@@ -33,6 +33,8 @@ contact_form:
           selector: "#req_email"
           value: $EMAIL
           required: true
+          options:
+            blacklist: "+"
         - name: phone
           selector: "#phone"
           value: $PHONE
