@@ -1,9 +1,20 @@
 bioguide: E000293
 contact_form:
   method: post
-  action: "https://forms.house.gov/htbin/formproc_za/esty/webforms/issue_subscribe_parm.txt&form=/esty/webforms/issue_subscribe_verify.html"
+  action: ""
   steps:
-    - visit: "https://forms.house.gov/esty/webforms/email-me.shtml"
+    - visit: "https://esty.house.gov/contact"
+    - fill_in:
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - selector: form#emailForm button#submit
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -106,6 +117,24 @@ contact_form:
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
     - click_on:
         - value: Newsletter optout
           selector: "#subscribe"
