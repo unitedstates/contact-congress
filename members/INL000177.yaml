@@ -1,47 +1,42 @@
 bioguide: INL000177
 contact_form:
   method: post
-  action: 
+  action:
   steps:
     - visit: "http://indianahousedemocrats.org/contact-robin-shackleford"
     - fill_in:
         - name: name
-          selector: "#text1"
+          selector: input[name=your-name]
           value: $NAME_FULL
           required: true
-        - name: address
-          selector: "#text2"
-          value: $ADDRESS_STREET
-          required: true
-        - name: city
-          selector: "#text3"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zip
-          selector: "#text4"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: phone
-          selector: "#text5"
-          value: $PHONE
-          required: false
         - name: email
-          selector: "#text4" 
+          selector: input[name=your-email]
           value: $EMAIL
           required: true
+        - name: address
+          selector: input[name=your-address]
+          value: $ADDRESS_FULL
+          required: true
+        - name: phone
+          selector: input[name=your-phone]
+          value: $PHONE
+          required: true
         - name: subject
-          selector: "#text10"
+          selector: input[name=your-subject]
           value: $SUBJECT
           required: true
         - name: message
-          selector: "#textarea8"
+          selector: textarea[name=your-message]
           value: $MESSAGE
           required: true
     - click_on:
-        - value: Submit
-          selector: "#button9"
+        - selector: form.wpcf7-form input[type=submit]
+    - wait:
+        - value: 3
+    - find:
+        - selector: div.wpcf7-mail-sent-ok
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been received
+      contains: "Thank you for your message. It has been sent."
