@@ -3,7 +3,7 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: http://www.alexander.senate.gov/public/index.cfm?p=Email
+    - visit: "http://www.alexander.senate.gov/public/index.cfm?p=Email"
     - find:
       - selector: "#field_56ca2f21-5b5a-4146-8603-f37314d2fd61"
     - fill_in:
@@ -121,7 +121,7 @@ contact_form:
           "Eagle Scout / Gold Award, Birthday, and Retirement": "Special_Requests"
     - click_on:
       - value: Submit
-        selector: div.buttonHolder input.btn-primary
+        selector: form#form_458DEB6A-830B-424F-99F6-114B1829835B input.btn-primary
   success:
     headers:
       status: 200

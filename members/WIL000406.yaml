@@ -20,7 +20,7 @@ contact_form:
           value: $ADDRESS_STREET
           required: true
         - name: citystatezip
-          selector: input#54a360be-50a1-4740-c624-a50112ffe9e4
+          selector: div.citystatezipcode input
           value: $ADDRESS_CITY_STATE_ZIP
           required: true
         - name: message
@@ -34,4 +34,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Page Not Found
+      contains: "please do not hesitate to contact me"
