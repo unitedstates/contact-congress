@@ -3,41 +3,40 @@ contact_form:
   method: post
   action: Contact.aspx
   steps:
-    - visit: "http://legis.wisconsin.gov/senate/wirch/Pages/Email-Senator-Wirch.aspx"
+    - visit: "http://legis.wisconsin.gov/senate/22/wirch/contact-bob/"
     - fill_in:
         - name: email
-          selector: "#legis-es-email"
+          selector: div.emailaddress input
           value: $EMAIL
           required: true
         - name: name
-          selector: "#legis-es-name"
+          selector: div.name input
           value: $NAME_FULL
           required: true
         - name: address
-          selector: "#legis-es-address"
+          selector: div.address input
           value: $ADDRESS_STREET
           required: true
         - name: citystatezip
-          selector: "#legis-es-city-state"
+          selector: div.citystatezipcode input
           value: $ADDRESS_CITY_STATE_ZIP
           required: true
-        - name: subject
-          selector: "#legis-es-phone"
+        - name: phone
+          selector: div.phone input
           value: $PHONE
-          required: true
+          required: false
         - name: subject
-          selector: "#legis-es-subject"
+          selector: div.messagesubject input
           value: $SUBJECT
           required: true
         - name: message
-          selector: "textarea[name='Legis-message']"
+          selector: div.message textarea
           value: $MESSAGE
           required: true
     - click_on:
-        - value: Submit
-          selector: ".legis-email-submit-btn"
+        - selector: div#contour_form_Contact input[name=submitbtn]
   success:
     headers:
       status: 200
     body:
-      contains: Form submitted successfully
+      contains: "Thank you"
