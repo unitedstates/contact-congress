@@ -117,8 +117,7 @@ contact_form:
         options:
           blacklist: "•"
     - click_on:
-      - value: Submit
-        selector: div#copy form.uniForm div.buttonHolder input
+      - selector: form.uniForm input[type=submit]
   success:
     headers:
       status: 200
