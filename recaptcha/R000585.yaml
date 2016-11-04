@@ -1,9 +1,9 @@
-bioguide: S000248
+bioguide: R000585
 contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt&form=/contact-me/email-me-zip-authenticated&nobase&fpGetVer=2"
   steps:
-    - visit: "https://serrano.house.gov/contact/email-me"
+    - visit: "https://reed.house.gov/contact/email"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -15,14 +15,10 @@ contact_form:
           required: true
     - click_on:
         - value: Go To Next Step
-          selector: "#submit"
+          selector: form#emailForm button#submit
     - find:
-        - selector: "#contactForm"
+        - selector: "#required-first"
     - fill_in:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -56,6 +52,20 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: prefix
+          selector: "#required-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Ms.: Ms.
+            Miss: Miss
+            Mrs.: Mrs.
+            Mr.: Mr.
+            Mr. and Mrs.: Mr. and Mrs.
+            Rev.: Rev.
+            Dr.: Dr.
+            The Honorable: The Honorable
+            Rabbi: Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -95,13 +105,33 @@ contact_form:
             Veterans: VET
             "Women's Issues": WOMEN
             Other Issues: OTHER
+        - name: response
+          selector: "#required-response"
+          value: Yes
+          required: true
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
     - click_on:
-        - value: Response
-          selector: "#required-response_0"
         - value: Send Email
           selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: your message has been sent
