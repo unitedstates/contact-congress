@@ -4,6 +4,10 @@ contact_form:
   action: /es/governor/
   steps:
     - visit: "https://fortress.wa.gov/es/governor/"
+    - wait:
+      - value: 4
+    - find:
+      - selector: input#First
     - fill_in:
       - name: firstName
         selector: "#First"
@@ -154,7 +158,7 @@ contact_form:
           - "47440443-d263-e411-8d8b-005056ba7b6d": "Unemployment Assistance"
           - "49440443-d263-e411-8d8b-005056ba7b6d": "Utilities"
           - "67440443-d263-e411-8d8b-005056ba7b6d": "Veterans"
-          - "31440443-d263-e411-8d8b-005056ba7b6d": "Workers' Compensation"    
+          - "31440443-d263-e411-8d8b-005056ba7b6d": "Workers' Compensation"
     - iframe:
       - name: iframe
         selector: ".cke_wysiwyg_frame"
@@ -166,7 +170,7 @@ contact_form:
         wysiwyg: true
     - iframe:
       - name: parent
-        back: true      
+        back: true
     - click_on:
       - value: Submit
         selector: "#oneColumn form input[type='submit'][value='Submit']"
