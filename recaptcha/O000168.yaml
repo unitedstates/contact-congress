@@ -1,0 +1,119 @@
+bioguide: O000168
+contact_form:
+  method: post
+  action: /htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2
+  steps:
+    - visit: "https://olson.house.gov/contact/email-me"
+    - fill_in:
+        - name: zipcode
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zipfour
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - value: Go to Form
+          selector: "input[value='Go To Next Step']"
+    - find:
+        - selector: "#required-first"
+    - fill_in:
+        - name: firstname
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#address2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: emailaddress
+          selector: "#required-valid-email"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "#required-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "#prefix"
+          value: $NAME_PREFIX
+          required: false
+          options:
+            Mr.: Mr
+            Mrs.: Mrs
+            Ms.: Ms
+            Miss.: Miss
+            Dr.: Dr
+            Hon.: Honorable
+            Rev.: Rev
+            Rabbi: Rabbi
+        - name: subject
+          selector: "#required-subject"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGR
+            Budget: BUD
+            Defense: DEF
+            Economy: ECON
+            Education and Labor: EDU
+            Energy: ENE
+            Environmental: ENV
+            Government Reform: GOV
+            Health: HEA
+            Homeland Security: HOM
+            Immigration: IMM
+            International Relations: INT
+            Judiciary: JUD
+            Social Issues: SOC
+            Social Security: SSEC
+            Taxes and Trade: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Veterans: VET
+            Welfare: WEL
+            Other: OTH
+        - name: response
+          selector: "#response"
+          value: "Y"
+          required: true
+    - recaptcha:
+        - name: recaptcha_response_field
+          grid_selector: "#rc-imageselect-target"
+          img_selector: "#rc-imageselect-target img"
+          phrase_selector: "html body div.rc-imageselect-desc > strong"
+          phrase_selector_fallback: "html body div.rc-imageselect-desc-no-canonical > strong"
+          simple_img_selector: "html body div.rc-defaultchallenge-payload > img"
+          simple_textbox_selector: "#default-response"
+          audio_selector: "html body a.rc-audiochallenge-download-link"
+          audio_response_selector: "#audio-response"
+          audio_switch_selector: "#recaptcha-audio-button"
+          checkbox_iframe_selector: "div.g-recaptcha iframe[title='recaptcha widget']"
+          checkbox_selector: "div.recaptcha-checkbox-checkmark"
+          main_iframe_selector: "iframe[src^='https://www.google.com/recaptcha/api2/frame']"
+          verify_selector: "#recaptcha-verify-button"
+          value: $CAPTCHA_SOLUTION
+          types: [image, audio]
+          required: true
+    - click_on:
+        - value: Send Email
+          selector: "#submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "The following information has been submitted"
