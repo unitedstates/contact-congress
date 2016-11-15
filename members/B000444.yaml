@@ -7,10 +7,8 @@ contact_form:
     - select:
       - name: target
         selector: "#edit-submitted-00nj0000000vdnx"
-        value: Vice President Joe Biden
+        value: Reflections for the Vice President
         required: True
-    - find:
-      - selector: "#edit-submitted-vice-president-subject"
     - fill_in:
       - name: first
         selector: "#edit-submitted-00nj0000000vdne"
@@ -113,28 +111,6 @@ contact_form:
           West Virginia: West Virginia
           Wisconsin: Wisconsin
           Wyoming: Wyoming
-      - name: vp-topic
-        selector: "#edit-submitted-vice-president-subject"
-        value: $TOPIC
-        required: True
-        options:
-          Civil Rights: Civil Rights
-          Economy: Economy
-          Education: Education
-          Environment: Environment
-          Firearms: Firearms
-          Foreign Policy: Foreign Policy
-          Health Care: Health Care
-          Homeland Security: Homeland Security
-          Housing: Housing
-          Immigration: Immigration
-          Job Creation: Job Creation
-          "Science & Technology": "Science & Technology"
-          Seniors: Seniors
-          Taxes: Taxes
-          Transportation: Transportation
-          Veterans: Veterans
-          The Administration: The Administration
     - check:
       - selector: "#edit-submitted-interest-1"
     - click_on:
@@ -144,4 +120,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting the White House
+      contains: Thank you for contacting President Obama
