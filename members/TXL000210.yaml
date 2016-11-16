@@ -4,6 +4,8 @@ contact_form:
   action: http://www.senate.state.tx.us/bin/distemail.php
   steps:
     - visit: "http://www.senate.state.tx.us/75r/senate/members/dist23/dist23.htm#form"
+    - find:
+        - selector: form.memForm textarea#message
     - fill_in:
         - name: emailaddress
           selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #sender"
@@ -42,7 +44,7 @@ contact_form:
           value: $SUBJECT
           required: true
         - name: message
-          selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #message"
+          selector: form.memForm textarea#message
           value: $MESSAGE
           required: true
     - click_on:

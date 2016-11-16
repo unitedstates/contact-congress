@@ -3,51 +3,51 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: "http://www.alexander.senate.gov/public/index.cfm?p=Email"
+    - visit: "https://www.alexander.senate.gov/public/index.cfm/email"
     - find:
-      - selector: "#field_56ca2f21-5b5a-4146-8603-f37314d2fd61"
+      - selector: input#field_27543AF0-A7FE-4E4C-975E-97114B70AA80
     - fill_in:
       - name: first
-        selector: input#field_56CA2F21-5B5A-4146-8603-F37314D2FD61
+        selector: input#field_27543AF0-A7FE-4E4C-975E-97114B70AA80
         value: $NAME_FIRST
         required: true
       - name: last
-        selector: input#field_970A3CA0-C534-4302-8823-7D4910FCEACD
+        selector: input#field_B49C8687-4695-4082-8F2B-20D074400C9F
         value: $NAME_LAST
         required: true
       - name: street
-        selector: input#field_884BF137-EBEA-4175-9269-C3E5AB6CA6CA
+        selector: input#field_0DFA0D31-7700-4AE0-9AB7-ED9EEDF4332F
         value: $ADDRESS_STREET
         required: true
       - name: street2
-        selector: input#field_F503B2FF-86FB-4012-89F3-9B6859889BB3
+        selector: input#field_351DD6D8-025B-4CEF-8875-CE99605E19E0
         value: $ADDRESS_STREET_2
         required: false
       - name: city
-        selector: input#field_05EA19C5-F508-4421-9547-2DBB6E74A6D3
+        selector: input#field_F8B1AA2B-33BC-49FA-B2AE-144A81E7B348
         value: $ADDRESS_CITY
         required: true
       - name: zip
-        selector: input#field_503E21FD-DA3A-4853-A070-6FBBA1E5E914
+        selector: input#field_8F56E71F-461C-4C06-98DC-2B026288D780
         value: $ADDRESS_ZIP5
         required: true
       - name: phone
-        selector: input#field_655A724F-47E5-4829-8B48-136126355A0D
+        selector: input#field_D399D077-ACD5-4776-9A14-93D660E01D69
         value: $PHONE
         required: false
       - name: email
-        selector: input#field_79586077-720A-4A8D-B87B-E36DBE3AD5B2
+        selector: input#field_DD6F6D05-BE0F-4617-BF62-094EA3FF8B7C
         value: $EMAIL
         required: true
       - name: message
-        selector: textarea#field_8F3514FA-978C-4985-9FDE-AAD3DFC611C4
+        selector: textarea#field_3CA100BD-F184-449F-B615-9B13BE70A991
         value: $MESSAGE
         required: true
     - select:
       - name: prefix
-        selector: select#field_D555DDF6-BF1E-47A6-9444-5B1F87A1FFBC
+        selector: select#field_AFAF20A4-23F4-4546-8956-B814CF61C363
         value: $NAME_PREFIX
-        required: true
+        required: false
         options:
           "Chaplain": "Chaplain"
           "Dr.": "Dr."
@@ -73,7 +73,7 @@ contact_form:
           "The Honorable and Mrs.": "The Honorable and Mrs."
           "The Honorable and Mr.": "The Honorable and Mr."
       - name: topic
-        selector: select#field_265E4885-5B31-4F0A-8265-0AAE78BE86C9
+        selector: select#field_B69A2F14-CDC9-4BB7-BDA0-747826C86915
         value: $TOPIC
         required: true
         options:
@@ -120,10 +120,9 @@ contact_form:
           "Welfare": "Welfare"
           "Eagle Scout / Gold Award, Birthday, and Retirement": "Special_Requests"
     - click_on:
-      - value: Submit
-        selector: form#form_458DEB6A-830B-424F-99F6-114B1829835B input.btn-primary
+      - selector: form#form_524C023D-1438-4FCB-9843-1404BC0F4DBB div.buttonHolder input.btn-primary
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting"
+      contains: "Thank you for contacting Senator Lamar Alexander's office"
