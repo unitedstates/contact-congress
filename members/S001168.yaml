@@ -20,10 +20,6 @@ contact_form:
     - find:
         - selector: form#contactForm input#required-first
     - fill_in:
-        - name: prefix
-          selector: "#contactForm input[name='prefix']"
-          value: $NAME_PREFIX
-          required: false
         - name: required-first
           selector: "#contactForm input[name='required-first']"
           value: $NAME_FIRST

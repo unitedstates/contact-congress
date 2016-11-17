@@ -3,10 +3,16 @@ contact_form:
   method: post
   action: http://www.senate.state.tx.us/bin/distemail.php
   steps:
-    - visit: "http://www.senate.state.tx.us/75r/senate/members/dist23/dist23.htm#form"
+    - visit: "http://www.senate.state.tx.us/75r/senate/members/dist23/dist23.htm"
     - find:
         - selector: form.memForm textarea#message
+    - wait:
+        - value: 5
     - fill_in:
+        - name: message
+          selector: form.memForm textarea#message
+          value: $MESSAGE
+          required: true
         - name: emailaddress
           selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #sender"
           value: $EMAIL
@@ -42,10 +48,6 @@ contact_form:
         - name: subject
           selector: "form[action='http://www.senate.state.tx.us/bin/distemail.php'] #subject"
           value: $SUBJECT
-          required: true
-        - name: message
-          selector: form.memForm textarea#message
-          value: $MESSAGE
           required: true
     - click_on:
         - value: Send Message
