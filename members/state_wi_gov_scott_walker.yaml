@@ -1,9 +1,15 @@
 bioguide: state_wi_gov_scott_walker
 contact_form:
   method: post
-  action: default.aspx
+  action: ""
   steps:
-    - visit: "http://www.wisgov.state.wi.us/Contact-Us"
+    - visit: "https://walker.wi.gov/contact-governor-walker"
+    - find:
+        - selector: div#scopedByScopedPolyfill_1 button.prefix-overlay-close
+    - click_on:
+        - selector: div#scopedByScopedPolyfill_1 button.prefix-overlay-close
+    - find:
+        - selector: input#edit-submitted-contact-information-first-name
     - fill_in:
         - name: firstName
           selector: "#edit-submitted-contact-information-first-name"
@@ -27,11 +33,11 @@ contact_form:
           selector: "#edit-submitted-address-info-address-line-2"
           value: $ADDRESS_STREET_2
         - name: city
-          selector: "#edit-submitted-address-info-city"
+          selector: input#edit-submitted-address-information-city
           value: $ADDRESS_CITY
           required: true
         - name: zip
-          selector: "#edit-submitted-address-info-zip"
+          selector: input#edit-submitted-address-information-zip-code
           value: $ADDRESS_ZIP5
           required: true
         - name: subject
@@ -42,78 +48,8 @@ contact_form:
           selector: "#edit-submitted-main-content-section-message"
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: "#edit-captcha-response"
-          captcha_selector: "div.captcha > img"
-          value: $CAPTCHA_SOLUTION
-          required: true
-    - select:
-        - name: stateFull
-          selector: "#edit-submitted-address-info-state"
-          value: $ADDRESS_STATE_FULL
-          required: true
-          options:
-            - "AL": "Alabama"
-            - "AK": "Alaska"
-            - "AS": "American Samoa"
-            - "AZ": "Arizona"
-            - "AR": "Arkansas"
-            - "CA": "California"
-            - "CO": "Colorado"
-            - "CT": "Connecticut"
-            - "DE": "Delaware"
-            - "DC": "District of Columbia"
-            - "FL": "Florida"
-            - "GA": "Georgia"
-            - "GU": "Guam"
-            - "HI": "Hawaii"
-            - "ID": "Idaho"
-            - "IL": "Illinois"
-            - "IN": "Indiana"
-            - "IA": "Iowa"
-            - "KS": "Kansas"
-            - "KY": "Kentucky"
-            - "LA": "Louisiana"
-            - "ME": "Maine"
-            - "MH": "Marshall Islands"
-            - "MD": "Maryland"
-            - "MA": "Massachusetts"
-            - "MI": "Michigan"
-            - "MN": "Minnesota"
-            - "MS": "Mississippi"
-            - "MO": "Missouri"
-            - "MT": "Montana"
-            - "NE": "Nebraska"
-            - "NV": "Nevada"
-            - "NH": "New Hampshire"
-            - "NJ": "New Jersey"
-            - "NM": "New Mexico"
-            - "NY": "New York"
-            - "NC": "North Carolina"
-            - "ND": "North Dakota"
-            - "MP": "Northern Marianas Islands"
-            - "OH": "Ohio"
-            - "OK": "Oklahoma"
-            - "OR": "Oregon"
-            - "PW": "Palau"
-            - "PA": "Pennsylvania"
-            - "PR": "Puerto Rico"
-            - "RI": "Rhode Island"
-            - "SC": "South Carolina"
-            - "SD": "South Dakota"
-            - "TN": "Tennessee"
-            - "TX": "Texas"
-            - "UT": "Utah"
-            - "VT": "Vermont"
-            - "VI": "Virgin Islands"
-            - "VA": "Virginia"
-            - "WA": "Washington"
-            - "WV": "West Virginia"
-            - "WI": "Wisconsin"
-            - "WY": "Wyoming"
     - click_on:
-        - value: Submit
-          selector: "#edit-submit"
+        - selector: form#webform-client-form-10 button.webform-submit
   success:
     headers:
       status: 200
