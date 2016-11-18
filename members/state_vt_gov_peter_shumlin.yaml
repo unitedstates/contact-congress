@@ -5,14 +5,14 @@ contact_form:
   steps:
     - visit: "http://governor.vermont.gov/contact-us/message"
     - find:
-        - selector: form#webform-client-form-1413 input#edit-submitted-first-name
+        - selector: form#webform-client-form-1413 input#edit-submitted-first
     - fill_in:
         - name: firstName
-          selector: input#edit-submitted-first-name
+          selector: input#edit-submitted-first
           value: $NAME_FIRST
           required: true
         - name: lastName
-          selector: input#edit-submitted-last-name
+          selector: input#edit-submitted-last
           value: $NAME_LAST
           required: true
         - name: email
@@ -20,11 +20,11 @@ contact_form:
           value: $EMAIL
           required: true
         - name: street1
-          selector: input#edit-submitted-address-1
+          selector: input#edit-submitted-addr1
           value: $ADDRESS_STREET
           required: true
         - name: street2
-          selector: input#edit-submitted-address-2
+          selector: input#edit-submitted-addr2
           value: $ADDRESS_STREET_2
           required: false
         - name: city
@@ -36,7 +36,7 @@ contact_form:
           value: $PHONE_HYPHENS
           required: true
         - name: message
-          selector: textarea#edit-submitted-message
+          selector: textarea#edit-submitted-msg
           value: $MESSAGE
           required: true
     - select:
@@ -47,7 +47,7 @@ contact_form:
           options:
             Vermont: Vermont
         - name: topic
-          selector: select#edit-submitted-message-subject
+          selector: select#edit-submitted-issue
           value: $TOPIC
           required: true
           options:
@@ -86,9 +86,10 @@ contact_form:
             "Yankee Nuclear": "Yankee Nuclear"
             "Other": "Other"
     - click_on:
+        - selector: input#edit-submitted-affl-1
         - selector: form#webform-client-form-1413 input#edit-submit
   success:
     headers:
       status: 200
     body:
-      contains: "Your submission has been received by Governor Peter Shumlin."
+      contains: ""
