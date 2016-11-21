@@ -5,6 +5,10 @@ contact_form:
   steps:
     - visit: "https://www.alexander.senate.gov/public/index.cfm/email"
     - find:
+      - selector: div.drawer a.hide
+    - click_on:
+      - selector: div.drawer a.hide
+    - find:
       - selector: input#field_27543AF0-A7FE-4E4C-975E-97114B70AA80
     - fill_in:
       - name: first
