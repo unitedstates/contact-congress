@@ -18,6 +18,8 @@ contact_form:
           selector: "form.zipform input[type='submit'][value='Submit']"
     - find:
         - selector: '#ctl00_ctl17_FirstName'
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: ctl00$ctl17$FirstName
           selector: "#ctl00_ctl17_FirstName"
