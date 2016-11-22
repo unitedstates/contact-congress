@@ -4,6 +4,8 @@ contact_form:
   action: /contact-form/
   steps:
     - visit: "https://frelinghuysenforms.house.gov/contact-form"
+    - wait:
+        - value: 2
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
