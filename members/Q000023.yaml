@@ -94,6 +94,8 @@ contact_form:
             Water Resources Development: "109094"
     - javascript:
         - value: document.querySelector("#ctl00_ctl29_Body").value = document.querySelector("#ctl00_ctl29_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - selector: "#ctl00_ctl29_SubmitButton"
     - find:
