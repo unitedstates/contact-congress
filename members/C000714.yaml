@@ -14,8 +14,7 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - 
-          selector: "#submit"
+        - selector: "#submit"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -33,18 +32,6 @@ contact_form:
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: required-zip5
-          selector: "#required-zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: false
         - name: required-valid-email
           selector: "#required-valid-email"
           value: $EMAIL
@@ -58,8 +45,8 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: required-prefix
-          selector: "#required-prefix"
+        - name: required-honorific-prefix
+          selector: "#required-honorific-prefix"
           value: $NAME_PREFIX
           required: true
           options:
@@ -130,8 +117,7 @@ contact_form:
     - recaptcha:
         - value: true
     - click_on:
-        - 
-          selector: "#submit"
+        - selector: "#submit"
   success:
     headers:
       status: 200
