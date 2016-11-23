@@ -136,9 +136,8 @@ contact_form:
             - MP
             - PR
             - VI
-    - check:
-        - name: ctl00$ctl17$ReplyChoice
-          selector: "#ctl00_ctl17_ReplyChoice_0"
+    - click_on:
+        - selector: "#ctl00_ctl17_ReplyChoice_0"
     - javascript:
         - value: document.querySelector("#ctl00_ctl17_Body").value = document.querySelector("#ctl00_ctl17_Body").value.replace(/"/g, '');
     - recaptcha:
