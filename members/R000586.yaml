@@ -101,6 +101,8 @@ contact_form:
             I would like a response: "Y"
     - javascript:
         - value: document.querySelector("#field_57554A95-21E9-4705-AAF9-04F948CA65C6").value = document.querySelector("#field_57554A95-21E9-4705-AAF9-04F948CA65C6").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

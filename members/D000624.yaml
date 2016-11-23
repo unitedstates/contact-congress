@@ -70,6 +70,8 @@ contact_form:
             - The Honorable
     - javascript:
         - value: document.querySelector("#ctl00_ctl27_Body").value = document.querySelector("#ctl00_ctl27_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl27_SubmitButton"

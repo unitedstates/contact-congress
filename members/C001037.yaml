@@ -119,6 +119,8 @@ contact_form:
           value: ""
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Next
           selector: "div.paddingmain form input[name='Submit']"
