@@ -16,8 +16,9 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit']"
+        - selector: "form.zipform input[type='submit']"
+    - javascript:
+        - value: "$('.zipform').submit();"
     - find:
         - selector: "#ctl00_ctl27_FirstName"
     - javascript:
