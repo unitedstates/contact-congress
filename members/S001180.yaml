@@ -297,10 +297,6 @@ contact_form:
             Transportation and Infrastructure: "63042"
             Veterans Affairs: "62478"
             Other: "65337"
-    - check:
-        - name: ctl00$ctl14$ReplyChoice
-          selector: "#ctl00_ctl14_ReplyChoice_0"
-          value: Respond
     - javascript:
         - value: document.querySelector("#ctl00_ctl14_Body").value = document.querySelector("#ctl00_ctl14_Body").value.replace(/"/g, '');
     - recaptcha:
