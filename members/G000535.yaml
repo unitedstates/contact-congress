@@ -91,6 +91,8 @@ contact_form:
         - value: document.getElementById("ctl00_ctl26_ReplyChoice_0").checked = true;
     - javascript:
         - value: document.querySelector("#ctl00_ctl26_Body").value = document.querySelector("#ctl00_ctl26_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - selector: "#ctl00_ctl26_SubmitButton"
     - find:
