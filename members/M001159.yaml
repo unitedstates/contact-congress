@@ -49,6 +49,8 @@ contact_form:
           required: true
     - javascript:
         - value: document.querySelector("#input_11_2").value = document.querySelector("#input_11_2").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_11"
