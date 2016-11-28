@@ -1,68 +1,76 @@
 bioguide: P000523
 contact_form:
   method: post
-  action: /contact/
+  action: /forms/writeyourrep/
   steps:
-    - visit: "https://price.house.gov/contact"
+    - visit: "https://priceforms.house.gov/contact/"
     - fill_in:
         - name: zipcode
-          selector: "#zipcode"
+          selector: "input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zipfour
-          selector: "#zipfour"
+          selector: "input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
         - value: Go to Form
-          selector: "#zipauthform input.button"
+          selector: ".zipform input[type='submit']"
     - find:
-        - selector: "#custom_form24"
+        - selector: "#ctl00_ctl14_FirstName"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: ctl00$ctl14$FirstName
+          selector: "#ctl00_ctl14_FirstName"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: ctl00$ctl14$LastName
+          selector: "#ctl00_ctl14_LastName"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: ctl00$ctl14$Street
+          selector: "#ctl00_ctl14_Street"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#req_city"
+        - name: ctl00$ctl14$City
+          selector: "#ctl00_ctl14_City"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: ctl00$ctl14$Zip
+          selector: "#ctl00_ctl14_Zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: ctl00$ctl14$Email
+          selector: "#ctl00_ctl14_Email"
           value: $EMAIL
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: ctl00$ctl14$Subject
+          selector: "#ctl00_ctl14_Subject"
+          value: $SUBJECT
+          required: true
+        - name: ctl00$ctl14$Body
+          selector: "#ctl00_ctl14_Body"
           value: $MESSAGE
           required: true
-    - select: []
-    - javascript:
-        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
+    - select:
+        - name: ctl00$ctl14$PrefixList
+          selector: "#ctl00_ctl14_PrefixList"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: "Mr."
+            Mrs.: Mrs.
+            Dr.: Dr.
+            Ms.: Ms.
     - click_on:
-        - value: Send Email
-          selector: "#submitButton"
-    - find:
-        - selector: "h1"
-          value: "Thank you,"
+        - selector: "#ctl00_ctl14_ReplyChoice_0"
+    - javascript:
+        - value: document.querySelector("#ctl00_ctl14_Body").value = document.querySelector("#ctl00_ctl14_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
+    - click_on:
+        - selector: "#ctl00_ctl14_SubmitButton"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been successfully submitted.
-
+      contains: Thank you for your email
