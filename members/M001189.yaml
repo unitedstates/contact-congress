@@ -112,8 +112,12 @@ contact_form:
           options:
             "Yes, please contact me": "Y"
             "No, I wanted to voice my opinion": "N"
+    - find:
+        - selector: form#contactForm input#submit
     - click_on:
         - selector: form#contactForm input#submit
+    - wait:
+        - value: 10
   success:
     headers:
       status: 200
