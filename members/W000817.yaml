@@ -120,6 +120,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#thisForm input[name='Submit']"
+    - find:
+        - selector: '#r1c1 > div.note > p'
   success:
     headers:
       status: 200
