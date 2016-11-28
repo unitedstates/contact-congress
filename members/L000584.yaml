@@ -51,11 +51,6 @@ contact_form:
       selector: textarea#req_message
       value: $MESSAGE
       required: true
-    - name: captcha
-      captcha_selector: img#captchaImage
-      selector: input#captchaTextBox
-      value: $CAPTCHA_SOLUTION
-      required: true
   - check:
     - selector: input#newsletter
   - select:
