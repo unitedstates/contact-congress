@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/?p=email_senator&clear_cache=1"
   steps:
-    - visit: "http://www.warren.senate.gov/?p=email_senator#thisForm"
+    - visit: "https://www.warren.senate.gov/index.cfm?p=email_senator"
     - fill_in:
         - name: firstName
           selector: "#fname"
@@ -13,7 +13,7 @@ contact_form:
           selector: "#lname"
           value: $NAME_LAST
           required: true
-        - name: Address1
+        - name: address1
           selector: "#address1"
           value: $ADDRESS_STREET
           required: true
@@ -46,22 +46,13 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: Prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            "\_": "-"
-            Mr.: Mr.
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Dr.: Dr.
         - name: Subject
           selector: "#issue_subject"
           value: $TOPIC
           required: true
           options:
             "\n\t\t\t\t\t\t\tAbortion\n\t\t\t\t\t\t": Abortion
+            "\n\t\t\t\t\t\t\tAdminstrative Law and Regulatory Reform\n\t\t\t\t\t\t": Adminstrative Law and Regulatory Reform
             "\n\t\t\t\t\t\t\tAdoption/Foster Care\n\t\t\t\t\t\t": Adoption/Foster Care
             "\n\t\t\t\t\t\t\tAging\n\t\t\t\t\t\t": Aging
             "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": Agriculture
@@ -72,19 +63,18 @@ contact_form:
             "\n\t\t\t\t\t\t\tBanking\n\t\t\t\t\t\t": Banking
             "\n\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t": Budget
             "\n\t\t\t\t\t\t\tCampaign Finance\n\t\t\t\t\t\t": Campaign Finance
-            "\n\t\t\t\t\t\t\tChild Care/Child Welfare\n\t\t\t\t\t\t": Child Care/Child Welfare
+            "\n\t\t\t\t\t\t\tChild Care/Child Welfare/Early Childhood Education\n\t\t\t\t\t\t": Child Care/Child Welfare/Early Childhood Education
             "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": Civil Rights
             "\n\t\t\t\t\t\t\tCommerce\n\t\t\t\t\t\t": Commerce
             "\n\t\t\t\t\t\t\tConsumer Protection\n\t\t\t\t\t\t": Consumer Protection
+            "\n\t\t\t\t\t\t\tControlled Substances\n\t\t\t\t\t\t": Controlled Substances
             "\n\t\t\t\t\t\t\tCrime And Justice\n\t\t\t\t\t\t": Crime And Justice
             "\n\t\t\t\t\t\t\tDefense and Military\n\t\t\t\t\t\t": Defense and Military
-            "\n\t\t\t\t\t\t\tDisability\n\t\t\t\t\t\t": Disability
+            "\n\t\t\t\t\t\t\tDisability Policy\n\t\t\t\t\t\t": Disability Policy
             "\n\t\t\t\t\t\t\tDomestic Violence\n\t\t\t\t\t\t": Domestic Violence
-            "\n\t\t\t\t\t\t\tDrugs (Illegal)\n\t\t\t\t\t\t": Drugs (Illegal)
             "\n\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t": Economy
-            "\n\t\t\t\t\t\t\tEducation - Early Childhood\n\t\t\t\t\t\t": Education - Early Childhood
-            "\n\t\t\t\t\t\t\tEducation - Elementary and Secondary\n\t\t\t\t\t\t": Education - Elementary and Secondary
-            "\n\t\t\t\t\t\t\tEducation - Post-Secondary\n\t\t\t\t\t\t": Education - Post-Secondary
+            "\n\t\t\t\t\t\t\tElementary and Secondary Education\n\t\t\t\t\t\t": Elementary and Secondary Education
+            "\n\t\t\t\t\t\t\tHigher Education\n\t\t\t\t\t\t": Higher Education
             "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": Energy
             "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": Environment
             "\n\t\t\t\t\t\t\tFlag Requests\n\t\t\t\t\t\t": Flag Requests
@@ -98,11 +88,13 @@ contact_form:
             "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": Housing
             "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": Immigration
             "\n\t\t\t\t\t\t\tIntellectual Property\n\t\t\t\t\t\t": Intellectual Property
-            "\n\t\t\t\t\t\t\tJob Training\n\t\t\t\t\t\t": Job Training
+            "\n\t\t\t\t\t\t\tJob Training and Workforce Development\n\t\t\t\t\t\t": Job Training and Workforce Development
             "\n\t\t\t\t\t\t\tJudicial Nominations\n\t\t\t\t\t\t": Judicial Nominations
             "\n\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t": Judiciary
             "\n\t\t\t\t\t\t\tLabor and Unions\n\t\t\t\t\t\t": Labor and Unions
-            "\n\t\t\t\t\t\t\tMedicaid/Medicare\n\t\t\t\t\t\t": Medicaid/Medicare
+            "\n\t\t\t\t\t\t\tLaw Enforcement\n\t\t\t\t\t\t": Law Enforcement
+            "\n\t\t\t\t\t\t\tMedicaid/CHIP\n\t\t\t\t\t\t": Medicaid/CHIP
+            "\n\t\t\t\t\t\t\tMedicare\n\t\t\t\t\t\t": Medicare
             "\n\t\t\t\t\t\t\tMunicipal and State Government\n\t\t\t\t\t\t": Municipal and State Government
             "\n\t\t\t\t\t\t\tNative Americans\n\t\t\t\t\t\t": Native Americans
             "\n\t\t\t\t\t\t\tNatural Disasters\n\t\t\t\t\t\t": Natural Disasters
@@ -110,27 +102,26 @@ contact_form:
             "\n\t\t\t\t\t\t\tPostal Issues\n\t\t\t\t\t\t": Postal Issues
             "\n\t\t\t\t\t\t\tScience/Technology/Space\n\t\t\t\t\t\t": Science/Technology/Space
             "\n\t\t\t\t\t\t\tSmall Business\n\t\t\t\t\t\t": Small Business
-            "\n\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t": Social Security
+            "\n\t\t\t\t\t\t\tSocial Security/SSDI\n\t\t\t\t\t\t": Social Security/SSDI
             "\n\t\t\t\t\t\t\tStart-Ups and Entrepreneurs\n\t\t\t\t\t\t": Start-Ups and Entrepreneurs
+            "\n\t\t\t\t\t\t\tStudent Loans\n\t\t\t\t\t\t": Student Loans
             "\n\t\t\t\t\t\t\tTANF and Low-Income Benefits\n\t\t\t\t\t\t": TANF and Low-Income Benefits
             "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": Taxes
             "\n\t\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t\t": Telecommunications
             "\n\t\t\t\t\t\t\tTour Request\n\t\t\t\t\t\t": Tour Request
             "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": Trade
-            "\n\t\t\t\t\t\t\tTransportation and Infrastructure\n\t\t\t\t\t\t": Transportation and Infrastructure
+            "\n\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t": Transportation
+            "\n\t\t\t\t\t\t\tInfrastructure\n\t\t\t\t\t\t": Infrastructure
             "\n\t\t\t\t\t\t\tUnemployment Insurance\n\t\t\t\t\t\t": Unemployment Insurance
             "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": Veterans
             "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
     - javascript:
         - value: document.querySelector("#msgbody").value = document.querySelector("#msgbody").value.replace(/"/g, '');
-    - javascript:
-        - value: "document.getElementById('thisForm').submit();"
-    - wait:
-        - value: 3
-    - find:
-        - selector: '#r1c1 > div.note > p'
+    - click_on:
+        - value: Submit
+          selector: "#thisForm input[name='Submit']"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: "Thank you! Your message has been sent."
