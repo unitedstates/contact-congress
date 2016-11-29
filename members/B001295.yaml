@@ -120,7 +120,7 @@ contact_form:
       selector: "#contactForm #submit"
   - javascript:
     - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
- - recaptcha:
+  - recaptcha:
     - value: true
   - javascript:
     - value: "document.querySelector('#contactForm #submit').click();"
