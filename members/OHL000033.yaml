@@ -29,6 +29,18 @@ contact_form:
           selector: "#tbxZipCode"
           value: $ADDRESS_ZIP5
           required: true
+        - name: tbxAreaCode
+          required: true
+          selector: "#tbxAreaCode"
+          value: "$PHONE_AREA_CODE"
+        - name: tbxPrefix
+          required: true
+          selector: "#tbxPrefix"
+          value: "$PHONE_EXCHANGE_CODE"
+        - name: tbxLineNumber
+          required: true
+          selector: "#tbxLineNumber"
+          value: "$PHONE_SUBSCRIBER_NUMBER"
         - name: tbxMessage
           selector: "#tbxMessage"
           value: $MESSAGE
