@@ -44,6 +44,10 @@ contact_form:
           value: $MESSAGE
           required: true
     - find:
+        - selector: li#lbLists_i0 input.rlbCheck
+    - click_on:
+        - selector: li#lbLists_i0 input.rlbCheck
+    - find:
         - selector: div#ddlIssue a#ddlIssue_Arrow
     - click_on:
         - selector: div#ddlIssue a#ddlIssue_Arrow
