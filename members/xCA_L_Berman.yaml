@@ -1,4 +1,4 @@
-bioguide: CAL000137
+bioguide: xCA_L_Berman
 contact_form:
   method: post
   action: ContactPopupSubmit.php
@@ -10,13 +10,11 @@ contact_form:
           value: $NAME_FIRST
           required: true
           options:
-            blacklist: ".&()"
+            blacklist: ".\"&"
         - name: txtLastName
           selector: "#txtLastName"
           value: $NAME_LAST
           required: true
-          options:
-            blacklist: "`"
         - name: txtAddress
           selector: "#txtAddress"
           value: $ADDRESS_STREET
@@ -46,4 +44,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "My staff and I will endeavor to respond"
+      contains: "null"
