@@ -1,22 +1,20 @@
-bioguide: CAL000123
+bioguide: xCA_L_Bocanegra
 contact_form:
   method: post
   action: ContactPopupSubmit.php
   steps:
-    - visit: "http://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=AD43"
+    - visit: "https://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=AD39"
     - fill_in:
         - name: txtFirstName
           selector: "#txtFirstName"
           value: $NAME_FIRST
           required: true
           options:
-            blacklist: "\".É9"
+            blacklist: ".\"&"
         - name: txtLastName
           selector: "#txtLastName"
           value: $NAME_LAST
           required: true
-          options:
-            blacklist: ","
         - name: txtAddress
           selector: "#txtAddress"
           value: $ADDRESS_STREET
@@ -46,4 +44,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Your message has been received"
+      contains: "null"

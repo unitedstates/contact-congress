@@ -1,22 +1,22 @@
-bioguide: CAL000146
+bioguide: xCA_L_Friedman
 contact_form:
   method: post
   action: ContactPopupSubmit.php
   steps:
-    - visit: "http://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=AD35"
+    - visit: "http://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=AD43"
     - fill_in:
         - name: txtFirstName
           selector: "#txtFirstName"
           value: $NAME_FIRST
           required: true
           options:
-            blacklist: ".()\"@"
+            blacklist: "\".É9"
         - name: txtLastName
           selector: "#txtLastName"
           value: $NAME_LAST
           required: true
           options:
-            blacklist: "."
+            blacklist: ","
         - name: txtAddress
           selector: "#txtAddress"
           value: $ADDRESS_STREET
@@ -46,4 +46,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "My staff and I will endeavor to respond"
+      contains: "null"

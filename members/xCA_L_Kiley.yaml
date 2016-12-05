@@ -1,22 +1,20 @@
-bioguide: CAL000157
+bioguide: xCA_L_Kiley
 contact_form:
   method: post
   action: ContactPopupSubmit.php
   steps:
-    - visit: "https://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=AD37"
+    - visit: "https://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=AD06"
     - fill_in:
         - name: txtFirstName
           selector: "#txtFirstName"
           value: $NAME_FIRST
           required: true
           options:
-            blacklist: "."
+            blacklist: ".\"&"
         - name: txtLastName
           selector: "#txtLastName"
           value: $NAME_LAST
           required: true
-          options:
-            blacklist: "/"
         - name: txtAddress
           selector: "#txtAddress"
           value: $ADDRESS_STREET
@@ -46,4 +44,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Your message has been received"
+      contains: "null"
