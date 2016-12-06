@@ -1,9 +1,9 @@
-bioguide: xCA_U_Dodd
+bioguide: CAL000003
 contact_form:
   method: post
   action: ContactPopupSubmit.php
   steps:
-    - visit: "https://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=SD03"
+    - visit: "https://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=SD11"
     - fill_in:
         - name: txtFirstName
           selector: "#txtFirstName"
@@ -46,4 +46,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "null"
+      contains: "Your message has been received"
