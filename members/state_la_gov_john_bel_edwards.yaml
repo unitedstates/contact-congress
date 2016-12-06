@@ -25,6 +25,11 @@ contact_form:
         selector: "#field-293"
         value: $MESSAGE
         required: true
+      - name: captcha
+        selector: input#recaptcha_response_field
+        captcha_selector: img#recaptcha_challenge_image
+        value: $CAPTCHA_SOLUTION
+        required: true
     - check:
        - name: issue
          selector: div#field-container-291 div.field div.radio input[value='Other']
