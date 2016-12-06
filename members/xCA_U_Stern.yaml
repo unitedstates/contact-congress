@@ -1,22 +1,22 @@
-bioguide: CAL000003
+bioguide: xCA_U_Stern
 contact_form:
   method: post
   action: ContactPopupSubmit.php
   steps:
-    - visit: "https://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=SD11"
+    - visit: "https://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=SD27"
     - fill_in:
         - name: txtFirstName
           selector: "#txtFirstName"
           value: $NAME_FIRST
           required: true
           options:
-            blacklist: ".é"
+            blacklist: "&."
         - name: txtLastName
           selector: "#txtLastName"
           value: $NAME_LAST
           required: true
           options:
-            blacklist: ",."
+            blacklist: ".,"
         - name: txtAddress
           selector: "#txtAddress"
           value: $ADDRESS_STREET
