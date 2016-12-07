@@ -41,8 +41,8 @@ contact_form:
           - "Telecommunications"
           - "Trade"
           - "Transportation"
-    - wait:
-      - value: 3
+    - javascript:
+      - value: document.getElementById('continue-form').style = 'display:block;';
     - fill_in:
       - name: fname
         selector: "#fname"
