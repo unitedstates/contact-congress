@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact-me/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://johnlewis.house.gov/contact-me"
+    - visit: "https://johnlewis.house.gov/contact-me/email"
     - fill_in:
         - name: required-zip5
           selector: "#required-zip5"
@@ -14,8 +14,7 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - 
-          selector: "#submit"
+        - selector: "#submit"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -116,8 +115,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - click_on:
-        - 
-          selector: "#submit"
+        - selector: "#submit"
     - find:
         - selector: "#block-system-main span.data"
   success:

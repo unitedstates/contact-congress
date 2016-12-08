@@ -144,6 +144,8 @@ contact_form:
             Other Issues: OTH
     - javascript:
         - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Send Email
           selector: "#submitButton"

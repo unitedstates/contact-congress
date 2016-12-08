@@ -77,9 +77,10 @@ contact_form:
             Welfare: WELFARE
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
-        - 
-          selector: "#submit"
+        - selector: "#submit"
   success:
     headers:
       status: 200

@@ -115,6 +115,8 @@ contact_form:
         Please contact me via email: Respondviaemail
   - javascript:
     - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+  - recaptcha:
+    - value: true
   - click_on: 
     - value: Send Email to Representative Young
       selector: "#contactForm[action='/htbin/formproc/email.txt%26display%3D/contact/email/email-sent%26nobase%26fpGetVer%3D2'] #submit"

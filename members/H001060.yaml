@@ -91,6 +91,8 @@ contact_form:
           value: "1"
     - javascript:
         - value: document.querySelector("#field_59E68B70-1F23-4B9A-A19C-E40156896A9B").value = document.querySelector("#field_59E68B70-1F23-4B9A-A19C-E40156896A9B").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

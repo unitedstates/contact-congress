@@ -65,6 +65,8 @@ contact_form:
           required: false
     - javascript:
         - value: document.querySelector("#ctl00_ctl19_Body").value = document.querySelector("#ctl00_ctl19_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl19_SubmitButton"

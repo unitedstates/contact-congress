@@ -109,6 +109,8 @@ contact_form:
           selector: "#submit"
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - javascript:
         - value: "document.querySelector('#submit').click();"
     - find:

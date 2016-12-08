@@ -180,6 +180,8 @@ contact_form:
       selector: "#ctl00_ctl14_SubscribeChoice"
   - javascript:
     - value: document.querySelector("#ctl00_ctl14_Body").value = document.querySelector("#ctl00_ctl14_Body").value.replace(/"/g, '');
+  - recaptcha:
+    - value: true
   - click_on: 
     - value: Submit
       selector: "#ctl00_ctl14_SubmitButton"

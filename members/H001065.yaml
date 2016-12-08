@@ -1,23 +1,23 @@
 bioguide: H001065
 contact_form:
   method: post
-  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email-me/email-me-zip-authenticated%26nobase%26fpGetVer%3D2"
+  action: "/contact/contactform.htm"
   steps:
-    - visit: "https://holding.house.gov/contact/email-me"
+    - visit: "http://holding.house.gov/contact/email-me/"
     - fill_in:
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: zip5
+          selector: ".zipform input[name='zip5']"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip4"
+          selector: ".zipform input[name='zip4']"
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Go To Next Step
-          selector: "#submit"
+        - value: Submit
+          selector: ".zipform input[type='submit'][value='Submit']"
     - find:
-        - selector: "#required-prefix"
+        - selector: "#ctl00_ctl19_FirstName"
     - fill_in:
         - name: required-prefix
           selector: "#required-prefix"
