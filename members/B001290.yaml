@@ -99,6 +99,8 @@ contact_form:
           value: Respond
     - javascript:
         - value: document.querySelector("#ctl00_ctl16_Body").value = document.querySelector("#ctl00_ctl16_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl16_SubmitButton"
