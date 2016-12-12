@@ -4,9 +4,11 @@ contact_form:
   action: ""
   usePhantomJsLogging: true
   steps:
-    - visit: "http://iqconnect.lmhostediq.com/iqextranet/EForm.aspx?__cid=FSL_WA_GOV&__fid=100021"
+    - visit: "http://www.governor.wa.gov/contact/contact/send-gov-inslee-e-message"
+    - iframe:
+      - selector: div#article-48319 iframe
     - wait:
-      - value: 10
+      - value: 2
     - find:
       - selector: form#form1 input#q_2_first_name
     - fill_in:
@@ -95,7 +97,7 @@ contact_form:
     - click_on:
       - selector: form#form1 input#btn_submit
     - wait:
-      - value: 3
+      - value: 2
   success:
     headers:
       status: 200
