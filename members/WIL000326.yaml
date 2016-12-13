@@ -3,41 +3,41 @@ contact_form:
   method: post
   action: Contact.aspx
   steps:
-    - visit: "http://legis.wisconsin.gov/senate/harsdorf/Pages/Ask-Sheila.aspx"
+    - visit: "http://legis.wisconsin.gov/senate/10/harsdorf/ask-sheila/"
     - fill_in:
         - name: email
-          selector: "#legis-cf-email"
+          selector: div.email input
           value: $EMAIL
           required: true
         - name: name
-          selector: "#legis-cf-name"
+          selector: div.name input
           value: $NAME_FULL
           required: true
         - name: address
-          selector: "#legis-cf-address"
+          selector: div.address input
           value: $ADDRESS_STREET
           required: true
         - name: citystatezip
-          selector: "#legis-cf-city-state"
+          selector: div.citystatezipcode input
           value: $ADDRESS_CITY_STATE_ZIP
           required: true
-        - name: subject
-          selector: "#legis-cf-phone"
+        - name: phone
+          selector: div.phonenumber input
           value: $PHONE
-          required: true
+          required: false
         - name: subject
-          selector: "#legis-cf-subject"
+          selector: div.messagesubject input
           value: $SUBJECT
           required: true
         - name: message
-          selector: "#legis-cf-message"
+          selector: div.dearsenatorharsdorf textarea
           value: $MESSAGE
           required: true
     - click_on:
         - value: Submit
-          selector: ".legis-email-submit-btn"
+          selector: div#contour_form_Contact input[name='submitbtn']
   success:
     headers:
       status: 200
     body:
-      contains: Recent News
+      contains: "Thank you"
