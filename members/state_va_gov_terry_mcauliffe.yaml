@@ -1,9 +1,10 @@
 bioguide: state_va_gov_terry_mcauliffe
 contact_form:
-  method: post
+  method: postn
+
   action: "/communityrelations/form/email"
   steps:
-    - visit: https://solutions.virginia.gov/communityrelations/form/email
+    - visit: "https://solutions.virginia.gov/communityrelations/form/email"
     - fill_in:
       - name: title
         selector: "#RequestedByTitle"
@@ -41,25 +42,6 @@ contact_form:
         selector: "#MessageBody"
         value: $MESSAGE
         required: true
-    - select:
-      - name: topic
-        selector: "#IssueCode"
-        value: $TOPIC
-        required: true
-        options:
-          General Inquiry: General Inquiry
-          "CT": "Commerce and Trade, Secretary of"
-          "EDU": "Education, Secretary of"
-          "FIN": "Finance, Secretary of"
-          "HHR": "Health and Human Resources, Secretary of"
-          "NR": "Natural Resources, Secretary of"
-          "PSHS": "Public Safety and Homeland Security, Secretary of"
-          "AD": "Secretary of Administration"
-          "AGR": "Secretary of Agriculture"
-          "SOC": "Secretary of Commonwealth"
-          "TECH": "Technology, Secretary of"
-          "TRAN": "Transportation, Secretary of"
-          "VDA": "Veterans Defense Affairs, Secretary of"
     - click_on:
       - value: "Response Required"
         selector: "input[id='ResponseRequired'][value='Yes']"

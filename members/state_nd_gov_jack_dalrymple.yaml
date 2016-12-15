@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "http://governor.nd.gov/contact-us"
     - wait:
-       - value: 8
+       - value: 3
     - fill_in:
         - name: fullName
           selector: "#edit-submitted-name"
@@ -15,7 +15,7 @@ contact_form:
           value: $SUBJECT
           required: true
         - name: email
-          selector: "#edit-submitted-e-mail-address"
+          selector: "#edit-submitted-email-address"
           value: $EMAIL
           required: true
         - name: phone
@@ -27,9 +27,11 @@ contact_form:
           required: true
     - click_on:
         - value: Submit
-          selector: "#edit-submit"
+          selector: form#webform-client-form-67 button[name=op]
+    - wait:
+       - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting"
+      contains: "Thank you for your message"
