@@ -13,6 +13,22 @@ contact_form:
           selector: "input[id='94d97197-549e-4ca5-a91c-e04884d02f0e']"
           value: $EMAIL
           required: true
+        - name: address
+          selector: div.streetaddress input
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: div.city input
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: div.state input
+          value: $ADDRESS_STATE_FULL
+          required: true
+        - name: zip5
+          selector: div.zipcode input
+          value: $ADDRESS_ZIP5
+          required: true
         - name: message
           selector: "textarea[id='7d33c19d-2881-425b-a302-d59ff8102b55']"
           value: $MESSAGE

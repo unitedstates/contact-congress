@@ -1,47 +1,38 @@
 bioguide: WIL000450
 contact_form:
   method: post
-  action: Contact-Senator-Moulton.aspx
+  action: ""
   steps:
-    - visit: "http://legis.wisconsin.gov/senate/moulton/Pages/Contact-Senator-Moulton.aspx"
+    - visit: "http://legis.wisconsin.gov/senate/23/moulton/contact-senator-moulton/"
     - fill_in:
-        - name: fname
-          selector: "#legis-cf-name-first"
-          value: $NAME_FIRST
-          required: true
-        - name: lname
-          selector: "#legis-cf-name-last"
-          value: $NAME_LAST
+        - name: fullname
+          selector: div.name input
+          value: $NAME_FULL
           required: true
         - name: address
-          selector: "#legis-cf-address"
+          selector: div.address input
           value: $ADDRESS_STREET
           required: true
         - name: citystatezip
-          selector: "#legis-cf-city-state"
+          selector: div.citystatezipcode input
           value: $ADDRESS_CITY_STATE_ZIP
           required: true
-        - name: phone
-          selector: "#legis-cf-phone"
-          value: $PHONE
-          required: true
         - name: email
-          selector: "#legis-cf-email"
+          selector: div.email input
           value: $EMAIL
           required: true
         - name: subject
-          selector: "#legis-cf-subject"
+          selector: div.subject input
           value: $SUBJECT
           required: true
         - name: message
-          selector: "#legis-cf-message"
+          selector: div.dearsenatormoulton textarea
           value: $MESSAGE
           required: true
     - click_on:
-        - value: Submit
-          selector: ".legis-email-submit-btn"
+        - selector: div#contour_form_Contact input[name='submitbtn']
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for visiting
+      contains: "Thank you"
