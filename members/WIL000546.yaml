@@ -3,37 +3,36 @@ contact_form:
   method: post
   action: Contact.aspx
   steps:
-    - visit: "http://legis.wisconsin.gov/assembly/weatherston/Pages/Contact.aspx"
+    - visit: "http://legis.wisconsin.gov/assembly/62/weatherston/constituents/contact/"
     - fill_in:
         - name: message
-          selector: "#legis-cf-comments"
+          selector: div.comments textarea
           value: $MESSAGE
           required: true
-        - name: email
-          selector: "#legis-cf-email"
-          value: $EMAIL
-          required: true
         - name: name
-          selector: "#legis-cf-name"
+          selector: div.name input
           value: $NAME_FULL
           required: true
+        - name: email
+          selector: div.email input
+          value: $EMAIL
+          required: true
         - name: address
-          selector: "#legis-cf-address"
+          selector: div.address input
           value: $ADDRESS_STREET
           required: true
         - name: citystatezip
-          selector: "#legis-cf-city-state"
+          selector: div.citystatezipcode input
           value: $ADDRESS_CITY_STATE_ZIP
           required: true
         - name: phone
-          selector: "#legis-cf-phone"
+          selector: div.phonenumberfield input
           value: $PHONE
-          required: true
+          required: false
     - click_on:
-        - value: Submit
-          selector: ".legis-email-submit-btn"
+        - selector: div#contour_form_Contactform input[name='submitbtn']
   success:
     headers:
       status: 200
     body:
-      contains: Questions about a State Agency
+      contains: "Thank you"
