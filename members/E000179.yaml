@@ -108,8 +108,6 @@ contact_form:
           value: "1"
     - javascript:
         - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
-    - recaptcha:
-        - value: true
     - click_on:
         - value: Send Email
           selector: "#submitButton"
