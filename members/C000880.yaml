@@ -97,6 +97,8 @@ contact_form:
       - selector: ".btn-primary"
     - javascript:
       - value: document.querySelector(".required[name='MessageBody']").value = document.querySelector(".required[name='MessageBody']").value.replace(/"/g, '');
+    - javascript:
+      - value: document.querySelector("#captcha_code").value = "zp8e8";
     - click_on:
       - value: Submit Information
         selector: ".btn-primary"
