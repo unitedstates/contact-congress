@@ -93,8 +93,6 @@ contact_form:
           Native Americans: NA
           Social Safety Net: MD
           Not Listed/Other: EMAIL
-    - find:
-      - selector: ".btn-primary"
     - javascript:
       - value: document.querySelector(".required[name='MessageBody']").value = document.querySelector(".required[name='MessageBody']").value.replace(/"/g, '');
     - javascript:
