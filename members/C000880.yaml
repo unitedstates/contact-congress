@@ -75,23 +75,9 @@ contact_form:
           " Senator ": "Senator"
       - name: Subject
         selector: "#Subject"
-        value: $TOPIC
+        value: "EMAIL"
         required: true
         options:
-          Agriculture: AG
-          "Banking & Credit": "BN\n"
-          "Budget & Taxes": BU
-          "Business, Commerce & Labor": CM
-          "Congress, Federal & Postal Employees": CG
-          "Education, Science & Technology": ED
-          Energy: EN
-          "Environment, Nat. Resources & Wildlife": EV
-          "Foreign Affairs, Military & Veterans": FA
-          Health Care: HC
-          "Homeland Security & Immigration": HS
-          "Judiciary & Crime": JU
-          Native Americans: NA
-          Social Safety Net: MD
           Not Listed/Other: EMAIL
     - javascript:
       - value: document.querySelector(".required[name='MessageBody']").value = document.querySelector(".required[name='MessageBody']").value.replace(/"/g, '');
