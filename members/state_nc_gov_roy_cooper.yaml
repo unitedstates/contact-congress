@@ -1,0 +1,30 @@
+bioguide: state_nc_gov_roy_cooper
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://governor.nc.gov/contact-governor-cooper"
+    - fill_in:
+        - name: firstName
+          selector: "#edit-submitted-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: lastName
+          selector: "#edit-submitted-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: email
+          selector: "#edit-submitted-email"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "#edit-submitted-message"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - selector: form#webform-client-form-11 div.form-actions input.form-submit
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting the office of Governor Roy Cooper"
