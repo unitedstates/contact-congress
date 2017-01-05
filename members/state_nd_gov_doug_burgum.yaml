@@ -1,9 +1,9 @@
-bioguide: state_nd_gov_jack_dalrymple
+bioguide: state_nd_gov_doug_burgum
 contact_form:
   method: post
-  action: default.aspx
+  action: ""
   steps:
-    - visit: "http://governor.nd.gov/contact-us"
+    - visit: "https://www.governor.nd.gov/contact-us"
     - wait:
        - value: 3
     - fill_in:
@@ -21,6 +21,7 @@ contact_form:
         - name: phone
           selector: "#edit-submitted-phone-number"
           value: $PHONE
+          required: false
         - name: message
           selector: "#edit-submitted-comments"
           value: $MESSAGE
