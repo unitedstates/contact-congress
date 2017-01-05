@@ -1,0 +1,54 @@
+bioguide: state_nh_gov_chris_sununu
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://business.nh.gov/NHGovernor/comments.asp"
+    - find:
+        - selector: form#Form1 input#firstname
+    - fill_in:
+        - name: first
+          selector: input#firstname
+          value: $NAME_FIRST
+          required: true
+        - name: last
+          selector: input#lastname
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: input#address
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: input#address2
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: input#city
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: input#zip
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: input#phone
+          value: $PHONE
+          required: true
+        - name: email
+          selector: input#email
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: textarea#comments
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - selector: form#Form1 input#Submit1
+    - wait:
+       - value: 1
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for emailing Governor Sununu."
