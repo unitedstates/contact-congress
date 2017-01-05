@@ -1,9 +1,9 @@
-bioguide: state_nc_gov_pat_mccrory
+bioguide: state_nc_gov_roy_cooper
 contact_form:
   method: post
-  action: /contact/email-governor
+  action: ""
   steps:
-    - visit: "http://governor.nc.gov/contact/email-governor"
+    - visit: "http://governor.nc.gov/contact-governor-cooper"
     - fill_in:
         - name: firstName
           selector: "#edit-submitted-first-name"
@@ -21,15 +21,10 @@ contact_form:
           selector: "#edit-submitted-message"
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: input#edit-captcha-response
-          value: 5
-          required: true
     - click_on:
-        - value: Submit
-          selector: "#edit-submit"
+        - selector: form#webform-client-form-11 div.form-actions input.form-submit
   success:
     headers:
       status: 200
     body:
-      contains: "Your message has been received"
+      contains: "Thank you for contacting the office of Governor Roy Cooper"
