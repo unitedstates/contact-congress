@@ -1,8 +1,7 @@
 bioguide: state_va_gov_terry_mcauliffe
 contact_form:
-  method: postn
-
-  action: "/communityrelations/form/email"
+  method: post
+  action: ""
   steps:
     - visit: "https://solutions.virginia.gov/communityrelations/form/email"
     - fill_in:
@@ -30,6 +29,10 @@ contact_form:
         selector: "#RequestedByZipCode"
         value: $ADDRESS_ZIP5
         required: true
+      - name: phone
+        selector: input#RequestedByPhone
+        value: 222-222-2222
+        required: true
       - name: emailaddress
         selector: "#RequestedByEmail"
         value: $EMAIL
@@ -47,6 +50,8 @@ contact_form:
         selector: "input[id='ResponseRequired'][value='Yes']"
       - value: Submit
         selector: "input[type='submit'][value='Submit']"
+    - wait:
+      - value: 3
   success:
     headers:
       status: 200
