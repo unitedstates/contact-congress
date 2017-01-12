@@ -2,7 +2,6 @@ bioguide: state_wa_gov_jay_inslee
 contact_form:
   method: post
   action: ""
-  usePhantomJsLogging: true
   steps:
     - visit: "http://www.governor.wa.gov/contact/contact/send-gov-inslee-e-message"
     - iframe:
@@ -102,4 +101,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting the Governor's office"
+      contains: "Thank you for contacting the Governor's Office"
