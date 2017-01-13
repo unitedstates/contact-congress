@@ -3,141 +3,142 @@ contact_form:
   method: post
   action: /email-me/
   steps:
-    - visit: "https://dougcollins.house.gov/email-me"
-    - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
-          value: $NAME_FIRST
-          required: true
-        - name: lastname
-          selector: "#req_lastname"
-          value: $NAME_LAST
-          required: true
-        - name: street
-          selector: "#req_street"
-          value: $ADDRESS_STREET
-          required: true
-        - name: city
-          selector: "#req_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zipcode
-          selector: "#req_zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: emailaddress
-          selector: "#req_email"
-          value: $EMAIL
-          required: true
-        - name: message
-          selector: "#req_message"
-          value: $MESSAGE
-          required: true
-    - select:
-        - name: prefix
-          selector: "#prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Mr.: "Mr. "
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
-            Rev.: Rev.
-            Rabbi: Rabbi
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AK
-            - AL
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - IA
-            - ID
-            - IL
-            - IN
-            - KS
-            - KY
-            - LA
-            - MA
-            - MD
-            - ME
-            - MI
-            - MN
-            - MO
-            - MS
-            - MT
-            - NC
-            - ND
-            - NE
-            - NH
-            - NJ
-            - NM
-            - NV
-            - NY
-            - OH
-            - OK
-            - OR
-            - PA
-            - PR
-            - RI
-            - SC
-            - SD
-            - TS
-            - TX
-            - UT
-            - VA
-            - VT
-            - WA
-            - WI
-            - WV
-            - WY
-        - name: issue
-          selector: "#req_issue"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: agriculture
-            Budget: budget
-            Defense: defense
-            Education: education
-            Energy: energy
-            Environmental: environmental
-            Foreign Affairs: foreign affairs
-            Government Issues: government
-            Health: health
-            Homeland Security: homeland security
-            Immigration: immigration
-            International Relations: international relations
-            Judicial: judicial
-            Labor: labor
-            Social Security: social security
-            Taxes: tax
-            Telecommunications: telecommunications
-            Transportation: transportation
-            Trade: trade
-            Veterans: veterans
-            Welfare: welfare
-            Miscellaneous Issues: miscellaneous
-    - javascript:
-        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
-    - click_on:
-        - value: Send Email
-          selector: "#submitButton"
+  - visit: https://dougcollins.house.gov/email-me
+  - fill_in:
+    - name: firstname
+      selector: '#req_firstname'
+      value: $NAME_FIRST
+      required: true
+    - name: lastname
+      selector: '#req_lastname'
+      value: $NAME_LAST
+      required: true
+    - name: street
+      selector: '#req_street'
+      value: $ADDRESS_STREET
+      required: true
+    - name: city
+      selector: '#req_city'
+      value: $ADDRESS_CITY
+      required: true
+    - name: zipcode
+      selector: '#req_zip'
+      value: $ADDRESS_ZIP5
+      required: true
+    - name: emailaddress
+      selector: '#req_email'
+      value: $EMAIL
+      required: true
+    - name: message
+      selector: '#req_message'
+      value: $MESSAGE
+      required: true
+  - select:
+    - name: prefix
+      selector: '#prefix'
+      value: $NAME_PREFIX
+      required: true
+      options:
+        Mr.: 'Mr. '
+        Mrs.: Mrs.
+        Ms.: Ms.
+        Miss: Miss
+        Dr.: Dr.
+        Hon.: Hon.
+        Rev.: Rev.
+        Rabbi: Rabbi
+    - name: state
+      selector: '#req_state'
+      value: $ADDRESS_STATE_POSTAL_ABBREV
+      required: true
+      options:
+      - AK
+      - AL
+      - AR
+      - AZ
+      - CA
+      - CO
+      - CT
+      - DC
+      - DE
+      - FL
+      - GA
+      - HI
+      - IA
+      - ID
+      - IL
+      - IN
+      - KS
+      - KY
+      - LA
+      - MA
+      - MD
+      - ME
+      - MI
+      - MN
+      - MO
+      - MS
+      - MT
+      - NC
+      - ND
+      - NE
+      - NH
+      - NJ
+      - NM
+      - NV
+      - NY
+      - OH
+      - OK
+      - OR
+      - PA
+      - PR
+      - RI
+      - SC
+      - SD
+      - TS
+      - TX
+      - UT
+      - VA
+      - VT
+      - WA
+      - WI
+      - WV
+      - WY
+    - name: issue
+      selector: '#req_issue'
+      value: $TOPIC
+      required: true
+      options:
+        Agriculture: agriculture
+        Budget: budget
+        Defense: defense
+        Education: education
+        Energy: energy
+        Environmental: environmental
+        Foreign Affairs: foreign affairs
+        Government Issues: government
+        Health: health
+        Homeland Security: homeland security
+        Immigration: immigration
+        International Relations: international relations
+        Judicial: judicial
+        Labor: labor
+        Social Security: social security
+        Taxes: tax
+        Telecommunications: telecommunications
+        Transportation: transportation
+        Trade: trade
+        Veterans: veterans
+        Welfare: welfare
+        Miscellaneous Issues: miscellaneous
+  - javascript:
+    - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g,
+        '');
+  - click_on:
+    - value: Send Email
+      selector: '#submitButton'
   success:
     headers:
       status: 200
     body:
-      contains: THANK YOU
+      contains: "thank you for contacting our office"

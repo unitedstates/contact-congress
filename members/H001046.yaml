@@ -3,194 +3,191 @@ contact_form:
   method: post
   action: /contact/write-martin
   steps:
-    - visit: "http://www.heinrich.senate.gov/contact/write-martin"
-    - select:
-        - name: topic
-          selector: "#contactForm select[name='topic']" 
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture/Food Safety: Agriculture/Food Safety
-            "Banking & Financial Services": Banking and Financial Services
-            Border Security: Border Security
-            Budget: Budget
-            Campaign Finance Reform/Elections: Campaign Finance Reform/Elections
-            Children/Family/Nutrition: Children/Family/Nutrition
-            Civil Liberties: Civil Liberties
-            Climate Change: Climate Change
-            Commerce: Commerce
-            "Economy & Jobs": "Economy & Jobs"
-            Education: Education
-            Energy: Energy
-            Environment: Environment
-            Federal Grant Funding: Federal Grant Funding
-            Foreign Affairs: Foreign Affairs
-            General Government: General Government
-            "Health Care & Wellness": "Health Care & Wellness"
-            Homeland Security: Homeland Security
-            Housing: Housing
-            Immigration: Immigration
-            Indian Country: Indian Country
-            Judiciary: Judiciary
-            Labor/Pensions: Labor/Pensions
-            "Military & Defense": "Military & Defense"
-            National Labs: National Labs
-            Postal: Postal
-            Public Lands/Forestry: Public Lands/Forestry
-            Reproductive Rights: Reproductive Rights
-            Second Amendment: Second Amendment
-            "Seniors' Issues": "Seniors' Issues"
-            Small Business: Small Business
-            Space/NASA/Science/Technology: Space/NASA/Science/Technology
-            Telecommunications: Telecommunications
-            Trade: Trade
-            "Transportation & Infrastructure": "Transportation & Infrastructure"
-            Veterans: Veterans
-            Welfare/Food Assistance: Welfare/Food Assistance
-            Wildlife/Animal Welfare: Wildlife/Animal Welfare
-            "Women's Issues": "Women's Issues"
-    - wait:
-        - value: 3
-    - find:
-        - selector: "#continue-form"
-    - fill_in:
-        - name: fname
-          selector: "#fname"
-          value: $NAME_FIRST
-          required: true
-        - name: lname
-          selector: "#lname"
-          value: $NAME_LAST
-          required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
-          value: $ADDRESS_STREET
-          required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: mailing_city
-          selector: "#mailing_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: phone_number
-          selector: "#phone_number"
-          value: $PHONE
-          required: false
-        - name: email_address
-          selector: "#email"
-          value: $EMAIL
-          required: true
-        - name: verify_email
-          selector: "#verify_email"
-          value: $EMAIL
-          required: true
-        - name: subject
-          selector: "#contactForm input[name='subject']"
-          value: $SUBJECT
-          required: true
-        - name: message
-          selector: "#message"
-          value: $MESSAGE
-          required: true
-    - select:
-        - name: salutation
-          selector: "#salutation"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            "Mr.": "Mr."
-            "Ms.": "Ms."
-            "Mrs.": "Mrs."
-            "Dr.": "Dr."
-            "Mr. and Mrs.": "Mr. and Mrs."
-            "Dr. and Mrs.": "Dr. and Mrs."
-            "Dr. and Mr.": "Dr. and Mr."
-            "Dr. and Dr.": "Dr. and Dr."
-            "Mr. and Mr.": "Mr. and Mr."
-            "Ms. and Ms.": "Ms. and Ms."
-            "Pastor": "Pastor"
-            "Father": "Father"
-            "Reverend": "Reverend"
-            "Sister": "Sister"
-            "Imam": "Imam"
-            "Rabbi": "Rabbi"
-            "Governor": "Governor"
-            "Senator": "Senator"
-            "Representative": "Representative"
-            "Hon.": "Hon."
-            "Fleet Admiral": "Fleet Admiral"
-            "Admiral": "Admiral"
-            "Vice Admiral": "Vice Admiral"
-            "Rear Admiral (upper half)": "Rear Admiral (upper half)"
-            "Rear Admiral (lower half)": "Rear Admiral (lower half)"
-            "Captain": "Captain"
-            "Commander": "Commander"
-            "Lieutenant Commander": "Lieutenant Commander"
-            "Lieutenant": "Lieutenant"
-            "Lieutenant, Junior Grade": "Lieutenant, Junior Grade"
-            "Ensign": "Ensign"
-            "Master Chief Petty Officer of the Navy": "Master Chief Petty Officer of the Navy"
-            "Master Chief Petty Officer": "Master Chief Petty Officer"
-            "Senior Chief Petty Officer": "Senior Chief Petty Officer"
-            "Chief Petty Officer": "Chief Petty Officer"
-            "Petty Officer First Class": "Petty Officer First Class"
-            "Petty Officer Second Class": "Petty Officer Second Class"
-            "Petty Officer Third Class": "Petty Officer Third Class"
-            "Seaman": "Seaman"
-            "Seaman Apprentice": "Seaman Apprentice"
-            "Seaman Recruit": "Seaman Recruit"
-            "Chief Warrant Officer": "Chief Warrant Officer"
-            "Warrant Officer": "Warrant Officer"
-            "Sgt Major Of The Corps": "Sgt Major Of The Corps"
-            "Sergeant Major": "Sergeant Major"
-            "Master Gunnery Sgt": "Master Gunnery Sgt"
-            "First Sergeant": "First Sergeant"
-            "Master Sergeant": "Master Sergeant"
-            "Gunnery Sergeant": "Gunnery Sergeant"
-            "Staff Sergeant": "Staff Sergeant"
-            "Sergeant": "Sergeant"
-            "Corporal": "Corporal"
-            "Lance Corporal": "Lance Corporal"
-            "Private First Class": "Private First Class"
-            "Private": "Private"
-            "General of the Air Force": "General of the Air Force"
-            "General": "General"
-            "Lieutenant General": "Lieutenant General"
-            "Major General": "Major General"
-            "Brigadier General": "Brigadier General"
-            "Colonel": "Colonel"
-            "Lieutenant Colonel": "Lieutenant Colonel"
-            "Major": "Major"
-            "First Lieutenant": "First Lieutenant"
-            "Second Lieutenant": "Second Lieutenant"
-            "Chief Master Sergeant of the Air Force": "Chief Master Sergeant of the Air Force"
-            "Command  Chief Master Sergeant": "Command  Chief Master Sergeant"
-            "Chief Master Sergeant": "Chief Master Sergeant"
-            "Senior Master Sergeant": "Senior Master Sergeant"
-            "Technical Sergeant": "Technical Sergeant"
-            "Senior Airman": "Senior Airman"
-            "Airman First Class": "Airman First Class"
-            "Airman": "Airman"
-    - wait:
-        - value: 1
-    - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
-    - click_on:
-        - value: Submit
-          selector: input.btn.pull-right
-    - find:
-        - selector: "h1"
-          value: "Thank You"
-          options:
-            wait: 10
+  - visit: http://www.heinrich.senate.gov/contact/write-martin
+  - select:
+    - name: topic
+      selector: '#contactForm select[name=''topic'']'
+      value: $TOPIC
+      required: true
+      options:
+        Agriculture/Food Safety: Agriculture/Food Safety
+        Banking & Financial Services: Banking and Financial Services
+        Border Security: Border Security
+        Budget: Budget
+        Campaign Finance Reform/Elections: Campaign Finance Reform/Elections
+        Children/Family/Nutrition: Children/Family/Nutrition
+        Civil Liberties: Civil Liberties
+        Climate Change: Climate Change
+        Commerce: Commerce
+        Economy & Jobs: Economy & Jobs
+        Education: Education
+        Energy: Energy
+        Environment: Environment
+        Federal Grant Funding: Federal Grant Funding
+        Foreign Affairs: Foreign Affairs
+        General Government: General Government
+        Health Care & Wellness: Health Care & Wellness
+        Homeland Security: Homeland Security
+        Housing: Housing
+        Immigration: Immigration
+        Indian Country: Indian Country
+        Judiciary: Judiciary
+        Labor/Pensions: Labor/Pensions
+        Military & Defense: Military & Defense
+        National Labs: National Labs
+        Postal: Postal
+        Public Lands/Forestry: Public Lands/Forestry
+        Reproductive Rights: Reproductive Rights
+        Second Amendment: Second Amendment
+        Seniors' Issues: Seniors' Issues
+        Small Business: Small Business
+        Space/NASA/Science/Technology: Space/NASA/Science/Technology
+        Telecommunications: Telecommunications
+        Trade: Trade
+        Transportation & Infrastructure: Transportation & Infrastructure
+        Veterans: Veterans
+        Welfare/Food Assistance: Welfare/Food Assistance
+        Wildlife/Animal Welfare: Wildlife/Animal Welfare
+        Women's Issues: Women's Issues
+  - wait:
+    - value: 3
+  - find:
+    - selector: '#continue-form'
+  - fill_in:
+    - name: fname
+      selector: '#fname'
+      value: $NAME_FIRST
+      required: true
+    - name: lname
+      selector: '#lname'
+      value: $NAME_LAST
+      required: true
+    - name: mailing_streetAddress1
+      selector: '#mailing_streetAddress1'
+      value: $ADDRESS_STREET
+      required: true
+    - name: mailing_streetAddress2
+      selector: '#mailing_streetAddress2'
+      value: $ADDRESS_STREET_2
+      required: false
+    - name: mailing_city
+      selector: '#mailing_city'
+      value: $ADDRESS_CITY
+      required: true
+    - name: mailing_zipCode
+      selector: '#mailing_zipCode'
+      value: $ADDRESS_ZIP5
+      required: true
+    - name: phone_number
+      selector: '#phone_number'
+      value: $PHONE
+      required: false
+    - name: email_address
+      selector: '#email'
+      value: $EMAIL
+      required: true
+    - name: verify_email
+      selector: '#verify_email'
+      value: $EMAIL
+      required: true
+    - name: subject
+      selector: '#contactForm input[name=''subject'']'
+      value: $SUBJECT
+      required: true
+    - name: message
+      selector: '#message'
+      value: $MESSAGE
+      required: true
+  - select:
+    - name: salutation
+      selector: '#salutation'
+      value: $NAME_PREFIX
+      required: true
+      options:
+        Mr.: Mr.
+        Ms.: Ms.
+        Mrs.: Mrs.
+        Dr.: Dr.
+        Mr. and Mrs.: Mr. and Mrs.
+        Dr. and Mrs.: Dr. and Mrs.
+        Dr. and Mr.: Dr. and Mr.
+        Dr. and Dr.: Dr. and Dr.
+        Mr. and Mr.: Mr. and Mr.
+        Ms. and Ms.: Ms. and Ms.
+        Pastor: Pastor
+        Father: Father
+        Reverend: Reverend
+        Sister: Sister
+        Imam: Imam
+        Rabbi: Rabbi
+        Governor: Governor
+        Senator: Senator
+        Representative: Representative
+        Hon.: Hon.
+        Fleet Admiral: Fleet Admiral
+        Admiral: Admiral
+        Vice Admiral: Vice Admiral
+        Rear Admiral (upper half): Rear Admiral (upper half)
+        Rear Admiral (lower half): Rear Admiral (lower half)
+        Captain: Captain
+        Commander: Commander
+        Lieutenant Commander: Lieutenant Commander
+        Lieutenant: Lieutenant
+        Lieutenant, Junior Grade: Lieutenant, Junior Grade
+        Ensign: Ensign
+        Master Chief Petty Officer of the Navy: Master Chief Petty Officer of the
+          Navy
+        Master Chief Petty Officer: Master Chief Petty Officer
+        Senior Chief Petty Officer: Senior Chief Petty Officer
+        Chief Petty Officer: Chief Petty Officer
+        Petty Officer First Class: Petty Officer First Class
+        Petty Officer Second Class: Petty Officer Second Class
+        Petty Officer Third Class: Petty Officer Third Class
+        Seaman: Seaman
+        Seaman Apprentice: Seaman Apprentice
+        Seaman Recruit: Seaman Recruit
+        Chief Warrant Officer: Chief Warrant Officer
+        Warrant Officer: Warrant Officer
+        Sgt Major Of The Corps: Sgt Major Of The Corps
+        Sergeant Major: Sergeant Major
+        Master Gunnery Sgt: Master Gunnery Sgt
+        First Sergeant: First Sergeant
+        Master Sergeant: Master Sergeant
+        Gunnery Sergeant: Gunnery Sergeant
+        Staff Sergeant: Staff Sergeant
+        Sergeant: Sergeant
+        Corporal: Corporal
+        Lance Corporal: Lance Corporal
+        Private First Class: Private First Class
+        Private: Private
+        General of the Air Force: General of the Air Force
+        General: General
+        Lieutenant General: Lieutenant General
+        Major General: Major General
+        Brigadier General: Brigadier General
+        Colonel: Colonel
+        Lieutenant Colonel: Lieutenant Colonel
+        Major: Major
+        First Lieutenant: First Lieutenant
+        Second Lieutenant: Second Lieutenant
+        Chief Master Sergeant of the Air Force: Chief Master Sergeant of the Air Force
+        Command  Chief Master Sergeant: Command  Chief Master Sergeant
+        Chief Master Sergeant: Chief Master Sergeant
+        Senior Master Sergeant: Senior Master Sergeant
+        Technical Sergeant: Technical Sergeant
+        Senior Airman: Senior Airman
+        Airman First Class: Airman First Class
+        Airman: Airman
+  - wait:
+    - value: 1
+  - javascript:
+    - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g,
+        '');
+  - click_on:
+    - value: Submit
+      selector: input.btn.pull-right
   success:
     headers:
       status: 200
     body:
-      contains: Thanks for taking the time to share your thoughts with me.
+      contains: "Thanks for taking the time to share your thoughts with me."
