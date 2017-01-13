@@ -1,23 +1,10 @@
 bioguide: B001301
 contact_form:
     method: post
-    action: "./?zip5=49684&zip4=2500"
+    action: "."
     steps:
-    - visit: "https://bergman.house.gov/contact/"
+    - visit: "https://bergmanforms.house.gov/forms/writeyourrep/"
     - fill_in:
-        - name: zip5
-          selector: '#zip5'
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: '#zip4'
-          value: $ADDRESS_ZIP4
-          required: true
-        - recaptcha:
-          - value: true 
-        - click_on:
-          - selector: '#Submit'
-        - fill_in:
         - name: ctl00$ctl12$FirstName
           selector: "#ctl00_ctl12_FirstName"
           value: $NAME_FIRST
@@ -173,9 +160,9 @@ contact_form:
           selector: "#ctl00_ctl12_ReplyChoice_0"
           value: Respond
     - recaptcha:
-      - value: true        
+        - value: true
     - click_on:
-      - selector: '#submit'
+        - selector: '#submit'
     success:
       headers:
         status: 200
