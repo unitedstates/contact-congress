@@ -4,6 +4,8 @@ contact_form:
   action: "https://www.stabenow.senate.gov/contact"
   steps:
     - visit: "https://www.stabenow.senate.gov/contact"
+    - wait:
+        - value: 2
     - fill_in:
         - name: input_F80AC606-4040-F985-52CD-88C5E17C2923
           selector: "#input-F80AC606-4040-F985-52CD-88C5E17C2923"
@@ -50,6 +52,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn
+    - find:
+        - value: "Thank You"
+          selector: "h1"
   success:
     headers:
       status: 200
