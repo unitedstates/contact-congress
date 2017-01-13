@@ -50,11 +50,6 @@ contact_form:
         selector: ".required[name='MessageBody']"
         value: "$MESSAGE"
         required: Yes
-      - name: captcha_code
-        selector: "#captcha_code"
-        captcha_selector: "img.img-polaroid"
-        value: "$CAPTCHA_SOLUTION"
-        required: Yes
     - select:
       - name: Prefix
         selector: ".required[name='Prefix']"
@@ -82,7 +77,7 @@ contact_form:
     - javascript:
       - value: document.querySelector(".required[name='MessageBody']").value = document.querySelector(".required[name='MessageBody']").value.replace(/"/g, '');
     - javascript:
-      - value: document.querySelector("#captcha_code").value = document.querySelector("#captcha_code").value.toLowerCase();
+      - value: jQuery('[name=captcha_code]').val(jQuery('a[href$=".wav"]').attr('href').match(/_([a-z0-9]+)\.wav/)[1]);
     - click_on:
       - value: Submit Information
         selector: ".btn-primary"
