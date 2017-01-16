@@ -1,72 +1,133 @@
 bioguide: D000622
 contact_form:
   method: post
-  action: "https://forms.house.gov/htbin/formproc_za/duckworth/webforms/issue_subscribe_parm.txt&form=/duckworth/webforms/issue_subscribe_verify.html"
+  action: /content/contact-senator
   steps:
-    - visit: "https://forms.house.gov/duckworth/webforms/email-me.shtml"
+    - visit: "https://www.duckworth.senate.gov/content/contact-senator"
     - fill_in:
-        - name: required-first
-          selector: "#required-first"
+        - name: "submitted[constituent_information][first_name]"
+          selector: "#edit-submitted-constituent-information-first-name"
           value: $NAME_FIRST
           required: true
-        - name: required-last
-          selector: "#required-last"
+        - name: "submitted[constituent_information][last_name]"
+          selector: "#edit-submitted-constituent-information-last-name"
           value: $NAME_LAST
           required: true
-        - name: required-address
-          selector: "#required-address"
+        - name: "submitted[constituent_information][address_1]"
+          selector: "#edit-submitted-constituent-information-address-1"
           value: $ADDRESS_STREET
           required: true
-        - name: required-city
-          selector: "#required-city"
+        - name: "submitted[constituent_information][city]"
+          selector: "#edit-submitted-constituent-information-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: required-zip5
-          selector: "#required-zip5"
+        - name: "submitted[constituent_information][zip]"
+          selector: "#edit-submitted-constituent-information-zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zip4
-          selector: "#zip4"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: required-valid-email
-          selector: "#required-valid-email"
+        - name: "submitted[constituent_information][phone]"
+          selector: "#edit-submitted-constituent-information-phone"
+          value: $PHONE
+          required: false
+        - name: "submitted[constituent_information][email]"
+          selector: "#edit-submitted-constituent-information-email"
           value: $EMAIL
           required: true
-        - name: required-phone
-          selector: "#required-phone"
-          value: $PHONE
-          required: true
-        - name: required-subject
-          selector: "#required-subject"
+        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
+          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
           value: $SUBJECT
           required: true
-        - name: required-message
-          selector: "#required-message"
+        - name: "submitted[message_details][message]"
+          selector: "#edit-submitted-message-details-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-response
-          selector: "#required-response"
-          value: "Y"
-          required: false
+        - name: "submitted[constituent_information][prefix]"
+          selector: "#edit-submitted-constituent-information-prefix"
+          value: $NAME_PREFIX
+          required: true
           options:
-            "Yes, please contact me": "Y"
-            "No, I wanted to voice my opinion": "N"
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mrs.
+            - Reverend
+            - Sister
+            - Pastor
+            - The Honorable
+            - Representative
+            - Senator
+        - name: "submitted[message_details][topic]"
+          selector: "#edit-submitted-message-details-topic"
+          value: $TOPIC
+          required: true
+          options:
+            - Abortion
+            - Adoption
+            - Aging
+            - Agriculture
+            - Animal Welfare
+            - Appropriations
+            - Banking
+            - Campaign Finance
+            - Children
+            - Civil Rights
+            - Commerce
+            - Communications
+            - Congratulations
+            - Congressional Issues
+            - Crime
+            - Defense
+            - Drugs
+            - Economy
+            - Education Higher
+            - Education K through 12
+            - Elections
+            - Energy
+            - Environment
+            - Family
+            - Food Stamps
+            - Foreign Affairs
+            - Gun Control
+            - Health
+            - Homeland Security
+            - Housing
+            - Immigration
+            - Inauguration
+            - Insurance Health
+            - Insurance Other
+            - Interior
+            - Iran
+            - Iraq
+            - Judiciary
+            - Labor
+            - Medicaid
+            - Medicare
+            - Military
+            - NASA
+            - Nutrition
+            - Other
+            - Patents
+            - Pensions
+            - Securities
+            - Small Business
+            - Social Security
+            - Taxes
+            - Tobacco
+            - Trade
+            - Transportation
+            - Veterans
+            - Welfare
+            - "Women's Issues"
     - javascript:
-        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+        - value: document.querySelector("#edit-submitted-message-details-message").value = document.querySelector("#edit-submitted-message-details-message").value.replace(/"/g, '');
     - click_on:
-        - value: Send Email
-          selector: "#submit"
-    - find:
-        - selector: "a"
-          value: "Here"
+        - value: Submit
+          selector: "#webform-client-form-78 input[name='op']"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me through my website.
+      contains: "Thank you, your message has been received."
