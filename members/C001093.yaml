@@ -137,8 +137,11 @@ contact_form:
   - click_on:
     - value: Send Email
       selector: '#submitButton'
+  - find:
+    - selector: h1
+      value: Thank You
   success:
     headers:
       status: 200
     body:
-      contains: "thank you for contacting our office"
+      contains: THANK YOU

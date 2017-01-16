@@ -186,8 +186,11 @@ contact_form:
   - click_on:
     - value: Submit
       selector: input.btn.pull-right
+  - find:
+    - selector: h1
+      value: Thank You
   success:
     headers:
       status: 200
     body:
-      contains: "Thanks for taking the time to share your thoughts with me."
+      contains: Thanks for taking the time to share your thoughts with me.
