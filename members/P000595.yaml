@@ -1,133 +1,132 @@
 bioguide: P000595
 contact_form:
   method: post
-  action: "https://www.peters.senate.gov/contact/email-gary"
+  action: https://www.peters.senate.gov/contact/email-gary
   steps:
-    - visit: "https://www.peters.senate.gov/contact/email-gary"
-    - wait:
-        - value: 3
-    - select:
-        - name: input_AE7457DD-4040-F985-52CD-B99385041C51
-          selector: "#actions"
-          value: opinion
-          required: true
-          options:
-            Comment on an Issue: opinion
-            Help with a Federal Agency: Help with a Federal Agency
-            Meeting Requests: Meeting Requests
-            Tour Requests: Tour Requests
-            Office Locations: Office Locations
-            Student Resources: Student Resources
-            Veterans Resources: Veterans Resources
-    - wait:
-        - value: 3
-    - fill_in:
-        - name: input_260E577D-5056-A066-6070-226296904340
-          selector: "#input-260E577D-5056-A066-6070-226296904340"
-          value: $NAME_PREFIX
-          required: true
-        - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
-          selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
-          value: $NAME_FIRST
-          required: true
-        - name: input_AB59F0ED-4040-F985-52CD-265D9CF13F5E
-          selector: "#input-AB59F0ED-4040-F985-52CD-265D9CF13F5E"
-          value: $NAME_LAST
-          required: true
-        - name: input_AB5B6829-4040-F985-52CD-BF81DCC1F57D
-          selector: "#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D"
-          value: $ADDRESS_STREET
-          required: true
-        - name: input_AB5B6875-4040-F985-52CD-909541CB4B6C
-          selector: "#input-AB5B6875-4040-F985-52CD-909541CB4B6C"
-          value: $ADDRESS_CITY
-          required: true
-        - name: input_AB5B68B4-4040-F985-52CD-269A4338D057
-          selector: "#input-AB5B68B4-4040-F985-52CD-269A4338D057"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: input_AB67BC2F-4040-F985-52CD-007A86DA4D47
-          selector: "#input-AB67BC2F-4040-F985-52CD-007A86DA4D47"
-          value: $PHONE
-          required: true
-        - name: input_AB721CC4-4040-F985-52CD-76D1474A55F4
-          selector: "#email"
-          value: $EMAIL
-          required: true
-        - name: input_AB721CE8-4040-F985-52CD-9E550E8A76AA
-          selector: "#input-AB721CE8-4040-F985-52CD-9E550E8A76AA"
-          value: $EMAIL
-          required: true
-        - name: input_93E136F1-4040-F985-52CD-D4EB6A849AA3
-          selector: "#input-93E136F1-4040-F985-52CD-D4EB6A849AA3"
-          value: $SUBJECT
-          required: true
-        - name: input_ADE64E73-4040-F985-52CD-A3AB6BCD2C51
-          selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
-          value: $MESSAGE
-          required: true
-    - select:
-        - name: input_AB8156A0-4040-F985-52CD-49CE65770EFC
-          selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
-          value: $TOPIC
-          required: true
-          options:
-            Adoption: ADOPT- GENERAL
-            Agriculture: AGRI- GENERAL
-            "Animal Protection ": ANIM PROT- GENERAL
-            "Appropriations ": APPROPS- GENERAL
-            "Arts ": ARTS- GENERAL
-            "Banking ": BANK- GENERAL
-            "Budget ": BUDG- General
-            Campaigns and Elections: CAMPAIGN
-            "Civil Rights ": CIV RGHTS- GENERAL
-            Congratulatory Correspondence: CONGRATS
-            "Consumer Protection ": CSMR PROT- GENERAL
-            "Crime ": CRIME- GENERAL
-            Defense/Military: DEF- GENERAL
-            "Economy ": ECON- GENERAL
-            "Education ": EDU- GENERAL
-            "Energy ": ENR- GENERAL
-            "Environment ": ENVIR-GENERAL
-            "Foreign Affairs ": FOR AFF- GENERAL
-            "Great Lakes ": GRT LAKES- GENERAL
-            Gun Safety: GUN SAFETY
-            "Health ": HEAL- GENERAL
-            "Homeland Security ": HOM- GENERAL
-            "Housing ": HOUS- GENERAL
-            "Immigration ": IMMG- General
-            Inauguration: INAUGUR
-            "Judiciary ": JUDIC- GENERAL
-            Labor/Employment: LAB- GENERAL
-            "Medicaid ": MDCA- GENERAL
-            "Medicare ": MDCR- GENERAL
-            Nutrition: NUTR- GENERAL
-            Pensions and Retirement Security: PENSION- GENERAL
-            Postal Services: POST ISSUES
-            "Science ": SCI- GENERAL
-            "Small Business ": SM BUSI- GENERAL
-            "Social Security ": SOC SECUR- GENERAL
-            State Issues: STATES ISSUES
-            "Taxes ": TAX- GENERAL
-            "Telecommunications ": COMMS- GENERAL
-            "Trade ": TRADE- General
-            "Transportation ": TRANSP- GENERAL
-            Tribal Issues: TRIB ISSUES
-            "Veterans ": VET- GENERAL
-            "Welfare ": WELF- GENERAL
-            "Women's Issues": WOM ISSUES
-    - javascript:
-        - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
-    - click_on:
-        - value: Submit
-          selector: input.btn
-    - wait:
-        - value: 3
-    - find:
-        - value: "THANK YOU"
-          selector: "h1"
+  - visit: https://www.peters.senate.gov/contact/email-gary
+  - wait:
+    - value: 3
+  - select:
+    - name: input_AE7457DD-4040-F985-52CD-B99385041C51
+      selector: '#actions'
+      value: opinion
+      required: true
+      options:
+        Comment on an Issue: opinion
+        Help with a Federal Agency: Help with a Federal Agency
+        Meeting Requests: Meeting Requests
+        Tour Requests: Tour Requests
+        Office Locations: Office Locations
+        Student Resources: Student Resources
+        Veterans Resources: Veterans Resources
+  - wait:
+    - value: 3
+  - fill_in:
+    - name: input_260E577D-5056-A066-6070-226296904340
+      selector: '#input-260E577D-5056-A066-6070-226296904340'
+      value: $NAME_PREFIX
+      required: true
+    - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
+      selector: '#input-AB59F0AE-4040-F985-52CD-AA63153C7925'
+      value: $NAME_FIRST
+      required: true
+    - name: input_AB59F0ED-4040-F985-52CD-265D9CF13F5E
+      selector: '#input-AB59F0ED-4040-F985-52CD-265D9CF13F5E'
+      value: $NAME_LAST
+      required: true
+    - name: input_AB5B6829-4040-F985-52CD-BF81DCC1F57D
+      selector: '#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D'
+      value: $ADDRESS_STREET
+      required: true
+    - name: input_AB5B6875-4040-F985-52CD-909541CB4B6C
+      selector: '#input-AB5B6875-4040-F985-52CD-909541CB4B6C'
+      value: $ADDRESS_CITY
+      required: true
+    - name: input_AB5B68B4-4040-F985-52CD-269A4338D057
+      selector: '#input-AB5B68B4-4040-F985-52CD-269A4338D057'
+      value: $ADDRESS_ZIP5
+      required: true
+    - name: input_AB67BC2F-4040-F985-52CD-007A86DA4D47
+      selector: '#input-AB67BC2F-4040-F985-52CD-007A86DA4D47'
+      value: $PHONE
+      required: true
+    - name: input_AB721CC4-4040-F985-52CD-76D1474A55F4
+      selector: '#email'
+      value: $EMAIL
+      required: true
+    - name: input_AB721CE8-4040-F985-52CD-9E550E8A76AA
+      selector: '#input-AB721CE8-4040-F985-52CD-9E550E8A76AA'
+      value: $EMAIL
+      required: true
+    - name: input_93E136F1-4040-F985-52CD-D4EB6A849AA3
+      selector: '#input-93E136F1-4040-F985-52CD-D4EB6A849AA3'
+      value: $SUBJECT
+      required: true
+    - name: input_ADE64E73-4040-F985-52CD-A3AB6BCD2C51
+      selector: '#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51'
+      value: $MESSAGE
+      required: true
+  - select:
+    - name: input_AB8156A0-4040-F985-52CD-49CE65770EFC
+      selector: '#input-AB8156A0-4040-F985-52CD-49CE65770EFC'
+      value: $TOPIC
+      required: true
+      options:
+        Adoption: ADOPT- GENERAL
+        Agriculture: AGRI- GENERAL
+        'Animal Protection ': ANIM PROT- GENERAL
+        'Appropriations ': APPROPS- GENERAL
+        'Arts ': ARTS- GENERAL
+        'Banking ': BANK- GENERAL
+        'Budget ': BUDG- General
+        Campaigns and Elections: CAMPAIGN
+        'Civil Rights ': CIV RGHTS- GENERAL
+        Congratulatory Correspondence: CONGRATS
+        'Consumer Protection ': CSMR PROT- GENERAL
+        'Crime ': CRIME- GENERAL
+        Defense/Military: DEF- GENERAL
+        'Economy ': ECON- GENERAL
+        'Education ': EDU- GENERAL
+        'Energy ': ENR- GENERAL
+        'Environment ': ENVIR-GENERAL
+        'Foreign Affairs ': FOR AFF- GENERAL
+        'Great Lakes ': GRT LAKES- GENERAL
+        Gun Safety: GUN SAFETY
+        'Health ': HEAL- GENERAL
+        'Homeland Security ': HOM- GENERAL
+        'Housing ': HOUS- GENERAL
+        'Immigration ': IMMG- General
+        Inauguration: INAUGUR
+        'Judiciary ': JUDIC- GENERAL
+        Labor/Employment: LAB- GENERAL
+        'Medicaid ': MDCA- GENERAL
+        'Medicare ': MDCR- GENERAL
+        Nutrition: NUTR- GENERAL
+        Pensions and Retirement Security: PENSION- GENERAL
+        Postal Services: POST ISSUES
+        'Science ': SCI- GENERAL
+        'Small Business ': SM BUSI- GENERAL
+        'Social Security ': SOC SECUR- GENERAL
+        State Issues: STATES ISSUES
+        'Taxes ': TAX- GENERAL
+        'Telecommunications ': COMMS- GENERAL
+        'Trade ': TRADE- General
+        'Transportation ': TRANSP- GENERAL
+        Tribal Issues: TRIB ISSUES
+        'Veterans ': VET- GENERAL
+        'Welfare ': WELF- GENERAL
+        Women's Issues: WOM ISSUES
+  - javascript:
+    - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value
+        = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g,
+        '');
+  - click_on:
+    - value: Submit
+      selector: input.btn
+  - wait:
+    - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: THANK YOU
+      contains: "Thank you for taking the time to contact Gary"
