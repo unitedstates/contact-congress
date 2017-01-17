@@ -1,0 +1,51 @@
+bioguide: state_wv_gov_jim_justice
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.governor.wv.gov/Pages/SubmitaCommenttotheGovernor.aspx"
+    - fill_in:
+        - name: name
+          selector: "#ctl00_PlaceHolderMain_g_1aa949c5_afad_4f93_9c5b_1c3bf27389df_ff1_1_ctl00_ctl00_TextField"
+          value: $NAME_FULL
+          required: true
+        - name: address
+          selector: "#ctl00_PlaceHolderMain_g_1aa949c5_afad_4f93_9c5b_1c3bf27389df_ff3_1_ctl00_ctl00_TextField"
+          value: $ADDRESS_STREET
+          required: true
+        - name: address2
+          selector: "#ctl00_PlaceHolderMain_g_1aa949c5_afad_4f93_9c5b_1c3bf27389df_ff4_1_ctl00_ctl00_TextField"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#ctl00_PlaceHolderMain_g_1aa949c5_afad_4f93_9c5b_1c3bf27389df_ff5_1_ctl00_ctl00_TextField"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "#ctl00_PlaceHolderMain_g_1aa949c5_afad_4f93_9c5b_1c3bf27389df_ff6_1_ctl00_ctl00_TextField"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: zip5
+          selector: "#ctl00_PlaceHolderMain_g_1aa949c5_afad_4f93_9c5b_1c3bf27389df_ff7_1_ctl00_ctl00_TextField"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#ctl00_PlaceHolderMain_g_1aa949c5_afad_4f93_9c5b_1c3bf27389df_ff9_1_ctl00_ctl00_TextField"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#ctl00_PlaceHolderMain_g_1aa949c5_afad_4f93_9c5b_1c3bf27389df_ff10_1_ctl00_ctl00_TextField"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#ctl00_PlaceHolderMain_g_1aa949c5_afad_4f93_9c5b_1c3bf27389df_ff11_1_ctl00_ctl00_TextField"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "#aspnetForm input[name='btnFormAction']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your submission"
