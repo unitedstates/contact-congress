@@ -1,0 +1,38 @@
+bioguide: state_de_gov_john_carney
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://governor.delaware.gov/email-governor-carney/"
+    - fill_in:
+        - name: name
+          selector: input#name
+          value: $NAME_FULL
+          required: true
+        - name: email
+          selector: input#email
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: input#phone
+          value: $PHONE
+          required: true
+        - name: subject
+          selector: input#subject
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: div#main_content textarea[name='description']
+          value: $MESSAGE
+          required: true
+        - name: pretendCAPTCHA
+          selector: input#CaptchaInput
+          value: lolololol
+          required: true
+    - click_on:
+        - selector: div#main_content input.btn-success
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting us"
