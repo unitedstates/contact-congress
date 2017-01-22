@@ -54,6 +54,59 @@ contact_form:
   - click_on:
     - value: Submit
       selector: input.btn
+=======
+    - visit: "https://www.stabenow.senate.gov/contact"
+    - wait:
+        - value: 2
+    - fill_in:
+        - name: input_F80AC606-4040-F985-52CD-88C5E17C2923
+          selector: "#input-F80AC606-4040-F985-52CD-88C5E17C2923"
+          value: $NAME_FIRST
+          required: true
+        - name: input_F80AC4BA-4040-F985-52CD-C1FBF3A239DA
+          selector: "#input-F80AC4BA-4040-F985-52CD-C1FBF3A239DA"
+          value: $NAME_LAST
+          required: true
+        - name: input_F80AC639-4040-F985-52CD-01F3F3CED200
+          selector: "#input-F80AC639-4040-F985-52CD-01F3F3CED200"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_F80AC6B0-4040-F985-52CD-D109F6244062
+          selector: "#input-F80AC6B0-4040-F985-52CD-D109F6244062"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_F80AC4D5-4040-F985-52CD-CD63BB35E91B
+          selector: "#input-F80AC4D5-4040-F985-52CD-CD63BB35E91B"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_F80AC622-4040-F985-52CD-2ED21C242578
+          selector: "#input-F80AC622-4040-F985-52CD-2ED21C242578"
+          value: $PHONE
+          required: true
+        - name: input_F80AC67C-4040-F985-52CD-B6461212ACFE
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: input_F80AC51C-4040-F985-52CD-9794A2BECA45
+          selector: "#input-F80AC51C-4040-F985-52CD-9794A2BECA45"
+          value: $EMAIL
+          required: true
+        - name: input_F81BE935-4040-F985-52CD-D2815240A234
+          selector: "#input-F81BE935-4040-F985-52CD-D2815240A234"
+          value: $SUBJECT
+          required: true
+        - name: input_F80AC5B6-4040-F985-52CD-834C1DD62DF3
+          selector: "#input-F80AC5B6-4040-F985-52CD-834C1DD62DF3"
+          value: $MESSAGE
+          required: false
+    - javascript:
+        - value: document.querySelector("#input-F80AC5B6-4040-F985-52CD-834C1DD62DF3").value = document.querySelector("#input-F80AC5B6-4040-F985-52CD-834C1DD62DF3").value.replace(/"/g, '');
+    - click_on:
+        - value: Submit
+          selector: input.btn
+    - find:
+        - value: "Thank You"
+          selector: "h1"
   success:
     headers:
       status: 200

@@ -87,6 +87,88 @@ contact_form:
   - find:
     - selector: h1
       value: Thank you for emailing
+=======
+    - visit: http://www.crapo.senate.gov/contact/email.cfm
+    - javascript:
+      - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - wait:
+      - value: 1
+    - fill_in:
+      - name: firstName
+        selector: "#firstName"
+        value: "$NAME_FIRST"
+        required: Yes
+      - name: lastName
+        selector: "#lastName"
+        value: "$NAME_LAST"
+        required: Yes
+      - name: Address1
+        selector: "#Address1"
+        value: "$ADDRESS_STREET"
+        required: Yes
+      - name: Address2
+        selector: "#Address2"
+        value: "$ADDRESS_STREET_2"
+      - name: city
+        selector: "#city"
+        value: "$ADDRESS_CITY"
+        required: Yes
+      - name: zip
+        selector: "#zip"
+        value: "$ADDRESS_ZIP5"
+        required: Yes
+      - name: homePhone
+        selector: "#homePhone"
+        value: "$PHONE"
+      - name: workPhone
+        selector: "#workPhone"
+        value: "$PHONE"
+      - name: email
+        selector: "#email"
+        value: "$EMAIL"
+        required: Yes
+      - name: messageSubject
+        selector: "#messageSubject"
+        value: "$SUBJECT"
+        required: Yes
+      - name: MessageBody
+        selector: ".required[name='MessageBody']"
+        value: "$MESSAGE"
+        required: Yes
+    - select:
+      - name: Prefix
+        selector: ".required[name='Prefix']"
+        value: "$NAME_PREFIX"
+        required: Yes
+        options:
+          " Mr. ": "Mr."
+          " Mrs. ": "Mrs."
+          " Ms. ": "Ms."
+          " Mr. and Mrs. ": "Mr. and Mrs."
+          " MSgt ": "MSgt"
+          " Dr. ": "Dr."
+          " Reverend ": "Reverend"
+          " Sister ": "Sister"
+          " Pastor ": "Pastor"
+          " The Honorable ": "The Honorable"
+          " Representative ": "Representative"
+          " Senator ": "Senator"
+      - name: Subject
+        selector: "#Subject"
+        value: "EMAIL"
+        required: true
+        options:
+          Not Listed/Other: EMAIL
+    - javascript:
+      - value: document.querySelector(".required[name='MessageBody']").value = document.querySelector(".required[name='MessageBody']").value.replace(/"/g, '');
+    - javascript:
+      - value: jQuery('[name=captcha_code]').val(jQuery('a[href$=".wav"]').attr('href').match(/_([a-z0-9]+)\.wav/)[1]);
+    - click_on:
+      - value: Submit Information
+        selector: ".btn-primary"
+    - find:
+        - selector: "h1"
+          value: "Thank you for emailing"
   success:
     headers:
       status: 200
