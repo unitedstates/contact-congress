@@ -1,11 +1,9 @@
-bioguide: federal_us_firstlady_michelle_obama
+bioguide: federal_us_firstlady_melania_trump
 contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://forms.whitehouse.gov/contact/questions-comments?initialWidth=960&childId=forall-iframe-embed-2&parentUrl=https%3A%2F%2Fwww.whitehouse.gov%2Fcontact"
-    - find:
-      - selector: select#edit-submitted-00nj0000000vdnx
+    - visit: "https://forms.whitehouse.gov/contact/questions-comments"
     - select:
       - name: target
         selector: "#edit-submitted-00nj0000000vdnx"
@@ -44,6 +42,9 @@ contact_form:
         selector: "#edit-submitted-description"
         value: $MESSAGE
         required: True
+        options:
+          max_length: 2480
+          blacklist: <>
     - select:
       - name: state
         selector: "#edit-submitted-us-states"
@@ -122,4 +123,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting President Obama
+      contains: "Thank you for contacting the White House"

@@ -1,13 +1,13 @@
-bioguide: O000167
+bioguide: P000587
 contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://forms.whitehouse.gov/contact/questions-comments?initialWidth=960&childId=forall-iframe-embed-2&parentUrl=https%3A%2F%2Fwww.whitehouse.gov%2Fcontact"
+    - visit: "https://forms.whitehouse.gov/contact/questions-comments"
     - select:
       - name: target
         selector: "#edit-submitted-00nj0000000vdnx"
-        value: Reflections for President Obama
+        value: Reflections for the Vice President
         required: True
     - fill_in:
       - name: first
@@ -42,9 +42,6 @@ contact_form:
         selector: "#edit-submitted-description"
         value: $MESSAGE
         required: True
-        options:
-          max_length: 2480
-          blacklist: <>
     - select:
       - name: state
         selector: "#edit-submitted-us-states"
@@ -123,4 +120,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting President Obama
+      contains: "Thank you for contacting the White House"
