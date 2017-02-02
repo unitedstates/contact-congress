@@ -1,0 +1,109 @@
+bioguide: placeholder
+contact_form:
+  method: POST
+  action: ?
+  steps:
+    - visit: "http://www.ssflareaiveis.com/comment.aspx"
+    - fill_in:
+      - name: Name
+        selector: "#ContentPlaceHolder1_nameTB"
+        value: "$NAME_FIRST $NAME_LAST"
+        required: true
+      - name: Address
+        selector: "#ContentPlaceHolder1_addTB"
+        value: "$ADDRESS_STREET $ADDRESS_STREET_2"
+        required: true
+      - name: city
+        selector: "#ContentPlaceHolder1_cityTB"
+        value: "$ADDRESS_CITY"
+        required: true
+      - name: State
+        selector: ".required[name='Prefix']"
+        value: "$NAME_PREFIX"
+        required: true
+        options:
+          "Alabama"
+          "Alaska"
+          "Arizona"
+          "Arkansas"
+          "California"
+          "Colorado"
+          "Connecticut"
+          "Delaware"
+          "District of Columbia"
+          "Florida"
+          "Georgia"
+          "Hawaii"
+          "Idaho"
+          "Illinois"
+          "Indiana"
+          "Iowa"
+          "Kansas"
+          "Kentucky"
+          "Louisiana"
+          "Maine"
+          "Maryland"
+          "Massachusetts"
+          "Michigan"
+          "Minnesota"
+          "Mississippi"
+          "Missouri"
+          "Montana"
+          "Nebraska"
+          "Nevada"
+          "New Hampshire"
+          "New Jersey"
+          "New Mexico"
+          "New York"
+          "North Carolina"
+          "North Dakota"
+          "Ohio"
+          "Oklahoma"
+          "Oregon"
+          "Pennsylvania"
+          "Rhode Island"
+          "South Carolina"
+          "South Dakota"
+          "Tennessee"
+          "Texas"
+          "Utah"
+          "Vermont"
+          "Virginia"
+          "Washington"
+          "West Virginia"
+          "Wisconsin"
+          "Wyoming"
+      - name: zip
+        selector: "#ContentPlaceHolder1_zipTB"
+        value: "$ADDRESS_ZIP5"
+        required: true
+      - name: email
+        selector: "#ContentPlaceHolder1_emailTB"
+        value: "$EMAIL"
+        required: true
+      - name: MessageBody
+        selector: "#ContentPlaceHolder1_commentTB]"
+        value: "$MESSAGE"
+        required: true
+    - wait:
+      - value: 1
+    - fill_in:
+      - name: captcha_code
+        selector: "#ctl00_ContentPlaceHolder1_RadCaptcha1_CaptchaTextBox"
+        captcha_selector: "img#ctl00_ContentPlaceHolder1_RadCaptcha1_CaptchaImage"
+        # There is no id field for matching up the captcha on the backend; rather the solution itself appears in the page
+        # You can get it via a simple dom query from the audio version, conveniently titled with the solution in the filename:
+        #
+        # jQuery('a[href$=".wav"]').attr('href').match(/_([a-z0-9]+)\.wav/)[1]
+        value: "$CAPTCHA_SOLUTION"
+        required: true
+    - find:
+      - selector: "#ContentPlaceHolder1_addBtn"
+    - click_on:
+      - value: Submit
+        selector: "#ContentPlaceHolder1_addBtn"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your comment on the Santa Susana Field Laboratory Area IV EIS!"
