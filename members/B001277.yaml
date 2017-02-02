@@ -3,120 +3,118 @@ contact_form:
   method: POST
   action: https://www.blumenthal.senate.gov/contact
   steps:
-    - visit: https://www.blumenthal.senate.gov/contact/
-    - select:
-      - name: topic
-        selector: "#topic"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          - "Abortion Rights"
-          - "Agriculture"
-          - "Animal Welfare"
-          - "Banking and Finance"
-          - "Budget"
-          - "Child Care and Welfare"
-          - "Civil Rights"
-          - "Defense"
-          - "Disability"
-          - "Economy"
-          - "Election Reform"
-          - "Energy"
-          - "Environment"
-          - "Foreign Affairs"
-          - "Gun Violence & Second Amendment Rights"
-          - "Infrastructure"
-          - "Intellectual Property"
-          - "Judicial Nominations"
-          - "Judiciary"
-          - "Labor"
-          - "Medicaid"
-          - "Online Privacy"
-          - "Other"
-          - "Pensions"
-          - "Postal Issues"
-          - "Science and Technology"
-          - "Senior Issues"
-          - "Sports"
-          - "Telecommunications"
-          - "Trade"
-          - "Transportation"
-    - javascript:
-      - value: document.getElementById('continue-form').style = 'display:block;';
-    - fill_in:
-      - name: fname
-        selector: "#fname"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: lname
-        selector: "#lname"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: mailing_streetAddress1
-        selector: "#mailing_streetAddress1"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: mailing_streetAddress2
-        selector: "#mailing_streetAddress2"
-        value: "$ADDRESS_STREET_2"
-      - name: mailing_city
-        selector: "#mailing_city"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: mailing_zipCode
-        selector: "#mailing_zipCode"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: phone_number
-        selector: "#phone_number"
-        value: "$PHONE"
-      - name: email
-        selector: "#email_address"
-        value: "$EMAIL"
-        required: Yes
-      - name: verify_email
-        selector: "#verify_email"
-        value: "$EMAIL"
-        required: Yes
-      - name: subject
-        selector: "#subject"
-        value: "$SUBJECT"
-        required: Yes
-      - name: comments
-        selector: "#comments"
-        value: "$MESSAGE"
-        required: Yes
-    - select:
-      - name: salutation
-        selector: "#salutation"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Miss"
-          - "Mr. and Mrs."
-          - "Professor"
-          - "Dean"
-          - "The Honorable"
-          - "Dr."
-          - "Dr. and Mrs."
-          - "Dr. and Mr."
-    - uncheck:
-      - name: no_response
-        selector: "#no_response"
-        value: Yes
-    - wait:
-      - value: 1
-    - javascript:
-      - value: document.querySelector("#comments").value = document.querySelector("#comments").value.replace(/"/g, '');
-    - click_on:
-      - value: Send
-        selector: "#side-search-btn"
-    - find:
-      - selector: "h1"
-        value: "Thank You"
+  - visit: https://www.blumenthal.senate.gov/contact/
+  - select:
+    - name: topic
+      selector: '#topic'
+      value: $TOPIC
+      required: true
+      options:
+      - Abortion Rights
+      - Agriculture
+      - Animal Welfare
+      - Banking and Finance
+      - Budget
+      - Child Care and Welfare
+      - Civil Rights
+      - Defense
+      - Disability
+      - Economy
+      - Election Reform
+      - Energy
+      - Environment
+      - Foreign Affairs
+      - Gun Violence & Second Amendment Rights
+      - Infrastructure
+      - Intellectual Property
+      - Judicial Nominations
+      - Judiciary
+      - Labor
+      - Medicaid
+      - Online Privacy
+      - Other
+      - Pensions
+      - Postal Issues
+      - Science and Technology
+      - Senior Issues
+      - Sports
+      - Telecommunications
+      - Trade
+      - Transportation
+  - javascript:
+    - value: document.getElementById('continue-form').style = 'display:block;';
+  - fill_in:
+    - name: fname
+      selector: '#fname'
+      value: $NAME_FIRST
+      required: true
+    - name: lname
+      selector: '#lname'
+      value: $NAME_LAST
+      required: true
+    - name: mailing_streetAddress1
+      selector: '#mailing_streetAddress1'
+      value: $ADDRESS_STREET
+      required: true
+    - name: mailing_streetAddress2
+      selector: '#mailing_streetAddress2'
+      value: $ADDRESS_STREET_2
+    - name: mailing_city
+      selector: '#mailing_city'
+      value: $ADDRESS_CITY
+      required: true
+    - name: mailing_zipCode
+      selector: '#mailing_zipCode'
+      value: $ADDRESS_ZIP5
+      required: true
+    - name: phone_number
+      selector: '#phone_number'
+      value: $PHONE
+    - name: email
+      selector: '#email_address'
+      value: $EMAIL
+      required: true
+    - name: verify_email
+      selector: '#verify_email'
+      value: $EMAIL
+      required: true
+    - name: subject
+      selector: '#subject'
+      value: $SUBJECT
+      required: true
+    - name: comments
+      selector: '#comments'
+      value: $MESSAGE
+      required: true
+  - select:
+    - name: salutation
+      selector: '#salutation'
+      value: $NAME_PREFIX
+      required: true
+      options:
+      - Mr.
+      - Mrs.
+      - Ms.
+      - Miss
+      - Mr. and Mrs.
+      - Professor
+      - Dean
+      - The Honorable
+      - Dr.
+      - Dr. and Mrs.
+      - Dr. and Mr.
+  - uncheck:
+    - name: no_response
+      selector: '#no_response'
+      value: true
+  - wait:
+    - value: 1
+  - javascript:
+    - value: document.querySelector("#comments").value = document.querySelector("#comments").value.replace(/"/g,
+        '');
+  - click_on:
+    - value: Send
+      selector: '#side-search-btn'
   success:
     headers:
       status: 200

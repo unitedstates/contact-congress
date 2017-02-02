@@ -93,9 +93,11 @@ contact_form:
           value: Respond
     - javascript:
         - value: document.querySelector("#ctl00_ctl24_Body").value = document.querySelector("#ctl00_ctl24_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true   
     - click_on:
         - value: Submit
-          selector: "#ctl00_ctl24_SubmitButton"
+          selector: "#ctl00_ctl24_SubmitButton"  
     - find:
         - value: Thank you
           selector: "#ctl00_ctl24_ConfirmationText"

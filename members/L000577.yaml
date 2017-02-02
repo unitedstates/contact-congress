@@ -133,6 +133,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
+    - find:
+      - selector: h2
+        value: Thank You          
   success:
     headers:
       status: 200
