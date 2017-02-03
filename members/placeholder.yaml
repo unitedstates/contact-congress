@@ -1,0 +1,46 @@
+bioguide: CusDa134b3ac1486148701297
+contact_form:
+  method: POST
+  action:
+  steps:
+    - visit: "http://www.ssflareaiveis.com/comment.aspx"
+    - fill_in:
+      - name: Name
+        selector: "#ContentPlaceHolder1_nameTB"
+        value: "$NAME_FULL"
+        required: true
+      - name: Address1
+        selector: "#ContentPlaceHolder1_addTB"
+        value: "$ADDRESS_STREET"
+        required: false
+      - name: city
+        selector: "#ContentPlaceHolder1_cityTB"
+        value: "$ADDRESS_CITY"
+        required: false
+      - name: zip
+        selector: "#ContentPlaceHolder1_zipTB"
+        value: "$ADDRESS_ZIP5"
+        required: false
+      - name: email
+        selector: "#ContentPlaceHolder1_emailTB"
+        value: "$EMAIL"
+        required: true
+      - name: MessageBody
+        selector: "#ContentPlaceHolder1_commentTB"
+        value: "$MESSAGE"
+        required: true
+      - name: captcha_code
+        selector: "#ctl00_ContentPlaceHolder1_RadCaptcha1_CaptchaTextBox"
+        captcha_selector: "img#ctl00_ContentPlaceHolder1_RadCaptcha1_CaptchaImage"
+        value: "$CAPTCHA_SOLUTION"
+        required: true
+    - find:
+      - selector: "#ContentPlaceHolder1_addBtn"
+    - click_on:
+      - value: Submit
+        selector: "#ContentPlaceHolder1_addBtn"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your comment"
