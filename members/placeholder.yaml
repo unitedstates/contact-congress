@@ -17,10 +17,6 @@ contact_form:
         selector: "#ContentPlaceHolder1_cityTB"
         value: "$ADDRESS_CITY"
         required: false
-      - name: State
-        selector: "#ctl00$ContentPlaceHolder1$StateDDL"
-        value: "$ADDRESS_STATE_FULL"
-        required: false
       - name: zip
         selector: "#ContentPlaceHolder1_zipTB"
         value: "$ADDRESS_ZIP5"
@@ -30,7 +26,7 @@ contact_form:
         value: "$EMAIL"
         required: true
       - name: MessageBody
-        selector: "#ContentPlaceHolder1_commentTB]"
+        selector: "#ContentPlaceHolder1_commentTB"
         value: "$MESSAGE"
         required: true
     - fill_in:
@@ -48,4 +44,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank you for your comment on the Santa Susana Field Laboratory Area IV EIS!"
+      contains: "Thank you for your comment"
