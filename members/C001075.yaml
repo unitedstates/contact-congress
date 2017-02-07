@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "https://www.cassidy.senate.gov/contact"
     - wait:
-      - value: 3
+      - value: 5
     - select:
       - name: actions
         selector: select#actions
@@ -14,7 +14,7 @@ contact_form:
         options:
           Share your opinion or comments on bills or other issues: Share your opinion or comments on bills or other issues
     - wait:
-      - value: 3
+      - value: 5
     - find:
       - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
@@ -264,6 +264,8 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "input[type='submit'][value='Submit']"
+    - wait:
+      - value: 4
   success:
     headers:
       status: 200

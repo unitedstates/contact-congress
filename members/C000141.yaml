@@ -3,58 +3,74 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: "https://www.cardin.senate.gov/contact/"
+    - visit: "https://www.cardin.senate.gov/contact/email-ben"
     - find:
-      - selector: input#salutation
+      - selector: select#input-B03E0527-4040-F985-52CD-C0DD6BEF325F
     - fill_in:
-      - name: salutation
-        selector: "#salutation"
-        value: "$NAME_PREFIX"
-        required: true
-      - name: fname
-        selector: "#fname"
+      - name: first
+        selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
         value: "$NAME_FIRST"
         required: true
-      - name: lname
-        selector: "#lname"
-        value: "$NAME_LAST"
+      - name: last
+        selector: input#input-B03E04BD-4040-F985-52CD-48E090E769DA
+        value: $NAME_LAST
         required: true
-      - name: mailing_streetaddress1
-        selector: "#mailing_streetaddress1"
-        value: "$ADDRESS_STREET"
+      - name: street
+        selector: input#input-B03E05F1-4040-F985-52CD-A580E72A7D41
+        value: $ADDRESS_STREET
         required: true
-      - name: mailing_streetaddress2
-        selector: "#mailing_streetaddress2"
-        value: "$ADDRESS_STREET_2"
+      - name: street2
+        selector: input#input-B03E0518-4040-F985-52CD-CF33EF97DA3A
+        value: $ADDRESS_STREET_2
         required: false
-      - name: mailing_city
-        selector: "#mailing_city"
+      - name: city
+        selector: input#input-B03E0595-4040-F985-52CD-C572364023FE
         value: "$ADDRESS_CITY"
         required: true
-      - name: mailing_zipcode
-        selector: "#mailing_zipcode"
+      - name: zip5
+        selector: input#input-B03E04CC-4040-F985-52CD-4DDB58DA474A
         value: "$ADDRESS_ZIP5"
         required: true
-      - name: phone_number
-        selector: "#phone_number"
-        value: "$PHONE"
-        required: false
-      - name: email_address
-        selector: "#email_address"
-        value: "$EMAIL"
+      - name: phone
+        selector: input#input-B03E046E-4040-F985-52CD-A2F10450D58D
+        value: 222-222-2222
+        required: true
+      - name: email
+        selector: input#email
+        value: $EMAIL
         required: true
       - name: verify_email
-        selector: "#verify_email"
-        value: "$EMAIL"
+        selector: input#input-B03E05A4-4040-F985-52CD-730C08912F4F
+        value: $EMAIL
         required: true
-      - name: comments
-        selector: "#comments"
-        value: "$MESSAGE"
+      - name: message
+        selector: textarea#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2
+        value: $MESSAGE
         required: true
     - select:
-      - name: subject
-        selector: "#subject"
-        value: "$TOPIC"
+      - name: prefix
+        selector: select#input-B03E0527-4040-F985-52CD-C0DD6BEF325F
+        value: $NAME_PREFIX
+        required: true
+        options:
+          Mr.: Mr.
+          Ms.: Ms.
+          Mrs.: Mrs.
+          Professor: Professor
+          Dr.: Dr.
+          Father: Father
+          Sister: Sister
+          Rabbi: Rabbi
+          Reverend: Reverend
+      - name: state
+        selector: select#input-B03E0669-4040-F985-52CD-11B231195172
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: true
+        options:
+          MD: MD
+      - name: topic
+        selector: select#topic
+        value: $TOPIC
         required: true
         options:
           "Agriculture": "mailtopicag"
@@ -80,13 +96,9 @@ contact_form:
           "Welfare": "mailtopicwelfare"
           "Other": "mailtopicother"
     - click_on:
-      - value: Submit
-        selector: "#side-search-btn"
+      - selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C div.controls input.btn
     - wait:
         - value: 1
-    - find:
-      - selector: "h1"
-        value: "Thank You"
   success:
     headers:
       status: 200
