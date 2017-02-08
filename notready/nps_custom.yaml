@@ -1,0 +1,78 @@
+bioguide: nps_custom
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: ""
+    - fill_in:
+        - name: firstname
+          selector:
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector:
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector:
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector:
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector:
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector:
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector:
+          value: $PHONE
+          required: false
+        - name: email
+          selector:
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector:
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector:
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector:
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr.: Dr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Reverend: Reverend
+            Sister: Sister
+            Pastor: Pastor
+            The Honorable: The Honorable
+            Representative: Representative
+            Senator: Senator
+        - name: topic
+          selector:
+          value: $TOPIC
+          required: true
+          options:
+            Other: Other
+    - click_on:
+        - selector:
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "tbd"
