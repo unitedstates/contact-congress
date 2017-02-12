@@ -109,6 +109,9 @@ contact_form:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - javascript:
         - value: "document.querySelector('#side-search-btn').click();"
+    - find:
+        - selector: "h2"
+          value: "Thank You"
   success:
     headers:
       status: 200
