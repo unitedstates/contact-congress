@@ -3,9 +3,9 @@ contact_form:
   method: post
   action: /contact/write-martin
   steps:
-    - visit: "http://www.heinrich.senate.gov/contact/write-martin"
+    - visit: "https://www.heinrich.senate.gov/contact/write-martin"
     - wait:
-        - value: 7
+        - value: 4
     - select:
         - name: topic
           selector: "#contactForm select[name='topic']"
@@ -52,7 +52,7 @@ contact_form:
             Wildlife/Animal Welfare: Wildlife/Animal Welfare
             "Women's Issues": "Women's Issues"
     - wait:
-        - value: 5
+        - value: 3
     - find:
         - selector: "#continue-form"
     - fill_in:
@@ -185,7 +185,7 @@ contact_form:
         - value: Submit
           selector: input.btn.pull-right
     - wait:
-        - value: 5
+        - value: 3
     - find:
         - selector: "h1"
           value: "Thank You"
