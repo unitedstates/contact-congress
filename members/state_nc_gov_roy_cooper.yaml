@@ -21,6 +21,10 @@ contact_form:
           selector: "#edit-submitted-message"
           value: $MESSAGE
           required: true
+    - math:
+        - name: math_qna
+          question_selector: div.form-item-captcha-response span.field-prefix
+          answer_selector: input#edit-captcha-response
     - click_on:
         - selector: form#webform-client-form-11 div.form-actions input.form-submit
   success:
