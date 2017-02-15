@@ -5,8 +5,21 @@ contact_form:
   steps:
     - visit: "https://www.leahy.senate.gov/contact/"
     - find:
-        - selector: "#input-36F9116D-5056-A066-6055-B856B7975A8D"
+        - selector: select#salutations
+    - select:
+        - name: other
+          selector: select#salutations
+          value: Other
+          required: true
+          options:
+            Other: Other
+    - find:
+        - selector: input#other
     - fill_in:
+        - name: Prefix
+          selector: input#other
+          value: $NAME_PREFIX
+          required: true
         - name: input_36F9116D-5056-A066-6055-B856B7975A8D
           selector: "#input-36F9116D-5056-A066-6055-B856B7975A8D"
           value: $NAME_FIRST
@@ -44,23 +57,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: input_36C9576F-5056-A066-6022-2CCEB276F085
-          selector: "#salutations"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            Mr.: Mr.
-            Ms.: Ms.
-            Mrs.: Mrs.
-            Miss: Miss
-            Mr. and Mrs.: Mr. and Mrs.
-            Dr.: Dr.
-            Dr. and Mrs.: Dr. and Mrs.
-            Dr. and Mr.: Dr. and Mr.
-            Mr. and Mr.: Mr. and Mr.
-            Mrs. and Mrs.: Mrs. and Mrs.
-            Ms. and Ms.: Ms. and Ms.
-            Other: Other
         - name: input_36E22353-5056-A066-60EA-9A7BCE98E4DD
           selector: "#issue"
           value: $TOPIC

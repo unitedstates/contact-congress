@@ -5,9 +5,11 @@ contact_form:
   steps:
     - visit: "https://www.shaheen.senate.gov/contact/contact-jeanne"
     - wait:
-        - value: 1
+        - value: 5
     - find:
         - selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
+    - wait:
+        - value: 4
     - fill_in:
         - name: first_name
           selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
@@ -114,7 +116,7 @@ contact_form:
     - click_on:
         - selector: "#input-B7E3BD4D-02D3-EB19-D870-71BA35D76AEB"
     - wait:
-        - value: 1
+        - value: 5
     - click_on:
         - selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C div.controls input.btn
   success:
