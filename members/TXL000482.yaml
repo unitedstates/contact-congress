@@ -13,10 +13,6 @@ contact_form:
           selector: form#memberForm input#sender
           value: $EMAIL
           required: true
-        - name: prefix
-          selector: input#prefix
-          value: $NAME_PREFIX
-          required: true
         - name: firstname
           selector: form#memberForm input#fname
           value: $NAME_FIRST
@@ -24,6 +20,14 @@ contact_form:
         - name: lastname
           selector: form#memberForm input#lname
           value: $NAME_LAST
+          required: true
+        - name: area_code
+          selector: form#memberForm input#phone1
+          value: 222
+          required: true
+        - name: rest_of_phone
+          selector: form#memberForm input#phone2
+          value: 222-2222
           required: true
         - name: street
           selector: form#memberForm input#address1
