@@ -1,0 +1,125 @@
+bioguide: federal_us_omb_dir_mick_mulvaney
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://forms.whitehouse.gov/contact/questions-comments"
+    - select:
+      - name: target
+        selector: "#edit-submitted-00nj0000000vdnx"
+        value: Help with a Federal Agency
+        required: True
+    - fill_in:
+      - name: first
+        selector: "#edit-submitted-00nj0000000vdne"
+        value: $NAME_FIRST
+        required: True
+      - name: last
+        selector: "#edit-submitted-00nj0000000vdnf"
+        value: $NAME_LAST
+        required: True
+      - name: email
+        selector: "#edit-submitted-email"
+        value: $EMAIL
+        required: True
+      - name: phone
+        selector: "#edit-submitted-phone-us"
+        value: $PHONE_HYPHENS
+        required: True
+      - name: street
+        selector: "#edit-submitted-00nj0000000vdnq"
+        value: $ADDRESS_STREET
+        required: True
+      - name: city
+        selector: "#edit-submitted-00nj0000000vdmz"
+        value: $ADDRESS_CITY
+        required: True
+      - name: zip5
+        selector: "#edit-submitted-postal-code-us"
+        value: $ADDRESS_ZIP5
+        required: True
+      - name: message
+        selector: "#edit-submitted-description"
+        value: $MESSAGE
+        required: True
+        options:
+          max_length: 2450
+    - select:
+      - name: state
+        selector: "#edit-submitted-us-states"
+        value: $ADDRESS_STATE_FULL
+        required: True
+        options:
+          Armed Forces Americas: Armed Forces Americas
+          Armed Forces Europe: Armed Forces Europe
+          Armed Forces Pacific: Armed Forces Pacific
+          Alaska: Alaska
+          Alabama: Alabama
+          American Samoa: American Samoa
+          Arizona: Arizona
+          Arkansas: Arkansas
+          California: California
+          Colorado: Colorado
+          Connecticut: Connecticut
+          Delaware: Delaware
+          District of Columbia: District of Columbia
+          Federated Micronesia: Federated Micronesia
+          Florida: Florida
+          Georgia: Georgia
+          Guam: Guam
+          Hawaii: Hawaii
+          Idaho: Idaho
+          Illinois: Illinois
+          Indiana: Indiana
+          Iowa: Iowa
+          Kansas: Kansas
+          Kentucky: Kentucky
+          Louisiana: Louisiana
+          Maine: Maine
+          Marshall Islands: Marshall Islands
+          Maryland: Maryland
+          Massachusetts: Massachusetts
+          Michigan: Michigan
+          Minnesota: Minnesota
+          Mississippi: Mississippi
+          Missouri: Missouri
+          Montana: Montana
+          Nebraska: Nebraska
+          Nevada: Nevada
+          New Hampshire: New Hampshire
+          New Jersey: New Jersey
+          New Mexico: New Mexico
+          New York: New York
+          North Carolina: North Carolina
+          North Dakota: North Dakota
+          Northern Mariana Islands: Northern Mariana Islands
+          Ohio: Ohio
+          Oklahoma: Oklahoma
+          Oregon: Oregon
+          Palau: Palau
+          Pennsylvania: Pennsylvania
+          Puerto Rico: Puerto Rico
+          Rhode Island: Rhode Island
+          South Carolina: South Carolina
+          South Dakota: South Dakota
+          Tennessee: Tennessee
+          Texas: Texas
+          United States Minor Outlying Islands: United States Minor Outlying Islands
+          US Virgin Islands: US Virgin Islands
+          Utah: Utah
+          Virginia: Virginia
+          Vermont: Vermont
+          Washington: Washington
+          West Virginia: West Virginia
+          Wisconsin: Wisconsin
+          Wyoming: Wyoming
+    - check:
+      - selector: "#edit-submitted-interest-1"
+    - click_on:
+      - value: Send
+        selector: input.webform-submit.button-primary.btn.form-submit
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for contacting the White House"
