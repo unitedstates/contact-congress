@@ -4,48 +4,53 @@ contact_form:
   action: ""
   steps:
     - visit: "https://gocentral.utah.gov/Request/Contact?response=true"
+    - find:
+        - selector: input[name='00N4100000LLPcT']
     - fill_in:
         - name: first
-          selector: "#Firstname"
+          selector: input[name='00N4100000LLPcT']
           value: $NAME_FIRST
           required: true
         - name: last
-          selector: "#Lastname"
+          selector: input[name='00N4100000LLPhJ']
           value: $NAME_LAST
           required: true
         - name: email
-          selector: "#Email"
+          selector: input[name='00N4100000MKXAF']
           value: $EMAIL
           required: true
         - name: street
-          selector: "#Address"
+          selector: textarea[name='00N4100000LLP71']
           value: $ADDRESS_STREET
-          required: true
+          required: false
         - name: city
-          selector: "#City"
+          selector: input[name='00N4100000LLP8J']
           value: $ADDRESS_CITY
-          required: true
+          required: false
         - name: zip5
-          selector: "#Zip"
+          selector: input[name='00N4100000LLPNY']
           value: $ADDRESS_ZIP5
-          required: true
+          required: false
         - name: phone
-          selector: "#PhoneHome"
-          value: 222-222-2222
-          required: true
+          selector: input[name='phone']
+          value: $PHONE
+          required: false
         - name: subject
-          selector: "#Subject"
+          selector: input#subject
           value: $SUBJECT
           required: true
         - name: message
-          selector: "#Body"
+          selector: div.editor-field textarea[name='description']
           value: $MESSAGE
           required: true
     - click_on:
-        - value: Submit Feedback
-          selector: "input[type='submit'][value='Submit Feedback']"
+        - selector: form p.editor-label input[type='submit'][value='Submit Feedback']
+    - wait:
+        - value: 4
+    - find:
+        - selector: div#search-banner form input#search-input
   success:
     headers:
       status: 200
     body:
-      contains: "Your concern has been entered into our system"
+      contains: "I want to:"
