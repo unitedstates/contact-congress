@@ -44,8 +44,10 @@ contact_form:
     - click_on:
         - value: Submit Feedback
           selector: "input[type='submit'][value='Submit Feedback']"
+    - wait:
+        - value: 4
   success:
     headers:
       status: 200
     body:
-      contains: "Your concern has been entered into our system"
+      contains: "I want to:"
