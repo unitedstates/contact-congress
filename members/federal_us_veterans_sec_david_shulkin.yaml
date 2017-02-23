@@ -1,0 +1,199 @@
+bioguide: federal_us_veterans_sec_david_shulkin
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://iris.custhelp.com/app/ask/"
+    - fill_in:
+      - name: firstname
+        selector: "input#rn_TextLogicInput_12_first_name"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: "input#rn_TextLogicInput_14_last_name"
+        value: $NAME_LAST
+        required: true
+      - name: phone
+        selector: "input#rn_TextLogicInput_17_telephone_number"
+        value: $PHONE
+        required: false
+      - name: street
+        selector: "input#rn_TextLogicInput_19_street"
+        value: $ADDRESS_STREET
+        required: false
+      - name: city
+        selector: "input#rn_TextLogicInput_20_city"
+        value: $ADDRESS_CITY
+        required: false
+      - name: zip5
+        selector: "input#rn_TextLogicInput_22_zipcode"
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: message
+        selector: "textarea#rn_TextLogicInput_5_thread"
+        value: $MESSAGE
+        required: true
+    - select:
+      - name: topic
+        selector: "select#rn_ProductCategoryInputSimple_6_lvl1"
+        value: All Health
+        required: true
+        options:
+          All Health: All Health
+    - find:
+      - selector: "select#rn_ProductCategoryInputSimple_6_lvl2"
+    - select:
+      - name: sub-topic-1
+        selector: "select#rn_ProductCategoryInputSimple_6_lvl2"
+        value: Health
+        required: true
+        options:
+          Health: Health
+    - find:
+      - selector: "select#rn_ProductCategoryInputSimple_6_lvl3"
+    - select:
+      - name: sub-topic-2
+        selector: "select#rn_ProductCategoryInputSimple_6_lvl3"
+        value: Medical Care for Veterans within USA
+        required: true
+      - name: inquiry-type
+        selector: select#rn_ProductCategoryInputSimple_9_lvl1
+        value: Question
+        required: true
+        options:
+          Question: Question
+      - name: response
+        selector: select#rn_SelectionInput_10_form_of_response
+        value: E-Mail
+        required: true
+        options:
+          E-Mail: E-Mail
+      - name: prefix
+        selector: select#rn_SelectionLogicInput_11_form_of_address
+        value: $NAME_PREFIX
+        required: true
+        options:
+          Mr.: Mr.
+          Miss: Miss
+          Mrs.: Mrs.
+          Ms.: Ms.
+          Dr.: Dr.
+          Rev.: Rev.
+      - name: country
+        selector: select#rn_SelectionLogicInput_18_country
+        value: United States
+        required: true
+        options:
+          United States: United States
+      - name: state
+        selector: select#rn_SelectionLogicInput_21_state
+        value: $ADDRESS_STATE_FULL
+        required: true
+        options:
+          Alabama: Alabama
+          Alaska: Alaska
+          Alberta: Alberta
+          Arizona: Arizona
+          Arkansas: Arkansas
+          Armed Forces: Armed Forces
+          Armed Forces Americas: Armed Forces Americas
+          Armed Forces Pacific: Armed Forces Pacific
+          British Columbia: British Columbia
+          California: California
+          Colorado: Colorado
+          Connecticut: Connecticut
+          Delaware: Delaware
+          District of Columbia: District of Columbia
+          Florida: Florida
+          Georgia: Georgia
+          Hawaii: Hawaii
+          Idaho: Idaho
+          Illinois: Illinois
+          Indiana: Indiana
+          Iowa: Iowa
+          Kansas: Kansas
+          Kentucky: Kentucky
+          Louisiana: Louisiana
+          Maine: Maine
+          Manitoba: Manitoba
+          Maryland: Maryland
+          Massachusetts: Massachusetts
+          Michigan: Michigan
+          Minnesota: Minnesota
+          Mississippi: Mississippi
+          Missouri: Missouri
+          Montana: Montana
+          Nebraska: Nebraska
+          Nevada: Nevada
+          New Brunswick: New Brunswick
+          New Hampshire: New Hampshire
+          New Jersey: New Jersey
+          New Mexico: New Mexico
+          New York: New York
+          North Carolina: North Carolina
+          North Dakota: North Dakota
+          Nova Scotia: Nova Scotia
+          Ohio: Ohio
+          Oklahoma: Oklahoma
+          Ontario: Ontario
+          Oregon: Oregon
+          Pennsylvania: Pennsylvania
+          Philippines: Philippines
+          Prince Edward Island: Prince Edward Island
+          Puerto Rico: Puerto Rico
+          Quebec: Quebec
+          Rhode Island: Rhode Island
+          Saskatchewan: Saskatchewan
+          South Carolina: South Carolina
+          South Dakota: South Dakota
+          Tennessee: Tennessee
+          Texas: Texas
+          Utah: Utah
+          Vermont: Vermont
+          Virginia: Virginia
+          Washington: Washington
+          West Virginia: West Virginia
+          Wisconsin: Wisconsin
+          Wyoming: Wyoming
+          Yukon: Yukon
+          "Other/Not in US": "Other/Not in US"
+      - name: veteran-status
+        selector: select#rn_SelectionLogicInput_0_vet_status
+        value: a General Question
+        required: true
+        options:
+          a General Question: a General Question
+    - fill_in:
+      - name: email
+        selector: input#rn_TextLogicInput_16_incomingemail
+        value: $EMAIL
+        required: true
+    - click_on:
+      - selector: label#rn_TextLogicInput_16_Label
+    - fill_in:
+      - name: email2
+        selector: "input#rn_TextLogicInput_16_incomingemail_confirm"
+        value: $EMAIL
+        required: true
+    - click_on:
+      - selector: label#rn_TextLogicInput_22_Label
+    - find:
+      - selector: input#rn_FormSubmit_55_Button
+    - click_on:
+      - selector: input#rn_FormSubmit_55_Button
+    - wait:
+      - value: 2
+    - find:
+      - selector: div#rnDialog1_c div#rnDialog1 div.ft span.button-group button#rnDialog1_Button_0
+    - click_on:
+      - value: Finish Submitting Question
+        selector: div#rnDialog1_c div#rnDialog1 div.ft span.button-group button#rnDialog1_Button_0
+    - wait:
+      - value: 5
+    - find:
+      - selector: div.rn_AskQuestion div.rn_Padding
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "This confirms receipt of the electronic message you just sent to the Department of Veterans Affairs"
