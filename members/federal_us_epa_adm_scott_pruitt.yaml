@@ -1,0 +1,48 @@
+bioguide: federal_us_epa_adm_scott_pruitt
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://compliancegov.zendesk.com/hc/en-us/requests/new"
+    - find:
+      - selector: input#request_anonymous_requester_email
+    - fill_in:
+      - name: email
+        selector: input#request_anonymous_requester_email
+        value: $EMAIL
+        required: true
+      - name: subject
+        selector: input#request_subject
+        value: $SUBJECT
+        required: true
+      - name: message
+        selector: textarea#request_description
+        value: $MESSAGE
+        required: true
+      - name: fullname
+        selector: input#request_custom_fields_27999097
+        value: $NAME_FULL
+        required: true
+      - name: city
+        selector: input#request_custom_fields_28006408
+        value: $ADDRESS_CITY
+        required: false
+    - select:
+      - name: topic
+        selector: select#ae-request_custom_fields_27999287
+        value: Other (not listed)
+        required: true
+        options:
+          Other (not listed): Other (not listed)
+    - click_on:
+      - value: Submit
+        selector: form#new_request input[type='submit']
+    - wait:
+      - value: 1
+    - find:
+      - selector: span.notification-text
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your request was successfully submitted."
