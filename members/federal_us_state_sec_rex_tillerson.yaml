@@ -1,0 +1,42 @@
+bioguide: federal_us_state_sec_rex_tillerson
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://register.state.gov/contactus/contactusform"
+    - find:
+      - selector: "#first"
+    - fill_in:
+      - name: fname
+        selector: "#first"
+        value: $NAME_FIRST
+        required: true
+      - name: lastname
+        selector: "input#last"
+        value: $NAME_LAST
+        required: true
+      - name: email
+        selector: "#emailaddress"
+        value: $EMAIL
+        required: true
+      - name: subject
+        selector: "#subject"
+        value: $SUBJECT
+        required: true
+      - name: message
+        selector: "#message"
+        value: $MESSAGE
+        required: true
+      - name: captcha
+        captcha_selector: "#Captcha1_InnerCaptchaImage"
+        selector: div.ob_iTC input
+        value: $CAPTCHA_SOLUTION
+        required: true
+    - click_on:
+      - value: Submit
+        selector: "#submit1"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been received."
