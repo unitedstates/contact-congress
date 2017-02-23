@@ -1,0 +1,19 @@
+bioguide: federal_us_treasury_sec_steven_mnuchin
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://www.treasury.gov/connect/Pages/Message-to-the-Secretary.aspx"
+    - fill_in:
+      - name: message
+        selector: "#ctl00_PlaceHolderMain_Comments"
+        value: $MESSAGE
+        required: true
+    - click_on:
+      - value: Submit
+        selector: "#ctl00_PlaceHolderMain_SubmitButton"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your feedback has been submitted."
