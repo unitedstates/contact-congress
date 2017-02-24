@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "http://www.toomey.senate.gov/?p=contact"
+    - wait:
+        - value: 4
     - find:
         - selector: div#block15 div.record-body form input[name='FIRST']
     - fill_in:
