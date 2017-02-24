@@ -1,0 +1,101 @@
+bioguide: federal_us_education_sec_betsy_devos
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://answers.ed.gov/ics/support/ticketnewwizard.asp?style=classic"
+    - wait:
+      - value: 2
+    - find:
+      - selector: input#customerFullName
+    - fill_in:
+      - name: name
+        selector: input#customerFullName
+        value: $NAME_FULL
+        required: true
+      - name: email
+        selector: input#email
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: textarea#FIELD_89537_TEXTAREA_varchar
+        value: $MESSAGE
+        required: true
+        options:
+          max_length: 64000
+    - select:
+      - name: state
+        selector: select#FIELD_91593_DROPDOWN_null
+        value: $ADDRESS_STATE_FULL
+        required: true
+        options:
+          Alabama: Alabama
+          Alaska: Alaska
+          American Samoa: American Samoa
+          Arizona: Arizona
+          Arkansas: Arkansas
+          California: California
+          Colorado: Colorado
+          Connecticut: Connecticut
+          Delaware: Delaware
+          District of Columbia: District of Columbia
+          Fed St Micronesia: Fed St Micronesia
+          Florida: Florida
+          Foreign County: Foreign County
+          Georgia: Georgia
+          Guam: Guam
+          Hawaii: Hawaii
+          Idaho: Idaho
+          Illinois: Illinois
+          Indiana: Indiana
+          Iowa: Iowa
+          Kansas: Kansas
+          Kentucky: Kentucky
+          Louisiana: Louisiana
+          Maine: Maine
+          Marshall Islands: Marshall Islands
+          Maryland: Maryland
+          Massachusetts: Massachusetts
+          Michigan: Michigan
+          Midway Islands: Midway Islands
+          Minnesota: Minnesota
+          Mississippi: Mississippi
+          Missouri: Missouri
+          Montana: Montana
+          Nebraska: Nebraska
+          Nevada: Nevada
+          New Hampshire: New Hampshire
+          New Jersey: New Jersey
+          New Mexico: New Mexico
+          New York: New York
+          North Carolina: North Carolina
+          North Dakota: North Dakota
+          N Mariana Islands: N Mariana Islands
+          Ohio: Ohio
+          Oklahoma: Oklahoma
+          Oregon: Oregon
+          Pennsylvania: Pennsylvania
+          Puerto Rico: Puerto Rico
+          Rhode Island: Rhode Island
+          South Carolina: South Carolina
+          South Dakota: South Dakota
+          Tennessee: Tennessee
+          Texas: Texas
+          US Virgin Islands: US Virgin Islands
+          Utah: Utah
+          Vermont: Vermont
+          Virginia: Virginia
+          Washington: Washington
+          West Virginia: West Virginia
+          Wisconsin: Wisconsin
+          Wyoming: Wyoming
+    - click_on:
+      - value: Finish
+        selector: input#finish
+    - find:
+      - selector: div.parature_page_content p#ticketConfirmation
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for submitting your issue to us"
