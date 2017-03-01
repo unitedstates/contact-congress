@@ -1,7 +1,7 @@
 bioguide: CTL000222
 contact_form:
   method: post
-  action: 
+  action:
   steps:
     - visit: "http://www.senatedems.ct.gov/Osten-mailform.php"
     - fill_in:
@@ -33,7 +33,7 @@ contact_form:
            - Bethany
            - Bethel
            - Bethlehem
-           - Bloomfield 
+           - Bloomfield
            - Bolton
            - Bozrah
            - Branford
@@ -62,7 +62,7 @@ contact_form:
            - Derby
            - Durham
            - East Granby
-           - East Haddam 
+           - East Haddam
            - East Hampton
            - East Hartford
            - East Haven
@@ -85,7 +85,7 @@ contact_form:
            - Guilford
            - Haddam
            - Hamden
-           - Hampton 
+           - Hampton
            - Hartford
            - Hartland
            - Harwinton
@@ -93,9 +93,9 @@ contact_form:
            - Kent
            - Killingly
            - Killingworth
-           - Lebanon 
+           - Lebanon
            - Ledyard
-           - Lisbon 
+           - Lisbon
            - Litchfield
            - Lyme
            - Madison
@@ -137,7 +137,7 @@ contact_form:
            - Pomfret
            - Portland
            - Preston
-           - Prospect 
+           - Prospect
            - Putnam
            - Redding
            - Ridgefield
@@ -145,7 +145,7 @@ contact_form:
            - Roxbury
            - Salem
            - Salisbury
-           - Scotland 
+           - Scotland
            - Seymour
            - Sharon
            - Shelton
@@ -222,9 +222,8 @@ contact_form:
           selector: "input[value='Yes']"
     - fill_in:
         - name: captcha
-          selector: "#security_code"
-          captcha_selector: "#security_image"
-          captcha_id_selector: ""
+          selector: input#captchaTxt490
+          captcha_selector: img#captcha490
           value: "$CAPTCHA_SOLUTION"
           required: true
     - click_on:
