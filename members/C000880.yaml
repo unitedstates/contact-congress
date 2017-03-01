@@ -49,6 +49,11 @@ contact_form:
         selector: ".required[name='MessageBody']"
         value: "$MESSAGE"
         required: true
+      - name: captcha
+        captcha_selector: form#thisForm div.control-group img.img-polaroid
+        selector: form#thisForm input#captcha_code
+        value: $CAPTCHA_SOLUTION
+        required: true
     - select:
       - name: Prefix
         selector: ".required[name='Prefix']"
