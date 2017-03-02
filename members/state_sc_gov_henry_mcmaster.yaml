@@ -1,0 +1,147 @@
+bioguide: state_sc_gov_henry_mcmaster
+contact_form:
+  method: post
+  action: ""
+  usePhantomJsLogging: true
+  steps:
+    - visit: "https://iqconnect.lmhostediq.com/iqextranet/EForm.aspx?__cid=FSL_SC_GOV&__fid=100001"
+    - fill_in:
+        - name: q_3_prefix
+          selector: "#q_3_prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: q_3_first_name
+          selector: "#q_3_first_name"
+          value: $NAME_FIRST
+          required: true
+        - name: q_3_last_name
+          selector: "#q_3_last_name"
+          value: $NAME_LAST
+          required: true
+        - name: q_3_addr_1
+          selector: "#q_3_addr_1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: q_3_addr_2
+          selector: "#q_3_addr_2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: q_3_city
+          selector: "#q_3_city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: q_3_zip
+          selector: "#q_3_zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: q_3_email
+          selector: "#q_3_email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#q_6"
+          value: $SUBJECT
+          required: true
+        - name: mesage
+          selector: "#q_8"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: q_3_state
+          selector: "#q_3_state"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            Alabama: AL
+            Alaska: AK
+            America Samoa: AS
+            Arizona: AZ
+            Arkansas: AR
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            D.C.: D.C.
+            Delaware: DE
+            Federated States of Micronesia: FM
+            Florida: FL
+            Foreign Correspondence: FC
+            Georgia: GA
+            Guam: GU
+            Hawaii: HI
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Iowa: IA
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Maine: ME
+            Marshall Islands: MH
+            Maryland: MD
+            Massachusetts: MA
+            Michigan: MI
+            Minnesota: MN
+            Mississippi: MS
+            Missouri: MO
+            Montana: MT
+            Nebraska: NE
+            Nevada: NV
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            New York: NY
+            North Carolina: NC
+            North Dakota: ND
+            Northern Mariana Islands: MP
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Palau: PW
+            Pennsylvania: PA
+            Puerto Rico: PR
+            Rhode Island: RI
+            South Carolina: South Carolina
+            South Dakota: SD
+            Tennessee: TN
+            Texas: TX
+            Trust Territory: TT
+            Utah: UT
+            Vermont: VT
+            Virgin Islands: VI
+            Virginia: VA
+            Washington: WA
+            West Virginia: WV
+            Wisconsin: WI
+            Wyoming: WY
+        - name: topic
+          selector: "#q_5"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: ABORTION
+            Agriculture: AGRI
+            Budget: BUDG
+            Economy: ECON
+            Education: EDUC
+            Energy: ENER
+            Environment: ENVI
+            Ethics: ETHI
+            Government Affairs: GOVE
+            Guns: GUNS
+            Healthcare: HEAL
+            Housing: HOUS
+            Immigration: IMMI
+            Jobs: JOBS
+            Judiciary: JUDI
+            Taxes: TAX
+            Technology: TECH
+            Telecommunications: TELE
+            Transportation: TRAN
+            Welfare: WELF
+    - click_on:
+        - selector: form#form1 input#btn_submit
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank You for contacting Governor McMaster's office."
