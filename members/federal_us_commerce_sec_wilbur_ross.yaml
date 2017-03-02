@@ -1,0 +1,27 @@
+bioguide: federal_us_commerce_sec_wilbur_ross
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://www.commerce.gov/form/commercegov-feedback"
+    - fill_in:
+      - name: email
+        selector: "input#edit-submitted-provide-your-e-mail-if-you-would-like-a-response-"
+        value: $EMAIL
+        required: true
+      - name: message
+        selector: "textarea#edit-submitted-your-message"
+        value: $MESSAGE
+        required: true
+    - wait:
+      - value: 4
+    - click_on:
+      - value: Submit
+        selector: div.form-actions input.webform-submit
+    - find:
+      - selector: div#block-system-main div.webform-confirmation
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for your feedback."
