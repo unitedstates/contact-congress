@@ -3,13 +3,14 @@ contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "http://www.merkley.senate.gov/contact/"
+    - visit: "https://www.merkley.senate.gov/contact/"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - select:
         - name: actions
           selector: "#contactForm select[name='actions']"
           value: opinion
+          required: true
           options:
             Share your opinion or comments on bills or other issues: opinion
             Media Inquiries: media_inquires
