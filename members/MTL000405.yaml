@@ -1,0 +1,63 @@
+bioguide: MTL000405
+contact_form:
+  method: post
+  action:
+  steps:
+    - visit: "http://leg.mt.gov/css/Sessions/65th/legwebmessage.asp"
+    - wait:
+        - value: 2
+    - find:
+        - selector: input[name='FirstName']
+    - fill_in:
+        - name: first
+          selector: input[name='FirstName']
+          value: $NAME_FIRST
+          required: true
+        - name: last
+          selector: input[name='LastName']
+          value: $NAME_LAST
+          required: true
+        - name: address
+          selector: input[name='Address1']
+          value: $ADDRESS_STREET
+          required: true
+        - name: county
+          selector: input[name='County']
+          value: $ADDRESS_COUNTY
+          required: true
+        - name: zip5
+          selector: input[name='Zip']
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: input[name='EMail']
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: textarea[name='txtMessage']
+          value: $MESSAGE
+          required: true
+          options:
+            blacklist: "*^;&></"
+    - select:
+        - name: city
+          selector: select#CityCounty
+          value: $ADDRESS_CITY
+          required: false
+          options:
+            Acton: Acton
+        - name: legislator
+          selector: select[name='LegislatorID']
+          value: Anderson, Fred
+          required: true
+          options:
+            Anderson, Fred: Anderson, Fred
+    - click_on:
+        - selector: input[name='Send']
+    - wait:
+        - value: 3
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message is on its way to the legislator you selected.
