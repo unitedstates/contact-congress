@@ -44,7 +44,7 @@ contact_form:
           value: $ADDRESS_ZIP5
           required: true
         - name: emailaddress
-          selector: "#req_email"
+          selector: "#custom_form13 #req_email"
           value: $EMAIL
           required: true
         - name: phone
@@ -54,6 +54,11 @@ contact_form:
         - name: message
           selector: "#req_message"
           value: $MESSAGE
+          required: true
+        - name: captcha
+          selector: "#custom_form13 #captchaTextBox"
+          captcha_selector: "#custom_form13 #captchaImage"
+          value: $CAPTCHA_SOLUTION
           required: true
     - select:
         - name: prefix
@@ -105,7 +110,7 @@ contact_form:
         - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:
         - value: Send Email
-          selector: "#submitButton"
+          selector: "#custom_form13 #submitButton"
     - find:
         - selector: "h1"
           value: "THANK YOU"

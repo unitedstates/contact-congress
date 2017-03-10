@@ -217,6 +217,8 @@ contact_form:
             Welfare: "115918"
     - javascript:
         - value: document.querySelector("#ctl00_ctl12_Body").value = document.querySelector("#ctl00_ctl12_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl12_SubmitButton"

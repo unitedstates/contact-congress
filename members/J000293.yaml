@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.ronjohnson.senate.gov/public/index.cfm/email-the-senator"
+    - find:
+        - selector: '#field_AC036D04-8D06-4D4C-BCAD-4C0D66C7C34E'
     - fill_in:
         - name: field_AC036D04-8D06-4D4C-BCAD-4C0D66C7C34E
           selector: "#field_AC036D04-8D06-4D4C-BCAD-4C0D66C7C34E"
@@ -33,6 +35,8 @@ contact_form:
           selector: "#field_FE704981-7F09-46C3-884F-1E10C4DE29EE"
           value: $SUBJECT
           required: true
+          options:
+            max_length: 500
         - name: field_24B273CC-4761-49A6-AC70-CBCACCCAD0DA
           selector: "#field_24B273CC-4761-49A6-AC70-CBCACCCAD0DA"
           value: $MESSAGE

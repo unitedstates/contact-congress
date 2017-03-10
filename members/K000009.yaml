@@ -1,97 +1,127 @@
 bioguide: K000009
 contact_form:
-  method: POST
-  action: "/htbin/formproc/kaptur/webforms/issue_subscribe_file_NEW.txt&display=/kaptur/webforms/issue_subscribe_thank_you.htm"
+  method: post
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://forms.house.gov/kaptur/webforms/issue_subscribe.shtml"
+    - visit: "https://kaptur.house.gov/contact/email"
     - fill_in:
-        - name: required-first
-          selector: "#first_name"
-          value: $NAME_FIRST
-          required: true
-        - name: required-last
-          selector: "#last_name"
-          value: $NAME_LAST
-          required: true
-        - name: required-address
-          selector: "#street_address"
-          value: $ADDRESS_STREET
-          required: true
-        - name: required-city
-          selector: "#city"
-          value: $ADDRESS_CITY
-          required: true
         - name: required-zip5
-          selector: "#zip"
+          selector: "#required-zip5"
           value: $ADDRESS_ZIP5
           required: true
         - name: zip4
-          selector: "#zip0"
+          selector: "#zip4"
           value: $ADDRESS_ZIP4
           required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
-        - name: required-email
-          selector: "#email"
+    - click_on:
+        - selector: "#submit"
+    - find:
+        - selector: "#required-first"
+    - fill_in:
+        - name: required-first
+          selector: "#required-first"
+          value: $NAME_FIRST
+          required: true
+        - name: required-last
+          selector: "#required-last"
+          value: $NAME_LAST
+          required: true
+        - name: required-address
+          selector: "#required-address"
+          value: $ADDRESS_STREET
+          required: true
+        - name: required-city
+          selector: "#required-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
         - name: required-message
-          selector: "#message"
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
         - name: required-prefix
-          selector: "#mainbodyContentleft form select[name='required-prefix']"
+          selector: "#required-prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
             - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
             - Dr.
-        - name: required-subject
-          selector: "#mainbodyContentleft form select[name='required-subject']"
+            - The Honorable
+            - Rabbi
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            Abortion: ABORTION
-            Agriculture: AGRI
-            Animal Rights: ANML
-            Budget: ECON
-            Civil Rights: JUD
+            Agriculture: AGR
+            Animals: AN
+            Arts and Humanities: ART
+            Banking and Finance: BANK
+            Budget and Economy: BUD
+            Help With a Federal Agency: Casework
+            Campaign Finance Reform: CFR
+            Congress and Elections: CONG
+            Defense and Military: DEF
             Economy: ECON
             Education: EDU
-            Energy: ENR
+            Energy: ENE
             Environment: ENV
-            Foreign Affairs: FP
-            Government Oversight: JUD
-            Healthcare: HLTH
-            Housing: HOUSE
+            Federal Employees: FED
+            Foreign Relations: FR
+            Government Reform: GOV
+            Guns: GUN
+            Health: HEA
+            Homeland Security: HOM
+            Housing and Urban Development: HUD
             Immigration: IMM
-            Jobs: LABOR
+            International Relations: INT
             Judiciary: JUD
-            Labor: LABOR
-            Medicare: SS
-            National Security: MIL
-            Social Security: SS
+            Labor: LAB
+            LGBT: LGBT
+            No Response Necessary: NRN
+            Post Office: POST
+            Science and Technology: SCI
+            Social Issues: SOC
+            Senior Citizens: SENIORS
+            Social Security: SSEC
+            Social Services: SOC.SERVICES
             Taxes: TAX
-            Telecommunications: TELCOM
+            Telecommunications: TEL
+            Tours: Tours
+            Transportation: TRA
             Trade: TRADE
-            Transportation: TRANS
-            Veterans Affairs: MIL
-    - check:
-        - name: enewsletteroption
-          selector: "#unsubscribe"
-          value: UNSUBSCRIBE
+            Veterans: VET
+            "Women's Issues": WOMEN
+            Welfare: WEL
+            Other Issue: OTHER
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
-        - value: Send Email
-          selector: "#mainbodyContentleft form input[type='submit'][value='Send Email']"
+        - selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your correspondence.
+      contains: your message has been sent

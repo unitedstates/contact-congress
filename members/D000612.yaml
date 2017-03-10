@@ -81,6 +81,8 @@ contact_form:
             Other Issue: OTH
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"

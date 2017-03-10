@@ -3,12 +3,12 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: http://www.kaine.senate.gov/contact
+    - visit: https://www.kaine.senate.gov/contact
     - wait:
       - value: 1
     - select:
       - name: subject
-        selector: "#subject"
+        selector: "#contactForm select[name='topic']"
         value: $TOPIC
         required: Yes
         options:

@@ -60,6 +60,48 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: topic
+          selector: "#topic"
+          value: $TOPIC
+          required: true
+          options:
+            Adoption/Childcare: AB
+            Agriculture: AG
+            Animal Welfare: AN
+            Armenian Issues: ARM
+            Arts and Entertainment: ART
+            Banking/Treasury: BANK
+            Campaign Finance: CF
+            Civil Rights: CIV
+            Consumer Protection: CONSUMER
+            Defense/Active Military: DEF
+            Economy/Budget: BUD
+            Education/Student Loans: ED
+            Environment/Energy: ENV
+            Foreign Relations: FR
+            Government Accountability: GOV
+            Healthcare: HE
+            Homeland Security: HLS
+            Housing and Urban Development: HOUSING
+            Immigration: IMM
+            Intelligence: INTEL
+            Interior: ENV
+            IRS/Federal Taxes: TAX
+            Justice/Crime: JUD
+            Labor/Federal Employment: LAB
+            LGBT: LGBT
+            Medicare: HE.MCARE
+            State Department: FP
+            Postal: POST
+            Science: SCI
+            Seniors: SS
+            Small Business: BUS
+            Social Security: SS
+            Telecommunications/Technology: TEL
+            Trade: TRAN
+            Transportation: TRAN
+            Veterans: VET
+            "Women's Rights/Choice": AB
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
@@ -199,48 +241,6 @@ contact_form:
             - Navy - Seaman Apprentice
             - Navy - Seaman
             - Navy - Seaman Recruit
-        - name: topic
-          selector: "#topic"
-          value: $TOPIC
-          required: true
-          options:
-            Adoption/Childcare: AB
-            Agriculture: AG
-            Animal Welfare: AN
-            Armenian Issues: ARM
-            Arts and Entertainment: ART
-            Banking/Treasury: BANK
-            Campaign Finance: CF
-            Civil Rights: CIV
-            Consumer Protection: CONSUMER
-            Defense/Active Military: DEF
-            Economy/Budget: BUD
-            Education/Student Loans: ED
-            Environment/Energy: ENV
-            Foreign Relations: FR
-            Government Accountability: GOV
-            Healthcare: HE
-            Homeland Security: HLS
-            Housing and Urban Development: HOUSING
-            Immigration: IMM
-            Intelligence: INTEL
-            Interior: ENV
-            IRS/Federal Taxes: TAX
-            Justice/Crime: JUD
-            Labor/Federal Employment: LAB
-            LGBT: LGBT
-            Medicare: HE.MCARE
-            State Department: FP
-            Postal: POST
-            Science: SCI
-            Seniors: SS
-            Small Business: BUS
-            Social Security: SS
-            Telecommunications/Technology: TEL
-            Trade: TRAN
-            Transportation: TRAN
-            Veterans: VET
-            "Women's Rights/Choice": AB
     - click_on:
         - selector: "label[for='subscribe']"
     - javascript:

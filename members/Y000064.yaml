@@ -1,91 +1,112 @@
 bioguide: Y000064
 contact_form:
   method: post
-  action: /give-me-your-opinion/
+  action: /content/contact-senator
   steps:
-    - visit: "https://toddyoungforms.house.gov/give-me-your-opinion"
+    - visit: "https://www.young.senate.gov/content/contact-senator"
     - fill_in:
-        - name: firstname
-          selector: "#req_firstname"
+        - name: "submitted[constituent_information][first_name]"
+          selector: "#edit-submitted-constituent-information-first-name"
           value: $NAME_FIRST
           required: true
-        - name: lastname
-          selector: "#req_lastname"
+        - name: "submitted[constituent_information][last_name]"
+          selector: "#edit-submitted-constituent-information-last-name"
           value: $NAME_LAST
           required: true
-        - name: street
-          selector: "#req_street"
+        - name: "submitted[constituent_information][address_1]"
+          selector: "#edit-submitted-constituent-information-address-1"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#req_city"
+        - name: "submitted[constituent_information][city]"
+          selector: "#edit-submitted-constituent-information-city"
           value: $ADDRESS_CITY
           required: true
-        - name: zipcode
-          selector: "#req_zip"
+        - name: "submitted[constituent_information][zip]"
+          selector: "#edit-submitted-constituent-information-zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: zipfour
-          selector: "#zip2"
-          value: $ADDRESS_ZIP4
+        - name: "submitted[constituent_information][phone]"
+          selector: "#edit-submitted-constituent-information-phone"
+          value: $PHONE
           required: true
-        - name: emailaddress
-          selector: "#req_email"
+        - name: "submitted[constituent_information][email]"
+          selector: "#edit-submitted-constituent-information-email"
           value: $EMAIL
           required: true
-        - name: message
-          selector: "#req_message"
+        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
+          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
+          value: $SUBJECT
+          required: true
+        - name: "submitted[message_details][message]"
+          selector: "#edit-submitted-message-details-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#req_prefix"
+        - name: "submitted[constituent_information][prefix]"
+          selector: "#edit-submitted-constituent-information-prefix"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Mrs.
             - Ms.
-            - Miss
-            - Dr.
-            - Hon.
-            - Rev.
-            - Rabbi
-        - name: subject
-          selector: "#req_subject"
+        - name: "submitted[message_details][topic]"
+          selector: "#edit-submitted-message-details-topic"
           value: $TOPIC
           required: true
           options:
-            Jobs and the Economy: ECON
-            "Budget, Government Spending, National Debt": BUD
-            "Medicare, Social Security, Medicaid, Welfare": ENT
-            "Tax Rates, Tax Code, the IRS": TAX
-            Health Care: HLTH
-            "Agriculture, Farming, Food & Nutrition": AG
-            "Marriage, Adoption, Family Issues": FAM
-            "Education, Student Loans, Teachers": EDU
-            "Energy, Cap and Trade, Domestic Drilling": ENR
-            Foreign Affairs: FOR
-            "Military, Department of Defense, Afghanistan, Iraq": DEF
-            "Immigration, Border Protection, Amnesty": IMM
-            "Judicial Branch, Law Enforcement, 2nd Amendment": JUD
-            "Transportation & Infrastructure, Highways, Bridges": TI
-            Veterans Affairs: VET
-            Other: OTH
-        - name: response
-          selector: "#req_response"
-          value: "Y"
-          required: true
-          options:
-            I do not need a response.: "N"
-            I would like a response.: "Y"
+            - Abortion
+            - Adoption
+            - Aging
+            - Agriculture
+            - Animal Welfare
+            - Appropriations
+            - Banking
+            - Campaign Finance
+            - Civil Rights
+            - Commerce
+            - Congratulations
+            - Defense
+            - Drugs
+            - Economy
+            - Education
+            - Energy
+            - Environment
+            - Family
+            - Finance
+            - Foreign Affairs
+            - Gun Control
+            - Health
+            - Homeland Security
+            - Housing
+            - Immigration
+            - Interior
+            - Judiciary
+            - Labor
+            - Medicaid
+            - Medicare
+            - Military
+            - NASA
+            - Nutrition
+            - Patents
+            - Pensions
+            - Science
+            - Small Business
+            - Social Security
+            - Taxes
+            - Telecommunications
+            - Trade
+            - Transportation
+            - Veterans
+            - Welfare
+            - "Women's Issues"
     - javascript:
-        - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
+        - value: document.querySelector("#edit-submitted-message-details-message").value = document.querySelector("#edit-submitted-message-details-message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#submitButton"
+          selector: "#webform-client-form-78 input[name='op']"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting your information.
+      contains: "Thank you, your message has been received."

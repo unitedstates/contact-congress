@@ -1,75 +1,109 @@
 bioguide: I000056
 contact_form:
   method: post
-  action: /contact/contact-me
+  action: "/htbin/formproc/CA49_Contact.txt%26display%3D/contact-thank%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "http://issa.house.gov/contact/contact-me"
+    - visit: "http://issa.house.gov/contact"
     - fill_in:
-        - name: input_1
-          selector: "#input_1_1"
+        - name: firstName
+          selector: "form.contactForm input[name='firstName']"
           value: $NAME_FIRST
           required: true
-        - name: input_2
-          selector: "#input_1_2"
+        - name: lastName
+          selector: "form.contactForm input[name='lastName']"
           value: $NAME_LAST
           required: true
-        - name: input_3
-          selector: "#input_1_3"
+        - name: address
+          selector: "form.contactForm input[name='address']"
           value: $ADDRESS_STREET
           required: true
-        - name: input_4
-          selector: "#input_1_4"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: input_5
-          selector: "#input_1_5"
+        - name: city
+          selector: "form.contactForm input[name='city']"
           value: $ADDRESS_CITY
           required: true
-        - name: input_6
-          selector: "#input_1_6"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: input_7
-          selector: "#input_1_7"
+        - name: zip
+          selector: "form.contactForm input[name='zip']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_8
-          selector: "#input_1_8"
+        - name: phone
+          selector: "form.contactForm input[name='phone']"
           value: $PHONE
           required: true
-        - name: input_9
-          selector: "#input_1_9"
+        - name: email
+          selector: "form.contactForm input[name='email']"
           value: $EMAIL
           required: true
-        - name: input_16
-          selector: "#input_1_16"
+        - name: subject
+          selector: "form.contactForm input[name='subject']"
+          value: $SUBJECT
+          required: true
+        - name: comments
+          selector: "form.contactForm textarea[name='comments']"
           value: $MESSAGE
           required: true
     - select:
-        - name: input_12
-          selector: "#input_1_12"
-          value: $NAME_PREFIX
+        - name: state
+          selector: "form.contactForm select[name='state']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mr.
-            - Dr. and Mrs.
-            - Reverend
-            - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
-        - name: input_10
-          selector: "#input_1_10"
+            - Please Select
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - HI
+            - ID
+            - IN
+            - IL
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+        - name: topic
+          selector: "form.contactForm select[name='topic']"
           value: $TOPIC
           required: true
           options:
-            - Scheduling Request
             - Abortion
             - Agriculture
             - Banking and Insurance
@@ -102,19 +136,11 @@ contact_form:
             - Veterans
             - War on Terrorism
             - Other
-    - check:
-        - name: input_17
-          selector: "#choice_1_17_1"
-          value: "No"
-    - javascript:
-        - value: document.querySelector("#input_1_16").value = document.querySelector("#input_1_16").value.replace(/"/g, '');
-    - recaptcha:
-        - value: true
     - click_on:
         - value: Submit
-          selector: "#gform_submit_button_1"
+          selector: "form.contactForm input[name='submit']"
   success:
     headers:
       status: 200
     body:
-      contains: "Thanks for contacting us! We will get in touch with you shortly."
+      contains: Someone will reach out to you shortly

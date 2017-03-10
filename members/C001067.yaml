@@ -14,8 +14,7 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - 
-          selector: "#submit"
+        - selector: "#submit"
     - fill_in:
         - name: required-first
           selector: "#required-first"
@@ -46,8 +45,8 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: required-prefix
-          selector: "#required-prefix"
+        - name: required-honorific-prefix
+          selector: "#required-honorific-prefix"
           value: $NAME_PREFIX
           required: true
           options:
@@ -117,9 +116,10 @@ contact_form:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - recaptcha:
+        - value: true
     - click_on:
-        - 
-          selector: "#submit"
+        - selector: "#submit"
   success:
     headers:
       status: 200

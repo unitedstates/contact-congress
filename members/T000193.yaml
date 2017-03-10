@@ -88,6 +88,8 @@ contact_form:
           value: Unsubscribe
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit2']"

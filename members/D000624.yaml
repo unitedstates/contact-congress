@@ -4,6 +4,8 @@ contact_form:
   action: /forms/writeyourrep/
   steps:
     - visit: "https://debbiedingellforms.house.gov/contact/"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: zip5
           selector: "form.zipform input[name='zip5']"
@@ -14,8 +16,9 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - value: Submit
-          selector: "form.zipform input[type='submit'][value='Submit']"
+        - selector: "form.zipform input[type='submit']"
+    - javascript:
+        - value: "$('.zipform').submit();"
     - find:
         - selector: "#ctl00_ctl27_FirstName"
     - javascript:
@@ -70,6 +73,8 @@ contact_form:
             - The Honorable
     - javascript:
         - value: document.querySelector("#ctl00_ctl27_Body").value = document.querySelector("#ctl00_ctl27_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl27_SubmitButton"

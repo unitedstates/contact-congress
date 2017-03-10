@@ -214,10 +214,6 @@ contact_form:
             Telecommunications: Telecommunications
             Veterans: Veterans
             "Women's Issues": "Women's Issues"
-    - uncheck:
-        - name: newsletter
-          selector: "#newsletter"
-          value: newsletter
     - javascript:
         - value: document.querySelector("#contactForm textarea[name='comments']").value = document.querySelector("#contactForm textarea[name='comments']").value.replace(/"/g, '');
     - javascript:

@@ -4,8 +4,8 @@ contact_form:
   action: "https://lee.house.gov/contact/email-me"
   steps:
     - visit: "https://lee.house.gov/contact/email-me"
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#zip-input"
     - fill_in:
         - name: input_078D32EE-4040-F985-52CD-2947CE521466
           selector: "#zip-input"
@@ -13,8 +13,8 @@ contact_form:
           required: true
     - click_on:
         - selector: "#form-B03E03FC-4040-F985-52CD-BCD7E00A8A6C #zip-submit"
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
     - fill_in:
         - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
           selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
@@ -291,8 +291,6 @@ contact_form:
             - Science and Technology
             - Social Issues
             - Senior Citizens
-            - Social Issues
-            - Senior Citizens
             - Social Securities
             - Social Services
             - Taxes
@@ -312,11 +310,13 @@ contact_form:
             "No, I wanted to voice my opinion.": "No"
     - javascript:
         - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: input.btn
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#form-B03E03FC-4040-F985-52CD-BCD7E00A8A6C h1"
   success:
     headers:
       status: 200

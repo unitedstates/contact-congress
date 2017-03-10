@@ -53,6 +53,8 @@ contact_form:
           required: true
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Send Email
           selector: "#contactForm #submit"
@@ -60,4 +62,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The following information has been submitted:"
+      contains: "Thank you for contacting"

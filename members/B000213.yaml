@@ -59,6 +59,11 @@ contact_form:
           selector: "#req_message"
           value: $MESSAGE
           required: true
+        - name: captcha
+          selector: "#captchaTextBox"
+          captcha_selector: "#captchaImage"
+          value: $CAPTCHA_SOLUTION
+          required: true
     - select:
         - name: prefix
           selector: "#req_prefix"

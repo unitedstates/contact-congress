@@ -120,6 +120,8 @@ contact_form:
             WEP / GPO: "120681"
     - javascript:
         - value: document.querySelector("#ctl00_ctl17_Body").value = document.querySelector("#ctl00_ctl17_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl17_SubmitButton"

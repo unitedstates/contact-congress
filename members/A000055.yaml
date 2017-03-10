@@ -84,6 +84,8 @@ contact_form:
             Other Issue: OTHER
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - selector: "#block-system-main form.bootstrap button.btn.btn-success"
   success:

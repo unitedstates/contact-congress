@@ -111,6 +111,8 @@ contact_form:
           value: Express an opinion or share your views with me
     - javascript:
         - value: document.querySelector("#Message").value = document.querySelector("#Message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: input.primaryAction

@@ -4,6 +4,8 @@ contact_form:
   action: /contact-form/
   steps:
     - visit: "https://frelinghuysenforms.house.gov/contact-form"
+    - wait:
+        - value: 2
     - fill_in:
         - name: firstname
           selector: "#req_firstname"
@@ -49,6 +51,11 @@ contact_form:
           selector: "#req_message"
           value: $MESSAGE
           required: true
+        - name: captcha
+          selector: "#captchaTextBox"
+          captcha_selector: "#captchaImage"
+          value: $CAPTCHA_SOLUTION
+          required: Yes
     - javascript:
         - value: document.querySelector("#req_message").value = document.querySelector("#req_message").value.replace(/"/g, '');
     - click_on:

@@ -115,13 +115,12 @@ contact_form:
       options: 
         Yes, please contact me: Y
         No, I wanted to voice my opinion: N
-  - click_on: 
-    - value: Send Email to Representative Bost
-      selector: "#contactForm #submit"
   - javascript:
     - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
-  - javascript:
-    - value: "document.querySelector('#contactForm #submit').click();"
+  - recaptcha:
+    - value: true
+  - click_on:
+    - selector: "#contactForm #submit"
   - find:
     - selector: ".data"
   success: 

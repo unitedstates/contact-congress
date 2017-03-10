@@ -4,8 +4,6 @@ contact_form:
   action: "http://www.daines.senate.gov/connect/email-steve"
   steps:
     - visit: "http://www.daines.senate.gov/connect/email-steve"
-    - wait:
-        - value: 10
     - select:
         - name: input_AE7457DD-4040-F985-52CD-B99385041C51
           selector: "#actiontog"
@@ -19,7 +17,7 @@ contact_form:
             Tour Request: tour
             Request a flag to be flown over the Capitol: flag
     - wait:
-        - value: 10
+        - value: 2
     - fill_in:
         - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"

@@ -4,12 +4,8 @@ contact_form:
   action: /email-me/
   steps:
     - visit: "https://labradorforms.house.gov/email-me"
-    - wait:
-        - value: 3
-    - click_on:
-        - selector: "div.pp_pic_holder.pp_default div.pp_fade div.pp_details a.pp_close"
-    - wait:
-        - value: 3
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: firstname
           selector: "#req_firstname"

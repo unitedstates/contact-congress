@@ -18,8 +18,6 @@ contact_form:
           selector: "#emailForm input[name='submit']"
     - find :
         - selector: "#contactForm"
-    - wait:
-        - value: 1
     - fill_in:
         - name: prefix
           selector: "#prefix"
@@ -60,12 +58,6 @@ contact_form:
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
-          required: true
-        - name: recaptcha_response_field
-          selector: "#recaptcha_response_field"
-          captcha_selector: "img#recaptcha_challenge_image"
-          captcha_id_selector: "#recaptcha_challenge_field"
-          value: "$CAPTCHA_SOLUTION"
           required: true
     - select:
         - name: required-response
@@ -119,6 +111,8 @@ contact_form:
             Other Issues: OTHER
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Send Email
           selector: "#contactForm input[name='submit']"

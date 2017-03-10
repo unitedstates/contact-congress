@@ -66,6 +66,8 @@ contact_form:
         Rabbi: Rabbi
   - javascript:
     - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+  - recaptcha:
+    - value: true
   - click_on: 
     - value: Send Email to Representative Emmer
       selector: "#contactForm #submit"

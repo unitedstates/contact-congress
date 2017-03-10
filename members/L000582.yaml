@@ -16,8 +16,7 @@ contact_form:
           value: $ADDRESS_ZIP4
           required: true
     - click_on:
-        - 
-          selector: "#emailForm #submit"
+        - selector: "#emailForm #submit"
     - wait:
         - value: 3
     - javascript:
@@ -120,9 +119,10 @@ contact_form:
             "No, I wanted to voice my opinion": "N"
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
-        - 
-          selector: "#contactForm #submit"
+        - selector: "#contactForm #submit"
   success:
     headers:
       status: 200

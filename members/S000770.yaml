@@ -4,6 +4,8 @@ contact_form:
   action: "https://www.stabenow.senate.gov/contact"
   steps:
     - visit: "https://www.stabenow.senate.gov/contact"
+    - wait:
+        - value: 2
     - fill_in:
         - name: input_F80AC606-4040-F985-52CD-88C5E17C2923
           selector: "#input-F80AC606-4040-F985-52CD-88C5E17C2923"
@@ -44,17 +46,17 @@ contact_form:
         - name: input_F80AC5B6-4040-F985-52CD-834C1DD62DF3
           selector: "#input-F80AC5B6-4040-F985-52CD-834C1DD62DF3"
           value: $MESSAGE
-          required: false
+          required: true
     - javascript:
         - value: document.querySelector("#input-F80AC5B6-4040-F985-52CD-834C1DD62DF3").value = document.querySelector("#input-F80AC5B6-4040-F985-52CD-834C1DD62DF3").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn
     - find:
-        - selector: "h1"
-          value: "Thank You"
+        - value: "Thank You"
+          selector: "h1"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office
+      contains: "Thank you for contacting my office"

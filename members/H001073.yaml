@@ -121,6 +121,8 @@ contact_form:
         "No, do not contact me": "N"
   - javascript:
     - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+  - recaptcha:
+    - value: true
   - click_on: 
     - value: Send Email to Representative Hurd
       selector: "#contactForm #submit"

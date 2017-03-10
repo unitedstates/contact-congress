@@ -16,6 +16,10 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "form.zipform input[type='submit'][value='Submit']"
+    - find:
+        - selector: '#ctl00_ctl17_FirstName'
+    - javascript:
+        - value: "document.getElementById('header').remove()"
     - fill_in:
         - name: ctl00$ctl17$FirstName
           selector: "#ctl00_ctl17_FirstName"
@@ -65,12 +69,12 @@ contact_form:
             - Rabbi
             - Sister
             - Father
-    - check:
-        - name: ctl00$ctl17$ReplyChoice
-          selector: "#ctl00_ctl17_ReplyChoice_0"
-          value: Respond
+    - click_on:
+        - selector: "label[for='ctl00_ctl17_ReplyChoice_0']"
     - javascript:
         - value: document.querySelector("#ctl00_ctl17_Body").value = document.querySelector("#ctl00_ctl17_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl17_SubmitButton"

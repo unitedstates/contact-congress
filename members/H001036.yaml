@@ -127,6 +127,8 @@ contact_form:
           value: Comment
     - javascript:
         - value: document.querySelector("#ctl00_ctl20_Body").value = document.querySelector("#ctl00_ctl20_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl20_SubmitButton"

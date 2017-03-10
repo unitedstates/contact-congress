@@ -1,0 +1,170 @@
+bioguide: O000171
+contact_form:
+  method: post
+  action: .
+  steps:
+  - visit: https://bergmanforms.house.gov/forms/writeyourrep/
+  - fill_in:
+    - name: ctl00$ctl12$FirstName
+      selector: '#ctl00_ctl12_FirstName'
+      value: $NAME_FIRST
+      required: true
+    - name: ctl00$ctl12$LastName
+      selector: '#ctl00_ctl12_LastName'
+      value: $NAME_LAST
+      required: true
+    - name: ctl00$ctl12$Street
+      selector: '#ctl00_ctl12_Street'
+      value: $ADDRESS_STREET
+      required: true
+    - name: ctl00$ctl12$City
+      selector: '#ctl00_ctl12_City'
+      value: $ADDRESS_CITY
+      required: true
+    - name: ctl00$ctl12$Zip
+      selector: '#ctl00_ctl12_Zip'
+      value: $ADDRESS_ZIP5
+      required: true
+    - name: ctl00$ctl12$Phone
+      selector: '#ctl00_ctl12_Phone'
+      value: $PHONE
+      required: true
+    - name: ctl00$ctl12$Email
+      selector: '#ctl00_ctl12_Email'
+      value: $EMAIL
+      required: false
+    - name: ctl00$ctl12$Subject
+      selector: '#ctl00_ctl12_Subject'
+      value: $SUBJECT
+      required: true
+    - name: ctl00$ctl12$Body
+      selector: '#ctl00_ctl12_Body'
+      value: $MESSAGE
+      required: true
+  - select:
+    - name: ctl00$ctl12$PrefixList
+      selector: '#ctl00_ctl12_PrefixList'
+      value: $NAME_PREFIX
+      required: true
+      options:
+      - Mr.
+      - Mrs.
+      - Dr.
+      - Ms.
+    - name: ctl00$ctl12$State
+      selector: '#ctl00_ctl12_State'
+      value: $ADDRESS_STATE_POSTAL_ABBREV
+      required: true
+      options:
+      - AL
+      - AK
+      - AZ
+      - AR
+      - CA
+      - CO
+      - CT
+      - DE
+      - DC
+      - FL
+      - GA
+      - HI
+      - ID
+      - IL
+      - IN
+      - IA
+      - KS
+      - KY
+      - LA
+      - ME
+      - MD
+      - MA
+      - MI
+      - MN
+      - MS
+      - MO
+      - MT
+      - NE
+      - NV
+      - NH
+      - NJ
+      - NM
+      - NY
+      - NC
+      - ND
+      - OH
+      - OK
+      - OR
+      - PA
+      - RI
+      - SC
+      - SD
+      - TN
+      - TX
+      - UT
+      - VT
+      - VA
+      - WA
+      - WV
+      - WI
+      - WY
+      - AA
+      - AE
+      - AP
+      - FM
+      - GU
+      - MH
+      - MP
+      - PR
+      - VI
+    - name: ctl00$ctl12$IssuesList
+      selector: '#ctl00_ctl12_IssuesList'
+      value: $TOPIC
+      required: true
+      options:
+        Advocacy: '14886'
+        Agriculture and Food: '72'
+        Animals: '9982'
+        Armed Forces and National Security: '10012'
+        Arts, Culture, Religion: '10039'
+        Civil Rights and Liberties, Minority Issues: '10055'
+        Commerce: '10073'
+        Congress: '10095'
+        Crime and Law Enforcement: '10109'
+        Economics and Public Finance: '10135'
+        Education: '73'
+        Emergency Management: '10168'
+        Energy: '10177'
+        Environmental Protection: '14814'
+        Families: '10209'
+        Finance and Financial Sector: '10219'
+        Foreign Trade and International Finance: '10236'
+        Government Operations and Politics: '10250'
+        Health: '74'
+        Housing and Community Development: '10346'
+        Immigration: '10360'
+        International Affairs: '10370'
+        Labor and Employment: '10390'
+        Law: '10406'
+        Native Americans: '10424'
+        Private Legislation: '14873'
+        Public Lands and Natural Resources: '10432'
+        Science, Technology, Communications: '10447'
+        Social Sciences and History: '10471'
+        Social Welfare: '10479'
+        Sports and Recreation: '10485'
+        Taxation: '10493'
+        Transportation and Public Works: '81'
+        Water Resources Development: '10528'
+  - check:
+    - name: ctl00$ctl12$ReplyChoice
+      selector: '#ctl00_ctl12_ReplyChoice_0'
+      value: Respond
+  - recaptcha:
+    - value: true
+  - click_on:
+    - selector: '#submit'
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for taking the time to write me"

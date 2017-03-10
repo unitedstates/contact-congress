@@ -1,97 +1,127 @@
 bioguide: D000216
 contact_form:
   method: post
-  action: "/htbin/formproc/delauro/webforms/contact_form_email_file.txt&display=/webforms/contact_thanks.shtml"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://forms.house.gov/delauro/webforms/contact_form_email.shtml"
+    - visit: "https://delauro.house.gov/contact/email"
     - fill_in:
-        - name: required-firstname
-          selector: "#mainbodyContentleft form input[name='required-firstname']"
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - selector: "#submit"
+    - find:
+        - selector: "#required-first"
+    - fill_in:
+        - name: required-first
+          selector: "#required-first"
           value: $NAME_FIRST
           required: true
-        - name: required-lastname
-          selector: "#mainbodyContentleft form input[name='required-lastname']"
+        - name: required-last
+          selector: "#required-last"
           value: $NAME_LAST
           required: true
         - name: required-address
-          selector: "#mainbodyContentleft form textarea[name='required-address']"
+          selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: required-hcity
-          selector: "#mainbodyContentleft form input[name='required-hcity']"
+        - name: required-city
+          selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-hzip
-          selector: "#mainbodyContentleft form input[name='required-hzip']"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: phone_home
-          selector: "#mainbodyContentleft form input[name='phone_home']"
-          value: $PHONE
-          required: true
-        - name: required-email
-          selector: "#mainbodyContentleft form input[name='required-email']"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: required-comments
-          selector: "#mainbodyContentleft form textarea[name='required-comments']"
+        - name: required-phone
+          selector: "#required-phone"
+          value: $PHONE
+          required: true
+        - name: required-message
+          selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: required-prefix
-          selector: "#mainbodyContentleft form select[name='required-prefix']"
+        - name: required-honorific-prefix
+          selector: "#required-honorific-prefix"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Miss
             - Ms.
-        - name: required-subject
-          selector: "#mainbodyContentleft form select[name='required-subject']"
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
+        - name: required-issue
+          selector: "#required-issue"
           value: $TOPIC
           required: true
           options:
-            " ------------------------ Not listed \n\n          ------------------------ ": Not listed
-            Agriculture: Agriculture
-            Animal Rights: Animal Rights
-            Budget: Budget
-            Civil Rights: Civil Rights
-            Commerce: Commerce
-            Crime: Crime
-            Defense: Defense
-            Disability: Disability
-            Economy: Economy
-            Education: Education
-            Employment: Employment
-            Energy: Energy
-            Environment: Environment
-            Federal Issues: Federal Issues
-            Foreign Affairs: Foreign Affairs
-            Government: Government
-            Gun Violence Prevention: Gun Violence Prevention
-            Health Care: Health Care
-            Housing: Housing
-            Human Rights: Human Rights
-            Immigration: Immigration
-            Labor: Labor
-            Legislation: Legislation
-            Public Lands: Public Lands
-            Social Issues: Social Issues
-            Senior Citizens: Senior Citizens
-            Taxes: Taxes
-            Technology: Technology
-            Trade: Trade
-            Transportation: Transportation
-            Veterans: Veterans
-            Welfare: Welfare
+            Agriculture: AGR
+            Animals: AN
+            Arts and Humanities: ART
+            Banking and Finance: BANK
+            Budget and Economy: BUD
+            Help With a Federal Agency: Casework
+            Campaign Finance Reform: CFR
+            Congress and Elections: CONG
+            Defense and Military: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENE
+            Environment: ENV
+            Federal Employees: FED
+            Foreign Relations: FR
+            Government Reform: GOV
+            Guns: GUN
+            Health: HEA
+            Homeland Security: HOM
+            Housing and Urban Development: HUD
+            Immigration: IMM
+            International Relations: INT
+            Judiciary: JUD
+            Labor: LAB
+            LGBT: LGBT
+            No Response Necessary: NRN
+            Post Office: POST
+            Science and Technology: SCI
+            Social Issues: SOC
+            Senior Citizens: SENIORS
+            Social Security: SSEC
+            Social Services: SOC.SERVICES
+            Taxes: TAX
+            Telecommunications: TEL
+            Tours: Tours
+            Transportation: TRA
+            Trade: TRADE
+            Veterans: VET
+            "Women's Issues": WOMEN
+            Welfare: WEL
+            Other Issue: OTHER
+        - name: required-response
+          selector: "#required-response"
+          value: "Y"
+          required: true
+          options:
+            "Yes, please contact me": "Y"
+            "No, I wanted to voice my opinion": "N"
     - javascript:
-        - value: document.querySelector("#mainbodyContentleft form textarea[name='required-comments']").value = document.querySelector("#mainbodyContentleft form textarea[name='required-comments']").value.replace(/"/g, '');
+        - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
-        - value: Submit
-          selector: "#mainbodyContentleft form input[name='submit']"
+        - selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: has been submitted
+      contains: your message has been sent

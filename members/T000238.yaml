@@ -73,6 +73,8 @@ contact_form:
             Veterans: "58094"
     - javascript:
         - value: document.querySelector("#ctl00_ctl13_Body").value = document.querySelector("#ctl00_ctl13_Body").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#ctl00_ctl13_SubmitButton"

@@ -7,7 +7,7 @@ contact_form:
     - javascript:
       - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - wait:
-      - value: 5
+      - value: 1
     - fill_in:
       - name: firstName
         selector: "#firstName"
@@ -50,11 +50,6 @@ contact_form:
         selector: ".required[name='MessageBody']"
         value: "$MESSAGE"
         required: Yes
-      - name: captcha_code
-        selector: "#captcha_code"
-        captcha_selector: "img.img-polaroid"
-        value: "$CAPTCHA_SOLUTION"
-        required: Yes
     - select:
       - name: Prefix
         selector: ".required[name='Prefix']"
@@ -75,28 +70,14 @@ contact_form:
           " Senator ": "Senator"
       - name: Subject
         selector: "#Subject"
-        value: $TOPIC
+        value: "EMAIL"
         required: true
         options:
-          Agriculture: AG
-          "Banking & Credit": BN
-          "Budget & Taxes": BU
-          "Business, Commerce & Labor": CM
-          "Congress, Federal & Postal Employees": CG
-          "Education, Science & Technology": ED
-          Energy: EN
-          "Environment, Nat. Resources & Wildlife": EV
-          "Foreign Affairs, Military & Veterans": FA
-          Health Care: HC
-          "Homeland Security & Immigration": HS
-          "Judiciary & Crime": JU
-          Native Americans: NA
-          Social Safety Net: MD
           Not Listed/Other: EMAIL
-    - find:
-      - selector: ".btn-primary"
     - javascript:
       - value: document.querySelector(".required[name='MessageBody']").value = document.querySelector(".required[name='MessageBody']").value.replace(/"/g, '');
+    - javascript:
+      - value: jQuery('[name=captcha_code]').val(jQuery('a[href$=".wav"]').attr('href').match(/_([a-z0-9]+)\.wav/)[1]);
     - click_on:
       - value: Submit Information
         selector: ".btn-primary"

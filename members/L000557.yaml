@@ -1,14 +1,23 @@
 bioguide: L000557
 contact_form:
   method: post
-  action: "https://forms.house.gov/htbin/formproc/larson/contact_form_file.txt&display=/larson/contact_thankyou.html"
+  action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
-    - visit: "https://forms.house.gov/larson/contact_new.html"
+    - visit: "https://larson.house.gov/contact/email"
     - fill_in:
-        - name: required-prefix
-          selector: "#required-prefix"
-          value: $NAME_PREFIX
+        - name: required-zip5
+          selector: "#required-zip5"
+          value: $ADDRESS_ZIP5
           required: true
+        - name: zip4
+          selector: "#zip4"
+          value: $ADDRESS_ZIP4
+          required: true
+    - click_on:
+        - selector: "#submit"
+    - find:
+        - selector: "#required-first"
+    - fill_in:
         - name: required-first
           selector: "#required-first"
           value: $NAME_FIRST
@@ -21,39 +30,37 @@ contact_form:
           selector: "#required-address"
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
         - name: required-city
           selector: "#required-city"
           value: $ADDRESS_CITY
           required: true
-        - name: required-state
-          selector: "#required-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: required-zip5
-          selector: "#zip5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: zip4
-          selector: "#contactForm input[name='zip4']"
-          value: $ADDRESS_ZIP4
-          required: true
-        - name: required-email
-          selector: "#required-email"
+        - name: required-valid-email
+          selector: "#required-valid-email"
           value: $EMAIL
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: required-phone
+          selector: "#required-phone"
           value: $PHONE
-          required: false
+          required: true
         - name: required-message
           selector: "#required-message"
           value: $MESSAGE
           required: true
     - select:
+        - name: required-honorific-prefix
+          selector: "#required-honorific-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Ms.
+            - Miss
+            - Mrs.
+            - Mr.
+            - Mr. and Mrs.
+            - Rev.
+            - Dr.
+            - The Honorable
+            - Rabbi
         - name: required-issue
           selector: "#required-issue"
           value: $TOPIC
@@ -62,19 +69,17 @@ contact_form:
             Help With Agency: Help With Agency
             Comment on Policy: Comment on Policy
     - check:
-        - name: affl
-          selector: "input[type='radio'][name='affl'][value='EMAIL.OPTOUT']"
-          value: EMAIL.OPTOUT
         - name: required-response
           selector: "input[type='radio'][name='required-response'][value='Y']"
           value: "Y"
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
-        - value: Send Email
-          selector: "#contactForm input[name='submit2']"
+        - selector: "#submit"
   success:
     headers:
       status: 200
     body:
-      contains: has been submitted
+      contains: your message has been sent

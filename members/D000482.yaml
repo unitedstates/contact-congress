@@ -93,6 +93,8 @@ contact_form:
           value: "Y"
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: "Send Email"
           selector: ".formboxL #submit"

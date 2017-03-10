@@ -1,0 +1,129 @@
+bioguide: R000606
+contact_form:
+ method: post
+ action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
+ steps:
+   - visit: "https://raskin.house.gov/contact/email"
+   - fill_in:
+       - name: required-zip5
+         selector: "#required-zip5"
+         value: $ADDRESS_ZIP5
+         required: true
+       - name: zip4
+         selector: "#zip4"
+         value: $ADDRESS_ZIP4
+         required: true
+   - click_on:
+       - selector: "#submit"
+   - find:
+       - selector: "#contactForm"
+   - fill_in:
+       - name: required-first
+         selector: "#required-first"
+         value: $NAME_FIRST
+         required: true
+       - name: required-last
+         selector: "#required-last"
+         value: $NAME_LAST
+         required: true
+       - name: required-address
+         selector: "#required-address"
+         value: $ADDRESS_STREET
+         required: true
+       - name: address2
+         selector: "#address2"
+         value: $ADDRESS_STREET_2
+         required: false
+       - name: required-city
+         selector: "#required-city"
+         value: $ADDRESS_CITY
+         required: true
+       - name: required-valid-email
+         selector: "#required-valid-email"
+         value: $EMAIL
+         required: true
+       - name: required-phone
+         selector: "#required-phone"
+         value: $PHONE
+         required: true
+       - name: required-message
+         selector: "#required-message"
+         value: $MESSAGE
+         required: true
+   - select:
+       - name: required-honorific-prefix
+         selector: "#required-honorific-prefix"
+         value: $NAME_PREFIX
+         required: true
+         options:
+           - Ms.
+           - Miss
+           - Mrs.
+           - Mr.
+           - Mr. and Mrs.
+           - Rev.
+           - Dr.
+           - The Honorable
+           - Rabbi
+       - name: required-issue
+         selector: "#required-issue"
+         value: $TOPIC
+         required: true
+         options:
+            Agriculture: AGRI
+            Animal Rights: ANML
+            Arts and Humanities: ARTS
+            Banking and Finance: BANK
+            Budget: BUD
+            Business/Commerce: BUS
+            Campaign Reform: CMPN
+            Congress and Elections: CNGRS
+            Defense and Military: DEF
+            Economy: ECON
+            Education: EDU
+            Energy: ENERGY
+            Environment: ENV
+            Federal Employees: FED
+            Foreign Affairs: FAFF
+            Government Reform: GOV_REF
+            Guns: GUNS
+            Health: HEALTH
+            Homeland Security: HSEC
+            Housing: HOUS
+            Immigration: IMM
+            Judiciary: JUD
+            Labor: LABOR
+            LGBT: LGBT
+            Medicaid/ Medicare: MEDI
+            Native American: NAT_AM
+            Science and Technology: TECH
+            Small Business: SM_BUS
+            Social Security: SS
+            Taxes: TAX
+            Telecommunications: TEL
+            Trade: TRD
+            Transportation: TRANS
+            Veterans: VET
+            "Women's Issues": WOMEN
+            Welfare: WEL
+            Other Issue: OTHER
+       - name: required-response
+         selector: "#required-response"
+         value: "Y"
+         required: true
+         options:
+           "Yes, please contact me": "Y"
+           "No, I wanted to voice my opinion": "N"
+   - uncheck:
+       - name: subscribe
+         selector: "#subscribe"
+         value: "TRUE"
+   - recaptcha:
+       - value: true            
+   - click_on:
+       - selector: "#submit"
+ success:
+   headers:
+     status: 200
+   body:
+     contains: "Thank You"

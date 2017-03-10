@@ -48,7 +48,7 @@ contact_form:
           value: $ADDRESS_CITY
           required: true
         - name: required-valid-email
-          selector: "#required-valid-email"
+          selector: "#contactForm #required-valid-email"
           value: $EMAIL
           required: true
         - name: phone
@@ -111,9 +111,11 @@ contact_form:
           value: " "
     - javascript:
         - value: document.querySelector("#required-message").value = document.querySelector("#required-message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Send Email
-          selector: "#submit"
+          selector: "#contactForm #submit"
     - find:
         - selector: "h1#page-title-no-line"
           value: "Thank You"

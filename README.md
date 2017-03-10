@@ -22,6 +22,14 @@ This project defines an open data format to describe the contact forms of member
 
 - [ - ] Tested files.
 
+**Note:** As of January 1, 2017, YAML files for members of the House of Representatives are no longer actively being maintained, as we are using Congress's CWC API to send messages instead of contact forms. 
+
+You can read about the CWC API here: http://www.house.gov/content/vendors/cwc/
+
+Our application for reading these YAMLs and submitting messages, Phantom of the Capitol, has been updated to use the CWC API, in the CWC branch here: https://github.com/EFForg/phantom-of-the-capitol/tree/cwc
+
+You are still welcome to submit PRs for YAMLs for the House of Representatives, we will be happy to continue merging them if these are files you still use!
+
 
 
 
