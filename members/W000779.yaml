@@ -117,6 +117,12 @@ contact_form:
           "Senior Airman": "Senior Airman"
           "Airman First Class": "Airman First Class"
           "Airman": "Airman"
+      - name: topic
+        selector: form#contactForm select#subject
+        value: $TOPIC
+        required: true
+        options:
+          Budget: Budget
     - click_on:
       - value: Submit
         selector: "#contactForm #side-search-btn"
