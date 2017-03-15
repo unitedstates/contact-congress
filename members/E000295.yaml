@@ -39,6 +39,8 @@ contact_form:
           required: true
           options:
             max_length: 5000
+    - javascript:
+        - value: "document.getElementById('field_09E12330-CB2E-4652-BEAA-DC119831E64E').value = document.getElementById('field_09E12330-CB2E-4652-BEAA-DC119831E64E').value.replace(/([0-9]{3})([0-9]{3})([0-9]{4})/, '$1-$2-$3');"
     - select:
         - name: field_40B41E59-8BAB-4655-BE10-0EF1A105D108
           selector: "#field_40B41E59-8BAB-4655-BE10-0EF1A105D108"
