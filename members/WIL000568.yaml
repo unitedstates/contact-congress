@@ -1,39 +1,57 @@
 bioguide: WIL000568
 contact_form:
   method: post
-  action: Casework.aspx
+  action: ""
   steps:
-    - visit: "http://legis.wisconsin.gov/senate/cowles/Pages/Casework.aspx"
-    - fill_in:
-        - name: email
-          selector: "#legis-cf-email"
-          value: $EMAIL
+    - visit: "http://legis.wisconsin.gov/senate/02/cowles/write-rob/"
+    - select:
+        - name: category
+          selector: div.selectwhatyourrequestisbestcategorizedas select
+          value: Comment on an issue or bill
           required: true
+          options:
+            Comment on an issue or bill: Comment on an issue or bill
+    - fill_in:
         - name: name
-          selector: "#legis-cf-name"
+          selector: div.fullname input
           value: $NAME_FULL
           required: true
         - name: address
-          selector: "#legis-cf-address"
+          selector: div.address input
           value: $ADDRESS_STREET
           required: true
-        - name: citystatezip
-          selector: "#legis-cf-city-state"
-          value: $ADDRESS_CITY_STATE_ZIP
+        - name: city
+          selector: div.city input
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: div.state input
+          value: $ADDRESS_STATE_FULL
+          required: true
+        - name: zip5
+          selector: div.zipcode input
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: div.phonenumber input
+          value: $PHONE
+          required: false
+        - name: email
+          selector: div.emailaddress input
+          value: $EMAIL
           required: true
         - name: subject
-          selector: "#legis-cf-phone"
-          value: $PHONE
+          selector: div.titleofrequest input
+          value: $SUBJECT
           required: true
         - name: message
-          selector: "#legis-cf-caseissue"
+          selector: div.summaryofrequest textarea
           value: $MESSAGE
           required: true
     - click_on:
-        - value: Submit
-          selector: ".legis-email-submit-btn"
+        - selector: div#contour_form_WritetoRob input[name='submitbtn']
   success:
     headers:
       status: 200
     body:
-      contains: Dear Friends
+      contains: "Wisconsin State Capitol, 2 East Main St"
