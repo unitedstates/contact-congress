@@ -1,0 +1,59 @@
+bioguide: xTX_U_Hughes
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.senate.state.tx.us/member.php?d=1"
+    - find:
+        - selector: div#mem_rcol_top p.memmail a
+    - click_on:
+        - selector: div#mem_rcol_top p.memmail a
+    - fill_in:
+        - name: emailaddress
+          selector: form#memberForm input#sender
+          value: $EMAIL
+          required: true
+        - name: firstname
+          selector: form#memberForm input#fname
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: form#memberForm input#lname
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: form#memberForm input#address1
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: form#memberForm input#address2
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: form#memberForm input#city
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: form#memberForm input#state
+          value: $ADDRESS_STATE_FULL
+          required: true
+        - name: zipcode
+          selector: form#memberForm input#zipcode
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: subject
+          selector: form#memberForm input#subject
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: form#memberForm textarea#message
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Send Message
+          selector: "form#memberForm input[type='submit'][value='SEND MESSAGE']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "The information you supplied was reported as having been successfully delivered"

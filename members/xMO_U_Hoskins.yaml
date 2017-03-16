@@ -1,19 +1,13 @@
-bioguide: CAL000465
+bioguide: xMO_U_Hoskins
 contact_form:
   method: post
-  action: ContactPopupSubmit.php
+  action: Contact.aspx
   steps:
-    - visit: "https://lcmspubcontact.lc.ca.gov/PublicLCMS/ContactPopup.php?district=AD80"
+    - visit: "http://www.senate.mo.gov/D21WebApps/Contact.aspx"
     - fill_in:
-        - name: txtFirstName
-          selector: "#txtFirstName"
-          value: $NAME_FIRST
-          required: true
-          options:
-            blacklist: "."
-        - name: txtLastName
-          selector: "#txtLastName"
-          value: $NAME_LAST
+        - name: txtName
+          selector: "#txtName"
+          value: $NAME_FULL
           required: true
         - name: txtAddress
           selector: "#txtAddress"
@@ -27,21 +21,27 @@ contact_form:
           selector: "#txtZip"
           value: $ADDRESS_ZIP5
           required: true
+        - name: txtZip4
+          selector: "#txtZip4"
+          value: $ADDRESS_ZIP4
+          required: true
         - name: txtEmail
           selector: "#txtEmail"
           value: $EMAIL
           required: true
-        - name: jv_text
-          selector: "#ContactForm textarea[name='jv_text']"
+        - name: txtSubject
+          selector: "#txtSubject"
+          value: $SUBJECT
+          required: true
+        - name: txtMessage
+          selector: "#txtMessage"
           value: $MESSAGE
-          options:
-            max_length: 2000
           required: true
     - click_on:
-        - value: Submit
-          selector: "#submitButton"
+        - value: Send Message
+          selector: "#btnSend"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for taking the time to"
+      contains: Your message has been sent.
