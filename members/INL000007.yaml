@@ -1,7 +1,7 @@
 bioguide: INL000007
 contact_form:
   method: post
-  action: /senatorcontact/#wpcf7-f1245-p1246-o1
+  action: ""
   steps:
     - visit: "http://indianasenatedemocrats.org/senatorcontact/"
     - fill_in:
@@ -36,7 +36,7 @@ contact_form:
         - name: phone
           selector: "input[name='Phone']"
           value: $PHONE
-          required: false
+          required: true
         - name: subject
           selector: "input[name='Subject']"
           value: $SUBJECT
@@ -82,8 +82,10 @@ contact_form:
           selector: "input[type='checkbox'][value='Legislative Concerns']"
         - value: Submit
           selector: "input[type='submit'][value='Send']"
+    - wait:
+        - value: 5
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been received
+      contains: "YOUR MESSAGE WAS SENT SUCCESSFULLY TO YOUR STATE SENATOR. THANK YOU."
