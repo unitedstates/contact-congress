@@ -1,7 +1,7 @@
 bioguide: INL000040
 contact_form:
   method: post
-  action: /senatorcontact/#wpcf7-f1245-p1246-o1
+  action: ""
   steps:
     - visit: "http://indianasenatedemocrats.org/senatorcontact/"
     - fill_in:
@@ -36,7 +36,7 @@ contact_form:
         - name: phone
           selector: "input[name='Phone']"
           value: $PHONE
-          required: false
+          required: true
         - name: subject
           selector: "input[name='Subject']"
           value: $SUBJECT
@@ -48,16 +48,15 @@ contact_form:
     - select:
       - name: senator
         selector: "select[name='Senator']"
-        value: "Senator Tallian (District 4)"
+        value: "Senator Tallian (District 34)"
         required: true
         options:
-         - Senator Arnold (District 8)
          - Senator Breaux (District 34)
-         - Senator Broden (District 10)
+         - Senator Niezgodski (District 10)
          - Senator Lanane (District 25)
          - Senator Mrvan (District 1)
          - Senator Randolph (District 2)
-         - Senator Rogers (District 3)
+         - Senator Melton (District 3)
          - Senator Stoops (District 40)
          - Senator Tallian (District 4)
          - Senator Taylor (District 33)
@@ -70,6 +69,8 @@ contact_form:
          Ms.: Ms.
          Mrs.: Mrs.
          Dr.: Dr.
+    - find:
+        - selector: ".wpcf7-captchac"
     - fill_in:
         - name: captcha
           selector: ".wpcf7-captchar"
@@ -82,8 +83,10 @@ contact_form:
           selector: "input[type='checkbox'][value='Legislative Concerns']"
         - value: Submit
           selector: "input[type='submit'][value='Send']"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been received
+      contains: "YOUR MESSAGE WAS SENT SUCCESSFULLY TO YOUR STATE SENATOR. THANK YOU."

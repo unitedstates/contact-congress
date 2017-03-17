@@ -23,11 +23,11 @@ contact_form:
           required: true
         - name: area_code
           selector: form#memberForm input#phone1
-          value: 222
+          value: $PHONE_AREA_CODE
           required: true
         - name: rest_of_phone
           selector: form#memberForm input#phone2
-          value: 222-2222
+          value: $PHONE_NO_AREA_CODE
           required: true
         - name: street
           selector: form#memberForm input#address1
