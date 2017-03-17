@@ -1,9 +1,11 @@
 bioguide: state_fl_gov_rick_scott
 contact_form:
   method: post
-  action: "/contact-gov-scott/email-the-governor/#wpcf7-f9753-p238-o1"
+  action: ""
   steps:
     - visit: "http://www.flgov.com/contact-gov-scott/email-the-governor/"
+    - find:
+        - selector: "form.wpcf7-form input[name='name']"
     - fill_in:
         - name: name
           selector: "form.wpcf7-form input[name='name']"
@@ -40,11 +42,11 @@ contact_form:
         - value: Send
           selector: input.wpcf7-form-control.wpcf7-submit
     - wait:
-        - value: 50
+        - value: 5
     - find:
         - selector: div.wpcf7-mail-sent-ok
   success:
     headers:
       status: 200
     body:
-      contains: Your message was sent successfully. Thanks.
+      contains: Thank you. Your message has been sent.
