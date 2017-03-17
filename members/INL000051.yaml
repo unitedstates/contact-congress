@@ -15,7 +15,15 @@ contact_form:
           required: true
         - name: address
           selector: input[name=your-address]
-          value: $ADDRESS_FULL
+          value: $ADDRESS_STREET
+          required: true
+        - name: city
+          selector: input[name=your-city]
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: input[name=your-zip]
+          value: $ADDRESS_ZIP5
           required: true
         - name: phone
           selector: input[name=your-phone]
@@ -32,7 +40,7 @@ contact_form:
     - click_on:
         - selector: form.wpcf7-form input[type=submit]
     - wait:
-        - value: 3
+        - value: 10
     - find:
         - selector: div.wpcf7-mail-sent-ok
   success:
