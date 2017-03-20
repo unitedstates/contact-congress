@@ -106,6 +106,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: .buttonHolder input
+    - wait:
+        - value: 1
   success:
     headers:
       status: 200
