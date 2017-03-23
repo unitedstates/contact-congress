@@ -33,6 +33,8 @@ contact_form:
           selector: "#field_E8E82E9B-F02E-44A6-84CB-BB70F34C9310"
           value: $MESSAGE
           required: true
+          options:
+            max_length: 500
     - javascript:
         - value: document.querySelector("#field_E8E82E9B-F02E-44A6-84CB-BB70F34C9310").value = document.querySelector("#field_E8E82E9B-F02E-44A6-84CB-BB70F34C9310").value.replace(/"/g, '');
     - click_on:
