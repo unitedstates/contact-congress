@@ -3,57 +3,61 @@ contact_form:
   method: POST
   action: ""
   steps:
-    - visit: "https://www.tomudall.senate.gov/?p=contact"
+    - visit: "https://www.tomudall.senate.gov/contact/email-tom"
     - find:
-      - selector: form#contact_form input#firstName
+      - selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
     - fill_in:
       - name: first
-        selector: input#firstName
+        selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
         value: $NAME_FIRST
         required: true
       - name: last
-        selector: input#lastName
+        selector: input#input-B03E04BD-4040-F985-52CD-48E090E769DA
         value: $NAME_LAST
         required: true
       - name: street
-        selector: input#Address1
+        selector: input#input-B03E05F1-4040-F985-52CD-A580E72A7D41
         value: $ADDRESS_STREET
         required: true
       - name: street2
-        selector: input#Address2
+        selector: input#input-B03E0518-4040-F985-52CD-CF33EF97DA3A
         value: $ADDRESS_STREET_2
         required: false
       - name: city
-        selector: input#city
+        selector: input#input-B03E0595-4040-F985-52CD-C572364023FE
         value: $ADDRESS_CITY
         required: true
       - name: zip5
-        selector: form#contact_form input#zip
+        selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C input#input-B03E04CC-4040-F985-52CD-4DDB58DA474A
         value: $ADDRESS_ZIP5
         required: true
+      - name: county
+        selector: input#input-0AACF9DE-5056-A066-6041-455B82DE1661
+        value: $ADDRESS_COUNTY
+        required: true
       - name: phone
-        selector: form#contact_form input#phone
+        selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C input#input-B03E046E-4040-F985-52CD-A2F10450D58D
         value: $PHONE
         required: true
       - name: email
-        selector: form#contact_form input#email
+        selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C input#email
         value: $EMAIL
         required: true
       - name: verify_email
-        selector: form#contact_form input#vemail
+        selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C input#input-B03E05A4-4040-F985-52CD-730C08912F4F
         value: $EMAIL
         required: true
       - name: subject
-        selector: form#contact_form input#MessageSubject
+        selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C input#input-E535F970-D74F-D0F1-64CB-E9BB60C165D2
         value: $SUBJECT
         required: true
       - name: message
-        selector: form#contact_form textarea[name='MessageBody']
+        selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C textarea#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2
         value: $MESSAGE
         required: true
     - select:
       - name: prefix
-        selector: select[name='Prefix']
+        selector: select#input-B03E0527-4040-F985-52CD-C0DD6BEF325F
         value: $NAME_PREFIX
         required: true
         options:
@@ -83,7 +87,7 @@ contact_form:
           Sister: Sister
           Technical Sergeant: Technical Sergeant
       - name: topic
-        selector: select#Subject
+        selector: select#input-B03E04DB-4040-F985-52CD-18F332336F99
         value: $TOPIC
         required: true
         options:
@@ -127,14 +131,11 @@ contact_form:
           Transportation: Transportation
           Veterans: Veterans
     - click_on:
-      - value: Submit
-        selector: form#contact_form input[src='/images/btn-submit.gif']
+      - selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C input[type='submit']
     - wait:
       - value: 4
-    - find:
-      - selector: div.notice
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for your message!"
+      contains: "Thank you for submitting your request to our office"
