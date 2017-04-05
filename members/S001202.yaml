@@ -1,0 +1,82 @@
+bioguide: S001202
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://www.strange.senate.gov/content/contact-senator"
+    - find:
+        - selector: form#webform-client-form-78 input#edit-submitted-constituent-information-first-name
+    - fill_in:
+        - name: firstname
+          selector: input#edit-submitted-constituent-information-first-name
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: input#edit-submitted-constituent-information-last-name
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: input#edit-submitted-constituent-information-address-1
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: input#edit-submitted-constituent-information-address-2
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: input#edit-submitted-constituent-information-city
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: input#edit-submitted-constituent-information-zip
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: input#edit-submitted-constituent-information-phone
+          value: $PHONE
+          required: false
+        - name: email
+          selector: input#edit-submitted-constituent-information-email
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: input#edit-submitted-message-details-please-type-the-subject-of-your-message
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: textarea#edit-submitted-message-details-message
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: select#edit-submitted-constituent-information-prefix
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr.: Dr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Reverend: Reverend
+            Sister: Sister
+            Pastor: Pastor
+            The Honorable: The Honorable
+            Representative: Representative
+            Senator: Senator
+        - name: topic
+          selector: select#edit-submitted-message-details-topic
+          value: $TOPIC
+          required: true
+          options:
+            Other: Other
+    - click_on:
+        - selector: form#webform-client-form-78 input.form-submit
+    - wait:
+        - value: 3
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "your message has been received"
