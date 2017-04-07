@@ -4,23 +4,19 @@ contact_form:
   action: "https://www.peters.senate.gov/contact/email-gary"
   steps:
     - visit: "https://www.peters.senate.gov/contact/email-gary"
+    - wait:
+        - value: 2
     - find:
         - selector: select#actions
     - select:
         - name: actions
           selector: "#actions"
-          value: comment
+          value: Comment on an Issue
           required: true
           options:
-            Comment on an Issue: opinion
-            Help with a Federal Agency: Help with a Federal Agency
-            Meeting Requests: Meeting Requests
-            Tour Requests: Tour Requests
-            Office Locations: Office Locations
-            Student Resources: Student Resources
-            Veterans Resources: Veterans Resources
+            Comment on an Issue: Comment on an Issue
     - wait:
-        - value: 5
+        - value: 3
     - fill_in:
         - name: prefix
           selector: input#input-260E577D-5056-A066-6070-226296904340
