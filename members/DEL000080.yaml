@@ -1,9 +1,9 @@
 bioguide: DEL000080
 contact_form:
   method: POST
-  action: "http://www.desenatedems.com/ajax/apps/formSubmitAjax.php"
+  action: ""
   steps:
-    - visit: http://www.desenatedems.com/nicole-poore.html
+    - visit: "http://www.desenatedems.com/nicole-poore-majority-whip.html"
     - fill_in:
       - name: firstname
         selector: "#input-791799289757655834"
@@ -14,11 +14,11 @@ contact_form:
         value: $NAME_LAST
         required: true
       - name: emailaddress
-        selector: "#input-513011569918440533" 
+        selector: "#input-513011569918440533"
         value: $EMAIL
         required: true
       - name: confirmemailaddress
-        selector: "#input-519106587252657437" 
+        selector: "#input-519106587252657437"
         value: $EMAIL
         required: true
       - name: message
@@ -36,7 +36,7 @@ contact_form:
     - click_on:
       - value: Submit
         selector: ".wsite-button-inner"
-  success: 
+  success:
     headers:
       status: 200
     body:
