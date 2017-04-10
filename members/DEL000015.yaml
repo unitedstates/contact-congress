@@ -1,9 +1,9 @@
 bioguide: DEL000015
 contact_form:
   method: POST
-  action: "http://www.desenatedems.com/ajax/apps/formSubmitAjax.php"
+  action: ""
   steps:
-    - visit: http://www.desenatedems.com/david-b-mcbride-majority-leader.html
+    - visit: "http://www.desenatedems.com/david-b-mcbride-president-pro-tempore.html"
     - fill_in:
       - name: firstname
         selector: "#input-633515695829061437"
@@ -14,11 +14,11 @@ contact_form:
         value: $NAME_LAST
         required: true
       - name: emailaddress
-        selector: "#input-334292100790779003" 
+        selector: "#input-334292100790779003"
         value: $EMAIL
         required: true
       - name: confirmemailaddress
-        selector: "#input-943801941616208347" 
+        selector: "#input-943801941616208347"
         value: $EMAIL
         required: true
       - name: message
@@ -36,7 +36,7 @@ contact_form:
     - click_on:
       - value: Submit
         selector: ".wsite-button-inner"
-  success: 
+  success:
     headers:
       status: 200
     body:
