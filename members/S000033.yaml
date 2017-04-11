@@ -8,6 +8,8 @@ contact_form:
       - value: 2
     - click_on:
       - selector: "a.cerabox-close"
+    - javascript:
+      - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - select:
       - name: subject
         selector: "#subject"
@@ -181,6 +183,8 @@ contact_form:
     - click_on:
       - value: Submit
         selector: "#side-search-btn"
+    - wait:
+      - value: 2
     - find:
       - selector: "h2"
         value: "Thank You"
