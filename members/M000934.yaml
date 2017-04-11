@@ -4,46 +4,61 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.moran.senate.gov/public/index.cfm/e-mail-jerry"
+    - find:
+        - selector: select#field_8AECE1B7-0DB4-497B-95C5-E5102C91B9D1
+    - select:
+        - name: start
+          selector: select#field_8AECE1B7-0DB4-497B-95C5-E5102C91B9D1
+          value: Comment or Ask Questions about Specific Issues or Legislation
+          required: true
+          options:
+            Comment or Ask Questions about Specific Issues or Legislation: Comment or Ask Questions about Specific Issues or Legislation
     - fill_in:
         - name: first
-          selector: input#field_174356C7-866C-41FA-A8CC-AFE0EA069FFE
+          selector: input#field_F584DB14-EBF4-4A69-9A32-9FBDDED35B84
           value: $NAME_FIRST
           required: true
         - name: last
-          selector: input#field_F2A238AC-0B82-4157-8FCB-1FE6A37A08A0
+          selector: input#field_E6E4058E-A737-405F-AE5D-D7D41A7E8B5E
           value: $NAME_LAST
           required: true
         - name: street
-          selector: input#field_BCD5C462-5A93-468B-825D-1F1B0504DE9F
+          selector: input#field_9E29ECCB-FE46-43E7-BBD3-D62B8FBF42F8
           value: $ADDRESS_STREET
           required: true
         - name: street2
-          selector: input#field_CA8452EE-3FAD-4ABD-934D-A534C85E9824
+          selector: input#field_7CD93FC1-50C6-4861-871C-3CE585DE3675
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: input#field_DBB6AD7D-20B2-429D-A082-0D01B49AC3E4
+          selector: input#field_6E959311-9669-4B86-A863-EB43467FE7FE
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: input#field_55223E83-235B-4F62-92AE-F9154484097B
+          selector: input#field_BF6AA012-BC30-493B-AECB-EEB2F449979C
           value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector: input#field_77F8C6FB-07CE-4C99-A75E-94D54CF2E6DA
+          selector: input#field_84914330-6605-4067-8AFD-1E1F80B24620
           value: $PHONE
           required: true
         - name: email
-          selector: input#field_84C25D40-EF1F-452D-B84B-C85C65724CCC
+          selector: input#field_770E67A6-DF25-4586-BFD9-6AA3C1A8B3FE
           value: $EMAIL
           required: true
         - name: message
-          selector: textarea#field_123312F2-861A-4DC6-AAA2-768D19D27D8D
+          selector: textarea#field_955D171C-85C6-4515-9D66-560E2EB6E15C
           value: $MESSAGE
           required: true
     - select:
+        - name: topic
+          selector: select#field_D8D2B924-8B4A-44C5-B78D-FEE0F81C8D7E
+          value: $TOPIC
+          required: true
+          options:
+            Other: Other
         - name: prefix
-          selector: select#field_19590BCB-8DC4-4761-8C17-0E8BBC746E64
+          selector: select#field_34C75A0A-DEE8-422D-B5D8-B73D78A4A06F
           value: $NAME_PREFIX
           required: true
           options:
@@ -61,12 +76,14 @@ contact_form:
             Representative: Representative
             Senator: Senator
     - click_on:
-        - selector: input#field_1807499F-BB47-4A2B-81AF-4D6C2497C5E5_2
+        - selector: input#field_0ADBE733-15FE-4446-A42B-4162E529BC6D_2
     - find:
         - selector: div.buttonHolder input
     - click_on:
         - value: Submit
           selector: div.buttonHolder input
+    - wait:
+        - value: 5
   success:
     headers:
       status: 200

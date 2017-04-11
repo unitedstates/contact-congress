@@ -1,14 +1,14 @@
 bioguide: ILL000928
 contact_form:
   method: post
-  action: http://senatorhastings.com/index.php/contact-us
+  action: ""
   steps:
-    - visit: "http://senatorhastings.com/index.php/contact-us"
+    - visit: "http://senatorhastings.com/contact-me"
     - fill_in:
         - name: prefix
           selector: "#prefix"
           value: $NAME_PREFIX
-          required: true
+          required: false
         - name: name
           selector: "input[id='firstName'][size='40']"
           value: $NAME_FIRST
@@ -24,10 +24,6 @@ contact_form:
         - name: city
           selector: "#city"
           value: $ADDRESS_CITY
-          required: true
-        - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
         - name: zip
           selector: "#zipCode"
@@ -46,8 +42,8 @@ contact_form:
           value: $MESSAGE
           required: true
         - name: captcha
-          selector: ".rsform-captcha-box"
-          captcha_selector: ".rsform-block img"
+          selector: "#captchaTxt36"
+          captcha_selector: "#captcha36"
           value: "$CAPTCHA_SOLUTION"
           required: true
     - select:
