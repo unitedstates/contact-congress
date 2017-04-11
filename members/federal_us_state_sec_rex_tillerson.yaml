@@ -28,8 +28,8 @@ contact_form:
         value: $MESSAGE
         required: true
       - name: captcha
-        captcha_selector: "#Captcha1_InnerCaptchaImage"
-        selector: div.ob_iTC input
+        captcha_selector: "#RadCaptcha1_CaptchaImage"
+        selector: "#rcTextBox1"
         value: $CAPTCHA_SOLUTION
         required: true
     - click_on:
