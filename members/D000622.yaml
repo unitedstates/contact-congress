@@ -47,7 +47,8 @@ contact_form:
           selector: textarea#edit-submitted-message-details-message
           value: $MESSAGE
           required: true
-          blacklist: "/\\-\\-/"
+          options:
+            blacklist: "/\\-\\-/"
     - select:
         - name: prefix
           selector: select#edit-submitted-constituent-information-prefix
