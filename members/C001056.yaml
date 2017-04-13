@@ -49,6 +49,8 @@ contact_form:
         selector: textarea#edit-submitted-message
         value: $MESSAGE
         required: true
+        options:
+          blacklist: "/\\-\\-/"
     - find:
       - selector: select#edit-submitted-issue
     - select:
