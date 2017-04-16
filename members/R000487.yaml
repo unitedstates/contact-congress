@@ -1,9 +1,31 @@
 bioguide: R000487
 contact_form:
-  method: post
-  action: /submit-contact.aspx
+  method: get
+  action: /contact/contactform.htm
   steps:
-    - visit: "https://royce.house.gov/contact/contactform.htm"
+    - visit: "http://royce.house.gov/contact/zipcheck.htm"
+    - fill_in:
+        - name: first
+          selector: "form.zipform input[name='first']"
+          value: $NAME_FIRST
+          required: false
+        - name: last
+          selector: "form.zipform input[name='last']"
+          value: $NAME_LAST
+          required: false
+        - name: zip5
+          selector: "form.zipform input[name='zip5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: zip4
+          selector: "form.zipform input[name='zip4']"
+          value: $ADDRESS_ZIP4
+          required: false
+    - click_on:
+        - value: Submit
+          selector: "form.zipform input[type='submit'][value='Submit']"
+    -find:
+      -selector: "#contactForm"
     - fill_in:
         - name: required-first
           selector: "#contactForm input[name='required-first']"
