@@ -94,6 +94,12 @@ contact_form:
           Transportation: Transportation
           Veterans: Veterans
           Welfare: Welfare
+      - name: agency
+        selector: select#edit-submitted-federal-agency-involved-dropdown
+        value: Other
+        required: true
+        options:
+          Other: Other
       - name: State
         selector: select#edit-submitted-state
         value: $ADDRESS_STATE_POSTAL_ABBREV
