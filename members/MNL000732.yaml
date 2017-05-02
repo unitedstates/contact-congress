@@ -1,0 +1,70 @@
+bioguide: MNL000732
+contact_form:
+  method: post
+  action: ""
+  usePhantomJsLogging: true
+  steps:
+    - visit: "https://www.senate.mn/members/member_emailform.php?mem_id=1236&ls=90"
+    - find:
+        - selector: form[name='Emailform'] select[name='form_title']
+    - select:
+        - name: prefix
+          selector: form[name='Emailform'] select[name='form_title']
+          value: $NAME_PREFIX
+          required: true
+          options:
+              Mr: Mr.
+              Miss: Miss
+              Ms.: Ms.
+              Mrs.: Mrs.
+              Mr. and Mrs.: Mr. and Mrs.
+              Mx.: Mx.
+    - fill_in:
+        - name: fname
+          selector: "#form_firstname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#form_lastname"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "#form_Street1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "#form_Street2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "#form_City"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "#form_State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: zip
+          selector: "#form_Zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: "#form_Email"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "#form_Subject"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "#form_Message"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - value: Submit
+          selector: "input[type='submit'][value='Submit Information']"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your message has been successfully sent
