@@ -41,6 +41,11 @@ contact_form:
           required: true
           options:
             max_length: 2500
+        - name: "captcha_95CD8B31-5184-42D1-B156-FBC53AE06B99"
+          selector: "#captcha_95CD8B31-5184-42D1-B156-FBC53AE06B99"
+          captcha_selector: "#captcha_95CD8B31-5184-42D1-B156-FBC53AE06B99_container img"
+          value: $CAPTCHA_SOLUTION
+          required: true
     - select:
         - name: field_2647C301-6F8A-4A2F-A7AD-6AB2BA694E46
           selector: "#field_2647C301-6F8A-4A2F-A7AD-6AB2BA694E46"
@@ -119,8 +124,6 @@ contact_form:
             - Veterans
     - javascript:
         - value: document.querySelector("#field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4").value = document.querySelector("#field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4").value.replace(/"/g, '');
-    - recaptcha:
-        - value: true
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
