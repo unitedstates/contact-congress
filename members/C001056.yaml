@@ -4,12 +4,6 @@ contact_form:
   action: /contact
   steps:
     - visit: "http://www.cornyn.senate.gov/contact"
-    - check:
-        - name: "submitted[please_select_one]"
-          selector: "#edit-submitted-please-select-one-1"
-          value: contact_discuss
-    - wait:
-        - value: 1
     - select:
         - name: "submitted[issue]"
           selector: "#edit-submitted-issue"
@@ -113,12 +107,6 @@ contact_form:
             West Virginia: WV
             Wisconsin: WI
             Wyoming: WY
-        - name: "submitted[federal_agency_involved_dropdown]"
-          selector: "#edit-submitted-federal-agency-involved-dropdown"
-          value: "other"
-          required: true
-          options:
-            Other: other
     - fill_in:
         - name: "submitted[prefix_optional]"
           selector: "#edit-submitted-prefix-optional"
