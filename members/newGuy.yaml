@@ -1,0 +1,43 @@
+bioguide: idkWhatever
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://www.regulations.gov/comment?D=DOI-2017-0002-0001l"
+    - find:
+      - selector: div.GIY1LSJAQC form
+    - fill_in:
+      - name: message
+        selector: textarea#x-auto-0-input
+        value: $MESSAGE
+        required: true
+      - name: first
+        selector: input#x-auto-1-input
+        value: $NAME_FIRST
+        required: true
+      - name: last
+        selector: input#x-auto-2-input
+        value: $NAME_LAST
+        required: true
+    - click_on:
+      - selector: input#gwt-uid-85
+    - fill_in:
+      - name: zip
+        selector: input#x-auto-8-input
+        value: $ADDRESS_ZIP5
+        required: true
+    - click_on:
+      - selector: div.GIY1LSJISC button.primary
+    - find:
+      - selector: input#gwt-uid-255
+    - click_on:
+      - selector: input#gwt-uid-255
+    - find:
+      - selector: button#gwt-uid-390
+    - click_on:
+      - selector: button#gwt-uid-390
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your Comment Tracking Number"
