@@ -6,6 +6,8 @@ contact_form:
     - visit: "https://www.regulations.gov/comment?D=DOI-2017-0002-0001"
     - find:
       - selector: div.GIY1LSJAQC form
+    - wait:
+      - value: 3
     - fill_in:
       - name: message
         selector: textarea#x-auto-0-input
