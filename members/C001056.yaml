@@ -4,10 +4,6 @@ contact_form:
   action: ""
   steps:
     - visit: "http://www.cornyn.senate.gov/contact"
-    - find:
-      - selector: input#edit-submitted-please-select-one-1
-    - click_on:
-      - selector: input#edit-submitted-please-select-one-1
     - fill_in:
       - name: Prefix
         selector: input#edit-submitted-prefix-optional
@@ -94,12 +90,6 @@ contact_form:
           Transportation: Transportation
           Veterans: Veterans
           Welfare: Welfare
-      - name: agency
-        selector: select#edit-submitted-federal-agency-involved-dropdown
-        value: Other
-        required: true
-        options:
-          Other: Other
       - name: State
         selector: select#edit-submitted-state
         value: $ADDRESS_STATE_FULL
