@@ -4,7 +4,11 @@ contact_form:
   action: ""
   steps:
     - visit: "https://compliancegov.zendesk.com/hc/en-us/requests/new"
+    - wait:
+      - value: 4
     - find:
+      - selector: input#request_anonymous_requester_email
+    - click_on:
       - selector: input#request_anonymous_requester_email
     - fill_in:
       - name: email
@@ -27,13 +31,16 @@ contact_form:
         selector: input#request_custom_fields_28006408
         value: $ADDRESS_CITY
         required: false
-    - select:
-      - name: topic
-        selector: select#ae-request_custom_fields_27999287
-        value: Other (not listed)
-        required: true
-        options:
-          Other (not listed): Other (not listed)
+    - find:
+      - selector: div.request_custom_fields_27999287 a.nesty-input
+    - click_on:
+      - selector: div.request_custom_fields_27999287 a.nesty-input
+    - find:
+      - selector: ul[value=other_not_listed]
+    - click_on:
+      - selector: ul[value=other_not_listed]
+    - find:
+      - selector: form#new_request input[type='submit']
     - click_on:
       - value: Submit
         selector: form#new_request input[type='submit']
