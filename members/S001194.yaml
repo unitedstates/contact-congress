@@ -119,6 +119,7 @@ contact_form:
         - name: response
           selector: "#response_y"
           value: "Y"
+          required: true
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - click_on:
