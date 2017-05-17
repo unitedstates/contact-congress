@@ -16,6 +16,8 @@ contact_form:
             Media Inquiries: media_inquires
             Request help with a federal agency: federal_agency
             Request a flag to be flown over the Capitol: flag
+    - find:
+        - selector: "#fname"                
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -101,13 +103,11 @@ contact_form:
             Trade: Trade
             Transportation: Transportation
             Veterans: Veterans
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');            
     - click_on:
         - value: Send
           selector: "#side-search-btn"
-    - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
-    - javascript:
-        - value: "document.querySelector('#side-search-btn').click();"
     - find:
         - selector: "h2"
           value: "Thank You"
