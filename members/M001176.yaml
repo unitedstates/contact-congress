@@ -103,11 +103,11 @@ contact_form:
             Trade: Trade
             Transportation: Transportation
             Veterans: Veterans
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');            
     - click_on:
         - value: Send
           selector: "#side-search-btn"
-    - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - find:
         - selector: "h2"
           value: "Thank You"
