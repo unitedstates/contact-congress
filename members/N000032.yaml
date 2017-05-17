@@ -56,10 +56,73 @@ contact_form:
             - Mrs.
             - Ms.
             - Dr.
-    - check:
+    - choose:
         - name: Issue
-          selector: "input[type='radio'][name='Issue'][value='Other']"
-          value: Other
+          selector: "[type='radio'][name='Issue']"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: Abortion
+            Academy: Academy
+            Aging: Aging
+            Agriculture: Agriculture
+            "Animal Welfare": "Animal Welfare"
+            Arts: Arts
+            Banking: Banking
+            "Broadcast Regulations": "Broadcast Regulations"
+            Budget: Budget
+            Business: Business
+            "Casework [You will be redirected to the Casework form upon selecting this option]": Casework
+            "Children's Health Insurance": "Children's Health Insurance"
+            "Constitutional Issues": "Constitutional Issues"
+            "Consumer Protection": "Consumer Protection"
+            Courts: Courts
+            Crime: Crime
+            Defense: Defense
+            "Domestic Wiretaps": "Domestic Wiretaps"
+            Economy: Economy
+            Education: Education
+            Elections: Elections
+            Energy: Energy
+            Environment: Environment
+            "Everglades Restoration": "Everglades Restoration"
+            "FEMA/Natural Disasters": "FEMA/Natural Disasters"
+            "Flag Requests": "Flag Requests"
+            "Foreign Relations": "Foreign Relations"
+            "Government Reform": "Government Reform"
+            "Gun Control": "Gun Control"
+            Health: Health
+            "Homeland Security": "Homeland Security"
+            Housing: Housing
+            Immigration: Immigration
+            "Import Safety": "Import Safety"
+            Intelligence: Intelligence
+            Invitations: Invitations
+            Iraq: Iraq
+            "Judicial Nominations": "Judicial Nominations"
+            Labor: Labor
+            Medicare/Medicaid: Medicare/Medicaid
+            Military: Military
+            "National Parks": "National Parks"
+            "Native American Issues": "Native American Issues"
+            Other: Other
+            Pensions: Pensions
+            "Photograph Requests": "Photograph Requests"
+            "Port Security": "Port Security"
+            "Prescription Drugs": "Prescription Drugs"
+            Privacy: Privacy
+            "Property Insurance": "Property Insurance"
+            "Social Security": "Social Security"
+            "Social Services/Welfare": "Social Services/Welfare"
+            Space: Space
+            "Stem Cell Research": "Stem Cell Research"
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            "Tours [You will be redirected to the Tours page upon selecting this option]": Tours
+            Trade: Trade
+            Transportation: Transportation
+            Veterans: Veterans
+            "Women's Issues": "Womens Issues"
     - javascript:
         - value: document.querySelector("#Message").value = document.querySelector("#Message").value.replace(/"/g, '');
     - click_on:
