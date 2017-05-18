@@ -109,7 +109,7 @@ contact_form:
         - value: Send
           selector: "#side-search-btn"
     - javascript:		
-        - value: "document.querySelector('#side-search-btn').click();"
+        - value: "document.querySelector('#side-search-btn') && document.querySelector('#side-search-btn').click();"
     - find:
         - selector: "h2"
           value: "Thank You"
