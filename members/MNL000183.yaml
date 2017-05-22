@@ -5,20 +5,6 @@ contact_form:
   usePhantomJsLogging: true
   steps:
     - visit: "http://www.senate.mn/members/member_emailform.php?mem_id=1212&ls=90"
-    - find:
-        - selector: form[name='Emailform'] select[name='form_title']
-    - select:
-        - name: prefix
-          selector: form[name='Emailform'] select[name='form_title']
-          value: $NAME_PREFIX
-          required: true
-          options:
-              Mr: Mr.
-              Miss: Miss
-              Ms.: Ms.
-              Mrs.: Mrs.
-              Mr. and Mrs.: Mr. and Mrs.
-              Mx.: Mx.
     - fill_in:
         - name: fname
           selector: "#form_firstname"
