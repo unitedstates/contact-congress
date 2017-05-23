@@ -1,39 +1,42 @@
 bioguide: WIL000420
 contact_form:
   method: post
-  action: Contact.aspx
+  action: ""
   steps:
-    - visit: "http://legis.wisconsin.gov/assembly/sinicki/Pages/Contact.aspx"
+    - visit: "http://legis.wisconsin.gov/assembly/20/sinicki/contact/contact-form/"
     - fill_in:
         - name: message
-          selector: "#legis-cf-comments"
+          selector: div.message textarea
           value: $MESSAGE
           required: true
+        - name: first
+          selector: div.firstname input
+          value: $NAME_FIRST
+          required: true
+        - name: last
+          selector: div.lastname input
+          value: $NAME_LAST
+          required: true
         - name: email
-          selector: "#legis-cf-email"
+          selector: div.emailaddress input
           value: $EMAIL
           required: true
-        - name: name
-          selector: "#legis-cf-name"
-          value: $NAME_FULL
-          required: true
-        - name: address
-          selector: "#legis-cf-address"
+        - name: street
+          selector: div.addressline1optional input
           value: $ADDRESS_STREET
-          required: true
+          required: false
+        - name: street2
+          selector: div.addressline2optional input
+          value: $ADDRESS_STREET_2
+          required: false
         - name: citystatezip
-          selector: "#legis-cf-city-state"
+          selector: div.citystatezipcodeoptional input
           value: $ADDRESS_CITY_STATE_ZIP
-          required: true
-        - name: phone
-          selector: "#legis-cf-phone"
-          value: $PHONE
-          required: true
+          required: false
     - click_on:
-        - value: Submit
-          selector: ".legis-email-submit-btn"
+        - selector: input[name='submitbtn']
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your input
+      contains: Thank you
