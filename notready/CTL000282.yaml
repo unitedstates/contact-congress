@@ -1,9 +1,9 @@
 bioguide: CTL000282
 contact_form:
   method: post
-  action: 
+  action:
   steps:
-    - visit: "http://www.senatedems.ct.gov/Kennedy-mailform.php"
+    - visit: "http://www.senatedems.ct.gov/kennedy-contact"
     - fill_in:
         - name: name
           selector: "#first_name"
@@ -33,7 +33,7 @@ contact_form:
            - Bethany
            - Bethel
            - Bethlehem
-           - Bloomfield 
+           - Bloomfield
            - Bolton
            - Bozrah
            - Branford
@@ -62,7 +62,7 @@ contact_form:
            - Derby
            - Durham
            - East Granby
-           - East Haddam 
+           - East Haddam
            - East Hampton
            - East Hartford
            - East Haven
@@ -85,7 +85,7 @@ contact_form:
            - Guilford
            - Haddam
            - Hamden
-           - Hampton 
+           - Hampton
            - Hartford
            - Hartland
            - Harwinton
@@ -93,9 +93,9 @@ contact_form:
            - Kent
            - Killingly
            - Killingworth
-           - Lebanon 
+           - Lebanon
            - Ledyard
-           - Lisbon 
+           - Lisbon
            - Litchfield
            - Lyme
            - Madison
@@ -137,7 +137,7 @@ contact_form:
            - Pomfret
            - Portland
            - Preston
-           - Prospect 
+           - Prospect
            - Putnam
            - Redding
            - Ridgefield
@@ -145,7 +145,7 @@ contact_form:
            - Roxbury
            - Salem
            - Salisbury
-           - Scotland 
+           - Scotland
            - Seymour
            - Sharon
            - Shelton
@@ -222,8 +222,8 @@ contact_form:
           selector: "input[value='Yes']"
     - fill_in:
         - name: captcha
-          selector: "#security_code"
-          captcha_selector: "#security_image"
+          selector: "#captchaTxt412"
+          captcha_selector: "#captcha412"
           captcha_id_selector: ""
           value: "$CAPTCHA_SOLUTION"
           required: true
