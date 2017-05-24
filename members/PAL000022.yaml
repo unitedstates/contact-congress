@@ -1,63 +1,49 @@
 bioguide: PAL000022
 contact_form:
   method: post
-  action: /contact-daylin#usermessage10a
+  action: ""
   steps:
     - visit: "http://www.senatorleach.com/contact-daylin"
     - fill_in:
         - name: fname
-          selector: "#cf10_field_2"
+          selector: input#cf10_field_2
           value: $NAME_FIRST
           required: true
         - name: lname
-          selector: "#cf10_field_3"
+          selector: input#cf10_field_3
           value: $NAME_LAST
           required: true
-        - name: address
-          selector: "#cf10_field_4"
+        - name: street
+          selector: input#cf10_field_4
           value: $ADDRESS_STREET
           required: true
-        - name: address2
-          selector: "#cf10_field_5"
+        - name: street2
+          selector: input#cf10_field_5
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: "#cf10_field_6"
+          selector: input#cf10_field_6
           value: $ADDRESS_CITY
           required: true
         - name: zip
-          selector: "#cf10_field_8"
+          selector: input#cf10_field_8
           value: $ADDRESS_ZIP5
           required: true
         - name: email
-          selector: "#cf10_field_9"
+          selector: input#cf10_field_9
           value: $EMAIL
           required: true
         - name: message
-          selector: "#cf10_field_10"
+          selector: textarea#cf10_field_10
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: "#cforms_captcha10"
-          captcha_selector: "#cf_captcha_img10"
-          value: $CAPTCHA_SOLUTION
-          required: true
-    - select:
-        - name: prefix
-          selector: "#cf10_field_1"
-          value: $NAME_PREFIX
-          options:
-            Mr.: Mr.
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Miss: Miss
-            Dr.: Dr.
-            Hon.: Hon.
     - click_on:
         - value: Submit
           selector: "#sendbutton10"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: As you can imagine
