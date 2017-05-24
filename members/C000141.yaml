@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.cardin.senate.gov/contact/email-ben"
+    - wait:
+      - value: 4
     - find:
       - selector: select#input-B03E0527-4040-F985-52CD-C0DD6BEF325F
     - fill_in:
@@ -98,7 +100,7 @@ contact_form:
     - click_on:
       - selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C div.controls input.btn
     - wait:
-        - value: 1
+        - value: 4
   success:
     headers:
       status: 200
