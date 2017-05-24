@@ -1,47 +1,48 @@
 bioguide: INL000097
 contact_form:
   method: post
-  action: "https://kersey43.wufoo.com/embed/zpd4qhz02eg9bs/#public"
+  action: ""
   steps:
-    - visit: "https://kersey43.wufoo.com/embed/zpd4qhz02eg9bs/"
+    - visit: "http://indianahousedemocrats.org/contact-clyde-kersey/"
     - fill_in:
-        - name: first
-          selector: input#Field1
-          value: $NAME_FIRST
+        - name: name
+          selector: input[name='your-name']
+          value: $NAME_FULL
           required: true
-        - name: last
-          selector: input#Field2
-          value: $NAME_LAST
+        - name: email
+          selector: input[name='your-email']
+          value: $EMAIL
           required: true
-        - name: address
-          selector: input#Field3
+        - name: street
+          selector: input[name='your-address']
           value: $ADDRESS_STREET
           required: true
         - name: city
-          selector: input#Field5
+          selector: input[name='your-city']
           value: $ADDRESS_CITY
           required: true
-        - name: state
-          selector: input#Field6
-          value: $ADDRESS_STATE_FULL
-          required: true
         - name: zip5
-          selector: input#Field7
+          selector: input[name='your-zip']
           value: $ADDRESS_ZIP5
           required: true
-        - name: email
-          selector: input#Field10
-          value: $EMAIL
+        - name: phone
+          selector: input[name='your-phone']
+          value: $PHONE
+          required: true
+        - name: subject
+          selector: input[name='your-subject']
+          value: $SUBJECT
           required: true
         - name: message
-          selector: input#Field11
+          selector: textarea[name='your-message']
           value: $MESSAGE
           required: true
     - click_on:
-        - value: Submit
-          selector: input#saveForm
+        - selector: form.wpcf7-form input[type='submit']
+    - wait:
+        - value: 20
   success:
     headers:
       status: 200
     body:
-      contains: "Great! Thanks for filling out my form!"
+      contains: Thank you for your message. It has been sent
