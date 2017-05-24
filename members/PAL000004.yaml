@@ -1,7 +1,7 @@
 bioguide: PAL000004
 contact_form:
   method: post
-  action: /contact#usermessagea
+  action: ""
   steps:
     - visit: "http://www.senatorboscola.com/contact"
     - fill_in:
@@ -41,18 +41,11 @@ contact_form:
           selector: "#cf_field_11"
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: input#cforms_captcha
-          captcha_selector: img#cf_captcha_img
-          value: $CAPTCHA_SOLUTION
-          required: true
-    - select:
-        - name: issue
-          selector: "#cf_field_1"
-          value: "Other"
     - click_on:
         - value: Submit
           selector: "#sendbutton"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
