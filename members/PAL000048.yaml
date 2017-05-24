@@ -1,7 +1,7 @@
 bioguide: PAL000048
 contact_form:
   method: post
-  action: /contact#usermessage2a
+  action: ""
   steps:
     - visit: "http://www.senatoranthonyhwilliams.com/contact"
     - fill_in:
@@ -36,19 +36,16 @@ contact_form:
         - name: phone
           selector: "#cf_field_9"
           value: $PHONE
-          required: true
+          required: false
         - name: message
           selector: "#cf_field_10"
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: "#cforms_captcha"
-          captcha_selector: "#cf_captcha_img"
-          value: "$CAPTCHA_SOLUTION"
-          required: true
     - click_on:
         - value: Submit
           selector: "#sendbutton"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
