@@ -1,0 +1,48 @@
+bioguide: PAL000213
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.senatorsabatina.com/contact/"
+    - fill_in:
+        - name: fname
+          selector: input#field_qh4icy3
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: input#field_ocfup13
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: input#field_lhp9xi
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: input#field_m9eng3
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: input#field_kxtn3a
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip
+          selector: input#field_fimmek
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: input#field_29yf4d3
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: textarea#field_9jv0r13
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - selector: div.frm_submit input.frm_final_submit
+    - wait:
+        - value: 3
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Your form was successfully submitted
