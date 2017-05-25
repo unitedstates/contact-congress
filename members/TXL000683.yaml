@@ -1,0 +1,74 @@
+bioguide: TXL000683
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.house.state.tx.us/members/member-page/email/?district=116&session=85"
+    - fill_in:
+        - name: firstname
+          selector: "input[name='name_first']"
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: "input[name='name_last']"
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: "input[name='address']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: "input[name='address2']"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "input[name='city']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: state
+          selector: "input[name='state']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: zipcode
+          selector: "input[name='zip']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: emailaddress
+          selector: "input[name='email']"
+          value: $EMAIL
+          required: true
+        - name: subject
+          selector: "input[name='subject']"
+          value: $SUBJECT
+          required: true
+        - name: message
+          selector: "textarea[name='message']"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: prefix
+          selector: "select[name='prefix']"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr: Mr
+            Ms: Ms
+            Miss: Miss
+            Mrs: Mrs
+            Rev: Rev
+            Fr: Fr
+            Dr: Dr
+    - click_on:
+        - value: Send Message
+          selector: "#email-button"
+    - find:
+       - selector: "#container"
+         value: "After confirming your information"
+    - click_on:
+        - value: Send Message
+          selector: "#email-button"
+  success:
+    headers:
+      status: 200
+    body:
+      contains:  I would like to personally thank you for contacting me
