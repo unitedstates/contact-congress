@@ -1,49 +1,46 @@
 bioguide: CTL000187
 contact_form:
   method: post
-  action: 
+  action:
   steps:
-    - visit: "http://cthousegop.com/contact-fred/"
+    - visit: "http://www.cthousegop.com/camillo/contact-me/"
     - fill_in:
-        - name: name
-          selector: "input[name='first-name']"
+        - name: first
+          selector: input#input_1_1_3
           value: $NAME_FIRST
           required: true
-        - name: name
-          selector: "input[name='last-name']"
+        - name: last
+          selector: input#input_1_1_6
           value: $NAME_LAST
           required: true
         - name: email
-          selector: "input[name='your-email']"
+          selector: input#input_1_3
           value: $EMAIL
           required: true
-        - name: address
-          selector: "input[name='YourAddress']"
+        - name: street
+          selector: input#input_1_2_1
           value: $ADDRESS_STREET
           required: true
+        - name: street2
+          selector: input#input_1_2_2
+          value: $ADDRESS_STREET_2
+          required: false
         - name: city
-          selector: "input[name='YourTown']"
+          selector: input#input_1_2_3
           value: $ADDRESS_CITY
           required: true
-        - name: subject
-          selector: "input[name='your-subject']"
-          value: $SUBJECT
+        - name: zip5
+          selector: input#input_1_2_5
+          value: $ADDRESS_ZIP5
           required: true
         - name: message
-          selector: "textarea[name='your-message']"
+          selector: textarea#input_1_4
           value: $MESSAGE
           required: true
-        - name: captcha
-          selector: ".wpcf7-captchar"
-          captcha_selector: ".wpcf7-captchac"
-          captcha_id_selector: "input[name='_wpcf7_captcha_challenge_captcha-486']"
-          value: "$CAPTCHA_SOLUTION"
-          required: true
     - click_on:
-        - value: Submit
-          selector: ".wpcf7-submit"
+        - selector: input#gform_submit_button_1
   success:
     headers:
       status: 200
     body:
-      contains: Your message was sent successfully
+      contains: Thanks for contacting us
