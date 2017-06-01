@@ -1,39 +1,42 @@
 bioguide: WIL000487
 contact_form:
   method: post
-  action: Contact.aspx
+  action: ""
   steps:
-    - visit: "http://legis.wisconsin.gov/assembly/taylor/Pages/Contact.aspx"
+    - visit: "http://legis.wisconsin.gov/assembly/76/taylor/contact/leave-a-comment/"
     - fill_in:
-        - name: message
-          selector: "#legis-cf-comments"
-          value: $MESSAGE
+        - name: first
+          selector: div.firstname input
+          value: $NAME_FIRST
           required: true
-        - name: email
-          selector: "#legis-cf-email"
-          value: $EMAIL
+        - name: last
+          selector: div.lastname input
+          value: $NAME_LAST
           required: true
-        - name: name
-          selector: "#legis-cf-name"
-          value: $NAME_FULL
-          required: true
-        - name: address
-          selector: "#legis-cf-address"
+        - name: street
+          selector: div.streetaddress input
           value: $ADDRESS_STREET
           required: true
-        - name: citystatezip
-          selector: "#legis-cf-city-state"
-          value: $ADDRESS_CITY_STATE_ZIP
+        - name: city
+          selector: div.citystate input
+          value: $ADDRESS_CITY
           required: true
-        - name: phone
-          selector: "#legis-cf-phone"
-          value: $PHONE
+        - name: zip5
+          selector: input#f7e00efc-347e-4795-d491-17d04f9f8699
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: email
+          selector: input#e10a84c1-4c80-47d3-c111-b5332f12cdc6
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: div.comments textarea
+          value: $MESSAGE
           required: true
     - click_on:
-        - value: Submit
-          selector: ".legis-email-submit-btn"
+        - selector: div#contour_form_9d88eb536de347d78e1f8a43378f4129 input[type=submit]
   success:
     headers:
       status: 200
     body:
-      contains: Form submitted successfully
+      contains: Thank you

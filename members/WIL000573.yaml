@@ -1,39 +1,38 @@
 bioguide: WIL000573
 contact_form:
   method: post
-  action: Contact.aspx
+  action: ""
   steps:
-    - visit: "http://legis.wisconsin.gov/senate/risser/Pages/Contact.aspx"
+    - visit: "http://legis.wisconsin.gov/senate/26/risser/contact-senator-risser/"
     - fill_in:
         - name: email
-          selector: "#legis-cf-email"
+          selector: input#fa63d8f3-0cf6-4504-b40e-3deab0ec61b1
           value: $EMAIL
           required: true
         - name: name
-          selector: "#legis-cf-name"
+          selector: input#bb18d8f1-0b16-4400-a11f-b17b03269cdb
           value: $NAME_FULL
           required: true
-        - name: address
-          selector: "#legis-cf-address"
+        - name: street
+          selector: div.address input
           value: $ADDRESS_STREET
-          required: true
+          required: false
         - name: citystatezip
-          selector: "#legis-cf-city-state"
+          selector: div.citystatezipcode input
           value: $ADDRESS_CITY_STATE_ZIP
-          required: true
+          required: false
         - name: phone
-          selector: "#legis-cf-phone"
+          selector: div.phonenumber input
           value: $PHONE
-          required: true
+          required: false
         - name: message
-          selector: "#legis-cf-message"
+          selector: div.dearsenatorrisser textarea
           value: $MESSAGE
           required: true
     - click_on:
-        - value: Submit
-          selector: ".legis-email-submit-btn"
+        - selector: div#contour_form_8fcdc00b464e42e5aa4d01f252f38795 input[type=submit]
   success:
     headers:
       status: 200
     body:
-      contains: I want to thank
+      contains: Welcome to my web site
