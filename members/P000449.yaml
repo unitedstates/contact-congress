@@ -5,6 +5,10 @@ contact_form:
   steps:
     - visit: "https://www.portman.senate.gov/public/index.cfm/contact-form"
     - fill_in:
+        - name: field_94419B46-A0D3-4172-B593-7D8DE54C9F98
+          selector: "#field_94419B46-A0D3-4172-B593-7D8DE54C9F98"
+          value: $NAME_PREFIX
+          required: false
         - name: field_ABC03F4E-8760-440F-BA41-22107A2F7BCF
           selector: "#field_ABC03F4E-8760-440F-BA41-22107A2F7BCF"
           value: $NAME_FIRST
