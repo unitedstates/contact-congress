@@ -46,10 +46,10 @@ contact_form:
           selector: textarea#message
           value: $MESSAGE
           required: true
-    - find:
-        - selector: input#email
+    - remove:
+        - selector: "#email.long"
     - click_on:
-        - selector: input#phone
+        - selector: form#govcontact input#phone
     - fill_in:
         - name: email
           selector: input#email
