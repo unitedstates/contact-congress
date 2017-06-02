@@ -3,64 +3,65 @@ contact_form:
   method: post
   action: /content/contact-senator
   steps:
-    - visit: "https://www.cortezmasto.senate.gov/content/contact-senator"
+    - visit: "https://www.cortezmasto.senate.gov/contact/connect"
+    - click_on:
+        - selector: ".opinion h1"
     - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
+        - name: "input_78DF3A81-B287-CC2A-5900-56C22D85E462"
+          selector: "#input-78DF3A81-B287-CC2A-5900-56C22D85E462"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
+        - name: "input-78DF39C6-93C1-552A-DC26-5EE4EE82C938"
+          selector: "#input_78DF39C6-93C1-552A-DC26-5EE4EE82C938"
           value: $NAME_LAST
           required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
+        - name: "input_78DF3A96-A657-0521-883B-58CE5FEBC4FA"
+          selector: "#input-78DF3A96-A657-0521-883B-58CE5FEBC4FA"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
+        - name: "input_78DF3ADE-917F-8844-388A-9DA79F33248A"
+          selector: "#input-78DF3ADE-917F-8844-388A-9DA79F33248A"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
+        - name: "input_78DF39D2-E140-6A64-6C46-DFC42EC825B1"
+          selector: "#input-78DF39D2-E140-6A64-6C46-DFC42EC825B1"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[constituent_information][phone]"
-          selector: "#edit-submitted-constituent-information-phone"
+        - name: "input_78DF3A8C-B76A-17D9-5156-9170FE970E05"
+          selector: "#input-78DF3A8C-B76A-17D9-5156-9170FE970E05"
           value: $PHONE
           required: false
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
+        - name: "input_78DF3ABD-F3F0-E142-B5C3-294CD4A4B8D2"
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
-          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
+        - name: "input_78DF39F6-0CBF-AAEB-3E6B-D606CD8AA55B"
+          selector: "#input-78DF39F6-0CBF-AAEB-3E6B-D606CD8AA55B"
+          value: $EMAIL
+          required: true
+        - name: "input_78F5B663-987A-E8DA-A3D9-0CA96474A5A1"
+          selector: "#input-78F5B663-987A-E8DA-A3D9-0CA96474A5A1"
           value: $SUBJECT
           required: true
-        - name: "submitted[message_details][message]"
-          selector: "#edit-submitted-message-details-message"
+        - name: "input_78DF3A4F-C8ED-2264-6E6C-A51B1269E6D2"
+          selector: "#input-78DF3A4F-C8ED-2264-6E6C-A51B1269E6D2"
           value: $MESSAGE
           required: true
     - select:
-        - name: "submitted[constituent_information][prefix]"
-          selector: "#edit-submitted-constituent-information-prefix"
+        - name: "input_78DF3ACD-C97D-140A-A757-3725A60CEDE1"
+          selector: "#input-78DF3ACD-C97D-140A-A757-3725A60CEDE1"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Mrs.
             - Ms.
-            - Mr. and Mrs.
+            - Miss
+            - Professor
+            - Dean
             - Dr.
-            - Dr. and Mrs.
-            - Reverend
-            - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
+        - name: "input_78DF39AC-9674-30FF-2AB3-2FD8BE463378"
+          selector: "#input-78DF39AC-9674-30FF-2AB3-2FD8BE463378"
           value: $TOPIC
           required: true
           options:
@@ -70,6 +71,7 @@ contact_form:
             - Agriculture
             - Animal Welfare
             - Appropriations
+            - Arts and Humanities
             - Banking
             - Campaign Finance
             - Children
@@ -77,7 +79,6 @@ contact_form:
             - Commerce
             - Communications
             - Congratulations
-            - Congressional Issues
             - Crime
             - Defense
             - Drugs
@@ -87,47 +88,56 @@ contact_form:
             - Elections
             - Energy
             - Environment
+            - Ethics
             - Family
             - Food Stamps
             - Foreign Affairs
-            - Gun Control
+            - Gaming
+            - Gun Violence Prevention
             - Health
             - Homeland Security
             - Housing
             - Immigration
-            - Inauguration
             - Insurance Health
             - Insurance Other
             - Interior
-            - Iran
-            - Iraq
             - Judiciary
             - Labor
+            - LGBTQ
             - Medicaid
             - Medicare
             - Military
+            - Mining
             - NASA
+            - National Security
+            - Native Americans
             - Nutrition
-            - Other
             - Patents
             - Pensions
+            - Postal
+            - Public Lands
             - Securities
             - Small Business
             - Social Security
+            - Solar/Renewables
             - Taxes
             - Tobacco
+            - Tourism
             - Trade
             - Transportation
             - Veterans
+            - Water
             - Welfare
-            - "Women's Issues"
+            - Women's Issues
+            - Wild Horses
+            - Yucca Mountain
     - javascript:
-        - value: document.querySelector("#edit-submitted-message-details-message").value = document.querySelector("#edit-submitted-message-details-message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-78DF3A4F-C8ED-2264-6E6C-A51B1269E6D2").value = document.querySelector("#input-78DF3A4F-C8ED-2264-6E6C-A51B1269E6D2").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
+          selector: "#input.btn"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: "Connect with Catherine"
