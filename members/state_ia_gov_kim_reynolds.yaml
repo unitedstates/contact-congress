@@ -1,0 +1,142 @@
+bioguide: state_ia_gov_kim_reynolds
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://governor.iowa.gov/constituent-services/register-opinion"
+    - find:
+      - selector: div#prefix-overlay-header button
+    - click_on:
+      - selector: div#prefix-overlay-header button
+    - fill_in:
+      - name: first_name
+        selector: "#edit-submitted-contact-information-first-name"
+        value: $NAME_FIRST
+        required: true
+      - name: last_name
+        selector: "#edit-submitted-contact-information-last-name"
+        value: $NAME_LAST
+        required: true
+      - name: email
+        selector: "#edit-submitted-contact-information-email"
+        value: $EMAIL
+        required: true
+      - name: street1
+        selector: "#edit-submitted-contact-information-address-1"
+        value: $ADDRESS_STREET
+        required: true
+      - name: street2
+        selector: "#edit-submitted-contact-information-address-2"
+        value: $ADDRESS_STREET_2
+        required: false
+      - name: city
+        selector: "#edit-submitted-contact-information-city"
+        value: $ADDRESS_CITY
+        required: true
+    - select:
+      - name: state
+        selector: "#edit-submitted-contact-information-state"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: true
+    - fill_in:
+      - name: zip
+        selector: "#edit-submitted-contact-information-zip"
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: phone
+        selector: "#edit-submitted-contact-information-phone"
+        value: $PHONE
+        required: true
+    - wait:
+      - value: 5
+    - select:
+      - name: Topic
+        selector: "#edit-submitted-message-message-subject"
+        value: $TOPIC
+        required: true
+        options:
+          - "---"
+          - Abortion
+          - Agriculture
+          - Alternative Energy (Wind, Ethanol)
+          - Animal Rights
+          - Birthday (80+ years)
+          - Boards and Commissions
+          - Child Abuse/DHS
+          - Child Support
+          - Children/Family/Adoption
+          - Civil Rights
+          - Clemency/Pardon
+          - Conference and Convention Letter Requests
+          - Corrections
+          - Drivers License
+          - Drugs- Illegal
+          - Drugs- Prescription
+          - Eagle Scout/Scouting
+          - Economic Development
+          - Education - Higher
+          - Education - K through 12
+          - Education - Preschool
+          - Eminent Domain
+          - Environment
+          - Federal Government
+          - Flag Requests
+          - Gambling
+          - Gasoline
+          - Guns
+          - Health and Human Services
+          - Housing
+          - Immigration
+          - Insurance - Health
+          - Insurance - Other
+          - Internships
+          - Iowa Workforce Development
+          - IPERS
+          - Jobs
+          - Judiciary
+          - Labor
+          - Legal
+          - Legislation
+          - Local Issues
+          - Medicaid - Budget Cuts
+          - Medicaid - General
+          - Medicare - Federal
+          - Military Retirement Letter
+          - National Guard
+          - Natural Resources/Conservation
+          - Nursing Home
+          - Other
+          - Public Safety
+          - Revenue
+          - Small Business
+          - Smoking Ban
+          - Social Security/Aging
+          - Budget
+          - State Economy
+          - State Employees
+          - Tax - Corporate
+          - Tax - Federal
+          - Tax - Income
+          - Tax - Property
+          - Taxes
+          - Tourism
+          - Transportation
+          - Utilities
+          - Veterans
+          - Wedding Anniversary (50+ Years)
+          - Welfare/Food Stamps
+          - Worker's Compensation
+    - fill_in:
+      - name: message
+        selector: "#edit-submitted-message-message"
+        value: $MESSAGE
+        required: true
+    - wait:
+      - value: 5
+    - click_on:
+      - selector: "input[type='submit'][value='Submit']"
+    - wait:
+      - value: 5
+  success:
+    body:
+      contains: "your submission has been received"
