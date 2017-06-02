@@ -4,50 +4,61 @@ contact_form:
   action: ""
   steps:
     - visit: "http://in.gov/gov/2752.htm"
+    - find:
+        - selector: form#govcontact select#subject
+    - wait:
+        - value: 3
+    - click_on:
+        - selector: label[for=prefix]
+    - select:
+        - name: topic
+          selector: select#subject
+          value: Governor, Office of the
+          required: true
+          options:
+            Governor, Office of the: Governor, Office of the
     - fill_in:
         - name: first
-          selector: input#field48240277-first
+          selector: input#first
           value: $NAME_FIRST
           required: true
         - name: last
-          selector: input#field48240277-last
+          selector: input#last
           value: $NAME_LAST
           required: true
         - name: street
-          selector: input#field48240349-address
+          selector: input#street
           value: $ADDRESS_STREET
           required: true
         - name: street2
-          selector: input#field48240349-address2
+          selector: input#suite
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: input#field48240349-city
+          selector: input#city
           value: $ADDRESS_CITY
           required: true
         - name: zip
-          selector: input#field48240349-zip
+          selector: input#zip
           value: $ADDRESS_ZIP5
           required: true
-        - name: email
-          selector: input#field48240372
-          value: $EMAIL
-          required: true
         - name: message
-          selector: textarea#field48240375
+          selector: textarea#message
           value: $MESSAGE
           required: true
-    - select:
-        - name: state
-          selector: select#field48240349-state
-          value: Indiana
-          required: true
-          options:
-            Indiana: Indiana
+    - find:
+        - selector: input#email
     - click_on:
-        - selector: form#fsForm2557586 input#fsSubmitButton2557586
+        - selector: input#phone
+    - fill_in:
+        - name: email
+          selector: input#email
+          value: $EMAIL
+          required: true
+    - click_on:
+        - selector: form#govcontact input[type=submit]
   success:
     headers:
       status: 200
     body:
-      contains: "The form was submitted successfully"
+      contains: We will reply to you
