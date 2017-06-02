@@ -136,8 +136,10 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "input.btn"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: "Connect with Catherine"
+      contains: "CONNECT WITH CATHERINE"
