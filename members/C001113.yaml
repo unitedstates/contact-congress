@@ -3,82 +3,84 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.cortezmasto.senate.gov/content/contact-senator"
+    - visit: "https://www.cortezmasto.senate.gov/contact/connect"
     - find:
-        - selector: form#webform-client-form-78 input#edit-submitted-constituent-information-first-name
+        - selector: div#main_column div.opinion a.btn
+    - click_on:
+        - selector: div#main_column div.opinion a.btn
+    - find:
+        - selector: input#input-78DF3A81-B287-CC2A-5900-56C22D85E462
     - fill_in:
         - name: firstname
-          selector: input#edit-submitted-constituent-information-first-name
+          selector: input#input-78DF3A81-B287-CC2A-5900-56C22D85E462
           value: $NAME_FIRST
           required: true
         - name: lastname
-          selector: input#edit-submitted-constituent-information-last-name
+          selector: input#input-78DF39C6-93C1-552A-DC26-5EE4EE82C938
           value: $NAME_LAST
           required: true
         - name: street
-          selector: input#edit-submitted-constituent-information-address-1
+          selector: input#input-78DF3A96-A657-0521-883B-58CE5FEBC4FA
           value: $ADDRESS_STREET
           required: true
         - name: street2
-          selector: input#edit-submitted-constituent-information-address-2
+          selector: input#input-78DF3AF2-C0DC-7FF3-6CE9-24E379BB88B9
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: input#edit-submitted-constituent-information-city
+          selector: input#input-78DF3ADE-917F-8844-388A-9DA79F33248A
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: input#edit-submitted-constituent-information-zip
+          selector: input#input-78DF39D2-E140-6A64-6C46-DFC42EC825B1
           value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector: input#edit-submitted-constituent-information-phone
-          value: $PHONE
-          required: false
+          selector: input#input-78DF3A8C-B76A-17D9-5156-9170FE970E05
+          value: 2223334444
+          required: true
         - name: email
-          selector: input#edit-submitted-constituent-information-email
+          selector: input#email
+          value: $EMAIL
+          required: true
+        - name: confirm_email
+          selector: input#input-78DF39F6-0CBF-AAEB-3E6B-D606CD8AA55B
           value: $EMAIL
           required: true
         - name: subject
-          selector: input#edit-submitted-message-details-please-type-the-subject-of-your-message
+          selector: input#input-78F5B663-987A-E8DA-A3D9-0CA96474A5A1
           value: $SUBJECT
           required: true
         - name: message
-          selector: textarea#edit-submitted-message-details-message
+          selector: textarea#input-78DF3A4F-C8ED-2264-6E6C-A51B1269E6D2
           value: $MESSAGE
           required: true
-          options:
-            blacklist: "/\\-\\-/"
     - select:
         - name: prefix
-          selector: select#edit-submitted-constituent-information-prefix
+          selector: select#input-78DF3ACD-C97D-140A-A757-3725A60CEDE1
           value: $NAME_PREFIX
           required: true
           options:
             Mr.: Mr.
             Mrs.: Mrs.
             Ms.: Ms.
-            Mr. and Mrs.: Mr. and Mrs.
-            Dr.: Dr.
-            Dr. and Mrs.: Dr. and Mrs.
-            Reverend: Reverend
-            Sister: Sister
-            Pastor: Pastor
+            Miss: Miss
+            Professor: Professor
+            Dean: Dean
             The Honorable: The Honorable
-            Representative: Representative
-            Senator: Senator
+            Dr.: Dr.
         - name: topic
-          selector: select#edit-submitted-message-details-topic
+          selector: select#input-78DF39AC-9674-30FF-2AB3-2FD8BE463378
           value: $TOPIC
           required: true
           options:
-            Other: Other
+            Appropriations: Appropriations
     - click_on:
-        - selector: form#webform-client-form-78 input.form-submit
+        - selector: div#form-78DF37A0-0A52-CA9A-8830-4C5F450E15B2 form div.control-group input[type=submit]
     - wait:
         - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: "your message has been received"
+      contains: "Thank you for submitting"

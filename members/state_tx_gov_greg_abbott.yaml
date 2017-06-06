@@ -1,54 +1,49 @@
 bioguide: state_tx_gov_greg_abbott
 contact_form:
   method: post
-  action: assistance.aspx
+  action: ""
   steps:
-    - visit: "https://gov.texas.gov/contact/assistance.aspx"
-    - check:
-        - name: rblPath
-          selector: "#rblPath_0"
-          value: "1"
-    - click_on:
-        - value: Select
-          selector: "#Button1"
+    - visit: "https://gov.texas.gov/apps/contact/opinion.aspx"
     - find:
-        - selector: "#txtFirst"
+        - selector: input#ctl00_ContentPlaceHolder1_RadioButtonList1_0
+    - click_on:
+        - selector: input#ctl00_ContentPlaceHolder1_RadioButtonList1_0
     - fill_in:
-        - name: txtFirst
-          selector: "#txtFirst"
+        - name: First
+          selector: input#ctl00_ContentPlaceHolder1_txtFirst
           value: $NAME_FIRST
           required: true
-        - name: txtLast
-          selector: "#txtLast"
+        - name: Last
+          selector: input#ctl00_ContentPlaceHolder1_txtLast
           value: $NAME_LAST
           required: true
-        - name: txtAddress
-          selector: "#txtAddress"
+        - name: Address
+          selector: input#ctl00_ContentPlaceHolder1_txtAddress
           value: $ADDRESS_STREET
           required: true
-        - name: txtCity
-          selector: "#txtCity"
+        - name: City
+          selector: input#ctl00_ContentPlaceHolder1_txtCity
           value: $ADDRESS_CITY
           required: true
-        - name: txtZip
-          selector: "#txtZip"
+        - name: Zip
+          selector: input#ctl00_ContentPlaceHolder1_txtZip
           value: $ADDRESS_ZIP5
           required: true
-        - name: txtEmail
-          selector: "#txtEmail"
+        - name: Email
+          selector: input#ctl00_ContentPlaceHolder1_txtEmail
           value: $EMAIL
           required: true
-        - name: txtEmail2
-          selector: "#txtEmail2"
+        - name: Email2
+          selector: input#ctl00_ContentPlaceHolder1_txtEmail2
           value: $EMAIL
           required: true
-        - name: txtMessage
-          selector: "#txtMessage"
+        - name: Message
+          selector: textarea#ctl00_ContentPlaceHolder1_txtMessage
           value: $MESSAGE
           required: true
     - select:
-        - name: DropDownList1
-          selector: "#DropDownList1"
+        - name: prefix
+          selector: select#ctl00_ContentPlaceHolder1_DropDownList1
           value: $NAME_PREFIX
           required: true
           options:
@@ -60,12 +55,11 @@ contact_form:
             Dr.: Dr.
             The Honorable: The Honorable
             None: None
-        - name: DropDownList2
-          selector: "#DropDownList2"
+        - name: topic
+          selector: select#ctl00_ContentPlaceHolder1_DropDownList2
           value: $TOPIC
           required: true
           options:
-            "-- Select Issue --": "0"
             Texas Tax Relief - Franchise Tax Reduction: "114"
             Texas Tax Relief - Property Tax Cut: "115"
             Texas Tax Relief - Refund: "116"
@@ -79,15 +73,10 @@ contact_form:
             Transportation: "101"
             Water Issues: "105"
             Other: "74"
-    - check:
-        - name: RadioButtonList1
-          selector: "#RadioButtonList1_0"
-          value: "1"
     - click_on:
-        - value: Send Message
-          selector: "#Button1"
+        - selector: input#ctl00_ContentPlaceHolder1_Button1
   success:
     headers:
       status: 200
     body:
-      contains: "If you do not receive a confirmation e-mail within five minutes"
+      contains: "Thank You for Contacting"
