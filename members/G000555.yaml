@@ -1,228 +1,98 @@
 bioguide: G000555
 contact_form:
   method: post
-  action: /contact/index.cfm
+  action: https://www.gillibrand.senate.gov/contact/email-me
   steps:
-    - visit: "http://www.gillibrand.senate.gov/contact/"
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - visit: "https://www.gillibrand.senate.gov/contact/email-me"
+    - find:
+        - selector: "#input-41379D65-C84B-E83D-BC59-3E535C89FC46"
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: input_41379D65-C84B-E83D-BC59-3E535C89FC46
+          selector: "#input-41379D65-C84B-E83D-BC59-3E535C89FC46"
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#last_name"
+        - name: input_41379D83-ED36-8807-928B-0B9C1C489FD0
+          selector: "#input-41379D83-ED36-8807-928B-0B9C1C489FD0"
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+        - name: input_4138C965-EE4E-0812-9F75-F568FAF4DA8B
+          selector: "#input-4138C965-EE4E-0812-9F75-F568FAF4DA8B"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: mailing_city
-          selector: "#mailing_city"
+        - name: input_4138CB19-FAD0-8E40-D374-E2FFA273B036
+          selector: "#input-4138CB19-FAD0-8E40-D374-E2FFA273B036"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipcode
-          selector: "#mailing_zipcode"
+        - name: input_4138CB54-D64F-32E6-5942-BCECB2422B9C
+          selector: "#input-4138CB54-D64F-32E6-5942-BCECB2422B9C"
           value: $ADDRESS_ZIP5
           required: true
-        - name: home_phone_number
-          selector: "#home_phone_number"
+        - name: input_413A1B60-A672-8A13-9552-69CB2032BE16
+          selector: "#input-413A1B60-A672-8A13-9552-69CB2032BE16"
           value: $PHONE
           required: true
-        - name: email
-          selector: "#email_address"
+        - name: input_413969CF-FA16-EE6B-08AB-E81984CB75AF
+          selector: "input[name='input_413969CF-FA16-EE6B-08AB-E81984CB75AF']"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
-          value: $EMAIL
-          required: true
-        - name: comments
-          selector: "#contactForm textarea[name='comments']"
+        - name: input_4154995F-09DE-911F-DD8B-93796597BB52
+          selector: "#input-4154995F-09DE-911F-DD8B-93796597BB52"
           value: $MESSAGE
-          required: false
+          required: true
     - select:
-        - name: salutation
-          selector: "#salutation"
+        - name: input_41379D3E-BA76-1EEF-C6C5-C18565BAA26C
+          selector: "#input-41379D3E-BA76-1EEF-C6C5-C18565BAA26C"
           value: $NAME_PREFIX
           required: true
           options:
-            - Admiral
-            - Airman
-            - Airman First Class
-            - Brigadier General
-            - Captain
-            - Chief Master Sergeant
-            - Chief Master Sergeant of the Air Force
-            - Chief Petty Officer
-            - Chief Warrant Officer
-            - Colonel
-            - Command  Chief Master Sergeant
-            - Commander
-            - Congressman
-            - Congresswoman
-            - Corporal
-            - Dr.
-            - Ensign
-            - First Lieutenant
-            - First Sergeant
-            - Fleet Admiral
-            - Fr.
-            - General
-            - General of the Air Force
-            - Gov.
-            - Gunnery Sergeant
-            - Hon.
-            - Lance Corporal
-            - Lieutenant
-            - Lieutenant Colonel
-            - Lieutenant Commander
-            - Lieutenant General
-            - "Lieutenant, Junior Grade"
-            - Major
-            - Major General
-            - Master Chief Petty Officer
-            - Master Chief Petty Officer of the Navy
-            - Master Gunnery Sgt
-            - Master Sergeant
-            - Miss
             - Mr.
-            - Mr. and Mrs.
+            - Miss
+            - Dr.
             - Mrs.
             - Ms.
-            - Petty Officer First Class
-            - Petty Officer Second Class
-            - Petty Officer Third Class
-            - Private
-            - Private First Class
-            - Prof.
-            - Rabbi
-            - Rear Admiral (lower half)
-            - Rear Admiral (upper half)
-            - Reverend
-            - Seaman
-            - Seaman Apprentice
-            - Seaman Recruit
-            - Second Lieutenant
-            - Senator
-            - Senior Airman
-            - Senior Chief Petty Officer
-            - Senior Master Sergeant
-            - Sergeant
-            - Sergeant Major
-            - Sgt Major Of The Corps
-            - Sister
-            - Staff Sergeant
-            - Technical Sergeant
-            - Vice Admiral
-            - Warrant Officer
-        - name: state
-          selector: "#state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            AK: AK
-            AL: AL
-            AR: AR
-            AZ: AZ
-            CA: CA
-            CO: CO
-            CT: CT
-            DC: DC
-            DE: DE
-            FL: FL
-            GA: GA
-            HI: HI
-            IA: IA
-            ID: ID
-            IL: IL
-            IN: IN
-            KS: KS
-            KY: KY
-            LA: LA
-            MA: MA
-            MD: MD
-            ME: ME
-            MI: MI
-            MN: MN
-            MO: MO
-            MS: MS
-            MT: MT
-            NC: NC
-            ND: ND
-            NE: NE
-            NH: NH
-            NJ: NJ
-            NM: NM
-            NV: NV
-            NY: NY
-            OH: OH
-            OK: OK
-            OR: OR
-            PA: PA
-            RI: RI
-            SC: SC
-            SD: SD
-            TN: TN
-            TX: TX
-            UT: UT
-            VA: VA
-            VT: VT
-            WA: WA
-            WI: WI
-            WV: WV
-            WY: WY
+            - Pastor
+            - Other
     - choose:
-        - name: subject
-          selector: "[type='radio'][name='subject']"
+        - name: input_414E8A83-CFD8-AD45-21A5-6EFBD69BD4D9
+          selector: "[type='radio'][name='input_414E8A83-CFD8-AD45-21A5-6EFBD69BD4D9']"
           value: $TOPIC
           required: true
           options:
-            Afghanistan: Afghanistan
-            Agriculture: Agriculture
-            Civil Rights: Civil Rights
-            Crime and Public Safety: Crime and Public Safety
-            Economy: Economy
-            Education: Education
-            Energy: Energy
-            Environment: Environment
-            Ethics Reform: Ethics Reform
-            Financial Services: Financial Services
-            Foreign Relations: Foreign Relations
-            Gun Violence: Gun Violence
-            Health Care: Health Care
-            Homeland Security: Homeland Security
-            Housing: Housing
-            Immigration Reform: Immigration Reform
-            Iraq: Iraq
-            Israel: Israel
-            Judiciary: Judiciary
-            Labor and Pensions: Labor and Pensions
-            LGBT Rights: LGBT Rights
-            "Medicare/Medicaid": "Medicare/Medicaid"
-            National Security: National Security
-            Poverty: Poverty
-            "Science/Technology": "Science/Technology"
-            Social Security: Social Security
-            Taxes: Taxes
-            Telecommunications: Telecommunications
-            Veterans: Veterans
-            "Women's Issues": "Women's Issues"
+            Agriculture/Nutrition: 0009820A-5056-A066-60B5-F7361456ADF6
+            Animals Issues: 00098232-5056-A066-60BE-D149610A90B2
+            Arts &amp; Humanities: 0009824F-5056-A066-607F-ED9735C4E255
+            Banking/Finance: 00098278-5056-A066-60F5-4370E3A1657D
+            Campaign/Election Reform: 00098294-5056-A066-600F-7C288D4DC6D4
+            Children: 000982BE-5056-A066-6069-C8B1BE498D3E
+            Civil/LGBT Rights: 000982DB-5056-A066-6003-131688FA6284
+            Defense/Military: 00098303-5056-A066-607B-7C1883F4E1C9
+            Economy: 0009831D-5056-A066-6071-25186CBAA963
+            Education: 00098348-5056-A066-60E3-E13A9137CC3D
+            Energy: 00098365-5056-A066-602A-CC647A2E7716
+            Environment: 0009838E-5056-A066-60E8-4ED41D5FE9EF
+            Foreign Relations/International Affairs: 000983A9-5056-A066-60B5-139FC22596C8
+            Government Reform: 000983EB-5056-A066-60D7-B1091D751DF5
+            Gun Control: 00098409-5056-A066-6088-8522576F76BA
+            Health/Healthcare: 00098424-5056-A066-60E7-3A15FA433F42
+            Homeland Security: 00098442-5056-A066-6061-E9DABC2334FF
+            Housing: 0009845C-5056-A066-60F3-6FE5E89C3062
+            Immigration: 00098478-5056-A066-6001-33E43C14E90E
+            Judiciary: 00098493-5056-A066-60B7-A4D5F83B7526
+            Labor &amp; Pensions: 000984AF-5056-A066-605F-55EA58395438
+            Medicare/Medicaid: 000984CA-5056-A066-60FF-CE39C137250E
+            Science/Technology/Telecommunications: 000984E6-5056-A066-6006-0D235CAC5340
+            Social Security: 00098500-5056-A066-606C-639186DD68FD
+            Taxes: 0009851E-5056-A066-6001-C4929F7D02EC
+            Trade: 0009853C-5056-A066-607D-480F6B9E2846
+            Transportation: 00098586-5056-A066-60DA-E54D181E67E1
+            Veterans: 000985C9-5056-A066-6091-ABD15913636E
+            Welfare: 000985E5-5056-A066-6004-FD5B089A0C10
+            Women's Issues: 00098665-5056-A066-603D-A7EFCE05FDBE
+            Other: 0009867F-5056-A066-6001-7BA85FA3979E
     - javascript:
-        - value: document.querySelector("#contactForm textarea[name='comments']").value = document.querySelector("#contactForm textarea[name='comments']").value.replace(/"/g, '');
-    - javascript:
-        - value: "document.getElementById('contactForm').submit();"
-    - wait:
-        - value: 3
-    - find:
-        - selector: "p"
-          value: "Thank you for contacting Senator Gillibrand."
+        - value: document.querySelector("#input-4154995F-09DE-911F-DD8B-93796597BB52").value = document.querySelector("#input-4154995F-09DE-911F-DD8B-93796597BB52").value.replace(/"/g, '');
+    - click_on:
+        - selector: "input.btn"
   success:
     headers:
       status: 200
