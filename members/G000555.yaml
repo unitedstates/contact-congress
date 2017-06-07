@@ -4,6 +4,8 @@ contact_form:
   action: https://www.gillibrand.senate.gov/contact/email-me
   steps:
     - visit: "https://www.gillibrand.senate.gov/contact/email-me"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - find:
         - selector: "#input-41379D65-C84B-E83D-BC59-3E535C89FC46"
     - fill_in:
