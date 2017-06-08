@@ -134,6 +134,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "input.btn"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
