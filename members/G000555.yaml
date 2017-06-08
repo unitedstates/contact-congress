@@ -1,179 +1,73 @@
 bioguide: G000555
 contact_form:
   method: post
-  action: /contact/index.cfm
+  action: ""
   steps:
-    - visit: "http://www.gillibrand.senate.gov/contact/"
+    - visit: "https://www.gillibrand.senate.gov/contact/email-me"
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: first
+          selector: input#input-41379D65-C84B-E83D-BC59-3E535C89FC46
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#last_name"
+        - name: last
+          selector: input#input-41379D83-ED36-8807-928B-0B9C1C489FD0
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+        - name: street
+          selector: input#input-4138C965-EE4E-0812-9F75-F568FAF4DA8B
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
+        - name: street2
+          selector: input#input-4138C97D-C3EC-6F1D-D677-EA4077BA2615
           value: $ADDRESS_STREET_2
           required: false
-        - name: mailing_city
-          selector: "#mailing_city"
+        - name: city
+          selector: input#input-4138CB19-FAD0-8E40-D374-E2FFA273B036
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipcode
-          selector: "#mailing_zipcode"
+        - name: zip5
+          selector: input#input-4138CB54-D64F-32E6-5942-BCECB2422B9C
           value: $ADDRESS_ZIP5
           required: true
-        - name: home_phone_number
-          selector: "#home_phone_number"
+        - name: email
+          selector: input#email
+          value: $EMAIL
+          required: true
+        - name: phone
+          selector: input#input-413A1B60-A672-8A13-9552-69CB2032BE16
           value: $PHONE
           required: true
-        - name: email
-          selector: "#email_address"
-          value: $EMAIL
-          required: true
-        - name: verify_email
-          selector: "#verify_email"
-          value: $EMAIL
-          required: true
         - name: comments
-          selector: "#contactForm textarea[name='comments']"
+          selector: textarea#input-4154995F-09DE-911F-DD8B-93796597BB52
           value: $MESSAGE
-          required: false
-          options:
-            blacklist: "()"
+          required: true
     - select:
-        - name: salutation
-          selector: "#salutation"
+        - name: prefix
+          selector: select#input-41379D3E-BA76-1EEF-C6C5-C18565BAA26C
           value: $NAME_PREFIX
           required: true
           options:
-            Admiral: Admiral
-            Airman: Airman
-            Airman First Class: Airman First Class
-            Brigadier General: Brigadier General
-            Captain: Captain
-            Chief Master Sergeant: Chief Master Sergeant
-            Chief Master Sergeant of the Air Force: Chief Master Sergeant of the Air Force
-            Chief Petty Officer: Chief Petty Officer
-            Chief Warrant Officer: Chief Warrant Officer
-            Colonel: Colonel
-            Command  Chief Master Sergeant: Command  Chief Master Sergeant
-            Commander: Commander
-            Congressman: Congressman
-            Congresswoman: Congresswoman
-            Corporal: Corporal
             Dr.: Dr.
-            Ensign: Ensign
-            First Lieutenant: First Lieutenant
-            First Sergeant: First Sergeant
-            Fleet Admiral: Fleet Admiral
-            Fr.: Fr.
-            General: General
-            General of the Air Force: General of the Air Force
-            Gov.: Gov.
-            Gunnery Sergeant: Gunnery Sergeant
-            Hon.: Hon.
-            Lance Corporal: Lance Corporal
-            Lieutenant: Lieutenant
-            Lieutenant Colonel: Lieutenant Colonel
-            Lieutenant Commander: Lieutenant Commander
-            Lieutenant General: Lieutenant General
-            "Lieutenant, Junior Grade": "Lieutenant, Junior Grade"
-            Major: Major
-            Major General: Major General
-            Master Chief Petty Officer: Master Chief Petty Officer
-            Master Chief Petty Officer of the Navy: Master Chief Petty Officer of the Navy
-            Master Gunnery Sgt: Master Gunnery Sgt
-            Master Sergeant: Master Sergeant
             Miss: Miss
             Mr.: Mr.
             Mr. and Mrs.: Mr. and Mrs.
             Mrs.: Mrs.
             Ms.: Ms.
-            Petty Officer First Class: Petty Officer First Class
-            Petty Officer Second Class: Petty Officer Second Class
-            Petty Officer Third Class: Petty Officer Third Class
-            Private: Private
-            Private First Class: Private First Class
-            Prof.: Prof.
-            Rabbi: Rabbi
-            Rear Admiral (lower half): Rear Admiral (lower half)
-            Rear Admiral (upper half): Rear Admiral (upper half)
-            Reverend: Reverend
-            Seaman: Seaman
-            Seaman Apprentice: Seaman Apprentice
-            Seaman Recruit: Seaman Recruit
-            Second Lieutenant: Second Lieutenant
-            Senator: Senator
-            Senior Airman: Senior Airman
-            Senior Chief Petty Officer: Senior Chief Petty Officer
-            Senior Master Sergeant: Senior Master Sergeant
-            Sergeant: Sergeant
-            Sergeant Major: Sergeant Major
-            Sgt Major Of The Corps: Sgt Major Of The Corps
-            Sister: Sister
-            Staff Sergeant: Staff Sergeant
-            Technical Sergeant: Technical Sergeant
-            Vice Admiral: Vice Admiral
-            Warrant Officer: Warrant Officer
-    - choose:
+    - click_on:
         - name: subject
-          selector: "[type='radio'][name='subject']"
-          value: Economy
+          selector: input#issue-30
+          value: Other
           required: true
           options:
-            Afghanistan: Afghanistan
-            Agriculture: Agriculture
-            Animals Rights: Animals Rights
-            Civil Rights: Civil Rights
-            Crime and Public Safety: Crime and Public Safety
-            Economy: Economy
-            Education: Education
-            Energy: Energy
-            Environment: Environment
-            Ethics Reform: Ethics Reform
-            Federal Grant Applications: Federal Grant Applications
-            Financial Services: Financial Services
-            Foreign Relations: Foreign Relations
-            Gun Violence: Gun Violence
-            Health Care: Health Care
-            Homeland Security: Homeland Security
-            Housing: Housing
-            Immigration Reform: Immigration Reform
-            Iraq: Iraq
-            Israel: Israel
-            Job Creation: Job Creation
-            Judiciary: Judiciary
-            Labor and Pensions: Labor and Pensions
-            LGBT Rights: LGBT Rights
-            "Medicare/Medicaid": "Medicare/Medicaid"
-            National Security: National Security
-            Poverty: Poverty
-            "Science/Technology": "Science/Technology"
-            Social Security: Social Security
-            Taxes: Taxes
-            Telecommunications: Telecommunications
-            Tours: tours
-            Veterans: Veterans
-            Womens Issues: Womens Issues
-    - check:
-        - name: newsletter
-          selector: "#newsletter"
-          value: newsletter
-    - click_on:
-        - value: Send My Comments
-          selector: input[value='submit']
+            Other: Other
     - find:
-        - selector: "p"
-          value: "Thank you"
+        - selector: div#form-41148127-C769-5460-FAAA-D06B26A0E47E input[type=submit]
+    - click_on:
+        - selector: div#form-41148127-C769-5460-FAAA-D06B26A0E47E input[type=submit]
+    - wait:
+        - value: 2
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting Senator Gillibrand.
+      contains: Thank you for contacting my office
