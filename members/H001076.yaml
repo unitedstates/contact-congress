@@ -3,58 +3,67 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.hassan.senate.gov/content/contact-senator"
+    - visit: "https://www.hassan.senate.gov/contact/email"
     - find:
-        - selector: form#webform-client-form-78 input#edit-submitted-constituent-information-first-name
+        - selector: "#contactbuddin"
+    - click_on:
+        - selector: "#contactbuddin"
+    - find:
+        - selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
     - fill_in:
         - name: firstname
-          selector: input#edit-submitted-constituent-information-first-name
+          selector: input#input-B03E05C4-4040-F985-52CD-9CA44623DE5E
           value: $NAME_FIRST
           required: true
         - name: lastname
-          selector: input#edit-submitted-constituent-information-last-name
+          selector: input#input-B03E04BD-4040-F985-52CD-48E090E769DA
           value: $NAME_LAST
           required: true
         - name: street
-          selector: input#edit-submitted-constituent-information-address-1
+          selector: input#input-B03E05F1-4040-F985-52CD-A580E72A7D41
           value: $ADDRESS_STREET
           required: true
         - name: street2
-          selector: input#edit-submitted-constituent-information-address-2
+          selector: input#input-B03E0518-4040-F985-52CD-CF33EF97DA3A
           value: $ADDRESS_STREET_2
           required: false
         - name: city
-          selector: input#edit-submitted-constituent-information-city
+          selector: input#input-B03E0595-4040-F985-52CD-C572364023FE
           value: $ADDRESS_CITY
           required: true
         - name: zip5
-          selector: input#edit-submitted-constituent-information-zip
+          selector: input#input-B03E04CC-4040-F985-52CD-4DDB58DA474A
           value: $ADDRESS_ZIP5
           required: true
         - name: phone
-          selector: input#edit-submitted-constituent-information-phone
-          value: $PHONE
-          required: false
+          selector: input#input-B03E046E-4040-F985-52CD-A2F10450D58D
+          value: 2223334444
+          required: true
         - name: email
-          selector: input#edit-submitted-constituent-information-email
+          selector: input#email
+          value: $EMAIL
+          required: true
+        - name: verify_email
+          selector: input#input-B03E05A4-4040-F985-52CD-730C08912F4F
           value: $EMAIL
           required: true
         - name: subject
-          selector: input#edit-submitted-message-details-please-type-the-subject-of-your-message
+          selector: input#input-78803FD6-BD54-3C62-213B-D4FBABCB2E0C
           value: $SUBJECT
           required: true
         - name: message
-          selector: textarea#edit-submitted-message-details-message
+          selector: textarea#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2
           value: $MESSAGE
           required: true
-          options:
-            blacklist: "-"
+    - click_on:
+        - selector: input#input-AA8CC6CA-DFB9-1D1C-F43E-F7DAD157AD93
     - select:
         - name: prefix
-          selector: select#edit-submitted-constituent-information-prefix
+          selector: select#input-B03E0527-4040-F985-52CD-C0DD6BEF325F
           value: $NAME_PREFIX
           required: true
           options:
+            None: None
             Mr.: Mr.
             Mrs.: Mrs.
             Ms.: Ms.
@@ -73,17 +82,17 @@ contact_form:
             Representative: Representative
             Senator: Senator
         - name: topic
-          selector: select#edit-submitted-message-details-topic
+          selector: select#input-B03E04DB-4040-F985-52CD-18F332336F99
           value: $TOPIC
           required: true
           options:
-            Congressional Issues: Congressional Issues
+            Other: Other
     - click_on:
-        - selector: form#webform-client-form-78 input.form-submit
+        - selector: form#B03E03FC-4040-F985-52CD-BCD7E00A8A6C input[type=submit]
     - wait:
         - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: "your message has been received"
+      contains: Thank you for contacting my office
