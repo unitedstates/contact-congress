@@ -47,12 +47,14 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            Dr.: Dr.
-            Miss: Miss
             Mr.: Mr.
-            Mr. and Mrs.: Mr. and Mrs.
+            Miss: Miss
+            Dr.: Dr.
             Mrs.: Mrs.
             Ms.: Ms.
+            Pastor: Pastor
+            Rev.: Rev.
+            Other: Other
     - click_on:
         - name: subject
           selector: input#issue-30
