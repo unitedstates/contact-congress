@@ -1,39 +1,36 @@
 bioguide: WIL000504
 contact_form:
   method: post
-  action: Contact.aspx
+  action: ""
   steps:
-    - visit: "http://legis.wisconsin.gov/assembly/born/Pages/Contact.aspx"
+    - visit: "http://legis.wisconsin.gov/assembly/39/born/contact/"
     - fill_in:
-        - name: message
-          selector: "#legis-cf-comments"
-          value: $MESSAGE
-          required: true
-        - name: email
-          selector: "#legis-cf-email"
-          value: $EMAIL
-          required: true
         - name: name
-          selector: "#legis-cf-name"
+          selector: "#f6718dda-0e45-48f9-bf8f-ecfe8a500a9e"
           value: $NAME_FULL
           required: true
         - name: address
-          selector: "#legis-cf-address"
+          selector: "#eba32181-1ccb-444a-ccf5-215b88e98d46"
           value: $ADDRESS_STREET
           required: true
-        - name: citystatezip
-          selector: "#legis-cf-city-state"
-          value: $ADDRESS_CITY_STATE_ZIP
-          required: true
         - name: phone
-          selector: "#legis-cf-phone"
+          selector: div.phone input
           value: $PHONE
           required: true
+        - name: email
+          selector: "#c9204231-7756-4e10-cb50-60870fb4bb73"
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: "#d69e4ea5-4957-4b27-f572-cae872e2dc75"
+          value: $MESSAGE
+          required: true
     - click_on:
-        - value: Submit
-          selector: ".legis-email-submit-btn"
+        - selector: div#contour_form_f3de8afdc0ef44a3859cbc7b31b40632 div.contourNavigation input[type=submit]
+    - wait:
+        - value: 10
   success:
     headers:
       status: 200
     body:
-      contains: Form submitted successfully
+      contains: Thank you
