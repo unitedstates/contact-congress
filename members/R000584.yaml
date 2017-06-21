@@ -113,9 +113,8 @@ contact_form:
         - value: document.querySelector("#field_B3546A94-6FC9-4491-B49E-491AB436132C").value = document.querySelector("#field_B3546A94-6FC9-4491-B49E-491AB436132C").value.replace(/"/g, '');
     - recaptcha:
         - value: true
-    - click_on:
-        - value: Submit
-          selector: div.buttonHolder input
+    - javascript:
+        - value: document.querySelector("div.buttonHolder input").click();
   success:
     headers:
       status: 200
