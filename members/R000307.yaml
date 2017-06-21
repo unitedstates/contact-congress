@@ -83,9 +83,8 @@ contact_form:
             - Other
     - recaptcha:
         - value: true
-    - click_on:
-        - value: "Submit"
-          selector: input.primaryAction
+    - javascript:
+        - value: document.querySelector("input.primaryAction").click();
     - wait:
         - value: 1
   success:
