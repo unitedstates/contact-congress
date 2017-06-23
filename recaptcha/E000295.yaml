@@ -1,0 +1,125 @@
+bioguide: E000295
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "http://www.ernst.senate.gov/public/index.cfm/contact"
+    - fill_in:
+        - name: firstname
+          selector: input#field_DB3CFA78-D300-4859-B087-3057FBA587ED
+          value: $NAME_FIRST
+          required: true
+        - name: lastname
+          selector: input#field_141F094C-93F0-44FB-9400-56F367E16BD5
+          value: $NAME_LAST
+          required: true
+        - name: street
+          selector: input#field_0057F417-9E25-4887-8E27-B2BDA7DB8125
+          value: $ADDRESS_STREET
+          required: true
+        - name: street2
+          selector: input#field_5100B260-21BE-485D-84A3-F2EFFD053D7E
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: input#field_3556DD50-C891-4153-BCFC-806B555999E7
+          value: $ADDRESS_CITY
+          required: true
+        - name: zip5
+          selector: input#field_7671E429-2E68-47F4-8F6C-F4E7E2D272E1
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: phone
+          selector: input#field_09E12330-CB2E-4652-BEAA-DC119831E64E
+          value: $PHONE_HYPHENS
+          required: true
+        - name: email
+          selector: input#field_AE6F4B6C-CF43-4983-9235-B62D675AC9AA
+          value: $EMAIL
+          required: true
+        - name: message
+          selector: textarea#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0
+          value: $MESSAGE
+          required: true
+          options:
+            max_length: 5000
+    - select:
+        - name: prefix
+          selector: select#field_40B41E59-8BAB-4655-BE10-0EF1A105D108
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Dr.: Dr.
+            Rev: Rev
+            Mr. and Mrs.: Mr. and Mrs.
+            Sister: Sister
+        - name: topic
+          selector: select#field_86870AAB-C6FB-4506-8503-2FA7F5CEF532
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: Abortion
+            Adoption: Adoption
+            Agriculture: Agriculture
+            Animal Welfare: Animal Welfare
+            Appropriations: Appropriations
+            Banking: Banking
+            Budget: Budget
+            Campaign Finance: Campaign Finance
+            Children: Children
+            Civil Rights: Civil Rights
+            Commerce: Commerce
+            Communications: Communications
+            Congratulations: Congratulations
+            Crime: Crime
+            Defense: Defense
+            Drugs: Drugs
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Entitlements: Entitlements
+            Environment: Environment
+            "Export-Import Bank": "Export-Import Bank"
+            Family: Family
+            Flood Insurance: Flood Insurance
+            Food Stamps: Food Stamps
+            Foreign Affairs: Foreign Affairs
+            Guns: Guns
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Inauguration: Inauguration
+            Judiciary: Judiciary
+            Labor: Labor
+            Medicaid: Medicaid
+            Medicare: Medicare
+            Miscellaneous: Miscellaneous
+            Monetary Policy: Monetary Policy
+            NASA: NASA
+            Nutrition: Nutrition
+            Other: Other
+            Patents: Patents
+            Pensions: Pensions
+            Postal Issue: Postal Issue
+            Regulatory Reform: Regulatory Reform
+            Securities: Securities
+            Small Business: Small Business
+            Social Issues: Social Issues
+            Social Security: Social Security
+            Taxes: Taxes
+            Trade: Trade
+            Transportation: Transportation
+            Veterans: Veterans
+    - click_on:
+        - value: Submit
+          selector: form#form_0AA25852-D2AC-44E4-9DC2-C44F08E1FB49 div.buttonHolder input.btn
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you!"
