@@ -103,9 +103,8 @@ contact_form:
         - value: document.querySelector("#field_5489134D-7194-47B5-A895-09DF853923E1").value = document.querySelector("#field_5489134D-7194-47B5-A895-09DF853923E1").value.replace(/"/g, '');
     - recaptcha:
         - value: true
-    - click_on:
-        - value: Submit
-          selector: input.btn.btn-primary
+    - javascript:
+        - value: document.querySelector("input.btn.btn-primary").click();
     - find:
         - selector: h4
           value: "Contact Form"
