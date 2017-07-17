@@ -118,6 +118,8 @@ contact_form:
           value: "Yes"
     - javascript:
         - value: document.querySelector("#gen-fieldid-27").value = document.querySelector("#gen-fieldid-27").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#block5 form input[name='formaction']"
