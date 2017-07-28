@@ -3,59 +3,66 @@ contact_form:
   method: post
   action: /content/contact-senator
   steps:
-    - visit: "https://www.young.senate.gov/content/contact-senator"
+    - visit: "https://www.young.senate.gov/contact/email-todd"
+    - click_on:
+        - selector: ".opinion"
+    - find:
+        - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
     - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
+        - name: "input_B03E05C4-4040-F985-52CD-9CA44623DE5E"
+          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
+        - name: "input_B03E04BD-4040-F985-52CD-48E090E769DA"
+          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
           value: $NAME_LAST
           required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
+        - name: "input_B03E05F1-4040-F985-52CD-A580E72A7D41"
+          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
+        - name: "input_B03E0595-4040-F985-52CD-C572364023FE"
+          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
+        - name: "input_B03E04CC-4040-F985-52CD-4DDB58DA474A"
+          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[constituent_information][phone]"
-          selector: "#edit-submitted-constituent-information-phone"
+        - name: "input_B03E046E-4040-F985-52CD-A2F10450D58D"
+          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
           value: $PHONE
           required: true
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
+        - name: "input_B03E0536-4040-F985-52CD-AFE12CDE8D31"
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
-          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
+        - name: "input_B03E05A4-4040-F985-52CD-730C08912F4F"
+          selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
+          value: $EMAIL
+          required: true
+        - name: "input_78803FD6-BD54-3C62-213B-D4FBABCB2E0C"
+          selector: "#input-78803FD6-BD54-3C62-213B-D4FBABCB2E0C"
           value: $SUBJECT
           required: true
-        - name: "submitted[message_details][message]"
-          selector: "#edit-submitted-message-details-message"
+        - name: "input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
+          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
           value: $MESSAGE
           required: true
     - select:
-        - name: "submitted[constituent_information][prefix]"
-          selector: "#edit-submitted-constituent-information-prefix"
+        - name: "input_B03E0527-4040-F985-52CD-C0DD6BEF325F"
+          selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Mrs.
             - Ms.
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
+        - name: "input_B03E04DB-4040-F985-52CD-18F332336F99"
+          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
           value: $TOPIC
           required: true
           options:
-            - Abortion
             - Adoption
             - Aging
             - Agriculture
@@ -63,24 +70,34 @@ contact_form:
             - Appropriations
             - Banking
             - Campaign Finance
+            - Children
             - Civil Rights
             - Commerce
+            - Communications
             - Congratulations
+            - Congressional Issues
+            - Crime
             - Defense
             - Drugs
             - Economy
-            - Education
+            - Education Higher
+            - Education K through 12
+            - Elections
             - Energy
             - Environment
             - Family
-            - Finance
+            - Food Stamps
             - Foreign Affairs
             - Gun Control
             - Health
             - Homeland Security
             - Housing
             - Immigration
+            - Insurance Health
+            - Insurance Other
             - Interior
+            - Iran
+            - Iraq
             - Judiciary
             - Labor
             - Medicaid
@@ -88,25 +105,28 @@ contact_form:
             - Military
             - NASA
             - Nutrition
+            - Other
             - Patents
             - Pensions
-            - Science
+            - Securities
             - Small Business
             - Social Security
             - Taxes
-            - Telecommunications
+            - Tobacco
             - Trade
             - Transportation
             - Veterans
             - Welfare
             - "Women's Issues"
+    - click_on:
+        - selector: "#input-AA8CC6CA-DFB9-1D1C-F43E-F7DAD157AD93"
     - javascript:
-        - value: document.querySelector("#edit-submitted-message-details-message").value = document.querySelector("#edit-submitted-message-details-message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
+          selector: "input.btn"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: "Thank you for sharing your opinion with me"
