@@ -53,7 +53,6 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Casework (Help With a Federal Agency): CASEWORK
             Agriculture: AGR
             Budget: BUD
             Defense: DEF
@@ -80,8 +79,7 @@ contact_form:
         - value: Submit
           selector: input.btn.btn-primary
     - find:
-        - value: Submit
-          selector: input.btn.btn-primary
+        - selector: input.btn.btn-primary
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
