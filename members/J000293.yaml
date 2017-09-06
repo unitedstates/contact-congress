@@ -79,6 +79,12 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
+    - find:
+        - value: Submit
+          selector: input.btn.btn-primary
+    -click_on:
+        - value: Submit
+          selector: input.btn.btn-primary
   success:
     headers:
       status: 200
