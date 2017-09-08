@@ -3,76 +3,79 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.manchin.senate.gov/public/index.cfm/contact-form"
+    - visit: "https://www.manchin.senate.gov/contact-joe/email-joe"
+    - click_on:
+        - selector: ".opinion a"
+    - find:
+        - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
     - fill_in:
-        - name: field_2B2EC1AF-F595-4C6D-8679-17DC5235DC9D
-          selector: "#field_2B2EC1AF-F595-4C6D-8679-17DC5235DC9D"
+        - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
+          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
           value: $NAME_FIRST
           required: true
-        - name: field_573CEC11-763E-4721-9F2E-D534E4FA8A7E
-          selector: "#field_573CEC11-763E-4721-9F2E-D534E4FA8A7E"
+        - name: input_B03E04BD-4040-F985-52CD-48E090E769DA
+          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
           value: $NAME_LAST
           required: true
-        - name: field_459D6E93-EA89-4A7D-B84F-9E9582EDF1A5
-          selector: "#field_459D6E93-EA89-4A7D-B84F-9E9582EDF1A5"
+        - name: input_B03E05F1-4040-F985-52CD-A580E72A7D41
+          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
           value: $ADDRESS_STREET
           required: true
-        - name: field_70607B58-2837-4789-A817-B0D6BAC2742D
-          selector: "#field_70607B58-2837-4789-A817-B0D6BAC2742D"
+        - name: input_B03E0595-4040-F985-52CD-C572364023FE
+          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
           value: $ADDRESS_CITY
           required: true
-        - name: field_7C42F6E5-D1DD-4843-A5D3-7730AF8ED4FD
-          selector: "#field_7C42F6E5-D1DD-4843-A5D3-7730AF8ED4FD"
+        - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
+          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_13FEE0EC-AC8C-4FCE-968A-C3996732F06B
-          selector: "#field_13FEE0EC-AC8C-4FCE-968A-C3996732F06B"
+        - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
+          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
+          value: $PHONE
+          required: true
+        - name: input_B03E0536-4040-F985-52CD-AFE12CDE8D31
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: field_82FAA3C6-43F8-4ED3-BC83-386CB96469BF
-          selector: "#field_82FAA3C6-43F8-4ED3-BC83-386CB96469BF"
+        - name: input_B03E05A4-4040-F985-52CD-730C08912F4F
+          selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
+          value: $EMAIL
+          required: true
+        - name: input_CD35B39E-05AB-A9CD-A328-4AA2A35FE971
+          selector: "#input-CD35B39E-05AB-A9CD-A328-4AA2A35FE971"
           value: $SUBJECT
           required: true
-        - name: field_E5E07FDC-F54E-43F0-A0C2-0FA4DF24A4AE
-          selector: "#field_E5E07FDC-F54E-43F0-A0C2-0FA4DF24A4AE"
+        - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
+          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_2CE505FA-C0AB-4E5D-B984-A0DC7219F6BD
-          selector: "#field_2CE505FA-C0AB-4E5D-B984-A0DC7219F6BD"
+        - name: input_B03E0527-4040-F985-52CD-C0DD6BEF325F
+          selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Ms.
             - Mrs.
-            - Miss
-            - Mr. and Mrs.
             - Dr.
-            - Dr. and Mrs.
-            - Mr. and Dr.
-            - Reverend
-            - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
-        - name: field_6C9D8EEE-C551-4BF1-8324-5134C01DD93A
-          selector: "#field_6C9D8EEE-C551-4BF1-8324-5134C01DD93A"
+        - name: input_B03E04DB-4040-F985-52CD-18F332336F99
+          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
           value: $TOPIC
           required: true
           options:
+            General / Other: GEN
             Abortion: ABO
             Aging / Children / Families: AGE
             Agriculture: AGR
             Animal Welfare / Endangered Species: AC
             Appalachian Regional Commission: ARC
-            Arts: ART
+            Arts: ARTS
             Banking / Finance: BANK
             Budget: BUD
             Campaign Finance / Election Reform: CAMF
             Civil Rights: CR
-            "Coal (Mining, Health & Safety)": COAL
+            Coal (Mining, Health &amp; Safety): COAL
             Constitution: CONST
             Defense / Military: DEF
             Drugs: DRUG
@@ -80,20 +83,21 @@ contact_form:
             Energy: ENE
             Environment: ENV
             Foreign Affairs: FOR
-            "Gun Ownership ": GUN
+            Gun Ownership: GUN
             Health Care: HEA
             Homeland Security: HOM
             Housing: HOUS
             Immigration: IMM
             Intelligence: INT
             Interior / Natural Resources: INR
+            Jobs and the Economy: INR
             Jobs and the Economy: JOBS
             Judiciary / Nominations: JUD
             Labor / Pensions: LAB
             Medicare: MED
-            "Postal ": POST
+            Postal: POST
             Rules: RUL
-            "Science / Technology,Telecommunications": TECH
+            Science / Technology, Telecommunications: TECH
             Small Business: SMB
             Social Security: SSEC
             Taxes: TAX
@@ -101,14 +105,15 @@ contact_form:
             Transportation: TRA
             Veterans: VET
             Welfare: WEL
-            Other: GEN
+    -click_on:
+        - selector: "#input-3F2F30BB-C16D-9FAD-0D20-D9382AC46C87"
     - javascript:
-        - value: document.querySelector("#field_E5E07FDC-F54E-43F0-A0C2-0FA4DF24A4AE").value = document.querySelector("#field_E5E07FDC-F54E-43F0-A0C2-0FA4DF24A4AE").value.replace(/"/g, '');
+        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: div.buttonHolder input
+          selector: btn
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for your message!"
+      contains: "Thank you for contacting"
