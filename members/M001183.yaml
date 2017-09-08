@@ -112,6 +112,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: .btn
+    - find:
+        - value: "Thank You"
+          selector: h1
   success:
     headers:
       status: 200
