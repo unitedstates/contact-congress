@@ -95,11 +95,11 @@ contact_form:
             Telecommunications: TEL
             Trade: TRADE
             Transportation: TRA
-            Veterans: VET
-    - click_on:
-        - selector: "#input-6AC98E37-0486-54F9-5AD3-8111C173B526"            
+            Veterans: VET          
     - javascript:
         - value: document.querySelector("#input-6A735A98-CBA2-6A63-E393-69E16553D654").value = document.querySelector("#input-6A735A98-CBA2-6A63-E393-69E16553D654").value.replace(/"/g, '');
+    - javascript:
+        - value: document.querySelector("#input-6AC98E37-0486-54F9-5AD3-8111C173B526").click();
     - click_on:
         - selector: ".btn"
     - find:
