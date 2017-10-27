@@ -4,6 +4,8 @@ contact_form:
   action: /contact
   steps:
     - visit: "http://www.markey.senate.gov/contact"
+    - javascript:
+      - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - select:
       - name: issue
         selector: "#issue"
