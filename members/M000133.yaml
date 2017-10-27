@@ -184,6 +184,8 @@ contact_form:
         - value: 1
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Send
           selector: "#side-search-btn"
