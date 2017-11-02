@@ -1,49 +1,45 @@
 bioguide: K000393
 contact_form:
   method: post
-  action: /content/contact-senator
+  action: ""
   steps:
-    - visit: "https://www.kennedy.senate.gov/content/contact-senator"
+    - visit: "https://www.kennedy.senate.gov/public/email-me"
     - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
+        - name: "field_472D11A0-26BE-4451-9B65-F206AE29D442"
+          selector: "#field_472D11A0-26BE-4451-9B65-F206AE29D442"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
+        - name: "field_BCFA24AF-DF9B-417C-B381-337BEF9FFEA2"
+          selector: "#field_BCFA24AF-DF9B-417C-B381-337BEF9FFEA2"
           value: $NAME_LAST
           required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
+        - name: "field_AD945778-856F-431D-89C4-542FBD48196B"
+          selector: "#field_AD945778-856F-431D-89C4-542FBD48196B"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
+        - name: "field_FE88A921-425E-4FD6-867A-243B0B7D376B"
+          selector: "#field_FE88A921-425E-4FD6-867A-243B0B7D376B"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
+        - name: "field_D41DE3B9-A421-4819-AE98-C1774E8C4171"
+          selector: "#field_D41DE3B9-A421-4819-AE98-C1774E8C4171"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[constituent_information][phone]"
-          selector: "#edit-submitted-constituent-information-phone"
-          value: $PHONE
-          required: false
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
+        - name: "field_6EA0C046-693D-49D1-BECF-C50679457EF1"
+          selector: "#field_6EA0C046-693D-49D1-BECF-C50679457EF1"
           value: $EMAIL
           required: true
-        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
-          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
+        - name: "field_72B283C8-A3DA-4392-9238-D77F71BBDE12"
+          selector: "#field_72B283C8-A3DA-4392-9238-D77F71BBDE12"
           value: $SUBJECT
           required: true
-        - name: "submitted[message_details][message]"
-          selector: "#edit-submitted-message-details-message"
+        - name: "field_51E3C368-B801-4DE3-87C7-BA4F503FD791"
+          selector: "#field_51E3C368-B801-4DE3-87C7-BA4F503FD791"
           value: $MESSAGE
           required: true
     - select:
-        - name: "submitted[constituent_information][prefix]"
-          selector: "#edit-submitted-constituent-information-prefix"
+        - name: "field_D650E60D-8621-4813-A63C-0C0145EE10B3"
+          selector: "#field_D650E60D-8621-4813-A63C-0C0145EE10B3"
           value: $NAME_PREFIX
           required: true
           options:
@@ -59,57 +55,58 @@ contact_form:
             - The Honorable
             - Representative
             - Senator
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
+        - name: "field_DF8BEEC3-BBDA-44E5-8A19-2D1CA6AA181C"
+          selector: "#field_DF8BEEC3-BBDA-44E5-8A19-2D1CA6AA181C"
           value: $TOPIC
           required: true
           options:
-            - Abortion
-            - Agriculture
-            - Animal Welfare
-            - Appropriations
-            - Banking
-            - Civil Rights
-            - Commerce
-            - Congratulations
-            - Crime
-            - Defense
-            - Economy
-            - Education
-            - Elections
-            - Energy
-            - Environment
-            - Family
-            - Flood Insurance
-            - Foreign Affairs
-            - Gun Control
-            - Healthcare
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Insurance
-            - Iran
-            - Judiciary
-            - Labor
-            - Medicaid
-            - Medicare
-            - Military
-            - Natural Resources
-            - Other
-            - Pensions
-            - Small Business
-            - Social Security
-            - Taxes
-            - Telecommunications
-            - Trade
-            - Transportation
-            - Veterans
-            - "Women's Issues"
+            2nd Amendment: 2nd Amendment
+            Abortion: Abortion
+            Agriculture: Agriculture
+            Animal Welfare: Animal Welfare
+            Appropriations: Appropriations
+            Banking: Banking
+            Budget: Budget
+            Civil Rights: Civil Rights
+            Congratulations: Congratulations
+            Corruption: Corruption
+            Crime: Crime
+            Defense/Military: Defense/Military
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Family Issues: Family Issues
+            FEMA: FEMA
+            Flood Insurance: Flood Insurance
+            Foreign Affairs: Foreign Affairs
+            Healthcare: Healthcare
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Insurance: Insurance
+            Judiciary: Judiciary
+            Labor: Labor
+            Natural Resources: Natural Resources
+            Pensions: Pensions
+            Small Businesses: Small Businesses
+            Social Security: Social Security
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Trade: Trade
+            Transportation: Transportation
+            Women's Issues: Women's Issues
+            OTHER: OTHER
     - javascript:
-        - value: document.querySelector("#edit-submitted-message-details-message").value = document.querySelector("#edit-submitted-message-details-message").value.replace(/"/g, '');
+        - value: document.querySelector("#field_51E3C368-B801-4DE3-87C7-BA4F503FD791").value = document.querySelector("#field_51E3C368-B801-4DE3-87C7-BA4F503FD791").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
+          selector: ".btn-primary"
+    - find:
+        - selector: "p"
+          value: "Thank you, your message has been received."
   success:
     headers:
       status: 200
