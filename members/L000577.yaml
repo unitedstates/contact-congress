@@ -132,6 +132,8 @@ contact_form:
           value: "Yes"
     - javascript:
         - value: document.querySelector("#field_F346AE03-8294-4F38-B762-FCE94ED239AF").value = document.querySelector("#field_F346AE03-8294-4F38-B762-FCE94ED239AF").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
