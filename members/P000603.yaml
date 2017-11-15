@@ -1,243 +1,106 @@
 bioguide: P000603
 contact_form:
   method: post
-  action: "http://www.paul.senate.gov/connect/email-rand"
+  action: "/connect/email-rand"
   steps:
     - visit: "http://www.paul.senate.gov/connect/email-rand"
     - fill_in:
-        - name: input_35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD
-          selector: "#input-35B38CDF-BD3E-346F-4BD0-600FE5B1F7DD"
+        - name: first
+          selector: "#edit-first"
           value: $NAME_FIRST
           required: true
-        - name: input_35BD1D5A-9FBB-121F-9E6D-F05C00786FA5
-          selector: "#input-35BD1D5A-9FBB-121F-9E6D-F05C00786FA5"
+        - name: last
+          selector: "#edit-last"
           value: $NAME_LAST
           required: true
-        - name: input_35E2030D-0BE0-C6C3-F685-66EAF2C47AD2
-          selector: "#input-35E2030D-0BE0-C6C3-F685-66EAF2C47AD2"
+        - name: addr1
+          selector: "#edit-addr1"
           value: $ADDRESS_STREET
           required: true
-        - name: input_35F31A1A-E58A-4DBB-3443-57763D9F57B3
-          selector: "#input-35F31A1A-E58A-4DBB-3443-57763D9F57B3"
+        - name: city
+          selector: "#edit-city"
           value: $ADDRESS_CITY
           required: true
-        - name: input_36021752-DBB4-99CD-0DF8-775968CFD2C5
-          selector: "#input-36021752-DBB4-99CD-0DF8-775968CFD2C5"
+        - name: zip
+          selector: "#edit-zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_3626C40E-B571-4595-8A61-4D52E0AAD553
-          selector: "#email"
+        - name: phone
+          selector: "#edit-phone"
+          value: $PHONE
+          required: true
+        - name: email
+          selector: "#edit-email"
           value: $EMAIL
           required: true
-        - name: input_3629D55A-D2E7-5DF0-4EC9-CF7353DD9A7D
-          selector: "#input-3629D55A-D2E7-5DF0-4EC9-CF7353DD9A7D"
-          value: $EMAIL
-          required: true
-        - name: input_F8813686-4040-F985-52CD-09783C7407E6
-          selector: "#subject"
+        - name: subject
+          selector: "#edit-subject"
           value: $SUBJECT
           required: true
-        - name: input_36466B2D-9324-A3EC-8F49-33D7F83F9C08
-          selector: "#messagebody"
+        - name: message
+          selector: "#edit-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: input_35B67D45-0EE9-695F-CF75-CB73E9531F2A
-          selector: "#input-35B67D45-0EE9-695F-CF75-CB73E9531F2A"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Professor
-            - Dr.
-            - Father
-            - Sister
-            - Rabbi
-            - Reverend
-            - Air Force - General
-            - Air Force - Lieutenant General
-            - Air Force - Major General
-            - Air Force - Brigadier General
-            - Air Force - Colonel
-            - Air Force - Lieutenant Colonel
-            - Air Force - Major
-            - Air Force - Captain
-            - Air Force - First Lieutenant
-            - Air Force - Second Lieutenant
-            - Air Force - Chief Master Sergeant of the Air Force
-            - Air Force - Command Chief Master Sergeant
-            - Air Force - First Sergeant (E-9)
-            - Air Force - Chief Master Sergeant
-            - Air Force - First Sergeant (E-8)
-            - Air Force - Senior Master Sergeant
-            - Air Force - First Sergeant (E-7)
-            - Air Force - Master Sergeant
-            - Air Force - Technical Sergeant
-            - Air Force - Staff Sergeant
-            - Air Force - Senior Airman
-            - Air Force - Airman First Class
-            - Air Force - Airman
-            - Air Force - Airman Basic
-            - Army - General
-            - Army - Lieutenant General
-            - Army - Major General
-            - Army - Brigadier General
-            - Army - Colonel
-            - Army - Lieutenant Colonel
-            - Army - Major
-            - Army - Captain
-            - Army - First Lieutenant
-            - Army - Second Lieutenant
-            - Army - Chief Warrant Officer - 5
-            - Army - Chief Warrant Officer - 4
-            - Army - Chief Warrant Officer - 3
-            - Army - Chief Warrant Officer - 2
-            - Army - Warrant Officer
-            - Army - Sergeant Major of the Army
-            - Army - Command Sergeant Major
-            - Army - Sergeant Major
-            - Army - First Sergeant
-            - Army - Master Sergeant
-            - Army - Sergeant First Class
-            - Army - Staff Sergeant
-            - Army - Sergeant
-            - Army - Corporal
-            - Army - Specialist
-            - Army - Private First Class
-            - Army - Private (E-2)
-            - Army - Private
-            - Coast Guard - Admiral
-            - Coast Guard - Vice Admiral
-            - "Coast Guard - Rear Admiral, Upper Half"
-            - "Coast Guard - Rear Admiral, Lower Half"
-            - Coast Guard - Captain
-            - Coast Guard - Commander
-            - Coast Guard - Lieutenant Commander
-            - Coast Guard - Lieutenant
-            - Coast Guard - Lieutenant Junior Grade
-            - Coast Guard - Ensign
-            - Coast Guard - Chief Warrant Officer - 4
-            - Coast Guard - Chief Warrant Officer - 3
-            - Coast Guard - Chief Warrant Officer - 2
-            - Coast Guard - Master Chief Petty Officer of the Coast Guard
-            - Coast Guard - Master Chief Petty Officer
-            - Coast Guard - Senior Chief Petty Officer
-            - Coast Guard - Chief Petty Officer
-            - Coast Guard - Petty Officer First Class
-            - Coast Guard - Petty Officer Second Class
-            - Coast Guard - Petty Officer Third Class
-            - Coast Guard - Seaman
-            - Coast Guard - Seaman Apprentice
-            - Coast Guard - Seaman Recruit
-            - Marine Corps - General
-            - Marine Corps - Lieutenant General
-            - Marine Corps - Major General
-            - Marine Corps - Brigadier General
-            - Marine Corps - Colonel
-            - Marine Corps - Lieutenant Colonel
-            - Marine Corps - Major
-            - Marine Corps - Captain
-            - Marine Corps - First Lieutenant
-            - Marine Corps - Second Lieutenant
-            - Marine Corps - Chief Warrant Officer - 5
-            - Marine Corps - Chief Warrant Officer - 4
-            - Marine Corps - Chief Warrant Officer - 3
-            - Marine Corps - Chief Warrant Officer - 2
-            - Marine Corps - Warrant Officer
-            - Marine Corps - Sergeant Major of the Marine Corps
-            - Marine Corps - Sergeant Major
-            - Marine Corps - Master Gunnery Sergeant
-            - Marine Corps - First Sergeant
-            - Marine Corps - Master Sergeant
-            - Marine Corps - Gunnery Sergeant
-            - Marine Corps - Staff Sergeant
-            - Marine Corps - Sergeant
-            - Marine Corps - Corporal
-            - Marine Corps - Lance Corporal
-            - Marine Corps - Private First Class
-            - Marine Corps - Private
-            - Navy - Admiral
-            - Navy - Vice Admiral
-            - "Navy - Rear Admiral, Upper Half"
-            - "Navy - Rear Admiral, Lower Half"
-            - Navy - Captain
-            - Navy - Commander
-            - Navy - Lieutenant Commander
-            - Navy - Lieutenant
-            - Navy - Lieutenant Junior Grade
-            - Navy - Ensign
-            - Navy - Chief Warrant Officer - 4
-            - Navy - Chief Warrant Officer - 3
-            - Navy - Chief Warrant Officer - 2
-            - Navy - Master Chief Petty Officer of the Navy
-            - Navy - Master Chief Petty Officer
-            - Navy - Senior Chief Petty Officer
-            - Navy - Chief Petty Officer
-            - Navy - Petty Officer First Class
-            - Navy - Petty Officer Second Class
-            - Navy - Petty Officer Third Class
-            - Navy - Seaman Apprentice
-            - Navy - Seaman
-            - Navy - Seaman Recruit
-        - name: input_F86363CE-4040-F985-52CD-25BC1B061358
-          selector: "#input-F86363CE-4040-F985-52CD-25BC1B061358"
+        - name: issue
+          selector: "#edit-issue"
           value: $TOPIC
           required: true
           options:
-            "Abortion / Pro-Life": Abortion and Pro-Life"
-            "Agriculture": Agriculture
-            "Appropriations": Appropriations
-            "Arts": Arts
-            "Banking": Banking
-            "Budget": Budget
-            "Census": Census
-            "Constitutional Issues": Constitutional Issues
-            "Crime &amp; Law Enforcement": Crime and Law Enforcement
-            "Defense and Armed Services": Defense and Armed Services
-            "Economic Development": Economic Development
-            "Education": Education
-            "Energy": Energy
-            "Environment": Environment
-            "FDA": FDA
-            "FEMA": FEMA
-            "Foreign Affairs": Foreign Affairs
-            "Government Reform": Government Reform
-            "Health Care": Health Care
-            "Homeland Security and TSA": Homeland Security and TSA
-            "Housing": Housing
-            "Illegal Drugs": Illegal Drugs
-            "Immigration and Border Security": Immigration and Border Security
-            "Judicial ": Judicial
-            "Labor / Pensions": Labor and Pensions
-            "Natural Resources": Natural Resources
-            "Post Offices": Post Offices
-            "Religion": Religion
-            "Rural Development": Rural Development
-            "Science, Space and Technology": Science, Space and Technology
-            "Second Amendment": Second Amendment
-            "Small Business": Small Business
-            "Social Security": Social Security
-            "Taxes": Taxes
-            "Telecommunications": Telecommunications
-            "Trade and Commerce": Trade and Commerce
-            "Transportation": Transportation
-            "Veterans Issues": Veterans Issues
-    - wait:
-        - value: 2
+            Abortion/Pro-Life: "ABR"
+            Academy: "ACD"
+            Adoption: "ADP"
+            Agriculture: "AGR"
+            Appropriations: "APP"
+            Arts and Humanities: "ART"
+            Banking: "FIN"
+            Budget: "BUD"
+            Census: "CEN"
+            Constitutional Issues: "CONS"
+            Courts and Judges: "JUD"
+            Crime &amp; Law Enforcement: "CRI"
+            Defense and Armed Services: "DEF"
+            Economic Development: "ECO"
+            Education: "EDU"
+            Energy and Natural Resources: "ENE"
+            Environment: "ENV"
+            FEMA: "FEMA"
+            Foreign Affairs: "FOR"
+            Government Reform and Oversight: "GOV"
+            Health Care: "HEA"
+            Homeland Security and TSA: "HOM"
+            Housing: "HOU"
+            Illegal Drugs: "DRU"
+            Immigration and Border Security: "IMM"
+            Intelligence: "INT"
+            Labor and Pensions: "LAB"
+            Medicaid: "MEDICAID"
+            Medicare: "MEDICARE"
+            Post Offices: "PO"
+            Referral: "REF"
+            Religion: "REL"
+            Rural Development: "RURAL"
+            Science and Technology AND Space and NASA: "SCI/TECH"
+            Second Amendment: "GUN"
+            Small Business: "SMB"
+            Social Security: "SSEC"
+            Special Letter: "SPEC"
+            Taxes: "TAX"
+            Telecommunications: "TEL"
+            Trade and Commerce: "TRADE"
+            Transportation: "TRA"
+            Veterans Issues: "VET"
     - javascript:
-        - value: document.querySelector("#messagebody").value = document.querySelector("#messagebody").value.replace(/"/g, '');
+        - value: document.querySelector("#edit-message").value = document.querySelector("#edit-message").value.replace(/"/g, '');
     - recaptcha:
         - value: true
     - click_on:
         - value: Submit
-          selector: input.btn
+          selector: "#edit-submit--2"
     - find:
-        - value: "Thank you for submitting your request. You should hear from the office soon."
-          selector: "p"
+        - selector: ".alert-success"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting your request. You should hear from the office soon.
+      contains: Thank you for your submission.
