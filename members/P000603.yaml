@@ -5,6 +5,10 @@ contact_form:
   steps:
     - visit: "http://www.paul.senate.gov/connect/email-rand"
     - fill_in:
+        - name: prefix
+          selector: "#edit-prefix"
+          value: $NAME_PREFIX
+          required: true
         - name: first
           selector: "#edit-first"
           value: $NAME_FIRST
