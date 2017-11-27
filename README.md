@@ -144,7 +144,7 @@ These graphics are pulled in near-real-time from the [congress-forms-test](http:
 #### Senate
 
 | Bioguide ID | Website | Status |
-|-------------|---------|------------|------------|
+| ------------- | --------- | ------------ | ------------ |
 | [A000360](https://github.com/unitedstates/contact-congress/blob/master/members/A000360.yaml) | [Sen. Lamar Alexander (R-TN)](http://www.alexander.senate.gov) | [![A000360 status](https://congressforms.eff.org/recent-fill-image/A000360)](http://efforg.github.io/congress-forms-test/?bioguide_id=A000360)
 | [A000368](https://github.com/unitedstates/contact-congress/blob/master/members/A000368.yaml) | [Sen. Kelly Ayotte (R-NH)](http://www.ayotte.senate.gov) | [![A000368 status](https://congressforms.eff.org/recent-fill-image/A000368)](http://efforg.github.io/congress-forms-test/?bioguide_id=A000368)
 | [B001230](https://github.com/unitedstates/contact-congress/blob/master/members/B001230.yaml) | [Sen. Tammy Baldwin (D-WI)](http://www.baldwin.senate.gov) | [![B001230 status](https://congressforms.eff.org/recent-fill-image/B001230)](http://efforg.github.io/congress-forms-test/?bioguide_id=B001230)
