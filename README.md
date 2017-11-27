@@ -143,8 +143,8 @@ These graphics are pulled in near-real-time from the [congress-forms-test](http:
 
 #### Senate
 
-| Bioguide ID | Website | Status
-|-------------|---------|:------------:|:------------:
+| Bioguide ID   | Website   | Status       |
+| ------------- | --------- | ------------ |
 | [A000360](https://github.com/unitedstates/contact-congress/blob/master/members/A000360.yaml) | [Sen. Lamar Alexander (R-TN)](http://www.alexander.senate.gov) | [![A000360 status](https://congressforms.eff.org/recent-fill-image/A000360)](http://efforg.github.io/congress-forms-test/?bioguide_id=A000360)
 | [A000368](https://github.com/unitedstates/contact-congress/blob/master/members/A000368.yaml) | [Sen. Kelly Ayotte (R-NH)](http://www.ayotte.senate.gov) | [![A000368 status](https://congressforms.eff.org/recent-fill-image/A000368)](http://efforg.github.io/congress-forms-test/?bioguide_id=A000368)
 | [B001230](https://github.com/unitedstates/contact-congress/blob/master/members/B001230.yaml) | [Sen. Tammy Baldwin (D-WI)](http://www.baldwin.senate.gov) | [![B001230 status](https://congressforms.eff.org/recent-fill-image/B001230)](http://efforg.github.io/congress-forms-test/?bioguide_id=B001230)
@@ -248,8 +248,8 @@ These graphics are pulled in near-real-time from the [congress-forms-test](http:
 
 #### House of Representatives
 
-| Bioguide ID | Website | Status
-|-------------|---------|:------------:|:------------:
+| Bioguide ID | Website | Status     |
+|-------------|---------|------------|
 | [A000374](https://github.com/unitedstates/contact-congress/blob/master/members/A000374.yaml) | [Rep. Ralph Abraham (R-LA05)](https://abraham.house.gov) | [![A000374 status](https://congressforms.eff.org/recent-fill-image/A000374)](http://efforg.github.io/congress-forms-test/?bioguide_id=A000374)
 | [A000370](https://github.com/unitedstates/contact-congress/blob/master/members/A000370.yaml) | [Rep. Alma Adams (D-NC12)](http://adams.house.gov) | [![A000370 status](https://congressforms.eff.org/recent-fill-image/A000370)](http://efforg.github.io/congress-forms-test/?bioguide_id=A000370)
 | [A000055](https://github.com/unitedstates/contact-congress/blob/master/members/A000055.yaml) | [Rep. Robert B. Aderholt (R-AL04)](http://aderholt.house.gov) | [![A000055 status](https://congressforms.eff.org/recent-fill-image/A000055)](http://efforg.github.io/congress-forms-test/?bioguide_id=A000055)
