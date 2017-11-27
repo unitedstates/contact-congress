@@ -248,8 +248,8 @@ These graphics are pulled in near-real-time from the [congress-forms-test](http:
 
 #### House of Representatives
 
-| Bioguide ID | Website | Status
-|-------------|---------|:------------:|:------------:
+| Bioguide ID | Website | Status     |
+|-------------|---------|------------|
 | [A000374](https://github.com/unitedstates/contact-congress/blob/master/members/A000374.yaml) | [Rep. Ralph Abraham (R-LA05)](https://abraham.house.gov) | [![A000374 status](https://congressforms.eff.org/recent-fill-image/A000374)](http://efforg.github.io/congress-forms-test/?bioguide_id=A000374)
 | [A000370](https://github.com/unitedstates/contact-congress/blob/master/members/A000370.yaml) | [Rep. Alma Adams (D-NC12)](http://adams.house.gov) | [![A000370 status](https://congressforms.eff.org/recent-fill-image/A000370)](http://efforg.github.io/congress-forms-test/?bioguide_id=A000370)
 | [A000055](https://github.com/unitedstates/contact-congress/blob/master/members/A000055.yaml) | [Rep. Robert B. Aderholt (R-AL04)](http://aderholt.house.gov) | [![A000055 status](https://congressforms.eff.org/recent-fill-image/A000055)](http://efforg.github.io/congress-forms-test/?bioguide_id=A000055)
