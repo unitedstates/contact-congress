@@ -96,9 +96,12 @@ contact_form:
         - value: document.querySelector("#edit-message").value = document.querySelector("#edit-message").value.replace(/"/g, '');
     - recaptcha:
         - value: true
-    - click_on:
-        - value: Submit
-          selector: "#edit-submit--2"
+    - javascript:
+        - value: document.querySelector("#edit-submit--2").click();
+    - wait:
+        - value: 5
+    - javascript:
+        - value: document.querySelector("#edit-submit--2").click();
     - find:
         - selector: ".alert-success"
   success:
