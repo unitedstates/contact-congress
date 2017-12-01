@@ -165,12 +165,12 @@ contact_form:
         - value: Send
           selector: "#side-search-btn"
     - find:
-        - selector: .recent a
+        - selector: ".recent a"
           value: "NEWS"
     - wait:
         - value: 5
   success:
     headers:
-      status: 200
+        status: 200
     body:
-      contains: ""
+        selector: ".recent a"
