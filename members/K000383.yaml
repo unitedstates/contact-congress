@@ -164,6 +164,9 @@ contact_form:
     - click_on:
         - value: Send
           selector: "#side-search-btn"
+    - find:
+        - selector: h1
+          value: "How Can I Help You?"
   success:
     headers:
       status: 200
