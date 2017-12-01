@@ -164,6 +164,8 @@ contact_form:
     - click_on:
         - value: Send
           selector: "#side-search-btn"
+    - wait:
+        - value: 2
   success:
     body:
       contains: " "
