@@ -165,10 +165,10 @@ contact_form:
         - value: Send
           selector: "#side-search-btn"
     - find:
-        - selector: h1
-          value: "How Can I Help You?"
+        - selector: a
+          value: "NEWS"
   success:
     headers:
       status: 200
     body:
-      contains: HOW CAN I HELP YOU?
+      contains: NEWS
