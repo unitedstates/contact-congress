@@ -165,6 +165,10 @@ contact_form:
         - value: Send
           selector: "#side-search-btn"
     - find:
-        - selector: ".recent a"
+        - selector: .recent a
           value: "NEWS"
   success:
+    headers:
+      status: 200
+    body:
+      contains: "Angus King"
