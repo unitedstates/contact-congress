@@ -71,6 +71,8 @@ contact_form:
         - value: document.querySelector("#field_24B273CC-4761-49A6-AC70-CBCACCCAD0DA").value = document.querySelector("#field_24B273CC-4761-49A6-AC70-CBCACCCAD0DA").value.replace(/"/g, '');
     - recaptcha:
         - value: true
+    - javascript:
+        - value: document.querySelector("input.btn.btn-primary").click()
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
