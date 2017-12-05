@@ -50,6 +50,16 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: salutation
+          selector: "#salutation"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Miss
+            - Dr.
         - name: state
           selector: "#state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
