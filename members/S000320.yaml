@@ -104,6 +104,8 @@ contact_form:
         - value: true
     - javascript:
         - value: document.querySelector("input.btn.btn-primary").click();
+    - wait:
+        - value: 5
     - find:
         - selector: h4
           value: "Contact Form"
