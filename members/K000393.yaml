@@ -101,9 +101,8 @@ contact_form:
         - value: document.querySelector("#field_51E3C368-B801-4DE3-87C7-BA4F503FD791").value = document.querySelector("#field_51E3C368-B801-4DE3-87C7-BA4F503FD791").value.replace(/"/g, '');
     - recaptcha:
         - value: true
-    - click_on:
-        - value: Submit
-          selector: ".btn-primary"
+    - javascript:
+        - value: document.querySelector(".btn-primary").click();
     - find:
         - selector: "p"
           value: "Thank you, your message has been received."
