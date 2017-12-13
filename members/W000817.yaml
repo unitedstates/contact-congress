@@ -4,6 +4,8 @@ contact_form:
   action: "/?p=email_senator&clear_cache=1"
   steps:
     - visit: "https://www.warren.senate.gov/index.cfm?p=email_senator"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: firstName
           selector: "#fname"
