@@ -103,6 +103,8 @@ contact_form:
         - value: true
     - javascript:
         - value: document.querySelector(".btn-primary").click();
+    - wait:
+        - value: 5
     - find:
         - selector: "p"
           value: "Thank you, your message has been received."
