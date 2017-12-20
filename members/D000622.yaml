@@ -3,131 +3,178 @@ contact_form:
   method: post
   action: /content/contact-senator
   steps:
-    - visit: "https://www.duckworth.senate.gov/content/contact-senator"
+    - visit: "https://www.duckworth.senate.gov/connect/email-tammy"
+    - click_on:
+        - selector: ".opinion a"
+    - find:
+        - selector: "#input-356E5F36-5056-A066-6074-9592CE92B2D2"
     - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
+        - name: "input_356E5F36-5056-A066-6074-9592CE92B2D2"
+          selector: "#input-356E5F36-5056-A066-6074-9592CE92B2D2"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
+        - name: "input_356E5C24-5056-A066-600A-182A54465687"
+          selector: "#input-356E5C24-5056-A066-600A-182A54465687"
           value: $NAME_LAST
           required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
+        - name: "input_356E5FDD-5056-A066-6081-FE972EE9E9DA"
+          selector: "#input-356E5FDD-5056-A066-6081-FE972EE9E9DA"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
+        - name: "input_356E6078-5056-A066-6034-4DED94E3369A"
+          selector: "#input-356E6078-5056-A066-6034-4DED94E3369A"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
+        - name: "input_356E5C4B-5056-A066-6054-8C59ADECA3EF"
+          selector: "#input-356E5C4B-5056-A066-6054-8C59ADECA3EF"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[constituent_information][phone]"
-          selector: "#edit-submitted-constituent-information-phone"
+        - name: "input_356E5FC0-5056-A066-6013-9C5EB3043747"
+          selector: "#input-356E5FC0-5056-A066-6013-9C5EB3043747"
           value: $PHONE
-          required: false
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
+          required: true
+        - name: "input_356E603E-5056-A066-6041-DE4E7E3808C0"
+          selector: "#input-356E5F19-5056-A066-6018-AC66D9FFA755"
           value: $EMAIL
           required: true
-        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
-          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
+        - name: "input_356E5F19-5056-A066-6018-AC66D9FFA755"
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: "input_356E5DA0-5056-A066-60C3-EF69B2E21E53"
+          selector: "#input-356E5DA0-5056-A066-60C3-EF69B2E21E53"
           value: $SUBJECT
           required: true
-        - name: "submitted[message_details][message]"
-          selector: "#edit-submitted-message-details-message"
+        - name: "input_356E5E00-5056-A066-603C-9FAC0F3B6888"
+          selector: "#input-356E5E00-5056-A066-603C-9FAC0F3B6888"
           value: $MESSAGE
           required: true
     - select:
-        - name: "submitted[constituent_information][prefix]"
-          selector: "#edit-submitted-constituent-information-prefix"
+        - name: "input_356E605B-5056-A066-609C-BFFE9DAB1A8B"
+          selector: "#input-356E605B-5056-A066-609C-BFFE9DAB1A8B"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mrs.
-            - Reverend
-            - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Mx.: Mx.
+            Professor: Professor
+            Dr.: Dr.
+            Father: Father
+            Sister: Sister
+            Rabbi: Rabbi
+            Reverend: Reverend
+        - name: "input_356E5B73-5056-A066-60BE-0B9B6F422B57"
+          selector: "#input-356E5B73-5056-A066-60BE-0B9B6F422B57"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            AA: AA
+            AE: AE
+            AP: AP
+            AL: AL
+            AK: AK
+            AR: AR
+            AZ: AZ
+            CA: CA
+            CO: CO
+            CT: CT
+            DC: DC
+            DE: DE
+            FL: FL
+            GA: GA
+            HI: HI
+            ID: ID
+            IL: IL
+            IN: IN
+            IA: IA
+            KS: KS
+            KY: KY
+            LA: LA
+            ME: ME
+            MD: MD
+            MA: MA
+            MI: MI
+            MN: MN
+            MS: MS
+            MO: MO
+            MT: MT
+            NE: NE
+            NV: NV
+            NH: NH
+            NJ: NJ
+            NM: NM
+            NY: NY
+            NC: NC
+            ND: ND
+            OH: OH
+            OK: OK
+            OR: OR
+            PA: PA
+            RI: RI
+            SC: SC
+            SD: SD
+            TN: TN
+            TX: TX
+            UT: UT
+            VT: VT
+            VA: VA
+            WA: WA
+            WV: WV
+            WI: WI
+            WY: WY
+        - name: "input_356E5B93-5056-A066-6052-9F850C8A291E"
+          selector: "#input-356E5B93-5056-A066-6052-9F850C8A291E"
           value: $TOPIC
           required: true
           options:
-            - Abortion
-            - Adoption
-            - Aging
-            - Agriculture
-            - Animal Welfare
-            - Appropriations
-            - Banking
-            - Campaign Finance
-            - Children
-            - Civil Rights
-            - Commerce
-            - Communications
-            - Congratulations
-            - Congressional Issues
-            - Crime
-            - Defense
-            - Drugs
-            - Economy
-            - Education Higher
-            - Education K through 12
-            - Elections
-            - Energy
-            - Environment
-            - Family
-            - Food Stamps
-            - Foreign Affairs
-            - Gun Control
-            - Health
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Inauguration
-            - Insurance Health
-            - Insurance Other
-            - Interior
-            - Iran
-            - Iraq
-            - Judiciary
-            - Labor
-            - Medicaid
-            - Medicare
-            - Military
-            - NASA
-            - Nutrition
-            - Other
-            - Patents
-            - Pensions
-            - Securities
-            - Small Business
-            - Social Security
-            - Taxes
-            - Tobacco
-            - Trade
-            - Transportation
-            - Veterans
-            - Welfare
-            - "Women's Issues"
+            Agriculture, Farm Bill: Agriculture, Farm Bill
+            Animals: Animals
+            Arts and Humanities: Arts and Humanities
+            Banking and Finance: Banking and Finance
+            Campaign Finance Reform and Elections: Campaign Finance Reform and Elections
+            Civil Rights: Civil Rights
+            Children and Families: Children and Families
+            Defense and Military: Defense and Military
+            Disability Rights: Disability Rights
+            Economy and Jobs: Economy and Jobs
+            Education: Education
+            Energy and Environment: Energy and Environment
+            Federal and Postal Employees and Retirees: Federal and Postal Employees and Retirees
+            Foreign Relations: Foreign Relations
+            Gender Equality: Gender Equality
+            Government Oversight and Accountability: Government Oversight and Accountability
+            Gun Control: Gun Control
+            Health Care Policy: Health Care Policy
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Indian Affairs: Indian Affairs
+            Judiciary and Criminal Justice Reform: Judiciary and Criminal Justice Reform
+            Labor and Pensions: Labor and Pensions
+            LGBTQ: LGBTQ
+            Medicare and Medicaid: Medicare and Medicaid
+            National Service and Community Service: National Service and Community Service
+            Nutrition and Hunger: Nutrition and Hunger
+            Regulatory Reform: Regulatory Reform
+            Senior Citizens: Senior Citizens
+            Science, Space and Technology: Science, Space and Technology
+            Small Business: Small Business
+            Social Security: Social Security
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Trade: Trade
+            Transportation and Infrastructure: Transportation and Infrastructure
+            Veterans: Veterans
+            White House: White House
     - javascript:
-        - value: document.querySelector("#edit-submitted-message-details-message").value = document.querySelector("#edit-submitted-message-details-message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-356E5E00-5056-A066-603C-9FAC0F3B6888").value = document.querySelector("#input-356E5E00-5056-A066-603C-9FAC0F3B6888").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
+          selector: "input.btn"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: "Thank you for contacting my office."
