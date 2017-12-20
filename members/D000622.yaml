@@ -173,6 +173,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "input.btn"
+    - find:
+        - selector: "h1"
+          value: "Thank You"
   success:
     headers:
       status: 200
