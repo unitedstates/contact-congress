@@ -170,9 +170,10 @@ contact_form:
             White House: White House
     - javascript:
         - value: document.querySelector("#input-356E5E00-5056-A066-603C-9FAC0F3B6888").value = document.querySelector("#input-356E5E00-5056-A066-603C-9FAC0F3B6888").value.replace(/"/g, '');
-    - click_on:
-        - value: Submit
-          selector: "input.btn"
+    - javascript:
+        - value: document.querySelector("input.btn").click();
+    - wait:
+        - value: 3
     - find:
         - selector: "h1"
           value: "Thank You"
