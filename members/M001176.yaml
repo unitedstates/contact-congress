@@ -65,7 +65,8 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Abortion/Reproductive Rights: Abortion
+            "Abortion/Reproductive Rights": Abortion
+            Affordable Care Act: Affordable Care Act
             Agriculture: Agriculture
             Animal Rights: Animal Rights
             Arts and Humanities: Arts and Humanities
@@ -74,16 +75,19 @@ contact_form:
             Campaign Finance Reform: Campaign Finance Reform
             Children and Families: Children and Families
             Civil Rights: Civil Rights
+            Climate Change: Climate Change
             Crime and Drugs: Crime and Drugs
             Defense: Defense
             Education: Education
             Elections and Congressional Affairs: Elections and Congressional Affairs
             Energy: Energy
+            Environment: Environment
             Foreign Affairs: Foreign Affairs
+            Forestry: Forestry
             Guns: Guns
             Health Care: Health Care
             Housing: Housing
-            Help with a Government Agency / Casework: Casework
+            Casework: Help with a Government Agency / Casework
             Immigration: Immigration
             Indian Affairs: Indian Affairs
             Insurance Health: Insurance Health
@@ -92,14 +96,20 @@ contact_form:
             Labor: Labor
             LGBT Issues: LGBT Issues
             Medicare/Medicaid: Medicare/Medicaid
-            "Military, Retiree Health Care": Military Health Care
+            Middle East: Middle East
+            Military Health Care: Military, Retiree Health Care
             Other: Other
+            Public Lands: Public Lands
+            Russia: Russia
             Small Business: Small Business
             Social Security: Social Security
             Taxes: Taxes
+            Telecommunications: Telecommunications
             Trade: Trade
             Transportation: Transportation
+            Trump Administration: Trump Administration
             Veterans: Veterans
+            Wildlife and Endangered Species: Wildlife and Endangered Species
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');            
     - click_on:
