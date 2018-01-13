@@ -5,137 +5,93 @@ contact_form:
   steps:
     - visit: "https://www.lee.senate.gov/public/index.cfm/contact"
     - fill_in:
-        - name: field_2A51781A-213D-4DC2-9293-3EFED302483E
-          selector: "#field_2A51781A-213D-4DC2-9293-3EFED302483E"
+        - name: field_6FA377A2-2FA6-4442-822F-DEECDDF5E8BD
+          selector: "#field_6FA377A2-2FA6-4442-822F-DEECDDF5E8BD"
           value: $NAME_FIRST
           required: true
-        - name: field_1B394F62-2287-4028-830B-803D149D560F
-          selector: "#field_1B394F62-2287-4028-830B-803D149D560F"
+        - name: field_808885CA-37DE-497C-B398-D689ACDFC0CA
+          selector: "#field_808885CA-37DE-497C-B398-D689ACDFC0CA"
           value: $NAME_LAST
           required: true
-        - name: field_0C59597D-7E2C-417D-A1A0-3F0F251D2DCF
-          selector: "#field_0C59597D-7E2C-417D-A1A0-3F0F251D2DCF"
+        - name: field_CFDBB27C-9BC5-4B32-AC1A-5B1025485E01
+          selector: "#field_CFDBB27C-9BC5-4B32-AC1A-5B1025485E01"
           value: $ADDRESS_STREET
           required: true
-        - name: field_C0CCF7DF-2F14-4E1C-9A70-7D76FEEAD56A
-          selector: "#field_C0CCF7DF-2F14-4E1C-9A70-7D76FEEAD56A"
+        - name: field_444C3E89-0158-42E9-A2ED-BDBC5C8E65C2
+          selector: "#field_444C3E89-0158-42E9-A2ED-BDBC5C8E65C2"
           value: $ADDRESS_CITY
           required: true
-        - name: field_46120286-E428-43A6-B615-8C2D10C7B85C
-          selector: "#field_46120286-E428-43A6-B615-8C2D10C7B85C"
+        - name: field_947E6987-9B90-4EC7-9ACF-38859EE6C61D
+          selector: "#field_947E6987-9B90-4EC7-9ACF-38859EE6C61D"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_FF2CC3A1-AA06-464F-9547-0DDD5B8A51AD
-          selector: "#field_FF2CC3A1-AA06-464F-9547-0DDD5B8A51AD"
+        - name: field_F43574B3-9C23-44A6-80D9-0E0D05E6269B
+          selector: "#field_F43574B3-9C23-44A6-80D9-0E0D05E6269B"
           value: $EMAIL
           required: true
-        - name: field_F346AE03-8294-4F38-B762-FCE94ED239AF
-          selector: "#field_F346AE03-8294-4F38-B762-FCE94ED239AF"
+        - name: field_E1F6236D-5A16-4C23-93B1-A9DD0132AD48
+          selector: "#field_E1F6236D-5A16-4C23-93B1-A9DD0132AD48"
           value: $MESSAGE
           required: true
           options:
             max_length: 5000
     - select:
-        - name: field_99A9D53F-BC16-428F-8D09-A237C733995D
-          selector: "#field_99A9D53F-BC16-428F-8D09-A237C733995D"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            "----Military---- ": "----Military---- "
-            "AA ": AA
-            "AE ": AE
-            "AP ": AP
-            "----States---- ": " "
-            "Alabama ": AL
-            "Alaska ": AK
-            "Arizona ": AZ
-            "Arkansas ": AR
-            "California ": CA
-            "Colorado ": CO
-            "Connecticut ": CT
-            "Delaware ": DE
-            "District of Columbia ": DC
-            "Florida ": FL
-            "Georgia ": GA
-            "Hawaii ": HI
-            "Idaho ": ID
-            "Illinois ": IL
-            "Indiana ": IN
-            "Iowa ": IA
-            "Kansas ": KS
-            "Kentucky ": KY
-            "Louisiana ": LA
-            "Maine ": ME
-            "Maryland ": MD
-            "Massachusetts ": MA
-            "Michigan ": MI
-            "Minnesota ": MN
-            "Mississippi ": MS
-            "Missouri ": MO
-            "Montana ": MT
-            "Nebraska ": NE
-            "Nevada ": NV
-            "New Hampshire ": NH
-            "New Jersey ": NJ
-            "New Mexico ": NM
-            "New York ": NY
-            "North Carolina ": NC
-            "North Dakota ": ND
-            "Ohio ": OH
-            "Oklahoma ": OK
-            "Oregon ": OR
-            "Pennsylvania ": PA
-            "Rhode Island ": RI
-            "South Carolina ": SC
-            "South Dakota ": SD
-            "Tennessee ": TN
-            "Texas ": TX
-            "Utah ": UT
-            "Vermont ": VT
-            "Virginia ": VA
-            "Washington ": WA
-            "West Virginia ": WV
-            "Wisconsin ": WI
-            Wyoming: WY
-        - name: field_7572E5CA-9879-4AB3-9C06-24514D6B57F4
-          selector: "#field_7572E5CA-9879-4AB3-9C06-24514D6B57F4"
+        - name: field_AB5653A3-EE2D-405A-B06F-3CB52793E7F7
+          selector: "#field_AB5653A3-EE2D-405A-B06F-3CB52793E7F7"
           value: $TOPIC
           required: true
           options:
-            Agriculture/Forestry: "Agriculture & Forestry"
-            Appropriations: Appropriations
-            Banking: Banking
-            Boy Scout Letter: Boy Scout Letter
-            "Budget/Finance,Economy/Jobs": Budget
-            Education: Education
-            Energy Independence: Energy
-            Environment: Environment
-            Gun Rights: Gun Rights
-            Healthcare: Healthcare Reform
-            Immigration/Border Security: Immigration/Border Security
-            Indian Affairs: "Indian Affairs (incl.gaming, sovereignty, health, housing, etc.)"
-            Judiciary: Judiciary (judicial nominations)
-            Labor/Pensions: Labor/Federal Employees/Pensions (minimum wage)
-            National Security: Anti-Terrorism
-            Public Lands: "Public Lands (ANWR, Otero Mesa, etc.)"
-            Small Business: Small Business/Economic Development
-            Social Security: Social Security
-            Technology: Internet Issues
-            Trade: "Trade (NAFTA, CAFTA, SPP, etc.)"
-            Transportation: Transportation
-            Religion/Human Rights: Religious / Human Rights
-            NASA/Science Issues: NASA
-            MIlitary/Defense: Military Issues
+            Agriculture/Forestry: AGR
+            Appropriations: APPR
+            Animal Issues: ANI
+            Arts  Humanities: ARTS
+            Banking: BANK
+            Boy Scout Letter: BOYSCOUT
+            Budget/Finance, Economy/Jobs: ECON
+            Commerce: COMM
+            Eagle Scout Letter: EAGSCOUT
+            Education: EDU
+            Energy Independence: ENERGY
+            Environment: ENV
+            Ethics: ETHICS
+            Executive Branch: EXEC
+            Foreign Affairs: FORAFF
+            General Government Concerns: GOV
+            Gun Rights: GUN
+            Healthcare: HEA
+            Housing: HOU
+            Immigration/Border Security: IMM
+            Indian Affairs: IND
+            Internet/Telecommunications: INT
+            Judiciary: JUD
+            Labor/Pensions: LAB
+            Letters of Congratulation: LOC
+            Military/Defense: DEF
+            National Security: NATSEC
+            Poverty/Welfare Reform: WEL
+            Public Lands: PUBLAND
+            Religion/Human Rights: RELIG
+            Science/NASA: SCI
+            Small Business: SMALLBUSINESS
+            Social Security: SSEC
+            Tax: TAX
+            Technology: TECH
+            Trade: TRADE
+            Transportation: TRA
+            Veterans: VET
+            Other: OTHER
     - check:
-        - name: field_E5D28FE4-5B68-4619-9940-81168686475D
-          selector: "#field_E5D28FE4-5B68-4619-9940-81168686475D_2"
-          value: "Yes"
+        - name: field_D42B86D9-04F0-4F57-AC0C-614B7B86E8AB
+          selector: "#field_D42B86D9-04F0-4F57-AC0C-614B7B86E8AB_2"
+          value: "Y"
     - javascript:
-        - value: document.querySelector("#field_F346AE03-8294-4F38-B762-FCE94ED239AF").value = document.querySelector("#field_F346AE03-8294-4F38-B762-FCE94ED239AF").value.replace(/"/g, '');
+        - value: document.querySelector("#field_E1F6236D-5A16-4C23-93B1-A9DD0132AD48").value = document.querySelector("#field_E1F6236D-5A16-4C23-93B1-A9DD0132AD48").value.replace(/"/g, '');
     - recaptcha:
         - value: true
     - javascript:
         - value: document.querySelector("input.btn.btn-primary").click();
+    - find:
+        - selector: h2
   success:
     headers:
       status: 200
