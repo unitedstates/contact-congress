@@ -103,7 +103,11 @@ contact_form:
     - javascript:
         - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - javascript:
-        - value: var value = document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value; value = value.replace(/\D/g,'').substr(0, 3) + '-' + value.replace(/\D/g,'').substr(3,3) + '-' + value.replace(/\D/g,'').substr(6);
+        - value: document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value = document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value.replace(/\D/g,'');
+    - javascript:
+        - value: document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value=document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value.substr(0, 3)+'-'+document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value.substr(3);
+    - javascript:
+        - value: document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value=document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value.substr(0,7)+'-'+document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value.substr(7, 4);
     - click_on:
         - value: Submit
           selector: "input.btn"
