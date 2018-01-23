@@ -5,10 +5,6 @@ contact_form:
   steps:
     - visit: "https://www.roberts.senate.gov/public/?p=EmailPat"
     - fill_in:
-        - name: field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB
-          selector: "#field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB"
-          value: $NAME_PREFIX
-          required: true
         - name: field_7BBAD001-4221-4CB0-B7BD-B1ADC5E3A379
           selector: "#field_7BBAD001-4221-4CB0-B7BD-B1ADC5E3A379"
           value: $NAME_FIRST
@@ -38,6 +34,15 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: field_9424CC8E-5A2F-4871-BC49-66218298A3DA
+          selector: "#field_9424CC8E-5A2F-4871-BC49-66218298A3DA"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Dr.
         - name: field_9E46D42D-A8A8-4014-AF7C-A316AA230D9F
           selector: "#field_9E46D42D-A8A8-4014-AF7C-A316AA230D9F"
           value: $TOPIC
