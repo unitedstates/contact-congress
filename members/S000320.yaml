@@ -100,6 +100,8 @@ contact_form:
             Veterans: VET
     - javascript:
         - value: document.querySelector("#field_5489134D-7194-47B5-A895-09DF853923E1").value = document.querySelector("#field_5489134D-7194-47B5-A895-09DF853923E1").value.replace(/"/g, '');
+    - javascript:
+        - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
         - value: true
     - javascript:
