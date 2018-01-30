@@ -86,6 +86,8 @@ contact_form:
             "Eagle Scout / Gold Award, Birthday, and Retirement": Special_Requests
     - javascript:
         - value: document.querySelector("#field_3CA100BD-F184-449F-B615-9B13BE70A991").value = document.querySelector("#field_3CA100BD-F184-449F-B615-9B13BE70A991").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
