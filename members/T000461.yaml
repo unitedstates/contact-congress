@@ -117,8 +117,8 @@ contact_form:
             Veterans: Veterans
     - javascript:
         - value: document.querySelector("textarea[name='MSG']").value = document.querySelector("textarea[name='MSG']").value.replace(/"/g, '');
-    - click_on:
-        - selector: "input.btn-primary"
+    - javascript:
+        - value: document.querySelector("input.btn-primary").click();
     - find:
         - selector: "p"
           value: "Thank you!"
