@@ -117,6 +117,8 @@ contact_form:
             Veterans: Veterans
     - javascript:
         - value: document.querySelector("textarea[name='MSG']").value = document.querySelector("textarea[name='MSG']").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - selector: "input.btn-primary"
     - find:
