@@ -1,0 +1,105 @@
+bioguide: S001203
+contact_form:
+  method: post
+  action: "/content/contact-senator"
+  steps:
+    - visit: "https://www.smith.senate.gov/content/contact-senator"
+    - fill_in:
+        - name: "submitted[constituent_information][first_name]"
+          selector: "#edit-submitted-constituent-information-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: "submitted[constituent_information][last_name]"
+          selector: "#edit-submitted-constituent-information-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: "submitted[constituent_information][address_1]"
+          selector: "#edit-submitted-constituent-information-address-1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "submitted[constituent_information][city]"
+          selector: "#edit-submitted-constituent-information-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "submitted[constituent_information][zip]"
+          selector: "#edit-submitted-constituent-information-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "submitted[constituent_information][email]"
+          selector: "#edit-submitted-constituent-information-email"
+          value: $EMAIL
+          required: true
+        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
+          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
+          value: $SUBJECT
+          required: true
+        - name: "submitted[message_details][message]"
+          selector: "#edit-submitted-message-details-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: "submitted[constituent_information][prefix]"
+          selector: "#edit-submitted-constituent-information-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr.: Dr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Reverend: Reverend
+            Sister: Sister
+            Pastor: Pastor
+            The Honorable: The Honorable
+            Representative: Representative
+            Senator: Senator
+        - name: "submitted[message_details][topic]"
+          selector: "#edit-submitted-message-details-topic"
+          value: $TOPIC
+          required: true
+          options:
+            General: General Topic Selection 
+            Agriculture: Agriculture 
+            Animal Welfare: Animal Welfare 
+            Arts: Arts 
+            Banking: Banking 
+            Budget/Appropriations: Budget / Appropriations 
+            Child Welfare: Child Welfare 
+            Climate Change: Climate Change 
+            Crime: Crime 
+            Economy and Business: Economy and Business 
+            Education: Education 
+            Elections: Elections 
+            Energy: Energy 
+            Environment: Environment 
+            Government Affairs: Foreign Relations ">Foreign Relations</option><option value="Government / Ethics 
+            Health: Health 
+            Housing: Housing 
+            Immigration: Immigration 
+            Indian Affairs: Indian Affairs 
+            Judiciary: Judiciary / Civil Rights 
+            Judicial Nominations/Executive Nominations: Judicial Nominations / Executive Nominations 
+            Labor: Labor 
+            Medicare/Medicaid: Medicare 
+            National Security: National Security 
+            Postal: Postal 
+            Reproductive Rights: Reproductive Rights 
+            Social Security/Aging: Social Security 
+            NASA: Space / NASA 
+            Taxes: Taxes 
+            Telecommunications: Telecommunications, Technology, and Media 
+            Transportation: Transportation / Infrastructure 
+            Veterans: Veterans 
+    - javascript:
+        - value: document.querySelector("#edit-submitted-message-details-message").value = document.querySelector("#edit-submitted-message-details-message").value.replace(/"/g, '');
+    - click_on:
+        - selector: "input.webform-submit.button-primary.btn.btn-primary.form-submit"
+    - find:
+        - selector: ".webform-confirmation"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you, your message has been received."
