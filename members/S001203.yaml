@@ -29,6 +29,10 @@ contact_form:
           selector: "#edit-submitted-constituent-information-email"
           value: $EMAIL
           required: true
+        - name: "submitted[message_details][sub_topic]"
+          selector: "#edit-submitted-message-details-sub-topic"
+          value: $SUBJECT
+          required: true
         - name: "submitted[message_details][message]"
           selector: "#edit-submitted-message-details-message"
           value: $MESSAGE
