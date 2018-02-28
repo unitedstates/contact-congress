@@ -3,12 +3,8 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.carper.senate.gov/public/index.cfm/email-senator-carper"
+    - visit: "https://www.carper.senate.gov/public/index.cfm/email-senator-carper"
     - fill_in:
-        - name: field_E9631D45-016E-495F-9FA4-8CD94DB04F33
-          selector: "#field_E9631D45-016E-495F-9FA4-8CD94DB04F33"
-          value: $NAME_PREFIX
-          required: true
         - name: field_9B220BDF-2254-4FD5-AAAC-261352486679
           selector: "#field_9B220BDF-2254-4FD5-AAAC-261352486679"
           value: $NAME_FIRST
@@ -38,6 +34,18 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: field_E01DF0C9-9113-4B77-90AD-BAC1914775CB
+          selector: "#field_E01DF0C9-9113-4B77-90AD-BAC1914775CB"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mr. and Mr.
+            - Mrs.
+            - Mrs. and Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
         - name: field_366474B1-0115-48E2-BA24-8983CFBCC12C
           selector: "#field_366474B1-0115-48E2-BA24-8983CFBCC12C"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -104,9 +112,6 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Autographed Photograph Request: Autograph Photo Request
-            Thank You: Thank You
-            "---------------------------------------------------------------------------------": Other
             Agriculture: Agriculture
             Amtrak: Amtrak
             Animal Rights: Animal Rights
@@ -148,7 +153,6 @@ contact_form:
             Telecommunications: TV/Radio/Internet/Telecommunications
             Veterans: "Veteran's Issues"
             Welfare: Welfare
-            Website Questions and Concerns: Web site Questions/Concerns
     - javascript:
         - value: document.querySelector("#field_0AEE09A6-7F4C-4AFB-90A1-9BA03526FCA0").value = document.querySelector("#field_0AEE09A6-7F4C-4AFB-90A1-9BA03526FCA0").value.replace(/"/g, '');
     - click_on:
