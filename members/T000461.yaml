@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /?p=contact
   steps:
-    - visit: "http://www.toomey.senate.gov/?p=contact"
+    - visit: "https://www.toomey.senate.gov/?p=contact"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
