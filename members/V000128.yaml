@@ -3,68 +3,128 @@ contact_form:
   method: post
   action: /content/contact-senator
   steps:
-    - visit: "https://www.vanhollen.senate.gov/content/contact-senator"
+    - visit: "https://www.vanhollen.senate.gov/contact/email"
+    - click_on:
+        - selector: ".opinion"
+    - find:
+        - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
     - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
+        - name: "input_B03E05C4-4040-F985-52CD-9CA44623DE5E"
+          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
+        - name: "input_B03E04BD-4040-F985-52CD-48E090E769DA"
+          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
           value: $NAME_LAST
           required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
+        - name: "input_B03E05F1-4040-F985-52CD-A580E72A7D41"
+          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
+        - name: "input_B03E0595-4040-F985-52CD-C572364023FE"
+          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
+        - name: "input_B03E04CC-4040-F985-52CD-4DDB58DA474A"
+          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[constituent_information][phone]"
-          selector: "#edit-submitted-constituent-information-phone"
+        - name: "input_B03E046E-4040-F985-52CD-A2F10450D58D"
+          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
           value: $PHONE
-          required: false
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
+          required: true
+        - name: "input_B03E0536-4040-F985-52CD-AFE12CDE8D31"
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
-          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
+        - name: "input_B03E05A4-4040-F985-52CD-730C08912F4F"
+          selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
+          value: $EMAIL
+          required: true
+        - name: "input_8C57876E-E76F-6C23-C6A8-79C0F827B47C"
+          selector: "#input-8C57876E-E76F-6C23-C6A8-79C0F827B47C"
           value: $SUBJECT
           required: true
-        - name: "submitted[message_details][message]"
-          selector: "#edit-submitted-message-details-message"
+        - name: "input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
+          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
           value: $MESSAGE
           required: true
     - select:
-        - name: "submitted[constituent_information][prefix]"
-          selector: "#edit-submitted-constituent-information-prefix"
+        - name: "input_B03E0527-4040-F985-52CD-C0DD6BEF325F"
+          selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Mrs.
             - Ms.
-            - Mr. and Mrs.
             - Dr.
-            - Dr. and Mrs.
-            - Reverend
+            - Professor
+            - Father
             - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
+            - Rabbi
+            - Reverend
+        - name: "input_B03E0669-4040-F985-52CD-11B231195172"
+          selector: "#input-B03E0669-4040-F985-52CD-11B231195172"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+        - name: "input_B03E04DB-4040-F985-52CD-18F332336F99"
+          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
           value: $TOPIC
           required: true
           options:
-            - Abortion
             - Adoption
             - Aging
             - Agriculture
@@ -86,37 +146,30 @@ contact_form:
             - Energy
             - Environment
             - Family
-            - Federal Employees Issues
             - Food Stamps
             - Foreign Affairs
-            - Government Reform
             - Gun Control
             - Health
-            - Help with Federal Agencies
             - Homeland Security
             - Housing
             - Immigration
-            - Inauguration
             - Insurance Health
-            - Insurance Other
+            - Insurance other
             - Interior
             - Iran
             - Iraq
-            - Israel
             - Judiciary
             - Labor
             - Medicaid
             - Medicare
             - Military
             - NASA
-            - Nominations
             - Nutrition
             - Other
-            - Passports
             - Patents
             - Pensions
+            - Science
             - Securities
-            - Service Academies
             - Small Business
             - Social Security
             - Taxes
@@ -125,14 +178,18 @@ contact_form:
             - Transportation
             - Veterans
             - Welfare
-            - "Women's Issues"
+            - Women's Issues
+            - Nominations
+            - Government Reform
+            - Federal Employees Issues
+            - Israel
     - javascript:
-        - value: document.querySelector("#edit-submitted-message-details-message").value = document.querySelector("#edit-submitted-message-details-message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
+          selector: ".btn"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: "Find Assistance"
