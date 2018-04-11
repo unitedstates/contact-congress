@@ -5,39 +5,39 @@ contact_form:
   steps:
     - visit: "https://www.carper.senate.gov/public/index.cfm/email-senator-carper"
     - fill_in:
-        - name: field_9B220BDF-2254-4FD5-AAAC-261352486679
-          selector: "#field_9B220BDF-2254-4FD5-AAAC-261352486679"
+        - name: field_720EA1C4-9CA9-4A9F-8FE8-BE45DE350FAB
+          selector: "#field_720EA1C4-9CA9-4A9F-8FE8-BE45DE350FAB"
           value: $NAME_FIRST
           required: true
-        - name: field_F8BB9FB5-9C4F-47DC-BF4E-EC83DBA5C7F1
-          selector: "#field_F8BB9FB5-9C4F-47DC-BF4E-EC83DBA5C7F1"
+        - name: field_DDDC1A32-888A-4713-B1A6-AC8661C856A6
+          selector: "#field_DDDC1A32-888A-4713-B1A6-AC8661C856A6"
           value: $NAME_LAST
           required: true
-        - name: field_E4AB5648-7530-4794-A6F0-B642D8D8E7E8
-          selector: "#field_E4AB5648-7530-4794-A6F0-B642D8D8E7E8"
+        - name: field_E5BBA595-CD12-4F4B-AEE5-93B1B7A4BC80
+          selector: "#field_E5BBA595-CD12-4F4B-AEE5-93B1B7A4BC80"
           value: $ADDRESS_STREET
           required: true
-        - name: field_D0E99421-C120-444E-9308-5539DAB567FB
-          selector: "#field_D0E99421-C120-444E-9308-5539DAB567FB"
+        - name: field_C72971E3-4513-4297-9371-32547398C5A2
+          selector: "#field_C72971E3-4513-4297-9371-32547398C5A2"
           value: $ADDRESS_CITY
           required: true
-        - name: field_BDA8A7F1-6E6B-4E3F-BF31-52ED9B04AD72
-          selector: "#field_BDA8A7F1-6E6B-4E3F-BF31-52ED9B04AD72"
+        - name: field_57CB6741-6128-4F6B-9116-2F777AA90830
+          selector: "#field_57CB6741-6128-4F6B-9116-2F777AA90830"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_DE485565-DEDE-4143-8002-D6809187E021
-          selector: "#field_DE485565-DEDE-4143-8002-D6809187E021"
+        - name: field_ACFFD452-B139-413D-8E0F-72046D4635D9
+          selector: "#field_ACFFD452-B139-413D-8E0F-72046D4635D9"
           value: $EMAIL
           required: true
-        - name: field_0AEE09A6-7F4C-4AFB-90A1-9BA03526FCA0
-          selector: "#field_0AEE09A6-7F4C-4AFB-90A1-9BA03526FCA0"
+        - name: field_52700AB6-009C-4E83-9962-6015E086D1AC
+          selector: "#field_52700AB6-009C-4E83-9962-6015E086D1AC"
           value: $MESSAGE
           required: true
           options:
             max_length: 500
     - select:
-        - name: field_E01DF0C9-9113-4B77-90AD-BAC1914775CB
-          selector: "#field_E01DF0C9-9113-4B77-90AD-BAC1914775CB"
+        - name: field_7984AAE2-A365-4C2A-9E03-C53E3718970E
+          selector: "#field_7984AAE2-A365-4C2A-9E03-C53E3718970E"
           value: $NAME_PREFIX
           required: true
           options:
@@ -48,69 +48,8 @@ contact_form:
             - Ms.
             - Mr. and Mrs.
             - Dr.
-        - name: field_366474B1-0115-48E2-BA24-8983CFBCC12C
-          selector: "#field_366474B1-0115-48E2-BA24-8983CFBCC12C"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - "----Military----"
-            - AA
-            - AE
-            - AP
-            - "----States----"
-            - Alabama
-            - Alaska
-            - Arizona
-            - Arkansas
-            - California
-            - Colorado
-            - Connecticut
-            - Delaware
-            - District of Columbia
-            - Florida
-            - Georgia
-            - Hawaii
-            - Idaho
-            - Illinois
-            - Indiana
-            - Iowa
-            - Kansas
-            - Kentucky
-            - Louisiana
-            - Maine
-            - Maryland
-            - Massachusetts
-            - Michigan
-            - Minnesota
-            - Mississippi
-            - Missouri
-            - Montana
-            - Nebraska
-            - Nevada
-            - New Hampshire
-            - New Jersey
-            - New Mexico
-            - New York
-            - North Carolina
-            - North Dakota
-            - Ohio
-            - Oklahoma
-            - Oregon
-            - Pennsylvania
-            - Rhode Island
-            - South Carolina
-            - South Dakota
-            - Tennessee
-            - Texas
-            - Utah
-            - Vermont
-            - Virginia
-            - Washington
-            - West Virginia
-            - Wisconsin
-            - Wyoming
-        - name: field_576A1858-5B78-4883-B30A-9E699D99BAE0
-          selector: "#field_576A1858-5B78-4883-B30A-9E699D99BAE0"
+        - name: field_9FA2D12A-DC4D-4725-99CA-DFD388CA0806
+          selector: "#field_9FA2D12A-DC4D-4725-99CA-DFD388CA0806"
           value: $TOPIC
           required: true
           options:
@@ -156,7 +95,7 @@ contact_form:
             Veterans: "Veteran's Issues"
             Welfare: Welfare
     - javascript:
-        - value: document.querySelector("#field_0AEE09A6-7F4C-4AFB-90A1-9BA03526FCA0").value = document.querySelector("#field_0AEE09A6-7F4C-4AFB-90A1-9BA03526FCA0").value.replace(/"/g, '');
+        - value: document.querySelector("#field_52700AB6-009C-4E83-9962-6015E086D1AC").value = document.querySelector("#field_52700AB6-009C-4E83-9962-6015E086D1AC").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input
