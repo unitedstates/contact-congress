@@ -5,49 +5,41 @@ contact_form:
   steps:
     - visit: "http://www.billnelson.senate.gov/contact-bill"
     - fill_in:
-        - name: First
-          selector: "#first"
+        - name: "submitted[contact_info_group][first]"
+          selector: "#edit-submitted-contact-info-group-first"
           value: $NAME_FIRST
           required: true
-        - name: Last
-          selector: "#Last"
+        - name: "submitted[contact_info_group][last]"
+          selector: "#edit-submitted-contact-info-group-last"
           value: $NAME_LAST
           required: true
-        - name: Addr1
-          selector: "#address"
+        - name: "submitted[contact_info_group][addr1]"
+          selector: "#edit-submitted-contact-info-group-addr1"
           value: $ADDRESS_STREET
           required: true
-        - name: Addr2
-          selector: "#address2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: City
-          selector: "#city"
+        - name: "submitted[contact_info_group][city]"
+          selector: "#edit-submitted-contact-info-group-city"
           value: $ADDRESS_CITY
           required: true
-        - name: Zip
-          selector: "#required-zip5"
+        - name: "submitted[contact_info_group][zip5]"
+          selector: "#edit-submitted-contact-info-group-zip5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: Phone
-          selector: "#phone"
-          value: $PHONE
-          required: false
-        - name: Email
-          selector: "#Email"
+        - name: "submitted[contact_info_group][email]"
+          selector: "#edit-submitted-contact-info-group-email"
           value: $EMAIL
           required: true
-        - name: sendSubject
-          selector: "#subject"
+        - name: "submitted[comments_group][sendsubject]"
+          selector: "#edit-submitted-comments-group-sendsubject"
           value: $SUBJECT
           required: true
-        - name: Message
-          selector: "#Message"
+        - name: "submitted[comments_group][message]"
+          selector: "#edit-submitted-comments-group-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: Prefix
-          selector: "#prefix"
+        - name: "submitted[contact_info_group][prefix]"
+          selector: "#edit-submitted-contact-info-group-prefix"
           value: $NAME_PREFIX
           required: true
           options:
@@ -56,13 +48,12 @@ contact_form:
             - Ms.
             - Dr.
     - choose:
-        - name: Issue
-          selector: "[type='radio'][name='Issue']"
+        - name: "submitted[comments_group][issues]"
+          selector: "[type='radio'].form-radio']"
           value: $TOPIC
           required: true
           options:
             Abortion: Abortion
-            Academy: Academy
             Aging: Aging
             Agriculture: Agriculture
             "Animal Welfare": "Animal Welfare"
@@ -71,7 +62,6 @@ contact_form:
             "Broadcast Regulations": "Broadcast Regulations"
             Budget: Budget
             Business: Business
-            "Casework [You will be redirected to the Casework form upon selecting this option]": Casework
             "Children's Health Insurance": "Children's Health Insurance"
             "Constitutional Issues": "Constitutional Issues"
             "Consumer Protection": "Consumer Protection"
@@ -86,7 +76,6 @@ contact_form:
             Environment: Environment
             "Everglades Restoration": "Everglades Restoration"
             "FEMA/Natural Disasters": "FEMA/Natural Disasters"
-            "Flag Requests": "Flag Requests"
             "Foreign Relations": "Foreign Relations"
             "Government Reform": "Government Reform"
             "Gun Control": "Gun Control"
@@ -96,7 +85,6 @@ contact_form:
             Immigration: Immigration
             "Import Safety": "Import Safety"
             Intelligence: Intelligence
-            Invitations: Invitations
             Iraq: Iraq
             "Judicial Nominations": "Judicial Nominations"
             Labor: Labor
@@ -106,7 +94,6 @@ contact_form:
             "Native American Issues": "Native American Issues"
             Other: Other
             Pensions: Pensions
-            "Photograph Requests": "Photograph Requests"
             "Port Security": "Port Security"
             "Prescription Drugs": "Prescription Drugs"
             Privacy: Privacy
@@ -117,15 +104,14 @@ contact_form:
             "Stem Cell Research": "Stem Cell Research"
             Taxes: Taxes
             Telecommunications: Telecommunications
-            "Tours [You will be redirected to the Tours page upon selecting this option]": Tours
             Trade: Trade
             Transportation: Transportation
             Veterans: Veterans
             "Women's Issues": "Womens Issues"
     - javascript:
-        - value: document.querySelector("#Message").value = document.querySelector("#Message").value.replace(/"/g, '');
+        - value: document.querySelector("#edit-submitted-comments-group-message").value = document.querySelector("#edit-submitted-comments-group-message").value.replace(/"/g, '');
     - click_on:
-        - selector: "#submit"
+        - selector: ".button-primary"
     - find:
         - selector: '#boxes-box-contact_bill_print_top > div > div'
   success:
