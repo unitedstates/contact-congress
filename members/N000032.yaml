@@ -29,6 +29,10 @@ contact_form:
           selector: "#edit-submitted-contact-info-group-email"
           value: $EMAIL
           required: true
+        - name: "submitted[contact_info_group][phone]"
+          selector: "#edit-submitted-contact-info-group-phone"
+          value: $PHONE
+          required: true
         - name: "submitted[comments_group][sendsubject]"
           selector: "#edit-submitted-comments-group-sendsubject"
           value: $SUBJECT
