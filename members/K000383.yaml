@@ -5,53 +5,53 @@ contact_form:
   steps:
     - visit: "http://www.king.senate.gov/contact"
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: input_EFEFBB82-E5AD-43BF-317C-6365EAD5F540
+          selector: "#input-EFEFBB82-E5AD-43BF-317C-6365EAD5F540"
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#lname"
+        - name: input_EFEFBC04-A1C6-A99B-E17A-465BF19BB596
+          selector: "#input-EFEFBC04-A1C6-A99B-E17A-465BF19BB596"
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+        - name: input_EFF6FADA-AC70-B16D-6B17-9B9B5EB61A8B
+          selector: "#input-EFF6FADA-AC70-B16D-6B17-9B9B5EB61A8B"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
+        - name: input_EFF6FB47-E02D-9697-9371-0740F1AA154C
+          selector: "#input-EFF6FB47-E02D-9697-9371-0740F1AA154C"
           value: $ADDRESS_STREET_2
           required: false
-        - name: mailing_city
-          selector: "#mailing_city"
+        - name: input_EFF6FC50-9F27-52E9-FC8A-9E973337F5A7
+          selector: "#input-EFF6FC50-9F27-52E9-FC8A-9E973337F5A7"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
+        - name: input_EFF6FE05-FD47-9CAE-592B-DD721DE754D5
+          selector: "#input-EFF6FE05-FD47-9CAE-592B-DD721DE754D5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: home_phone_number
-          selector: "#home_phone_number"
+        - name: input_EFF948B7-026A-A6A4-00B1-846C8E5E9C5B
+          selector: "#input-EFF948B7-026A-A6A4-00B1-846C8E5E9C5B"
           value: $PHONE
           required: true
-        - name: email_address
+        - name: input_C7C9148C-F876-E321-7072-066742B5A1D5
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
+        - name: input_C7C6BFDA-A10F-8024-D3ED-889AC2304F7D
+          selector: "#input-C7C6BFDA-A10F-8024-D3ED-889AC2304F7D"
           value: $EMAIL
           required: true
-        - name: subject
-          selector: "#subject"
+        - name: input_3E2E3A97-EC40-4905-D23E-5027DF4B2878
+          selector: "#input-3E2E3A97-EC40-4905-D23E-5027DF4B2878"
           value: $SUBJECT
           required: true
-        - name: message
-          selector: "#message"
+        - name: input_F6C4EB2B-E12A-A1F7-6979-6D62DF9DA6AE
+          selector: "#input-F6C4EB2B-E12A-A1F7-6979-6D62DF9DA6AE"
           value: $MESSAGE
           required: true
     - select:
-        - name: state
-          selector: "#state"
+        - name: input_EFF6FD8D-9A59-4FE6-D179-F465F1938DF2
+          selector: "#input-EFF6FD8D-9A59-4FE6-D179-F465F1938DF2"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -115,8 +115,8 @@ contact_form:
             - WV
             - WI
             - WY
-        - name: topic
-          selector: "#topic"
+        - name: input_EFFE74ED-C7CC-D044-49D2-3B1B3C8DC9F8
+          selector: "#input-EFFE74ED-C7CC-D044-49D2-3B1B3C8DC9F8"
           value: $TOPIC
           required: true
           options:
@@ -157,17 +157,16 @@ contact_form:
             Trade: TRADE
             Transportation: TRA
             Veterans: VET
-            Website Feedback: WEBSITE
             Welfare: WEL
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-F6C4EB2B-E12A-A1F7-6979-6D62DF9DA6AE").value = document.querySelector("#input-F6C4EB2B-E12A-A1F7-6979-6D62DF9DA6AE").value.replace(/"/g, '');
     - click_on:
         - value: Send
-          selector: "#side-search-btn"
+          selector: "input.btn[type='submit']"
     - find:
         - selector: "#magicdomid16"
   success:
     headers:
       status: 200
     body:
-      contains: "You should receive an automated"
+      contains: "You will receive an automated"
