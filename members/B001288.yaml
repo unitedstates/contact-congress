@@ -175,6 +175,10 @@ contact_form:
             "\n\t\t\t\t\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t\t\t\t\t": Trade
             "\n\t\t\t\t\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t\t\t\t\t": Transportation
             "\n\t\t\t\t\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t\t\t\t\t": Veterans
+    - check:
+        - name: "newsletteraction"
+          selector: "#newsletteraction[value='unsubscribe']"
+          value: "unsubscribe"
     - javascript:
         - value: document.querySelector("#MessageBody").value = document.querySelector("#MessageBody").value.replace(/"/g, '');
     - javascript:
