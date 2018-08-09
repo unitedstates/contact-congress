@@ -82,6 +82,18 @@ contact_form:
           Native Americans: NA
           Social Safety Net: MD
           Not Listed/Other: EMAIL
+      - name: response
+        selector: "#input-14CF6547-AC63-C9C1-CA81-6C9AEEF85474"
+        value: "Yes"
+        required: false
+        options:
+          "Yes": "Yes"
+      - name: resident
+        selector: "#input-14CFC1B4-F363-3066-5B30-4B5F37B6DBD9"
+        value: "Yes"
+        required: false
+        options:
+          "Yes": "Yes"
       - name: lastcontact
         selector: "#input-6ED1469E-5056-A066-60B9-78C1BD536DDF"
         value: "LCN - Never"
@@ -91,7 +103,7 @@ contact_form:
     - javascript:
       - value: document.querySelector("#input-78163367-4040-F985-52CD-D4AD6E614C69").value = document.querySelector("#input-78163367-4040-F985-52CD-D4AD6E614C69").value.replace(/"/g, '');
     - recaptcha:
-      - value: true 
+      - value: true
     - click_on:
       - value: Submit
         selector: ".btn"
