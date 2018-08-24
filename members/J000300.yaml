@@ -3,128 +3,118 @@ contact_form:
   method: post
   action: "/content/contact-senator"
   steps:
-    - visit: "https://www.jones.senate.gov/content/contact-senator"
+    - visit: "https://www.jones.senate.gov/contact/email-doug"
+    - click_on:
+        - selector: ".js-form-toggle"
+    - find:
+        - selector: "#input-43DBC091-988F-DB42-A4E6-81CFBF4E6CA2"
     - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
+        - name: "input_43DBC091-988F-DB42-A4E6-81CFBF4E6CA2"
+          selector: "#input-43DBC091-988F-DB42-A4E6-81CFBF4E6CA2"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
+        - name: "input_43E39A35-942A-B585-AB0D-DFE8520D40EE"
+          selector: "#input-43E39A35-942A-B585-AB0D-DFE8520D40EE"
           value: $NAME_LAST
           required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
+        - name: "input_43F41A39-D998-0BCE-5BEF-8D05F75E8D88"
+          selector: "#input-43F41A39-D998-0BCE-5BEF-8D05F75E8D88"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
+        - name: "input_4407349B-0CA5-329A-4ADF-50A6EFAAC762"
+          selector: "#input-4407349B-0CA5-329A-4ADF-50A6EFAAC762"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
+        - name: "input_441D2D9E-D255-729E-DD3F-38C12E19DF01"
+          selector: "#input-441D2D9E-D255-729E-DD3F-38C12E19DF01"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
+        - name: "input_4427C443-B2D9-AA4F-497D-ADA8191109F5"
+          selector: "#input-4427C443-B2D9-AA4F-497D-ADA8191109F5"
+          value: $PHONE
+          required: true
+        - name: "input_4437E7F4-9183-D746-3450-AC5BED2A0E08"
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
-          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
+        - name: "input_4437FB36-ECF4-308E-8294-A788783F0B58"
+          selector: "#input-4437FB36-ECF4-308E-8294-A788783F0B58"
+          value: $EMAIL
+          required: true
+        - name: "input_445383EA-96E3-01B7-49BB-FF9A82A25F25"
+          selector: "#input-445383EA-96E3-01B7-49BB-FF9A82A25F25"
           value: $SUBJECT
           required: true
-        - name: "submitted[message_details][message]"
-          selector: "#edit-submitted-message-details-message"
+        - name: "input_445EBBE3-C79E-6B38-B311-62FA2F325B81"
+          selector: "#input-445EBBE3-C79E-6B38-B311-62FA2F325B81"
           value: $MESSAGE
           required: true
     - select:
-        - name: "submitted[constituent_information][prefix]"
-          selector: "#edit-submitted-constituent-information-prefix"
+        - name: "input_43D2DA7E-E6AF-BC8A-9CB4-810EC45E0072"
+          selector: "#input-43D2DA7E-E6AF-BC8A-9CB4-810EC45E0072"
           value: $NAME_PREFIX
           required: true
           options:
             Mr.: Mr.
             Mrs.: Mrs.
             Ms.: Ms.
-            Mr. and Mrs.: Mr. and Mrs.
-            Dr.: Dr.
-            Dr. and Mrs.: Dr. and Mrs.
-            Reverend: Reverend
-            Sister: Sister
-            Pastor: Pastor
-            The Honorable: The Honorable
-            Representative: Representative
-            Senator: Senator
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
+        - name: "input_444A1682-C90F-902F-3BFF-92A9C06742EA"
+          selector: "#input-444A1682-C90F-902F-3BFF-92A9C06742EA"
           value: $TOPIC
           required: true
           options:
-            Abortion: Abortion
-            Adoption: Adoption
-            Aging: Aging
-            Agriculture: Agriculture
-            Animal Welfare: Animal Welfare
-            Appropriations: Appropriations
-            Banking: Banking
-            Campaign Finance: Campaign Finance
-            Children: Children
-            Civil Rights: Civil Rights
-            Commerce: Commerce
-            Communications: Communications
-            Congratulations: Congratulations
-            Congressional Issues: Congressional Issues
-            Crime: Crime
-            Defense: Defense
-            Drugs: Drugs
-            Economy: Economy
-            Education Higher: Education Higher
-            Education K through 12: Education K through 12
-            Elections: Elections
-            Energy: Energy
-            Environment: Environment
-            Family: Family
-            Food Stamps: Food Stamps
-            Foreign Affairs: Foreign Affairs
-            Gun Control: Gun Control
-            Health: Health
-            Homeland Security: Homeland Security
-            Housing: Housing
-            Immigration: Immigration
-            Inauguration: Inauguration
-            Insurance Health: Insurance Health
-            Insurance Other: Insurance Other
-            Interior: Interior
-            Iran: Iran
-            Iraq: Iraq
-            Judiciary: Judiciary
-            Labor: Labor
-            Medicaid: Medicaid
-            Medicare: Medicare
-            Military: Military
-            NASA: NASA
-            Nutrition: Nutrition
-            Other: Other
-            Patents: Patents
-            Pensions: Pensions
-            Securities: Securities
-            Small Business: Small Business
-            Social Security: Social Security
-            Taxes: Taxes
-            Tobacco: Tobacco
-            Trade: Trade
-            Transportation: Transportation
-            Veterans: Veterans
-            Welfare: Welfare
-            Women's Issues: Women's Issues
-    - javascript:
-        - value: document.querySelector("#edit-submitted-message-details-message").value = document.querySelector("#edit-submitted-message-details-message").value.replace(/"/g, '');
+            Abortion: abortion
+            Adoption: adoption
+            Agriculture: agriculture
+            Animal Welfare: animal_welfare
+            Banking: banking
+            Broadband Access: broadband_access
+            Budget: budget
+            Civil and Voting Rights: civil_and_voting_rights
+            Cybersecurity: cybersecurity
+            Defense: defense
+            Eagle Scouts: eagle_scouts
+            Economy: economy
+            Education: education
+            Elections: elections
+            Energy: energy
+            Environment: environment
+            Family: family
+            Federal Employees: federal_employees
+            Foreign Affairs: foreign_affairs
+            General Government/Regulation: general_government_regulation
+            Gun Control: gun_control
+            Housing: housing
+            Health Care: health_care
+            Immigration: immigration
+            Internet: internet
+            Native Americans: native_americans
+            Jobs and the Economy: jobs_and_the_economy
+            Judiciary: judiciary
+            Pensions: pensions
+            Photo Requests: photo_requests
+            Science and Technology: science_and_technology
+            Seniors: seniors
+            Small Business: small_business
+            Social Security: social_security
+            Taxes: taxes
+            Trade: trade
+            Transportation: transportation
+            Transportation and Infrastructure: transportation_and_infrastructure
+            Welfare: welfare
+            Women's Issues: women's_issues
+            Veterans and Military Families: veterans_and_military_families
+            Other: other
     - click_on:
-        - selector: "input.webform-submit.button-primary.btn.btn-primary.form-submit"
+        - selector: "#input-44627489-D60F-1C3D-3F31-91243E6F9C45"
+    - javascript:
+        - value: document.querySelector("#input-445EBBE3-C79E-6B38-B311-62FA2F325B81").value = document.querySelector("#input-445EBBE3-C79E-6B38-B311-62FA2F325B81").value.replace(/"/g, '');
+    - click_on:
+        - selector: "input.btn"
     - find:
-        - selector: ".webform-confirmation"
+        - selector: "h3"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: "Thank you for taking the time"
