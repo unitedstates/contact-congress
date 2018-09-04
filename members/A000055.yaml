@@ -1,4 +1,4 @@
-bioguide: A000055
+bioguide: A000055 
 contact_form:
   method: POST
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
@@ -14,9 +14,9 @@ contact_form:
         value: $ADDRESS_ZIP4
         required: true
     - click_on:
-      - value: "Go To Next Step" 
+      - value: "Go To Next Step"
         selector: "#emailForm #submit"
-    - find: 
+    - find:
       - selector: "#required-first"
     - fill_in:
         - name: required-first
