@@ -4,7 +4,7 @@ contact_form:
   action: "/htbin/formproc_za/zip-auth.txt%26form%3D/contact/email/email-zip-authenticated%26nobase%26fpGetVer%3D2"
   steps:
     - visit: "https://aderholt.house.gov/contact-robert"
-    - fill_in:
+    - fill_in: 
       - name: required-zip5
         selector: "#required-zip5"
         value: $ADDRESS_ZIP5
