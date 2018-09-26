@@ -5,6 +5,8 @@ contact_form:
   steps:
     - visit: "https://www.young.senate.gov/contact/email-todd"
     - click_on:
+        - selector: "#newsletterModal .close"
+    - click_on:
         - selector: ".opinion"
     - find:
         - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
