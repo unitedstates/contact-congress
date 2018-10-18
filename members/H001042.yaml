@@ -3,163 +3,119 @@ contact_form:
   method: post
   action: /contact/email
   steps:
-    - visit: "https://www.hirono.senate.gov/contact/email"
+    - visit: "https://www.hirono.senate.gov/contact"
+    - find:
+        - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
+          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#lname"
+        - name: input_B03E04BD-4040-F985-52CD-48E090E769DA
+          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+        - name: input_B03E05F1-4040-F985-52CD-A580E72A7D41
+          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_city
-          selector: "#mailing_city"
+        - name: input_B03E0595-4040-F985-52CD-C572364023FE
+          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
+        - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
+          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: email_address
-          selector: "#email"
+        - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
+          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
+          value: $PHONE
+          required: true
+        - name: input_B03E0536-4040-F985-52CD-AFE12CDE8D31
+          selector: "#B03E03FC-4040-F985-52CD-BCD7E00A8A6C #email"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
+        - name: input_B03E05A4-4040-F985-52CD-730C08912F4F
+          selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
           value: $EMAIL
           required: true
-        - name: subject_field
-          selector: "#subject_field"
+        - name: input_12E6845B-D83C-EBAC-69D8-8880243D4E21
+          selector: "#input-12E6845B-D83C-EBAC-69D8-8880243D4E21"
           value: $SUBJECT
           required: true
-        - name: message
-          selector: "#message"
+        - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
+          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
           value: $MESSAGE
           required: true
     - select:
-        - name: salutation
-          selector: "#salutation"
+        - name: input_12C28095-E145-948E-6B6B-B0F8C75A80D2
+          selector: "#title"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Miss
-            - Mr. and Mrs.
-            - Dr.
-            - Prof.
-            - Senator
-            - Gov.
-            - Congressman
-            - Hon.
-            - Fr.
-            - Sister
-            - Rabbi
-            - Reverend
-            - Fleet Admiral
-            - Admiral
-            - Vice Admiral
-            - Rear Admiral (upper half)
-            - Rear Admiral (lower half)
-            - Captain
-            - Commander
-            - Lieutenant Commander
-            - Lieutenant
-            - "Lieutenant, Junior Grade"
-            - Ensign
-            - Master Chief Petty Officer of the Navy
-            - Master Chief Petty Officer
-            - Senior Chief Petty Officer
-            - Chief Petty Officer
-            - Petty Officer First Class
-            - Petty Officer Second Class
-            - Petty Officer Third Class
-            - Seaman
-            - Seaman Apprentice
-            - Seaman Recruit
-            - Chief Warrant Officer
-            - Warrant Officer
-            - Sgt Major Of The Corps
-            - Sergeant Major
-            - Master Gunnery Sgt
-            - First Sergeant
-            - Master Sergeant
-            - Gunnery Sergeant
-            - Staff Sergeant
-            - Sergeant
-            - Corporal
-            - Lance Corporal
-            - Private First Class
-            - Private
-            - General of the Air Force
-            - General
-            - Lieutenant General
-            - Major General
-            - Brigadier General
-            - Colonel
-            - Lieutenant Colonel
-            - Major
-            - First Lieutenant
-            - Second Lieutenant
-            - Chief Master Sergeant of the Air Force
-            - Command  Chief Master Sergeant
-            - Chief Master Sergeant
-            - Senior Master Sergeant
-            - Technical Sergeant
-            - Senior Airman
-            - Airman First Class
-            - Airman
-        - name: subject
-          selector: "#subject"
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Miss: Miss
+            Professor: Professor
+            Dean: Dean
+            The Honorable: The Honorable
+            Dr.: Dr.
+            None: none
+        - name: input_B03E04DB-4040-F985-52CD-18F332336F99
+          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
           value: $TOPIC
           required: true
           options:
-            - Federal Agency Assistance
-            - Arts/Culture/History
-            - Armed Services/Defense/Military Affairs
-            - Agriculture
-            - Animal Welfare
-            - Civil Rights/Liberties/Minority Issues/Religion
-            - Congressional Procedures
-            - Crime and Law Enforcement
-            - Economy - Banking and Finance
-            - Economy - Budget
-            - Economy - Small Business and Job Creation
-            - Economy - Taxes
-            - Energy and Climate
-            - Environmental/Wildlife Protection
-            - Foreign Affairs
-            - Health
-            - Education
-            - Homeland Security and Emergency Management
-            - Housing
-            - Immigration
-            - Labor
-            - Medicare/Medicaid
-            - Native Hawaiians and Native Americans
-            - Public Lands and National Parks
-            - Reproductive Health
-            - Science and Technology
-            - Social Welfare Programs
-            - Social Security
-            - Telecommunications/Internet
-            - Trade
-            - Tourism
-            - Veterans
-            - Transportation
+            Arts/Culture/History: Arts/Culture/History
+            Armed Services/Defense/Military Affairs: Armed Services/Defense/Military Affairs
+            Agriculture: Agriculture
+            Animal Welfare: Animal Welfare
+            Civil Rights/Liberties/Minority Issues/Religion: Civil Rights/Liberties/Minority Issues/Religion
+            Congressional Procedures: Congressional Procedures
+            Crime and Law Enforcement: Crime and Law Enforcement
+            Economy - Banking and Finance: Economy - Banking and Finance
+            Economy - Budget: Economy - Budget
+            Economy - Small Business and Job Creation: Economy - Small Business and Job Creation
+            Economy - Taxes: Economy - Taxes
+            Energy and Climate: Energy and Climate
+            Environmental/Wildlife Protection: Environmental/Wildlife Protection
+            Foreign Affairs: Foreign Affairs
+            Health: Health
+            Education: Education
+            Homeland Security and Emergency Management: Homeland Security and Emergency Management
+            Housing: Housing
+            Immigration: Immigration
+            Inauguration: Inauguration
+            Labor: Labor
+            Medicare/Medicaid: Medicare/Medicaid
+            Native Hawaiians and Native Americans: Native Hawaiians and Native Americans
+            Public Lands and National Parks: Public Lands and National Parks
+            Reproductive Health: Reproductive Health
+            Science and Technology: Science and Technology
+            Social Welfare Programs: Social Welfare Programs
+            Social Security: Social Security
+            Telecommunications/Internet: Telecommunications/Internet
+            Trade: Trade
+            Tourism: Tourism
+            Veterans: Veterans
+            Transportation: Transportation
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
+    - javascript:
+        - value: document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value = document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value.replace(/\D/g,'');
+    - javascript:
+        - value: document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value=document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value.substr(0, 3)+'-'+document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value.substr(3);
+    - javascript:
+        - value: document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value=document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value.substr(0,7)+'-'+document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value.substr(7, 4);
     - click_on:
-        - value: Send
-          selector: "#side-search-btn"
+        - value: Submit
+          selector: "input.btn"
+    - find:
+        - selector: h1
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: Thank you for submitting your Request to our office.

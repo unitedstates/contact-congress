@@ -1,91 +1,114 @@
 bioguide: C000880
 contact_form:
   method: POST
-  action: http://www.crapo.senate.gov/webformActionIAV1.cfm
+  action: /contact/email-me/send
   steps:
-    - visit: http://www.crapo.senate.gov/contact/email.cfm
-    - javascript:
-      - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - wait:
-      - value: 1
+    - visit: https://www.crapo.senate.gov/contact/email-me
+    - find:
+      - selector: "#input-781129F8-4040-F985-52CD-46DE47AD5D2C"
     - fill_in:
-      - name: firstName
-        selector: "#firstName"
+      - name: first
+        selector: "#input-781129F8-4040-F985-52CD-46DE47AD5D2C"
         value: "$NAME_FIRST"
         required: Yes
-      - name: lastName
-        selector: "#lastName"
+      - name: last
+        selector: "#input-78112A2E-4040-F985-52CD-BA5873CADBC1"
         value: "$NAME_LAST"
         required: Yes
-      - name: Address1
-        selector: "#Address1"
+      - name: addr1
+        selector: "#input-7811EA94-4040-F985-52CD-A0C8B5E9A7D7"
         value: "$ADDRESS_STREET"
         required: Yes
-      - name: Address2
-        selector: "#Address2"
-        value: "$ADDRESS_STREET_2"
       - name: city
-        selector: "#city"
+        selector: "#input-7811EC8E-4040-F985-52CD-9F736859134A"
         value: "$ADDRESS_CITY"
         required: Yes
       - name: zip
-        selector: "#zip"
+        selector: "#input-7811ECEE-4040-F985-52CD-7531B698E92C"
         value: "$ADDRESS_ZIP5"
         required: Yes
-      - name: homePhone
-        selector: "#homePhone"
+      - name: phone
+        selector: "#input-7812E0DC-4040-F985-52CD-9D9A4BDC8EE8"
         value: "$PHONE"
-      - name: workPhone
-        selector: "#workPhone"
-        value: "$PHONE"
+        required: Yes
       - name: email
         selector: "#email"
         value: "$EMAIL"
         required: Yes
-      - name: messageSubject
-        selector: "#messageSubject"
+      - name: "input_7813561C-4040-F985-52CD-4A79B42F821F"
+        selector: "#input-7813561C-4040-F985-52CD-4A79B42F821F"
+        value: "$EMAIL"
+        required: Yes
+      - name: subject
+        selector: "#input-78156E99-4040-F985-52CD-A3EA1D68A55C"
         value: "$SUBJECT"
         required: Yes
-      - name: MessageBody
-        selector: ".required[name='MessageBody']"
+      - name: message
+        selector: "#input-78163367-4040-F985-52CD-D4AD6E614C69"
         value: "$MESSAGE"
         required: Yes
     - select:
-      - name: Prefix
-        selector: ".required[name='Prefix']"
+      - name: prefix
+        selector: "#input-781129BE-4040-F985-52CD-9967749C1AD6"
         value: "$NAME_PREFIX"
         required: Yes
         options:
-          " Mr. ": "Mr."
-          " Mrs. ": "Mrs."
-          " Ms. ": "Ms."
-          " Mr. and Mrs. ": "Mr. and Mrs."
-          " MSgt ": "MSgt"
-          " Dr. ": "Dr."
-          " Reverend ": "Reverend"
-          " Sister ": "Sister"
-          " Pastor ": "Pastor"
-          " The Honorable ": "The Honorable"
-          " Representative ": "Representative"
-          " Senator ": "Senator"
-      - name: Subject
-        selector: "#Subject"
-        value: "EMAIL"
+          - Mr.
+          - Ms.
+          - Mrs.
+          - Professor
+          - Dr.
+          - Father
+          - Sister
+          - Rabbi
+          - Reverend
+      - name: topic
+        selector: "#issuetoggle"
+        value: "$TOPIC"
         required: true
         options:
+          Agriculture: AG
+          Banking &amp; Credit: BN
+          Budget &amp; Taxes: BU
+          Business, Commerce &amp; Labor: CM
+          Congress, Federal &amp; Postal Employees: CG
+          Education, Science &amp; Technology: ED
+          Energy: EN
+          Environment, Nat. Resources &amp; Wildlife: EV
+          Foreign Affairs, Military &amp; Veterans: FA
+          Health Care: HC
+          Homeland Security &amp; Immigration: HS
+          Judiciary &amp; Crime: JU
+          Native Americans: NA
+          Social Safety Net: MD
           Not Listed/Other: EMAIL
+      - name: response
+        selector: "#input-14CF6547-AC63-C9C1-CA81-6C9AEEF85474"
+        value: "Yes"
+        required: false
+        options:
+          "Yes": "Yes"
+      - name: resident
+        selector: "#input-14CFC1B4-F363-3066-5B30-4B5F37B6DBD9"
+        value: "Yes"
+        required: false
+        options:
+          "Yes": "Yes"
+      - name: lastcontact
+        selector: "#input-6ED1469E-5056-A066-60B9-78C1BD536DDF"
+        value: "LCN - Never"
+        required: true
+        options:
+          Never: "LCN - Never"
     - javascript:
-      - value: document.querySelector(".required[name='MessageBody']").value = document.querySelector(".required[name='MessageBody']").value.replace(/"/g, '');
-    - javascript:
-      - value: jQuery('[name=captcha_code]').val(jQuery('a[href$=".wav"]').attr('href').match(/_([a-z0-9]+)\.wav/)[1]);
+      - value: document.querySelector("#input-78163367-4040-F985-52CD-D4AD6E614C69").value = document.querySelector("#input-78163367-4040-F985-52CD-D4AD6E614C69").value.replace(/"/g, '');
+    - recaptcha:
+      - value: true
     - click_on:
-      - value: Submit Information
-        selector: ".btn-primary"
-    - find:
-        - selector: "h1"
-          value: "Thank you for emailing"
+      - value: Submit
+        selector: ".btn"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for submitting your comments via my website"
+      contains: "Thank You for submitting your request to my office."

@@ -8,6 +8,8 @@ contact_form:
       - value: 2
     - click_on:
       - selector: "a.cerabox-close"
+    - javascript:
+      - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - select:
       - name: subject
         selector: "#subject"
@@ -178,9 +180,10 @@ contact_form:
         required: Yes
     - javascript:
       - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
-    - click_on:
-      - value: Submit
-        selector: "#side-search-btn"
+    - javascript:
+      - value: "document.querySelector('#side-search-btn').click();"
+    - wait:
+      - value: 5
     - find:
       - selector: "h2"
         value: "Thank You"

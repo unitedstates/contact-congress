@@ -1,129 +1,268 @@
 bioguide: W000817
 contact_form:
   method: post
-  action: "/?p=email_senator&clear_cache=1"
+  action: "https://www.warren.senate.gov/contact/shareyouropinion"
   steps:
-    - visit: "https://www.warren.senate.gov/index.cfm?p=email_senator"
+    - visit: "https://www.warren.senate.gov/contact/shareyouropinion"
+    - find:
+        - selector: "#input-6E6B5C1A-FBEE-82D9-79BA-918FB2300203"
     - fill_in:
-        - name: firstName
-          selector: "#fname"
+        - name: "input_6E6B5C1A-FBEE-82D9-79BA-918FB2300203"
+          selector: "#input-6E6B5C1A-FBEE-82D9-79BA-918FB2300203"
           value: $NAME_FIRST
           required: true
-        - name: lastName
-          selector: "#lname"
+        - name: "input_6E6B5C4C-FF9C-19CB-5865-717F07460DDB"
+          selector: "#input-6E6B5C4C-FF9C-19CB-5865-717F07460DDB"
           value: $NAME_LAST
           required: true
-        - name: address1
-          selector: "#address1"
+        - name: "input_6E8749CA-AED0-06CE-B886-9542B0A4DE8C"
+          selector: "#input-6E8749CA-AED0-06CE-B886-9542B0A4DE8C"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#city"
+        - name: "input_6E874A0E-A5B2-5A49-619E-D86CD80578B6"
+          selector: "#input-6E874A0E-A5B2-5A49-619E-D86CD80578B6"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#thisForm input[name='zip']"
+        - name: "input_6E874A59-9287-8C40-CDB8-36C88217C5A1"
+          selector: "#input-6E874A59-9287-8C40-CDB8-36C88217C5A1"
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: "input_6E7ACCB4-CF49-4BEC-BEDF-147F54CDB37E"
+          selector: "#input-6E7ACCB4-CF49-4BEC-BEDF-147F54CDB37E"
           value: $PHONE
           required: true
-        - name: email
-          selector: "#thisForm input[name='email']"
+        - name: "input_6E7D9D57-95F8-06D9-95D9-26D90A04218F"
+          selector: "#form-6AC10D77-F899-5659-3470-9DAFE25FCA0A #email"
           value: $EMAIL
           required: true
-        - name: vemail
-          selector: "#vemail"
-          value: $EMAIL
-          required: true
-        - name: messageSubject
-          selector: "#subject"
+        - name: "input_A57FB06F-5056-A066-6063-81BE6AB26AC4"
+          selector: "#input-A57FB06F-5056-A066-6063-81BE6AB26AC4"
           value: $SUBJECT
           required: true
-        - name: MessageBody
-          selector: "#msgbody"
+        - name: "input_6E903406-C8A3-34FA-F9C6-550E7249635C"
+          selector: "#input-6E903406-C8A3-34FA-F9C6-550E7249635C"
           value: $MESSAGE
           required: true
     - select:
-        - name: Subject
-          selector: "#issue_subject"
+        - name: "input_6E6B5C00-D7DC-FF03-73F7-321CE333AA3A"
+          selector: "#input-6E6B5C00-D7DC-FF03-73F7-321CE333AA3A"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Professor: Professor
+            Dr.: Dr.
+            Father: Father
+            Sister: Sister
+            Rabbi: Rabbi
+            Reverend: Reverend
+            Air Force - General: General
+            Air Force - Lieutenant General: Lieutenant General
+            Air Force - Major General: Major General
+            Air Force - Brigadier General: Brigadier General
+            Air Force - Colonel: Colonel
+            Air Force - Lieutenant Colonel: Lieutenant Colonel
+            Air Force - Major: Major
+            Air Force - Captain: Captain
+            Air Force - First Lieutenant: First Lieutenant
+            Air Force - Second Lieutenant: Second Lieutenant
+            Air Force - Chief Master Sergeant of the Air Force: Chief Master Sergeant of the Air Force
+            Air Force - Command Chief Master Sergeant: Command Chief Master Sergeant
+            Air Force - First Sergeant (E-9): First Sergeant (E-9)
+            Air Force - Chief Master Sergeant: Chief Master Sergeant
+            Air Force - First Sergeant (E-8): First Sergeant (E-8)
+            Air Force - Senior Master Sergeant: Senior Master Sergeant
+            Air Force - First Sergeant (E-7): First Sergeant (E-7)
+            Air Force - Master Sergeant: Master Sergeant
+            Air Force - Technical Sergeant: Technical Sergeant
+            Air Force - Staff Sergeant: Staff Sergeant
+            Air Force - Senior Airman: Senior Airman
+            Air Force - Airman First Class: Airman First Class
+            Air Force - Airman: Airman
+            Air Force - Airman Basic: Airman Basic
+            Army - General: General
+            Army - Lieutenant General: Lieutenant General
+            Army - Major General: Major General
+            Army - Brigadier General: Brigadier General
+            Army - Colonel: Colonel
+            Army - Lieutenant Colonel: Lieutenant Colonel
+            Army - Major: Major
+            Army - Captain: Captain
+            Army - First Lieutenant: First Lieutenant
+            Army - Second Lieutenant: Second Lieutenant
+            Army - Chief Warrant Officer - 5: Chief Warrant Officer - 5
+            Army - Chief Warrant Officer - 4: Chief Warrant Officer - 4
+            Army - Chief Warrant Officer - 3: Chief Warrant Officer - 3
+            Army - Chief Warrant Officer - 2: Chief Warrant Officer - 2
+            Army - Warrant Officer: Warrant Officer
+            Army - Sergeant Major of the Army: Sergeant Major of the Army
+            Army - Command Sergeant Major: Command Sergeant Major
+            Army - Sergeant Major: Sergeant Major
+            Army - First Sergeant: First Sergeant
+            Army - Master Sergeant: Master Sergeant
+            Army - Sergeant First Class: Sergeant First Class
+            Army - Staff Sergeant: Staff Sergeant
+            Army - Sergeant: Sergeant
+            Army - Corporal: Corporal
+            Army - Specialist: Specialist
+            Army - Private First Class: Private First Class
+            Army - Private (E-2): Private (E-2)
+            Army - Private: Private
+            Coast Guard - Admiral: Admiral
+            Coast Guard - Vice Admiral: Vice Admiral
+            Coast Guard - Rear Admiral, Upper Half: Rear Admiral, Upper Half
+            Coast Guard - Rear Admiral, Lower Half: Rear Admiral, Lower Half
+            Coast Guard - Captain: Captain
+            Coast Guard - Commander: Commander
+            Coast Guard - Lieutenant Commander: Lieutenant Commander
+            Coast Guard - Lieutenant: Lieutenant
+            Coast Guard - Lieutenant Junior Grade: Lieutenant Junior Grade
+            Coast Guard - Ensign: Ensign
+            Coast Guard - Chief Warrant Officer - 4: Chief Warrant Officer - 4
+            Coast Guard - Chief Warrant Officer - 3: Chief Warrant Officer - 3
+            Coast Guard - Chief Warrant Officer - 2: Chief Warrant Officer - 2
+            Coast Guard - Master Chief Petty Officer of the Coast Guard: Master Chief Petty Officer of the Coast Guard
+            Coast Guard - Master Chief Petty Officer: Master Chief Petty Officer
+            Coast Guard - Senior Chief Petty Officer: Senior Chief Petty Officer
+            Coast Guard - Chief Petty Officer: Chief Petty Officer
+            Coast Guard - Petty Officer First Class: Petty Officer First Class
+            Coast Guard - Petty Officer Second Class: Petty Officer Second Class
+            Coast Guard - Petty Officer Third Class: Petty Officer Third Class
+            Coast Guard - Seaman: Seaman
+            Coast Guard - Seaman Apprentice: Seaman Apprentice
+            Coast Guard - Seaman Recruit: Seaman Recruit
+            Marine Corps - General: General
+            Marine Corps - Lieutenant General: Lieutenant General
+            Marine Corps - Major General: Major General
+            Marine Corps - Brigadier General: Brigadier General
+            Marine Corps - Colonel: Colonel
+            Marine Corps - Lieutenant Colonel: Lieutenant Colonel
+            Marine Corps - Major: Major
+            Marine Corps - Captain: Captain
+            Marine Corps - First Lieutenant: First Lieutenant
+            Marine Corps - Second Lieutenant: Second Lieutenant
+            Marine Corps - Chief Warrant Officer - 5: Chief Warrant Officer - 5
+            Marine Corps - Chief Warrant Officer - 4: Chief Warrant Officer - 4
+            Marine Corps - Chief Warrant Officer - 3: Chief Warrant Officer - 3
+            Marine Corps - Chief Warrant Officer - 2: Chief Warrant Officer - 2
+            Marine Corps - Warrant Officer: Warrant Officer
+            Marine Corps - Sergeant Major of the Marine Corps: Sergeant Major of the Marine Corps
+            Marine Corps - Sergeant Major: Sergeant Major
+            Marine Corps - Master Gunnery Sergeant: Master Gunnery Sergeant
+            Marine Corps - First Sergeant: First Sergeant
+            Marine Corps - Master Sergeant: Master Sergeant
+            Marine Corps - Gunnery Sergeant: Gunnery Sergeant
+            Marine Corps - Staff Sergeant: Staff Sergeant
+            Marine Corps - Sergeant: Sergeant
+            Marine Corps - Corporal: Corporal
+            Marine Corps - Lance Corporal: Lance Corporal
+            Marine Corps - Private First Class: Private First Class
+            Marine Corps - Private: Private
+            Navy - Admiral: Admiral
+            Navy - Vice Admiral: Vice Admiral
+            Navy - Rear Admiral, Upper Half: Rear Admiral, Upper Half
+            Navy - Rear Admiral, Lower Half: Rear Admiral, Lower Half
+            Navy - Captain: Captain
+            Navy - Commander: Commander
+            Navy - Lieutenant Commander: Lieutenant Commander
+            Navy - Lieutenant: Lieutenant
+            Navy - Lieutenant Junior Grade: Lieutenant Junior Grade
+            Navy - Ensign: Ensign
+            Navy - Chief Warrant Officer - 4: Chief Warrant Officer - 4
+            Navy - Chief Warrant Officer - 3: Chief Warrant Officer - 3
+            Navy - Chief Warrant Officer - 2: Chief Warrant Officer - 2
+            Navy - Master Chief Petty Officer of the Navy: Master Chief Petty Officer of the Navy
+            Navy - Master Chief Petty Officer: Master Chief Petty Officer
+            Navy - Senior Chief Petty Officer: Senior Chief Petty Officer
+            Navy - Chief Petty Officer: Chief Petty Officer
+            Navy - Petty Officer First Class: Petty Officer First Class
+            Navy - Petty Officer Second Class: Petty Officer Second Class
+            Navy - Petty Officer Third Class: Petty Officer Third Class
+            Navy - Seaman Apprentice: Seaman Apprentice
+            Navy - Seaman: Seaman
+            Navy - Seaman Recruit: Seaman Recruit
+        - name: "input_6E8F252A-9A7A-9A14-E3C0-18D8421D0C08"
+          selector: "#input-6E8F252A-9A7A-9A14-E3C0-18D8421D0C08"
           value: $TOPIC
           required: true
           options:
-            "\n\t\t\t\t\t\t\tAbortion\n\t\t\t\t\t\t": Abortion
-            "\n\t\t\t\t\t\t\tAdminstrative Law and Regulatory Reform\n\t\t\t\t\t\t": Adminstrative Law and Regulatory Reform
-            "\n\t\t\t\t\t\t\tAdoption/Foster Care\n\t\t\t\t\t\t": Adoption/Foster Care
-            "\n\t\t\t\t\t\t\tAging\n\t\t\t\t\t\t": Aging
-            "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": Agriculture
-            "\n\t\t\t\t\t\t\tAnimal Welfare\n\t\t\t\t\t\t": Animal Welfare
-            "\n\t\t\t\t\t\t\tAntitrust/Competition\n\t\t\t\t\t\t": Antitrust/Competition
-            "\n\t\t\t\t\t\t\tAppropriations\n\t\t\t\t\t\t": Appropriations
-            "\n\t\t\t\t\t\t\tArts and Culture\n\t\t\t\t\t\t": Arts and Culture
-            "\n\t\t\t\t\t\t\tBanking\n\t\t\t\t\t\t": Banking
-            "\n\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t": Budget
-            "\n\t\t\t\t\t\t\tCampaign Finance\n\t\t\t\t\t\t": Campaign Finance
-            "\n\t\t\t\t\t\t\tChild Care/Child Welfare/Early Childhood Education\n\t\t\t\t\t\t": Child Care/Child Welfare/Early Childhood Education
-            "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": Civil Rights
-            "\n\t\t\t\t\t\t\tCommerce\n\t\t\t\t\t\t": Commerce
-            "\n\t\t\t\t\t\t\tConsumer Protection\n\t\t\t\t\t\t": Consumer Protection
-            "\n\t\t\t\t\t\t\tControlled Substances\n\t\t\t\t\t\t": Controlled Substances
-            "\n\t\t\t\t\t\t\tCrime And Justice\n\t\t\t\t\t\t": Crime And Justice
-            "\n\t\t\t\t\t\t\tDefense and Military\n\t\t\t\t\t\t": Defense and Military
-            "\n\t\t\t\t\t\t\tDisability Policy\n\t\t\t\t\t\t": Disability Policy
-            "\n\t\t\t\t\t\t\tDomestic Violence\n\t\t\t\t\t\t": Domestic Violence
-            "\n\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t": Economy
-            "\n\t\t\t\t\t\t\tElementary and Secondary Education\n\t\t\t\t\t\t": Elementary and Secondary Education
-            "\n\t\t\t\t\t\t\tHigher Education\n\t\t\t\t\t\t": Higher Education
-            "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": Energy
-            "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": Environment
-            "\n\t\t\t\t\t\t\tFlag Requests\n\t\t\t\t\t\t": Flag Requests
-            "\n\t\t\t\t\t\t\tFood Safety\n\t\t\t\t\t\t": Food Safety
-            "\n\t\t\t\t\t\t\tForeign Affairs\n\t\t\t\t\t\t": Foreign Affairs
-            "\n\t\t\t\t\t\t\tGrants\n\t\t\t\t\t\t": Grants
-            "\n\t\t\t\t\t\t\tGuns\n\t\t\t\t\t\t": Guns
-            "\n\t\t\t\t\t\t\tHealth\n\t\t\t\t\t\t": Health
-            "\n\t\t\t\t\t\t\tHistorical Preservation\n\t\t\t\t\t\t": Historical Preservation
-            "\n\t\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t\t": Homeland Security
-            "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": Housing
-            "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": Immigration
-            "\n\t\t\t\t\t\t\tIntellectual Property\n\t\t\t\t\t\t": Intellectual Property
-            "\n\t\t\t\t\t\t\tJob Training and Workforce Development\n\t\t\t\t\t\t": Job Training and Workforce Development
-            "\n\t\t\t\t\t\t\tJudicial Nominations\n\t\t\t\t\t\t": Judicial Nominations
-            "\n\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t": Judiciary
-            "\n\t\t\t\t\t\t\tLabor and Unions\n\t\t\t\t\t\t": Labor and Unions
-            "\n\t\t\t\t\t\t\tLaw Enforcement\n\t\t\t\t\t\t": Law Enforcement
-            "\n\t\t\t\t\t\t\tMedicaid/CHIP\n\t\t\t\t\t\t": Medicaid/CHIP
-            "\n\t\t\t\t\t\t\tMedicare\n\t\t\t\t\t\t": Medicare
-            "\n\t\t\t\t\t\t\tMunicipal and State Government\n\t\t\t\t\t\t": Municipal and State Government
-            "\n\t\t\t\t\t\t\tNative Americans\n\t\t\t\t\t\t": Native Americans
-            "\n\t\t\t\t\t\t\tNatural Disasters\n\t\t\t\t\t\t": Natural Disasters
-            "\n\t\t\t\t\t\t\tPensions and Retirement\n\t\t\t\t\t\t": Pensions and Retirement
-            "\n\t\t\t\t\t\t\tPostal Issues\n\t\t\t\t\t\t": Postal Issues
-            "\n\t\t\t\t\t\t\tScience/Technology/Space\n\t\t\t\t\t\t": Science/Technology/Space
-            "\n\t\t\t\t\t\t\tSmall Business\n\t\t\t\t\t\t": Small Business
-            "\n\t\t\t\t\t\t\tSocial Security/SSDI\n\t\t\t\t\t\t": Social Security/SSDI
-            "\n\t\t\t\t\t\t\tStart-Ups and Entrepreneurs\n\t\t\t\t\t\t": Start-Ups and Entrepreneurs
-            "\n\t\t\t\t\t\t\tStudent Loans\n\t\t\t\t\t\t": Student Loans
-            "\n\t\t\t\t\t\t\tTANF and Low-Income Benefits\n\t\t\t\t\t\t": TANF and Low-Income Benefits
-            "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": Taxes
-            "\n\t\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t\t": Telecommunications
-            "\n\t\t\t\t\t\t\tTour Request\n\t\t\t\t\t\t": Tour Request
-            "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": Trade
-            "\n\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t": Transportation
-            "\n\t\t\t\t\t\t\tInfrastructure\n\t\t\t\t\t\t": Infrastructure
-            "\n\t\t\t\t\t\t\tUnemployment Insurance\n\t\t\t\t\t\t": Unemployment Insurance
-            "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": Veterans
-            "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
+            Abortion: Abortion
+            Adminstrative Law and Regulatory Reform: Adminstrative Law and Regulatory Reform
+            Adoption/Foster Care: Adoption/Foster Care
+            Aging: Aging
+            Agriculture: Agriculture
+            Animal Welfare: Animal Welfare
+            Antitrust/Competition: Antitrust/Competition
+            Appropriations: Appropriations
+            Arts and Culture: Arts and Culture
+            Banking: Banking
+            Budget: Budget
+            Campaign Finance: Campaign Finance
+            Child Care/Child Welfare/Early Childhood Education: Child Care/Child Welfare/Early Childhood Education
+            Civil Rights: Civil Rights
+            Commerce: Commerce
+            Consumer Protection: Consumer Protection
+            Controlled Substances: Controlled Substances
+            Crime And Justice: Crime And Justice
+            Defense and Military: Defense and Military
+            Disability Policy: Disability Policy
+            Domestic Violence: Domestic Violence
+            Economy: Economy
+            Elementary and Secondary Education: Elementary and Secondary Education
+            Higher Education: Higher Education
+            Energy: Energy
+            Environment: Environment
+            Flag Requests: Flag Requests
+            Food Safety: Food Safety
+            Foreign Affairs: Foreign Affairs
+            Grants: Grants
+            Guns: Guns
+            Health: Health
+            Historical Preservation: Historical Preservation
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Intellectual Property: Intellectual Property
+            Job Training and Workforce Development: Job Training and Workforce Development
+            Judicial Nominations: Judicial Nominations
+            Judiciary: Judiciary
+            Labor and Unions: Labor and Unions
+            Law Enforcement: Law Enforcement
+            Medicaid/CHIP: Medicaid/CHIP
+            Medicare: Medicare
+            Municipal and State Government: Municipal and State Government
+            Native Americans: Native Americans
+            Natural Disasters: Natural Disasters
+            Pensions and Retirement: Pensions and Retirement
+            Postal Issues: Postal Issues
+            Puerto Rico: Puerto Rico
+            Science/Technology/Space: Science/Technology/Space
+            Small Business: Small Business
+            Social Security/SSDI: Social Security/SSDI
+            Start-Ups and Entrepreneurs: Start-Ups and Entrepreneurs
+            Student Loans: Student Loans
+            TANF and Low-Income Benefits: TANF and Low-Income Benefits
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Tour Request: Tour Request
+            Trade: Trade
+            Transportation: Transportation
+            Infrastructure: Infrastructure
+            Unemployment Insurance: Unemployment Insurance
+            Veterans: Veterans
+            Women's Issues: Women's Issues        
     - javascript:
-        - value: document.querySelector("#msgbody").value = document.querySelector("#msgbody").value.replace(/"/g, '');
+        - value: document.querySelector("#input-6E903406-C8A3-34FA-F9C6-550E7249635C").value = document.querySelector("#input-6E903406-C8A3-34FA-F9C6-550E7249635C").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#thisForm input[name='Submit']"
+          selector: "input.btn"
     - find:
-        - selector: '#r1c1 > div.note > p'
+        - selector: 'h1'
+          value: "Thank you!"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you! Your message has been sent."
+      contains: "Your message has been sent."

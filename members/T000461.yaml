@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /?p=contact
   steps:
-    - visit: "http://www.toomey.senate.gov/?p=contact"
+    - visit: "https://www.toomey.senate.gov/?p=contact"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
@@ -94,16 +94,12 @@ contact_form:
             Banking and Financial Services: Banking and Financial Services
             Budget: Budget
             Census: Census
-            Children: Children
-            Consumer Protection: Consumer Protection
             Economy: Economy
             Education: Education
             Energy: Energy
             Environment: Environment
-            Ethics: Ethics
             Foreign Relations: Foreign Relations
             Grants: Grants
-            Guns and Crime: Guns and Crime
             Healthcare: Healthcare
             Housing: Housing
             Immigration: Immigration
@@ -113,18 +109,20 @@ contact_form:
             Medicaid: Medicaid
             National Security: National Security
             Postal Service: Postal Service
-            Science and Technology: Science and Technology
             Social Security and Medicare: Social Security and Medicare
             Taxes: Taxes
-            Telecommunications: Telecommunications
             Tour Request: Tour Request
             Trade: Trade
             Transportation: Transportation
             Veterans: Veterans
     - javascript:
         - value: document.querySelector("textarea[name='MSG']").value = document.querySelector("textarea[name='MSG']").value.replace(/"/g, '');
-    - click_on:
-        - selector: "input.btn-primary"
+    - javascript:
+        - value: document.querySelector("input.btn-primary").disabled = false;
+    - recaptcha:
+        - value: true
+    - javascript:
+        - value: document.querySelector("input.btn-primary").click();
     - find:
         - selector: "p"
           value: "Thank you!"

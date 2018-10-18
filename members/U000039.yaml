@@ -1,143 +1,250 @@
 bioguide: U000039
 contact_form:
-  method: POST
-  action: https://www.tomudall.senate.gov/?p=contact
+  method: post
+  action: "https://www.tomudall.senate.gov/contact/email-tom"
   steps:
-    - visit: https://www.tomudall.senate.gov/?p=contact
-    - fill_in:
-      - name: firstName
-        selector: "#firstName"
-        value: "$NAME_FIRST"
-        required: Yes
-      - name: lastName
-        selector: "#lastName"
-        value: "$NAME_LAST"
-        required: Yes
-      - name: Address1
-        selector: "#Address1"
-        value: "$ADDRESS_STREET"
-        required: Yes
-      - name: Address2
-        selector: "#Address2"
-        value: "$ADDRESS_STREET_2"
-      - name: city
-        selector: "#city"
-        value: "$ADDRESS_CITY"
-        required: Yes
-      - name: zip
-        selector: "#contact_form #zip"
-        value: "$ADDRESS_ZIP5"
-        required: Yes
-      - name: phone
-        selector: "#phone"
-        value: "$PHONE"
-        required: Yes
-      - name: email
-        selector: "#contact_form #email"
-        value: "$EMAIL"
-        required: Yes
-      - name: vemail
-        selector: "#vemail"
-        value: "$EMAIL"
-        required: Yes
-      - name: MessageSubject
-        selector: "#MessageSubject"
-        value: "$SUBJECT"
-        required: Yes
-      - name: MessageBody
-        selector: ".textarea"
-        value: "$MESSAGE"
-        required: Yes
-      - name: ephone
-        selector: "#ephone"
-        value: ""
-      - name: mphone
-        selector: "#mphone"
-        value: ""
-    - select:
-      - name: Prefix
-        selector: "#contact_form select[name='Prefix']"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          - "Mr."
-          - "Mrs."
-          - "Ms."
-          - "Mr. and Mrs."
-          - "Miss"
-          - "Dr."
-          - "Dr. and Mrs."
-          - "Dr. and Mr."
-          - "Admiral"
-          - "Captain"
-          - "Chief Master Sergeant"
-          - "Colonel"
-          - "Commander"
-          - "Corporal"
-          - "Father"
-          - "Lieutenant"
-          - "Lieutenant Colonel"
-          - "Master Sergeant"
-          - "Reverend"
-          - "Sergeant"
-          - "Second Lieutenant"
-          - "ergeant Major"
-          - "Sister"
-          - "Technical Sergeant"
-      - name: Subject
-        selector: "#Subject"
-        value: "$TOPIC"
-        required: Yes
-        options:
-          "\n\t\t\t\t\t\tAgriculture\n\t\t\t\t\t": "Agriculture"
-          "\n\t\t\t\t\t\tAnimals\n\t\t\t\t\t": "Animals"
-          "\n\t\t\t\t\t\tArts and Humanities\n\t\t\t\t\t": "Arts and Humanities"
-          "\n\t\t\t\t\t\tBanking & Finance\n\t\t\t\t\t": "Banking & Finance"
-          "\n\t\t\t\t\t\tBudget & Taxes\n\t\t\t\t\t": "Budget & Taxes"
-          "\n\t\t\t\t\t\tCampaign Finance & Election Reform\n\t\t\t\t\t": "Campaign Finance & Election Reform"
-          "\n\t\t\t\t\t\tCivil Liberties\n\t\t\t\t\t": "Civil Liberties"
-          "\n\t\t\t\t\t\tDefense & Military\n\t\t\t\t\t": "Defense & Military"
-          "\n\t\t\t\t\t\tEducation\n\t\t\t\t\t": "Education"
-          "\n\t\t\t\t\t\tE-mail Newsletters\n\t\t\t\t\t": "E-mail Newsletters"
-          "\n\t\t\t\t\t\tEnergy & Global Warming\n\t\t\t\t\t": "Energy & Global Warming"
-          "\n\t\t\t\t\t\tEnvironment & Conservation\n\t\t\t\t\t": "Environment & Conservation"
-          "\n\t\t\t\t\t\tFamily Planning\n\t\t\t\t\t": "Family Planning"
-          "\n\t\t\t\t\t\tFederal Employees\n\t\t\t\t\t": "Federal Employees"
-          "\n\t\t\t\t\t\tForeign Relations\n\t\t\t\t\t": "Foreign Relations"
-          "\n\t\t\t\t\t\tHealth Care\n\t\t\t\t\t": "Health Care"
-          "\n\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t": "Homeland Security"
-          "\n\t\t\t\t\t\tHousing\n\t\t\t\t\t": "Housing"
-          "\n\t\t\t\t\t\tIndian Country\n\t\t\t\t\t": "Indian Country"
-          "\n\t\t\t\t\t\tImmigration & Border Security\n\t\t\t\t\t": "Immigration & Border Security"
-          "\n\t\t\t\t\t\tJobs & Economy\n\t\t\t\t\t": "Jobs & Economy"
-          "\n\t\t\t\t\t\tJudiciary\n\t\t\t\t\t": "Judiciary"
-          "\n\t\t\t\t\t\tLabor\n\t\t\t\t\t": "Labor"
-          "\n\t\t\t\t\t\tLaw Enforcement\n\t\t\t\t\t": "Law Enforcement"
-          "\n\t\t\t\t\t\tLGBT Issues\n\t\t\t\t\t": "LGBT Issues"
-          "\n\t\t\t\t\t\tNational Labs\n\t\t\t\t\t": "National Labs"
-          "\n\t\t\t\t\t\tPostal Service\n\t\t\t\t\t": "Postal Service"
-          "\n\t\t\t\t\t\tReligion\n\t\t\t\t\t": "Religion"
-          "\n\t\t\t\t\t\tRetirement\n\t\t\t\t\t": "Retirement"
-          "\n\t\t\t\t\t\tScience and Technology\n\t\t\t\t\t": "Science and Technology"
-          "\n\t\t\t\t\t\tSecond Amendment Rights\n\t\t\t\t\t": "Second Amendment Rights"
-          "\n\t\t\t\t\t\tSmall Business\n\t\t\t\t\t": "Small Business"
-          "\n\t\t\t\t\t\tSocial Security\n\t\t\t\t\t": "Social Security"
-          "\n\t\t\t\t\t\tState Issues\n\t\t\t\t\t": "State Issues"
-          "\n\t\t\t\t\t\tTaxes\n\t\t\t\t\t": "Taxes"
-          "\n\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t": "Telecommunications"
-          "\n\t\t\t\t\t\tTrade\n\t\t\t\t\t": "Trade"
-          "\n\t\t\t\t\t\tTransportation\n\t\t\t\t\t": "Transportation"
-          "\n\t\t\t\t\t\tVeterans\n\t\t\t\t\t": "Veterans"
-    - javascript:
-      - value: document.querySelector(".textarea").value = document.querySelector(".textarea").value.replace(/"/g, '');
-    - javascript:
-      - value: "document.getElementById('contact_form').submit();"
-    - wait:
-      - value: 3
+    - visit: "https://www.tomudall.senate.gov/contact/email-tom"
     - find:
-      - selector: ".notice"
+        - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
+    - fill_in:
+        - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
+          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
+          value: $NAME_FIRST
+          required: true
+        - name: input_B03E04BD-4040-F985-52CD-48E090E769DA
+          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
+          value: $NAME_LAST
+          required: true
+        - name: input_B03E05F1-4040-F985-52CD-A580E72A7D41
+          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_B03E0595-4040-F985-52CD-C572364023FE
+          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
+          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_0AACF9DE-5056-A066-6041-455B82DE1661
+          selector: "#input-0AACF9DE-5056-A066-6041-455B82DE1661"
+          value: $ADDRESS_COUNTY
+          required: true
+        - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
+          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
+          value: $PHONE
+          required: true
+        - name: input_B03E0536-4040-F985-52CD-AFE12CDE8D31
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: input_B03E05A4-4040-F985-52CD-730C08912F4F
+          selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
+          value: $EMAIL
+          required: true
+        - name: input_E535F970-D74F-D0F1-64CB-E9BB60C165D2
+          selector: "#input-E535F970-D74F-D0F1-64CB-E9BB60C165D2"
+          value: $SUBJECT
+          required: true
+        - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
+          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: input_B03E0527-4040-F985-52CD-C0DD6BEF325F
+          selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Professor
+            - Dr.
+            - Father
+            - Sister
+            - Rabbi
+            - Reverend
+            - Air Force - General
+            - Air Force - Lieutenant General
+            - Air Force - Major General
+            - Air Force - Brigadier General
+            - Air Force - Colonel
+            - Air Force - Lieutenant Colonel
+            - Air Force - Major
+            - Air Force - Captain
+            - Air Force - First Lieutenant
+            - Air Force - Second Lieutenant
+            - Air Force - Chief Master Sergeant of the Air Force
+            - Air Force - Command Chief Master Sergeant
+            - Air Force - First Sergeant (E-9)
+            - Air Force - Chief Master Sergeant
+            - Air Force - First Sergeant (E-8)
+            - Air Force - Senior Master Sergeant
+            - Air Force - First Sergeant (E-7)
+            - Air Force - Master Sergeant
+            - Air Force - Technical Sergeant
+            - Air Force - Staff Sergeant
+            - Air Force - Senior Airman
+            - Air Force - Airman First Class
+            - Air Force - Airman
+            - Air Force - Airman Basic
+            - Army - General
+            - Army - Lieutenant General
+            - Army - Major General
+            - Army - Brigadier General
+            - Army - Colonel
+            - Army - Lieutenant Colonel
+            - Army - Major
+            - Army - Captain
+            - Army - First Lieutenant
+            - Army - Second Lieutenant
+            - Army - Chief Warrant Officer - 5
+            - Army - Chief Warrant Officer - 4
+            - Army - Chief Warrant Officer - 3
+            - Army - Chief Warrant Officer - 2
+            - Army - Warrant Officer
+            - Army - Sergeant Major of the Army
+            - Army - Command Sergeant Major
+            - Army - Sergeant Major
+            - Army - First Sergeant
+            - Army - Master Sergeant
+            - Army - Sergeant First Class
+            - Army - Staff Sergeant
+            - Army - Sergeant
+            - Army - Corporal
+            - Army - Specialist
+            - Army - Private First Class
+            - Army - Private (E-2)
+            - Army - Private
+            - Coast Guard - Admiral
+            - Coast Guard - Vice Admiral
+            - "Coast Guard - Rear Admiral, Upper Half"
+            - "Coast Guard - Rear Admiral, Lower Half"
+            - Coast Guard - Captain
+            - Coast Guard - Commander
+            - Coast Guard - Lieutenant Commander
+            - Coast Guard - Lieutenant
+            - Coast Guard - Lieutenant Junior Grade
+            - Coast Guard - Ensign
+            - Coast Guard - Chief Warrant Officer - 4
+            - Coast Guard - Chief Warrant Officer - 3
+            - Coast Guard - Chief Warrant Officer - 2
+            - Coast Guard - Master Chief Petty Officer of the Coast Guard
+            - Coast Guard - Master Chief Petty Officer
+            - Coast Guard - Senior Chief Petty Officer
+            - Coast Guard - Chief Petty Officer
+            - Coast Guard - Petty Officer First Class
+            - Coast Guard - Petty Officer Second Class
+            - Coast Guard - Petty Officer Third Class
+            - Coast Guard - Seaman
+            - Coast Guard - Seaman Apprentice
+            - Coast Guard - Seaman Recruit
+            - Marine Corps - General
+            - Marine Corps - Lieutenant General
+            - Marine Corps - Major General
+            - Marine Corps - Brigadier General
+            - Marine Corps - Colonel
+            - Marine Corps - Lieutenant Colonel
+            - Marine Corps - Major
+            - Marine Corps - Captain
+            - Marine Corps - First Lieutenant
+            - Marine Corps - Second Lieutenant
+            - Marine Corps - Chief Warrant Officer - 5
+            - Marine Corps - Chief Warrant Officer - 4
+            - Marine Corps - Chief Warrant Officer - 3
+            - Marine Corps - Chief Warrant Officer - 2
+            - Marine Corps - Warrant Officer
+            - Marine Corps - Sergeant Major of the Marine Corps
+            - Marine Corps - Sergeant Major
+            - Marine Corps - Master Gunnery Sergeant
+            - Marine Corps - First Sergeant
+            - Marine Corps - Master Sergeant
+            - Marine Corps - Gunnery Sergeant
+            - Marine Corps - Staff Sergeant
+            - Marine Corps - Sergeant
+            - Marine Corps - Corporal
+            - Marine Corps - Lance Corporal
+            - Marine Corps - Private First Class
+            - Marine Corps - Private
+            - Navy - Admiral
+            - Navy - Vice Admiral
+            - "Navy - Rear Admiral, Upper Half"
+            - "Navy - Rear Admiral, Lower Half"
+            - Navy - Captain
+            - Navy - Commander
+            - Navy - Lieutenant Commander
+            - Navy - Lieutenant
+            - Navy - Lieutenant Junior Grade
+            - Navy - Ensign
+            - Navy - Chief Warrant Officer - 4
+            - Navy - Chief Warrant Officer - 3
+            - Navy - Chief Warrant Officer - 2
+            - Navy - Master Chief Petty Officer of the Navy
+            - Navy - Master Chief Petty Officer
+            - Navy - Senior Chief Petty Officer
+            - Navy - Chief Petty Officer
+            - Navy - Petty Officer First Class
+            - Navy - Petty Officer Second Class
+            - Navy - Petty Officer Third Class
+            - Navy - Seaman Apprentice
+            - Navy - Seaman
+            - Navy - Seaman Recruit
+        - name: input_B03E04DB-4040-F985-52CD-18F332336F99
+          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture
+            - Animals
+            - Arts and Humanities
+            - "Banking & Finance"
+            - "Budget & Taxes"
+            - "Campaign Finance & Election Reform"
+            - Civil Liberties
+            - "Defense & Military"
+            - Education
+            - E-mail Newsletters
+            - "Energy & Global Warming"
+            - "Environment & Conservation"
+            - Family Planning
+            - Federal Employees
+            - Foreign Relations
+            - Health Care
+            - Homeland Security
+            - Housing
+            - Indian Country
+            - "Immigration & Border Security"
+            - "Jobs & Economy"
+            - Judiciary
+            - Labor
+            - Law Enforcement
+            - LGBT issue
+            - National Labs
+            - Postal Service
+            - Religion
+            - Retirement
+            - Science and Technology
+            - Second Amendment Rights
+            - Small Business
+            - Social Security
+            - State Issues
+            - Taxes
+            - Telecommunications
+            - Trade
+            - Transportation
+            - Veterans
+    - javascript:
+        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
+    - click_on:
+        - value: Submit
+          selector: input.btn
+    - find:
+        - selector: h1
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for your message"
+      contains: Thank you for submitting your request to our office.

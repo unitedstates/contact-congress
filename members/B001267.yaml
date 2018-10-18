@@ -1,140 +1,119 @@
 bioguide: B001267
 contact_form:
   method: post
-  action: /?p=contact
+  action: /
   steps:
-    - visit: "http://www.bennet.senate.gov/?p=contact"
+    - visit: "https://www.bennet.senate.gov/public/index.cfm/write-to-michael"
     - find: 
-        - selector: "#gen-fieldid-3"
+        - selector: "#field_52D32F87-EEB0-4B98-A147-18D485A91778"
     - fill_in:
-        - name: firstName
-          selector: "#gen-fieldid-3"
+        - name: field_52D32F87-EEB0-4B98-A147-18D485A91778
+          selector: "#field_52D32F87-EEB0-4B98-A147-18D485A91778"
           value: $NAME_FIRST
           required: true
-        - name: lastName
-          selector: "#gen-fieldid-5"
+        - name: field_6E3E9E0C-4536-4943-86DC-C3EABE533E5D
+          selector: "#field_6E3E9E0C-4536-4943-86DC-C3EABE533E5D"
           value: $NAME_LAST
           required: true
-        - name: Address1
-          selector: "#gen-fieldid-7"
+        - name: field_1EBBDF6B-817C-4A20-883D-7DA26637C09C
+          selector: "#field_1EBBDF6B-817C-4A20-883D-7DA26637C09C"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#gen-fieldid-11"
+        - name: field_92DAAF40-EA9E-473C-8A60-D879AA1A8845
+          selector: "#field_92DAAF40-EA9E-473C-8A60-D879AA1A8845"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#gen-fieldid-15"
+        - name: field_3F76B5F8-807F-4173-8ECD-A9B5C0C5D881
+          selector: "#field_3F76B5F8-807F-4173-8ECD-A9B5C0C5D881"
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
-          selector: "#gen-fieldid-17"
+        - name: field_5ED31C3E-6AEC-4987-9A4F-1F5641AE5075
+          selector: "#field_5ED31C3E-6AEC-4987-9A4F-1F5641AE5075"
           value: $PHONE
           required: true
-        - name: email
-          selector: "#gen-fieldid-19"
+        - name: field_045DB8F4-2432-4E7E-B04C-ACE2C164D7A9
+          selector: "#field_045DB8F4-2432-4E7E-B04C-ACE2C164D7A9"
           value: $EMAIL
           required: true
-        - name: vemail
-          selector: "#gen-fieldid-21"
-          value: $EMAIL
-          required: true
-        - name: Subject
-          selector: "#gen-fieldid-25"
+        - name: field_4F515802-2FFE-4D01-A28E-326A8627C3E1
+          selector: "#field_4F515802-2FFE-4D01-A28E-326A8627C3E1"
           value: $SUBJECT
           required: true
-        - name: msg
-          selector: "#gen-fieldid-27"
+        - name: field_0F40B55B-8631-4AA2-8223-08DE119CD370
+          selector: "#field_0F40B55B-8631-4AA2-8223-08DE119CD370"
           value: $MESSAGE
           required: true
     - select:
-        - name: Prefix
-          selector: "#gen-fieldid-1"
+        - name: field_6B982348-2EDF-496C-B4F6-2B46EC249BC2
+          selector: "#field_6B982348-2EDF-496C-B4F6-2B46EC249BC2"
           value: $NAME_PREFIX
           required: true
           options:
-            "-- please select a prefix --": "null"
-            Mr.: Mr.
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Mr. and Mrs.: Mr. and Mrs.
-            Miss: Miss
-            Dr.: Dr.
-            Dr. and Mrs.: Dr. and Mrs.
-            Dr. and Mr.: Dr. and Mr.
-            Admiral: Admiral
-            Captain: Captain
-            Chief Master Sergeant: Chief Master Sergeant
-            Colonel: Colonel
-            Commander: Commander
-            Corporal: Corporal
-            Father: Father
-            Lieutenant: Lieutenant
-            Lieutenant Colonel: Lieutenant Colonel
-            Master Sergeant: Master Sergeant
-            Reverend: Reverend
-            Sergeant: Sergeant
-            Second Lieutenant: Second Lieutenant
-            Sergeant Major: Sergeant Major
-            Sister: Sister
-            Technical Sergeant: Technical Sergeant
-        - name: Issue
-          selector: "#gen-fieldid-23"
+            "Mr.": "Mr." 
+            "Mrs.": "Mrs." 
+            "Ms.": "Ms." 
+            "Mr. and Mr.": "Mr. and Mr." 
+            "Mrs. and Mrs.": "Mrs. and Mrs." 
+            "Mr. and Mrs.": "Mr. and Mrs." 
+            "Doctor": "Doctor" 
+            "Reverend": "Reverend" 
+            "Pastor": "Pastor" 
+            "Father": "Father" 
+            "Sister": "Sister" 
+            "Rabbi": "Rabbi" 
+            "Imam": "Imam" 
+            "Other": "Other"  
+        - name: field_A06A01A2-51E9-4761-A6C2-FD52E837A6C4
+          selector: "#field_A06A01A2-51E9-4761-A6C2-FD52E837A6C4"
           value: $TOPIC
           required: true
           options:
-            "-- please select a topic --": "null"
-            Agriculture: Agriculture
-            Animal Rights: Animal Rights
-            Banking and Financial Services: Banking and Financial Services
-            Budget and Fiscal Responsibility: Budget and Fiscal Responsibility
-            Children and Families: Children and Families
-            Congratulatory or Commemorative Letter Requests: Congratulatory or Commemorative Letter Requests
-            Consumer Finance Protection Bureau: Consumer Finance Protection Bureau
-            Defense and Military: Defense and Military
-            Economy and Commerce: Economy and Commerce
-            Education: Education
-            Energy: Energy
-            Environment: Environment
-            Finance: Finance
-            Foreign Policy: Foreign Policy
-            Government Affairs: Government Affairs
-            Health Care: Health Care
-            Housing: Housing
-            Homeland Security: Homeland Security
-            Immigration: Immigration
-            Indian Affairs: Indian Affairs
-            Interior: "Interior "
-            International Trade: International Trade
-            Judiciary: Judiciary
-            Labor: Labor
-            Medicare and Medicaid: Medicare and Medicaid
-            Postal Affairs: Postal Affairs
-            Second Amendment: Second Amendment
-            Science and Technology: Science and Technology
-            Small Business: Small Business
-            Social Security: Social Security
-            Taxes: Taxes
-            Telecommunications: Telecommunications
-            Transportation: Transportation
-            Veterans Affairs: Veterans Affairs
-            U.S. Military Academies: U.S. Military Academies
-            "Women's Issues": "Women's Issues"
-            Other: Other
+            Agriculture: AGR
+            Animal Rights: ANIMAL.RIGHTS
+            Banking &amp; Financial Services: BANK
+            Campaign Finance Reform: FIN.REFORM
+            Climate Change: ENV.CLIMATE
+            Conservation &amp; Public Lands: CONSERVATION.LANDS
+            Fiscal Responsibility: BUDGET
+            Economy &amp; Jobs: ECON
+            Education: EDU
+            Energy: ENE
+            FEMA: FEMA
+            Foreign Policy: FORGN
+            Health Care: HEA
+            Housing: HOUSING
+            Immigration: IMM
+            Infrastructure &amp; Transportation: TRA
+            Indian Affairs: INDIAN.AFFAIRS
+            Judiciary: JUD
+            Justice &amp; Equality: EQUALITY
+            Labor: LABOR
+            Medicare &amp; Medicaid: MEDICARE
+            Rural Communities: RURAL.COMMUNITIES
+            Second Amendment: 2AM
+            Science and Space: SCI.SPACE
+            Social Security: SOCIALSEC
+            Small Business: SMALL.BUSINESS
+            Tax Reform: TAX
+            Trade: INTL.TRD
+            Military: MILL
+            Veterans: VET.AFFRS
+            National Security: NAT.SEC
+            Washington Reform: WAS.REF
+            Other: OTHER
+    - click_on:
+        - selector: "#field_170B7597-532D-4D58-B551-32915A884AC1_1"
+    - click_on:
+        - selector: "#field_8BE704C6-EB27-4C1A-AC3D-F345B61214C3_2"
     - javascript:
-        - value: document.querySelector("#gen-fieldid-27").value = document.querySelector("#gen-fieldid-27").value.replace(/"/g, '');
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+        - value: document.querySelector("#field_0F40B55B-8631-4AA2-8223-08DE119CD370").value = document.querySelector("#field_0F40B55B-8631-4AA2-8223-08DE119CD370").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "form.-validate-form[name='thisForm'] input[name='formaction']"
-    - wait:
-        - value: 3
+          selector: ".btn-primary"
     - find:
-        - selector: "div.record-body"
-          value: Thank you
+        - selector: ".form.odd.first.last > h3.title"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting your comments.
+      contains: Thank you for contacting my office to express your views

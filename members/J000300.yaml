@@ -1,0 +1,118 @@
+bioguide: J000300
+contact_form:
+  method: post
+  action: "/content/contact-senator"
+  steps:
+    - visit: "https://www.jones.senate.gov/contact/email-doug"
+    - click_on:
+        - selector: ".js-form-toggle"
+    - find:
+        - selector: "#input-43DBC091-988F-DB42-A4E6-81CFBF4E6CA2"
+    - fill_in:
+        - name: "input_43DBC091-988F-DB42-A4E6-81CFBF4E6CA2"
+          selector: "#input-43DBC091-988F-DB42-A4E6-81CFBF4E6CA2"
+          value: $NAME_FIRST
+          required: true
+        - name: "input_43E39A35-942A-B585-AB0D-DFE8520D40EE"
+          selector: "#input-43E39A35-942A-B585-AB0D-DFE8520D40EE"
+          value: $NAME_LAST
+          required: true
+        - name: "input_43F41A39-D998-0BCE-5BEF-8D05F75E8D88"
+          selector: "#input-43F41A39-D998-0BCE-5BEF-8D05F75E8D88"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "input_4407349B-0CA5-329A-4ADF-50A6EFAAC762"
+          selector: "#input-4407349B-0CA5-329A-4ADF-50A6EFAAC762"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "input_441D2D9E-D255-729E-DD3F-38C12E19DF01"
+          selector: "#input-441D2D9E-D255-729E-DD3F-38C12E19DF01"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "input_4427C443-B2D9-AA4F-497D-ADA8191109F5"
+          selector: "#input-4427C443-B2D9-AA4F-497D-ADA8191109F5"
+          value: $PHONE
+          required: true
+        - name: "input_4437E7F4-9183-D746-3450-AC5BED2A0E08"
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: "input_4437FB36-ECF4-308E-8294-A788783F0B58"
+          selector: "#input-4437FB36-ECF4-308E-8294-A788783F0B58"
+          value: $EMAIL
+          required: true
+        - name: "input_445383EA-96E3-01B7-49BB-FF9A82A25F25"
+          selector: "#input-445383EA-96E3-01B7-49BB-FF9A82A25F25"
+          value: $SUBJECT
+          required: true
+        - name: "input_445EBBE3-C79E-6B38-B311-62FA2F325B81"
+          selector: "#input-445EBBE3-C79E-6B38-B311-62FA2F325B81"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: "input_43D2DA7E-E6AF-BC8A-9CB4-810EC45E0072"
+          selector: "#input-43D2DA7E-E6AF-BC8A-9CB4-810EC45E0072"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+        - name: "input_444A1682-C90F-902F-3BFF-92A9C06742EA"
+          selector: "#input-444A1682-C90F-902F-3BFF-92A9C06742EA"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: ABO
+            Adoption: ADOPT
+            Agriculture: AGR
+            Animal Welfare: ANML
+            Banking: BANK
+            Broadband Access: BRO
+            Budget: BUDG
+            Civil and Voting Rights: CIVIL
+            Cybersecurity: CYBER
+            Defense: DEF
+            Economy: ECO
+            Education - Elementary, K-12: ED-K12
+            Elections: ELECTIONS
+            Energy: ENE
+            Environment: ENV
+            Family: FAM
+            Federal Employees: FED EMP
+            Foreign Affairs: FOREIGN
+            General Government/Regulation: GEN GOVT
+            Gun Control: GUN
+            Health Care: HEA
+            Housing: HOUSE
+            Immigration: IMM
+            Internet: INTERNET
+            Jobs and the Economy: JOB
+            Judiciary: JUD
+            Native Americans: TRIBE
+            Pensions: PENSION
+            Photo Requests: PHOTO
+            Science and Technology: SCIENCE
+            Seniors: SEN
+            Small Business: SMB
+            Social Security: SOC
+            Taxes: TAX
+            Trade: TRADE
+            Transportation: TRANSP
+            Veterans and Military Families: VET
+            Welfare: WELF
+            Women's Issues: WOMEN
+            Other: OTHER
+    - click_on:
+        - selector: "#input-44627489-D60F-1C3D-3F31-91243E6F9C45"
+    - javascript:
+        - value: document.querySelector("#input-445EBBE3-C79E-6B38-B311-62FA2F325B81").value = document.querySelector("#input-445EBBE3-C79E-6B38-B311-62FA2F325B81").value.replace(/"/g, '');
+    - click_on:
+        - selector: "input.btn"
+    - find:
+        - selector: "h3"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you for taking the time"

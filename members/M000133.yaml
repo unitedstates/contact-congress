@@ -92,7 +92,7 @@ contact_form:
         - name: home_phone_number
           selector: "#home_phone_number"
           value: $PHONE
-          required: false
+          required: true
         - name: email_address
           selector: "#email"
           value: $EMAIL
@@ -182,6 +182,10 @@ contact_form:
         - value: 1
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+    - javascript:
+        - value: document.querySelector("#side-search-btn").disabled = false;
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Send
           selector: "#side-search-btn"

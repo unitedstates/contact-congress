@@ -3,47 +3,66 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.shelby.senate.gov/public/index.cfm/emailsenatorshelby"
+    - visit: "https://www.shelby.senate.gov/public/index.cfm/emailsenatorshelby"
     - fill_in:
-        - name: field_25884FEA-C5D5-4B0B-9C27-15F4BACFC56F
-          selector: "#field_25884FEA-C5D5-4B0B-9C27-15F4BACFC56F"
-          value: $NAME_PREFIX
-          required: true
-        - name: field_D7ADEB21-90A5-424C-A235-DB096D07B1D2
-          selector: "#field_D7ADEB21-90A5-424C-A235-DB096D07B1D2"
+        - name: field_D4B2A5A6-39F5-4D5C-BD85-BB768A6EAEDC
+          selector: "#field_D4B2A5A6-39F5-4D5C-BD85-BB768A6EAEDC"
           value: $NAME_FIRST
           required: true
-        - name: field_8B8DFDF2-72A5-4788-A6A4-7C2DBD2D2568
-          selector: "#field_8B8DFDF2-72A5-4788-A6A4-7C2DBD2D2568"
+        - name: field_FA17F91D-8DED-4037-A8EF-BD374AA1AC3A
+          selector: "#field_FA17F91D-8DED-4037-A8EF-BD374AA1AC3A"
           value: $NAME_LAST
           required: true
-        - name: field_747DFD27-739C-44C4-B324-442107DB7766
-          selector: "#field_747DFD27-739C-44C4-B324-442107DB7766"
+        - name: field_7AA4183F-CD3A-4D56-8AAA-AAC89927A34A
+          selector: "#field_7AA4183F-CD3A-4D56-8AAA-AAC89927A34A"
           value: $ADDRESS_STREET
           required: true
-        - name: field_E16290C2-1A9B-4F39-80D9-02F4A566D765
-          selector: "#field_E16290C2-1A9B-4F39-80D9-02F4A566D765"
+        - name: field_7078A4B8-779A-4470-82B3-E1762533BA11
+          selector: "#field_7078A4B8-779A-4470-82B3-E1762533BA11"
           value: $ADDRESS_CITY
           required: true
-        - name: field_F03896A0-75F1-4062-BE69-7DD97923A577
-          selector: "#field_F03896A0-75F1-4062-BE69-7DD97923A577"
+        - name: field_478FE34F-8463-4C69-9446-5EB54BB4A9F4
+          selector: "#field_478FE34F-8463-4C69-9446-5EB54BB4A9F4"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_4E018EBC-52FB-452E-AC80-B5E34C3A3D9D
-          selector: "#field_4E018EBC-52FB-452E-AC80-B5E34C3A3D9D"
+        - name: field_99032FBF-66E6-4255-B565-C04C5AA57B77
+          selector: "#field_99032FBF-66E6-4255-B565-C04C5AA57B77"
           value: $PHONE
           required: true
-        - name: field_07CFC8EA-5B3C-47CC-B8EC-A6DA08C19A9D
-          selector: "#field_07CFC8EA-5B3C-47CC-B8EC-A6DA08C19A9D"
+        - name: field_C01A5F23-2BC5-4B6B-B4F1-0F4CED5D357A
+          selector: "#field_C01A5F23-2BC5-4B6B-B4F1-0F4CED5D357A"
           value: $EMAIL
           required: true
-        - name: field_4D8403A8-273C-4280-AE1E-3D764FE53D83
-          selector: "#field_4D8403A8-273C-4280-AE1E-3D764FE53D83"
+        - name: field_F33BAE10-3232-4F7A-BD32-5541B6E580C2
+          selector: "#field_F33BAE10-3232-4F7A-BD32-5541B6E580C2"
+          value: $EMAIL
+          required: true
+        - name: field_937D0CF6-D074-4D5C-9EE5-BDDDD2CEC6E7
+          selector: "#field_937D0CF6-D074-4D5C-9EE5-BDDDD2CEC6E7"
+          value: $SUBJECT
+          required: true
+        - name: field_5489134D-7194-47B5-A895-09DF853923E1
+          selector: "#field_5489134D-7194-47B5-A895-09DF853923E1"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_7C977D17-0A1A-464D-80CA-135D0ABBFDD1
-          selector: "#field_7C977D17-0A1A-464D-80CA-135D0ABBFDD1"
+        - name: field_65B7F02C-7F0A-49D0-8B59-F852B5C1386D
+          selector: "#field_65B7F02C-7F0A-49D0-8B59-F852B5C1386D"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mr.
+            - Dr. and Mrs.
+            - Reverend
+            - Sister
+            - Pastor
+        - name: field_68056CA8-59AC-44DD-8A8B-53144D4FA74A
+          selector: "#field_68056CA8-59AC-44DD-8A8B-53144D4FA74A"
           value: $TOPIC
           required: true
           options:
@@ -56,9 +75,9 @@ contact_form:
             Crime: CRI
             Defense: DEF
             Economy/Jobs: ECON
+            Education: EDU
             Energy: ENR
             Environment: ENV
-            Education: EDU
             Ethics/Campaign Finance: CMPN
             Foreign Affairs: FAFF
             Gun Control: GUNS
@@ -79,14 +98,16 @@ contact_form:
             Trade: TRD
             Unions: UNION
             Veterans: VET
-            Other-not Listed: OTHER
     - javascript:
-        - value: document.querySelector("#field_4D8403A8-273C-4280-AE1E-3D764FE53D83").value = document.querySelector("#field_4D8403A8-273C-4280-AE1E-3D764FE53D83").value.replace(/"/g, '');
+        - value: document.querySelector("#field_5489134D-7194-47B5-A895-09DF853923E1").value = document.querySelector("#field_5489134D-7194-47B5-A895-09DF853923E1").value.replace(/"/g, '');
+    - javascript:
+        - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
         - value: true
-    - click_on:
-        - value: Submit
-          selector: input.btn.btn-primary
+    - javascript:
+        - value: document.querySelector("input.btn.btn-primary").click();
+    - wait:
+        - value: 10
     - find:
         - selector: h4
           value: "Contact Form"

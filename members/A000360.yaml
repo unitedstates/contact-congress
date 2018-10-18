@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "http://www.alexander.senate.gov/public/index.cfm?p=Email"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: field_27543AF0-A7FE-4E4C-975E-97114B70AA80
           selector: "#field_27543AF0-A7FE-4E4C-975E-97114B70AA80"
@@ -84,6 +86,8 @@ contact_form:
             "Eagle Scout / Gold Award, Birthday, and Retirement": Special_Requests
     - javascript:
         - value: document.querySelector("#field_3CA100BD-F184-449F-B615-9B13BE70A991").value = document.querySelector("#field_3CA100BD-F184-449F-B615-9B13BE70A991").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary

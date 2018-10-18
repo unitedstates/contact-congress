@@ -37,6 +37,10 @@ contact_form:
           selector: "#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0"
           value: $MESSAGE
           required: true
+          options:
+            max_length: 5000
+    - javascript:
+        - value: "document.getElementById('field_09E12330-CB2E-4652-BEAA-DC119831E64E').value = document.getElementById('field_09E12330-CB2E-4652-BEAA-DC119831E64E').value.replace(/([0-9]{3})([0-9]{3})([0-9]{4})/, '$1-$2-$3');"
     - select:
         - name: field_40B41E59-8BAB-4655-BE10-0EF1A105D108
           selector: "#field_40B41E59-8BAB-4655-BE10-0EF1A105D108"
@@ -48,9 +52,7 @@ contact_form:
             Ms.: Ms
             Miss: Miss
             Dr.: Dr
-            Reverend: Reverend
             Mr. and Mrs.: Mr and Mrs
-            Sister: Sister
         - name: field_86870AAB-C6FB-4506-8503-2FA7F5CEF532
           selector: "#field_86870AAB-C6FB-4506-8503-2FA7F5CEF532"
           value: $TOPIC
@@ -112,9 +114,10 @@ contact_form:
             - Veterans
     - javascript:
         - value: document.querySelector("#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0").value = document.querySelector("#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0").value.replace(/"/g, '');
-    - click_on:
-        - value: Submit
-          selector: input.btn.btn-primary
+    - recaptcha:
+        - value: true
+    - javascript:
+        - value: document.querySelector("input.btn.btn-primary").click();
   success:
     headers:
       status: 200

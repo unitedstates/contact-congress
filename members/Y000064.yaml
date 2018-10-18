@@ -3,59 +3,199 @@ contact_form:
   method: post
   action: /content/contact-senator
   steps:
-    - visit: "https://www.young.senate.gov/content/contact-senator"
+    - visit: "https://www.young.senate.gov/contact/email-todd"
+    - click_on:
+        - selector: "#newsletterModal .close"
+    - click_on:
+        - selector: ".opinion"
+    - find:
+        - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
     - fill_in:
-        - name: "submitted[constituent_information][first_name]"
-          selector: "#edit-submitted-constituent-information-first-name"
+        - name: "input_B03E05C4-4040-F985-52CD-9CA44623DE5E"
+          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[constituent_information][last_name]"
-          selector: "#edit-submitted-constituent-information-last-name"
+        - name: "input_B03E04BD-4040-F985-52CD-48E090E769DA"
+          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
           value: $NAME_LAST
           required: true
-        - name: "submitted[constituent_information][address_1]"
-          selector: "#edit-submitted-constituent-information-address-1"
+        - name: "input_B03E05F1-4040-F985-52CD-A580E72A7D41"
+          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[constituent_information][city]"
-          selector: "#edit-submitted-constituent-information-city"
+        - name: "input_B03E0595-4040-F985-52CD-C572364023FE"
+          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[constituent_information][zip]"
-          selector: "#edit-submitted-constituent-information-zip"
+        - name: "input_B03E04CC-4040-F985-52CD-4DDB58DA474A"
+          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[constituent_information][phone]"
-          selector: "#edit-submitted-constituent-information-phone"
+        - name: "input_B03E046E-4040-F985-52CD-A2F10450D58D"
+          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
           value: $PHONE
           required: true
-        - name: "submitted[constituent_information][email]"
-          selector: "#edit-submitted-constituent-information-email"
+        - name: "input_B03E0536-4040-F985-52CD-AFE12CDE8D31"
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: "submitted[message_details][please_type_the_subject_of_your_message]"
-          selector: "#edit-submitted-message-details-please-type-the-subject-of-your-message"
+        - name: "input_B03E05A4-4040-F985-52CD-730C08912F4F"
+          selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
+          value: $EMAIL
+          required: true
+        - name: "input_78803FD6-BD54-3C62-213B-D4FBABCB2E0C"
+          selector: "#input-78803FD6-BD54-3C62-213B-D4FBABCB2E0C"
           value: $SUBJECT
           required: true
-        - name: "submitted[message_details][message]"
-          selector: "#edit-submitted-message-details-message"
+        - name: "input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
+          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
           value: $MESSAGE
           required: true
     - select:
-        - name: "submitted[constituent_information][prefix]"
-          selector: "#edit-submitted-constituent-information-prefix"
+        - name: "input_B03E0527-4040-F985-52CD-C0DD6BEF325F"
+          selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Professor: Professor
+            Dr.: Dr.
+            Father: Father
+            Sister: Sister
+            Rabbi: Rabbi
+            Reverend: Reverend
+            Air Force - General: General
+            Air Force - Lieutenant General: Lieutenant General
+            Air Force - Major General: Major General
+            Air Force - Brigadier General: Brigadier General
+            Air Force - Colonel: Colonel
+            Air Force - Lieutenant Colonel: Lieutenant Colonel
+            Air Force - Major: Major
+            Air Force - Captain: Captain
+            Air Force - First Lieutenant: First Lieutenant
+            Air Force - Second Lieutenant: Second Lieutenant
+            Air Force - Chief Master Sergeant of the Air Force: Chief Master Sergeant of the Air Force
+            Air Force - Command Chief Master Sergeant: Command Chief Master Sergeant
+            Air Force - First Sergeant (E-9): First Sergeant (E-9)
+            Air Force - Chief Master Sergeant: Chief Master Sergeant
+            Air Force - First Sergeant (E-8): First Sergeant (E-8)
+            Air Force - Senior Master Sergeant: Senior Master Sergeant
+            Air Force - First Sergeant (E-7): First Sergeant (E-7)
+            Air Force - Master Sergeant: Master Sergeant
+            Air Force - Technical Sergeant: Technical Sergeant
+            Air Force - Staff Sergeant: Staff Sergeant
+            Air Force - Senior Airman: Senior Airman
+            Air Force - Airman First Class: Airman First Class
+            Air Force - Airman: Airman
+            Air Force - Airman Basic: Airman Basic
+            Army - General: General
+            Army - Lieutenant General: Lieutenant General
+            Army - Major General: Major General
+            Army - Brigadier General: Brigadier General
+            Army - Colonel: Colonel
+            Army - Lieutenant Colonel: Lieutenant Colonel
+            Army - Major: Major
+            Army - Captain: Captain
+            Army - First Lieutenant: First Lieutenant
+            Army - Second Lieutenant: Second Lieutenant
+            Army - Chief Warrant Officer - 5: Chief Warrant Officer - 5
+            Army - Chief Warrant Officer - 4: Chief Warrant Officer - 4
+            Army - Chief Warrant Officer - 3: Chief Warrant Officer - 3
+            Army - Chief Warrant Officer - 2: Chief Warrant Officer - 2
+            Army - Warrant Officer: Warrant Officer
+            Army - Sergeant Major of the Army: Sergeant Major of the Army
+            Army - Command Sergeant Major: Command Sergeant Major
+            Army - Sergeant Major: Sergeant Major
+            Army - First Sergeant: First Sergeant
+            Army - Master Sergeant: Master Sergeant
+            Army - Sergeant First Class: Sergeant First Class
+            Army - Staff Sergeant: Staff Sergeant
+            Army - Sergeant: Sergeant
+            Army - Corporal: Corporal
+            Army - Specialist: Specialist
+            Army - Private First Class: Private First Class
+            Army - Private (E-2): Private (E-2)
+            Army - Private: Private
+            Coast Guard - Admiral: Admiral
+            Coast Guard - Vice Admiral: Vice Admiral
+            Coast Guard - Rear Admiral, Upper Half: Rear Admiral, Upper Half
+            Coast Guard - Rear Admiral, Lower Half: Rear Admiral, Lower Half
+            Coast Guard - Captain: Captain
+            Coast Guard - Commander: Commander
+            Coast Guard - Lieutenant Commander: Lieutenant Commander
+            Coast Guard - Lieutenant: Lieutenant
+            Coast Guard - Lieutenant Junior Grade: Lieutenant Junior Grade
+            Coast Guard - Ensign: Ensign
+            Coast Guard - Chief Warrant Officer - 4: Chief Warrant Officer - 4
+            Coast Guard - Chief Warrant Officer - 3: Chief Warrant Officer - 3
+            Coast Guard - Chief Warrant Officer - 2: Chief Warrant Officer - 2
+            Coast Guard - Master Chief Petty Officer of the Coast Guard: Master Chief Petty Officer of the Coast Guard
+            Coast Guard - Master Chief Petty Officer: Master Chief Petty Officer
+            Coast Guard - Senior Chief Petty Officer: Senior Chief Petty Officer
+            Coast Guard - Chief Petty Officer: Chief Petty Officer
+            Coast Guard - Petty Officer First Class: Petty Officer First Class
+            Coast Guard - Petty Officer Second Class: Petty Officer Second Class
+            Coast Guard - Petty Officer Third Class: Petty Officer Third Class
+            Coast Guard - Seaman: Seaman
+            Coast Guard - Seaman Apprentice: Seaman Apprentice
+            Coast Guard - Seaman Recruit: Seaman Recruit
+            Marine Corps - General: General
+            Marine Corps - Lieutenant General: Lieutenant General
+            Marine Corps - Major General: Major General
+            Marine Corps - Brigadier General: Brigadier General
+            Marine Corps - Colonel: Colonel
+            Marine Corps - Lieutenant Colonel: Lieutenant Colonel
+            Marine Corps - Major: Major
+            Marine Corps - Captain: Captain
+            Marine Corps - First Lieutenant: First Lieutenant
+            Marine Corps - Second Lieutenant: Second Lieutenant
+            Marine Corps - Chief Warrant Officer - 5: Chief Warrant Officer - 5
+            Marine Corps - Chief Warrant Officer - 4: Chief Warrant Officer - 4
+            Marine Corps - Chief Warrant Officer - 3: Chief Warrant Officer - 3
+            Marine Corps - Chief Warrant Officer - 2: Chief Warrant Officer - 2
+            Marine Corps - Warrant Officer: Warrant Officer
+            Marine Corps - Sergeant Major of the Marine Corps: Sergeant Major of the Marine Corps
+            Marine Corps - Sergeant Major: Sergeant Major
+            Marine Corps - Master Gunnery Sergeant: Master Gunnery Sergeant
+            Marine Corps - First Sergeant: First Sergeant
+            Marine Corps - Master Sergeant: Master Sergeant
+            Marine Corps - Gunnery Sergeant: Gunnery Sergeant
+            Marine Corps - Staff Sergeant: Staff Sergeant
+            Marine Corps - Sergeant: Sergeant
+            Marine Corps - Corporal: Corporal
+            Marine Corps - Lance Corporal: Lance Corporal
+            Marine Corps - Private First Class: Private First Class
+            Marine Corps - Private: Private
+            Navy - Admiral: Admiral
+            Navy - Vice Admiral: Vice Admiral
+            Navy - Rear Admiral, Upper Half: Rear Admiral, Upper Half
+            Navy - Rear Admiral, Lower Half: Rear Admiral, Lower Half
+            Navy - Captain: Captain
+            Navy - Commander: Commander
+            Navy - Lieutenant Commander: Lieutenant Commander
+            Navy - Lieutenant: Lieutenant
+            Navy - Lieutenant Junior Grade: Lieutenant Junior Grade
+            Navy - Ensign: Ensign
+            Navy - Chief Warrant Officer - 4: Chief Warrant Officer - 4
+            Navy - Chief Warrant Officer - 3: Chief Warrant Officer - 3
+            Navy - Chief Warrant Officer - 2: Chief Warrant Officer - 2
+            Navy - Master Chief Petty Officer of the Navy: Master Chief Petty Officer of the Navy
+            Navy - Master Chief Petty Officer: Master Chief Petty Officer
+            Navy - Senior Chief Petty Officer: Senior Chief Petty Officer
+            Navy - Chief Petty Officer: Chief Petty Officer
+            Navy - Petty Officer First Class: Petty Officer First Class
+            Navy - Petty Officer Second Class: Petty Officer Second Class
+            Navy - Petty Officer Third Class: Petty Officer Third Class
+            Navy - Seaman Apprentice: Seaman Apprentice
+            Navy - Seaman: Seaman
+            Navy - Seaman Recruit: Seaman Recruit
+        - name: "input_B03E04DB-4040-F985-52CD-18F332336F99"
+          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
           value: $TOPIC
           required: true
           options:
-            - Abortion
             - Adoption
             - Aging
             - Agriculture
@@ -65,14 +205,11 @@ contact_form:
             - Campaign Finance
             - Civil Rights
             - Commerce
-            - Congratulations
             - Defense
-            - Drugs
             - Economy
             - Education
             - Energy
             - Environment
-            - Family
             - Finance
             - Foreign Affairs
             - Gun Control
@@ -90,7 +227,6 @@ contact_form:
             - Nutrition
             - Patents
             - Pensions
-            - Science
             - Small Business
             - Social Security
             - Taxes
@@ -100,13 +236,19 @@ contact_form:
             - Veterans
             - Welfare
             - "Women's Issues"
-    - javascript:
-        - value: document.querySelector("#edit-submitted-message-details-message").value = document.querySelector("#edit-submitted-message-details-message").value.replace(/"/g, '');
     - click_on:
-        - value: Submit
-          selector: "#webform-client-form-78 input[name='op']"
+        - selector: "#input-AA8CC6CA-DFB9-1D1C-F43E-F7DAD157AD93"
+    - javascript:
+        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
+    - javascript:
+        - value: document.querySelector("input.btn").click();
+    - wait:
+        - value: 2
+    - find:
+        - selector: h1
+          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been received."
+      contains: "Contact"

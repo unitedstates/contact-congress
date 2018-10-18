@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.sasse.senate.gov/public/index.cfm/email-ben"
+    - visit: "https://www.sasse.senate.gov/public/index.cfm/email-ben"
     - wait:
         - value: 3
     - fill_in:
@@ -76,7 +76,6 @@ contact_form:
             - Civil Rights
             - Commerce
             - Communications
-            - Congratulations
             - Crime
             - Defense
             - Drugs
@@ -85,7 +84,6 @@ contact_form:
             - Energy
             - Entitlements
             - Environment
-            - Export-Import Bank
             - Family
             - Flood Insurance
             - Food Stamps
@@ -128,4 +126,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Thank you!"
+      contains: "Thank you for contacting"

@@ -131,20 +131,14 @@ This project is [dedicated to the public domain](LICENSE). As spelled out in [CO
 > All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
 
 
-
-
-
-### Member Status Log
-
-
-
-These graphics are pulled in near-real-time from the [congress-forms-test](http://efforg.github.io/congress-forms-test/) server.
+### Current Forms
 
 
 #### Senate
 
-| Bioguide ID | Website
-|-------------|---------|:------------:
+
+| Bioguide ID   | Website   |
+| ------------- | --------- |
 | [A000360](https://github.com/unitedstates/contact-congress/blob/master/members/A000360.yaml) | [Sen. Lamar Alexander (R-TN)](http://www.alexander.senate.gov)
 | [A000368](https://github.com/unitedstates/contact-congress/blob/master/members/A000368.yaml) | [Sen. Kelly Ayotte (R-NH)](http://www.ayotte.senate.gov)
 | [B001230](https://github.com/unitedstates/contact-congress/blob/master/members/B001230.yaml) | [Sen. Tammy Baldwin (D-WI)](http://www.baldwin.senate.gov)
@@ -248,8 +242,8 @@ These graphics are pulled in near-real-time from the [congress-forms-test](http:
 
 #### House of Representatives
 
-| Bioguide ID | Website
-|-------------|---------|:------------:
+| Bioguide ID | Website |
+|-------------|---------|
 | [A000374](https://github.com/unitedstates/contact-congress/blob/master/members/A000374.yaml) | [Rep. Ralph Abraham (R-LA05)](https://abraham.house.gov)
 | [A000370](https://github.com/unitedstates/contact-congress/blob/master/members/A000370.yaml) | [Rep. Alma Adams (D-NC12)](http://adams.house.gov)
 | [A000055](https://github.com/unitedstates/contact-congress/blob/master/members/A000055.yaml) | [Rep. Robert B. Aderholt (R-AL04)](http://aderholt.house.gov)

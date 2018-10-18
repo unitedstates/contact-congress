@@ -4,12 +4,6 @@ contact_form:
   action: /contact
   steps:
     - visit: "http://www.cornyn.senate.gov/contact"
-    - check:
-        - name: "submitted[please_select_one]"
-          selector: "#edit-submitted-please-select-one-1"
-          value: contact_discuss
-    - wait:
-        - value: 1
     - select:
         - name: "submitted[issue]"
           selector: "#edit-submitted-issue"
@@ -46,7 +40,6 @@ contact_form:
             Small Business: small_business
             Social Security: social_security
             Taxes/Economy: taxes
-            Tour Request: tour Request
             Trade: trade
             Transportation: transportation
             Veterans: veterans

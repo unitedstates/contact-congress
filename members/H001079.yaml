@@ -1,0 +1,105 @@
+bioguide: H001079
+contact_form:
+  method: post
+  action: "/content/contact-senator"
+  steps:
+    - visit: "https://www.hydesmith.senate.gov/content/contact-senator"
+    - fill_in:
+        - name: "submitted[constituent_information][first_name]"
+          selector: "#edit-submitted-constituent-information-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: "submitted[constituent_information][last_name]"
+          selector: "#edit-submitted-constituent-information-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: "submitted[constituent_information][address_1]"
+          selector: "#edit-submitted-constituent-information-address-1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "submitted[constituent_information][city]"
+          selector: "#edit-submitted-constituent-information-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "submitted[constituent_information][zip]"
+          selector: "#edit-submitted-constituent-information-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "submitted[constituent_information][email]"
+          selector: "#edit-submitted-constituent-information-email"
+          value: $EMAIL
+          required: true
+        - name: "submitted[message_details][message]"
+          selector: "#edit-submitted-message-details-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: "submitted[constituent_information][prefix]"
+          selector: "#edit-submitted-constituent-information-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            Mr.: Mr.
+            Mrs.: Mrs.
+            Ms.: Ms.
+            Mr. and Mrs.: Mr. and Mrs.
+            Dr.: Dr.
+            Dr. and Mrs.: Dr. and Mrs.
+            Reverend: Reverend
+            Sister: Sister
+            Pastor: Pastor
+            The Honorable: The Honorable
+            Representative: Representative
+            Senator: Senator
+        - name: "submitted[message_details][topic]"
+          selector: "#edit-submitted-message-details-topic"
+          value: $TOPIC
+          required: true
+          options:
+            "Agriculture": "AG" 
+            "Appropriations": "AP" 
+            "Arts": "ARHUM" 
+            "Banking": "BANK" 
+            "Budget": "BUDG" 
+            "Child Welfare": "OTHER" 
+            "Congratulatory Letters": "AD" 
+            "Economy and Jobs": "ECON" 
+            "Education": "EDU" 
+            "Energy": "ENERGY" 
+            "Environment": "ENV" 
+            "FEMA": "FEMA" 
+            "Foreign Relations": "FORPO" 
+            "Health": "HEALTH" 
+            "Homeland Security": "HOMESEC" 
+            "Housing": "HOUSE" 
+            "Immigration": "IMMIG" 
+            "Indian Affairs": "IND" 
+            "Judiciary": "JUD" 
+            "Labor": "LABOR" 
+            "Law Enforcement": "COPS" 
+            "Medical Research": "HERES" 
+            "Medicare/Medicaid": "CMS" 
+            "National Security": "DEF" 
+            "NASA": "NASA" 
+            "Nominations": "NOM" 
+            "Postal": "POST" 
+            "Pro-Life Issues": "ABORT" 
+            "Second Amendment": "GUNS" 
+            "Senate Rules": "RULES" 
+            "Social Security/Aging": "SOSSEC" 
+            "Taxes": "TAX" 
+            "Telecommunications": "TELE" 
+            "Trade": "TRADE" 
+            "Transportation": "TRANS" 
+            "Veterans": "VA"
+    - javascript:
+        - value: document.querySelector("#edit-submitted-message-details-message").value = document.querySelector("#edit-submitted-message-details-message").value.replace(/"/g, '');
+    - click_on:
+        - selector: "input.webform-submit.button-primary.btn.btn-primary.form-submit"
+    - find:
+        - selector: ".webform-confirmation"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you, your message has been received."

@@ -3,133 +3,72 @@ contact_form:
   method: POST
   action: "/contact"
   steps:
-    - visit: https://www.wyden.senate.gov/contact
+    - visit: https://www.wyden.senate.gov/contact/email-ron
+    - click_on:
+      - selector: ".opinion"
+    - find:
+      - selector: "#input-67423504-9AAC-EB15-51B1-3DF559E135D4"
     - fill_in:
-      - name: fname
-        selector: "#contactForm #fname"
+      - name: "input_67423504-9AAC-EB15-51B1-3DF559E135D4"
+        selector: "#input-67423504-9AAC-EB15-51B1-3DF559E135D4"
         value: $NAME_FIRST
         required: Yes
-      - name: lname
-        selector: "#contactForm #lname"
+      - name: "input_67423519-DD68-8D83-92BB-023E9CDE7E25"
+        selector: "#input-67423519-DD68-8D83-92BB-023E9CDE7E25"
         value: $NAME_LAST
         required: Yes
-      - name: mailing_streetAddress1
-        selector: "#contactForm #mailing_streetAddress1"
+      - name: "input_674731A9-DC93-F057-3129-DDFC402FFCF6"
+        selector: "#input-674731A9-DC93-F057-3129-DDFC402FFCF6"
         value: $ADDRESS_STREET
         required: Yes
-      - name: mailing_streetAddress2
-        selector: "#contactForm #mailing_streetAddress2"
-        value: $ADDRESS_STREET_2
-      - name: mailing_city
-        selector: "#contactForm #mailing_city"
+      - name: "input_67473231-0058-AF90-5FA2-9D4977FFAE08"
+        selector: "#input-67473231-0058-AF90-5FA2-9D4977FFAE08"
         value: $ADDRESS_CITY
         required: Yes
-      - name: mailing_zipCode
-        selector: "#contactForm #mailing_zipCode"
+      - name: "input_67473264-EF36-677B-E5BD-177CC730BF76"
+        selector: "#input-67473264-EF36-677B-E5BD-177CC730BF76"
         value: $ADDRESS_ZIP5
         required: Yes
-      - name: home_phone_number
-        selector: "#contactForm #home_phone_number"
+      - name: "input_674C04D0-0622-BF1E-6BED-994E3BDE74CF"
+        selector: "#input-674C04D0-0622-BF1E-6BED-994E3BDE74CF"
         value: $PHONE
-      - name: email_address
-        selector: "#contactForm #email_address"
+        required: Yes
+      - name: "input_674B231A-C4E6-DE6B-8AF8-F735101D38C5"
+        selector: "#email"
         value: $EMAIL
         required: Yes
-      - name: verify_email
-        selector: "#contactForm #verify_email"
+      - name: "input_674B2464-04AE-529C-EF20-DA82FEC8CAFC"
+        selector: "#input-674B2464-04AE-529C-EF20-DA82FEC8CAFC"
         value: $EMAIL
         required: Yes
-      - name: message
-        selector: "#contactForm #message"
+      - name: "input_6772B6F9-DC60-985A-DA90-CE9C6D99704B"
+        selector: "#input-6772B6F9-DC60-985A-DA90-CE9C6D99704B"
         value: $MESSAGE
         required: Yes
     - select:
-      - name: salutation
-        selector: "#contactForm select#salutation"
+      - name: "input_674234EB-FE2E-E1D2-DA0B-544DB1E29219"
+        selector: "#input-674234EB-FE2E-E1D2-DA0B-544DB1E29219"
         value: $NAME_PREFIX
         required: Yes
         options:
           - "Mr."
           - "Ms."
           - "Mrs."
-          - "Miss"
-          - "Mr. and Mrs."
           - "Dr."
-          - "Prof."
-          - "Senator"
-          - "Gov."
-          - "Congressman"
-          - "Hon."
-          - "Fr."
-          - "Sister"
-          - "Rabbi"
-          - "Reverend"
-          - "Fleet Admiral"
-          - "Admiral"
-          - "Vice Admiral"
-          - "Rear Admiral (upper half)"
-          - "Rear Admiral (lower half)"
-          - "Captain"
-          - "Commander"
-          - "Lieutenant Commander"
-          - "Lieutenant"
-          - "Lieutenant, Junior Grade"
-          - "Ensign"
-          - "Master Chief Petty Officer of the Navy"
-          - "Master Chief Petty Officer"
-          - "Senior Chief Petty Officer"
-          - "Chief Petty Officer"
-          - "Petty Officer First Class"
-          - "Petty Officer Second Class"
-          - "Petty Officer Third Class"
-          - "Seaman"
-          - "Seaman Apprentice"
-          - "Seaman Recruit"
-          - "Chief Warrant Officer"
-          - "Warrant Officer"
-          - "Sgt Major Of The Corps"
-          - "Sergeant Major"
-          - "Master Gunnery Sgt"
-          - "First Sergeant"
-          - "Master Sergeant"
-          - "Gunnery Sergeant"
-          - "Staff Sergeant"
-          - "Sergeant"
-          - "Corporal"
-          - "Lance Corporal"
-          - "Private First Class"
-          - "Private"
-          - "General of the Air Force"
-          - "General"
-          - "Lieutenant General"
-          - "Major General"
-          - "Brigadier General"
-          - "Colonel"
-          - "Lieutenant Colonel"
-          - "Major"
-          - "First Lieutenant"
-          - "Second Lieutenant"
-          - "Chief Master Sergeant of the Air Force"
-          - "Command  Chief Master Sergeant"
-          - "Chief Master Sergeant"
-          - "Senior Master Sergeant"
-          - "Technical Sergeant"
-          - "Senior Airman"
-          - "Airman First Class"
-          - "Airman"
-      - name: state
-        selector: "#contactForm #state"
+      - name: "input_6747324E-C28F-D257-CFFE-17127E54003B"
+        selector: "#input-6747324E-C28F-D257-CFFE-17127E54003B"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
         options: US_STATES
-      - name: subject
-        selector: "#contactForm #subject"
+      - name: "input_67EF74C7-E9CB-D358-20D1-2B0C0FD48D6D"
+        selector: "#contactdropdown"
         value: $TOPIC
         required: Yes
         options:
+          - Afghanistan
           - Agriculture
           - Animal Welfare
-          - "Arts &amp; Humanities"
+          - Arts &amp; Humanities
           - Banking Issues
           - Budget (Federal)
           - Budget (Defense)
@@ -137,50 +76,56 @@ contact_form:
           - Climate Change
           - Consumer Financial Protections
           - County Payments
-          - "Crime &amp; Drugs"
           - Defense
           - Economy—Job Creation
           - Education
-          - Elections and Congressional Affairs
           - Energy
-          - Environment (Clean Air, Clean Water, Waste)
+          - Environment
           - FDA
           - Foreign Affairs
-          - Government reform (transparency, campaign finance, filibuster, lobbying)
+          - Gas Prices
+          - Government reform
           - Guns
           - Health Care
+          - Help with a Federal Agency
           - Housing
           - Hunger
           - Immigration
-          - Intelligence and Surveillance
+          - Intelligence
           - Internet, Technology, Broadband
-          - "Medicare/ Medicaid"
+          - Judicial Nominations
+          - Medicare/ Medicaid
           - Native American Issues
-          - Natural Resources (forestry, land management, ocean/fisheries, wilderness)
-          - Nominations
+          - Natural Resources
+          - Outsourcing
           - Pensions (Federal)
           - Pension (Military)
           - Postal Service
           - Prescription Drugs
-          - "Reproductive Rights/ Family Planning"
+          - Reproductive Rights/ Family Planning
           - Science
           - Senior Issues
           - Small Business
           - Social Security
-          - Taxes
           - Trade
+          - Taxes
           - Transportation
           - TSA
+          - Unemployment Issues
+          - Veterans’ Affairs
+          - Welfare
+          - Other
+    - click_on:
+      - selector: "#input-67923685-D449-B975-C411-F97C2DEFBBFE"
     - javascript:
-      - value: 'document.querySelector("#contactForm #message").value = document.querySelector("#contactForm #message").value.replace(/"/g, "");'
-    - javascript:
-      - value: "document.getElementById('contactForm').submit();"
-    - wait:
-      - value: 3
+      - value: 'document.querySelector("#input-6772B6F9-DC60-985A-DA90-CE9C6D99704B").value = document.querySelector("#input-6772B6F9-DC60-985A-DA90-CE9C6D99704B").value.replace(/"/g, "");'
+    - click_on:
+      - selector: ".btn[value=Submit]"
     - find:
-      - selector: "#main > div.headline > h2"
+      - selector: "h1"
+        value: Thank You
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Thank you for contacting my office.

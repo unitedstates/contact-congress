@@ -46,7 +46,7 @@ contact_form:
         - name: input_F80AC5B6-4040-F985-52CD-834C1DD62DF3
           selector: "#input-F80AC5B6-4040-F985-52CD-834C1DD62DF3"
           value: $MESSAGE
-          required: false
+          required: true
     - javascript:
         - value: document.querySelector("#input-F80AC5B6-4040-F985-52CD-834C1DD62DF3").value = document.querySelector("#input-F80AC5B6-4040-F985-52CD-834C1DD62DF3").value.replace(/"/g, '');
     - click_on:

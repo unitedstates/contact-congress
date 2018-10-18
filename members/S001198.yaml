@@ -1,9 +1,9 @@
 bioguide: S001198
 contact_form:
   method: post
-  action: "http://www.sullivan.senate.gov/contact/email"
+  action: "https://www.sullivan.senate.gov/contact/email"
   steps:
-    - visit: "http://www.sullivan.senate.gov/contact/email"
+    - visit: "https://www.sullivan.senate.gov/contact/email"
     - fill_in:
         - name: input_34F91EAB-4040-F985-52CD-81AE445C8C28
           selector: "#input-34F91EAB-4040-F985-52CD-81AE445C8C28"
@@ -249,36 +249,40 @@ contact_form:
             Abortion: "AB\t"
             Armed Forces: AF
             Agriculture: AG
-            "Arts & Humanities": AR
+            Alaska Native Issues: AN
             Banking: BA
             Budget: BU
+            Civil Rights: CV
             "Crime & Law Enforcement": CR
-            Economic Development: EC
             Education: ED
             Elections: EL
             Energy: EN
             Ethics: ET
             Environment: EV
+            Finance: FI
+            Fisheries: FS
             Foreign Affairs: FA
             "Gun Control\t": GC
-            Government: GO
             Health Care: HC
+            Homeland Security: HOM
             Housing: HO
             Immigration: IM
             Judiciary/Judicial: JU
             Labor: LA
             Natural Resources: NR
+            Oceans: OC
             Postal Service: PO
+            Public Lands: PL
             Small Business: SB
-            "Science & Technology": SC
             Social Security: SS
+            Space/NASA: SP
             Telecommunications: TC
             Transportation: TN
             Tourism: TO
             Trade: TR
             Taxes: TX
             Veterans: VT
-            "Women & Children": WC
+            Wildlife: WL
     - javascript:
         - value: document.querySelector("#input-367803F9-4040-F985-52CD-372C846843B5").value = document.querySelector("#input-367803F9-4040-F985-52CD-372C846843B5").value.replace(/"/g, '');
     - click_on:

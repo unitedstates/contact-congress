@@ -192,37 +192,37 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            - Agriculture
-            - Budget
-            - Civil Rights
-            - Communications
-            - Defense
-            - Economic Development
-            - Economy and Jobs
-            - Education
-            - Energy
-            - Environment
-            - Flooding Issues
-            - Foreign Relations
-            - Government Affairs
-            - Guns
-            - Health
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Indian Affairs
-            - Insurance
-            - Judiciary
-            - Medicare
-            - Social Security
-            - Taxes
-            - Trade
-            - Transportation
-            - Veterans
-            - Welfare
-            - Other/Multiple Issues
+              Agriculture: Agriculture
+              Budget: Budget
+              Civil Rights: Civil Rights
+              Communications: Telecommunications
+              Defense: Defense
+              Economic Development: Commerce
+              Economy and Jobs: Labor
+              Education: Education
+              Energy: Energy
+              Environment: Environment
+              Flooding Issues: Emergency Management
+              Foreign Relations: Foreign Relations
+              Guns: Firearms
+              Health: Health
+              Health Insurance: Health Insurance
+              Homeland Security: Homeland Security
+              Housing: Housing
+              Immigration: Immigration
+              Indian Affairs: Indian Affairs
+              Insurance: Insurance
+              Judiciary: Judiciary and Law Enforcement
+              Medicare: Medicare
+              Social Security: Social Security
+              Taxes: Taxes
+              Trade: Trade
+              Transportation: Transportation
+              Veterans: Veteran Affairs
+              Welfare: Welfare
+              Multiple Issues: Multiple Issues
     - javascript:
-        - value: "document.getElementById('input_7812E0DC-4040-F985-52CD-9D9A4BDC8EE8').value = document.getElementById('input_7812E0DC-4040-F985-52CD-9D9A4BDC8EE8').value.replace(/([0-9]{3})([0-9]{3})([0-9]{4})/, '$1-$2-$3');"
+        - value: "document.getElementById('input-7812E0DC-4040-F985-52CD-9D9A4BDC8EE8').value = document.getElementById('input-7812E0DC-4040-F985-52CD-9D9A4BDC8EE8').value.replace(/([0-9]{3})([0-9]{3})([0-9]{4})/, '$1-$2-$3');"
     - javascript:
         - value: document.querySelector("#input-78163367-4040-F985-52CD-D4AD6E614C69").value = document.querySelector("#input-78163367-4040-F985-52CD-D4AD6E614C69").value.replace(/"/g, '');
     - click_on:

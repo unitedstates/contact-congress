@@ -1,9 +1,9 @@
 bioguide: L000575
 contact_form:
   method: post
-  action: "http://www.lankford.senate.gov/contact/email"
+  action: "https://www.lankford.senate.gov/contact/email"
   steps:
-    - visit: "http://www.lankford.senate.gov/contact/email"
+    - visit: "https://www.lankford.senate.gov/contact/email"
     - wait:
         - value: 3
     - select:
@@ -162,59 +162,48 @@ contact_form:
           options:
             - Abortion
             - Adoption
-            - Aging
             - Agriculture
             - Animal Welfare
-            - Appropriations
             - Banking
-            - Campaign Finance
-            - Children
             - Civil Rights
             - Commerce
-            - Communications
-            - Congratulations
-            - Crime
-            - Defense
-            - Drugs
-            - Economy
+            - Criminal Justice System
+            - Debt and Deficit
+            - Drugs-Illegal
+            - Drugs-Prescription
             - Education Higher
             - Education K through 12
+            - Education Pre K
             - Elections
             - Energy
             - Environment
-            - Family
-            - Food Stamps
+            - Federal Employees
+            - Federal Regulations
+            - Financial Services
+            - Food Stamps/SNAP
             - Foreign Affairs
             - Gun Control
-            - Health
+            - Health Care
             - Homeland Security
             - Housing
-            - Immigration
-            - Inauguration
-            - Insurance Health
-            - Insurance Other
-            - Interior
-            - Iran
-            - Iraq
+            - Immigration and Refugees
+            - Indian Affairs
+            - Intelligence/National Security Agencies
             - Judiciary
             - Labor
             - Medicaid
             - Medicare
             - Military
-            - NASA
-            - Nutrition
-            - Patents
+            - Natural Resources
             - Pensions
-            - Securities
+            - Scout Commendations
             - Small Business
             - Social Security
             - Taxes
-            - Tobacco
+            - Telecommunications/Internet
             - Trade
             - Transportation
             - Veterans
-            - Welfare
-            - "Women's Issues"
     - fill_in:
         - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
@@ -262,6 +251,8 @@ contact_form:
           required: true
     - javascript:
         - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: input.btn

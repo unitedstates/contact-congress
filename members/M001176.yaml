@@ -3,18 +3,21 @@ contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "http://www.merkley.senate.gov/contact/"
+    - visit: "https://www.merkley.senate.gov/contact/"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - select:
         - name: actions
           selector: "#contactForm select[name='actions']"
           value: opinion
+          required: true
           options:
             Share your opinion or comments on bills or other issues: opinion
             Media Inquiries: media_inquires
             Request help with a federal agency: federal_agency
             Request a flag to be flown over the Capitol: flag
+    - find:
+        - selector: "#fname"                
     - fill_in:
         - name: fname
           selector: "#fname"
@@ -62,8 +65,8 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Abortion/Reproductive Rights: Abortion
-            Afghanistan/Iraq: Afghanistan
+            "Abortion/Reproductive Rights": Abortion
+            Affordable Care Act: Affordable Care Act
             Agriculture: Agriculture
             Animal Rights: Animal Rights
             Arts and Humanities: Arts and Humanities
@@ -72,43 +75,51 @@ contact_form:
             Campaign Finance Reform: Campaign Finance Reform
             Children and Families: Children and Families
             Civil Rights: Civil Rights
+            Climate Change: Climate Change
             Crime and Drugs: Crime and Drugs
             Defense: Defense
             Education: Education
             Elections and Congressional Affairs: Elections and Congressional Affairs
             Energy: Energy
-            Environment and Public Works: Environment and Public Works
+            Environment: Environment
             Foreign Affairs: Foreign Affairs
-            Government Shutdown: Government Shutdown
+            Forestry: Forestry
             Guns: Guns
             Health Care: Health Care
             Housing: Housing
-            Help with a Government Agency / Casework: Casework
+            Casework: Help with a Government Agency / Casework
             Immigration: Immigration
             Indian Affairs: Indian Affairs
             Insurance Health: Insurance Health
-            Interior/Forestry: Interior
             Jobs and the Economy: Jobs and the Economy
             Judiciary: Judiciary
             Labor: Labor
-            LIHEAP: LIHEAP
             LGBT Issues: LGBT Issues
             Medicare/Medicaid: Medicare/Medicaid
-            "Military, Retiree Health Care": Military Health Care
+            Middle East: Middle East
+            Military Health Care: Military, Retiree Health Care
             Other: Other
+            Public Lands: Public Lands
+            Russia: Russia
             Small Business: Small Business
             Social Security: Social Security
             Taxes: Taxes
+            Telecommunications: Telecommunications
             Trade: Trade
             Transportation: Transportation
+            Trump Administration: Trump Administration
             Veterans: Veterans
+            Wildlife and Endangered Species: Wildlife and Endangered Species
+    - javascript:
+        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');            
     - click_on:
         - value: Send
           selector: "#side-search-btn"
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
-    - javascript:
-        - value: "document.querySelector('#side-search-btn').click();"
+        - value: "document.querySelector('#side-search-btn') && document.querySelector('#side-search-btn').click();"
+    - find:
+        - selector: "h2"
+          value: "Thank You"
   success:
     headers:
       status: 200

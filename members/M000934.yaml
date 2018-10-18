@@ -5,41 +5,72 @@ contact_form:
   steps:
     - visit: "https://www.moran.senate.gov/public/index.cfm/e-mail-jerry"
     - fill_in:
-        - name: field_174356C7-866C-41FA-A8CC-AFE0EA069FFE
-          selector: "#field_174356C7-866C-41FA-A8CC-AFE0EA069FFE"
+        - name: field_F584DB14-EBF4-4A69-9A32-9FBDDED35B84
+          selector: "#field_F584DB14-EBF4-4A69-9A32-9FBDDED35B84"
           value: $NAME_FIRST
           required: true
-        - name: field_F2A238AC-0B82-4157-8FCB-1FE6A37A08A0
-          selector: "#field_F2A238AC-0B82-4157-8FCB-1FE6A37A08A0"
+        - name: field_E6E4058E-A737-405F-AE5D-D7D41A7E8B5E
+          selector: "#field_E6E4058E-A737-405F-AE5D-D7D41A7E8B5E"
           value: $NAME_LAST
           required: true
-        - name: field_BCD5C462-5A93-468B-825D-1F1B0504DE9F
-          selector: "#field_BCD5C462-5A93-468B-825D-1F1B0504DE9F"
+        - name: field_9E29ECCB-FE46-43E7-BBD3-D62B8FBF42F8
+          selector: "#field_9E29ECCB-FE46-43E7-BBD3-D62B8FBF42F8"
           value: $ADDRESS_STREET
           required: true
-        - name: field_DBB6AD7D-20B2-429D-A082-0D01B49AC3E4
-          selector: "#field_DBB6AD7D-20B2-429D-A082-0D01B49AC3E4"
+        - name: field_6E959311-9669-4B86-A863-EB43467FE7FE
+          selector: "#field_6E959311-9669-4B86-A863-EB43467FE7FE"
           value: $ADDRESS_CITY
           required: true
-        - name: field_55223E83-235B-4F62-92AE-F9154484097B
-          selector: "#field_55223E83-235B-4F62-92AE-F9154484097B"
+        - name: field_BF6AA012-BC30-493B-AECB-EEB2F449979C
+          selector: "#field_BF6AA012-BC30-493B-AECB-EEB2F449979C"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_77F8C6FB-07CE-4C99-A75E-94D54CF2E6DA
-          selector: "#field_77F8C6FB-07CE-4C99-A75E-94D54CF2E6DA"
+        - name: field_84914330-6605-4067-8AFD-1E1F80B24620
+          selector: "#field_84914330-6605-4067-8AFD-1E1F80B24620"
           value: $PHONE
           required: true
-        - name: field_84C25D40-EF1F-452D-B84B-C85C65724CCC
-          selector: "#field_84C25D40-EF1F-452D-B84B-C85C65724CCC"
+        - name: field_770E67A6-DF25-4586-BFD9-6AA3C1A8B3FE
+          selector: "#field_770E67A6-DF25-4586-BFD9-6AA3C1A8B3FE"
           value: $EMAIL
           required: true
-        - name: field_123312F2-861A-4DC6-AAA2-768D19D27D8D
-          selector: "#field_123312F2-861A-4DC6-AAA2-768D19D27D8D"
+        - name: field_955D171C-85C6-4515-9D66-560E2EB6E15C
+          selector: "#field_955D171C-85C6-4515-9D66-560E2EB6E15C"
           value: $MESSAGE
           required: true
+          options:
+            max_length: 500
     - select:
-        - name: field_19590BCB-8DC4-4761-8C17-0E8BBC746E64
-          selector: "#field_19590BCB-8DC4-4761-8C17-0E8BBC746E64"
+        - name: field_8AECE1B7-0DB4-497B-95C5-E5102C91B9D1
+          selector: "#field_8AECE1B7-0DB4-497B-95C5-E5102C91B9D1"
+          value: "Comment or Ask Questions about Specific Issues or Legislation"
+          required: true
+          options:
+            - Comment or Ask Questions about Specific Issues or Legislation
+        - name: field_D8D2B924-8B4A-44C5-B78D-FEE0F81C8D7E
+          selector: "#field_D8D2B924-8B4A-44C5-B78D-FEE0F81C8D7E"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AG
+            Budget: BE
+            Commerce and Technology: TECH
+            Defense and Military: DE
+            Education: ED
+            Entrepreneurship and Innovation: SB
+            Environment and Energy: EV
+            International Relations: FR
+            Immigration: IM
+            Healthcare/Medicare/Medicaid: HE
+            Judiciary: NOM
+            Pro-Life/Pro-Choice: AB
+            Second Amendment: GUN
+            Social Security: SS
+            Taxes: TX
+            Transportation: TR
+            Veterans: VA
+            Other: OTHER                
+        - name: field_34C75A0A-DEE8-422D-B5D8-B73D78A4A06F
+          selector: "#field_34C75A0A-DEE8-422D-B5D8-B73D78A4A06F"
           value: $NAME_PREFIX
           required: true
           options:
@@ -57,11 +88,11 @@ contact_form:
             - Representative
             - Senator
     - check:
-        - name: field_1807499F-BB47-4A2B-81AF-4D6C2497C5E5
-          selector: "#field_1807499F-BB47-4A2B-81AF-4D6C2497C5E5_2"
+        - name: field_0ADBE733-15FE-4446-A42B-4162E529BC6D
+          selector: "#field_0ADBE733-15FE-4446-A42B-4162E529BC6D_2"
           value: " "
     - javascript:
-        - value: document.querySelector("#field_123312F2-861A-4DC6-AAA2-768D19D27D8D").value = document.querySelector("#field_123312F2-861A-4DC6-AAA2-768D19D27D8D").value.replace(/"/g, '');
+        - value: document.querySelector("#field_955D171C-85C6-4515-9D66-560E2EB6E15C").value = document.querySelector("#field_955D171C-85C6-4515-9D66-560E2EB6E15C").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: div.buttonHolder input

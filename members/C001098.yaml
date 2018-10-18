@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "/?p=form&id=16"
   steps:
-    - visit: "http://www.cruz.senate.gov/?p=form&id=16"
+    - visit: "https://www.cruz.senate.gov/?p=form&id=16"
     - fill_in:
         - name: FIRST
           selector: "#gen-fieldid-3"
@@ -112,13 +112,14 @@ contact_form:
             Transportation: Transportation
             Veterans: Veterans
             Welfare: Welfare
-            Other: Other
     - check:
         - name: respond
           selector: "input[type='radio'][name='respond'][value='Yes']"
           value: "Yes"
     - javascript:
         - value: document.querySelector("#gen-fieldid-27").value = document.querySelector("#gen-fieldid-27").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "#block5 form input[name='formaction']"

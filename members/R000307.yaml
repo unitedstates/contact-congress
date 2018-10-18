@@ -5,10 +5,6 @@ contact_form:
   steps:
     - visit: "https://www.roberts.senate.gov/public/?p=EmailPat"
     - fill_in:
-        - name: field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB
-          selector: "#field_23C64F0F-17AA-4395-BFA8-65EA859C9DDB"
-          value: $NAME_PREFIX
-          required: true
         - name: field_7BBAD001-4221-4CB0-B7BD-B1ADC5E3A379
           selector: "#field_7BBAD001-4221-4CB0-B7BD-B1ADC5E3A379"
           value: $NAME_FIRST
@@ -33,62 +29,75 @@ contact_form:
           selector: "#field_F7677061-8F71-4136-B3B2-ED7BCC421D95"
           value: $EMAIL
           required: true
+        - name: field_D48CC108-7CD0-4E71-ABFE-3A90676B7363
+          selector: "#field_D48CC108-7CD0-4E71-ABFE-3A90676B7363"
+          value: $EMAIL
+          required: true
         - name: field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C
           selector: "#field_6D262F00-EBE4-49B9-AB23-0C2C3F61225C"
           value: $MESSAGE
           required: true
     - select:
+        - name: field_9424CC8E-5A2F-4871-BC49-66218298A3DA
+          selector: "#field_9424CC8E-5A2F-4871-BC49-66218298A3DA"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Dr.
         - name: field_9E46D42D-A8A8-4014-AF7C-A316AA230D9F
           selector: "#field_9E46D42D-A8A8-4014-AF7C-A316AA230D9F"
           value: $TOPIC
           required: true
           options:
-            - Government Shutdown
-            - Health Care Costs
-            - Economy/Jobs
-            - Gas Prices
-            - Immigration
-            - National Security
-            - Social Security
-            - Terrorism
-            - Abortion
-            - Agriculture
-            - Arctic National Wildlife Refuge
-            - Aviation
-            - Banking-General
-            - Budget
-            - "Children's Issues"
-            - Communications
-            - Defense-General
-            - Economy-General
-            - Education
-            - Energy
-            - Environment
-            - Foreign Affairs
-            - Global Warming
-            - Government Affairs
-            - Gun Control
-            - Health Care-General
-            - Housing
-            - Intelligence Issues
-            - Judiciary
-            - Labor
-            - Nuclear Weapons
-            - "Seniors' Issues"
-            - Small Business
-            - Tax-General
-            - Trade-General
-            - Transportation
-            - Veterans Affairs
-            - Violence
-            - Other
+            Abortion: AB
+            Agriculture: AG
+            Banking: BA
+            Budget: BUD
+            Communications: TELE
+            Cybersecurity: CY
+            Disability: DIS
+            Defense: DEF
+            Economy: EC
+            Education: EDU
+            Energy: ENE
+            Environment: ENV
+            FDA: FDA
+            FEMA: FEMA
+            Foreign Affairs: FOR
+            Government Affairs: GOV
+            Gun Control: GUN
+            Healthcare: HC
+            Housing: HOU
+            Human Rights: HUMRTS
+            Interior : INTR
+            Immigration: IMM
+            Judicary,Violence: JUD
+            Labor: LAB
+            Native American Issues: NAT
+            National Security: HOM
+            Pensions: PEN
+            Postal Issues: PO
+            Regulatory Reform: REG
+            Seniors: SEN
+            Social Security: SS
+            Small Business: SB
+            Taxes: TAX
+            Space and Technology: TECH
+            Terrorism: HOM
+            Trade: TR
+            Transportation: TRAN
+            Veterans: VET
+            Water: WATR
+            Welfare: WEL
+            Other: OTH
     - recaptcha:
         - value: true
     - click_on:
         - value: "Submit"
-          selector: input.primaryAction
-    - wait:
-        - value: 1
+          selector: "input.btn-primary"
   success:
     headers:
       status: 200
