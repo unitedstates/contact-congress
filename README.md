@@ -136,7 +136,6 @@ This project is [dedicated to the public domain](LICENSE). As spelled out in [CO
 
 #### Senate
 
-
 | Bioguide ID   | Website   |
 | ------------- | --------- |
 | [A000360](https://github.com/unitedstates/contact-congress/blob/master/members/A000360.yaml) | [Sen. Lamar Alexander (R-TN)](http://www.alexander.senate.gov)
