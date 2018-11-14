@@ -4,6 +4,8 @@ contact_form:
   action: /contact/email-chuck
   steps:
     - visit: "http://www.schumer.senate.gov/contact/email-chuck"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
     - select:
         - name: actions
           selector: "#actions"
