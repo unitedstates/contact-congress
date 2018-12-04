@@ -4,6 +4,8 @@ contact_form:
   action: "https://www.capito.senate.gov/contact/contact-shelley"
   steps:
     - visit: "https://www.capito.senate.gov/contact/contact-shelley"
+    - find:
+        - selector: "#actions"
     - select:
         - name: input_AE7457DD-4040-F985-52CD-B99385041C51
           selector: "#actions"
