@@ -95,10 +95,9 @@ contact_form:
             Other: OTH
     - recaptcha:
         - value: true
-    - javascript:
-        - value: document.querySelector("input.primaryAction").click();
-    - wait:
-        - value: 1
+    - click_on:
+        - value: "Submit"
+          selector: "input.btn-primary"
   success:
     headers:
       status: 200

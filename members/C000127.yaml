@@ -4,8 +4,8 @@ contact_form:
   action: "https://www.cantwell.senate.gov/contact/email/form"
   steps:
     - visit: "https://www.cantwell.senate.gov/contact/email/form"
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
     - fill_in:
         - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
           selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
