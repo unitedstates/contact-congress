@@ -4,8 +4,8 @@ contact_form:
   action: "https://www.rounds.senate.gov/contact/email-mike"
   steps:
     - visit: "https://www.rounds.senate.gov/contact/email-mike"
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#actions"
     - select:
         - name: input_AE7457DD-4040-F985-52CD-B99385041C51
           selector: "#actions"

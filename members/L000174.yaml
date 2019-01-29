@@ -4,8 +4,8 @@ contact_form:
   action: "https://www.leahy.senate.gov/contact/"
   steps:
     - visit: "https://www.leahy.senate.gov/contact/"
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#input-36F9116D-5056-A066-6055-B856B7975A8D"
     - fill_in:
         - name: input_36F9116D-5056-A066-6055-B856B7975A8D
           selector: "#input-36F9116D-5056-A066-6055-B856B7975A8D"

@@ -4,6 +4,8 @@ contact_form:
   action: "http://www.daines.senate.gov/connect/email-steve"
   steps:
     - visit: "http://www.daines.senate.gov/connect/email-steve"
+    - find:
+        - selector: "#actiontog"
     - select:
         - name: input_AE7457DD-4040-F985-52CD-B99385041C51
           selector: "#actiontog"
