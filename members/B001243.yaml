@@ -1,0 +1,70 @@
+bioguide: B001243
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://www.blackburn.senate.gov/contact_marsha"
+    - fill_in:
+        - name: "first_name"
+          selector: "#edit-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: "last_name"
+          selector: "#edit-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: "address_1"
+          selector: "#edit-address-1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "city"
+          selector: "#edit-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "zip"
+          selector: "#edit-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "phone"
+          selector: "#edit-phone"
+          value: $PHONE
+          required: false
+        - name: "email"
+          selector: "#edit-email"
+          value: $EMAIL
+          required: true
+        - name: "subject"
+          selector: "#edit-subject"
+          value: $SUBJECT
+          required: true
+        - name: "message"
+          selector: "#edit-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: "prefix"
+          selector: "#edit-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "Mr.": "Mr."
+            "Mrs.": "Mrs."
+            "Ms.": "Ms."
+            "Mr. and Mrs.": "Mr. and Mrs."
+            "Dr.": "Dr."
+            "Dr. and Mrs.": "Dr. and Mrs."
+            "Dr. and Mr.": "Dr. and Mr."
+            "Dr. and Dr.": "Dr. and Dr."
+        - name: "state"
+          selector: "#edit-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options: US_STATES
+    - click_on:
+        - value: Send message
+          selector: "#edit-actions-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you"
