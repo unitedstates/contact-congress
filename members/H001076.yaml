@@ -4,8 +4,9 @@ contact_form:
   action: "https://www.hassan.senate.gov/contact/email"
   steps:
     - visit: "https://www.hassan.senate.gov/contact/email"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
-        - selector: "button.close"
         - selector: ".opinion"
     - find:
         - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
