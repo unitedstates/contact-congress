@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "https://www.hassan.senate.gov/contact/email"
     - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+        - value: "document.getElementById('newsletterModal').remove()"
     - click_on:
         - selector: ".opinion"
     - find:
