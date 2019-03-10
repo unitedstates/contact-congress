@@ -1,0 +1,119 @@
+bioguide: H001089
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://www.hawley.senate.gov/contact-senator-hawley"
+    - fill_in:
+        - name: "first_name"
+          selector: "#edit-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: "last_name"
+          selector: "#edit-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: "address_1"
+          selector: "#edit-address-1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "address_2"
+          selector: "#edit-address-2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: "city"
+          selector: "#edit-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "zip"
+          selector: "#edit-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "phone"
+          selector: "#edit-phone"
+          value: $PHONE
+          required: false
+        - name: "email"
+          selector: "#edit-email"
+          value: $EMAIL
+          required: true
+        - name: "subject"
+          selector: "#edit-subject"
+          value: $SUBJECT
+          required: true
+        - name: "message"
+          selector: "#edit-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: "prefix"
+          selector: "#edit-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "Dr.": "Dr."
+            "Mr.": "Mr."
+            "Mrs.": "Mrs."
+            "Ms.": "Ms."
+            "Mr. and Mrs.": "Mr. and Mrs."
+            "Dr. and Mrs.": "Dr. and Mrs."
+            "Professor": "Professor"
+        - name: "state"
+          selector: "#edit-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options: US_STATES
+        - name: "topic"
+          selector: "#edit-topic"
+          value: $TOPIC
+          required: true
+          options:
+            "Abortion": "Abortion"
+            "Adoption": "Adoption"
+            "Agriculture": "Agriculture"
+            "Animal Welfare": "Animal Welfare"
+            "Banking": "Banking"
+            "Budget/Spending": "Budget/Spending"
+            "Civil Rights": "Civil Rights"
+            "Crime/Drugs": "Crime/Drugs"
+            "Defense": "Defense"
+            "Economy": "Economy"
+            "Education (Higher)": "Education (Higher)"
+            "Education (K–12)": "Education (K–12)"
+            "Elections": "Elections"
+            "Energy": "Energy"
+            "Environment": "Environment"
+            "Family Values": "Family Values"
+            "Foreign Relations": "Foreign Relations"
+            "Health": "Health"
+            "Homeland Security": "Homeland Security"
+            "Housing": "Housing"
+            "Immigration": "Immigration"
+            "Intelligence": "Intelligence"
+            "Judiciary": "Judiciary"
+            "Labor": "Labor"
+            "Medicare": "Medicare"
+            "Parks & Public Lands": "Parks & Public Lands"
+            "Pensions/Retirement": "Pensions/Retirement"
+            "Postal": "Postal"
+            "Regulatory Reform": "Regulatory Reform"
+            "Religion": "Religion"
+            "Science/Technology": "Science/Technology"
+            "Second Amendment": "Second Amendment"
+            "Social Security": "Social Security"
+            "Supreme Court": "Supreme Court"
+            "Taxes": "Taxes"
+            "Telecom": "Telecom"
+            "Trade": "Trade"
+            "Transportation": "Transportation"
+            "Veterans": "Veterans"
+            "Water/Rivers": "Water/Rivers"
+            "Welfare": "Welfare"
+    - click_on:
+        - value: Send message
+          selector: "#edit-actions-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you, your message"
