@@ -109,10 +109,10 @@ contact_form:
             Welfare: Welfare
     - check:
         - name: respond
-          selector: "input[type='radio'][name='respond'][value='Yes']"
+          selector: "input[type='radio'][name='RSP'][value='Yes']"
           value: "Yes"
     - javascript:
-        - value: document.querySelector("#gen-fieldid-25").value = document.querySelector("#gen-fieldid-27").value.replace(/"/g, '');
+        - value: document.querySelector("#gen-fieldid-25").value = document.querySelector("#gen-fieldid-25").value.replace(/"/g, '');
     - recaptcha:
         - value: true
     - click_on:
