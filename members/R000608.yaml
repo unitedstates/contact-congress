@@ -1,0 +1,113 @@
+bioguide: R000608
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://www.rosen.senate.gov/contact_jacky"
+    - fill_in:
+        - name: "first_name"
+          selector: "#edit-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: "last_name"
+          selector: "#edit-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: "address_1"
+          selector: "#edit-address-1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "city"
+          selector: "#edit-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "zip"
+          selector: "#edit-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "phone"
+          selector: "#edit-phone"
+          value: $PHONE
+          required: true
+        - name: "email"
+          selector: "#edit-email"
+          value: $EMAIL
+          required: true
+        - name: "subject"
+          selector: "#edit-subject"
+          value: $SUBJECT
+          required: true
+        - name: "message"
+          selector: "#edit-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: "state"
+          selector: "#edit-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options: US_STATES
+        - name: "topic"
+          selector: "#edit-topic"
+          value: $TOPIC
+          required: true
+          options:
+            "Agriculture": "Agriculture"
+            "Animal Welfare": "Animal Welfare"
+            "Appropriations and Budget": "Appropriations and Budget"
+            "Armed Services": "Armed Services"
+            "Arts and Humanities": "Arts and Humanities"
+            "Banking": "Banking"
+            "Campaign Finance Reform": "Campaign Finance Reform"
+            "Children and Families": "Children and Families"
+            "Civil Rights and Civil Liberties": "Civil Rights and Civil Liberties"
+            "Consumer Protection": "Consumer Protection"
+            "Criminal Justice": "Criminal Justice"
+            "Education": "Education"
+            "Elections": "Elections"
+            "Energy and Natural Resources": "Energy and Natural Resources"
+            "Environment": "Environment"
+            "FDA": "FDA"
+            "Foreign Affairs": "Foreign Affairs"
+            "Gaming": "Gaming"
+            "Guns": "Guns"
+            "Healthcare": "Healthcare"
+            "Homeland Security": "Homeland Security"
+            "Housing": "Housing"
+            "Immigration": "Immigration"
+            "Insurance": "Insurance"
+            "Interior": "Interior"
+            "Judiciary": "Judiciary"
+            "Labor": "Labor"
+            "LGBTQ": "LGBTQ"
+            "Medicaid": "Medicaid"
+            "Medicare": "Medicare"
+            "Native American Affairs": "Native American Affairs"
+            "Nutrition": "Nutrition"
+            "Pensions": "Pensions"
+            "Postal Issues": "Postal Issues"
+            "Public Lands": "Public Lands"
+            "Reproductive Rights": "Reproductive Rights"
+            "Rural": "Rural"
+            "Science and Technology": "Science and Technology"
+            "Small Business": "Small Business"
+            "Social Security": "Social Security"
+            "Space": "Space"
+            "Taxes": "Taxes"
+            "Telecommunications": "Telecommunications"
+            "Tourism": "Tourism"
+            "Trade": "Trade"
+            "Transportation": "Transportation"
+            "Veterans": "Veterans"
+            "Water": "Water"
+            "Welfare": "Welfare"
+            "Women's Empowerment": "Women's Empowerment"
+            "Yucca Mountain": "Yucca Mountain"
+    - click_on:
+        - value: Send message
+          selector: "#edit-actions-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you, your message"

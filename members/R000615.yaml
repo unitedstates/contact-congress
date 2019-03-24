@@ -1,0 +1,150 @@
+bioguide: R000615
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://www.romney.senate.gov/contact-senator-romney"
+    - fill_in:
+        - name: "first_name"
+          selector: "#edit-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: "last_name"
+          selector: "#edit-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: "address_1"
+          selector: "#edit-address-1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "city"
+          selector: "#edit-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "zip"
+          selector: "#edit-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "phone"
+          selector: "#edit-phone"
+          value: $PHONE
+          required: false
+        - name: "email"
+          selector: "#edit-email"
+          value: $EMAIL
+          required: true
+        - name: "subject"
+          selector: "#edit-subject"
+          value: $SUBJECT
+          required: true
+        - name: "message"
+          selector: "#edit-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: "prefix"
+          selector: "#edit-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mr. and Mrs.
+            - Dr.
+            - Dr. and Mrs.
+        - name: "state"
+          selector: "#edit-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
+        - name: "topic"
+          selector: "#edit-topic"
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture
+            - Appropriations
+            - Budget & Debt
+            - Commerce
+            - Crime
+            - Defense
+            - Drugs
+            - Economy
+            - Education
+            - Energy
+            - Second Amendment
+            - Environment
+            - Small Business
+            - Family
+            - Foreign Policy
+            - Healthcare
+            - Housing
+            - Immigration
+            - Labor
+            - National Security
+            - Other
+            - Public Land
+            - Religious Liberty
+            - Taxes
+            - Trade
+            - Transportation
+            - Veterans
+    - click_on:
+        - value: Send message
+          selector: "#edit-actions-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you"

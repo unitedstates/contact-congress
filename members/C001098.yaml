@@ -33,16 +33,12 @@ contact_form:
           selector: "#gen-fieldid-19"
           value: $EMAIL
           required: true
-        - name: vemail
-          selector: "#gen-fieldid-21"
-          value: $EMAIL
-          required: true
         - name: SUBJECT
-          selector: "#gen-fieldid-25"
+          selector: "#gen-fieldid-23"
           value: $SUBJECT
           required: true
         - name: MSG
-          selector: "#gen-fieldid-27"
+          selector: "#gen-fieldid-25"
           value: $MESSAGE
           required: true
     - select:
@@ -77,11 +73,10 @@ contact_form:
             Sister: Sister
             Technical Sergeant: Technical Sergeant
         - name: TOPIC
-          selector: "#gen-fieldid-23"
+          selector: "#gen-fieldid-21"
           value: $TOPIC
           required: true
           options:
-            "-- please select a topic --": "null"
             Agriculture: Agriculture
             Animal Welfare: Animal Welfare
             Banking/Housing: Banking/Housing
@@ -114,10 +109,10 @@ contact_form:
             Welfare: Welfare
     - check:
         - name: respond
-          selector: "input[type='radio'][name='respond'][value='Yes']"
+          selector: "input[type='radio'][name='RSP'][value='Yes']"
           value: "Yes"
     - javascript:
-        - value: document.querySelector("#gen-fieldid-27").value = document.querySelector("#gen-fieldid-27").value.replace(/"/g, '');
+        - value: document.querySelector("#gen-fieldid-25").value = document.querySelector("#gen-fieldid-25").value.replace(/"/g, '');
     - recaptcha:
         - value: true
     - click_on:

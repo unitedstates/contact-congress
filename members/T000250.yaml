@@ -5,10 +5,6 @@ contact_form:
   steps:
     - visit: "https://www.thune.senate.gov/public/index.cfm/contact"
     - fill_in:
-        - name: field_1315AE35-232E-4F1B-B9E9-5338D7FA2C7A
-          selector: "#field_1315AE35-232E-4F1B-B9E9-5338D7FA2C7A"
-          value: $NAME_PREFIX
-          required: true
         - name: field_E3E9333A-D709-49D7-8B96-AB512A781355
           selector: "#field_E3E9333A-D709-49D7-8B96-AB512A781355"
           value: $NAME_FIRST
@@ -44,6 +40,24 @@ contact_form:
           options:
             max_length: 2500
     - select:
+        - name: field_9947B9A9-7835-48E8-A1EC-ECC643CDAE45
+          selector: "#field_9947B9A9-7835-48E8-A1EC-ECC643CDAE45"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "Mr.": "Mr."
+            "Mrs.": "Mrs."
+            "Ms.": "Ms."
+            "Dr.": "Dr."
+            "Professor": "Professor"
+            "Pastor": "Pastor"
+            "Rabbi": "Rabbi"
+            "Reverend": "Reverend"
+            "Father": "Father"
+            "Sister": "Sister"
+            "Representative": "Representative"
+            "Senator": "Senator"
+            "No Prefix": "No Prefix"
         - name: field_6F8F9AF6-B16C-4ADD-9B4F-88F7A910C63F
           selector: "#field_6F8F9AF6-B16C-4ADD-9B4F-88F7A910C63F"
           value: $TOPIC

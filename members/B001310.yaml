@@ -1,0 +1,98 @@
+bioguide: B001310
+contact_form:
+  method: post
+  action: ""
+  steps:
+    - visit: "https://www.braun.senate.gov/contact-mike"
+    - fill_in:
+        - name: "first_name"
+          selector: "#edit-first-name"
+          value: $NAME_FIRST
+          required: true
+        - name: "last_name"
+          selector: "#edit-last-name"
+          value: $NAME_LAST
+          required: true
+        - name: "address_1"
+          selector: "#edit-address-1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "city"
+          selector: "#edit-city"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "zip"
+          selector: "#edit-zip"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "phone"
+          selector: "#edit-phone"
+          value: $PHONE
+          required: false
+        - name: "email"
+          selector: "#edit-email"
+          value: $EMAIL
+          required: true
+        - name: "subject"
+          selector: "#edit-subject"
+          value: $SUBJECT
+          required: true
+        - name: "message"
+          selector: "#edit-message"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: "prefix"
+          selector: "#edit-prefix"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            "Mr.": "Mr."
+            "Mrs.": "Mrs."
+            "Ms.": "Ms."
+            "Mr. and Mrs.": "Mr. and Mrs."
+            "Dr.": "Dr."
+            "Dr. and Mrs.": "Dr. and Mrs."
+        - name: "state"
+          selector: "#edit-state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options: US_STATES
+        - name: "topic"
+          selector: "#edit-topic"
+          value: $TOPIC
+          required: true
+          options:
+            "Abortion": "Abortion"
+            "Agriculture": "Agriculture"
+            "Aid": "Aid"
+            "Appointments": "Appointments"
+            "Defense": "Defense"
+            "Drugs": "Drugs"
+            "Education": "Education"
+            "Environment": "Environment"
+            "Foreign Affairs": "Foreign Affairs"
+            "Gun Control": "Gun Control"
+            "Healthcare": "Healthcare"
+            "Immigration": "Immigration"
+            "Infrastructure": "Infrastructure"
+            "Marijuana": "Marijuana"
+            "Russian Sanctions": "Russian Sanctions"
+            "Shutdown": "Shutdown"
+            "Social Security": "Social Security"
+            "Space/Science": "Space/Science"
+            "Taxation": "Taxation"
+            "Term Limits": "Term Limits"
+            "Transportation": "Transportation "
+            "President": "President "
+            "Other": "Other"
+            "Veterans": "Veterans"
+            "Wages": "Wages"
+    - click_on:
+        - value: Send message
+          selector: "#edit-actions-submit"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Thank you"
