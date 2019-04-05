@@ -4,8 +4,8 @@ contact_form:
   action: "https://www.hoeven.senate.gov/contact/email-the-senator"
   steps:
     - visit: "https://www.hoeven.senate.gov/contact/email-the-senator"
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#input-781129F8-4040-F985-52CD-46DE47AD5D2C"
     - fill_in:
         - name: input_781129F8-4040-F985-52CD-46DE47AD5D2C
           selector: "#input-781129F8-4040-F985-52CD-46DE47AD5D2C"
