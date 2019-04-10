@@ -3,105 +3,64 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.portman.senate.gov/public/index.cfm/contact-form"
+    - visit: "https://www.portman.senate.gov/meet/contact"
     - fill_in:
-        - name: field_ABC03F4E-8760-440F-BA41-22107A2F7BCF
-          selector: "#field_ABC03F4E-8760-440F-BA41-22107A2F7BCF"
+        - name: "name[title]"
+          selector: "#edit-name-title"
+          value: $NAME_PREFIX
+          required: false
+        - name: "name[first]"
+          selector: "#edit-name-first"
           value: $NAME_FIRST
           required: true
-        - name: field_E95C86C1-FF4A-48D2-8D74-15850A71BCF5
-          selector: "#field_E95C86C1-FF4A-48D2-8D74-15850A71BCF5"
+        - name: "name[last]"
+          selector: "#edit-name-last"
           value: $NAME_LAST
           required: true
-        - name: field_4F3DABF6-A301-4E18-BAA4-96774BAA2F19
-          selector: "#field_4F3DABF6-A301-4E18-BAA4-96774BAA2F19"
+        - name: "address[address]"
+          selector: "#edit-address-address"
           value: $ADDRESS_STREET
           required: true
-        - name: field_8638C303-CC6B-46FC-B7CF-A2C754E1DF2E
-          selector: "#field_8638C303-CC6B-46FC-B7CF-A2C754E1DF2E"
+        - name: "address[city]"
+          selector: "#edit-address-city"
           value: $ADDRESS_CITY
           required: true
-        - name: field_776C76D1-C541-4B2E-8C7A-4515381A5D0B
-          selector: "#field_776C76D1-C541-4B2E-8C7A-4515381A5D0B"
+        - name: "address[postal_code]"
+          selector: "#edit-address-postal-code"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_0C081EF6-3113-46DF-B4F7-4D83FADBAA9A
-          selector: "#field_0C081EF6-3113-46DF-B4F7-4D83FADBAA9A"
+        - name: "phone"
+          selector: "#edit-phone"
           value: $PHONE
           required: true
-        - name: field_FAD09AF0-D33B-4934-BB13-7335EDD82C4B
-          selector: "#field_FAD09AF0-D33B-4934-BB13-7335EDD82C4B"
+        - name: "email"
+          selector: "#edit-email"
           value: $EMAIL
           required: true
-        - name: field_06A8C75E-4922-470D-ACFF-44367138678C
-          selector: "#field_06A8C75E-4922-470D-ACFF-44367138678C"
+        - name: "subject"
+          selector: "#edit-subject"
           value: $SUBJECT
           required: true
-        - name: field_716E154B-9C67-4EDE-97AC-A867C5556908
-          selector: "#field_716E154B-9C67-4EDE-97AC-A867C5556908"
+        - name: "message"
+          selector: "#edit-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_65B92E4C-5318-4314-9D1B-13C53DB4F00A
-          selector: "#field_65B92E4C-5318-4314-9D1B-13C53DB4F00A"
+        - name: "address[state_province]"
+          selector: "#edit-address-state-province"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: "topic"
+          selector: "#edit-topic"
           value: $TOPIC
           required: true
-          options:
-            Abortion: ABOR
-            Aging and Seniors: AGING
-            Animal Rights: ANIM
-            Appropriations: APPRO
-            Banking: BANK
-            Budget: BUD
-            Campaign Finance: CAMPFI
-            Child Abuse: CHILD
-            Civil Rights/Humanities: CIVIL
-            Civil Service/Postal: CIVILSERV
-            Commerce: COMMER
-            Communications: COMMUN
-            Commemorative/Congratulatory/Memorative: CONGRAT
-            Congressional Issues: CONGRESS
-            "Drugs/Crime,Second Amendment": CRIME
-            Defense: DEF
-            Education Higher: ED.HIGH
-            Education K through 12: ED.K12
-            Elections: ELECT
-            Energy: ENERG
-            Environment/Public Works: ENVIR
-            Family/Marriage: FAM
-            Flag Requests: FLAG
-            Foreign Affairs: FOREIGN
-            Health: HEALTH
-            Housing: HOUS
-            Immigration Reform: IMMIGR
-            Insurance: INSUR
-            Interior: INTER
-            Iraq: IRAQ
-            Jobs and the Economy: JOBS
-            Judiciary: JUD
-            Labor: LAB
-            Medicaid: MCAID
-            Medicare: MCARE
-            NASA: NASA
-            Native American Affairs: NATIVE
-            Patents: PAT
-            Pensions: PENS
-            Security: SEC
-            Small Business: SM.BUS
-            Social Security: SS
-            Taxes: TAX
-            Tobacco: TOB
-            Trade: TRADE
-            Transportation: TRANSP
-            Veterans: VET
-            Welfare: WEL
     - javascript:
-        - value: document.querySelector("#field_716E154B-9C67-4EDE-97AC-A867C5556908").value = document.querySelector("#field_716E154B-9C67-4EDE-97AC-A867C5556908").value.replace(/"/g, '');
+        - value: document.querySelector("#edit-message").value = document.querySelector("#edit-message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: div.buttonHolder input
+          selector: "#edit-actions-submit"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: "Thank you for contacting my office."
