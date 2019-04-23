@@ -109,9 +109,8 @@ contact_form:
             "Veterans": "Veterans"
             "Water/Rivers": "Water/Rivers"
             "Welfare": "Welfare"
-    - click_on:
-        - value: Send message
-          selector: "#edit-actions-submit"
+    - javascript:
+        - value: "document.querySelector('#edit-actions-submit').click()"
     - wait:
         - value: 8
   success:
