@@ -113,7 +113,9 @@ contact_form:
         - value: Send message
           selector: "#edit-actions-submit"
     - wait:
-        - value: 8
+        - value: 10
+    - find:
+        - selector: ".sr-only"
   success:
     headers:
       status: 200
