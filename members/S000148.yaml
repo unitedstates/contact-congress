@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "http://www.schumer.senate.gov/contact/email-chuck"
     - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - select:
         - name: actions
           selector: "#actions"
@@ -74,7 +74,7 @@ contact_form:
             - Ms.
             - Dr.
         - name: state
-          selector: "#state"
+          selector: "#states_abbreviated"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
