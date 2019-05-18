@@ -112,7 +112,9 @@ contact_form:
     - javascript:
         - value: "document.querySelector('#edit-actions-submit').click()"
     - wait:
-        - value: 8
+        - value: 10
+    - find:
+        - selector: ".sr-only"
   success:
     headers:
       status: 200
