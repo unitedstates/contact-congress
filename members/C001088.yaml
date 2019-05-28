@@ -6,6 +6,8 @@ contact_form:
     - visit: "https://www.coons.senate.gov/contact/share-your-opinion"
     - wait:
         - value: 3
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: input_FF88275E-5056-A066-608F-B6EF2D7F5129
           selector: "#input-FF88275E-5056-A066-608F-B6EF2D7F5129"
