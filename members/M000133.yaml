@@ -60,7 +60,7 @@ contact_form:
           - Veterans
           - Welfare/SNAP
     - wait:
-      - value: 3
+      - value: 5
     - find:
       - selector: "#continue-form"
     - fill_in:
@@ -185,6 +185,8 @@ contact_form:
         - value: document.querySelector("#side-search-btn").disabled = false;
     - recaptcha:
         - value: true
+    - wait:
+        - value: 1
     - click_on:
         - value: Send
           selector: "#side-search-btn"
