@@ -5,47 +5,47 @@ contact_form:
   steps:
     - visit: "https://www.warren.senate.gov/contact/shareyouropinion"
     - find:
-        - selector: "#input-6E6B5C1A-FBEE-82D9-79BA-918FB2300203"
+        - selector: "#input-33295C46-5056-A066-60A3-365F01F67D81"
     - fill_in:
-        - name: "input_6E6B5C1A-FBEE-82D9-79BA-918FB2300203"
-          selector: "#input-6E6B5C1A-FBEE-82D9-79BA-918FB2300203"
+        - name: "input_33295C46-5056-A066-60A3-365F01F67D81"
+          selector: "#input-33295C46-5056-A066-60A3-365F01F67D81"
           value: $NAME_FIRST
           required: true
-        - name: "input_6E6B5C4C-FF9C-19CB-5865-717F07460DDB"
-          selector: "#input-6E6B5C4C-FF9C-19CB-5865-717F07460DDB"
+        - name: "input_33295BC6-5056-A066-6083-E33EA05D3639"
+          selector: "#input-33295BC6-5056-A066-6083-E33EA05D3639"
           value: $NAME_LAST
           required: true
-        - name: "input_6E8749CA-AED0-06CE-B886-9542B0A4DE8C"
-          selector: "#input-6E8749CA-AED0-06CE-B886-9542B0A4DE8C"
-          value: $ADDRESS_STREET
-          required: true
-        - name: "input_6E874A0E-A5B2-5A49-619E-D86CD80578B6"
-          selector: "#input-6E874A0E-A5B2-5A49-619E-D86CD80578B6"
-          value: $ADDRESS_CITY
-          required: true
-        - name: "input_6E874A59-9287-8C40-CDB8-36C88217C5A1"
-          selector: "#input-6E874A59-9287-8C40-CDB8-36C88217C5A1"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: "input_6E7ACCB4-CF49-4BEC-BEDF-147F54CDB37E"
-          selector: "#input-6E7ACCB4-CF49-4BEC-BEDF-147F54CDB37E"
+        - name: "input_33295A3E-5056-A066-609A-0F361AEFEB83"
+          selector: "#input-33295A3E-5056-A066-609A-0F361AEFEB83"
           value: $PHONE
           required: true
-        - name: "input_6E7D9D57-95F8-06D9-95D9-26D90A04218F"
-          selector: "#form-6AC10D77-F899-5659-3470-9DAFE25FCA0A #email"
+        - name: "input_33295A9C-5056-A066-603A-E5974A1ED96E"
+          selector: "#form-332959B6-5056-A066-60C4-A7771AB3E404 #email"
           value: $EMAIL
           required: true
-        - name: "input_A57FB06F-5056-A066-6063-81BE6AB26AC4"
-          selector: "#input-A57FB06F-5056-A066-6063-81BE6AB26AC4"
+        - name: "input_33295C64-5056-A066-60F7-AB4414E1DCDF"
+          selector: "#input-33295C64-5056-A066-60F7-AB4414E1DCDF"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "input_33295D3F-5056-A066-609A-CD6B54B74D47"
+          selector: "#input-33295D3F-5056-A066-609A-CD6B54B74D47"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "input_33295AF5-5056-A066-6029-1B3DF2973083"
+          selector: "#input-33295AF5-5056-A066-6029-1B3DF2973083"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "input_33295C0E-5056-A066-6043-BCB61AAB2F55"
+          selector: "#input-33295C0E-5056-A066-6043-BCB61AAB2F55"
           value: $SUBJECT
           required: true
-        - name: "input_6E903406-C8A3-34FA-F9C6-550E7249635C"
-          selector: "#input-6E903406-C8A3-34FA-F9C6-550E7249635C"
+        - name: "input_33295B6A-5056-A066-601A-7C27D8ED458A"
+          selector: "#input-33295B6A-5056-A066-601A-7C27D8ED458A"
           value: $MESSAGE
           required: true
     - select:
-        - name: "input_6E6B5C00-D7DC-FF03-73F7-321CE333AA3A"
-          selector: "#input-6E6B5C00-D7DC-FF03-73F7-321CE333AA3A"
+        - name: "input_33295AD5-5056-A066-60A2-AAEB33BB2514"
+          selector: "#input-33295AD5-5056-A066-60A2-AAEB33BB2514"
           value: $NAME_PREFIX
           required: true
           options:
@@ -183,8 +183,12 @@ contact_form:
             Navy - Seaman Apprentice: Seaman Apprentice
             Navy - Seaman: Seaman
             Navy - Seaman Recruit: Seaman Recruit
-        - name: "input_6E8F252A-9A7A-9A14-E3C0-18D8421D0C08"
-          selector: "#input-6E8F252A-9A7A-9A14-E3C0-18D8421D0C08"
+        - name: "input_33295D02-5056-A066-6066-D5A932382258"
+          selector: "#input-33295D02-5056-A066-6066-D5A932382258"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: "input_33295A7B-5056-A066-60E1-3C917D13452D"
+          selector: "#input-33295A7B-5056-A066-60E1-3C917D13452D"
           value: $TOPIC
           required: true
           options:
@@ -254,7 +258,7 @@ contact_form:
             Veterans: Veterans
             Women's Issues: Women's Issues
     - javascript:
-        - value: document.querySelector("#input-6E903406-C8A3-34FA-F9C6-550E7249635C").value = document.querySelector("#input-6E903406-C8A3-34FA-F9C6-550E7249635C").value.replace(/"/g, '');
+        - value: document.querySelector("#input-33295B6A-5056-A066-601A-7C27D8ED458A").value = document.querySelector("#input-33295B6A-5056-A066-601A-7C27D8ED458A").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "input.btn"
