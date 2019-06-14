@@ -34,8 +34,8 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: "topic"
-          selector: "#edit-topic"
+        - name: "prefix"
+          selector: "#edit-prefix"
           value: $NAME_PREFIX
           required: true
           options:
@@ -44,8 +44,8 @@ contact_form:
             "Ms.": "Ms."
             "Mr. and Mrs.": "Mr. and Mrs."
             "Dr.": "Dr."
-        - name: "submitted[message_details][topic]"
-          selector: "#edit-submitted-message-details-topic"
+        - name: "topic"
+          selector: "#edit-topic"
           value: $TOPIC
           required: true
           options:
