@@ -86,9 +86,10 @@ contact_form:
             "Welfare": "WEL"
             "2nd Amendment": "GUN"
             "Other": "Other"
-    - click_on:
-        - value: Send message
-          selector: "#edit-actions-submit"
+    - javascript:
+       - value: "document.querySelector('#edit-actions-submit').click();"
+    - wait:
+        - value: 20
   success:
     headers:
       status: 200
