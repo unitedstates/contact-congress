@@ -4,7 +4,7 @@ contact_form:
   action: /
   steps:
     - visit: "https://www.bennet.senate.gov/public/index.cfm/write-to-michael"
-    - find: 
+    - find:
         - selector: "#field_52D32F87-EEB0-4B98-A147-18D485A91778"
     - fill_in:
         - name: field_52D32F87-EEB0-4B98-A147-18D485A91778
@@ -49,20 +49,20 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            "Mr.": "Mr." 
-            "Mrs.": "Mrs." 
-            "Ms.": "Ms." 
-            "Mr. and Mr.": "Mr. and Mr." 
-            "Mrs. and Mrs.": "Mrs. and Mrs." 
-            "Mr. and Mrs.": "Mr. and Mrs." 
-            "Doctor": "Doctor" 
-            "Reverend": "Reverend" 
-            "Pastor": "Pastor" 
-            "Father": "Father" 
-            "Sister": "Sister" 
-            "Rabbi": "Rabbi" 
-            "Imam": "Imam" 
-            "Other": "Other"  
+            "Mr.": "Mr."
+            "Mrs.": "Mrs."
+            "Ms.": "Ms."
+            "Mr. and Mr.": "Mr. and Mr."
+            "Mrs. and Mrs.": "Mrs. and Mrs."
+            "Mr. and Mrs.": "Mr. and Mrs."
+            "Doctor": "Doctor"
+            "Reverend": "Reverend"
+            "Pastor": "Pastor"
+            "Father": "Father"
+            "Sister": "Sister"
+            "Rabbi": "Rabbi"
+            "Imam": "Imam"
+            "Other": "Other"
         - name: field_A06A01A2-51E9-4761-A6C2-FD52E837A6C4
           selector: "#field_A06A01A2-51E9-4761-A6C2-FD52E837A6C4"
           value: $TOPIC
@@ -100,7 +100,6 @@ contact_form:
             Veterans: VET.AFFRS
             National Security: NAT.SEC
             Washington Reform: WAS.REF
-            Other: OTHER
     - click_on:
         - selector: "#field_170B7597-532D-4D58-B551-32915A884AC1_1"
     - click_on:
