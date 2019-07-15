@@ -6,59 +6,48 @@ contact_form:
     - visit: "http://www.cassidy.senate.gov/contact"
     - wait:
         - value: 5
-    - select:
-        - name: "input_AE7457DD-4040-F985-52CD-B99385041C51"
-          selector: "#actions"
-          value: opinion
-          required: true
-          options:
-            "Request help with a federal agency": "federal_agency"
-            "Request a flag to be flown over the Capitol": "flag"
-            "Share your opinion or comments on bills or other issues": "opinion"
-    - wait:
-        - value: 5
     - find:
-        - selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
+        - selector: "#form-A77D3A2D-5056-A066-60F1-2E40AED5E0B6"
     - fill_in:
-        - name: "input_AB59F0AE-4040-F985-52CD-AA63153C7925"
-          selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
+        - name: "input_A77D431D-5056-A066-60F2-686CE29D7A92"
+          selector: "#input-A77D431D-5056-A066-60F2-686CE29D7A92"
           value: $NAME_FIRST
           required: true
-        - name: "input_AB59F0ED-4040-F985-52CD-265D9CF13F5E"
-          selector: "#input-AB59F0ED-4040-F985-52CD-265D9CF13F5E"
+        - name: "input_A77D3DA3-5056-A066-6040-ABEAB658F35E"
+          selector: "#input-A77D3DA3-5056-A066-6040-ABEAB658F35E"
           value: $NAME_LAST
           required: true
-        - name: "input_AB5B6829-4040-F985-52CD-BF81DCC1F57D"
-          selector: "#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D"
+        - name: "input_A77D4470-5056-A066-603C-DE0C9EDCC0ED"
+          selector: "#input-A77D4470-5056-A066-603C-DE0C9EDCC0ED"
           value: $ADDRESS_STREET
           required: true
-        - name: "input_AB5B6875-4040-F985-52CD-909541CB4B6C"
-          selector: "#input-AB5B6875-4040-F985-52CD-909541CB4B6C"
+        - name: "input_A77D4221-5056-A066-607A-A923CA72F49E"
+          selector: "#input-A77D4221-5056-A066-607A-A923CA72F49E"
           value: $ADDRESS_CITY
           required: true
-        - name: "input_AB5B68B4-4040-F985-52CD-269A4338D057"
-          selector: "#input-AB5B68B4-4040-F985-52CD-269A4338D057"
+        - name: "input_A77D3E23-5056-A066-601B-004F20B1C1AF"
+          selector: "#input-A77D3E23-5056-A066-601B-004F20B1C1AF"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "input_AB67BC2F-4040-F985-52CD-007A86DA4D47"
-          selector: "#input-AB67BC2F-4040-F985-52CD-007A86DA4D47"
+        - name: "input_A77D3BC8-5056-A066-6018-8F634D60D8A8"
+          selector: "#input-A77D3BC8-5056-A066-6018-8F634D60D8A8"
           value: $PHONE
           required: true
-        - name: "input_AB721CC4-4040-F985-52CD-76D1474A55F4"
+        - name: "input_A77D401E-5056-A066-60F9-C647EEBD22EA"
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: "input_AB721CE8-4040-F985-52CD-9E550E8A76AA"
-          selector: "#input-AB721CE8-4040-F985-52CD-9E550E8A76AA"
+        - name: "input_A77D4274-5056-A066-60F4-89DD9C91CD46"
+          selector: "#input-A77D4274-5056-A066-60F4-89DD9C91CD46"
           value: $EMAIL
           required: true
-        - name: "input_ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
-          selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
+        - name: "input_A77D42C9-5056-A066-60C2-6DCB5E08010C"
+          selector: "#input-A77D42C9-5056-A066-60C2-6DCB5E08010C"
           value: $MESSAGE
           required: true
     - select:
-        - name: "input_AB59F08A-4040-F985-52CD-7633AA11C65E"
-          selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
+        - name: "input_A77D3FC9-5056-A066-60BE-03237AD34984"
+          selector: "#input-A77D3FC9-5056-A066-60BE-03237AD34984"
           value: $NAME_PREFIX
           required: true
           options:
@@ -196,8 +185,8 @@ contact_form:
             "Navy - Seaman Apprentice": "Seaman Apprentice"
             "Navy - Seaman": "Seaman"
             "Navy - Seaman Recruit": "Seaman Recruit"
-        - name: "input_AB5B6894-4040-F985-52CD-DFC6D3C729DF"
-          selector: "#input-AB5B6894-4040-F985-52CD-DFC6D3C729DF"
+        - name: "input_A77D456E-5056-A066-6090-553AFB008C64"
+          selector: "#input-A77D456E-5056-A066-6090-553AFB008C64"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -261,8 +250,8 @@ contact_form:
             "WV": "WV"
             "WI": "WI"
             "WY": "WY"
-        - name: "input_AB8156A0-4040-F985-52CD-49CE65770EFC"
-          selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
+        - name: "input_A77D3E77-5056-A066-6001-871256170FDD"
+          selector: "#input-A77D3E77-5056-A066-6001-871256170FDD"
           value: $TOPIC
           required: true
           options:
@@ -323,7 +312,7 @@ contact_form:
             "Welfare": "Welfare"
             "Women's Issues": "Women's Issues"
     - javascript:
-        - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
+        - value: document.querySelector("#input-A77D42C9-5056-A066-60C2-6DCB5E08010C").value = document.querySelector("#input-A77D42C9-5056-A066-60C2-6DCB5E08010C").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: "input.btn"
