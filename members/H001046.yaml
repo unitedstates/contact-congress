@@ -182,6 +182,8 @@ contact_form:
         - value: 1
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+    - javascript:
+        - value: var el = document.getElementById('office-locations-row'); el.parentNode.removeChild(el);
     - click_on:
         - value: Submit
           selector: input.btn.pull-right
