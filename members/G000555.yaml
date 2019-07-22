@@ -7,92 +7,79 @@ contact_form:
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - find:
-        - selector: "#input-41379D65-C84B-E83D-BC59-3E535C89FC46"
+        - selector: "#input-A5AD3024-5056-A066-60BD-27089EC367B6"
     - fill_in:
-        - name: input_41379D65-C84B-E83D-BC59-3E535C89FC46
-          selector: "#input-41379D65-C84B-E83D-BC59-3E535C89FC46"
+        - name: input_A5AD3024-5056-A066-60BD-27089EC367B6
+          selector: "#input-A5AD3024-5056-A066-60BD-27089EC367B6"
           value: $NAME_FIRST
           required: true
-        - name: input_41379D83-ED36-8807-928B-0B9C1C489FD0
-          selector: "#input-41379D83-ED36-8807-928B-0B9C1C489FD0"
+        - name: input_A5AD2D97-5056-A066-609C-2BE7421DED54
+          selector: "#input-A5AD2D97-5056-A066-609C-2BE7421DED54"
           value: $NAME_LAST
           required: true
-        - name: input_4138C965-EE4E-0812-9F75-F568FAF4DA8B
-          selector: "#input-4138C965-EE4E-0812-9F75-F568FAF4DA8B"
+        - name: input_A5AD3726-5056-A066-6040-8733FE9F1C74
+          selector: "#input-A5AD3726-5056-A066-6040-8733FE9F1C74"
           value: $ADDRESS_STREET
           required: true
-        - name: input_4138CB19-FAD0-8E40-D374-E2FFA273B036
-          selector: "#input-4138CB19-FAD0-8E40-D374-E2FFA273B036"
+        - name: input_A5AD3598-5056-A066-602E-1929FB800695
+          selector: "#input-A5AD3598-5056-A066-602E-1929FB800695"
           value: $ADDRESS_CITY
           required: true
-        - name: input_4138CB54-D64F-32E6-5942-BCECB2422B9C
-          selector: "#input-4138CB54-D64F-32E6-5942-BCECB2422B9C"
+        - name: input_A5AD3404-5056-A066-6010-890AB748A186
+          selector: "#input-A5AD3404-5056-A066-6010-890AB748A186"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_413A1B60-A672-8A13-9552-69CB2032BE16
-          selector: "#input-413A1B60-A672-8A13-9552-69CB2032BE16"
+        - name: input_A5AD3157-5056-A066-6044-877D1CC4A989
+          selector: "#input-A5AD3157-5056-A066-6044-877D1CC4A989"
           value: $PHONE
           required: true
-        - name: input_413969CF-FA16-EE6B-08AB-E81984CB75AF
-          selector: "input[name='input_413969CF-FA16-EE6B-08AB-E81984CB75AF']"
+        - name: input_A5AD3647-5056-A066-6062-44B01FB1AAD6
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: input_4154995F-09DE-911F-DD8B-93796597BB52
-          selector: "#input-4154995F-09DE-911F-DD8B-93796597BB52"
+        - name: input_A5AD3307-5056-A066-6029-D7EBFF775924
+          selector: "#input-A5AD3307-5056-A066-6029-D7EBFF775924"
           value: $MESSAGE
           required: true
-    - select:
-        - name: input_41379D3E-BA76-1EEF-C6C5-C18565BAA26C
-          selector: "#input-41379D3E-BA76-1EEF-C6C5-C18565BAA26C"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Miss
-            - Dr.
-            - Mrs.
-            - Ms.
-            - Pastor
-            - Other
     - choose:
-        - name: "input_414E8A83-CFD8-AD45-21A5-6EFBD69BD4D9"
-          selector: "[type='radio'][name='input_414E8A83-CFD8-AD45-21A5-6EFBD69BD4D9']"
+        - name: "input_A5AD3178-5056-A066-601C-988363C101B2"
+          selector: "#issue"
           value: $TOPIC
           required: true
           options:
-              Agriculture/Nutrition: 0009820A-5056-A066-60B5-F7361456ADF6
-              Animals Issues: 00098232-5056-A066-60BE-D149610A90B2
-              Arts & Humanities: 0009824F-5056-A066-607F-ED9735C4E255
-              Banking/Finance: 00098278-5056-A066-60F5-4370E3A1657D
-              Campaign/Election Reform: 00098294-5056-A066-600F-7C288D4DC6D4
-              Children: 000982BE-5056-A066-6069-C8B1BE498D3E
-              Civil/LGBT Rights: 000982DB-5056-A066-6003-131688FA6284
-              Defense/Military: 00098303-5056-A066-607B-7C1883F4E1C9
-              Economy: 0009831D-5056-A066-6071-25186CBAA963
-              Education: 00098348-5056-A066-60E3-E13A9137CC3D
-              Energy: 00098365-5056-A066-602A-CC647A2E7716
-              Environment: 0009838E-5056-A066-60E8-4ED41D5FE9EF
-              Foreign Relations/International Affairs: 000983A9-5056-A066-60B5-139FC22596C8
-              Government Reform: 000983EB-5056-A066-60D7-B1091D751DF5
-              Gun Control: 00098409-5056-A066-6088-8522576F76BA
-              Health/Healthcare: 00098424-5056-A066-60E7-3A15FA433F42
-              Homeland Security: 00098442-5056-A066-6061-E9DABC2334FF
-              Housing: 0009845C-5056-A066-60F3-6FE5E89C3062
-              Immigration: 00098478-5056-A066-6001-33E43C14E90E
-              Judiciary: 00098493-5056-A066-60B7-A4D5F83B7526
-              Labor & Pensions: 000984AF-5056-A066-605F-55EA58395438
-              Medicare/Medicaid: 000984CA-5056-A066-60FF-CE39C137250E
-              Science/Technology/Telecommunications: 000984E6-5056-A066-6006-0D235CAC5340
-              Social Security: 00098500-5056-A066-606C-639186DD68FD
-              Taxes: 0009851E-5056-A066-6001-C4929F7D02EC
-              Trade: 0009853C-5056-A066-607D-480F6B9E2846
-              Transportation: 00098586-5056-A066-60DA-E54D181E67E1
-              Veterans: 000985C9-5056-A066-6091-ABD15913636E
-              Welfare: 000985E5-5056-A066-6004-FD5B089A0C10
-              Women's Issues: 00098665-5056-A066-603D-A7EFCE05FDBE
-              Other: 0009867F-5056-A066-6001-7BA85FA3979E
+              Agriculture/Nutrition: A5AD3748-5056-A066-6060-3201FC307E6F
+              Animals Issues: A5AD3509-5056-A066-60C4-E14475B9CCCB
+              Arts & Humanities: A5AD3702-5056-A066-6029-22226A5FC36B
+              Banking/Finance: A5AD304A-5056-A066-6047-9320580D8202
+              Campaign/Election Reform: A5AD3252-5056-A066-60A6-CF4B279ADA52
+              Children: A5AD3470-5056-A066-6009-A4BE358DA667
+              Civil/LGBT Rights: A5AD2E00-5056-A066-60DD-46CA5E1005D8
+              Defense/Military: A5AD3232-5056-A066-60DB-ED1F96A6087F
+              Economy: A5AD2EF1-5056-A066-60D2-D0F1217C0DED
+              Education: A5AD3575-5056-A066-60F4-E3B96CB74B1F
+              Energy: A5AD349A-5056-A066-60DE-9ADA40D23F00
+              Environment: A5AD30AE-5056-A066-60D4-B0C626ADDB95
+              Foreign Relations/International Affairs: A5AD2E23-5056-A066-605F-D2A21D6B2EF5
+              Government Reform: A5AD33E2-5056-A066-603C-B69165D1B26E
+              Gun Control: A5AD32C0-5056-A066-604E-DCB463F3A511
+              Health/Healthcare: A5AD2FE0-5056-A066-604B-22945C68AE4F
+              Homeland Security: A5AD366B-5056-A066-60D6-E408631F1CDD
+              Housing: A5AD319E-5056-A066-60DB-FDCD130C527F
+              Immigration: A5AD2F9A-5056-A066-6078-13DB12FED733
+              Judiciary: A5AD3352-5056-A066-60F1-502547FF71F9
+              Labor & Pensions: A5AD30CF-5056-A066-6062-44E7E429EF0E
+              Medicare/Medicaid: A5AD34C0-5056-A066-60D1-B44151107E13
+              Science/Technology/Telecommunications: A5AD2DB8-5056-A066-605D-7E64D5055F61
+              Social Security: A5AD3114-5056-A066-6040-4371D24CF375
+              Taxes: A5AD344B-5056-A066-60A3-39DC3722EE93
+              Trade: A5AD306A-5056-A066-6004-1DF92BE788DB
+              Transportation: A5AD35DB-5056-A066-6019-95978C5DF9AA
+              Veterans: A5AD339F-5056-A066-60F7-A16609BB12B1
+              Welfare: A5AD3769-5056-A066-6073-200EDA70554D
+              Women's Issues: A5AD337B-5056-A066-60AF-5A5E7C096B8D
+              Other: A5AD320E-5056-A066-600E-E7B05431DAD4
     - javascript:
-        - value: document.querySelector("#input-4154995F-09DE-911F-DD8B-93796597BB52").value = document.querySelector("#input-4154995F-09DE-911F-DD8B-93796597BB52").value.replace(/"/g, '');
+        - value: document.querySelector("#input-A5AD3307-5056-A066-6029-D7EBFF775924").value = document.querySelector("##input-A5AD3307-5056-A066-6029-D7EBFF775924").value.replace(/"/g, '');
     - javascript:
         - value: "document.querySelector('input.btn').click()"
     - wait:
