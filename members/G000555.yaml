@@ -41,9 +41,14 @@ contact_form:
           selector: "#input-A5AD3307-5056-A066-6029-D7EBFF775924"
           value: $MESSAGE
           required: true
+    - select:
+        - name: input_A5AD2F54-5056-A066-6044-11DFCEF1BF96
+          selector: "#input-A5AD2F54-5056-A066-6044-11DFCEF1BF96"
+          value: "$ADDRESS_STATE_POSTAL_ABBREV"
+          options: US_STATES
     - choose:
         - name: "input_A5AD3178-5056-A066-601C-988363C101B2"
-          selector: "input[name=input_A5AD3178-5056-A066-601C-988363C101B2]"
+          selector: "input[type='radio']"
           value: $TOPIC
           required: true
           options:
@@ -79,7 +84,7 @@ contact_form:
               Women's Issues: A5AD337B-5056-A066-60AF-5A5E7C096B8D
               Other: A5AD320E-5056-A066-600E-E7B05431DAD4
     - javascript:
-        - value: document.querySelector("#input-A5AD3307-5056-A066-6029-D7EBFF775924").value = document.querySelector("##input-A5AD3307-5056-A066-6029-D7EBFF775924").value.replace(/"/g, '');
+        - value: document.querySelector("#input-A5AD3307-5056-A066-6029-D7EBFF775924").value = document.querySelector("#input-A5AD3307-5056-A066-6029-D7EBFF775924").value.replace(/"/g, '');
     - javascript:
         - value: "document.querySelector('input.btn').click()"
     - wait:
