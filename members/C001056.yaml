@@ -3,147 +3,14 @@ contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "http://www.cornyn.senate.gov/contact"
-    - select:
-        - name: "submitted[issue]"
-          selector: "#edit-submitted-issue"
-          value: $TOPIC
+    - visit: "https://www.cornyn.senate.gov/contact"
+    - find:
+        - selector: "input[type='radio']"
+    - check:
+        - name: "submitted[lets_get_started]"
+          selector: "input[type='radio']"
+          value: "getintouch"
           required: true
-          options:
-            Abortion: abortion
-            Agriculture: agriculture
-            Arts and Humanities: arts_and_humanities
-            Banking: banking
-            Budget: budget
-            Communications: communications
-            Crime/Law Enforcement: law_enforcement
-            Defense: defense
-            Education: education
-            Election Reform: election_reform
-            Energy: energy
-            Environment: environment
-            Finance: finance
-            Firearms: firearms
-            Foreign Affairs: foreign_affairs
-            Government Operations/Affairs: government_operations/Affairs
-            Health Care: health_care
-            Homeland Security: homeland_security
-            Housing: housing
-            Immigration: immigration
-            Interior: interior
-            Judiciary: judiciary
-            Labor: labor
-            Medicare: medicare
-            Picture Request: picture_request
-            Religion: religion
-            Service Academies: service_academies
-            Small Business: small_business
-            Social Security: social_security
-            Taxes/Economy: taxes
-            Trade: trade
-            Transportation: transportation
-            Veterans: veterans
-            Welfare: welfare
-        - name: "submitted[prefix_select]"
-          selector: "#edit-submitted-prefix-select"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            "Chaplain": "Chapln"
-            "Doctor": "Dr"
-            "Mr.": "Mr"
-            "Ms.": "Ms"
-            "Mrs.": "Mrs"
-            "Professor": "Prof"
-            "Rabbi": "Rabbi"
-            "Reverend": "Rev"
-            "Reverends": "Revs"
-            "The Honorable": "TheHon"
-            "Admiral": "ADM"
-            "Brigadier General": "BrigGen"
-            "Captain": "Capt"
-            "Chief Warrant Officer": "CWO"
-            "Colonel": "Col"
-            "Commander": "CDR"
-            "Corporal": "Cpl"
-            "Ensign": "ENS"
-            "First Lieutenant": "1stLt"
-            "General": "Gen"
-            "Lieutenant": "LT"
-            "Lieutenant Colonel": "LtCol"
-            "Lieutenant Commander": "LCDR"
-            "Lieutenant General": "LtGen"
-            "Lieutenant (Junior Grade)": "LTJG"
-            "Major": "Maj"
-            "Major General": "MajGen"
-            "Master Sergeant": "MSgt"
-            "Rear Admiral": "RADM"
-            "Second Lieutenant": "2ndLt"
-            "Sergeant": "Sgt"
-            "Vice Admiral": "VADM"
-        - name: "submitted[state]"
-          selector: "#edit-submitted-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            Alabama: AL
-            Alaska: AK
-            American Samoa: AS
-            Arizona: AZ
-            Arkansas: AR
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            Delaware: DE
-            District of Columbia: DC
-            Florida: FL
-            Georgia: GA
-            Guam: GU
-            Hawaii: HI
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Iowa: IA
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Maine: ME
-            Marshall Islands: MH
-            Maryland: MD
-            Massachusetts: MA
-            Michigan: MI
-            Minnesota: MN
-            Mississippi: MS
-            Missouri: MO
-            Montana: MT
-            Nebraska: NE
-            Nevada: NV
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            New York: NY
-            North Carolina: NC
-            North Dakota: ND
-            Northern Marianas Islands: MP
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Palau: PW
-            Pennsylvania: PA
-            Puerto Rico: PR
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Vermont: VT
-            Virgin Islands: VI
-            Virginia: VA
-            Washington: WA
-            West Virginia: WV
-            Wisconsin: WI
-            Wyoming: WY
     - fill_in:
         - name: "submitted[first_name]"
           selector: "#edit-submitted-first-name"
@@ -153,37 +20,157 @@ contact_form:
           selector: "#edit-submitted-last-name"
           value: $NAME_LAST
           required: true
-        - name: "submitted[message]"
-          selector: "#edit-submitted-message"
-          value: $MESSAGE
-          required: true
-        - name: "submitted[address_1]"
-          selector: "#edit-submitted-address-1"
-          value: $ADDRESS_STREET
-          required: true
-        - name: "submitted[city]"
-          selector: "#edit-submitted-city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: "submitted[zip_code]"
-          selector: "#edit-submitted-zip-code"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: "submitted[phone_number_optional]"
-          selector: "#edit-submitted-phone-number-optional"
-          value: $PHONE
-          required: false
-        - name: "submitted[email_address]"
-          selector: "#edit-submitted-email-address"
+        - name: "submitted[email]"
+          selector: "#edit-submitted-email"
           value: $EMAIL
           required: true
-    - javascript:
-        - value: document.querySelector("#edit-submitted-message").value = document.querySelector("#edit-submitted-message").value.replace(/"/g, '');
+    - uncheck:
+        - name: "submitted[e_newsletter_opt_in][enewsletter_optin]"
+          selector: "#edit-submitted-e-newsletter-opt-in-1"
+          value: "enewsletter_optin"
+          required: true
     - click_on:
-        - value: Submit
-          selector: "#webform-client-form-7 input[name='op']"
+        - name: "op"
+          selector: "#edit-webform-ajax-next-5099"
+    - find:
+        - selector: "#edit-submitted-please-select-and-issue-youd-like-to-discuss"
+    - select:
+        - name: "submitted[please_select_and_issue_youd_like_to_discuss]"
+          selector: "#edit-submitted-please-select-and-issue-youd-like-to-discuss"
+          value: $TOPIC
+          required: true
+          options:
+            "abortion": "Abortion"
+            "agriculture": "Agriculture"
+            "arts_and_humanities": "Arts and Humanities"
+            "banking": "Banking"
+            "budget": "Budget"
+            "law_enforcement": "Crime/Law Enforcement"
+            "defense": "Defense"
+            "education": "Education"
+            "election_reform": "Election Reform"
+            "energy": "Energy"
+            "environment": "Environment"
+            "finance": "Finance"
+            "firearms": "Firearms"
+            "foreign_affairs": "Foreign Affairs"
+            "government_operations/Affairs": "Government Operations/Affairs"
+            "health_care": "Health Care"
+            "homeland_security": "Homeland Security"
+            "housing": "Housing"
+            "immigration": "Immigration"
+            "interior": "Interior"
+            "judiciary": "Judiciary"
+            "labor": "Labor"
+            "medicare": "Medicare"
+            "religion": "Religion"
+            "service_academies": "Service Academies"
+            "small_business": "Small Business"
+            "social_security": "Social Security"
+            "taxes": "Taxes/Economy"
+            "telecommunications": "Telecommunications"
+            "trade": "Trade"
+            "transportation": "Transportation"
+            "veterans": "Veterans"
+            "welfare": "Welfare"
+    - fill_in:
+        - name: "submitted[please_write_us_a_brief_message]"
+          selector: "#edit-submitted-please-write-us-a-brief-message"
+          value: $MESSAGE
+          required: true
+        - name: "submitted[address][thoroughfare]"
+          selector: "#edit-submitted-address-thoroughfare"
+          value: $ADDRESS_STREET
+          required: false
+        - name: "submitted[address][locality]"
+          selector: "#edit-submitted-address-locality"
+          value: $ADDRESS_CITY
+          required: false
+    - select:
+        - name: "submitted[address][administrative_area]"
+          selector: "#edit-submitted-address-administrative-area"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: false
+          options:
+            "AL": "Alabama"
+            "AK": "Alaska"
+            "AZ": "Arizona"
+            "AR": "Arkansas"
+            "CA": "California"
+            "CO": "Colorado"
+            "CT": "Connecticut"
+            "DE": "Delaware"
+            "DC": "District of Columbia"
+            "FL": "Florida"
+            "GA": "Georgia"
+            "HI": "Hawaii"
+            "ID": "Idaho"
+            "IL": "Illinois"
+            "IN": "Indiana"
+            "IA": "Iowa"
+            "KS": "Kansas"
+            "KY": "Kentucky"
+            "LA": "Louisiana"
+            "ME": "Maine"
+            "MD": "Maryland"
+            "MA": "Massachusetts"
+            "MI": "Michigan"
+            "MN": "Minnesota"
+            "MS": "Mississippi"
+            "MO": "Missouri"
+            "MT": "Montana"
+            "NE": "Nebraska"
+            "NV": "Nevada"
+            "NH": "New Hampshire"
+            "NJ": "New Jersey"
+            "NM": "New Mexico"
+            "NY": "New York"
+            "NC": "North Carolina"
+            "ND": "North Dakota"
+            "OH": "Ohio"
+            "OK": "Oklahoma"
+            "OR": "Oregon"
+            "PA": "Pennsylvania"
+            "RI": "Rhode Island"
+            "SC": "South Carolina"
+            "SD": "South Dakota"
+            "TN": "Tennessee"
+            "TX": "Texas"
+            "UT": "Utah"
+            "VT": "Vermont"
+            "VA": "Virginia"
+            "WA": "Washington"
+            "WV": "West Virginia"
+            "WI": "Wisconsin"
+            "WY": "Wyoming"
+            "AA": "Armed Forces (Americas)"
+            "AE": "Armed Forces (Europe, Canada, Middle East, Africa)"
+            "AP": "Armed Forces (Pacific)"
+            "AS": "American Samoa"
+            "FM": "Federated States of Micronesia"
+            "GU": "Guam"
+            "MH": "Marshall Islands"
+            "MP": "Northern Mariana Islands"
+            "PW": "Palau"
+            "PR": "Puerto Rico"
+            "VI": "Virgin Islands"
+    - fill_in:
+        - name: "submitted[address][postal_code]"
+          selector: "#edit-submitted-address-postal-code"
+          value: $ADDRESS_ZIP5
+          required: false
+    - javascript:
+        - value: document.querySelector("#edit-submitted-please-write-us-a-brief-message").value = document.querySelector("#edit-submitted-please-write-us-a-brief-message").value.replace(/"/g, '');
+    - click_on:
+        - name: "op"
+          selector: "#edit-webform-ajax-next-5099--2"
+    - find:
+        - selector: "#edit-webform-ajax-submit-5099"
+    - click_on:
+        - name: "op"
+          selector: "#edit-webform-ajax-submit-5099"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: "Thank you, we appreciate hearing from you"
