@@ -4,6 +4,8 @@ contact_form:
   action: /contact
   steps:
     - visit: "http://www.cornyn.senate.gov/contact"
+    - find:
+        - selector: "input[type='radio']"
     - check:
         - name: "submitted[lets_get_started]"
           selector: "input[type='radio']"
@@ -30,6 +32,8 @@ contact_form:
     - click_on:
         - name: "op"
           selector: "#edit-webform-ajax-next-5099"
+    - find:
+        - selector: "#edit-submitted-please-select-and-issue-youd-like-to-discuss"
     - select:
         - name: "submitted[please_select_and_issue_youd_like_to_discuss]"
           selector: "#edit-submitted-please-select-and-issue-youd-like-to-discuss"
@@ -160,8 +164,8 @@ contact_form:
     - click_on:
         - name: "op"
           selector: "#edit-webform-ajax-next-5099--2"
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#edit-webform-ajax-submit-5099"
     - click_on:
         - name: "op"
           selector: "#edit-webform-ajax-submit-5099"
