@@ -169,6 +169,8 @@ contact_form:
     - click_on:
         - name: "op"
           selector: "#edit-webform-ajax-submit-5099"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
