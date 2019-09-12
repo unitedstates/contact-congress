@@ -189,56 +189,34 @@ contact_form:
           required: true
           options: US_STATES
         - name: input_B03E04DB-4040-F985-52CD-18F332336F99
-          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
+          selector: "#topictoggle"
           value: $TOPIC
           required: true
           options:
-            - Abortion
+            - 2nd Amendment/Guns
+            - Abortion/Pro Life Issues
             - Agriculture
-            - Animal Rights
-            - Budget/Spending
             - Business
             - Civil Rights
-            - Commerce
             - Congratulations/Birthdays
-            - Crime/Drugs
-            - Debt Ceiling
-            - Defense
+            - Defense/Foreign Relations
+            - Economy
             - Education
             - Elections
             - Energy
-            - Environment
-            - Family Values
-            - Foreign Relations
-            - Health
-            - Homeland Security
+            - Environment/Conservation/Wildlife
+            - Flooding/Rivers
+            - Health Care/Medicare
+            - Judiciary/Courts
             - Housing
             - Immigration
-            - Intelligence
-            - Judiciary
-            - Labor
-            - Medicare
-            - Parks and Public Lands
-            - Pension/Retirement
-            - Postal
-            - Regulatory Reform
-            - Religion
-            - Rural Broadband
-            - Science/Technology
-            - Second Amendment
-            - Senate Procedure
-            - Small Business
+            - Labor/Pension/Retirement
+            - Telecom/Rural Broadband
+            - Transportation/Highways
             - Social Security
-            - Supreme Court
             - Taxes
-            - Telecommunications
-            - Tobacco
             - Trade
-            - Transportation
-            - Unemployment
             - Veterans
-            - Water/Rivers
-            - Welfare
             - Other
     - javascript:
         - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
