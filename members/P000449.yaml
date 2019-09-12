@@ -105,6 +105,8 @@ contact_form:
             Welfare: Welfare
     - javascript:
         - value: document.querySelector("#edit-message").value = document.querySelector("#edit-message").value.replace(/"/g, '');
+    - javascript:
+      - value: document.querySelector("#g-recaptcha-response").style.display = "block";        
     - recaptcha:
         - value: true
     - click_on:
