@@ -121,6 +121,8 @@ contact_form:
         - value: document.querySelector("textarea[name='MSG']").value = document.querySelector("textarea[name='MSG']").value.replace(/"/g, '');
     - javascript:
         - value: document.querySelector("input.btn-primary").disabled = false;
+    - javascript:
+      - value: document.querySelector("#g-recaptcha-response").style.display = "block";        
     - recaptcha:
         - value: true
     - javascript:
