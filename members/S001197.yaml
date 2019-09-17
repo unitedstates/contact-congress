@@ -117,6 +117,8 @@ contact_form:
             - Veterans
     - javascript:
         - value: document.querySelector("#field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4").value = document.querySelector("#field_423DB2CF-5A0E-4DDD-9ABF-9C3D7FD2D7D4").value.replace(/"/g, '');
+    - javascript:
+      - value: document.querySelector("#g-recaptcha-response").style.display = "block";        
     - recaptcha:
         - value: true
     - click_on:

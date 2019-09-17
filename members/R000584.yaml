@@ -113,6 +113,8 @@ contact_form:
             - Other
     - javascript:
         - value: document.querySelector("#field_B3546A94-6FC9-4491-B49E-491AB436132C").value = document.querySelector("#field_B3546A94-6FC9-4491-B49E-491AB436132C").value.replace(/"/g, '');
+    - javascript:
+      - value: document.querySelector("#g-recaptcha-response").style.display = "block";        
     - recaptcha:
         - value: true
     - javascript:
