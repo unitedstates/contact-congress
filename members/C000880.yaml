@@ -103,7 +103,7 @@ contact_form:
     - javascript:
       - value: document.querySelector("#input-78163367-4040-F985-52CD-D4AD6E614C69").value = document.querySelector("#input-78163367-4040-F985-52CD-D4AD6E614C69").value.replace(/"/g, '');
     - javascript:
-      - value: document.querySelector("#g-recaptcha-response").style.display = "block";
+      - value: "document.querySelector('#g-recaptcha-response').style.cssText = 'display: block; margin-top: 5em;';"
     - recaptcha:
       - value: true
     - click_on:

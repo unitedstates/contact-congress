@@ -114,7 +114,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#gen-fieldid-25").value = document.querySelector("#gen-fieldid-25").value.replace(/"/g, '');
     - javascript:
-      - value: document.querySelector("#g-recaptcha-response").style.display = "block";        
+        - value: "document.querySelector('#g-recaptcha-response').style.cssText = 'display: block; margin-top: 5em;';"
     - recaptcha:
         - value: true
     - click_on:
