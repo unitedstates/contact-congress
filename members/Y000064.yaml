@@ -4,10 +4,10 @@ contact_form:
   action: /content/contact-senator
   steps:
     - visit: "https://www.young.senate.gov/contact/email-todd"
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - selector: "#newsletterModal .close"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - selector: ".opinion"
     - find:
