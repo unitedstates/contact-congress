@@ -4,10 +4,10 @@ contact_form:
   action: /content/contact-senator
   steps:
     - visit: "https://www.young.senate.gov/contact/email-todd"
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - selector: "#newsletterModal .close"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - selector: ".opinion"
     - find:
@@ -21,6 +21,7 @@ contact_form:
           selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
           value: $NAME_LAST
           required: true
+    - fill_in:
         - name: "input_B03E05F1-4040-F985-52CD-A580E72A7D41"
           selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
           value: $ADDRESS_STREET
