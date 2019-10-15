@@ -186,7 +186,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
     - javascript:
-      - value: document.querySelector("#g-recaptcha-response").style.display = "block";        
+        - value: "document.querySelector('#g-recaptcha-response').style.cssText = 'display: block; margin-top: 5em;';"
     - javascript:
         - value: document.querySelector("#side-search-btn").disabled = false;
     - recaptcha:
