@@ -92,10 +92,6 @@ contact_form:
         - name: input_072CAC5F-5056-A066-6015-FC4219539F7B
           selector: "#response"
           value: "Yes"
-    - uncheck:
-        - name: input_072C623E-5056-A066-60FA-B3F4B01D5639
-          selector: "#affl_toggle"
-          value: eNews.optin
     - javascript:
         - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - click_on:
