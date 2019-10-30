@@ -45,12 +45,13 @@ contact_form:
             "arts_and_humanities": "Arts and Humanities"
             "banking": "Banking"
             "budget": "Budget"
-            "law_enforcement": "Crime/Law Enforcement"
+            "criminal_justice": "Criminal Justice"
             "defense": "Defense"
             "education": "Education"
             "election_reform": "Election Reform"
             "energy": "Energy"
             "environment": "Environment"
+            "fema": "FEMA"
             "finance": "Finance"
             "firearms": "Firearms"
             "foreign_affairs": "Foreign Affairs"
@@ -62,6 +63,7 @@ contact_form:
             "interior": "Interior"
             "judiciary": "Judiciary"
             "labor": "Labor"
+            "law_enforcement": "Law Enforcement"
             "medicare": "Medicare"
             "religion": "Religion"
             "service_academies": "Service Academies"
@@ -165,6 +167,11 @@ contact_form:
           required: false
     - javascript:
         - value: document.querySelector("#edit-submitted-please-write-us-a-brief-message").value = document.querySelector("#edit-submitted-please-write-us-a-brief-message").value.replace(/"/g, '');
+    - check:
+        - name: "submitted[flag_acknowledgement][flag_acknowledgement]"
+          selector: "#edit-submitted-flag-acknowledgement-1"
+          value: "flag_acknowledgement"
+          required: true
     - click_on:
         - name: "op"
           selector: "#edit-webform-ajax-next-5099--2"
