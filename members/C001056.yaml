@@ -165,13 +165,13 @@ contact_form:
           selector: "#edit-submitted-address-postal-code"
           value: $ADDRESS_ZIP5
           required: false
-    - javascript:
-        - value: document.querySelector("#edit-submitted-please-write-us-a-brief-message").value = document.querySelector("#edit-submitted-please-write-us-a-brief-message").value.replace(/"/g, '');
     - check:
         - name: "submitted[flag_acknowledgement][flag_acknowledgement]"
           selector: "#edit-submitted-flag-acknowledgement-1"
           value: "flag_acknowledgement"
           required: true
+    - javascript:
+        - value: document.querySelector("#edit-submitted-please-write-us-a-brief-message").value = document.querySelector("#edit-submitted-please-write-us-a-brief-message").value.replace(/"/g, '');
     - click_on:
         - name: "op"
           selector: "#edit-webform-ajax-next-5099--2"
