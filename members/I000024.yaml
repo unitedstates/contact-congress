@@ -5,26 +5,6 @@ contact_form:
   steps:
     - visit: https://www.inhofe.senate.gov/contact/email-jim
     - select:
-      - name: input_B03E04DB-4040-F985-52CD-18F332336F99
-        selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
-        value: "$TOPIC"
-        required: true
-        options:
-          - "Adoption and Abortion"
-          - "Agriculture and Trade"
-          - "Education"
-          - "Energy and Environment"
-          - "Federal Spending"
-          - "Healthcare"
-          - "Immigration"
-          - "National Defense / Homeland Security"
-          - "Second Amendment"
-          - "Social Security"
-          - "Taxation"
-          - "Traditional Values"
-          - "Transportation"
-          - "Veterans"
-          - "Other"
       - name: input_B03E0527-4040-F985-52CD-C0DD6BEF325F
         selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
         value: "$NAME_PREFIX"
@@ -111,10 +91,20 @@ contact_form:
         selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
         value: $ADDRESS_STREET
         required: true
+      - name: input_B03E0518-4040-F985-52CD-CF33EF97DA3A
+        selector: "#input-B03E0518-4040-F985-52CD-CF33EF97DA3A"
+        value: $ADDRESS_STREET_2
       - name: input_B03E0595-4040-F985-52CD-C572364023FE
         selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
         value: $ADDRESS_CITY
         required: true
+    - select:
+      - name: input_B03E0669-4040-F985-52CD-11B231195172
+        selector: "#input-B03E0669-4040-F985-52CD-11B231195172"
+        value: $ADDRESS_STATE_POSTAL_ABBREV
+        required: true
+        options: US_STATES
+    - fill_in:
       - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
         selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
         value: $ADDRESS_ZIP5
@@ -122,6 +112,7 @@ contact_form:
       - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
         selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
         value: $PHONE
+        required: true
       - name: input_B03E0536-4040-F985-52CD-AFE12CDE8D31
         selector: "#email"
         value: $EMAIL
@@ -130,6 +121,29 @@ contact_form:
         selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
         value: $EMAIL
         required: true
+    - select:
+      - name: input_B03E04DB-4040-F985-52CD-18F332336F99
+        selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
+        value: "$TOPIC"
+        required: true
+        options:
+          - "Adoption and Abortion"
+          - "Agriculture and Trade"
+          - "Education"
+          - "Energy and Environment"
+          - "Federal Spending"
+          - "Healthcare"
+          - "Immigration"
+          - "National Defense / Homeland Security"
+          - "Second Amendment"
+          - "Social Security"
+          - "Taxation"
+          - "Traditional Values"
+          - "Transportation"
+          - "Veterans"
+          - "Visiting DC"
+          - "Other"
+    - fill_in:
       - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
         selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
         value: $MESSAGE
@@ -138,15 +152,18 @@ contact_form:
       - name: input_9B7D98D6-5056-A066-60B7-453C0210B386
         selector: "#input-9B7D98D6-5056-A066-60B7-453C0210B386"
         value: "Y"
+        options:
+          - Y
+          - N
     - wait:
       - value: 1
     - javascript:
-      - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+      - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - click_on:
       - value: "Submit"
-        selector: "input.btn[value=Submit]"
+        selector: ".btn[value=Submit]"
     - find:
-      - selector: "h1"
+      - selector: "body"
         value: "Thank You"
         options:
           wait: 10
