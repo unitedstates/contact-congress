@@ -162,11 +162,6 @@ contact_form:
     - click_on:
       - value: "Submit"
         selector: ".btn[value=Submit]"
-    - find:
-      - selector: "body"
-        value: "Thank You"
-        options:
-          wait: 10
   success:
     headers:
       status: 200
