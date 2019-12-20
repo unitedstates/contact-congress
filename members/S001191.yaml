@@ -6,6 +6,8 @@ contact_form:
     - visit: "https://www.sinema.senate.gov/contact-kyrsten"
     - wait:
       - value: 10
+    - find:
+      - selector: "#edit-first-name"
     - fill_in:
         - name: "first_name"
           selector: "#edit-first-name"
