@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.sinema.senate.gov/contact-kyrsten"
+    - wait:
+      - value: 10
     - fill_in:
         - name: "first_name"
           selector: "#edit-first-name"
