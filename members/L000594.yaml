@@ -124,8 +124,9 @@ contact_form:
     - click_on:
         - value: Send message
           selector: "#edit-actions-submit"
+  # Please note that this page redirects to itself, blanking out the form, and does not provide a positive acceptance message.  A Senate contact indicated that this form is likely a temporary form and will be replaced later.  Therefore, the success criteria is looking for a phrase on the reloaded page.  This may result in failures being recorded as successes, but we are hopeful a new form will be introduced soon with a better success signal.
   success:
     headers:
-      status: 200
+      status: 302
     body:
-      contains: "Thank you, your message"
+      contains: "Please use the following form to contact me with your comments and concerns. Please include your full name and address to receive a written response."
