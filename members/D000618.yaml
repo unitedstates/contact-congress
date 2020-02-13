@@ -4,6 +4,8 @@ contact_form:
   action: "http://www.daines.senate.gov/connect/email-steve"
   steps:
     - visit: "http://www.daines.senate.gov/connect/email-steve"
+    - wait:
+        - value: 5
     - find:
         - selector: "#actiontog"
     - select:
