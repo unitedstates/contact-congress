@@ -4,12 +4,6 @@ contact_form:
   action: https://www.sanders.senate.gov/contact/comment
   steps:
     - visit: https://www.sanders.senate.gov/contact/comment
-    - wait:
-      - value: 2
-    - click_on:
-      - selector: "a.cerabox-close"
-    - javascript:
-      - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - select:
       - name: subject
         selector: "#subject"
@@ -54,6 +48,8 @@ contact_form:
           Transportation: TRANS
           Veterans: VET
           Women and Children: WOMEN
+    - wait:
+        - value: 2
     - find:
       - selector: "#fname"
     - fill_in:
@@ -69,9 +65,6 @@ contact_form:
         selector: "#mailing_streetAddress1"
         value: "$ADDRESS_STREET"
         required: Yes
-      - name: mailing_streetAddress2
-        selector: "#mailing_streetAddress2"
-        value: "$ADDRESS_STREET_2"
       - name: mailing_city
         selector: "#mailing_city"
         value: "$ADDRESS_CITY"
@@ -80,9 +73,6 @@ contact_form:
         selector: "#mailing_zipCode"
         value: "$ADDRESS_ZIP5"
         required: Yes
-      - name: home_phone_number
-        selector: "#home_phone_number"
-        value: "$PHONE"
       - name: email_address
         selector: "#email"
         value: "$EMAIL"
@@ -99,80 +89,6 @@ contact_form:
         selector: "#message"
         value: "$MESSAGE"
         required: Yes
-    - select:
-      - name: salutation
-        selector: "#salutation"
-        value: "$NAME_PREFIX"
-        required: Yes
-        options:
-          - "Mr."
-          - "Ms."
-          - "Mrs."
-          - "Miss"
-          - "Mr. and Mrs."
-          - "Dr."
-          - "Prof."
-          - "Senator"
-          - "Gov."
-          - "Congressman"
-          - "Hon."
-          - "Fr."
-          - "Sister"
-          - "Rabbi"
-          - "Reverend"
-          - "Fleet Admiral"
-          - "Admiral"
-          - "Vice Admiral"
-          - "Rear Admiral (upper half)"
-          - "Rear Admiral (lower half)"
-          - "Captain"
-          - "Commander"
-          - "Lieutenant Commander"
-          - "Lieutenant"
-          - "Lieutenant, Junior Grade"
-          - "Ensign"
-          - "Master Chief Petty Officer of the Navy"
-          - "Master Chief Petty Officer"
-          - "Senior Chief Petty Officer"
-          - "Chief Petty Officer"
-          - "Petty Officer First Class"
-          - "Petty Officer Second Class"
-          - "Petty Officer Third Class"
-          - "Seaman"
-          - "Seaman Apprentice"
-          - "Seaman Recruit"
-          - "Chief Warrant Officer"
-          - "Warrant Officer"
-          - "Sgt Major Of The Corps"
-          - "Sergeant Major"
-          - "Master Gunnery Sgt"
-          - "First Sergeant"
-          - "Master Sergeant"
-          - "Gunnery Sergeant"
-          - "Staff Sergeant"
-          - "Sergeant"
-          - "Corporal"
-          - "Lance Corporal"
-          - "Private First Class"
-          - "Private"
-          - "General of the Air Force"
-          - "General"
-          - "Lieutenant General"
-          - "Major General"
-          - "Brigadier General"
-          - "Colonel"
-          - "Lieutenant Colonel"
-          - "Major"
-          - "First Lieutenant"
-          - "Second Lieutenant"
-          - "Chief Master Sergeant of the Air Force"
-          - "Command  Chief Master Sergeant"
-          - "Chief Master Sergeant"
-          - "Senior Master Sergeant"
-          - "Technical Sergeant"
-          - "Senior Airman"
-          - "Airman First Class"
-          - "Airman"
     - check:
       - name: response
         selector: "#response_y"
