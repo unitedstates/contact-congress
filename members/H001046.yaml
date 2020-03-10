@@ -4,9 +4,11 @@ contact_form:
   action: /contact/write-martin
   steps:
     - visit: "https://www.heinrich.senate.gov/contact/write-martin"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - select:
         - name: topic
-          selector: "#contactForm select[name='topic']" 
+          selector: "#contactForm select[name='topic']"
           value: $TOPIC
           required: true
           options:
