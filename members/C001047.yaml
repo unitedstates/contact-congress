@@ -1,22 +1,11 @@
 bioguide: C001047
 contact_form:
   method: post
-  action: "https://www.capito.senate.gov/contact/contact-shelley"
+  action: "https://www.capito.senate.gov/contact/share-your-opinion"
   steps:
-    - visit: "https://www.capito.senate.gov/contact/contact-shelley"
+    - visit: "https://www.capito.senate.gov/contact/share-your-opinion"
     - find:
-        - selector: "#actions"
-    - select:
-        - name: input_AE7457DD-4040-F985-52CD-B99385041C51
-          selector: "#actions"
-          value: opinion
-          required: true
-          options:
-            Send an email to comment on Legislation: opinion
-            Help with a federal agency: federal_agency
-            Meeting Requests: meeting
-    - wait:
-        - value: 3
+        - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
         - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
