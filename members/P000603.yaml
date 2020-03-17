@@ -45,6 +45,7 @@ contact_form:
           selector: "#edit-message"
           value: $MESSAGE
           required: true
+          max_length: 1200
     - select:
         - name: issue
           selector: "#edit-issue"
@@ -94,7 +95,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#edit-message").value = document.querySelector("#edit-message").value.replace(/"/g, '');
     - javascript:
-      - value: document.querySelector("#g-recaptcha-response").style.display = "block";        
+      - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
         - value: true
     - javascript:
