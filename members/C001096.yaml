@@ -6,7 +6,7 @@ contact_form:
     - visit: "https://www.cramer.senate.gov/contact_kevin"
     - fill_in:
         - name: "first_name"
-          selector: "#edit-first-name"
+          selector: input[name='first_name']
           value: $NAME_FIRST
           required: true
         - name: "last_name"
