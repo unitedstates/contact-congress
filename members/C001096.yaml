@@ -6,39 +6,39 @@ contact_form:
     - visit: "https://www.cramer.senate.gov/contact_kevin"
     - fill_in:
         - name: "first_name"
-          selector: input[name='first_name']
+          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-first-name"
           value: $NAME_FIRST
           required: true
         - name: "last_name"
-          selector: "#edit-last-name"
+          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-last-name"
           value: $NAME_LAST
           required: true
         - name: "address_1"
-          selector: "#edit-address-1"
+          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-address-1"
           value: $ADDRESS_STREET
           required: true
         - name: "city"
-          selector: "#edit-city"
+          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-city"
           value: $ADDRESS_CITY
           required: true
         - name: "zip"
-          selector: "#edit-zip"
+          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-zip"
           value: $ADDRESS_ZIP5
           required: true
         - name: "phone"
-          selector: "#edit-phone"
+          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-phone"
           value: $PHONE
           required: false
         - name: "email"
-          selector: "#edit-email"
+          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-email"
           value: $EMAIL
           required: true
         - name: "subject"
-          selector: "#edit-subject"
+          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-subject"
           value: $SUBJECT
           required: true
         - name: "message"
-          selector: "#edit-message"
+          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-message"
           value: $MESSAGE
           required: true
     - select:
