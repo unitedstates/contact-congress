@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "http://www.cassidy.senate.gov/contact"
     - wait:
-        - value: 5
+        - value: 2
     - find:
         - selector: "#form-A77D3A2D-5056-A066-60F1-2E40AED5E0B6"
     - fill_in:
@@ -317,7 +317,7 @@ contact_form:
         - value: Submit
           selector: "input.btn"
     - wait:
-        - value: 5
+        - value: 3
     - find:
         - selector: "h1"
           value: "Thank You"
