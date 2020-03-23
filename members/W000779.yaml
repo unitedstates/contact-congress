@@ -119,6 +119,8 @@ contact_form:
       - selector: "#input-67923685-D449-B975-C411-F97C2DEFBBFE"
     - javascript:
       - value: 'document.querySelector("#input-6772B6F9-DC60-985A-DA90-CE9C6D99704B").value = document.querySelector("#input-6772B6F9-DC60-985A-DA90-CE9C6D99704B").value.replace(/"/g, "");'
+    - recaptcha:
+      - value: true
     - click_on:
       - selector: ".btn[value=Submit]"
     - find:
