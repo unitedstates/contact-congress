@@ -7,14 +7,14 @@ contact_form:
     - wait:
       - value: 3
     - find:
-      - selector: "#edit-first-name"
+      - selector: " #edit-constituent-information #edit-first-name"
     - fill_in:
         - name: "first_name"
-          selector: "#edit-first-name"
+          selector: "#edit-constituent-information #edit-first-name"
           value: $NAME_FIRST
           required: true
         - name: "last_name"
-          selector: "#edit-last-name"
+          selector: "#edit-constituent-information #edit-last-name"
           value: $NAME_LAST
           required: true
         - name: "address_1"
@@ -34,7 +34,7 @@ contact_form:
           value: $PHONE
           required: true
         - name: "email"
-          selector: "#edit-email"
+          selector: "#edit-constituent-information #edit-email"
           value: $EMAIL
           required: true
         - name: "subject"
