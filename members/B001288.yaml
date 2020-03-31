@@ -9,187 +9,163 @@ contact_form:
           selector: "#firstName"
           value: $NAME_FIRST
           required: true
-        - name: lastName
-          selector: "#lastName"
-          value: $NAME_LAST
-          required: true
-        - name: Address1
-          selector: "#Address1"
-          value: $ADDRESS_STREET
-          required: true
-        - name: city
-          selector: "#city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: zip
-          selector: "#zip"
-          value: $ADDRESS_ZIP_PLUS_4
-          required: true
-        - name: phone
-          selector: "#phone"
-          value: $PHONE
-          required: true
-        - name: email
-          selector: "#email"
-          value: $EMAIL
-          required: true
-        - name: vemail
-          selector: "#vemail"
-          value: $EMAIL
-          required: true
-        - name: messageSubject
-          selector: "#messageSubject"
-          value: $SUBJECT
-          required: true
-        - name: MessageBody
-          selector: "#MessageBody"
-          value: $MESSAGE
-          required: true
+    - click_on:
+        - selector: "#initialSubmit"
     - select:
-        - name: Prefix
-          selector: "#Prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Mr. and Mrs.
-            - Miss
-            - Dr.
-            - Dr. and Mrs.
-            - Dr. and Mr.
-            - Admiral
-            - Captain
-            - Chief Master Sergeant
-            - Colonel
-            - Commander
-            - Corporal
-            - Father
-            - Lieutenant
-            - Lieutenant Colonel
-            - Master Sergeant
-            - Reverend
-            - Sergeant
-            - Second Lieutenant
-            - Sergeant Major
-            - Sister
-            - Technical Sergeant
-        - name: State
-          selector: "#State"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            "----Military---- ": " "
-            "AA ": AA
-            "AE ": AE
-            "AP ": AP
-            "----States---- ": " "
-            "Alabama ": AL
-            "Alaska ": AK
-            "Arizona ": AZ
-            "Arkansas ": AR
-            "California ": CA
-            "Colorado ": CO
-            "Connecticut ": CT
-            "Delaware ": DE
-            "District of Columbia ": DC
-            "Florida ": FL
-            "Georgia ": GA
-            "Hawaii ": HI
-            "Idaho ": ID
-            "Illinois ": MT
-            "Indiana ": IN
-            "Iowa ": IA
-            "Kansas ": KS
-            "Kentucky ": KY
-            "Louisiana ": LA
-            "Maine ": ME
-            "Maryland ": MD
-            "Massachusetts ": MA
-            "Michigan ": MI
-            "Minnesota ": MN
-            "Mississippi ": MS
-            "Missouri ": MO
-            "Montana ": MT
-            "Nebraska ": NE
-            "Nevada ": NV
-            "New Hampshire ": NH
-            "New Jersey ": NJ
-            "New Mexico ": NM
-            "New York ": NY
-            "North Carolina ": NC
-            "North Dakota ": ND
-            "Ohio ": OH
-            "Oklahoma ": OK
-            "Oregon ": OR
-            "Pennsylvania ": PA
-            "Rhode Island ": RI
-            "South Carolina ": SC
-            "South Dakota ": SD
-            "Tennessee ": TN
-            "Texas ": TX
-            "Utah ": UT
-            "Vermont ": VT
-            "Virginia ": VA
-            "Washington ": WA
-            "West Virginia ": WV
-            "Wisconsin ": WI
-            "Wyoming ": WY
-        - name: Subject
-          selector: "select[name='Subject']"
+        - name: "topic"
+          selector: "#topicsSelect"
           value: $TOPIC
           required: true
           options:
-            "\n\t\t\t\t\t\t\t\t\t\t\tAgriculture and Nutrition\n\t\t\t\t\t\t\t\t\t\t": Agriculture and Nutrition
-            "\n\t\t\t\t\t\t\t\t\t\t\tAnimal Welfare\n\t\t\t\t\t\t\t\t\t\t": Animal Welfare
-            "\n\t\t\t\t\t\t\t\t\t\t\tArmed Services\n\t\t\t\t\t\t\t\t\t\t": Armed Services
-            "\n\t\t\t\t\t\t\t\t\t\t\tBanking and Financial Services\n\t\t\t\t\t\t\t\t\t\t": Banking and Financial Services
-            "\n\t\t\t\t\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t\t\t\t\t": Budget
-            "\n\t\t\t\t\t\t\t\t\t\t\tCensus\n\t\t\t\t\t\t\t\t\t\t": Census
-            "\n\t\t\t\t\t\t\t\t\t\t\tChildren\n\t\t\t\t\t\t\t\t\t\t": Children
-            "\n\t\t\t\t\t\t\t\t\t\t\tConsumer Protection\n\t\t\t\t\t\t\t\t\t\t": Consumer Protection
-            "\n\t\t\t\t\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t\t\t\t\t": Economy
-            "\n\t\t\t\t\t\t\t\t\t\t\tEducation\n\t\t\t\t\t\t\t\t\t\t": Education
-            "\n\t\t\t\t\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t\t\t\t\t": Energy
-            "\n\t\t\t\t\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t\t\t\t\t": Environment
-            "\n\t\t\t\t\t\t\t\t\t\t\tEthics\n\t\t\t\t\t\t\t\t\t\t": Ethics
-            "\n\t\t\t\t\t\t\t\t\t\t\tFlag Requests\n\t\t\t\t\t\t\t\t\t\t": Flag Requests
-            "\n\t\t\t\t\t\t\t\t\t\t\tForeign Relations\n\t\t\t\t\t\t\t\t\t\t": Foreign Relations
-            "\n\t\t\t\t\t\t\t\t\t\t\tGrants\n\t\t\t\t\t\t\t\t\t\t": Grants
-            "\n\t\t\t\t\t\t\t\t\t\t\tGuns and Crime\n\t\t\t\t\t\t\t\t\t\t": Guns and Crime
-            "\n\t\t\t\t\t\t\t\t\t\t\tHealthcare\n\t\t\t\t\t\t\t\t\t\t": Healthcare
-            "\n\t\t\t\t\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t\t\t\t\t": Housing
-            "\n\t\t\t\t\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t\t\t\t\t": Immigration
-            "\n\t\t\t\t\t\t\t\t\t\t\tJudiciary Issues\n\t\t\t\t\t\t\t\t\t\t": Judiciary Issues
-            "\n\t\t\t\t\t\t\t\t\t\t\tLabor\n\t\t\t\t\t\t\t\t\t\t": Labor
-            "\n\t\t\t\t\t\t\t\t\t\t\tLetter Requests\n\t\t\t\t\t\t\t\t\t\t": Letter Requests
-            "\n\t\t\t\t\t\t\t\t\t\t\tMedicaid\n\t\t\t\t\t\t\t\t\t\t": Medicaid
-            "\n\t\t\t\t\t\t\t\t\t\t\tNational Security\n\t\t\t\t\t\t\t\t\t\t": National Security
-            "\n\t\t\t\t\t\t\t\t\t\t\tPostal Service\n\t\t\t\t\t\t\t\t\t\t": Postal Service
-            "\n\t\t\t\t\t\t\t\t\t\t\tScience and Technology\n\t\t\t\t\t\t\t\t\t\t": Science and Technology
-            "\n\t\t\t\t\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t\t\t\t\t": Taxes
-            "\n\t\t\t\t\t\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t\t\t\t\t\t": Telecommunications
-            "\n\t\t\t\t\t\t\t\t\t\t\tTour Request\n\t\t\t\t\t\t\t\t\t\t": Tour Request
-            "\n\t\t\t\t\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t\t\t\t\t": Trade
-            "\n\t\t\t\t\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t\t\t\t\t": Transportation
-            "\n\t\t\t\t\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t\t\t\t\t": Veterans
+            "Agriculture and Nutrition": "Agriculture and Nutrition"
+            "Animal Welfare": "Animal Welfare"
+            "Armed Services": "Armed Services"
+            "Banking and Financial Services": "Banking and Financial Services"
+            "Budget": "Budget"
+            "Census": "Census"
+            "Children": "Children"
+            "Civil Rights": "Civil Rights"
+            "Consumer Protection": "Consumer Protection"
+            "Economy": "Economy"
+            "Education": "Education"
+            "Energy": "Energy"
+            "Environment": "Environment"
+            "Ethics": "Ethics"
+            "Foreign Relations": "Foreign Relations"
+            "Government Oversight": "Government Oversight"
+            "Grants": "Grants"
+            "Guns and Crime": "Guns and Crime"
+            "Healthcare": "Healthcare"
+            "Housing": "Housing"
+            "Immigration": "Immigration"
+            "Judiciary Issues": "Judiciary Issues"
+            "Labor": "Labor"
+            "Medicare and Medicaid": "Medicare and Medicaid"
+            "National Security": "National Security"
+            "Postal Service": "Postal Service"
+            "Requests for Letter from Sen. Booker": "Requests for Letter from Sen. Booker"
+            "Science and Technology": "Science and Technology"
+            "Senate and Capitol Tour Requests": "Senate and Capitol Tour Requests"
+            "Social Security": "Social Security"
+            "Taxes": "Taxes"
+            "Telecommunications": "Telecommunications"
+            "Trade": "Trade"
+            "Transportation": "Transportation"
+            "Women's Health": "Women's Health"
+        - name: "input_2AA38DC3-BC1F-9589-8FDC-7341685E655F"
+          selector: "#input-2AA38DC3-BC1F-9589-8FDC-7341685E655F"
+          value: $NAME_PREFIX
+          required: true
+    - fill_in:
+        - name: "input_2AB4270E-EBD3-21C4-9AD3-CA2D60AFF043"
+          selector: "#input-2AB4270E-EBD3-21C4-9AD3-CA2D60AFF043"
+          value: $NAME_LAST
+          required: true
+        - name: "input_2AF31262-E7B8-AC75-3CAA-EF2A847439DD"
+          selector: "#input-2AF31262-E7B8-AC75-3CAA-EF2A847439DD"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "input_2AF312C2-B40C-D3C3-05F6-ECB0009872D9"
+          selector: "#input-2AF312C2-B40C-D3C3-05F6-ECB0009872D9"
+          value: $ADDRESS_CITY
+          required: true
+    - select:
+        - name: "input_2AF31300-E77D-3B64-6799-68D299089DFA"
+          selector: "#input-2AF31300-E77D-3B64-6799-68D299089DFA"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "AL": "AL"
+            "AK": "AK"
+            "AR": "AR"
+            "AZ": "AZ"
+            "CA": "CA"
+            "CO": "CO"
+            "CT": "CT"
+            "DC": "DC"
+            "DE": "DE"
+            "FL": "FL"
+            "GA": "GA"
+            "HI": "HI"
+            "ID": "ID"
+            "IL": "IL"
+            "IN": "IN"
+            "IA": "IA"
+            "KS": "KS"
+            "KY": "KY"
+            "LA": "LA"
+            "ME": "ME"
+            "MD": "MD"
+            "MA": "MA"
+            "MI": "MI"
+            "MN": "MN"
+            "MS": "MS"
+            "MO": "MO"
+            "MT": "MT"
+            "NE": "NE"
+            "NV": "NV"
+            "NH": "NH"
+            "NJ": "NJ"
+            "NM": "NM"
+            "NY": "NY"
+            "NC": "NC"
+            "ND": "ND"
+            "OH": "OH"
+            "OK": "OK"
+            "OR": "OR"
+            "PA": "PA"
+            "RI": "RI"
+            "SC": "SC"
+            "SD": "SD"
+            "TN": "TN"
+            "TX": "TX"
+            "UT": "UT"
+            "VT": "VT"
+            "VA": "VA"
+            "WA": "WA"
+            "WV": "WV"
+            "WI": "WI"
+            "WY": "WY"
+    - fill_in:
+        - name: "input_2AF31332-B8C6-5B56-4258-713E6C23C0C4"
+          selector: "#input-2AF31332-B8C6-5B56-4258-713E6C23C0C4"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "input_2B043CB9-BB2D-8E4D-F720-588E0AE9526D"
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: "input_2B043CF1-FA12-237B-D8AD-54FE21726597"
+          selector: "#input-2B043CF1-FA12-237B-D8AD-54FE21726597"
+          value: $EMAIL
+          required: true
+        - name: "input_2AFF692A-04A2-EBBA-5021-824732C5E367"
+          selector: "#input-2AFF692A-04A2-EBBA-5021-824732C5E367"
+          value: $PHONE
+          required: true
+        - name: "input_2B0D4D7C-FE79-F9BE-4491-935B036375CC"
+          selector: "#input-2B0D4D7C-FE79-F9BE-4491-935B036375CC"
+          value: $SUBJECT
+          required: true
+        - name: "input_2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0"
+          selector: "#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0"
+          value: $MESSAGE
+          required: true
     - check:
-        - name: "newsletteraction"
-          selector: "#newsletteraction[value='unsubscribe']"
-          value: "unsubscribe"
+        - name: "input_2B628374-ED07-D0C7-FF9D-B7D166244267"
+          selector: "#input-2B628374-ED07-D0C7-FF9D-B7D166244267 > div:nth-child(1) > div > label"
+          value: "2B6283B8-001D-6B16-22E2-442F903E1942"
+        - name: "input_2B1A36B7-F943-2784-713E-24D50EBE9454"
+          selector: "#newsletteraction > div:nth-child(2) > div > label"
+          value: "2B1DDDE9-0244-4C33-71DF-E0D1A5443510"
+          required: true
     - javascript:
-        - value: document.querySelector("#MessageBody").value = document.querySelector("#MessageBody").value.replace(/"/g, '');
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+        - value: document.querySelector("#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0").value = document.querySelector("#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "form.-validate-form.form-contact[name='thisForm'] input[name='Submit']"
-    - find:
-        - selector: "h2"
-          value: "Thank you!"
+          selector: "input[type='submit']"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been sent.
+      contains: "Thank you for reaching out"
