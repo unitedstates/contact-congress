@@ -3,167 +3,190 @@ contact_form:
   method: post
   action: "/?p=contact&clear_cache=1"
   steps:
-    - visit: "http://www.booker.senate.gov/?p=contact"
+    - visit: "https://www.booker.senate.gov/contact/write-to-cory/form"
     - fill_in:
-        - name: firstName
+        - name: input_2AB4269B-0EFC-EB00-9186-5B08A34143C5
           selector: "#firstName"
           value: $NAME_FIRST
           required: true
-    - click_on:
-        - selector: "#initialSubmit"
-    - select:
-        - name: "topic"
-          selector: "#topicsSelect"
-          value: $TOPIC
-          required: true
-          options:
-            "Agriculture and Nutrition": "Agriculture and Nutrition"
-            "Animal Welfare": "Animal Welfare"
-            "Armed Services": "Armed Services"
-            "Banking and Financial Services": "Banking and Financial Services"
-            "Budget": "Budget"
-            "Census": "Census"
-            "Children": "Children"
-            "Civil Rights": "Civil Rights"
-            "Consumer Protection": "Consumer Protection"
-            "Economy": "Economy"
-            "Education": "Education"
-            "Energy": "Energy"
-            "Environment": "Environment"
-            "Ethics": "Ethics"
-            "Foreign Relations": "Foreign Relations"
-            "Government Oversight": "Government Oversight"
-            "Grants": "Grants"
-            "Guns and Crime": "Guns and Crime"
-            "Healthcare": "Healthcare"
-            "Housing": "Housing"
-            "Immigration": "Immigration"
-            "Judiciary Issues": "Judiciary Issues"
-            "Labor": "Labor"
-            "Medicare and Medicaid": "Medicare and Medicaid"
-            "National Security": "National Security"
-            "Postal Service": "Postal Service"
-            "Requests for Letter from Sen. Booker": "Requests for Letter from Sen. Booker"
-            "Science and Technology": "Science and Technology"
-            "Senate and Capitol Tour Requests": "Senate and Capitol Tour Requests"
-            "Social Security": "Social Security"
-            "Taxes": "Taxes"
-            "Telecommunications": "Telecommunications"
-            "Trade": "Trade"
-            "Transportation": "Transportation"
-            "Women's Health": "Women's Health"
-        - name: "input_2AA38DC3-BC1F-9589-8FDC-7341685E655F"
-          selector: "#input-2AA38DC3-BC1F-9589-8FDC-7341685E655F"
-          value: $NAME_PREFIX
-          required: true
-    - fill_in:
-        - name: "input_2AB4270E-EBD3-21C4-9AD3-CA2D60AFF043"
+        - name: input_2AB4270E-EBD3-21C4-9AD3-CA2D60AFF043
           selector: "#input-2AB4270E-EBD3-21C4-9AD3-CA2D60AFF043"
           value: $NAME_LAST
           required: true
-        - name: "input_2AF31262-E7B8-AC75-3CAA-EF2A847439DD"
+        - name: input_2AF31262-E7B8-AC75-3CAA-EF2A847439DD
           selector: "#input-2AF31262-E7B8-AC75-3CAA-EF2A847439DD"
           value: $ADDRESS_STREET
           required: true
-        - name: "input_2AF312C2-B40C-D3C3-05F6-ECB0009872D9"
+        - name: input_2AF312C2-B40C-D3C3-05F6-ECB0009872D9
           selector: "#input-2AF312C2-B40C-D3C3-05F6-ECB0009872D9"
           value: $ADDRESS_CITY
           required: true
-    - select:
-        - name: "input_2AF31300-E77D-3B64-6799-68D299089DFA"
-          selector: "#input-2AF31300-E77D-3B64-6799-68D299089DFA"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            "AL": "AL"
-            "AK": "AK"
-            "AR": "AR"
-            "AZ": "AZ"
-            "CA": "CA"
-            "CO": "CO"
-            "CT": "CT"
-            "DC": "DC"
-            "DE": "DE"
-            "FL": "FL"
-            "GA": "GA"
-            "HI": "HI"
-            "ID": "ID"
-            "IL": "IL"
-            "IN": "IN"
-            "IA": "IA"
-            "KS": "KS"
-            "KY": "KY"
-            "LA": "LA"
-            "ME": "ME"
-            "MD": "MD"
-            "MA": "MA"
-            "MI": "MI"
-            "MN": "MN"
-            "MS": "MS"
-            "MO": "MO"
-            "MT": "MT"
-            "NE": "NE"
-            "NV": "NV"
-            "NH": "NH"
-            "NJ": "NJ"
-            "NM": "NM"
-            "NY": "NY"
-            "NC": "NC"
-            "ND": "ND"
-            "OH": "OH"
-            "OK": "OK"
-            "OR": "OR"
-            "PA": "PA"
-            "RI": "RI"
-            "SC": "SC"
-            "SD": "SD"
-            "TN": "TN"
-            "TX": "TX"
-            "UT": "UT"
-            "VT": "VT"
-            "VA": "VA"
-            "WA": "WA"
-            "WV": "WV"
-            "WI": "WI"
-            "WY": "WY"
-    - fill_in:
-        - name: "input_2AF31332-B8C6-5B56-4258-713E6C23C0C4"
+        - name: input_2AF31332-B8C6-5B56-4258-713E6C23C0C4
           selector: "#input-2AF31332-B8C6-5B56-4258-713E6C23C0C4"
-          value: $ADDRESS_ZIP5
+          value: $ADDRESS_ZIP_PLUS_4
           required: true
-        - name: "input_2B043CB9-BB2D-8E4D-F720-588E0AE9526D"
-          selector: "#email"
-          value: $EMAIL
-          required: true
-        - name: "input_2B043CF1-FA12-237B-D8AD-54FE21726597"
-          selector: "#input-2B043CF1-FA12-237B-D8AD-54FE21726597"
-          value: $EMAIL
-          required: true
-        - name: "input_2AFF692A-04A2-EBBA-5021-824732C5E367"
+        - name: input_2AFF692A-04A2-EBBA-5021-824732C5E367
           selector: "#input-2AFF692A-04A2-EBBA-5021-824732C5E367"
           value: $PHONE
           required: true
-        - name: "input_2B0D4D7C-FE79-F9BE-4491-935B036375CC"
+        - name: input_2B043CB9-BB2D-8E4D-F720-588E0AE9526D
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: input_2B043CF1-FA12-237B-D8AD-54FE21726597
+          selector: "#input-2B043CF1-FA12-237B-D8AD-54FE21726597"
+          value: $EMAIL
+          required: true
+        - name: input_2B0D4D7C-FE79-F9BE-4491-935B036375CC
           selector: "#input-2B0D4D7C-FE79-F9BE-4491-935B036375CC"
           value: $SUBJECT
           required: true
-        - name: "input_2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0"
+        - name: input_2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0
           selector: "#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0"
           value: $MESSAGE
           required: true
-    - check:
-        - name: "input_2B628374-ED07-D0C7-FF9D-B7D166244267"
-          selector: "#input-2B628374-ED07-D0C7-FF9D-B7D166244267 > div:nth-child(1) > div > label"
-          value: "2B6283B8-001D-6B16-22E2-442F903E1942"
-        - name: "input_2B1A36B7-F943-2784-713E-24D50EBE9454"
-          selector: "#newsletteraction > div:nth-child(2) > div > label"
-          value: "2B1DDDE9-0244-4C33-71DF-E0D1A5443510"
+    - select:
+        - name: input_2AA38DC3-BC1F-9589-8FDC-7341685E655F
+          selector: "#input-2AA38DC3-BC1F-9589-8FDC-7341685E655F"
+          value: $NAME_PREFIX
           required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mx.
+            - Mr. and Mrs.
+            - Miss
+            - Dr.
+            - Dr. and Mrs.
+            - Dr. and Mr.
+            - Admiral
+            - Captain
+            - Chief Master Sergeant
+            - Colonel
+            - Commander
+            - Corporal
+            - Father
+            - Lieutenant
+            - Lieutenant Colonel
+            - Master Sergeant
+            - Reverend
+            - Sergeant
+            - Second Lieutenant
+            - Sergeant Major
+            - Sister
+            - Technical Sergeant
+        - name: State
+          selector: "#State"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "----Military---- ": " "
+            "AA ": AA
+            "AE ": AE
+            "AP ": AP
+            "----States---- ": " "
+            "Alabama ": AL
+            "Alaska ": AK
+            "Arizona ": AZ
+            "Arkansas ": AR
+            "California ": CA
+            "Colorado ": CO
+            "Connecticut ": CT
+            "Delaware ": DE
+            "District of Columbia ": DC
+            "Florida ": FL
+            "Georgia ": GA
+            "Hawaii ": HI
+            "Idaho ": ID
+            "Illinois ": MT
+            "Indiana ": IN
+            "Iowa ": IA
+            "Kansas ": KS
+            "Kentucky ": KY
+            "Louisiana ": LA
+            "Maine ": ME
+            "Maryland ": MD
+            "Massachusetts ": MA
+            "Michigan ": MI
+            "Minnesota ": MN
+            "Mississippi ": MS
+            "Missouri ": MO
+            "Montana ": MT
+            "Nebraska ": NE
+            "Nevada ": NV
+            "New Hampshire ": NH
+            "New Jersey ": NJ
+            "New Mexico ": NM
+            "New York ": NY
+            "North Carolina ": NC
+            "North Dakota ": ND
+            "Ohio ": OH
+            "Oklahoma ": OK
+            "Oregon ": OR
+            "Pennsylvania ": PA
+            "Rhode Island ": RI
+            "South Carolina ": SC
+            "South Dakota ": SD
+            "Tennessee ": TN
+            "Texas ": TX
+            "Utah ": UT
+            "Vermont ": VT
+            "Virginia ": VA
+            "Washington ": WA
+            "West Virginia ": WV
+            "Wisconsin ": WI
+            "Wyoming ": WY
+        - name: input_2B0A3D48-DA91-73B6-A07A-97A20612D288
+          selector: "#topic"
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture and Nutrition
+            - Animal Welfare
+            - Armed Services
+            - Banking and Financial Services
+            - Budget
+            - Census
+            - Children
+            - Civil Rights
+            - Consumer Protection
+            - Economy
+            - Education
+            - Energy
+            - Environment
+            - Ethics
+            - Foreign Relations
+            - Government Oversight
+            - Grants
+            - Guns and Crime
+            - Healthcare
+            - Housing
+            - Immigration
+            - Judiciary Issues
+            - Labor
+            - Medicare and Medicaid
+            - National Security
+            - Postal Service
+            - Science and Technology
+            - Social Security
+            - Taxes
+            - Telecommunications
+            - Trade
+            - Transportation
+            - Women's Health
+    - check:
+        - name: input_2B628374-ED07-D0C7-FF9D-B7D166244267
+          selector: "#input-2B66931C-B478-23E4-A3F8-3856CE584498"
+          value: "2B66931C-B478-23E4-A3F8-3856CE584498"
+        - name: input_2B1A36B7-F943-2784-713E-24D50EBE9454
+          selector: "#newsletteraction-1"
+          value: "2B1DDDE9-0244-4C33-71DF-E0D1A5443510"
     - javascript:
         - value: document.querySelector("#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0").value = document.querySelector("#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0").value.replace(/"/g, '');
-    - click_on:
+     - click_on: 
         - value: Submit
-          selector: "input[type='submit']"
+          selector: "input[value='Submit']"
   success:
     headers:
       status: 200
