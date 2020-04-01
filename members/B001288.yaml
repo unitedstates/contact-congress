@@ -76,8 +76,8 @@ contact_form:
             - Sergeant Major
             - Sister
             - Technical Sergeant
-        - name: State
-          selector: "#State"
+        - name: input_2AF31300-E77D-3B64-6799-68D299089DFA
+          selector: "#input-2AF31300-E77D-3B64-6799-68D299089DFA"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -184,7 +184,7 @@ contact_form:
           value: "2B1DDDE9-0244-4C33-71DF-E0D1A5443510"
     - javascript:
         - value: document.querySelector("#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0").value = document.querySelector("#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0").value.replace(/"/g, '');
-     - click_on: 
+    - click_on:
         - value: Submit
           selector: "input[value='Submit']"
   success:
