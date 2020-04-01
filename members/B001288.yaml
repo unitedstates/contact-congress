@@ -3,46 +3,46 @@ contact_form:
   method: post
   action: "/?p=contact&clear_cache=1"
   steps:
-    - visit: "http://www.booker.senate.gov/?p=contact"
+    - visit: "https://www.booker.senate.gov/contact/write-to-cory/form"
     - fill_in:
-        - name: firstName
+        - name: input_2AB4269B-0EFC-EB00-9186-5B08A34143C5
           selector: "#firstName"
           value: $NAME_FIRST
           required: true
-        - name: lastName
-          selector: "#lastName"
+        - name: input_2AB4270E-EBD3-21C4-9AD3-CA2D60AFF043
+          selector: "#input-2AB4270E-EBD3-21C4-9AD3-CA2D60AFF043"
           value: $NAME_LAST
           required: true
-        - name: Address1
-          selector: "#Address1"
+        - name: input_2AF31262-E7B8-AC75-3CAA-EF2A847439DD
+          selector: "#input-2AF31262-E7B8-AC75-3CAA-EF2A847439DD"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#city"
+        - name: input_2AF312C2-B40C-D3C3-05F6-ECB0009872D9
+          selector: "#input-2AF312C2-B40C-D3C3-05F6-ECB0009872D9"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#zip"
+        - name: input_2AF31332-B8C6-5B56-4258-713E6C23C0C4
+          selector: "#input-2AF31332-B8C6-5B56-4258-713E6C23C0C4"
           value: $ADDRESS_ZIP_PLUS_4
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: input_2AFF692A-04A2-EBBA-5021-824732C5E367
+          selector: "#input-2AFF692A-04A2-EBBA-5021-824732C5E367"
           value: $PHONE
           required: true
-        - name: email
+        - name: input_2B043CB9-BB2D-8E4D-F720-588E0AE9526D
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: vemail
-          selector: "#vemail"
+        - name: input_2B043CF1-FA12-237B-D8AD-54FE21726597
+          selector: "#input-2B043CF1-FA12-237B-D8AD-54FE21726597"
           value: $EMAIL
           required: true
-        - name: messageSubject
-          selector: "#messageSubject"
+        - name: input_2B0D4D7C-FE79-F9BE-4491-935B036375CC
+          selector: "#input-2B0D4D7C-FE79-F9BE-4491-935B036375CC"
           value: $SUBJECT
           required: true
-        - name: MessageBody
-          selector: "#MessageBody"
+        - name: input_2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0
+          selector: "#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0"
           value: $MESSAGE
           required: true
     - select:
@@ -54,6 +54,7 @@ contact_form:
             - Mr.
             - Mrs.
             - Ms.
+            - Mx.
             - Mr. and Mrs.
             - Miss
             - Dr.
@@ -136,60 +137,60 @@ contact_form:
             "West Virginia ": WV
             "Wisconsin ": WI
             "Wyoming ": WY
-        - name: Subject
-          selector: "select[name='Subject']"
+        - name: input_2B0A3D48-DA91-73B6-A07A-97A20612D288
+          selector: "#topic"
           value: $TOPIC
           required: true
           options:
-            "\n\t\t\t\t\t\t\t\t\t\t\tAgriculture and Nutrition\n\t\t\t\t\t\t\t\t\t\t": Agriculture and Nutrition
-            "\n\t\t\t\t\t\t\t\t\t\t\tAnimal Welfare\n\t\t\t\t\t\t\t\t\t\t": Animal Welfare
-            "\n\t\t\t\t\t\t\t\t\t\t\tArmed Services\n\t\t\t\t\t\t\t\t\t\t": Armed Services
-            "\n\t\t\t\t\t\t\t\t\t\t\tBanking and Financial Services\n\t\t\t\t\t\t\t\t\t\t": Banking and Financial Services
-            "\n\t\t\t\t\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t\t\t\t\t": Budget
-            "\n\t\t\t\t\t\t\t\t\t\t\tCensus\n\t\t\t\t\t\t\t\t\t\t": Census
-            "\n\t\t\t\t\t\t\t\t\t\t\tChildren\n\t\t\t\t\t\t\t\t\t\t": Children
-            "\n\t\t\t\t\t\t\t\t\t\t\tConsumer Protection\n\t\t\t\t\t\t\t\t\t\t": Consumer Protection
-            "\n\t\t\t\t\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t\t\t\t\t": Economy
-            "\n\t\t\t\t\t\t\t\t\t\t\tEducation\n\t\t\t\t\t\t\t\t\t\t": Education
-            "\n\t\t\t\t\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t\t\t\t\t": Energy
-            "\n\t\t\t\t\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t\t\t\t\t": Environment
-            "\n\t\t\t\t\t\t\t\t\t\t\tEthics\n\t\t\t\t\t\t\t\t\t\t": Ethics
-            "\n\t\t\t\t\t\t\t\t\t\t\tFlag Requests\n\t\t\t\t\t\t\t\t\t\t": Flag Requests
-            "\n\t\t\t\t\t\t\t\t\t\t\tForeign Relations\n\t\t\t\t\t\t\t\t\t\t": Foreign Relations
-            "\n\t\t\t\t\t\t\t\t\t\t\tGrants\n\t\t\t\t\t\t\t\t\t\t": Grants
-            "\n\t\t\t\t\t\t\t\t\t\t\tGuns and Crime\n\t\t\t\t\t\t\t\t\t\t": Guns and Crime
-            "\n\t\t\t\t\t\t\t\t\t\t\tHealthcare\n\t\t\t\t\t\t\t\t\t\t": Healthcare
-            "\n\t\t\t\t\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t\t\t\t\t": Housing
-            "\n\t\t\t\t\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t\t\t\t\t": Immigration
-            "\n\t\t\t\t\t\t\t\t\t\t\tJudiciary Issues\n\t\t\t\t\t\t\t\t\t\t": Judiciary Issues
-            "\n\t\t\t\t\t\t\t\t\t\t\tLabor\n\t\t\t\t\t\t\t\t\t\t": Labor
-            "\n\t\t\t\t\t\t\t\t\t\t\tLetter Requests\n\t\t\t\t\t\t\t\t\t\t": Letter Requests
-            "\n\t\t\t\t\t\t\t\t\t\t\tMedicaid\n\t\t\t\t\t\t\t\t\t\t": Medicaid
-            "\n\t\t\t\t\t\t\t\t\t\t\tNational Security\n\t\t\t\t\t\t\t\t\t\t": National Security
-            "\n\t\t\t\t\t\t\t\t\t\t\tPostal Service\n\t\t\t\t\t\t\t\t\t\t": Postal Service
-            "\n\t\t\t\t\t\t\t\t\t\t\tScience and Technology\n\t\t\t\t\t\t\t\t\t\t": Science and Technology
-            "\n\t\t\t\t\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t\t\t\t\t": Taxes
-            "\n\t\t\t\t\t\t\t\t\t\t\tTelecommunications\n\t\t\t\t\t\t\t\t\t\t": Telecommunications
-            "\n\t\t\t\t\t\t\t\t\t\t\tTour Request\n\t\t\t\t\t\t\t\t\t\t": Tour Request
-            "\n\t\t\t\t\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t\t\t\t\t": Trade
-            "\n\t\t\t\t\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t\t\t\t\t": Transportation
-            "\n\t\t\t\t\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t\t\t\t\t": Veterans
+            - Agriculture and Nutrition
+            - Animal Welfare
+            - Armed Services
+            - Banking and Financial Services
+            - Budget
+            - Census
+            - Children
+            - Civil Rights
+            - Consumer Protection
+            - Economy
+            - Education
+            - Energy
+            - Environment
+            - Ethics
+            - Foreign Relations
+            - Government Oversight
+            - Grants
+            - Guns and Crime
+            - Healthcare
+            - Housing
+            - Immigration
+            - Judiciary Issues
+            - Labor
+            - Medicare and Medicaid
+            - National Security
+            - Postal Service
+            - Science and Technology
+            - Social Security
+            - Taxes
+            - Telecommunications
+            - Trade
+            - Transportation
+            - Women's Health
     - check:
-        - name: "newsletteraction"
-          selector: "#newsletteraction[value='unsubscribe']"
-          value: "unsubscribe"
+        - name: input_2B628374-ED07-D0C7-FF9D-B7D166244267
+          selector: "#input-2B66931C-B478-23E4-A3F8-3856CE584498"
+          value: "2B66931C-B478-23E4-A3F8-3856CE584498"
+        - name: input_2B1A36B7-F943-2784-713E-24D50EBE9454
+          selector: "#newsletteraction-1"
+          value: "2B1DDDE9-0244-4C33-71DF-E0D1A5443510"
     - javascript:
-        - value: document.querySelector("#MessageBody").value = document.querySelector("#MessageBody").value.replace(/"/g, '');
+        - value: document.querySelector("#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0").value = document.querySelector("#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0").value.replace(/"/g, '');
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - value: Submit
-          selector: "form.-validate-form.form-contact[name='thisForm'] input[name='Submit']"
-    - find:
-        - selector: "h2"
-          value: "Thank you!"
+          selector: "input[value='Submit']"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been sent.
+      contains: Thank you for reaching out
