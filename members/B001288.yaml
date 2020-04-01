@@ -46,8 +46,8 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: Prefix
-          selector: "#Prefix"
+        - name: input_2AA38DC3-BC1F-9589-8FDC-7341685E655F
+          selector: "#input-2AA38DC3-BC1F-9589-8FDC-7341685E655F"
           value: $NAME_PREFIX
           required: true
           options:
@@ -184,13 +184,11 @@ contact_form:
           value: "2B1DDDE9-0244-4C33-71DF-E0D1A5443510"
     - javascript:
         - value: document.querySelector("#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0").value = document.querySelector("#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0").value.replace(/"/g, '');
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - click_on:
+     - click_on: 
         - value: Submit
           selector: "input[value='Submit']"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for reaching out
+      contains: "Thank you for reaching out"
