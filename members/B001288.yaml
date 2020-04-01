@@ -9,18 +9,6 @@ contact_form:
           selector: "#firstName"
           value: $NAME_FIRST
           required: true
-    - check:
-        - name: input_2B628374-ED07-D0C7-FF9D-B7D166244267
-          selector: "#input-2B66931C-B478-23E4-A3F8-3856CE584498"
-          value: "2B66931C-B478-23E4-A3F8-3856CE584498"
-        - name: input_2B1A36B7-F943-2784-713E-24D50EBE9454
-          selector: "#newsletteraction-1"
-          value: "2B1DDDE9-0244-4C33-71DF-E0D1A5443510"
-    - javascript:
-        - value: document.querySelector("#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0").value = document.querySelector("#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0").value.replace(/"/g, '');
-    - click_on:
-        - value: Submit
-          selector: "input[value='Submit']"
   success:
     headers:
       status: 200
