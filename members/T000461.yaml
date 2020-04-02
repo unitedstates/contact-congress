@@ -52,36 +52,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: PREFIX
-          selector: "select[name='PREFIX']"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Mr. and Mrs.
-            - Miss
-            - Dr.
-            - Dr. and Mrs.
-            - Dr. and Mr.
-            - Admiral
-            - Captain
-            - Chief Master Sergeant
-            - Colonel
-            - Commander
-            - Corporal
-            - Father
-            - Lieutenant
-            - Lieutenant Colonel
-            - Master Sergeant
-            - Rabbi
-            - Reverend
-            - Sergeant
-            - Second Lieutenant
-            - Sergeant Major
-            - Sister
-            - Technical Sergeant
         - name: TOPIC
           selector: "select[name='TOPIC']"
           value: $TOPIC
@@ -122,7 +92,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("input.btn-primary").disabled = false;
     - javascript:
-      - value: document.querySelector("#g-recaptcha-response").style.display = "block";        
+      - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
         - value: true
     - javascript:
