@@ -347,9 +347,8 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
             - "Women's Issues"
     - javascript:
         - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
-    - click_on:
-        - value: Submit
-          selector: .btn
+    - javascript:
+        - value: document.querySelector('.btn').click();
     - wait:
         - value: 3
   success:
