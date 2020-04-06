@@ -4,6 +4,9 @@ contact_form:
   action: "https://www.capito.senate.gov/contact/share-your-opinion"
   steps:
     - visit: "https://www.capito.senate.gov/contact/share-your-opinion"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
+try{ element.parentNode.removeChild(element) } catch(err){} });"
     - find:
         - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - fill_in:
