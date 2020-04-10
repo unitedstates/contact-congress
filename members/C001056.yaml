@@ -166,6 +166,8 @@ contact_form:
           required: true
     - javascript:
         - value: document.querySelector("#edit-submitted-please-write-us-a-brief-message").value = document.querySelector("#edit-submitted-please-write-us-a-brief-message").value.replace(/"/g, '');
+    - javascript:
+        - value: jQuery('.button-primary').attr('disabled',false);
     - find:
         - selector: "#edit-webform-ajax-next-5099--2"
     - click_on:
