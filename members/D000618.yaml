@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "http://www.daines.senate.gov/connect/email-steve"
     - wait:
-        - value: 2
+        - value: 4
     - find:
         - selector: "#actiontog"
     - select:
@@ -311,11 +311,6 @@ contact_form:
             - Veterans
             - Welfare
             - "Women's Issues"
-    - fill_in:
-        - name: test
-          selector: "#test"
-          value: $TEST
-          required: true        
     - javascript:
         - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
     - click_on:
