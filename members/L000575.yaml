@@ -6,6 +6,8 @@ contact_form:
     - visit: "https://www.lankford.senate.gov/contact/email"
     - wait:
         - value: 3
+    - find:
+        - selector: "#actions"
     - select:
         - name: input_AE7457DD-4040-F985-52CD-B99385041C51
           selector: "#actions"
