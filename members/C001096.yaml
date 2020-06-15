@@ -5,45 +5,45 @@ contact_form:
   steps:
     - visit: "https://www.cramer.senate.gov/contact_kevin"
     - fill_in:
-        - name: "first_name"
-          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-first-name"
+        - name: "input_C9CE6BA8-D702-FFF7-6452-7CD0EE375B88"
+          selector: "#input-C9CE6BA8-D702-FFF7-6452-7CD0EE375B88"
           value: $NAME_FIRST
           required: true
-        - name: "last_name"
-          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-last-name"
+        - name: "input_C9CE6BDB-0775-34FA-30F3-2E5CD0CA5EEA"
+          selector: "#input-C9CE6BDB-0775-34FA-30F3-2E5CD0CA5EEA"
           value: $NAME_LAST
           required: true
-        - name: "address_1"
-          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-address-1"
+        - name: "input_C9DE829D-CC07-EF64-4CF2-7136F6B3948C"
+          selector: "#input-C9DE829D-CC07-EF64-4CF2-7136F6B3948C"
           value: $ADDRESS_STREET
           required: true
-        - name: "city"
-          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-city"
+        - name: "input_C9DE830A-C17B-919A-5B00-47AD79A01F99"
+          selector: "#input-C9DE830A-C17B-919A-5B00-47AD79A01F99"
           value: $ADDRESS_CITY
           required: true
-        - name: "zip"
-          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-zip"
+        - name: "input_C9DE8374-F4AE-1D25-2F1B-2F397C24F58E"
+          selector: "#input-C9DE8374-F4AE-1D25-2F1B-2F397C24F58E"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "phone"
-          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-phone"
+        - name: "input_C9ECC0EC-91D4-C50E-7FE7-F150E6B51F76"
+          selector: "#input-C9ECC0EC-91D4-C50E-7FE7-F150E6B51F76"
           value: $PHONE
           required: false
-        - name: "email"
-          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-email"
+        - name: "input_C9F1E3D0-08DA-E34E-C62B-5AE0E61DFCAD"
+          selector: "#input-C9F1E3D0-08DA-E34E-C62B-5AE0E61DFCAD"
           value: $EMAIL
           required: true
-        - name: "subject"
-          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-subject"
+        - name: "input_0075E019-DEF5-A372-B4C3-7F6B8FB1AA88"
+          selector: "#input-0075E019-DEF5-A372-B4C3-7F6B8FB1AA88"
           value: $SUBJECT
           required: true
-        - name: "message"
-          selector: "#webform-submission-contact-kevin-node-398-add-form #edit-message"
+        - name: "input_C9FF0277-B9B1-02D5-CBE0-F43708FE04C4"
+          selector: "#input-C9FF0277-B9B1-02D5-CBE0-F43708FE04C4"
           value: $MESSAGE
           required: true
     - select:
-        - name: "prefix"
-          selector: "#edit-prefix"
+        - name: "input_C9CE6B66-F224-060D-B946-BE8BA9954269"
+          selector: "#input-C9CE6B66-F224-060D-B946-BE8BA9954269"
           value: $NAME_PREFIX
           required: true
           options:
@@ -53,13 +53,13 @@ contact_form:
             "Mr. and Mrs.": "Mr. and Mrs."
             "Dr.": "Dr."
             "Dr. and Mrs.": "Dr. and Mrs."
-        - name: "state"
-          selector: "#edit-state"
+        - name: "input_C9DE833D-0C2C-B1A0-FB2E-FAFB5F491D13"
+          selector: "input-C9DE833D-0C2C-B1A0-FB2E-FAFB5F491D13"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options: US_STATES
-        - name: "topic"
-          selector: "#edit-topic"
+        - name: "input_C9F6ED3F-F95C-EBBA-BFB0-7E6EC11E2DD9"
+          selector: "#input-C9F6ED3F-F95C-EBBA-BFB0-7E6EC11E2DD9"
           value: $TOPIC
           required: true
           options:
@@ -97,8 +97,7 @@ contact_form:
             "Veterans": "Veterans"
             "Welfare": "Welfare"
     - click_on:
-        - value: Send message
-          selector: "#webform-submission-contact-kevin-node-398-add-form  #edit-actions-submit"
+          selector: ".controls button[type='submit']"
   success:
     headers:
       status: 200
