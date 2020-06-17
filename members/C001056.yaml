@@ -86,16 +86,16 @@ contact_form:
         - name: "submitted[address][thoroughfare]"
           selector: "#edit-submitted-address-thoroughfare"
           value: $ADDRESS_STREET
-          required: false
+          required: true
         - name: "submitted[address][locality]"
           selector: "#edit-submitted-address-locality"
           value: $ADDRESS_CITY
-          required: false
+          required: true
     - select:
         - name: "submitted[address][administrative_area]"
           selector: "#edit-submitted-address-administrative-area"
           value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: false
+          required: true
           options:
             "AL": "Alabama"
             "AK": "Alaska"
