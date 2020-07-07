@@ -1,12 +1,12 @@
 bioguide: M000133
 contact_form:
   method: post
-  action: /contact
+  action: "https://www.markey.senate.gov/contact/share-your-opinion"
   steps:
-    - visit: "http://www.markey.senate.gov/contact"
+    - visit: "https://www.markey.senate.gov/contact/share-your-opinion"
     - select:
-      - name: issue
-        selector: "#issue"
+      - name: topic
+        selector: "#message-topic"
         value: $TOPIC
         required: true
         options:
@@ -65,56 +65,46 @@ contact_form:
           - Welfare/SNAP
     - wait:
       - value: 1
-    - find:
-      - selector: "#continue-form"
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: input_42427875-9CC0-6E83-5422-011FADF4B2A0
+          selector: "#input-42427875-9CC0-6E83-5422-011FADF4B2A0"
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#lname"
+        - name: input_424278A8-A33D-4812-7806-73A81B0352DB
+          selector: "#input-424278A8-A33D-4812-7806-73A81B0352DB"
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+        - name: input_424E4036-EBDF-B0F8-7F83-3AAD2C2D7D7C
+          selector: "#input-424E4036-EBDF-B0F8-7F83-3AAD2C2D7D7C"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: mailing_city
-          selector: "#mailing_city"
+        - name: input-424E4036-EBDF-B0F8-7F83-3AAD2C2D7D7C
+          selector: "#input-424E40A0-03FE-88D8-1322-61BB69A2E2A6"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
+        - name: input_424E4101-BEB0-D606-7706-803EF69290F1
+          selector: "#input-424E4101-BEB0-D606-7706-803EF69290F1"
           value: $ADDRESS_ZIP5
           required: true
-        - name: home_phone_number
-          selector: "#home_phone_number"
-          value: $PHONE
-          required: true
-        - name: email_address
+        - name: input_7622D1F7-D717-7B5C-BEBC-423953516A0B
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
+        - name: input_7622D22B-DFBA-1747-E2FB-BE7F840C5C45
+          selector: "#input-7622D22B-DFBA-1747-E2FB-BE7F840C5C45"
           value: $EMAIL
           required: true
         - name: subject
-          selector: "#subject"
+          selector: "#input-42717B40-9F86-3CB6-E002-E1CF8FF3DAD5"
           value: $SUBJECT
           required: true
-        - name: message
-          selector: "#message"
+        - name: input_4273AC30-BD7A-71CE-C404-6C3C23E22134
+          selector: "#input-4273AC30-BD7A-71CE-C404-6C3C23E22134"
           value: $MESSAGE
           required: true
     - select:
-        - name: salutation
-          selector: "#salutation"
+        - name: input_42427839-032A-AC44-2F70-9AA66E270A25
+          selector: "#input-42427839-032A-AC44-2F70-9AA66E270A25"
           value: $NAME_PREFIX
           required: true
           options:
@@ -122,10 +112,11 @@ contact_form:
             - Ms.
             - Mrs.
             - Miss
+            - Mx.
             - Mr. and Mrs.
             - Dr.
-        - name: mailing_state
-          selector: "#mailing_state"
+        - name: input_424E40CF-05A3-7E5A-5C1F-7132981A8170
+          selector: "#input-424E40CF-05A3-7E5A-5C1F-7132981A8170"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -184,23 +175,18 @@ contact_form:
     - wait:
         - value: 1
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-4273AC30-BD7A-71CE-C404-6C3C23E22134").value = document.querySelector("#input-4273AC30-BD7A-71CE-C404-6C3C23E22134").value.replace(/"/g, '');
     - javascript:
         - value: "document.querySelector('#g-recaptcha-response').style.cssText = 'display: block; margin-top: 5em;';"
     - recaptcha:
         - value: true
-    - javascript:
-        - value: document.querySelector("#side-search-btn").disabled = false;
     - wait:
         - value: 1
     - click_on:
         - value: Send
-          selector: "#side-search-btn"
-    - find:
-        - selector: "h2"
-          value: "Thank You"
+          selector: ".btn[type='submit']"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me.
+      contains: You will receive an automated
