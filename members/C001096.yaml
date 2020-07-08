@@ -96,8 +96,8 @@ contact_form:
             "Trade": "Trade"
             "Veterans": "Veterans"
             "Welfare": "Welfare"
-    - click_on:
-          selector: ".controls button[type='submit']"
+    - javascript:
+        - value: "document.querySelector('.controls button[type='submit']').click();"
   success:
     headers:
       status: 200
