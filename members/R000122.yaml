@@ -5,45 +5,49 @@ contact_form:
   steps:
     - visit: "https://www.reed.senate.gov/contact/email"
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: input_3C478E70-917F-5EED-EC38-62904ABEBE43
+          selector: "#input-3C478E70-917F-5EED-EC38-62904ABEBE43"
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#lname"
+        - name: input_3C478D05-B458-1E21-1C7C-EBFD03360285
+          selector: "#input-3C478D05-B458-1E21-1C7C-EBFD03360285"
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+        - name: input_3C478CDD-EE28-DFC3-6C5F-A7ADE035B1B1
+          selector: "#input-3C478CDD-EE28-DFC3-6C5F-A7ADE035B1B1"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_city
-          selector: "#mailing_city"
+        - name: input_3C479068-C653-C536-3360-0831F9676225
+          selector: "#input-3C479068-C653-C536-3360-0831F9676225"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
+        - name: input_3C4790AB-E218-6A59-2A8B-F6B3463A7AFD
+          selector: "#input-3C4790AB-E218-6A59-2A8B-F6B3463A7AFD"
           value: $ADDRESS_ZIP5
           required: true
-        - name: email_address
+        - name: input_3C479044-EF7B-D975-B886-997D3DBC08B7
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
+        - name: input_3C478E2B-F065-1BF5-8579-E13C9EE9E0D4
+          selector: "#input-3C478E2B-F065-1BF5-8579-E13C9EE9E0D4"
           value: $EMAIL
           required: true
-        - name: subject
-          selector: "#subject"
+        - name: input_3C478E08-E94C-CA5D-529A-D92A74912057
+          selector: "#input-3C478E08-E94C-CA5D-529A-D92A74912057"
+          value: $PHONE
+          required: true   
+        - name: input_3C479022-ED70-196C-B809-FB51A91746E6
+          selector: "#input-3C479022-ED70-196C-B809-FB51A91746E6"
           value: $SUBJECT
           required: true
-        - name: message
-          selector: "#message"
+        - name: input_3C478FD9-04CE-6840-A608-F510A7249134
+          selector: "#input-3C478FD9-04CE-6840-A608-F510A7249134"
           value: $MESSAGE
           required: true
     - select:
-        - name: salutation
-          selector: "#salutation"
+        - name: input_3C478E4E-B4A2-F91A-17F3-3862979355B9
+          selector: "#input-3C478E4E-B4A2-F91A-17F3-3862979355B9"
           value: $NAME_PREFIX
           required: true
           options:
@@ -185,8 +189,8 @@ contact_form:
             - Navy - Seaman
             - Navy - Seaman Recruit
             - None
-        - name: topic
-          selector: "#topic"
+        - name: input_3C478C8F-9CED-FCC9-0426-93952AE9FBDF
+          selector: "#input-3C478C8F-9CED-FCC9-0426-93952AE9FBDF"
           value: $TOPIC
           required: true
           options:
@@ -235,10 +239,12 @@ contact_form:
             - Veterans Affairs
             - Other
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-3C478FD9-04CE-6840-A608-F510A7249134").value = document.querySelector("#input-3C478FD9-04CE-6840-A608-F510A7249134").value.replace(/"/g, '');
+    - recpatcha:
+        - value: true
     - click_on:
         - value: Send My Message
-          selector: "#side-search-btn"
+          selector: ".btn[type=submit]"
   success:
     headers:
       status: 200
