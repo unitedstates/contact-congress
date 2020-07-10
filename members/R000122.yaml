@@ -240,11 +240,10 @@ contact_form:
             - Other
     - javascript:
         - value: document.querySelector("#input-3C478FD9-04CE-6840-A608-F510A7249134").value = document.querySelector("#input-3C478FD9-04CE-6840-A608-F510A7249134").value.replace(/"/g, '');
-    - recpatcha:
+    - recaptcha:
         - value: true
     - click_on:
-        - value: Send My Message
-          selector: ".btn[type=submit]"
+        - selector: ".btn[type=submit]"
   success:
     headers:
       status: 200
