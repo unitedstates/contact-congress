@@ -220,7 +220,6 @@ contact_form:
             - "Jobs & Economy"
             - Judiciary
             - Labor
-            - "Law Enforcement & Crime"
             - "Medicare & Medicaid"
             - Native American Affairs
             - "Natural Disasters & Emergency Response"
@@ -240,6 +239,8 @@ contact_form:
             - Other
     - javascript:
         - value: document.querySelector("#input-3C478FD9-04CE-6840-A608-F510A7249134").value = document.querySelector("#input-3C478FD9-04CE-6840-A608-F510A7249134").value.replace(/"/g, '');
+    - javascript:
+        - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
         - value: true
     - click_on:
