@@ -4,46 +4,48 @@ contact_form:
   action: /contact/email
   steps:
     - visit: "https://www.brown.senate.gov/contact/email"
+    - wait:
+        - value: 2
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: input_466BAE61-E646-3957-206E-507B30B9CC9C
+          selector: "#input-466BAE61-E646-3957-206E-507B30B9CC9C"
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#lname"
+        - name: input_466BB01B-E6B3-9F1C-54B0-74E30CA82B2D
+          selector: "#input-466BB01B-E6B3-9F1C-54B0-74E30CA82B2D"
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+        - name: input_466BB093-0EAA-2677-1803-E60F9B546F10
+          selector: "#input-466BB093-0EAA-2677-1803-E60F9B546F10"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_city
-          selector: "#mailing_city"
+        - name: input_466BAF41-DCE2-090F-69A1-41453548801A
+          selector: "#input-466BAF41-DCE2-090F-69A1-41453548801A"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
+        - name: input_466BAFD3-D303-F40F-7B90-EA775BDDE7E9
+          selector: "#input-466BAFD3-D303-F40F-7B90-EA775BDDE7E9"
           value: $ADDRESS_ZIP5
           required: true
-        - name: email
-          selector: "#email_address"
+        - name: input_466BAEDF-9909-1516-3A5D-5B6223C4EB34
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
+        - name: input_466BB064-CC30-C031-4ED8-761B6CA19A3B
+          selector: "#input-466BB064-CC30-C031-4ED8-761B6CA19A3B"
           value: $EMAIL
           required: true
-        - name: phone_number
-          selector: "#phone_number"
+        - name: input_466BAEC8-071D-301C-5A55-C90E1AB5F66C
+          selector: "#input-466BAEC8-071D-301C-5A55-C90E1AB5F66C"
           value: $PHONE
           required: true
-        - name: comments
-          selector: "#comments"
+        - name: input_46FB1CCB-BE54-C379-D785-A4F0D5700E52
+          selector: "#input-46FB1CCB-BE54-C379-D785-A4F0D5700E52"
           value: $MESSAGE
           required: true
     - select:
-        - name: salutation
-          selector: "#salutation"
+        - name: input_466BAFA0-D277-8380-464E-5B0ED2A514DE
+          selector: "#input-466BAFA0-D277-8380-464E-5B0ED2A514DE"
           value: $NAME_PREFIX
           required: true
           options:
@@ -51,7 +53,10 @@ contact_form:
             - Mrs.
             - Ms.
             - Miss
+            - Mx.
             - Mr. and Mrs.
+            - Mr. and Mr.
+            - Mrs. and Mrs.
             - Dr.
             - Prof.
             - Hon.
@@ -137,8 +142,8 @@ contact_form:
             - Hospitalman
             - Constructionman
             - LCDR
-        - name: county
-          selector: "#county"
+        - name: input_466BAF59-AAC9-47F2-18BA-98950482489A
+          selector: "#input-466BAF59-AAC9-47F2-18BA-98950482489A"
           value: $ADDRESS_COUNTY
           required: true
           options:
@@ -230,8 +235,8 @@ contact_form:
             - Williams
             - Wood
             - Wyandot
-        - name: topic
-          selector: "#topic"
+        - name: input_46F6701D-DBF3-F1BC-4FBB-0AF957025DE8
+          selector: "#input-46F6701D-DBF3-F1BC-4FBB-0AF957025DE8"
           value: $TOPIC
           required: true
           options:
@@ -279,9 +284,9 @@ contact_form:
             Veterans Policy: Veterans Policy
             "Welfare & Poverty": Welfare and Poverty
     - javascript:
-        - value: document.querySelector("#comments").value = document.querySelector("#comments").value.replace(/"/g, '');
-    - javascript:
-        - value: "document.getElementById('contactForm').submit();"
+        - value: document.querySelector("#input-46FB1CCB-BE54-C379-D785-A4F0D5700E52").value = document.querySelector("#input-46FB1CCB-BE54-C379-D785-A4F0D5700E52").value.replace(/"/g, '');
+    - click_on:
+        - selector: ".btn[type=submit]"
     - wait:
         - value: 3
     - find:
