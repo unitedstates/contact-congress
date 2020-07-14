@@ -1,9 +1,9 @@
 bioguide: H001042
 contact_form:
   method: post
-  action: /contact/email
+  action: "https://www.hirono.senate.gov/share-your-opinion"
   steps:
-    - visit: "https://www.hirono.senate.gov/contact"
+    - visit: "https://www.hirono.senate.gov/share-your-opinion"
     - find:
         - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
     - fill_in:
@@ -57,6 +57,7 @@ contact_form:
             Mrs.: Mrs.
             Ms.: Ms.
             Miss: Miss
+            Mx.: Mx.
             Professor: Professor
             Dean: Dean
             The Honorable: The Honorable
