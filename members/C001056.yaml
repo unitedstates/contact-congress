@@ -174,7 +174,15 @@ contact_form:
         - name: "op"
           selector: "#edit-webform-ajax-next-5099--2"
     - find:
-        - selector: "#rc-anchor-container"
+        - selector: "textarea[name='g-recaptcha-response']"
+    - javascript:
+        - value: document.querySelector("textarea[name='g-recaptcha-response']").style.display = "block";
+    - javascript:
+        - value: document.querySelector("textarea[name='g-recaptcha-response']").style.position = "relative";
+    - javascript:
+        - value: document.querySelector("textarea[name='g-recaptcha-response']").style.top = "1000px";
+    - javascript:
+        - value: document.querySelector("textarea[name='g-recaptcha-response']").id = "g-recaptcha-response";
     - javascript:
       - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
