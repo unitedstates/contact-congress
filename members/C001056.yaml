@@ -173,6 +173,8 @@ contact_form:
     - click_on:
         - name: "op"
           selector: "#edit-webform-ajax-next-5099--2"
+    - find:
+        - selector: "#rc-anchor-container"
     - javascript:
       - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
