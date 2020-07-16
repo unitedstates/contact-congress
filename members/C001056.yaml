@@ -32,6 +32,8 @@ contact_form:
     - click_on:
         - name: "op"
           selector: "#edit-webform-ajax-next-5099"
+    - wait:
+        - value: 2
     - find:
         - selector: "#edit-submitted-please-select-and-issue-youd-like-to-discuss"
     - select:
@@ -74,6 +76,8 @@ contact_form:
             "transportation": "Transportation"
             "veterans": "Veterans"
             "welfare": "Welfare"
+    - wait:
+        - value: 2
     - fill_in:
         - name: "submitted[please_write_us_a_brief_message]"
           selector: "#edit-submitted-please-write-us-a-brief-message"
