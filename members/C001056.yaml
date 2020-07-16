@@ -174,7 +174,7 @@ contact_form:
         - name: "op"
           selector: "#edit-webform-ajax-next-5099--2"
     - find:
-        - selector: "textarea[name='g-recaptcha-response']"
+        - selector: "#rc-anchor-container"
     - javascript:
         - value: document.querySelector("textarea[name='g-recaptcha-response']").style.display = "block";
     - javascript:
