@@ -243,10 +243,12 @@ contact_form:
         - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
         - value: true
+    - javascript:
+        - value: document.querySelector("#g-recaptcha-response").style.display = "none";
     - click_on:
         - selector: ".btn[type=submit]"
   success:
     headers:
       status: 200
     body:
-      contains: THANK YOU
+      contains: Your message will be reviewed
