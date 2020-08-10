@@ -3,47 +3,47 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.blackburn.senate.gov/contact_marsha"
+    - visit: "https://www.blackburn.senate.gov/email-me"
     - fill_in:
-        - name: "first_name"
-          selector: "#edit-first-name"
+        - name: "field_F0B47C9E-D573-4F47-B152-F5D3F50B35F8"
+          selector: "#field_F0B47C9E-D573-4F47-B152-F5D3F50B35F8"
           value: $NAME_FIRST
           required: true
-        - name: "last_name"
-          selector: "#edit-last-name"
+        - name: "field_19623991-BEFC-45A9-8067-34DECF57F5C6"
+          selector: "#field_19623991-BEFC-45A9-8067-34DECF57F5C6"
           value: $NAME_LAST
           required: true
-        - name: "address_1"
-          selector: "#edit-address-1"
+        - name: "field_9CA502BA-E9A4-4825-9096-521666CFD27C"
+          selector: "#field_9CA502BA-E9A4-4825-9096-521666CFD27C"
           value: $ADDRESS_STREET
           required: true
-        - name: "city"
-          selector: "#edit-city"
+        - name: "field_199594FD-3403-4F8F-9B29-B57614A22F25"
+          selector: "#field_199594FD-3403-4F8F-9B29-B57614A22F25"
           value: $ADDRESS_CITY
           required: true
-        - name: "zip"
-          selector: "#edit-zip"
+        - name: "field_F8371BA6-8AC0-42A8-A3B6-C5BF3EA1CC99"
+          selector: "#field_F8371BA6-8AC0-42A8-A3B6-C5BF3EA1CC99"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "phone"
-          selector: "#edit-phone"
+        - name: "field_6374CADB-BE86-4C3B-BCC1-50F49BFCB6F6"
+          selector: "#field_6374CADB-BE86-4C3B-BCC1-50F49BFCB6F6"
           value: $PHONE
           required: true
-        - name: "email"
-          selector: "#edit-email"
+        - name: "field_F81DFD2F-49DA-41DF-889A-7CA26A1C480D"
+          selector: "#field_F81DFD2F-49DA-41DF-889A-7CA26A1C480D"
           value: $EMAIL
           required: true
-        - name: "subject"
-          selector: "#edit-subject"
+        - name: "field_A472D48A-B510-45EF-B7FD-F6D8E365BD33"
+          selector: "#field_A472D48A-B510-45EF-B7FD-F6D8E365BD33"
           value: $SUBJECT
           required: true
-        - name: "message"
-          selector: "#edit-message"
+        - name: "field_388E04BF-4EA0-4E71-ADBA-2C69AEA27FF1"
+          selector: "#field_388E04BF-4EA0-4E71-ADBA-2C69AEA27FF1"
           value: $MESSAGE
           required: true
     - select:
-        - name: "prefix"
-          selector: "#edit-prefix"
+        - name: "field_EFE37158-16D1-451A-A0DC-6A6E64BD81A2"
+          selector: "#field_EFE37158-16D1-451A-A0DC-6A6E64BD81A2"
           value: $NAME_PREFIX
           required: true
           options:
@@ -55,14 +55,14 @@ contact_form:
             "Dr. and Mrs.": "Dr. and Mrs."
             "Dr. and Mr.": "Dr. and Mr."
             "Dr. and Dr.": "Dr. and Dr."
-        - name: "state"
-          selector: "#edit-state"
+        - name: "field_D0454934-13CA-4072-B83B-8C5598B40E12"
+          selector: "#field_D0454934-13CA-4072-B83B-8C5598B40E12"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options: US_STATES
     - click_on:
         - value: Send message
-          selector: "#edit-actions-submit"
+          selector: ".btn-primary[type='submit']"
   success:
     headers:
       status: 200
