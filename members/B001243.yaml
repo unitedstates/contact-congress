@@ -60,6 +60,8 @@ contact_form:
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options: US_STATES
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Send message
           selector: ".btn-primary[type='submit']"
