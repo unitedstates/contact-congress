@@ -5,8 +5,6 @@ contact_form:
   steps:
     - visit: "http://www.murphy.senate.gov/contact"
     - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - javascript:	
         - value: "document.getElementsByClassName('js-position-sticky--stuck')[0].style.visibility='hidden';"
     - find:
         - selector: "#issue-type"
