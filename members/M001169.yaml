@@ -4,6 +4,9 @@ contact_form:
   action: /contact
   steps:
     - visit: "http://www.murphy.senate.gov/contact"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
+try{ element.parentNode.removeChild(element) } catch(err){} });"
     - select:
         - name: input_0ABBAE0C-9635-FF04-6478-C0D0714750A0
           selector: "#issue-type"
