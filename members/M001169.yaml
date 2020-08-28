@@ -1,13 +1,13 @@
 bioguide: M001169
 contact_form:
   method: post
-  action: /contact
+  action: "https://www.murphy.senate.gov/contact"
   steps:
     - visit: "http://www.murphy.senate.gov/contact"
     - javascript:
         - value: "document.getElementsByClassName('js-position-sticky--stuck')[0].style.visibility='hidden';"
     - wait:
-        - value: 2
+        - value: 4
     - find:
         - selector: "#issue-type"
     - select:
