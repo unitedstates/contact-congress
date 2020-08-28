@@ -6,7 +6,7 @@ contact_form:
     - visit: "http://www.murphy.senate.gov/contact"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-     - javascript:	
+    - javascript:	
         - value: "document.getElementsByClassName('SiteLayout__header').style.display='none';"
     - find:
         - selector: "#issue-type"
