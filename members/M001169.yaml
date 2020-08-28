@@ -6,6 +6,8 @@ contact_form:
     - visit: "http://www.murphy.senate.gov/contact"
     - javascript:
         - value: "document.getElementsByClassName('js-position-sticky--stuck')[0].style.visibility='hidden';"
+    - wait:
+        - value: 2
     - find:
         - selector: "#issue-type"
     - select:
