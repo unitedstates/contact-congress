@@ -5,8 +5,8 @@ contact_form:
   steps:
     - visit: "http://www.murphy.senate.gov/contact"
     - select:
-        - name: topic
-          selector: "#topic"
+        - name: input_0ABBAE0C-9635-FF04-6478-C0D0714750A0
+          selector: "#issue-type"
           value: $TOPIC
           required: true
           options:
@@ -17,6 +17,7 @@ contact_form:
             - Arts
             - Budget
             - Campaign Finance
+            - Casework
             - Children/Family/Adoption
             - Civil Rights
             - Commerce
@@ -33,7 +34,6 @@ contact_form:
             - Health
             - Health Insurance
             - Homeland Security
-            - Housing
             - Human Trafficking
             - Illegal Drugs
             - Immigration
@@ -47,10 +47,10 @@ contact_form:
             - Medicare/Medicaid
             - Mental/Behavioral Health
             - Military
-            - Nutrition
             - Pensions
+            - Postal
             - Prescription Drugs
-            - Women's Issues/Reproductive Rights
+            - Reproductive Rights
             - Science and Space
             - Small Business
             - Social Security
@@ -64,64 +64,69 @@ contact_form:
     - wait:
         - value: 3
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: input_0D9C1CBF-0FA9-F521-7BE3-D60FBF8BC532
+          selector: "#input-0D9C1CBF-0FA9-F521-7BE3-D60FBF8BC532"
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#lname"
+        - name: input_021E6848-A43A-487E-E67F-09444047A2BC
+          selector: "#input-021E6848-A43A-487E-E67F-09444047A2BC"
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+        - name: input_02A611A6-C6E3-A8FD-5992-EE40147D726A
+          selector: "#input-02A611A6-C6E3-A8FD-5992-EE40147D726A"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
+        - name: input_02A611E7-D86B-7139-AD0F-692B62A62CD2
+          selector: "#input-02A611E7-D86B-7139-AD0F-692B62A62CD2"
           value: $ADDRESS_STREET_2
           required: false
-        - name: mailing_city
-          selector: "#mailing_city"
+        - name: input_02A61225-E09F-EA85-FAF0-D225ED392435
+          selector: "#input-02A61225-E09F-EA85-FAF0-D225ED392435"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
+        - name: input_02A612A3-005B-4DF1-0308-92EB04712239
+          selector: "#input-02A612A3-005B-4DF1-0308-92EB04712239"
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone_number
-          selector: "#phone_number"
+        - name: input_02C9EBF2-9068-15B3-76C7-3DFE96C5D370
+          selector: "#input-02C9EBF2-9068-15B3-76C7-3DFE96C5D370"
           value: $PHONE
           required: false
-        - name: email_address
+        - name: input_02D398B4-9987-B172-DEA3-3191E1F79BE8
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
+        - name: input_02D398F5-DCDB-34E1-6593-048598518F1D
+          selector: "#input-02D398F5-DCDB-34E1-6593-048598518F1D"
           value: $EMAIL
           required: true
-        - name: subject
-          selector: "#subject"
+        - name: input_02E0E441-9477-3987-8977-A4EC9BDD0DBD
+          selector: "#input-02E0E441-9477-3987-8977-A4EC9BDD0DBD"
           value: $SUBJECT
           required: true
-        - name: message
-          selector: "#message"
+        - name: input_02E45FD5-BD42-AF0E-8834-08C8C725558F
+          selector: "#input-02E45FD5-BD42-AF0E-8834-08C8C725558F"
           value: $MESSAGE
           required: true
     - select:
-        - name: salutation
-          selector: "#salutation"
+        - name: input_021E6782-96D4-5780-E206-014F5E35C3F8
+          selector: "#input-021E6782-96D4-5780-E206-014F5E35C3F8"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Miss
-            - Dr.
-            - Sister
-        - name: mailing_state
-          selector: "#mailing_state"
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Miss: Miss
+            Mx.: Mx.
+            Professor: Professor
+            Reverend: Reverend
+            Rabbi: Rabbi
+            Sister: Sister
+            The Honorable: The Honorable
+            No Prefix: NONE
+        - name: input_02A61263-CB93-EA3B-18F7-572F08EA57F4
+          selector: "#input-02A61263-CB93-EA3B-18F7-572F08EA57F4"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -180,10 +185,10 @@ contact_form:
     - wait:
         - value: 1
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-02E45FD5-BD42-AF0E-8834-08C8C725558F").value = document.querySelector("#input-02E45FD5-BD42-AF0E-8834-08C8C725558F").value.replace(/"/g, '');
     - click_on:
         - value: Send
-          selector: "#side-search-btn"
+          selector: ".btn[type='submit']"
   success:
     headers:
       status: 200
