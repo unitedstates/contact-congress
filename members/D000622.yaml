@@ -168,7 +168,7 @@ contact_form:
             Veterans: Veterans
             White House: White House
     - javascript:
-        - value: var phone = document.getElementById('input-356E5FC0-5056-A066-6013-9C5EB3043747'); phone = phone.value.replace(/(\d{3})(\d{3})(\d+)/, '$1-$2-$3');
+        - value: document.getElementById('input-356E5FC0-5056-A066-6013-9C5EB3043747').value = document.getElementById('input-356E5FC0-5056-A066-6013-9C5EB3043747').value.replace(/(\d{3})(\d{3})(\d+)/, '$1-$2-$3')
     - javascript:
         - value: document.querySelector("#input-356E5E00-5056-A066-603C-9FAC0F3B6888").value = document.querySelector("#input-356E5E00-5056-A066-603C-9FAC0F3B6888").value.replace(/"/g, '');
     - javascript:
