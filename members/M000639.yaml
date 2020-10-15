@@ -1,106 +1,60 @@
 bioguide: M000639
 contact_form:
   method: post
-  action: /contact
+  action: "https://www.menendez.senate.gov/contact/email"
   steps:
-    - visit: "https://www.menendez.senate.gov/contact"
-    - select:
-        - name: subject
-          selector: "#subject"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: AGR
-            Animal Welfare: ANI
-            Banking and Financial Services: BNK
-            Budget: BGT
-            Census: CEN
-            Children: CHD
-            Consumer Protection: CPS
-            Defense and Military: DEF
-            Economy: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Ethics Reform: ETH
-            Foreign Relations: FOR
-            Global Warming: GLW
-            Grant Letters: GRANT
-            Guns and Crime: GUN
-            Healthcare: HEA
-            Homeland Security: HSC
-            Housing and Urban Affairs: HOU
-            Immigration: IMM
-            Intelligence: INTEL
-            Judiciary and Legal Issues: JUD
-            Labor: LAB
-            "Labor & Employment": LAB
-            Marriage: MAR
-            Native Americans: NAT
-            Nutrition: NUT
-            Other: OTH
-            Postal Service: POS
-            Science and Innovation: SCI
-            Seniors: SEN
-            Social Security: SSN
-            Taxes: TAX
-            Technology and Telecom: TEC
-            Trade: TRD
-            Transportation: TRN
-            Veterans: VET
-            Women: WOM
-    - find:
-        - selector: "#fname"            
+    - visit: "https://www.menendez.senate.gov/contact/email"           
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: input_EAC8D70B-E94B-29C2-9DAD-687D64BAF101
+          selector: "#input-EAC8D70B-E94B-29C2-9DAD-687D64BAF101"
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#lname"
+        - name: input_EAC8D7AB-B9FB-5DEB-AAD0-25C23587B1C6
+          selector: "#input-EAC8D7AB-B9FB-5DEB-AAD0-25C23587B1C6"
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+        - name: input_EACEAAD2-DDC8-BEDB-3215-33ED0B87C3EB
+          selector: "#input-EACEAAD2-DDC8-BEDB-3215-33ED0B87C3EB"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
+        - name: input_EACEAB1A-C046-61A8-6A2A-21A4CA3F5C7D
+          selector: "#input-EACEAB1A-C046-61A8-6A2A-21A4CA3F5C7D"
           value: $ADDRESS_STREET_2
           required: false
-        - name: mailing_city
-          selector: "#mailing_city"
+        - name: input_EACEAB65-9055-42AD-471F-DA6441629542
+          selector: "#input-EACEAB65-9055-42AD-471F-DA6441629542"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
+        - name: input_EACEABFB-AA5F-BB82-BB45-02ED27D08472
+          selector: "#input-EACEABFB-AA5F-BB82-BB45-02ED27D08472"
           value: $ADDRESS_ZIP5
           required: true
-        - name: home_phone_number
-          selector: "#home_phone_number"
+        - name: input_EAD2D9EC-F044-C4D6-489C-84E3A7006FE9
+          selector: "#input-EAD2D9EC-F044-C4D6-489C-84E3A7006FE9"
           value: $PHONE
           required: false
-        - name: email_address
+        - name: input_EADC3F1F-BB91-6A09-8EF5-1E3978146334
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
+        - name: input_EADC3F6B-BBD7-18B7-580E-2BC21F585E17
+          selector: "#input-EADC3F6B-BBD7-18B7-580E-2BC21F585E17"
           value: $EMAIL
           required: true
-        - name: message
-          selector: "#message"
+        - name: input_EAEF05AF-98D2-6504-C198-007A3E8A4323
+          selector: "#input-EAEF05AF-98D2-6504-C198-007A3E8A4323"
           value: $MESSAGE
           required: true
     - select:
-        - name: salutation
-          selector: "#salutation"
+        - name: input_EAC8D6B7-F9EE-BEBF-A75A-C454ACF0F430
+          selector: "#input-EAC8D6B7-F9EE-BEBF-A75A-C454ACF0F430"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Ms.
             - Mrs.
+            - Mx.
             - Professor
             - Dr.
             - Father
@@ -232,18 +186,58 @@ contact_form:
             - Seaman Apprentice
             - Seaman
             - Seaman Recruit
+        - name: input_EAE6B071-04DF-161B-6A14-46D3754DCB90
+          selector: "#input-EAE6B071-04DF-161B-6A14-46D3754DCB90"
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture
+            - Animal Welfare
+            - Banking and Financial Services
+            - Budget
+            - Census
+            - Children
+            - Consumer Protection
+            - Defense and Military
+            - Economy
+            - Education
+            - Energy
+            - Environment
+            - Ethics Reform
+            - Foreign Relations
+            - Global Warming
+            - Grant Letters
+            - Guns and Crime
+            - Healthcare
+            - Homeland Security
+            - Housing and Urban Affairs
+            - Immigration
+            - Intelligence
+            - Judiciary and Legal Issues
+            - Labor
+            - Marriage
+            - Native Americans
+            - Nutrition
+            - Postal Service
+            - Puerto Rico
+            - Science and Innovation
+            - Seniors
+            - Social Security
+            - Taxes
+            - Technology and Telecom
+            - Trade
+            - Transportation
+            - Veterans
+            - Women
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-EAEF05AF-98D2-6504-C198-007A3E8A4323").value = document.querySelector("#input-EAEF05AF-98D2-6504-C198-007A3E8A4323").value.replace(/"/g, '');
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - value: Send
-          selector: "#side-search-btn"
+          selector: .btn[type=submit]
     - wait:
         - value: 3
-    - find:
-        - value: Thank You
-          selector: ".main_page_title"
   success:
     headers:
       status: 200
