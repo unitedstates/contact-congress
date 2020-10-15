@@ -1,14 +1,18 @@
 bioguide: C001056
 contact_form:
   method: post
-  action: "https://www.cornyn.senate.gov/content/page/discuss-issue"
+  action: /contact
   steps:
-    - visit: "https://www.cornyn.senate.gov/content/page/discuss-issue"
+    - visit: "http://www.cornyn.senate.gov/contact"
+    - check:
+        - name: "submitted[please_select_one]"
+          selector: "#edit-submitted-please-select-one-1"
+          value: contact_discuss
     - wait:
         - value: 1
     - select:
-        - name: "submitted[please_select_an_issue_youd_like_to_discuss]"
-          selector: "#edit-submitted-please-select-an-issue-youd-like-to-discuss"
+        - name: "submitted[issue]"
+          selector: "#edit-submitted-issue"
           value: $TOPIC
           required: true
           options:
@@ -47,8 +51,8 @@ contact_form:
             Transportation: transportation
             Veterans: veterans
             Welfare: welfare
-        - name: "submitted[address][administrative_area]"
-          selector: "#edit-submitted-address-administrative-area"
+        - name: "submitted[state]"
+          selector: "#edit-submitted-state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -111,6 +115,10 @@ contact_form:
             Wisconsin: WI
             Wyoming: WY
     - fill_in:
+        - name: "submitted[prefix_optional]"
+          selector: "#edit-submitted-prefix-optional"
+          value: $NAME_PREFIX
+          required: false
         - name: "submitted[first_name]"
           selector: "#edit-submitted-first-name"
           value: $NAME_FIRST
@@ -119,42 +127,35 @@ contact_form:
           selector: "#edit-submitted-last-name"
           value: $NAME_LAST
           required: true
-        - name: "submitted[write_a_brief_message]"
-          selector: "#edit-submitted-write-a-brief-message"
+        - name: "submitted[message]"
+          selector: "#edit-submitted-message"
           value: $MESSAGE
           required: true
-        - name: "submitted[address][thoroughfare]"
-          selector: "#edit-submitted-address-thoroughfare"
+        - name: "submitted[address_1]"
+          selector: "#edit-submitted-address-1"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[address][locality]"
-          selector: "#edit-submitted-address-locality"
+        - name: "submitted[city]"
+          selector: "#edit-submitted-city"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[address][postal_code]"
-          selector: "#edit-submitted-address-postal-code"
+        - name: "submitted[zip_code]"
+          selector: "#edit-submitted-zip-code"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[phone_number]"
-          selector: "#edit-submitted-phone-number"
+        - name: "submitted[phone_number_optional]"
+          selector: "#edit-submitted-phone-number-optional"
           value: $PHONE
-          required: true
-        - name: "submitted[email]"
-          selector: "#edit-submitted-email"
+          required: false
+        - name: "submitted[email_address]"
+          selector: "#edit-submitted-email-address"
           value: $EMAIL
           required: true
     - javascript:
-        - value: document.querySelector("#edit-submitted-write-a-brief-message").value = document.querySelector("#edit-submitted-write-a-brief-message").value.replace(/"/g, '');
-    - click_on:
-        - value: enewsletter_optin
-          selector: "#edit-submitted-e-newsletter-opt-in-1"
-    - recaptcha:
-        - value: true
+        - value: document.querySelector("#edit-submitted-message").value = document.querySelector("#edit-submitted-message").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: .form-submit[value='Submit']
-    - wait:
-        - value: 6
+          selector: "#webform-client-form-7 input[name='op']"
   success:
     headers:
       status: 200
