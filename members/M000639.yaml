@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: "https://www.menendez.senate.gov/contact/email"
   steps:
-    - visit: "https://www.menendez.senate.gov/contact/email"           
+    - visit: "https://www.menendez.senate.gov/contact/email"
     - fill_in:
         - name: input_EAC8D70B-E94B-29C2-9DAD-687D64BAF101
           selector: "#input-EAC8D70B-E94B-29C2-9DAD-687D64BAF101"
@@ -231,8 +231,6 @@ contact_form:
             - Women
     - javascript:
         - value: document.querySelector("#input-EAEF05AF-98D2-6504-C198-007A3E8A4323").value = document.querySelector("#input-EAEF05AF-98D2-6504-C198-007A3E8A4323").value.replace(/"/g, '');
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - value: Send
           selector: .btn[type=submit]
