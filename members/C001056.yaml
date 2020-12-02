@@ -148,10 +148,6 @@ contact_form:
     - click_on:
         - value: enewsletter_optin
           selector: "#edit-submitted-e-newsletter-opt-in-1"
-    - javascript:
-        - value: document.querySelector("#g-recaptcha-response").style.display = "block";
-    - recaptcha:
-        - value: true
     - click_on:
         - value: Submit
           selector: .form-submit[value='Submit']
