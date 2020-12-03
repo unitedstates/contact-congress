@@ -1,9 +1,11 @@
 bioguide: K000377
 contact_form:
   method: post
-  action: "https://www.kelly.senate.gov/"
+  action: /#wpcf7-f8521-p45-o1
   steps:
     - visit: "https://www.kelly.senate.gov/"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: "FirstName"
           selector: "input[name='FirstName']"
