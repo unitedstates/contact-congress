@@ -4,6 +4,8 @@ contact_form:
   action: /#wpcf7-f8521-p45-o1
   steps:
     - visit: "https://www.kelly.senate.gov/"
+    - wait:
+        - value: 3
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
