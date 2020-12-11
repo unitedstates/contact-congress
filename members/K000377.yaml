@@ -85,7 +85,9 @@ contact_form:
         - value: Send
           selector: input[type='submit']
     - wait:
-        - value: 15
+        - value: 10
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
   success:
     headers:
       status: 200
