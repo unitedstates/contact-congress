@@ -1,110 +1,86 @@
 bioguide: S000033
 contact_form:
   method: POST
-  action: https://www.sanders.senate.gov/contact/comment
+  action: https://www.sanders.senate.gov/contact/contact-form/
   steps:
-    - visit: https://www.sanders.senate.gov/contact/comment
-    - select:
-      - name: subject
-        selector: "#subject"
-        value: $TOPIC
-        required: true
-        options:
-          Agriculture: AG
-          Animal Rights: ANRTS
-          Appropriations: APPROPS
-          "Arts & Humanities": ARTS
-          "Banking & Financial Services": BANK
-          Budget: BGT
-          Business and Commerce: BIZ
-          Campaign/Election Reform: CAMPAIGN FINANCE
-          Consumer Protection: BANK
-          Defense and Military: DEF
-          Economic Development: ECON
-          Education: ED
-          Energy: EN
-          Environment: ENV
-          Ethics Reform: ETH
-          Foreign Relations: FR
-          Guns: GUNS
-          Healthcare: HEALTH CARE
-          Homeland Security: DHS
-          Housing and Urban Affairs: HUD
-          Immigration: IMMG
-          Insurance Problems: HEALTH CARE
-          Interior: MISC
-          Intelligence: JUD
-          Judiciary: JUD
-          Labor: LABOR
-          Nutrition: FDA
-          Other: MISC
-          Postal Service: POSTAL
-          Science and Innovation: SCI
-          Seniors: SENIORS
-          Social Issues: ECON
-          Taxes: TAXES
-          Technology and Telecom: TELECOM AND TECH
-          Trade: TRADE
-          Transportation: TRANS
-          Veterans: VET
-          Women and Children: WOMEN
-    - wait:
-        - value: 2
-    - find:
-      - selector: "#fname"
+    - visit: https://www.sanders.senate.gov/contact/contact-form/
     - fill_in:
-      - name: fname
-        selector: "#fname"
+      - name: FirstName
+        selector: "#wpcf7-f8521-p20941-o1 input[name='FirstName']"
         value: "$NAME_FIRST"
         required: Yes
-      - name: lname
-        selector: "#lname"
+      - name: LastName
+        selector: "#wpcf7-f8521-p20941-o1 input[name='LastName']"
         value: "$NAME_LAST"
         required: Yes
-      - name: mailing_streetAddress1
-        selector: "#mailing_streetAddress1"
+      - name: Address1
+        selector: "#wpcf7-f8521-p20941-o1 input[name='Address1']"
         value: "$ADDRESS_STREET"
         required: Yes
-      - name: mailing_city
-        selector: "#mailing_city"
+      - name: City
+        selector: "#wpcf7-f8521-p20941-o1 input[name='City']"
         value: "$ADDRESS_CITY"
         required: Yes
-      - name: mailing_zipCode
-        selector: "#mailing_zipCode"
+      - name: ZipCode
+        selector: "#wpcf7-f8521-p20941-o1 input[name='ZipCode']"
         value: "$ADDRESS_ZIP5"
         required: Yes
-      - name: email_address
-        selector: "#email"
+      - name: your-email
+        selector: "#wpcf7-f8521-p20941-o1 input[name='your-email']"
         value: "$EMAIL"
         required: Yes
-      - name: verify_email
-        selector: "#verify_email"
-        value: "$EMAIL"
-        required: Yes
-      - name: regarding
-        selector: "#regarding"
-        value: "$SUBJECT"
-        required: Yes
-      - name: message
-        selector: "#message"
+      - name: your-message
+        selector: "#wpcf7-f8521-p20941-o1 textarea[name='your-message']"
         value: "$MESSAGE"
         required: Yes
-    - check:
-      - name: response
-        selector: "#response_y"
-        value: Yes
-        required: Yes
-    - javascript:
-      - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
-    - javascript:
-      - value: "document.querySelector('#side-search-btn').click();"
-    - wait:
-      - value: 2
-    - find:
-      - selector: "h2"
-        value: "Thank You"
+    - choose:
+        - name: Topic
+          selector: ".wpcf7-exclusive-checkbox"
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture
+            - Animal Rights
+            - Appropriations
+            - Arts & Humanities
+            - Banking & Financial Services
+            - Budget
+            - Business and Commerce
+            - Campaign/Election Reform
+            - Consumer Protection
+            - Children
+            - Defense and Military
+            - Economic Development
+            - Education
+            - Energy
+            - Environment
+            - Ethics Reform
+            - Foreign Relations
+            - Guns
+            - Healthcare
+            - Homeland Security
+            - Housing and Urban Affairs
+            - Immigration
+            - Insurance Problems
+            - Interior
+            - Intelligence
+            - Judiciary
+            - Labor
+            - Nutrition
+            - Postal Service
+            - Science and Innovation
+            - Seniors
+            - Social Issues
+            - Taxes
+            - Technology and Telecom
+            - Trade
+            - Transportation
+            - Veterans
+            - Women and Children
+    - click_on:
+        - selector: "#wpcf7-f8521-p20941-o1 .wpcf7-submit"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for contacting me."
+      contains: "Thank you"
