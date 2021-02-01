@@ -1,0 +1,99 @@
+bioguide: W000790
+contact_form:
+  method: post
+  action: /#wpcf7-f8521-p45-o1
+  steps:
+    - visit: "https://www.warnock.senate.gov/"
+    - wait:
+        - value: 3
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
+    - fill_in:
+        - name: "FirstName"
+          selector: "input[name='FirstName']"
+          value: $NAME_FIRST
+          required: true
+        - name: "LastName"
+          selector: "input[name='LastName']"
+          value: $NAME_LAST
+          required: true
+        - name: "your-message"
+          selector: "textarea[name='your-message']"
+          value: $MESSAGE
+          required: true
+        - name: "subject"
+          selector: "input[name='subject']"
+          value: $SUBJECT
+          required: true
+        - name: "Address1"
+          selector: "input[name='Address1']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "City"
+          selector: "input[name='City']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "ZipCode"
+          selector: "input[name='ZipCode']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "your-email"
+          selector: "input[name='your-email']"
+          value: $EMAIL
+          required: true
+    - select:
+        - name: "Topic"
+          selector: "select[name='Topic']"
+          value: $TOPIC
+          required: true
+          options:
+            - Agriculture
+            - Animal Rights
+            - Appropriations
+            - Arts & Humanities
+            - Banking & Financial Services
+            - Budget
+            - Business and Commerce
+            - Campaign/Election Reform
+            - Consumer Protection
+            - Children
+            - Defense and Military
+            - Economic Development
+            - Education
+            - Energy
+            - Environment
+            - Ethics Reform
+            - Foreign Relations
+            - Guns
+            - Healthcare
+            - Homeland Security
+            - Housing and Urban Affairs
+            - Immigration
+            - Insurance Problems
+            - Interior
+            - Intelligence
+            - Judiciary
+            - Labor
+            - Nutrition
+            - Postal Service
+            - Science and Innovation
+            - Seniors
+            - Social Issues
+            - Taxes
+            - Technology and Telecom
+            - Trade
+            - Transportation
+            - Veterans
+            - Women and Children
+    - click_on:
+        - value: Send
+          selector: input[type='submit']
+    - wait:
+        - value: 10
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
+  success:
+    headers:
+      status: 200
+    body:
+      contains: Thank you
