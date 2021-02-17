@@ -42,6 +42,18 @@ contact_form:
           value: $EMAIL
           required: true
     - select:
+        - name: "Prefix"
+          selector: "select[name='Prefix']"
+          value: $PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Miss
+            - Mr. and Mrs.
+            - Mx
+            - Dr.
         - name: "Topic"
           selector: "select[name='Topic']"
           value: $TOPIC
