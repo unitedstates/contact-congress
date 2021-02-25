@@ -3,112 +3,118 @@ contact_form:
   method: post
   action: /form_process/questions-and-comments-thank-you
   steps:
-    - visit: "http://www.grassley.senate.gov/constituents/questions-and-comments"
+    - visit: "https://www.grassley.senate.gov/contact/questions-and-comments"
     - fill_in:
-        - name: first
-          selector: "#first"
+        - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
+          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
           value: $NAME_FIRST
           required: true
-        - name: last
-          selector: "#last"
+        - name: input_B03E04BD-4040-F985-52CD-48E090E769DA
+          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
           value: $NAME_LAST
           required: true
-        - name: Email
-          selector: "#email"
+        - name: input_38364EBF-9892-191D-4674-9C787C8061C8
+          selector: "#input-38364EBF-9892-191D-4674-9C787C8061C8"
           value: $EMAIL
           required: true
-        - selector: "#email2"
+        - name: input_38364F09-E0F4-7035-990A-918C46D130CA
+          selector: "#input-38364F09-E0F4-7035-990A-918C46D130CA"
           value: $EMAIL
           required: true
-        - name: addr1
-          selector: "#addr1"
+        - name: input_B03E05F1-4040-F985-52CD-A580E72A7D41
+          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
           value: $ADDRESS_STREET
           required: true
-        - name: addr2
-          selector: "#addr2"
+        - name: input_B03E0518-4040-F985-52CD-CF33EF97DA3A
+          selector: "#input-B03E0518-4040-F985-52CD-CF33EF97DA3A"
           value: $ADDRESS_STREET_2
           required: false
-        - name: city
-          selector: "#city"
+        - name: input_B03E0595-4040-F985-52CD-C572364023FE
+          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#zip"
+        - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
+          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
-          selector: "#phone"
+        - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
+          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
           value: $PHONE
           required: false
-        - name: subject
-          selector: "#subject"
+        - name: input_38497382-DA67-A926-DB49-C4F4E5FD6E25
+          selector: "#input-38497382-DA67-A926-DB49-C4F4E5FD6E25"
           value: $SUBJECT
           required: true
-        - name: message
-          selector: "#message"
+        - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
+          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
           value: $MESSAGE
           required: true
     - select:
-        - name: prefix
-          selector: "#prefix"
+        - name: input_B03E0527-4040-F985-52CD-C0DD6BEF325F
+          selector: "#salutations"
           value: $NAME_PREFIX
-          required: true
+          required: false
           options:
             - Mr.
             - Mrs.
             - Ms.
             - Miss
             - Dr.
-            - Rev.
+            - Reverand
             - Mr. and Mrs.
             - Sister
-        - name: issue
-          selector: "#issue"
+            - Other
+        - name: input_3848097F-EF8E-5A7D-2BAF-37E8C2E2AC1C
+          selector: "#issues"
           value: $TOPIC
           required: true
           options:
-            "Adoption/Foster Care": AD
-            "Agriculture": AGR
-            Animal: ANI
-            Banking: BA
-            Campaign Finance: CF
-            Consumer Protection: CP
-            Defense: DEF
-            Education: EDU
-            Energy: ENE
-            Environmental: ENV
-            Federal Government Employees Operations: GOV
-            Health: HEA
-            Homeland Security: HOM
-            Housing: HOU
-            Indian Affairs: IA
-            Immigration: IMM
-            International Relations: INT
-            Job Creation - Economy: EC
-            Judicial Nominees: NM
-            Judiciary (civil): JUD
-            Judiciary (crime): CR
-            Labor: LAB
-            Life Issues: AB
-            Medicare and Medicaid: MED
-            Postal Service: PS
-            Science/NASA: SC
-            Social Security: SSEC
-            Taxes: TAX
-            Telecommunications: TEL
-            Transportation: TRA
-            Trade: TRD
-            Veterans: VET
-            Welfare: WEL
-            Other: OT
+            Abortion: Abortion
+            Adoption/Foster Care: Adoption/Foster Care
+            Agriculture: Agriculture
+            Animal: Animal
+            Banking: Banking
+            Campaign Finance: Campaign Finance
+            Constitution: Constitution
+            COVID-19: CV-COVID-19
+            Consumer Protection: Consumer Protection
+            Defense: Defense
+            Education: Education
+            Renewable Energy: Energy
+            Environmental: Environmental
+            Federal Government Employees Operations: Federal Government Employees Operations
+            Fiscal Issues: Fiscal Issues
+            Grant Support Letters: Grant Support Letters
+            Health: Health
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Indian Affairs: Indian Affairs
+            Immigration: Immigration
+            International Affairs: International Affairs
+            Job Creation - Economy: Job Creation - Economy
+            Judicial Nominees: Judicial Nominees
+            Judiciary (Civil): Judiciary (civil)
+            Judiciary (Crime): Judiciary (crime)
+            Labor: Labor
+            Medicare and Medicaid: Medicare and Medicaid
+            Postal Service: Postal Service
+            Science/NASA: NASA
+            Second Amendment: Second Amendment
+            Social Security: Social Security
+            Taxes: Taxes
+            Telecommunications: Telecommunications
+            Transportation: Transportation
+            Trade: Trade
+            Veterans: Veterans
+            Welfare: Welfare
+            Other: Other
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - click_on:
         - value: Send Message
-          selector: "form.fullform.validate input[type='submit'][value='Send Message']"
+          selector: "#B03E03FC-4040-F985-52CD-BCD7E00A8A6C button[type='submit']"
     - find:
-        - selector: "#page-title"
-          value: Thank You
+        - selector: "img[src='/imo/media/image/ChuckGrassleySig.png']"
   success:
     headers:
       status: 200
