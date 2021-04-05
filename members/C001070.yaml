@@ -3,51 +3,51 @@ contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "http://www.casey.senate.gov/contact/"
+    - visit: "https://www.casey.senate.gov/contact/share"
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: input_3C478E70-917F-5EED-EC38-62904ABEBE43
+          selector: "#input-3C478E70-917F-5EED-EC38-62904ABEBE43"
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#lname"
+        - name: input_3C478D05-B458-1E21-1C7C-EBFD03360285
+          selector: "#input-3C478D05-B458-1E21-1C7C-EBFD03360285"
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+        - name: input_3C478CDD-EE28-DFC3-6C5F-A7ADE035B1B1
+          selector: "#input-3C478CDD-EE28-DFC3-6C5F-A7ADE035B1B1"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
+        - name: input_3C478CB7-CCC7-2833-99B8-FBFB1CC49589
+          selector: "#input-3C478CB7-CCC7-2833-99B8-FBFB1CC49589"
           value: $ADDRESS_STREET_2
           required: false
-        - name: mailing_city
-          selector: "#mailing_city"
+        - name: input_3C479068-C653-C536-3360-0831F9676225
+          selector: "#input-3C479068-C653-C536-3360-0831F9676225"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
+        - name: input_3C4790AB-E218-6A59-2A8B-F6B3463A7AFD
+          selector: "#input-3C4790AB-E218-6A59-2A8B-F6B3463A7AFD"
           value: $ADDRESS_ZIP5
           required: true
-        - name: email
+        - name: input_3C479044-EF7B-D975-B886-997D3DBC08B7
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
+        - name: input_3C478E2B-F065-1BF5-8579-E13C9EE9E0D4
+          selector: "#input-3C478E2B-F065-1BF5-8579-E13C9EE9E0D4"
           value: $EMAIL
           required: true
-        - name: phone_number
-          selector: "#phone_number"
+        - name: input_3C478E08-E94C-CA5D-529A-D92A74912057
+          selector: "#input_3C478E08-E94C-CA5D-529A-D92A74912057"
           value: $PHONE
           required: false
-        - name: comments
-          selector: "#comments"
+        - name: input_3C478FD9-04CE-6840-A608-F510A7249134
+          selector: "#input-3C478FD9-04CE-6840-A608-F510A7249134"
           value: $MESSAGE
           required: true
     - select:
-        - name: salutation
-          selector: "#salutation"
+        - name: input_3C478E4E-B4A2-F91A-17F3-3862979355B9
+          selector: "#input-3C478E4E-B4A2-F91A-17F3-3862979355B9"
           value: $NAME_PREFIX
           required: true
           options:
@@ -57,12 +57,6 @@ contact_form:
             - Ms.
             - Mx.
             - Miss
-            - Mr. & Mrs.
-            - Mr. & Mr.
-            - Mrs. & Mrs.
-            - Mx. & Mr.
-            - Mx. & Mrs.
-            - Mx. & Mx.
             - Dr.
             - Hon.
             - Prof.
@@ -158,8 +152,8 @@ contact_form:
             - GEN
             - ADM
             - Gen
-        - name: mailing_state
-          selector: "#mailing_state"
+        - name: input_3C478FFE-DC62-6127-67BA-711C44F8CDF0
+          selector: "#input-3C478FFE-DC62-6127-67BA-711C44F8CDF0"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -223,133 +217,64 @@ contact_form:
             - WI
             - WV
             - WY
-        - name: mailing_county
-          selector: "#mailing_county"
-          value: $ADDRESS_COUNTY
-          required: true
-          options:
-            - Adams
-            - Allegheny
-            - Armstrong
-            - Beaver
-            - Bedford
-            - Berks
-            - Blair
-            - Bradford
-            - Bucks
-            - Butler
-            - Cambria
-            - Cameron
-            - Carbon
-            - Centre
-            - Chester
-            - Clarion
-            - Clearfield
-            - Clinton
-            - Columbia
-            - Crawford
-            - Cumberland
-            - Dauphin
-            - Delaware
-            - Elk
-            - Erie
-            - Fayette
-            - Forest
-            - Franklin
-            - Fulton
-            - Greene
-            - Huntingdon
-            - Indiana
-            - Jefferson
-            - Juniata
-            - Lackawanna
-            - Lancaster
-            - Lawrence
-            - Lebanon
-            - Lehigh
-            - Luzerne
-            - Lycoming
-            - McKean
-            - Mercer
-            - Mifflin
-            - Monroe
-            - Montgomery
-            - Montour
-            - Northampton
-            - Northumberland
-            - Perry
-            - Philadelphia
-            - Pike
-            - Potter
-            - Schuylkill
-            - Snyder
-            - Somerset
-            - Sullivan
-            - Susquehanna
-            - Tioga
-            - Union
-            - Venango
-            - Warren
-            - Washington
-            - Wayne
-            - Westmoreland
-            - Wyoming
-            - York
-        - name: subject
-          selector: "#subject"
+        - name: input_3C478C8F-9CED-FCC9-0426-93952AE9FBDF
+          selector: "#input-3C478C8F-9CED-FCC9-0426-93952AE9FBDF"
           value: $TOPIC
           required: true
           options:
-            Abortion and Family Planning: Abortion
-            Aging: Aging
-            Animals/Conservation/Farming/Forestry/Public Lands: Agriculture
+            Agriculture and Farming: Agriculture and Farming
+            Animal Welfare: Animal Welfare
             Arts and Humanities: Arts and Humanities
-            Banking: Banking
-            Budget/Census: Budget
-            Children and Youth: Children and Youth
-            Cloning and Stem Cell Research: Abortion
-            Defense and the Military: Armed Services
-            Disability: Disabilities
-            Domestic Violence: Domestic Violence
+            Abortion and Family Planning: Abortion
+            Banking & Financial Services: Banking and Financial Services
+            Budget: Budget
+            Campaigns & Elections: Campaigns & Elections
+            Children: Children
+            Civil Rights: Civil Rights
+            Civil Service: Civil Service
+            Climate & Environment: Climate & Environment
+            Consumer Protection: Consumer Protection
+            Criminal Justice: Criminal Justice
+            Defense & Military: Defense & Military
+            Disabilities & Accessibility: Disabilities & Accessibility
+            Economy: Economy
             Education: Education
-            Election and Campaign Finance Reform: Election and Campaign Finance Reform
             Energy: Energy
-            Environment: Environment
-            Ethics and Clean Government: Ethics and Clean Government
-            Crime and Criminal Justice/Firearms: Criminal Justice
-            Diplomatic Relations/Foreign Relations/Global Health and Poverty/Iraq/Middle East: Foreign Relations
+            Food & Nutrition: Food & Nutrition
+            Foreign Affairs: Foreign Affairs
+            Gun Violence: Gun Violence
             Health Care: Healthcare
-            Health Insurance: Health Insurance
-            Health IT (Electronic Medical Records): Health IT
             Homeland Security: Homeland Security
-            Housing and Homelessness: Housing and Homelessness
+            Housing: Housing
             Immigration: Immigration
-            Intelligence: Intelligence
+            Jobs & Labor: Jobs & Labor
             Judiciary: Judiciary
-            Labor and Jobs: Jobs and Labor
-            LGBT Issues: LGBT Issues
-            Medicaid: Medicaid
-            Medical Providers/Practitioners and Hospitals: Healthcare Workforce
-            Medicare: Medicare
-            Nutrition: Nutrition
-            Pensions: Pensions
-            Poverty and TANF: TANF Welfare Reform
-            Prescription Drugs: FDA/Drugs
-            Science and Technology: Science and Technology
+            Medicare & Medicaid: Medicare & Medicaid
+            Natural Disasters & Emergency Response: Natural Disasters & Emergency Response
+            Parks & Interior: Parks & Interior
+            Postal Service: Postal Service
+            Poverty: Poverty
+            Public Assistance Programs: Public Assistance Programs
+            Retirement & Pensions: Retirement & Pensions
+            Science & Research: Science & Research
+            Seniors & Long Term Care: Seniors & Long Term Care
             Small Business: Small Business
             Social Security: Social Security
             Taxes: Taxes
-            "Telecommunications (Internet, Television, etc.)": Telecommunications
+            Technology & Cybersecurity: Technology & Cybersecurity
+            Telecommunications & Utilities: Telecommunications & Utilities
             Trade: Trade
-            Transportation: Transportation
-            Veterans: Veterans
+            Transportation & Infrastructure: Transportation & Infrastructure
+            Veterans Affairs: Veterans Affairs
     - javascript:
-        - value: document.querySelector("#comments").value = document.querySelector("#comments").value.replace(/"/g, '');
+        - value: document.querySelector("#input-3C478FD9-04CE-6840-A608-F510A7249134").value = document.querySelector("#input-3C478FD9-04CE-6840-A608-F510A7249134").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Send
-          selector: "#side-search-btn"
+          selector: ".btn"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting me.
+      contains: Thank you
