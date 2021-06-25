@@ -4,6 +4,8 @@ contact_form:
   action: /contact
   steps:
     - visit: "https://www.schatz.senate.gov/contact/share-your-thoughts"
+    - wait:
+        - value: 2
     - find:
         - selector: "#firstName"
     - fill_in:
@@ -23,7 +25,7 @@ contact_form:
     - fill_in:
         - name: input_3019E679-D896-A600-EA99-2AFF6192202B
           selector: "#input-3019E679-D896-A600-EA99-2AFF6192202B"
-          value: $$NAME_LAST
+          value: $NAME_LAST
           required: true
         - name: input_3028D193-DFD8-C4F5-9EA9-18136ADF4E5D
           selector: "#input-3028D193-DFD8-C4F5-9EA9-18136ADF4E5D"
