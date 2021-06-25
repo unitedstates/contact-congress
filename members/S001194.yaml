@@ -3,73 +3,71 @@ contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "https://www.schatz.senate.gov/contact"
-    - select:
-        - name: actions
-          selector: "#actions"
-          value: opinion
-          required: true
-          options:
-            "--Select an Option--": select
-            Request help with a federal Agency: federal_agency
-            Schedule a Meeting with Senator Schatz or Staff: meeting
-            Request a Flag to be flown over the Capitol: flag
-            Request help with a tour of the D.C. area: tours
-            Apply for an Internship or Academy Nomination: students
-            Share your opinion or comments on bills or other issues: opinion
-    - wait:
-        - value: 3
+    - visit: "https://www.schatz.senate.gov/contact/share-your-thoughts"
+    - find:
+        - selector: "#firstName"
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: firstName
+          selector: "#firstName"
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#lname"
-          value: $NAME_LAST
+    - click_on:
+        - selector: "#initialSubmit"
+    - find: 
+        - selector: "#topicsSelect"
+    - select:
+        - name: topic
+          selector: "#topicsSelect"
+          value: opinion
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+    - fill_in:
+        - name: input_3019E679-D896-A600-EA99-2AFF6192202B
+          selector: "#input-3019E679-D896-A600-EA99-2AFF6192202B"
+          value: $$NAME_LAST
+          required: true
+        - name: input_3028D193-DFD8-C4F5-9EA9-18136ADF4E5D
+          selector: "#input-3028D193-DFD8-C4F5-9EA9-18136ADF4E5D"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_city
-          selector: "#mailing_city"
+        - name: input_3028D249-0458-5091-56F5-8F95636CE606
+          selector: "#input-3028D249-0458-5091-56F5-8F95636CE606"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
+        - name: input_3028D2F9-A2B6-52F8-2ACC-1060ED58A2B7
+          selector: "#input-3028D2F9-A2B6-52F8-2ACC-1060ED58A2B7"
           value: $ADDRESS_ZIP5
           required: true
-        - name: email_address
+        - name: input_303460C7-B721-12AF-15EA-2EDF7EAEA5A6
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
+        - name: input_3034610B-FC23-1553-E7D8-920486264617
+          selector: "#input-3034610B-FC23-1553-E7D8-920486264617"
           value: $EMAIL
           required: true
-        - name: message
-          selector: "#message"
+        - name: input_30403D9F-9D8B-E1D8-02F8-5D7C17B516E7
+          selector: "#input-30403D9F-9D8B-E1D8-02F8-5D7C17B516E7"
           value: $MESSAGE
           required: true
     - select:
-        - name: salutation
-          selector: "#salutation"
+        - name: input_3014F950-07E6-309C-4FC0-3FE72DF6CBFB
+          selector: "#input-3014F950-07E6-309C-4FC0-3FE72DF6CBFB"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Miss
-            - Dr.
-        - name: subject
-          selector: "#subject"
+            None: "null"
+            Mr.: Mr.
+            Ms.: Ms.
+            Mrs.: Mrs.
+            Miss: Miss   
+        - name: input_303B886D-E11C-0D7F-3CAC-DF75CA98AC0D
+          selector: "#input-303B886D-E11C-0D7F-3CAC-DF75CA98AC0D"
           value: $TOPIC
           required: true
           options:
             Agriculture: AGR
             Animal Welfare: ANIMAL
+            Antitrust: ANT
             Arts and Humanities: ART
             Aviation: AVIATION
             Banking: BANKS
@@ -91,6 +89,7 @@ contact_form:
             Health: HEA
             Help With a Federal Agency: CASEWORK
             Homeland Security: HOM
+            Housing: HOUSING
             Immigration: IMM
             Native Americans and Indigenous Peoples: INDIAN
             Intellectual Property: INT PROP
@@ -108,7 +107,6 @@ contact_form:
             Small Business and Economic Development: BUS
             Social Security: SSEC
             Tax: TAX
-            Territories and Insular Affairs: TER
             Tourism: TOURISM
             "Transportation & Infrastructure": TRA
             Trade: TRADE
@@ -116,19 +114,18 @@ contact_form:
             Welfare: WEL
             "Women's Issues": WOMEN
     - check:
-        - name: response
-          selector: "#response_y"
+        - name: input_304881BC-D73E-2C0B-0971-3FFDD099B014
+          selector: "#input-3048820B-A361-6166-70F4-2D74C1E208F4"
           value: "Y"
           required: true
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-30403D9F-9D8B-E1D8-02F8-5D7C17B516E7").value = document.querySelector("#input-30403D9F-9D8B-E1D8-02F8-5D7C17B516E7").value.replace(/"/g, '');
     - click_on:
-        - value: Send
-          selector: "#side-search-btn"
+          selector: ".btn"
     - wait:
         - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Your message has been received
