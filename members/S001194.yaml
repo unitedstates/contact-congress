@@ -4,8 +4,9 @@ contact_form:
   action: /contact
   steps:
     - visit: "https://www.schatz.senate.gov/contact/share-your-thoughts"
-    - wait:
-        - value: 2
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
+try{ element.parentNode.removeChild(element) } catch(err){} });"
     - find:
         - selector: "#firstName"
     - fill_in:
