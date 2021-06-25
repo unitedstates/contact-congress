@@ -113,8 +113,8 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
         - selector: "#breakthisform"
     - javascript:
         - value: document.querySelector("#input-30403D9F-9D8B-E1D8-02F8-5D7C17B516E7").value = document.querySelector("#input-30403D9F-9D8B-E1D8-02F8-5D7C17B516E7").value.replace(/"/g, '');
-    - click_on:
-          selector: ".controls button[type='submit']"
+    - javascript:
+        - value: document.querySelector('.btn').click();
     - wait:
         - value: 3
   success:
