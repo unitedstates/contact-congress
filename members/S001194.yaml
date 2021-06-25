@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "https://www.schatz.senate.gov/contact/share-your-thoughts"
+    - visit: "https://www.schatz.senate.gov/contact/share-your-thoughts/form"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
 try{ element.parentNode.removeChild(element) } catch(err){} });"
@@ -14,16 +14,6 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
           selector: "#firstName"
           value: $NAME_FIRST
           required: true
-    - click_on:
-        - selector: "#initialSubmit"
-    - find: 
-        - selector: "#topicsSelect"
-    - select:
-        - name: topic
-          selector: "#topicsSelect"
-          value: opinion
-          required: true
-    - fill_in:
         - name: input_3019E679-D896-A600-EA99-2AFF6192202B
           selector: "#input-3019E679-D896-A600-EA99-2AFF6192202B"
           value: $NAME_LAST
