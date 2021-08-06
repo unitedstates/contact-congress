@@ -3,60 +3,63 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.rickscott.senate.gov/contact_rick"
+    - visit: "https://www.rickscott.senate.gov/contact/contact"
     - fill_in:
-        - name: "first_name"
-          selector: "#edit-first-name"
+        - name: "field_62365EF3-160E-48BE-8C70-15452D4481B5"
+          selector: "#field_62365EF3-160E-48BE-8C70-15452D4481B5"
           value: $NAME_FIRST
           required: true
-        - name: "last_name"
-          selector: "#edit-last-name"
+        - name: "field_6CF97ED3-2504-4098-92DD-B39A205604EB"
+          selector: "#field_6CF97ED3-2504-4098-92DD-B39A205604EB"
           value: $NAME_LAST
           required: true
-        - name: "address_1"
-          selector: "#edit-address-1"
+        - name: "field_6CF97ED3-2504-4098-92DD-B39A205604EB"
+          selector: "#field_F9546BB3-8580-4460-ADCF-3C59E4FE0874"
           value: $ADDRESS_STREET
           required: true
-        - name: "city"
-          selector: "#edit-city"
+        - name: "field_FA2CCDE2-C4EA-4CF7-A19B-F76B94267D0B"
+          selector: "#field_FA2CCDE2-C4EA-4CF7-A19B-F76B94267D0B"
           value: $ADDRESS_CITY
           required: true
-        - name: "zip"
-          selector: "#edit-zip"
+        - name: "field_D533FA53-45D6-4C6A-A83D-B1A01A5DB8BC"
+          selector: "#field_D533FA53-45D6-4C6A-A83D-B1A01A5DB8BC"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "phone"
-          selector: "#edit-phone"
+        - name: "field_67B03094-1024-4AB1-AD85-F836E4A84BA9"
+          selector: "#field_67B03094-1024-4AB1-AD85-F836E4A84BA9"
           value: $PHONE
           required: false
-        - name: "email_address"
-          selector: "#edit-email-address"
+        - name: "field_58918E7A-F75C-4950-9075-2AD65D53271C"
+          selector: "#field_58918E7A-F75C-4950-9075-2AD65D53271C"
           value: $EMAIL
           required: true
-        - name: "subject"
-          selector: "#edit-subject"
+        - name: "field_BC3F61D8-EA04-4225-A7B0-A06CE6FFAFF4"
+          selector: "#field_BC3F61D8-EA04-4225-A7B0-A06CE6FFAFF4"
           value: $SUBJECT
           required: true
-        - name: "message"
-          selector: "#edit-message"
+        - name: "field_5BEA2CE5-75D6-4043-A93F-55A46FDDB702"
+          selector: "#field_5BEA2CE5-75D6-4043-A93F-55A46FDDB702field_3EA91422-F58D-4F36-9192-1ADA36E8F959"
           value: $MESSAGE
           required: true
     - select:
-        - name: "prefix"
-          selector: "#edit-prefix"
+        - name: "field_3EA91422-F58D-4F36-9192-1ADA36E8F959"
+          selector: "#field_3EA91422-F58D-4F36-9192-1ADA36E8F959"
           value: $NAME_PREFIX
           required: true
           options:
             "Mr.": "Mr."
             "Mrs.": "Mrs."
             "Ms.": "Ms."
-        - name: "state"
-          selector: "#edit-state"
+            "Mr. and Mrs.": "Mr. and Mrs."
+            "Dr.": "Dr."
+            "Dr. and Mrs.": "Dr. and Mrs."
+        - name: "field_3B6BEB7C-33EA-4386-9BEC-C9653F12F92C"
+          selector: "#field_3B6BEB7C-33EA-4386-9BEC-C9653F12F92C"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options: US_STATES
-        - name: "topic"
-          selector: "#edit-topic"
+        - name: "field_8D86B005-0005-4A1D-AD3F-A249748008EC"
+          selector: "#field_8D86B005-0005-4A1D-AD3F-A249748008EC"
           value: $TOPIC
           required: true
           options:
@@ -103,7 +106,7 @@ contact_form:
             "Welfare": "WELFARE"
     - click_on:
         - value: Send message
-          selector: "#edit-actions-submit"
+          selector: ".btn-primary"
   success:
     headers:
       status: 200
