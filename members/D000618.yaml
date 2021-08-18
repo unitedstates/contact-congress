@@ -23,49 +23,49 @@ contact_form:
     - wait:
         - value: 2
     - fill_in:
-        - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
-          selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
+        - name: input_AE758CDD-5056-A066-603D-1831CB9A4A9E
+          selector: "#input-AE758CDD-5056-A066-603D-1831CB9A4A9E"
           value: $NAME_FIRST
           required: true
-        - name: input_AB59F0ED-4040-F985-52CD-265D9CF13F5E
-          selector: "#input-AB59F0ED-4040-F985-52CD-265D9CF13F5E"
+        - name: input_AE758655-5056-A066-6057-3361795D91EB
+          selector: "#input-AE758655-5056-A066-6057-3361795D91EB"
           value: $NAME_LAST
           required: true
-        - name: input_AB5B6829-4040-F985-52CD-BF81DCC1F57D
-          selector: "#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D"
+        - name: input_AE758DCA-5056-A066-60CC-990C7C55F1AC
+          selector: "#input-AE758DCA-5056-A066-60CC-990C7C55F1AC"
           value: $ADDRESS_STREET
           required: true
-        - name: input_AB5B6875-4040-F985-52CD-909541CB4B6C
-          selector: "#input-AB5B6875-4040-F985-52CD-909541CB4B6C"
+        - name: input_AE758BF2-5056-A066-607D-4D415B590447
+          selector: "#input-AE758BF2-5056-A066-607D-4D415B590447"
           value: $ADDRESS_CITY
           required: true
-        - name: input_AB5B68B4-4040-F985-52CD-269A4338D057
-          selector: "#input-AB5B68B4-4040-F985-52CD-269A4338D057"
+        - name: input_AE7586A3-5056-A066-605F-0D3C3097CA37
+          selector: "#input-AE7586A3-5056-A066-605F-0D3C3097CA37"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_AB67BC2F-4040-F985-52CD-007A86DA4D47
-          selector: "#input-AB67BC2F-4040-F985-52CD-007A86DA4D47"
+        - name: input_AE7584AA-5056-A066-6024-D288D76D0401
+          selector: "#input-AE7584AA-5056-A066-6024-D288D76D0401"
           value: $PHONE
           required: true
-        - name: input_AB721CC4-4040-F985-52CD-76D1474A55F4
+        - name: input_AE7589AE-5056-A066-603D-12768C491EC7
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: input_AB721CE8-4040-F985-52CD-9E550E8A76AA
-          selector: "#input-AB721CE8-4040-F985-52CD-9E550E8A76AA"
+        - name: input_AE758C40-5056-A066-6013-8815A8D72C35
+          selector: "#input-AE758C40-5056-A066-6013-8815A8D72C35"
           value: $EMAIL
           required: true
-        - name: input_EAAFA915-5056-A066-608E-8F1B6EC37629
-          selector: "#input-EAAFA915-5056-A066-608E-8F1B6EC37629"
+        - name: input_AE758BA4-5056-A066-6020-7729DD673290
+          selector: "#input-AE758BA4-5056-A066-6020-7729DD673290"
           value: $SUBJECT
           required: true
-        - name: input_ADE64E73-4040-F985-52CD-A3AB6BCD2C51
-          selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
+        - name: input_AE758C8F-5056-A066-607B-3567A5253A20
+          selector: "#input-AE758C8F-5056-A066-607B-3567A5253A20"
           value: $MESSAGE
           required: true
     - select:
-        - name: input_AB59F08A-4040-F985-52CD-7633AA11C65E
-          selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
+        - name: input_AE7588C4-5056-A066-6063-84FF585691BB
+          selector: "#input-AE7588C4-5056-A066-6063-84FF585691BB"
           value: $NAME_PREFIX
           required: true
           options:
@@ -204,8 +204,8 @@ contact_form:
             - Navy - Seaman
             - Navy - Seaman Recruit
     - select:
-        - name: input_AB5B6894-4040-F985-52CD-DFC6D3C729DF
-          selector: "#input-AB5B6894-4040-F985-52CD-DFC6D3C729DF"
+        - name: input_AE758FA2-5056-A066-6027-E3B50BB716E9
+          selector: "#input-AE758FA2-5056-A066-6027-E3B50BB716E9"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -261,8 +261,8 @@ contact_form:
             - WI
             - WY
     - select:
-        - name: input_AB8156A0-4040-F985-52CD-49CE65770EFC
-          selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
+        - name: input_AE7586F1-5056-A066-606E-0499DE47DE96
+          selector: "#input-AE7586F1-5056-A066-606E-0499DE47DE96"
           value: $TOPIC
           required: true
           options:
@@ -312,7 +312,7 @@ contact_form:
             - Welfare
             - "Women's Issues"
     - javascript:
-        - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
+        - value: document.querySelector("#input-AE758C8F-5056-A066-607B-3567A5253A20").value = document.querySelector("#input-AE758C8F-5056-A066-607B-3567A5253A20").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn
