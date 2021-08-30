@@ -6,8 +6,6 @@ contact_form:
     - visit: "https://www.warnock.senate.gov/"
     - wait:
         - value: 3
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
     - fill_in:
         - name: "FirstName"
           selector: "input[name='FirstName']"
@@ -102,8 +100,6 @@ contact_form:
           selector: input[type='submit']
     - wait:
         - value: 10
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
   success:
     headers:
       status: 200
