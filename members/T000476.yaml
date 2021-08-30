@@ -281,13 +281,9 @@ contact_form:
             Transportation: TRA
             Veterans: VET
             Welfare: WEL
-        - name: field_252CE0AD-B92F-478D-9748-0243E629A83C
-          selector: "#field_252CE0AD-B92F-478D-9748-0243E629A83C"
-          value: "No"
-          required: true
-          options:
-            Yes: Yes
-            No: No
+    - click_on:
+        - value: "0"
+          selector: "#field_D44885AF-4F13-49FB-A1A7-1F19DDC104FA_1"
     - javascript:
         - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
