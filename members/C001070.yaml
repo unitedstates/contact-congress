@@ -7,6 +7,8 @@ contact_form:
     - wait:
         - value: 10
     - javascript:
+        - value: creativengine_forms_builder.init();
+    - javascript:
         - value: document.querySelector('form[id='3C478C0F-DD8A-6210-DD6C-53C75A1DBB45']').style.display = "block";
     - find:
         - selector: "form[id='3C478C0F-DD8A-6210-DD6C-53C75A1DBB45']"
