@@ -4,6 +4,8 @@ contact_form:
   action: "https://www.casey.senate.gov/contact/share"
   steps:
     - visit: "https://www.casey.senate.gov/contact/share"
+    - wait:
+        - value: 10
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
 try{ element.parentNode.removeChild(element) } catch(err){} });"
