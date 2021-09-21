@@ -130,6 +130,8 @@ contact_form:
     - click_on:
       - value: Submit
         selector: ".controls button[type='submit']"
+    - wait:
+        - value: 2
     - find:
       - selector: "h1"
         value: "Thank You"
