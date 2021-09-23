@@ -126,11 +126,9 @@ contact_form:
         value: "No"
         required: Yes
     - javascript:
-        - value: $('#newslettertoggle').val('Yes').trigger('change');
+        - value: var element = document.getElementById('newslettertoggle'); var evt = document.createEvent('HTMLEvents'); evt.initEvent('change', false, true); element.dispatchEvent(evt);
     - javascript:
         - value: document.querySelector("#input-B388B084-5056-A066-6090-BF0C2E9BE07B").value = document.querySelector("#input-B388B084-5056-A066-6090-BF0C2E9BE07B").value.replace(/"/g, '');
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - wait:
       - value: 2
     - click_on:
