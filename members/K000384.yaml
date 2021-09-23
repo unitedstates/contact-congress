@@ -128,7 +128,7 @@ contact_form:
     - javascript:
       - value: document.querySelector("#input-B388B084-5056-A066-6090-BF0C2E9BE07B").value = document.querySelector("#input-B388B084-5056-A066-6090-BF0C2E9BE07B").value.replace(/"/g, '');
     - javascript:
-      - value: "var event = new Event('change'); document.querySelector('#newslettertoggle').dispatchEvent(event);"
+      - value: "$('#newslettertoggle').val('No').trigger('change')"
     - click_on:
       - value: Submit
         selector: ".controls button[type='submit']"
