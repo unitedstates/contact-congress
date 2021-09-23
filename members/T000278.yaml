@@ -3,101 +3,113 @@ contact_form:
   method: post
   action: /#wpcf7-f8521-p45-o1
   steps:
-    - visit: "https://www.tuberville.senate.gov/"
-    - wait:
-        - value: 3
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
+    - visit: "https://www.tuberville.senate.gov/contact/contact-form/"  
     - fill_in:
-        - name: "FirstName"
-          selector: "input[name='FirstName']"
+        - name: "input_2"
+          selector: "input[name='input_2']"
           value: $NAME_FIRST
           required: true
-        - name: "LastName"
-          selector: "input[name='LastName']"
+        - name: "input_3"
+          selector: "input[name='input_3']"
           value: $NAME_LAST
           required: true
-        - name: "your-message"
-          selector: "textarea[name='your-message']"
+        - name: "input_12"
+          selector: "textarea[name='input_12']"
           value: $MESSAGE
           required: true
-        - name: "subject"
-          selector: "input[name='subject']"
+        - name: "input_11"
+          selector: "input[name='input_11']"
           value: $SUBJECT
           required: true
-        - name: "Address1"
-          selector: "input[name='Address1']"
+        - name: "input_6.1"
+          selector: "input[name='input_6.1']"
           value: $ADDRESS_STREET
           required: true
-        - name: "City"
-          selector: "input[name='City']"
+        - name: "input_6.3"
+          selector: "input[name='input_6.3']"
           value: $ADDRESS_CITY
           required: true
-        - name: "ZipCode"
-          selector: "input[name='ZipCode']"
+        - name: "input_6.4"
+          selector: "input[name='input_6.4']"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: "input_6.5"
+          selector: "input[name='input_6.5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "your-email"
-          selector: "input[name='your-email']"
+        - name: "input_9"
+          selector: "input[name='input_9']"
           value: $EMAIL
           required: true
-        - name: "Telephone"
-          selector: "input[name='Telephone']"
+        - name: "input_9_2"
+          selector: "input[name='input_9_2']"
+          value: $EMAIL
+          required: true
+        - name: "input_7"
+          selector: "input[name='input_7']"
           value: $PHONE
           required: true
     - select:
-        - name: "Topic"
-          selector: "select[name='Topic']"
+        - name: "input_17"
+          selector: "select[name='input_17']"
           value: $TOPIC
           required: true
           options:
-            - Agriculture
-            - Animal Rights
-            - Appropriations
-            - Arts & Humanities
-            - Banking & Financial Services
-            - Budget
-            - Business and Commerce
-            - Campaign/Election Reform
-            - Consumer Protection
-            - Children
-            - Defense and Military
-            - Economic Development
-            - Education
-            - Energy
-            - Environment
-            - Ethics Reform
-            - Foreign Relations
-            - Guns
-            - Healthcare
-            - Homeland Security
-            - Housing and Urban Affairs
-            - Immigration
-            - Insurance Problems
-            - Interior
-            - Intelligence
-            - Judiciary
-            - Labor
-            - Nutrition
-            - Postal Service
-            - Science and Innovation
-            - Seniors
-            - Social Issues
-            - Taxes
-            - Technology and Telecom
-            - Trade
-            - Transportation
-            - Veterans
-            - Women and Children
+            Agriculture: AG
+            Appropriations: APPROP
+            "Arts &amp; Humanities": ART
+            "Banking &amp; Finance": FY
+            Budget: BUD
+            "Business &amp; Commerce": CT
+            Campaign/Election Reform: CFR
+            Consumer Protection: CP
+            "Defense &amp; Military": DEF
+            Economic Development: ECON
+            Education: EDU
+            Energy: EN
+            Environment: EV
+            Ethics Reform: ET
+            Foreign Relations: FR
+            Guns: GUN
+            Healthcare: H
+            Homeland Security: HS
+            Housing and Urban Affairs: HUD
+            Immigration: IM
+            Interior: INT
+            Intelligence: IC
+            Judiciary: JD
+            Labor: L
+            Postal Service: POST
+            Science and Innovation: ST
+            Seniors: SEN
+            Social Issues: SI
+            Taxes: TAX
+            Technology and Telecom: TT
+            Trade: TRADE
+            Transportation: T
+            Veterans: VET
+            Women and Children: WOMEN
+        - name: "input_1"
+          selector: "select[name='input_1']"
+          value: $PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Professor
+            - Dr.
+            - Father
+            - Sister
+            - Rabbi
+            - Reverend
     - click_on:
-        - value: Send
-          selector: input[type='submit']
-    - wait:
-        - value: 10
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
+        - selector: "#choice_1_18_1"
+    - click_on:
+        - value: Submit
+          selector: gform_submit_button_1  
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Thank you for contacting me
