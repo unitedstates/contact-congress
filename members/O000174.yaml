@@ -1,49 +1,49 @@
 bioguide: O000174
 contact_form:
   method: post
-  action: "https://www.ossoff.senate.gov/contact/contact-form/"
+  action: "https://www.ossoff.senate.gov/contact-us/"
   steps:
-    - visit: "https://www.ossoff.senate.gov/contact/contact-form/"
+    - visit: "https://www.ossoff.senate.gov/contact-us/"
     - wait:
         - value: 3
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
+    - click_on:
+        - selector: "a[href='#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE4NzMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D']"
     - fill_in:
-        - name: "FirstName"
-          selector: "input[name='FirstName']"
+        - name: "form_fields[name]"
+          selector: "#form-field-name"
           value: $NAME_FIRST
           required: true
-        - name: "LastName"
-          selector: "input[name='LastName']"
+        - name: "form_fields[field_7910308]"
+          selector: "#form-field-field_7910308"
           value: $NAME_LAST
           required: true
-        - name: "your-message"
-          selector: "textarea[name='your-message']"
+        - name: "form_fields[message]"
+          selector: "#form-field-message"
           value: $MESSAGE
           required: true
         - name: "subject"
           selector: "input[name='subject']"
           value: $SUBJECT
           required: true
-        - name: "Address1"
-          selector: "input[name='Address1']"
+        - name: "form_fields[field_ecb1f5b]"
+          selector: "#form-field-field_ecb1f5b"
           value: $ADDRESS_STREET
           required: true
-        - name: "City"
-          selector: "input[name='City']"
+        - name: "form_fields[field_af5d787]"
+          selector: "#form-field-field_af5d787"
           value: $ADDRESS_CITY
           required: true
-        - name: "ZipCode"
-          selector: "input[name='ZipCode']"
+        - name: "form_fields[field_691e7ad]"
+          selector: "#form-field-field_691e7ad"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "your-email"
-          selector: "input[name='your-email']"
+        - name: "form_fields[email]"
+          selector: "#form-field-email"
           value: $EMAIL
           required: true
     - select:
-        - name: "Topic"
-          selector: "select[name='Topic']"
+        - name: "form_fields[field_8d7e709]"
+          selector: "#form-field-field_8d7e709"
           value: $TOPIC
           required: true
           options:
@@ -86,13 +86,10 @@ contact_form:
             - Veterans
             - Women and Children
     - click_on:
-        - value: Send
-          selector: input[type='submit']
+        - value: submit
+          selector: "button[type='submit'] .elementor-screen-only"
     - wait:
         - value: 10
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
-  success:
     headers:
       status: 200
     body:
