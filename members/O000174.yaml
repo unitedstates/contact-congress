@@ -6,8 +6,8 @@ contact_form:
     - visit: https://www.ossoff.senate.gov/contact-us/
     - wait:
         - value: 3
-    - click_on:
-        - selector: "a[href='#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE4NzMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D']"
+    - javascript:
+        - value: document.querySelector("a[href='#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE4NzMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D']").click();
     - fill_in:
         - name: "form_fields[name]"
           selector: "#form-field-name"
