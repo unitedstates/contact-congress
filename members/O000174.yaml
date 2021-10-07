@@ -1,9 +1,9 @@
 bioguide: O000174
 contact_form:
   method: post
-  action: "https://www.ossoff.senate.gov/contact-us/"
+  action: ""
   steps:
-    - visit: "https://www.ossoff.senate.gov/contact-us/"
+    - visit: https://www.ossoff.senate.gov/contact-us/
     - wait:
         - value: 3
     - click_on:
@@ -90,6 +90,7 @@ contact_form:
           selector: "button[type='submit'] .elementor-screen-only"
     - wait:
         - value: 10
+  success:
     headers:
       status: 200
     body:
