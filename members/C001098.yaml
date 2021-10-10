@@ -5,123 +5,175 @@ contact_form:
   steps:
     - visit: "https://www.cruz.senate.gov/?p=form&id=16"
     - fill_in:
-        - name: FIRST
-          selector: "#gen-fieldid-3"
+        - name: firstName
+          selector: "#firstName"
           value: $NAME_FIRST
           required: true
-        - name: LAST
-          selector: "#gen-fieldid-5"
+    - click_on:
+        - selector: "#initialSubmit"
+    - select:
+        - name: issue
+          selector: "#topicsSelect"
+          value: $TOPIC
+          options:
+            "Agriculture": "Agriculture"
+            "Animal Welfare": "Animal Welfare"
+            "Banking/Housing": "Banking/Housing"
+            "Budget/Appropriations": "Budget/Appropriations"
+            "Campaigns/Elections": "Campaigns/Elections"
+            "Constitutional/Civil Rights": "Constitutional/Civil Rights"
+            "Crime": "Crime"
+            "Defense/National Security": "Defense/National Security"
+            "Economy/Jobs": "Economy/Jobs"
+            "Education": "Education"
+            "Energy": "Energy"
+            "Environment": "Environment"
+            "Foreign Policy": "Foreign Policy"
+            "Government Reform/Regulations": "Government Reform/Regulations"
+            "Health Care": "Health Care"
+            "Hurricane Harvey": "Hurricane Harvey"
+            "Immigration": "Immigration"
+            "Judiciary": "Judiciary"
+            "Labor": "Labor"
+            "NASA": "NASA"
+            "Science/Technology": "Science/Technology"
+            "Second Amendment": "Second Amendment"
+            "Social Issues": "Social Issues"
+            "Social Security": "Social Security"
+            "Taxes": "Taxes"
+            "Telecommunications": "Telecommunications"
+            "Trade": "Trade"
+            "Transportation": "Transportation"
+            "Veterans": "Veterans"
+            "Welfare": "Welfare"
+        - name: input_B03E0527-4040-F985-52CD-C0DD6BEF325F
+          selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
+          value: $NAME_PREFIX
+          options:
+            "Mr.": "Mr."
+            "Ms.": "Ms."
+            "Mrs.": "Mrs."
+            "Mr. and Mrs.": "Mr. and Mrs."
+            "Miss": "Miss"
+            "Dr.": "Dr."
+            "Dr. and Mrs.": "Dr. and Mrs."
+            "Dr. and Mr.": "Dr. and Mr."
+            "Admiral": "Admiral"
+            "Captain": "Captain"
+            "Chief Master Sergeant": "Chief Master Sergeant "
+            "Colonel": "Colonel"
+            "Commander": "Commander"
+            "Corporal": "Corporal"
+            "Father": "Father"
+            "Lieutenant": "Lieutenant"
+            "Lieutenant Colonel": "Lieutenant Colonel"
+            "Master Sergeant": "Master Sergeant "
+            "Reverend": "Reverend"
+            "Sergeant": "Sergeant"
+            "Second Lieutenant": "Second Lieutenant"
+            "Sergeant Major": "Sergeant Major"
+            "Sister": "Sister"
+            "Technical Sergeant": "Technical Sergeant"
+    - fill_in:
+        - name: input_B03E04BD-4040-F985-52CD-48E090E769DA
+          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
           value: $NAME_LAST
           required: true
-        - name: ADDR1
-          selector: "#gen-fieldid-7"
+        - name: input_B03E05F1-4040-F985-52CD-A580E72A7D41
+          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
           value: $ADDRESS_STREET
           required: true
-        - name: CITY
-          selector: "#gen-fieldid-11"
+        - name: input_B03E0595-4040-F985-52CD-C572364023FE
+          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
           value: $ADDRESS_CITY
           required: true
-        - name: ZIP
-          selector: "#gen-fieldid-15"
+    - select:
+        - name: input_B03E0669-4040-F985-52CD-11B231195172
+          selector: "#input-B03E0669-4040-F985-52CD-11B231195172"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            "AL": "AL"
+            "AK": "AK"
+            "AR": "AR"
+            "AZ": "AZ"
+            "CA": "CA"
+            "CO": "CO"
+            "CT": "CT"
+            "DC": "DC"
+            "DE": "DE"
+            "FL": "FL"
+            "GA": "GA"
+            "HI": "HI"
+            "ID": "ID"
+            "IL": "IL"
+            "IN": "IN"
+            "IA": "IA"
+            "KS": "KS"
+            "KY": "KY"
+            "LA": "LA"
+            "ME": "ME"
+            "MD": "MD"
+            "MA": "MA"
+            "MI": "MI"
+            "MN": "MN"
+            "MS": "MS"
+            "MO": "MO"
+            "MT": "MT"
+            "NE": "NE"
+            "NV": "NV"
+            "NH": "NH"
+            "NJ": "NJ"
+            "NM": "NM"
+            "NY": "NY"
+            "NC": "NC"
+            "ND": "ND"
+            "OH": "OH"
+            "OK": "OK"
+            "OR": "OR"
+            "PA": "PA"
+            "RI": "RI"
+            "SC": "SC"
+            "SD": "SD"
+            "TN": "TN"
+            "TX": "TX"
+            "UT": "UT"
+            "VT": "VT"
+            "VA": "VA"
+            "WA": "WA"
+            "WV": "WV"
+            "WI": "WI"
+            "WY": "WY"
+    - fill_in:
+        - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
+          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: PHONE
-          selector: "#gen-fieldid-17"
+        - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
+          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
           value: $PHONE
           required: true
-        - name: EMAIL
-          selector: "#gen-fieldid-19"
+        - name: input_B03E0536-4040-F985-52CD-AFE12CDE8D31
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: SUBJECT
-          selector: "#gen-fieldid-23"
-          value: $SUBJECT
-          required: true
-        - name: MSG
-          selector: "#gen-fieldid-25"
+        - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
+          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
           value: $MESSAGE
           required: true
-    - select:
-        - name: PREFIX
-          selector: "#gen-fieldid-1"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            "-- please select a prefix --": "null"
-            Mr.: Mr.
-            Mrs.: Mrs.
-            Ms.: Ms.
-            Mr. and Mrs.: Mr. and Mrs.
-            Miss: Miss
-            Dr.: Dr.
-            Dr. and Mrs.: Dr. and Mrs.
-            Dr. and Mr.: Dr. and Mr.
-            Admiral: Admiral
-            Captain: Captain
-            Chief Master Sergeant: Chief Master Sergeant
-            Colonel: Colonel
-            Commander: Commander
-            Corporal: Corporal
-            Father: Father
-            Lieutenant: Lieutenant
-            Lieutenant Colonel: Lieutenant Colonel
-            Master Sergeant: Master Sergeant
-            Reverend: Reverend
-            Sergeant: Sergeant
-            Second Lieutenant: Second Lieutenant
-            Sergeant Major: Sergeant Major
-            Sister: Sister
-            Technical Sergeant: Technical Sergeant
-        - name: ISSUE
-          selector: "#gen-fieldid-21"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: AG
-            Animal Welfare: ANI
-            Banking/Housing: BAN
-            Budget/Appropriations: BUD
-            Campaigns/Elections: CAMP
-            Constitutional/Civil Rights: CONST
-            Crime: CRI
-            Defense/National Security: DEF
-            Economy/Jobs: ECON
-            Education: EDU
-            Energy: ENE
-            Environment: ENV
-            Foreign Policy: FOR
-            Government Reform/Regulations: GOV
-            Health Care: HEA
-            Hurricane Harvey: HARVEY
-            Immigration: IMM
-            Judiciary: JUD
-            Labor: LAB
-            NASA: NASA
-            Science and Technology: SCI
-            Second Amendment: 2A
-            Social Issues: SOC
-            Social Security: SSEC
-            Taxes: TAX
-            Telecommunications: TELEC
-            Trade: TRD
-            Transportation: TRA
-            Veterans: VET
-            Welfare: WLF
-    - check:
-        - name: respond
-          selector: "input[type='radio'][name='RSP'][value='Yes']"
-          value: "Yes"
     - javascript:
-        - value: document.querySelector("#gen-fieldid-25").value = document.querySelector("#gen-fieldid-25").value.replace(/"/g, '');
-    - javascript:
-        - value: "document.querySelector('#g-recaptcha-response').style.cssText = 'display: block; margin-top: 5em;';"
+        # request response == yes
+        - value: document.querySelector("#input-0BF46274-0E99-5C3F-9D89-BAAE65BCF06E").checked = true;
     - recaptcha:
         - value: true
     - click_on:
         - value: Submit
-          selector: "#block5 form input[name='formaction']"
+          selector: 'button[type="submit"].btn'
+    ## The success screen has no new text on it, rather it just has an image.  Doing a find on the image alt text here to see if it is present before declaring success by the text in the body.
+    - find:
+        - selector: 'img[alt="thank you from ted image"]'
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: "Write To Ted"
