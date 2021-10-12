@@ -14,6 +14,9 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
           required: true
     - click_on:
         - selector: "#initialSubmit"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
+try{ element.parentNode.removeChild(element) } catch(err){} });"    
     - select:
         - name: issue
           selector: "#topicsSelect"
