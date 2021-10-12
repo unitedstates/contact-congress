@@ -5,9 +5,10 @@ contact_form:
   steps:
     - visit: "https://www.cruz.senate.gov/contact/write-ted/form"
     - select:
-        - name: input_B03E04DB-4040-F985-52CD-18F332336F99
+        - name: "input_B03E04DB-4040-F985-52CD-18F332336F99"
           selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
           value: $TOPIC
+          required: true
           options:
             "Agriculture": "Agriculture"
             "Animal Welfare": "Animal Welfare"
@@ -42,6 +43,7 @@ contact_form:
         - name: input_B03E0527-4040-F985-52CD-C0DD6BEF325F
           selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
           value: $NAME_PREFIX
+          required: true
           options:
             "Mr.": "Mr."
             "Ms.": "Ms."
