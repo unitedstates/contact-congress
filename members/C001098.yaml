@@ -4,6 +4,9 @@ contact_form:
   action: "/?p=form&id=16"
   steps:
     - visit: "https://www.cruz.senate.gov/?p=form&id=16"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
+try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: firstName
           selector: "#firstName"
