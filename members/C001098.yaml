@@ -4,9 +4,6 @@ contact_form:
   action: "/?p=form&id=16"
   steps:
     - visit: "https://www.cruz.senate.gov/contact/write-ted/form"
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
-try{ element.parentNode.removeChild(element) } catch(err){} });"   
     - select:
         - name: input_B03E04DB-4040-F985-52CD-18F332336F99
           selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
