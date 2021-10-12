@@ -160,6 +160,8 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - javascript:
         # request response == yes
         - value: document.querySelector("#input-0BF46274-0E99-5C3F-9D89-BAAE65BCF06E").checked = true;
+    - javascript:
+        - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
         - value: true
     - click_on:
