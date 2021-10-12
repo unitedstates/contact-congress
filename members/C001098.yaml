@@ -3,23 +3,13 @@ contact_form:
   method: post
   action: "/?p=form&id=16"
   steps:
-    - visit: "https://www.cruz.senate.gov/?p=form&id=16"
+    - visit: "https://www.cruz.senate.gov/contact/write-ted/form"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
-try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - fill_in:
-        - name: firstName
-          selector: "#firstName"
-          value: $NAME_FIRST
-          required: true
-    - click_on:
-        - selector: "#initialSubmit"
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
-try{ element.parentNode.removeChild(element) } catch(err){} });"    
+try{ element.parentNode.removeChild(element) } catch(err){} });"   
     - select:
-        - name: issue
-          selector: "#topicsSelect"
+        - name: input_B03E04DB-4040-F985-52CD-18F332336F99
+          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
           value: $TOPIC
           options:
             "Agriculture": "Agriculture"
