@@ -229,10 +229,9 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
           value: $TOPIC
           required: true
           options:
-            Agriculture and Farming: Agriculture and Farming
+            Agriculture & Farming: Agriculture & Farming
             Animal Welfare: Animal Welfare
-            Arts and Humanities: Arts and Humanities
-            Abortion and Family Planning: Abortion
+            Arts & Humanities: Arts & Humanities
             Banking & Financial Services: Banking and Financial Services
             Budget: Budget
             Campaigns & Elections: Campaigns & Elections
@@ -275,6 +274,10 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
             Veterans Affairs: Veterans Affairs
     - javascript:
         - value: document.querySelector("#input-3C478FD9-04CE-6840-A608-F510A7249134").value = document.querySelector("#input-3C478FD9-04CE-6840-A608-F510A7249134").value.replace(/"/g, '');
+    - javascript:
+        - value: document.querySelector("#g-recaptcha-response").style.display = "block";
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Send
           selector: ".btn"
