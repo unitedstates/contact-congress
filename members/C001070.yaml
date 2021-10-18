@@ -4,6 +4,8 @@ contact_form:
   action: "https://www.casey.senate.gov/contact/share"
   steps:
     - visit: "https://www.casey.senate.gov/contact/share"
+    - javascript:
+        - value: creativengine_forms_builder.init();
     - wait:
         - value: 4
     - javascript:
