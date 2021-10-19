@@ -7,7 +7,7 @@ contact_form:
     - wait:
         - value: 4
     - javascript:
-      - value: creativengine_forms_builder.init();
+      - value: $.getScript('https://www.casey.senate.gov/scripts/form/Forms_Builder.js', function() { creativengine_forms_builder.init(); });
     - wait:
         - value: 4
     - find:
