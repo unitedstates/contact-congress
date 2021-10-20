@@ -14,6 +14,178 @@ contact_form:
         - value: 4
     - find:
         - selector: "#input-3C478E70-917F-5EED-EC38-62904ABEBE43"
+    - fill_in:
+        - name: input_3C478E70-917F-5EED-EC38-62904ABEBE43
+          selector: "#form-3C478C0F-DD8A-6210-DD6C-53C75A1DBB45 #input-3C478E70-917F-5EED-EC38-62904ABEBE43"
+          value: $NAME_FIRST
+          required: true
+        - name: input_3C478D05-B458-1E21-1C7C-EBFD03360285
+          selector: "#input-3C478D05-B458-1E21-1C7C-EBFD03360285"
+          value: $NAME_LAST
+          required: true
+        - name: input_3C478CDD-EE28-DFC3-6C5F-A7ADE035B1B1
+          selector: "#input-3C478CDD-EE28-DFC3-6C5F-A7ADE035B1B1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_3C478CB7-CCC7-2833-99B8-FBFB1CC49589
+          selector: "#input-3C478CB7-CCC7-2833-99B8-FBFB1CC49589"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: input_3C479068-C653-C536-3360-0831F9676225
+          selector: "#input-3C479068-C653-C536-3360-0831F9676225"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_3C4790AB-E218-6A59-2A8B-F6B3463A7AFD
+          selector: "#input-3C4790AB-E218-6A59-2A8B-F6B3463A7AFD"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_3C479044-EF7B-D975-B886-997D3DBC08B7
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: input_3C478E2B-F065-1BF5-8579-E13C9EE9E0D4
+          selector: "#input-3C478E2B-F065-1BF5-8579-E13C9EE9E0D4"
+          value: $EMAIL
+          required: true
+        - name: input_3C478E08-E94C-CA5D-529A-D92A74912057
+          selector: "#input-3C478E08-E94C-CA5D-529A-D92A74912057"
+          value: $PHONE
+          required: true
+        - name: input_3C478FD9-04CE-6840-A608-F510A7249134
+          selector: "#input-3C478FD9-04CE-6840-A608-F510A7249134"
+          value: $MESSAGE
+          required: true
+    - select:
+        - name: input_3C478E4E-B4A2-F91A-17F3-3862979355B9
+          selector: "#input-3C478E4E-B4A2-F91A-17F3-3862979355B9"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - None
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mx.
+        - name: input_3C478FFE-DC62-6127-67BA-711C44F8CDF0
+          selector: "#input-3C478FFE-DC62-6127-67BA-711C44F8CDF0"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - APO AA
+            - APO AE
+            - APO AP
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - DPO AA
+            - DPO AE
+            - DPO AP
+            - FL
+            - FPO AA
+            - FPO AE
+            - FPO AP
+            - GA
+            - HI
+            - IA
+            - ID
+            - IL
+            - IN
+            - KS
+            - KY
+            - LA
+            - MA
+            - MD
+            - ME
+            - MI
+            - MN
+            - MO
+            - MS
+            - MT
+            - NC
+            - ND
+            - NE
+            - NH
+            - NJ
+            - NM
+            - NV
+            - NY
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VA
+            - VT
+            - WA
+            - WI
+            - WV
+            - WY
+        - name: input_3C478C8F-9CED-FCC9-0426-93952AE9FBDF
+          selector: "#input-3C478C8F-9CED-FCC9-0426-93952AE9FBDF"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture & Farming: Agriculture & Farming
+            Animal Welfare: Animal Welfare
+            Arts & Humanities: Arts & Humanities
+            Banking & Financial Services: Banking and Financial Services
+            Budget: Budget
+            Campaigns & Elections: Campaigns & Elections
+            Children: Children
+            Civil Rights: Civil Rights
+            Civil Service: Civil Service
+            Climate & Environment: Climate & Environment
+            Consumer Protection: Consumer Protection
+            Criminal Justice: Criminal Justice
+            Defense & Military: Defense & Military
+            Disabilities & Accessibility: Disabilities & Accessibility
+            Economy: Economy
+            Education: Education
+            Energy: Energy
+            Food & Nutrition: Food & Nutrition
+            Foreign Affairs: Foreign Affairs
+            Gun Violence: Gun Violence
+            Health Care: Health Care
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Jobs & Labor: Jobs & Labor
+            Judiciary: Judiciary
+            Medicare & Medicaid: Medicare & Medicaid
+            Natural Disasters & Emergency Response: Natural Disasters & Emergency Response
+            Parks & Interior: Parks & Interior
+            Postal Service: Postal Service
+            Poverty: Poverty
+            Public Assistance Programs: Public Assistance Programs
+            Retirement & Pensions: Retirement & Pensions
+            Science & Research: Science & Research
+            Seniors & Long Term Care: Seniors & Long Term Care
+            Small Business: Small Business
+            Social Security: Social Security
+            Taxes: Taxes
+            Technology & Cybersecurity: Technology & Cybersecurity
+            Telecommunications & Utilities: Telecommunications & Utilities
+            Trade: Trade
+            Transportation & Infrastructure: Transportation & Infrastructure
+            Veterans Affairs: Veterans Affairs
+    - javascript:
+        - value: document.querySelector("#input-3C478FD9-04CE-6840-A608-F510A7249134").value = document.querySelector("#input-3C478FD9-04CE-6840-A608-F510A7249134").value.replace(/"/g, '');
+    - click_on:
+        - value: Send
+          selector: ".btn"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
