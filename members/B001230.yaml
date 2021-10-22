@@ -1,11 +1,13 @@
 bioguide: B001230
 contact_form:
   method: post
-  action: /feedback/thank-you
+  action: "https://www.baldwin.senate.gov/contact/contact-tammy"
   steps:
     - visit: "https://www.baldwin.senate.gov/contact/contact-tammy"
+    - wait:
+        - value: 5
     - javascript:
-        - value: document.querySelector("#form-B03E03FC-4040-F985-52CD-BCD7E00A8A6C").style.display = "block";
+        - value: document.querySelector(".show-form").style.display = "block";
     - fill_in:
         - name: input_8F37221E-909E-5E41-E8ED-6D7933D8F31F
           selector: "#yourname"
