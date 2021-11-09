@@ -1,59 +1,57 @@
 bioguide: W000790
 contact_form:
   method: post
-  action: /#wpcf7-f8521-p45-o1
+  action: "https://www.warnock.senate.gov/contact/contact-form/"
   steps:
-    - visit: "https://www.warnock.senate.gov/"
+    - visit: "https://www.warnock.senate.gov/contact/contact-form/"
     - wait:
         - value: 3
     - fill_in:
-        - name: "FirstName"
-          selector: "input[name='FirstName']"
+        - name: "input_2"
+          selector: "#input_1_2"
           value: $NAME_FIRST
           required: true
-        - name: "LastName"
-          selector: "input[name='LastName']"
+        - name: "input_3"
+          selector: "#input_1_3"
           value: $NAME_LAST
           required: true
-        - name: "your-message"
-          selector: "textarea[name='your-message']"
+        - name: "input_12"
+          selector: "#input_1_12"
           value: $MESSAGE
           required: true
-        - name: "subject"
-          selector: "input[name='subject']"
+        - name: "input_11"
+          selector: "#input_1_11"
           value: $SUBJECT
           required: true
-        - name: "Address1"
-          selector: "input[name='Address1']"
+        - name: "input_6.1"
+          selector: "#input_1_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: "City"
-          selector: "input[name='City']"
+        - name: "input_6.3"
+          selector: "#input_1_6_3"
           value: $ADDRESS_CITY
           required: true
-        - name: "ZipCode"
-          selector: "input[name='ZipCode']"
+        - name: "input_6.5"
+          selector: "#input_1_6_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "your-email"
-          selector: "input[name='your-email']"
+        - name: "input_9"
+          selector: "#input_1_9"
           value: $EMAIL
           required: true
     - select:
-        - name: "Prefix"
-          selector: "select[name='Prefix']"
+        - name: "input_1"
+          selector: "#input_1_1"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Ms.
             - Mrs.
-            - Miss
-            - Mr. and Mrs.
-            - Mx
+            - Professor
             - Dr.
-        - name: "Topic"
-          selector: "select[name='Topic']"
+        - name: "input_17"
+          selector: "#input_1_17"
           value: $TOPIC
           required: true
           options:
@@ -96,8 +94,8 @@ contact_form:
             - Veterans
             - Women and Children
     - click_on:
-        - value: Send
-          selector: input[type='submit']
+        - value: Submit
+          selector: "#gform_submit_button_1"
     - wait:
         - value: 10
   success:
