@@ -1,59 +1,55 @@
 bioguide: B001135
 contact_form:
   method: post
-  action: /contact/email
+  action: "https://www.burr.senate.gov/email-me"
   steps:
-    - visit: "https://www.burr.senate.gov/contact/email"
+    - visit: "https://www.burr.senate.gov/email-me"
     - find:
-        - selector: "#input-075D915C-5056-A066-6016-31581A939FE3"
+        - selector: "#field_A6AF5AA4-1B0B-451C-BB78-3128F28C81FE"
     - fill_in:
-        - name: "input_075D915C-5056-A066-6016-31581A939FE3"
-          selector: "#input-075D915C-5056-A066-6016-31581A939FE3"
+        - name: "field_337D65F9-2305-497D-86DB-89F2726C0BC2"
+          selector: "#field_337D65F9-2305-497D-86DB-89F2726C0BC2"
           value: $NAME_FIRST
           required: true
-        - name: "input_075DA374-5056-A066-607C-9E15F05BFB27"
-          selector: "#input-075DA374-5056-A066-607C-9E15F05BFB27"
+        - name: "field_C6A2F1CD-C757-4C8B-991C-32534C1E2D0F"
+          selector: "#field_C6A2F1CD-C757-4C8B-991C-32534C1E2D0F"
           value: $NAME_LAST
           required: true
-        - name: "input_F06C1936-5056-A066-6007-CAD258151191"
-          selector: "#phone-number-field"
+        - name: "field_E45B08FC-7028-49E0-A1A8-5931665251E8"
+          selector: "#field_E45B08FC-7028-49E0-A1A8-5931665251E8"
           value: $PHONE
           required: true  
-        - name: "input_0770C9EF-5056-A066-6053-358F74525EF6"
-          selector: "#input-0770C9EF-5056-A066-6053-358F74525EF6"
+        - name: "field_E9E72937-B1A0-4898-A8D4-ED39E1532114"
+          selector: "#field_E9E72937-B1A0-4898-A8D4-ED39E1532114"
           value: $ADDRESS_STREET
           required: true
-        - name: "input_077194F7-5056-A066-60B0-6A8E22439BD3"
-          selector: "#input-077194F7-5056-A066-60B0-6A8E22439BD3"
+        - name: "field_4836FC7D-6760-41D6-BC5F-365A1DC85563"
+          selector: "#field_4836FC7D-6760-41D6-BC5F-365A1DC85563"
           value: $ADDRESS_CITY
           required: true
-        - name: "input_07723B03-5056-A066-603E-BE90CECEC5C6"
-          selector: "#input-07723B03-5056-A066-603E-BE90CECEC5C6"
+        - name: "field_615B4E29-3923-40C9-A5E1-BDC974E0D925"
+          selector: "#field_615B4E29-3923-40C9-A5E1-BDC974E0D925"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "input_F06C1936-5056-A066-6007-CAD258151191"
-          selector: "#phone-number-field"
-          value: $PHONE
-          required: true
-        - name: "input_0773C450-5056-A066-608D-90E65F177CF7"
-          selector: "#email"
+        - name: "field_1A4406E5-8B8D-495E-ABB9-576BD34F8CF5"
+          selector: "#field_1A4406E5-8B8D-495E-ABB9-576BD34F8CF5"
           value: $EMAIL
           required: true
-        - name: "input_07742BA1-5056-A066-60F2-B34A7A496C32"
-          selector: "#input-07742BA1-5056-A066-60F2-B34A7A496C32"
-          value: $EMAIL
-          required: true
-        - name: "input_07B2E314-5056-A066-6033-904406BB247F"
-          selector: "#input-07B2E314-5056-A066-6033-904406BB247F"
+        - name: "field_40093F85-20B3-45F8-9F5E-EA1F36FCA8A8"
+          selector: "#field_40093F85-20B3-45F8-9F5E-EA1F36FCA8A8"
           value: $SUBJECT
           required: true
-        - name: "input_07CC032E-5056-A066-60F8-AA92CEE89C5C"
-          selector: "#commentbox"
+        - name: "field_17612D93-6520-4E0F-A915-F7C8CA905118"
+          selector: "#field_17612D93-6520-4E0F-A915-F7C8CA905118"
           value: $MESSAGE
           required: true
+        - name: "field_1E13AB6D-7618-4FE2-A6BC-819890368368"
+          selector: "#field_1E13AB6D-7618-4FE2-A6BC-819890368368"
+          value: $ADDRESS_COUNTY
+          required: true
     - select:
-        - name: "input_075D6359-5056-A066-6038-1D27952AC577"
-          selector: "#prefixfocus"
+        - name: "field_A6AF5AA4-1B0B-451C-BB78-3128F28C81FE"
+          selector: "#field_A6AF5AA4-1B0B-451C-BB78-3128F28C81FE"
           value: $NAME_PREFIX
           required: true
           options:
@@ -191,8 +187,8 @@ contact_form:
             Navy - Seaman Apprentice: Seaman Apprentice
             Navy - Seaman: Seaman
             Navy - Seaman Recruit: Seaman Recruit
-        - name: "input_078B9084-5056-A066-60E8-D01B6583B863"
-          selector: "#input-078B9084-5056-A066-60E8-D01B6583B863"
+        - name: "field_E22B28D5-4E9B-425A-BB44-3328C130C60E"
+          selector: "#field_E22B28D5-4E9B-425A-BB44-3328C130C60E"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -256,164 +252,61 @@ contact_form:
             WV: WV
             WI: WI
             WY: WY
-        - name: "input_07B1B29B-5056-A066-605E-4F6E6A832654"
-          selector: "#input-07B1B29B-5056-A066-605E-4F6E6A832654"
+        - name: "field_8AC9A7FA-203A-43EF-A706-F9B94506824D"
+          selector: "#field_8AC9A7FA-203A-43EF-A706-F9B94506824D"
           value: $TOPIC
           required: true
           options:
-            Abortion: ABORTION
-            Afghanistan: FOREIGN-AFFAIRS
-            Agriculture: AGRICULTURE
-            Animal Welfare: OTHER
-            Appropriations: BUDGET
-            Budget: BUDGET
-            Business: COMMERCE
-            Campaign Finance Reform: CAMPAIGN-FINANCE
-            Children: CHILDREN-FAMILY-ADOPTION
-            Civil Rights: CIVIL-RIGHTS
-            Crime: CRIME-AND-DRUGS
-            Death Penalty: JUDICIARY
-            Defense: HOMELAND-SECURITY
-            Education: EDUCATION
-            Election Reform: ELECTIONS
-            Energy: ENERGY
-            Environment: ENVIRONMENT
-            FEMA: HOMELAND-SECURITY
-            Federal Employees: FEDERAL-WORKERS
-            Foreign Affairs: FOREIGN-AFFAIRS
-            Gas and Oil Prices: ECONOMY
-            Guns: GUNS
-            Hate Crimes: JUDICIARY
-            Health: HEALTH
-            Homeland Security: HOMELAND-SECURITY
-            Housing: HOUSING
-            Human Rights: OTHER
-            Immigration: IMMIGRATION
-            Iraq: FOREIGN-AFFAIRS
-            Judiciary: JUDICARY
-            Labor: LABOR
-            Medicaid: HEALTH
-            Other: OTHER
-            Pensions: LABOR
-            Postal Service: POSTAL-SERVICE
-            Seniors: AGING-AND-SENIORS
-            Social Security: SOCIAL-SECURITY
-            Space: SCIENCE
-            Taxes: TAX
-            Telecommunications: TELECOM
-            Trade: TRADE
-            Transportation: TRANSPORTATION
-            Veterans: VETERANS
-        - name: "input_E649CFAD-5056-A066-604A-057270612948"
-          selector: "#input-E649CFAD-5056-A066-604A-057270612948"
-          value: $ADDRESS_COUNTY
-          required: true
-          options:
-            - Alamance
-            - Alexander
-            - Alleghany
-            - Anson
-            - Ashe
-            - Avery
-            - Beaufort
-            - Bertie
-            - Bladen
-            - Brunswick
-            - Buncombe
-            - Burke
-            - Cabarrus
-            - Caldwell
-            - Camden
-            - Carteret
-            - Caswell
-            - Catawba
-            - Chatham
-            - Cherokee
-            - Chowan
-            - Clay
-            - Cleveland
-            - Columbus
-            - Craven
-            - Cumberland
-            - Currituck
-            - Dare
-            - Davidson
-            - Davie
-            - Duplin
-            - Durham
-            - Edgecombe
-            - Forsyth
-            - Franklin
-            - Gaston
-            - Gates
-            - Graham
-            - Granville
-            - Greene
-            - Guilford
-            - Halifax
-            - Harnett
-            - Haywood
-            - Henderson
-            - Hertford
-            - Hoke
-            - Hyde
-            - Iredell
-            - Jackson
-            - Johnston
-            - Jones
-            - Lee
-            - Lenoir
-            - Lincoln
-            - McDowell
-            - Macon
-            - Madison
-            - Martin
-            - Mecklenburg
-            - Mitchell
-            - Montgomery
-            - Moore
-            - Nash
-            - New Hanover
-            - Northampton
-            - Onslow
-            - Orange
-            - Pamlico
-            - Pasquotank
-            - Pender
-            - Perquimans
-            - Person
-            - Pitt
-            - Polk
-            - Randolph
-            - Richmond
-            - Robeson
-            - Rockigham
-            - Rowan
-            - Rutherford
-            - Sampson
-            - Scotland
-            - Stanly
-            - Stokes
-            - Surry
-            - Swain
-            - Translyvania
-            - Tyrrell
-            - Union
-            - Vance
-            - Wake
-            - Warren
-            - Washington
-            - Watauga
-            - Wayne
-            - Wilkes
-            - Wilson
-            - Yadkin
-            - Yancey
+            Abortion: abortion
+            Afghanistan: afghanistan
+            Agriculture: agriculture
+            Animal Welfare: animal-welfare
+            Appropriations: appropriations
+            Budget: budgets
+            Business: business
+            Campaign Finance Reform: campaign-finance-reform
+            Children: children
+            Civil Rights: civil-rights
+            Crime: crime
+            Death Penalty: death-penalty
+            Defense: defense
+            Education: education
+            Election Reform: election-reform
+            Energy: energy
+            Environment: environment
+            FEMA: fema
+            Federal Employees: federal-employees
+            Foreign Affairs: foreign-affairs
+            Gas and Oil Prices: gass-and-oil-prices
+            Guns: guns
+            Hate Crimes: hate-crimes
+            Health: health
+            Homeland Security: homeland-security
+            Housing: housing 
+            Human Rights: human-rights
+            Immigration: immigration
+            Iraq: iraq
+            Judiciary: judiciary
+            Labor: labor
+            Medicaid: medicaid
+            Other: other
+            Pensions: pensions
+            Postal Service: postal-services
+            Seniors: seniors
+            Social Security: social-security
+            Space: space
+            Taxes: taxes
+            Telecommunications: telecommunications
+            Trade: trade
+            Transportation: transportation
+            Veterans: veterans
     - javascript:
-        - value: document.querySelector("#commentbox").value = document.querySelector("#commentbox").value.replace(/"/g, '');
+        - value: document.querySelector("#field_17612D93-6520-4E0F-A915-F7C8CA905118").value = document.querySelector("#field_17612D93-6520-4E0F-A915-F7C8CA905118").value.replace(/"/g, '');
+    - recpatcha:
+        - value: true
     - click_on:
         - value: Submit
-          selector: "input.btn"
+          selector: ".btn[value='Submit']"
     - find:
         - selector: "h2"
           value: "Thank You"
