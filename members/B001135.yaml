@@ -307,9 +307,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: ".btn[value='Submit']"
-    - click_on:
-        - value: Submit
-          selector: ".btn[value='Submit']"      
+    - javascript:
+        - value: "document.querySelector('.btn[value="Submit"]').click();"
     - find:
         - selector: "h2"
           value: "Thank You"
