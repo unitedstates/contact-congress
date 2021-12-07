@@ -6,11 +6,11 @@ contact_form:
     - visit: "https://www.murray.senate.gov/write-to-patty/"
     - fill_in:
         - name: form_fields[name]
-          selector: "#form-field-name"
+          selector: ".elementor-labels-above input[name='form_fields[name]']"
           value: $NAME_FIRST
           required: true
         - name: form_fields[field_d603809]
-          selector: "#form-field-field_d603809"
+          selector: ".elementor-labels-above input[name='form_fields[field_d603809]']"
           value: $NAME_LAST
           required: true
         - name: form_fields[field_de5a0c7]
