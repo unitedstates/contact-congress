@@ -3,126 +3,99 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.murray.senate.gov/public/index.cfm/contactme"
-    - find:
-        - selector: '#field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5'
+    - visit: "https://www.murray.senate.gov/write-to-patty/"
     - fill_in:
-        - name: field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5
-          selector: "#field_D63BDCDE-A04C-4ECC-A644-F224BE0854F5"
+        - name: form_fields[name]
+          selector: "#form-field-name"
           value: $NAME_FIRST
           required: true
-        - name: field_ADE71885-03E5-482F-A2A9-D7A3436BBD32
-          selector: "#field_ADE71885-03E5-482F-A2A9-D7A3436BBD32"
+        - name: form_fields[field_d603809]
+          selector: "#form-field-field_d603809"
           value: $NAME_LAST
           required: true
-        - name: field_CC02A0B7-1663-41B2-8B89-AB05498D3EED
-          selector: "#field_CC02A0B7-1663-41B2-8B89-AB05498D3EED"
+        - name: form_fields[field_de5a0c7]
+          selector: "#form-field-field_de5a0c7"
           value: $ADDRESS_STREET
           required: true
-        - name: field_5A2C4A60-5CA8-476B-B29B-414A7F6934FE
-          selector: "#field_5A2C4A60-5CA8-476B-B29B-414A7F6934FE"
+        - name: form_fields[field_b2df5f1]
+          selector: "#form-field-field_b2df5f1"
           value: $ADDRESS_CITY
           required: true
-        - name: field_53D3B15C-3710-44B7-B6CD-731DAB06BC92
-          selector: "#field_53D3B15C-3710-44B7-B6CD-731DAB06BC92"
+        - name: form_fields[field_73f69cb]
+          selector: "#form-field-field_73f69cb"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_654CAEAA-E603-4A35-8210-B2DAC7D95E51
-          selector: "#field_654CAEAA-E603-4A35-8210-B2DAC7D95E51"
+        - name: form_fields[email]
+          selector: "#form-field-email"
           value: $EMAIL
           required: true
-        - name: field_250A9CB8-13DC-40F7-94FB-D301593DB4C9
-          selector: "#field_250A9CB8-13DC-40F7-94FB-D301593DB4C9"
+        - name: form_fields[field_b636f09]
+          selector: "#form-field-field_b636f09"
+          value: $PHONE
+          required: true   
+        - name: form_fields[field_af46b74]
+          selector: "#form-field-field_af46b74"
           value: $SUBJECT
           required: true
-        - name: field_5722C424-8601-4ABF-A8D1-AC11B9C45F87
-          selector: "#field_5722C424-8601-4ABF-A8D1-AC11B9C45F87"
+        - name: form_fields[field_617530f]
+          selector: "#form-field-field_617530f"
           value: $MESSAGE
           required: true
           options:
             max_length: 5000
     - select:
-        - name: field_B104BE44-176D-4CD9-9FDA-DBCBAEB5AAF9
-          selector: "#field_B104BE44-176D-4CD9-9FDA-DBCBAEB5AAF9"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mr.
-            - Dr. and Mrs.
-            - Mr. and Dr.
-            - Mr. and Mr.
-            - Mrs. and Mrs.
-            - Reverend
-            - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
-        - name: field_58409530-3430-4481-9B78-4434BD9620EB
-          selector: "#field_58409530-3430-4481-9B78-4434BD9620EB"
+        - name: form_fields[field_df13d3f]
+          selector: "form-field-field_df13d3f"
           value: $TOPIC
           required: true
           options:
-            "---------------------------------------------------": NRN
-            Economic Stimulus/Financial Services: FIN
-            Mortgage Assistance: MORTGAGE HELP
-            Abortion: ABO
-            Aging: AGI
-            Agriculture: AGRI
-            Animal Welfare: ANWE
-            Arts: ARTS
-            Banking: BANK
-            Budget: BUD
-            Children and Families: CHLDFAM
-            Citizenship and Immigration: IMM
-            Request Assistance - Citizenship and Immigration: RAIC
-            Climate Change: CLIMATE
-            Judiciary: JUD
-            Defense: DEF
-            Education: EDU
-            Elections and Congressional Affairs: ELCON
-            Energy: ENER
-            Environment and Natural Resources: ENV
-            Firearms: GUN
-            Fisheries: FISH
-            Foreign Policy: FOR
-            Health Care: HECA
-            Homeland Security/Terrorism: HOMELAND
-            Housing: HOU
-            Request Assistance - Housing: RAH
-            Iraq: IRAQ
-            Labor and Workforce: LABOR
-            Law Enforcement: LAWE
-            LGBT: GAYRTS
-            Medicaid: MEDICAID
-            Medicare: MEDICARE
-            Native Americans: NATAMER
-            Postal Affairs: POSTAL
-            Request Assistance - General: RAG
-            Social Security: SOCSEC
-            Space: SPASCI
-            Small Business: SMBUS
-            Taxes: TAX
-            Technology and Telecommunications: TNT
-            Trade: TRADE
-            Transportation: TRANS
-            Veterans: VETS
-            Request Assistance - Veterans: RAV
-            Welfare: WELF
-            Women: WOMENS
-            Civil Rights: Civil Rights
+            - Abortion
+            - Aging
+            - Agriculture
+            - Animal Welfare
+            - Arts
+            - Banking and Financial Services
+            - Children and Families
+            - Citizenship and Immigration
+            - Request Assistance – Citizenship and Immigration
+            - Civil Rights
+            - Climate
+            - Judiciary
+            - Defense
+            - Education
+            - Elections and Voting Rights
+            - Energy
+            - Environment and Natural Resources
+            - Firearms
+            - Fisheries
+            - Foreign policy
+            - Health care
+            - Homeland Security and Terrorism
+            - Housing
+            - Request Assistance – Housing
+            - Labor and Workforce
+            - Law Enforcement
+            - LGBTQIA+
+            - Medicaid
+            - Medicare
+            - Postal Service
+            - Social Security
+            - Space
+            - Small Businesses
+            - Taxes
+            - Technology and Telecommunications
+            - Trade
+            - Transportation
+            - Tribes
+            - Veterans
+            - Request Assistance – Veterans
+            - Women
     - javascript:
-        - value: document.querySelector("#field_5722C424-8601-4ABF-A8D1-AC11B9C45F87").value = document.querySelector("#field_5722C424-8601-4ABF-A8D1-AC11B9C45F87").value.replace(/"/g, '');
+        - value: document.querySelector("#form-field-field_617530f").value = document.querySelector("#form-field-field_617530f").value.replace(/"/g, '');
     - click_on:
-        - value: Submit
-          selector: div.buttonHolder input
+        - selector: .elementor-labels-above button[type='submit']
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: The form was sent
