@@ -97,6 +97,9 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
         - value: document.querySelector("#form-field-field_617530f").value = document.querySelector("#form-field-field_617530f").value.replace(/"/g, '');
     - click_on:
         - selector: .elementor-labels-above button[type='submit']
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
+    try{ element.parentNode.removeChild(element) } catch(err){} });"    
   success:
     headers:
       status: 200
