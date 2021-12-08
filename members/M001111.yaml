@@ -4,6 +4,9 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.murray.senate.gov/write-to-patty/"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
+try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: form_fields[name]
           selector: ".elementor-labels-above input[name='form_fields[name]']"
