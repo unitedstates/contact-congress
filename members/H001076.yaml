@@ -6,6 +6,8 @@ contact_form:
     - visit: "https://www.hassan.senate.gov/contact/email"
     - javascript:
         - value: "document.getElementById('newsletterModal').remove()"
+    - wait:
+        - value: 5
     - javascript:
         - value: document.querySelector("#form-B03E03FC-4040-F985-52CD-BCD7E00A8A6C").style.display = "block";  
     - find:
