@@ -305,13 +305,13 @@ contact_form:
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
 try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - recpatcha:
+    - recaptcha:
         - value: true
     - click_on:
         - value: Submit
           selector: ".btn[value='Submit']"
     - javascript:
-        - value: "document.querySelector('.btn[value="Submit"]').click();"
+        - value: "document.querySelector('.btn[value=\"Submit\"]').click();"
     - find:
         - selector: "h2"
           value: "Thank You"
