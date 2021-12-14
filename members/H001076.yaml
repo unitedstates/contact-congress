@@ -120,12 +120,12 @@ contact_form:
             - Veterans
             - Women's Health
     - click_on:
-        - selector: "#input-AA8CC6CA-DFB9-1D1C-F43E-F7DAD157AD93"
+        - selector: "#response"
     - javascript:
         - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "input.btn"
+          selector: "button.btn"
     - wait:
         - value: 3
   success:
