@@ -303,15 +303,14 @@ contact_form:
     - javascript:
         - value: document.querySelector("#field_17612D93-6520-4E0F-A915-F7C8CA905118").value = document.querySelector("#field_17612D93-6520-4E0F-A915-F7C8CA905118").value.replace(/"/g, '');
     - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
-try{ element.parentNode.removeChild(element) } catch(err){} });"
+        - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recpatcha:
         - value: true
     - click_on:
         - value: Submit
           selector: ".btn[value='Submit']"
     - javascript:
-        - value: "document.querySelector('.btn[value="Submit"]').click();"
+        - value: document.querySelector('.btn[value="Submit"]').click();
     - find:
         - selector: "h2"
           value: "Thank You"
