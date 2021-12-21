@@ -1,93 +1,114 @@
 bioguide: B001277
 contact_form:
   method: POST
-  action: https://www.blumenthal.senate.gov/contact
+  action: https://www.blumenthal.senate.gov/contact/write-to-senator-blumenthal
   steps:
-    - visit: https://www.blumenthal.senate.gov/contact/
+    - visit: https://www.blumenthal.senate.gov/contact/write-to-senator-blumenthal
     - select:
-      - name: topic
+      - name: input_5C1C6297-D901-6C06-6905-6441418A2F62
         selector: "#topic"
         value: "$TOPIC"
         required: Yes
         options:
-          - "Abortion Rights"
-          - "Agriculture"
-          - "Animal Welfare"
-          - "Banking and Finance"
-          - "Budget"
-          - "Child Care and Welfare"
-          - "Civil Rights"
-          - "Defense"
-          - "Disability"
-          - "Economy"
-          - "Election Reform"
-          - "Energy"
-          - "Environment"
-          - "Foreign Affairs"
-          - "Gun Violence & Second Amendment Rights"
-          - "Infrastructure"
-          - "Intellectual Property"
-          - "Judicial Nominations"
-          - "Judiciary"
-          - "Labor"
-          - "Medicaid"
-          - "Other"
-          - "Pensions"
-          - "Postal Issues"
-          - "Science and Technology"
-          - "Senior Issues"
-          - "Sports"
-          - "Telecommunications"
-          - "Trade"
-          - "Transportation"
-    - javascript:
-      - value: document.getElementById('continue-form').style = 'display:block;';
+          Aging: SENIOR
+          Agriculture and Nutrition: AGR
+          Animal Welfare: ANI
+          Arts and Humanities: ARTS
+          Banking and Finance: BAN
+          Budget: BUD
+          Census: CENSUS
+          Child Care and Welfare: CHILD
+          Civil Rights: CIVIL
+          Commerce: CMRCE
+          Consumer Protection: CONSMR
+          Criminal Justice: CRIME
+          Defense: DEF
+          Disability: DIS
+          Domestic Violence: DOMV
+          Economy: ECON
+          Education: EDU
+          Election Reform: ELEC
+          Energy: ENE
+          Environment and Climate: ENV
+          Foreign Affairs: Foreign Affairs
+          Gun Violence Prevention and Second Amendment Rights: GUN
+          Health Care: HEA
+          Housing: HOUSING
+          Immigration: IMM
+          Infrastructure: INFRA
+          Intellectual Property: INTELL
+          Judicial Nominations: JUDNOM
+          Judiciary: JUD
+          Labor: LABOR
+          LGBTQ+ Rights: LGBTQ
+          Lyme Disease: LYME
+          Medicaid: MEDICAID
+          Medicare: MEDICARE
+          Military: MIL
+          Native Americans: NATA
+          Oceans and Fisheries: OCEANS
+          Other: OTHER
+          Pensions: PENSIONS
+          Postal Issues: POSTAL
+          Privacy: PRIVACY
+          Reproductive Rights: ABO
+          Science and Technology: SCI
+          Small Business: SMALLBUS
+          Social Security: SSEC
+          Sports: SPORTS
+          Taxes: TAX
+          Telecommunications: TEL
+          Trade: TRADE
+          Transportation: TRA
+          Veterans: VET
+          Women’s Issues: WOMEN
     - fill_in:
-      - name: fname
-        selector: "#fname"
+      - name: input_5C0E54FD-9A0F-A898-ABE9-77C0ED64809E
+        selector: "#input-5C0E54FD-9A0F-A898-ABE9-77C0ED64809E"
         value: "$NAME_FIRST"
         required: Yes
-      - name: lname
-        selector: "#lname"
+      - name: input_5C29EA3E-028C-010F-7E0E-A265D5A6DE43
+        selector: "#input-5C29EA3E-028C-010F-7E0E-A265D5A6DE43"
         value: "$NAME_LAST"
         required: Yes
-      - name: mailing_streetAddress1
-        selector: "#mailing_streetAddress1"
+      - name: input_5C181C7B-F049-21D2-D2C9-B2FAEBC4C296
+        selector: "#input-5C181C7B-F049-21D2-D2C9-B2FAEBC4C296"
         value: "$ADDRESS_STREET"
         required: Yes
-      - name: mailing_streetAddress2
-        selector: "#mailing_streetAddress2"
+      - name: input_5C181CAE-94D6-5C33-F621-819820CBD027
+        selector: "#input-5C181CAE-94D6-5C33-F621-819820CBD027"
         value: "$ADDRESS_STREET_2"
-      - name: mailing_city
-        selector: "#mailing_city"
+      - name: input_5C181CE0-D1B4-E41B-8FC0-A0226E16AF06
+        selector: "#input-5C181CE0-D1B4-E41B-8FC0-A0226E16AF06"
         value: "$ADDRESS_CITY"
         required: Yes
-      - name: mailing_zipCode
-        selector: "#mailing_zipCode"
+      - name: input_5C181D46-F77C-5CE6-3BA3-0C38F8DBDAE6
+        selector: "#input-5C181D46-F77C-5CE6-3BA3-0C38F8DBDAE6"
         value: "$ADDRESS_ZIP5"
         required: Yes
-      - name: phone_number
-        selector: "#phone_number"
+      - name: input_5C1768B7-F54F-4C52-0BD9-FD81BC59D6B3
+        selector: "#input-5C1768B7-F54F-4C52-0BD9-FD81BC59D6B3"
         value: "$PHONE"
-      - name: email
-        selector: "#email_address"
+        required: Yes
+      - name: input_5C16C3BD-9218-F7A2-3BBE-540D2159C46F
+        selector: "#email"
         value: "$EMAIL"
         required: Yes
-      - name: verify_email
-        selector: "#verify_email"
+      - name: input_5C16C3F6-F764-6F51-D852-3B0199EBA75A
+        selector: "#input-5C16C3F6-F764-6F51-D852-3B0199EBA75A"
         value: "$EMAIL"
         required: Yes
-      - name: subject
-        selector: "#subject"
+      - name: input_5C189E34-95D2-102E-CED2-A264D066F6C3
+        selector: "#input-5C189E34-95D2-102E-CED2-A264D066F6C3"
         value: "$SUBJECT"
         required: Yes
-      - name: comments
-        selector: "#comments"
+      - name: input_5C18D021-0988-F2BB-1F6A-3665652A79E9
+        selector: "#input-5C18D021-0988-F2BB-1F6A-3665652A79E9"
         value: "$MESSAGE"
         required: Yes
     - select:
-      - name: salutation
-        selector: "#salutation"
+      - name: input_80BA1E51-B62F-9243-0C13-D1C74536A208
+        selector: "#title"
         value: "$NAME_PREFIX"
         required: Yes
         options:
@@ -95,29 +116,24 @@ contact_form:
           - "Mrs."
           - "Ms."
           - "Miss"
+          - "Mx."
           - "Mr. and Mrs."
+          - "Mr. and Mr."
+          - "Mrs. and Mrs."
           - "Professor"
           - "Dean"
           - "The Honorable"
           - "Dr."
           - "Dr. and Mrs."
           - "Dr. and Mr."
-    - uncheck:
-      - name: no_response
-        selector: "#no_response"
-        value: Yes
     - wait:
       - value: 1
     - javascript:
-      - value: document.querySelector("#comments").value = document.querySelector("#comments").value.replace(/"/g, '');
+      - value: document.querySelector("#input-5C18D021-0988-F2BB-1F6A-3665652A79E9").value = document.querySelector("#input-5C18D021-0988-F2BB-1F6A-3665652A79E9").value.replace(/"/g, '');
     - click_on:
-      - value: Send
-        selector: "#side-search-btn"
-    - find:
-      - selector: "h1"
-        value: "Thank You"
+      - selector: ".controls button[type='submit']"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you again for writing"
+      contains: "Thank you"
