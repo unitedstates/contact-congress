@@ -16,7 +16,7 @@ contact_form:
           value: $NAME_FIRST
           required: true
         - name: "input_B03E04BD-4040-F985-52CD-48E090E769DA"
-          selector: "#break"
+          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
           value: $NAME_LAST
           required: true
         - name: "input_B03E05F1-4040-F985-52CD-A580E72A7D41"
@@ -120,8 +120,6 @@ contact_form:
             - Trade
             - Transportation
             - Veterans
-    - click_on:
-        - selector: "#response"
     - javascript:
         - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - click_on:
