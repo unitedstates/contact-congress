@@ -168,13 +168,21 @@ contact_form:
           selector: "#input-91FE927D-5056-A066-600E-4988E56F75CA"
           value: $SUBJECT
           required: true
-    - javascript:
-        # request response == yes
-        - value: document.querySelector("#input-0BF46274-0E99-5C3F-9D89-BAAE65BCF06E").checked = true;
+    - select:
+        - name: input_6AF62838-5056-A066-60CC-D012F4F72835
+          selector: "#input-6AF62838-5056-A066-60CC-D012F4F72835"
+          value: "Yes"
+          required: true
+          options:
+            "Yes": Yes
+            "No": No
     - javascript:
         - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
         - value: true
+    ## Re-hide the recaptcha response b/c it covers the submit button.
+    - javascript:
+        - value: document.querySelector("#g-recaptcha-response").style.display = "none";
     - click_on:
         - value: Submit
           selector: 'button[type="submit"].btn'
