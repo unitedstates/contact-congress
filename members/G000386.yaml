@@ -5,52 +5,52 @@ contact_form:
   steps:
     - visit: "https://www.grassley.senate.gov/contact/questions-and-comments"
     - fill_in:
-        - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
-          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
+        - name: input_BADE8285-5056-A066-6057-C322607D9298
+          selector: "#input-BADE8285-5056-A066-6057-C322607D9298"
           value: $NAME_FIRST
           required: true
-        - name: input_B03E04BD-4040-F985-52CD-48E090E769DA
-          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
+        - name: input_BADE7F00-5056-A066-609F-EA07AE2BF91B
+          selector: "#input-BADE7F00-5056-A066-609F-EA07AE2BF91B"
           value: $NAME_LAST
           required: true
-        - name: input_38364EBF-9892-191D-4674-9C787C8061C8
-          selector: "#input-38364EBF-9892-191D-4674-9C787C8061C8"
+        - name: input_BADE8249-5056-A066-6085-94AFC521D3DD
+          selector: "#input-BADE8249-5056-A066-6085-94AFC521D3DD"
           value: $EMAIL
           required: true
-        - name: input_38364F09-E0F4-7035-990A-918C46D130CA
-          selector: "#input-38364F09-E0F4-7035-990A-918C46D130CA"
+        - name: input_BADE815A-5056-A066-6029-7AE648141C0E
+          selector: "#input-BADE815A-5056-A066-6029-7AE648141C0E"
           value: $EMAIL
           required: true
-        - name: input_B03E05F1-4040-F985-52CD-A580E72A7D41
-          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
+        - name: input_BADE8377-5056-A066-601E-439FF206EE9C
+          selector: "#input-BADE8377-5056-A066-601E-439FF206EE9C"
           value: $ADDRESS_STREET
           required: true
-        - name: input_B03E0518-4040-F985-52CD-CF33EF97DA3A
-          selector: "#input-B03E0518-4040-F985-52CD-CF33EF97DA3A"
+        - name: input_BADE84EC-5056-A066-6055-B1E5CF334D93
+          selector: "#input-BADE84EC-5056-A066-6055-B1E5CF334D93"
           value: $ADDRESS_STREET_2
           required: false
-        - name: input_B03E0595-4040-F985-52CD-C572364023FE
-          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
+        - name: input_BADE8474-5056-A066-6074-6537A53F1741
+          selector: "#input-BADE8474-5056-A066-6074-6537A53F1741"
           value: $ADDRESS_CITY
           required: true
-        - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
-          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
+        - name: input_BADE7F3C-5056-A066-60C0-B76B321104A2
+          selector: "#input-BADE7F3C-5056-A066-60C0-B76B321104A2"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
-          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
+        - name: input_BADE833B-5056-A066-6069-DE27AD45B36B
+          selector: "#input-BADE833B-5056-A066-6069-DE27AD45B36B"
           value: $PHONE
           required: false
-        - name: input_38497382-DA67-A926-DB49-C4F4E5FD6E25
-          selector: "#input-38497382-DA67-A926-DB49-C4F4E5FD6E25"
+        - name: input_BADE8430-5056-A066-60F2-B5FA10EC77B8
+          selector: "#input-BADE8430-5056-A066-60F2-B5FA10EC77B8"
           value: $SUBJECT
           required: true
-        - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
-          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
+        - name: input_BADE811D-5056-A066-600C-4341F0A391DA
+          selector: "#input-BADE811D-5056-A066-600C-4341F0A391DA"
           value: $MESSAGE
           required: true
     - select:
-        - name: input_B03E0527-4040-F985-52CD-C0DD6BEF325F
+        - name: input_BADE83F3-5056-A066-6034-4227C8500D19
           selector: "#salutations"
           value: $NAME_PREFIX
           required: false
@@ -64,7 +64,12 @@ contact_form:
             - Mr. and Mrs.
             - Sister
             - Other
-        - name: input_3848097F-EF8E-5A7D-2BAF-37E8C2E2AC1C
+        - name: input_BADE7D1E-5056-A066-6029-CC75354D7428
+          selector: "#input-BADE7D1E-5056-A066-6029-CC75354D7428"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options: US_STATES
+        - name: input_BADE7E62-5056-A066-60B3-4467E1C7B999
           selector: "#issues"
           value: $TOPIC
           required: true
@@ -109,10 +114,9 @@ contact_form:
             Welfare: Welfare
             Other: Other
     - javascript:
-        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
+        - value: document.querySelector("#input-BADE811D-5056-A066-600C-4341F0A391DA").value = document.querySelector("#input-BADE811D-5056-A066-600C-4341F0A391DA").value.replace(/"/g, '');
     - click_on:
-        - value: Send Message
-          selector: "#B03E03FC-4040-F985-52CD-BCD7E00A8A6C button[type='submit']"
+        - selector: "#BADE7B26-5056-A066-6017-36A84C19848A button[type='submit']"
     - find:
         - selector: "img[src='/imo/media/image/ChuckGrassleySig.png']"
   success:
