@@ -18,7 +18,7 @@ contact_form:
         - name: "field_E45B08FC-7028-49E0-A1A8-5931665251E8"
           selector: "#field_E45B08FC-7028-49E0-A1A8-5931665251E8"
           value: $PHONE
-          required: true  
+          required: true
         - name: "field_E9E72937-B1A0-4898-A8D4-ED39E1532114"
           selector: "#field_E9E72937-B1A0-4898-A8D4-ED39E1532114"
           value: $ADDRESS_STREET
@@ -198,7 +198,7 @@ contact_form:
             APO AE: APO AE
             APO AP: APO AP
             AR: AR
-            AZ: AZ 
+            AZ: AZ
             CA: CA
             CO: CO
             CT: CT
@@ -298,13 +298,13 @@ contact_form:
         - value: document.querySelector("#field_17612D93-6520-4E0F-A915-F7C8CA905118").value = document.querySelector("#field_17612D93-6520-4E0F-A915-F7C8CA905118").value.replace(/"/g, '');
     - javascript:
         - value: document.querySelector("#g-recaptcha-response").style.display = "block";
-    - recpatcha:
+    - recaptcha:
         - value: true
+    - javascript:
+        - value: document.querySelector("#g-recaptcha-response").style.display = "none";
     - click_on:
         - value: Submit
           selector: ".btn[value='Submit']"
-    - javascript:
-        - value: document.querySelector('.btn[value="Submit"]').click();
     - find:
         - selector: "h2"
           value: "Thank You"
