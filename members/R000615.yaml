@@ -6,44 +6,44 @@ contact_form:
     - visit: "https://www.romney.senate.gov/contact-senator-romney"
     - fill_in:
         - name: "first_name"
-          selector: "#edit-first-name"
+          selector: "#form-field-first_name"
           value: $NAME_FIRST
           required: true
         - name: "last_name"
-          selector: "#edit-last-name"
+          selector: "#form-field-last_name"
           value: $NAME_LAST
           required: true
         - name: "address_1"
-          selector: "#edit-address-1"
+          selector: "#form-field-address_1"
           value: $ADDRESS_STREET
           required: true
         - name: "city"
-          selector: "#edit-city"
+          selector: "#form-field-city"
           value: $ADDRESS_CITY
           required: true
         - name: "zip"
-          selector: "#edit-zip"
+          selector: "#form-field-zip_code"
           value: $ADDRESS_ZIP5
           required: true
         - name: "phone"
-          selector: "#edit-phone"
+          selector: "#form-field-phone_number"
           value: $PHONE
           required: false
         - name: "email"
-          selector: "#edit-email"
+          selector: "#form-field-email_address"
           value: $EMAIL
           required: true
         - name: "subject"
-          selector: "#edit-subject"
+          selector: "#form-field-subject"
           value: $SUBJECT
           required: true
         - name: "message"
-          selector: "#edit-message"
+          selector: "#form-field-message"
           value: $MESSAGE
           required: true
     - select:
         - name: "prefix"
-          selector: "#edit-prefix"
+          selector: "#form-field-prefix"
           value: $NAME_PREFIX
           required: true
           options:
@@ -54,7 +54,7 @@ contact_form:
             - Dr.
             - Dr. and Mrs.
         - name: "state"
-          selector: "#edit-state"
+          selector: "#form-field-state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -109,7 +109,7 @@ contact_form:
             - WI
             - WY
         - name: "topic"
-          selector: "#edit-topic"
+          selector: "#form-field-topic"
           value: $TOPIC
           required: true
           options:
@@ -142,9 +142,9 @@ contact_form:
             - Veterans
     - click_on:
         - value: Send message
-          selector: "#edit-actions-submit"
+          selector: ".elementor-button"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you"
+      contains: "The form was sent successfully."
