@@ -4,6 +4,8 @@ contact_form:
   action: /form_process/questions-and-comments-thank-you
   steps:
     - visit: "https://www.grassley.senate.gov/contact/questions-and-comments"
+    - wait:
+      - value: 3
     - fill_in:
         - name: input_BADE8285-5056-A066-6057-C322607D9298
           selector: "#input-BADE8285-5056-A066-6057-C322607D9298"
