@@ -3,47 +3,63 @@ contact_form:
   method: post
   action: /#wpcf7-f8521-p45-o1
   steps:
-    - visit: "https://www.marshall.senate.gov/"
-    - wait:
-        - value: 3
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
+    - visit: "https://www.marshall.senate.gov/contact/contact-form/"
     - fill_in:
-        - name: "FirstName"
-          selector: "input[name='FirstName']"
+        - name: "input_2"
+          selector: "#input_11_2"
           value: $NAME_FIRST
           required: true
-        - name: "LastName"
-          selector: "input[name='LastName']"
+        - name: "input_3"
+          selector: "#input_11_3"
           value: $NAME_LAST
           required: true
-        - name: "your-message"
-          selector: "textarea[name='your-message']"
+        - name: "input_12"
+          selector: "#input_11_12"
           value: $MESSAGE
           required: true
-        - name: "subject"
-          selector: "input[name='subject']"
+        - name: "input_11"
+          selector: "#input_11_11"
           value: $SUBJECT
           required: true
-        - name: "Address1"
-          selector: "input[name='Address1']"
+        - name: "input_6.1"
+          selector: "#input_11_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: "City"
-          selector: "input[name='City']"
+        - name: "input_6.3"
+          selector: "#input_11_6_3"
           value: $ADDRESS_CITY
           required: true
-        - name: "ZipCode"
-          selector: "input[name='ZipCode']"
+        - name: "input_6.4"
+          selector: "#input_11_6_4"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+        - name: "input_6.5"
+          selector: "#input_11_6_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "your-email"
-          selector: "input[name='your-email']"
+        - name: "input_9"
+          selector: "#input_11_9"
           value: $EMAIL
           required: true
+        - name: "input_9_2"
+          selector: "#input_11_9_2"
+          value: $EMAIL
+          required: true
+        - name: "input_7"
+          selector: "#input_11_7"
+          value: $PHONE
+          required: true
     - select:
-        - name: "Topic"
-          selector: "select[name='Topic']"
+        - name: "input_1"
+          selector: "#input_11_1"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+        - name: "input_17"
+          selector: "#input_11_17"
           value: $TOPIC
           required: true
           options:
@@ -87,14 +103,13 @@ contact_form:
             - Welfare
             - Women's Issues
     - click_on:
-        - value: Send
-          selector: input[type='submit']
-    - wait:
-        - value: 10
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
+        - name: "input_18"
+          selector: "#choice_11_18_1" 
+    - click_on:
+        - value: Submit
+          selector: "#gform_submit_button_11"  
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Thank you for contacting the office of U.S. Senator Roger Marshall
