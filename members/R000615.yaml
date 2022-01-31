@@ -6,44 +6,44 @@ contact_form:
     - visit: "https://www.romney.senate.gov/contact-senator-romney"
     - fill_in:
         - name: "first_name"
-          selector: "#form-field-first_name"
+          selector: ".elementor-element-72e70d45 #form-field-first_name"
           value: $NAME_FIRST
           required: true
         - name: "last_name"
-          selector: "#form-field-last_name"
+          selector: ".elementor-element-72e70d45 #form-field-last_name"
           value: $NAME_LAST
           required: true
         - name: "address_1"
-          selector: "#form-field-address_1"
+          selector: ".elementor-element-72e70d45 #form-field-address_1"
           value: $ADDRESS_STREET
           required: true
         - name: "city"
-          selector: "#form-field-city"
+          selector: ".elementor-element-72e70d45 #form-field-city"
           value: $ADDRESS_CITY
           required: true
         - name: "zip"
-          selector: "#form-field-zip_code"
+          selector: ".elementor-element-72e70d45 #form-field-zip_code"
           value: $ADDRESS_ZIP5
           required: true
         - name: "phone"
-          selector: "#form-field-phone_number"
+          selector: ".elementor-element-72e70d45 #form-field-phone_number"
           value: $PHONE
           required: false
         - name: "email"
-          selector: "#form-field-email_address"
+          selector: ".elementor-element-72e70d45 #form-field-email_address"
           value: $EMAIL
           required: true
         - name: "subject"
-          selector: "#form-field-subject"
+          selector: ".elementor-element-72e70d45 #form-field-subject"
           value: $SUBJECT
           required: true
         - name: "message"
-          selector: "#form-field-message"
+          selector: ".elementor-element-72e70d45 #form-field-message"
           value: $MESSAGE
           required: true
     - select:
         - name: "prefix"
-          selector: "#form-field-prefix"
+          selector: ".elementor-element-72e70d45 #form-field-prefix"
           value: $NAME_PREFIX
           required: true
           options:
@@ -54,7 +54,7 @@ contact_form:
             - Dr.
             - Dr. and Mrs.
         - name: "state"
-          selector: "#form-field-state"
+          selector: ".elementor-element-72e70d45 #form-field-state"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -109,7 +109,7 @@ contact_form:
             - WI
             - WY
         - name: "topic"
-          selector: "#form-field-topic"
+          selector: ".elementor-element-72e70d45 #form-field-topic"
           value: $TOPIC
           required: true
           options:
@@ -141,8 +141,8 @@ contact_form:
             - Transportation
             - Veterans
     - click_on:
-        - value: Send message
-          selector: ".elementor-button"
+        - value: Send
+          selector: ".elementor-element-72e70d45 .elementor-button"
   success:
     headers:
       status: 200
