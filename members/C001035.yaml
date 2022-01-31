@@ -3,116 +3,84 @@ contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "http://www.collins.senate.gov/contact"
+    - visit: "https://www.collins.senate.gov/contact/email-senator-collins/form"
     - fill_in:
-        - name: "submitted[first_name]"
-          selector: "#edit-submitted-first-name"
+        - name: "input_B03E05C4-4040-F985-52CD-9CA44623DE5E"
+          selector: "#firstName"
           value: $NAME_FIRST
           required: true
-        - name: "submitted[last_name]"
-          selector: "#edit-submitted-last-name"
+        - name: "input_B03E04BD-4040-F985-52CD-48E090E769DA"
+          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
           value: $NAME_LAST
           required: true
-        - name: "submitted[address_1]"
-          selector: "#edit-submitted-address-1"
+        - name: "input_B03E05F1-4040-F985-52CD-A580E72A7D41"
+          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
           value: $ADDRESS_STREET
           required: true
-        - name: "submitted[city_town]"
-          selector: "#edit-submitted-city-town"
+        - name: "input_B03E0595-4040-F985-52CD-C572364023FE"
+          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
           value: $ADDRESS_CITY
           required: true
-        - name: "submitted[zip_code]"
-          selector: "#edit-submitted-zip-code"
+        - name: "input_B03E04CC-4040-F985-52CD-4DDB58DA474A"
+          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "submitted[e_mail]"
-          selector: "#edit-submitted-e-mail"
+        - name: "input_B03E0536-4040-F985-52CD-AFE12CDE8D31"
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: "submitted[please_write_your_message]"
-          selector: "#edit-submitted-please-write-your-message"
+        - name: "input_B03E05A4-4040-F985-52CD-730C08912F4F"
+          selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
+          value: $EMAIL
+          required: true
+        - name: "input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
+          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
           value: $MESSAGE
           required: true
           options:
             max_length: 10000
     - select:
-        - name: "submitted[state]"
-          selector: "#edit-submitted-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+        - name: "input_B03E04DB-4040-F985-52CD-18F332336F99"
+          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
+          value: $TOPIC
           required: true
           options:
-            Alabama: AL
-            Alaska: AK
-            American Samoa: AS
-            Arizona: AZ
-            Arkansas: AR
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            Delaware: DE
-            District of Columbia: DC
-            Florida: FL
-            Georgia: GA
-            Guam: GU
-            Hawaii: HI
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Iowa: IA
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Maine: ME
-            Marshall Islands: MH
-            Maryland: MD
-            Massachusetts: MA
-            Michigan: MI
-            Minnesota: MN
-            Mississippi: MS
-            Missouri: MO
-            Montana: MT
-            Nebraska: NE
-            Nevada: NV
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            New York: NY
-            North Carolina: NC
-            North Dakota: ND
-            Northern Marianas Islands: MP
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Palau: PW
-            Pennsylvania: PA
-            Puerto Rico: PR
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Vermont: VT
-            Virgin Islands: VI
-            Virginia: VA
-            Washington: WA
-            West Virginia: WV
-            Wisconsin: WI
-            Wyoming: WY
+            - General/Other
+            - Agriculture
+            - Animal Welfare
+            - Arts/Humanities
+            - Banking/Finance
+            - Broadband/Telecommunications
+            - Criminal Justice
+            - Defense/Homeland Security
+            - Education
+            - Environment/Energy
+            - Foreign Affairs
+            - Health Care
+            - Housing
+            - Immigration
+            - Jobs/Labor
+            - Judiciary
+            - Small Businesses
+            - Social Security
+            - Taxes
+            - Trade
+            - Transportation
+            - Veterans
     - check:
-        - name: "submitted[would_you_like_a_response_from_senator_collins]"
-          selector: "#edit-submitted-would-you-like-a-response-from-senator-collins-1"
-          value: "Yes"
-        - name: "submitted[subscribe_to_newsletter]"
-          selector: "#edit-submitted-subscribe-to-newsletter-2"
-          value: "No"
+        - name: "input_164EA191-E913-BCE1-DBD2-1F3E6E3E0684"
+          selector: "#input-DC0A7EA1-5056-A066-6040-A9E6103566EC"
+          value: "DC0A7EA1-5056-A066-6040-A9E6103566EC"
+        - name: "input_164F330E-E319-A856-6A8A-B0FBFD9B7BF7"
+          selector: "#enewstoggle-1"
+          value: "16535E73-EC8F-8C8F-8C04-050ECF72A305"
     - javascript:
-        - value: document.querySelector("#edit-submitted-please-write-your-message").value = document.querySelector("#edit-submitted-please-write-your-message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "#webform-client-form-9020 input[name='op']"
+          selector: ".btn"
   success:
     headers:
       status: 200
     body:
-      contains: "Your submission has been received."
+      contains: "Thank you for taking the time to send me your comments."
