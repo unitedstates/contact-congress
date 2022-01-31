@@ -94,6 +94,8 @@ contact_form:
     - click_on:
         - value: Send
           selector: ".elementor-element-72e70d45 .elementor-button"
+    - find:
+        - selector: ".elementor-message-success"
   success:
     headers:
       status: 200
