@@ -110,6 +110,8 @@ contact_form:
           selector: "#input-3048820B-A361-6166-70F4-2D74C1E208F4"
           value: 3048820B-A361-6166-70F4-2D74C1E208F4
           required: true
+    - javascript:
+        - value: document.querySelector('.btn').insertAdjacentHTML('beforeend', '<textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response"></textarea>');
     - recaptcha:
         - value: true
     - javascript:
