@@ -95,15 +95,12 @@ contact_form:
             - Transportation
             - Veterans
     - click_on:
-        - selector: "#break-this-form"
         - value: Send
           selector: ".elementor-element-72e70d45 .elementor-button"
     - wait:
         - value: 5
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - click_on:
-        - selector: "#break-this-form"
     - find:
         - selector: ".elementor-message-success"
   success:
