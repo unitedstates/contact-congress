@@ -105,9 +105,9 @@ contact_form:
     - javascript:
       - value: document.querySelector("#input-78163367-4040-F985-52CD-D4AD6E614C69").value = document.querySelector("#input-78163367-4040-F985-52CD-D4AD6E614C69").value.replace(/"/g, '');
     - click_on:
-      - selector: "#break-this-form"
       - value: Submit
         selector: ".btn"
+      - selector: "#break-this-form"
   success:
     headers:
       status: 200
