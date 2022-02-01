@@ -40,6 +40,20 @@ contact_form:
           options:
             max_length: 10000
     - select:
+        - name: response
+          selector: "#input-14CF6547-AC63-C9C1-CA81-6C9AEEF85474"
+          value: No
+          required: true
+          options:
+            - Yes
+            - No
+        - name: response
+          selector: "#input-14CF6547-AC63-C9C1-CA81-6C9AEEF85474"
+          value: No
+          required: true
+          options:
+            - Yes
+            - No    
         - name: "input_B03E04DB-4040-F985-52CD-18F332336F99"
           selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
           value: $TOPIC
@@ -67,13 +81,6 @@ contact_form:
             - Trade
             - Transportation
             - Veterans
-    - check:
-        - name: "input_164EA191-E913-BCE1-DBD2-1F3E6E3E0684"
-          value: "DC0A7EA1-5056-A066-6040-A9E6103566EC"
-          selector: "input[name='input_164EA191-E913-BCE1-DBD2-1F3E6E3E0684']"
-        - name: "input_164F330E-E319-A856-6A8A-B0FBFD9B7BF7"
-          selector: "#enewstoggle-1"
-          value: "16535E73-EC8F-8C8F-8C04-050ECF72A305"
     - javascript:
         - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
     - click_on:
