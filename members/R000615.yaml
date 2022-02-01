@@ -4,8 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.romney.senate.gov/contact-senator-romney"
-     - javascript:
-         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
  try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: "first_name"
