@@ -39,18 +39,10 @@ contact_form:
           required: true
           options:
             max_length: 10000
+    - click_on:
+        - selector: label[for='input-DC0A7EF0-5056-A066-600C-CD33536E6D09']
+        - selector: "#enewstoggle-1"
     - select:
-        - name: input_164EA191-E913-BCE1-DBD2-1F3E6E3E0684
-          selector: label[for='input-DC0A7EF0-5056-A066-600C-CD33536E6D09']
-          value: "DC0A7EF0-5056-A066-600C-CD33536E6D09"
-          required: true
-        - name: input_164F330E-E319-A856-6A8A-B0FBFD9B7BF7
-          selector: "#enewstoggle-1"
-          value: "16535E73-EC8F-8C8F-8C04-050ECF72A305"
-          required: true
-          options:
-            - Yes
-            - No    
         - name: "input_B03E04DB-4040-F985-52CD-18F332336F99"
           selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
           value: $TOPIC
