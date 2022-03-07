@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: https://www.ossoff.senate.gov/contact-us/message
+    - find:
+        - selector: "#share_views_form"
     - javascript: 
         - value: "document.querySelector('.elementor-element-2b1cb2e2 #share_views_btn').click();"   
     - wait:
@@ -88,6 +90,8 @@ contact_form:
             - Veterans
             - Voting Rights
             - Women and Children
+    - find:
+        - selector: "#break-this-form"
     - click_on:
         - value: submit
           selector: ".e-form__buttons button[type='submit'] .elementor-screen-only"
