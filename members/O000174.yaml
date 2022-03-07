@@ -8,6 +8,8 @@ contact_form:
         - selector: "a#share_views_btn[role='button']"   
     - wait:
         - value: 3
+    - find:
+        - selector: "#share_views_form"
     - fill_in:
         - name: "form_fields[name]"
           selector: "#form-field-name"
