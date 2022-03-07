@@ -3,13 +3,9 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: https://www.ossoff.senate.gov/contact-us/
+    - visit: https://www.ossoff.senate.gov/contact-us/message/#
     - wait:
         - value: 3
-    - javascript:
-      - value: "elementorProFrontend.modules.popup.showPopup( { id: 1873 } );"
-    - javascript:
-      - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: "form_fields[name]"
           selector: "#form-field-name"
@@ -97,4 +93,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Offices
+      contains: Thank you
