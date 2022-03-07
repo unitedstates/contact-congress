@@ -87,8 +87,8 @@ contact_form:
             - Veterans
             - Voting Rights
             - Women and Children
-    - click_on:
-        - selector: "document.querySelector('.elementor-element-db7bce0 .e-form__buttons button[type="submit"] .elementor-screen-only').click();"
+    - javascript:
+        - value: "document.querySelector('.elementor-element-db7bce0 .e-form__buttons button[type="submit"] .elementor-screen-only').click();"
     - wait:
         - value: 10
   success:
