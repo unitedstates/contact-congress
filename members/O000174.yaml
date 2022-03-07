@@ -3,9 +3,9 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: https://www.ossoff.senate.gov/contact-us/message/#
+    - visit: https://www.ossoff.senate.gov/contact-us/message
     - click_on: 
-        - selector: "a#share_views_btn"
+        - selector: "a#share_views_btn[role='button']"   
     - wait:
         - value: 3
     - fill_in:
