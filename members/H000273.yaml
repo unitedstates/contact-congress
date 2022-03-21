@@ -3,45 +3,80 @@ contact_form:
   method: post
   action: /#wpcf7-f8521-p45-o1
   steps:
-    - visit: "https://www.hickenlooper.senate.gov/"
+    - visit: "https://www.hickenlooper.senate.gov/email-john/#contact-form-emailJohn"
     - wait:
         - value: 3
     - fill_in:
-        - name: "FirstName"
-          selector: "input[name='FirstName']"
+        - name: "input_3.3"
+          selector: "#input_17_3_3"
           value: $NAME_FIRST
           required: true
-        - name: "LastName"
-          selector: "input[name='LastName']"
+        - name: "input_3.6"
+          selector: "#input_17_3_6"
           value: $NAME_LAST
           required: true
-        - name: "your-message"
-          selector: "textarea[name='your-message']"
+        - name: "input_14"
+          selector: "#input_17_14"
           value: $MESSAGE
           required: true
-        - name: "subject"
-          selector: "input[name='subject']"
+        - name: "input_18"
+          selector: "#input_17_18"
           value: $SUBJECT
           required: true
-        - name: "Address1"
-          selector: "input[name='Address1']"
+        - name: "input_5"
+          selector: "#input_17_5"
           value: $ADDRESS_STREET
           required: true
-        - name: "City"
-          selector: "input[name='City']"
+        - name: "input_7"
+          selector: "#input_17_7"
           value: $ADDRESS_CITY
           required: true
-        - name: "ZipCode"
-          selector: "input[name='ZipCode']"
+        - name: "input_9"
+          selector: "#input_17_9"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "your-email"
-          selector: "input[name='your-email']"
+        - name: "input_10"
+          selector: "#input_17_10"
+          value: $EMAIL
+          required: true
+        - name: "input_10_2"
+          selector: "#input_17_10_2"
           value: $EMAIL
           required: true
     - select:
-        - name: "Topic"
-          selector: "select[name='Topic']"
+        - name: "input_2"
+          selector: "#input_17_2"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Mx.
+            - Mr. and Mrs.
+            - Miss
+            - Dr.
+            - Dr. and Mrs.
+            - Dr. and Mr.
+            - Admiral
+            - Captain
+            - Chief Master Sergeant
+            - Colonel
+            - Commander
+            - Corporal
+            - Father
+            - Lieutenant
+            - Lieutenant Colonel
+            - Master Sergeant
+            - Rabbi
+            - Reverend
+            - Sergeant
+            - Second Lieutenant
+            - Sergeant Major
+            - Sister
+            - Technical Sergeant
+        - name: "input_17"
+          selector: "#input_17_17"
           value: $TOPIC
           required: true
           options:
@@ -84,12 +119,12 @@ contact_form:
             - Veterans
             - Women and Children
     - click_on:
-        - value: Send
-          selector: input[type='submit']
+        - value: Submit
+          selector: '#gform_submit_button_17'
     - wait:
         - value: 10
   success:
     headers:
       status: 200
     body:
-      contains: "0"
+      contains: "Thanks for contacting us!"
