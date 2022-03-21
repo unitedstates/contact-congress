@@ -90,6 +90,8 @@ contact_form:
               Welfare: A144951B-5056-A066-6074-5C436784A7B6
               Women's Issues: A1449544-5056-A066-608C-89EEF94813A1
     - javascript:
+        - value: $('#contactdropdown').val($('[name=input_A0BFF530-5056-A066-60C5-A13A2A0C670B]:checked + label').text())
+    - javascript:
         - value: document.querySelector("#input-A5AD3307-5056-A066-6029-D7EBFF775924").value = document.querySelector("#input-A5AD3307-5056-A066-6029-D7EBFF775924").value.replace(/"/g, '');
     - javascript:
         - value: "document.querySelector('input.btn').click()"
