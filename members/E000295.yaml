@@ -118,8 +118,8 @@ contact_form:
             Veterans: VET
     - javascript:
         - value: document.querySelector("#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0").value = document.querySelector("#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0").value.replace(/"/g, '');
-    - javascript:
-        - value: document.querySelector("button.btn[type='submit']").click();
+    - click_on:
+        - selector: button.btn[type='submit']
   success:
     headers:
       status: 200
