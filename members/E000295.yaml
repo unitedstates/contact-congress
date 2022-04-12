@@ -3,47 +3,51 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.ernst.senate.gov/public/index.cfm/contact"
+    - visit: "https://www.ernst.senate.gov/contact/email-joni"
     - fill_in:
-        - name: field_DB3CFA78-D300-4859-B087-3057FBA587ED
-          selector: "#field_DB3CFA78-D300-4859-B087-3057FBA587ED"
+        - name: input_5C0E54FD-9A0F-A898-ABE9-77C0ED64809E
+          selector: "#input-5C0E54FD-9A0F-A898-ABE9-77C0ED64809E"
           value: $NAME_FIRST
           required: true
-        - name: field_141F094C-93F0-44FB-9400-56F367E16BD5
-          selector: "#field_141F094C-93F0-44FB-9400-56F367E16BD5"
+        - name: input_5C29EA3E-028C-010F-7E0E-A265D5A6DE43
+          selector: "#input-5C29EA3E-028C-010F-7E0E-A265D5A6DE43"
           value: $NAME_LAST
           required: true
-        - name: field_0057F417-9E25-4887-8E27-B2BDA7DB8125
-          selector: "#field_0057F417-9E25-4887-8E27-B2BDA7DB8125"
+        - name: input_5C181C7B-F049-21D2-D2C9-B2FAEBC4C296
+          selector: "#input-5C181C7B-F049-21D2-D2C9-B2FAEBC4C296"
           value: $ADDRESS_STREET
           required: true
-        - name: field_3556DD50-C891-4153-BCFC-806B555999E7
-          selector: "#field_3556DD50-C891-4153-BCFC-806B555999E7"
+        - name: input_5C181CE0-D1B4-E41B-8FC0-A0226E16AF06
+          selector: "#input-5C181CE0-D1B4-E41B-8FC0-A0226E16AF06"
           value: $ADDRESS_CITY
           required: true
-        - name: field_7671E429-2E68-47F4-8F6C-F4E7E2D272E1
-          selector: "#field_7671E429-2E68-47F4-8F6C-F4E7E2D272E1"
+        - name: input_5C181D46-F77C-5CE6-3BA3-0C38F8DBDAE6
+          selector: "#input-5C181D46-F77C-5CE6-3BA3-0C38F8DBDAE6"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_09E12330-CB2E-4652-BEAA-DC119831E64E
-          selector: "#field_09E12330-CB2E-4652-BEAA-DC119831E64E"
+        - name: input_5C1768B7-F54F-4C52-0BD9-FD81BC59D6B3
+          selector: "#input-5C1768B7-F54F-4C52-0BD9-FD81BC59D6B3"
           value: $PHONE
           required: true
-        - name: field_AE6F4B6C-CF43-4983-9235-B62D675AC9AA
-          selector: "#field_AE6F4B6C-CF43-4983-9235-B62D675AC9AA"
+        - name: input_5C16C3BD-9218-F7A2-3BBE-540D2159C46F
+          selector: "#email"
           value: $EMAIL
           required: true
-        - name: field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0
-          selector: "#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0"
+        - name: input_5C189E34-95D2-102E-CED2-A264D066F6C3
+          selector: "#input-5C189E34-95D2-102E-CED2-A264D066F6C3"
+          value: $SUBJECT
+          required: true
+        - name: input_5C18D021-0988-F2BB-1F6A-3665652A79E9
+          selector: "#input-5C18D021-0988-F2BB-1F6A-3665652A79E9"
           value: $MESSAGE
           required: true
           options:
             max_length: 5000
     - javascript:
-        - value: "document.getElementById('field_09E12330-CB2E-4652-BEAA-DC119831E64E').value = document.getElementById('field_09E12330-CB2E-4652-BEAA-DC119831E64E').value.replace(/([0-9]{3})([0-9]{3})([0-9]{4})/, '$1-$2-$3');"
+        - value: "document.getElementById('input-5C18D021-0988-F2BB-1F6A-3665652A79E9').value = document.getElementById('input-5C18D021-0988-F2BB-1F6A-3665652A79E9').value.replace(/([0-9]{3})([0-9]{3})([0-9]{4})/, '$1-$2-$3');"
     - select:
-        - name: field_40B41E59-8BAB-4655-BE10-0EF1A105D108
-          selector: "#field_40B41E59-8BAB-4655-BE10-0EF1A105D108"
+        - name: input_80BA1E51-B62F-9243-0C13-D1C74536A208
+          selector: "#title"
           value: $NAME_PREFIX
           required: true
           options:
@@ -53,73 +57,67 @@ contact_form:
             Miss: Miss
             Dr.: Dr
             Mr. and Mrs.: Mr and Mrs
-        - name: field_86870AAB-C6FB-4506-8503-2FA7F5CEF532
-          selector: "#field_86870AAB-C6FB-4506-8503-2FA7F5CEF532"
+        - name: input_5C1C6297-D901-6C06-6905-6441418A2F62
+          selector: "#topic"
           value: $TOPIC
           required: true
           options:
-            - Abortion
-            - Adoption
-            - Agriculture
-            - Animal Welfare
-            - Appropriations
-            - Banking
-            - Budget
-            - Campaign Finance
-            - Children
-            - Civil Rights
-            - Commerce
-            - Communications
-            - Congratulations
-            - Crime
-            - Defense
-            - Drugs
-            - Economy
-            - Education
-            - Energy
-            - Entitlements
-            - Environment
-            - Export-Import Bank
-            - Family
-            - Flood Insurance
-            - Food Stamps
-            - Foreign Affairs
-            - Guns
-            - Health
-            - Homeland Security
-            - Housing
-            - Immigration
-            - Inauguration
-            - Intellectual Property
-            - Judiciary
-            - Labor
-            - Medicaid
-            - Medicare
-            - Miscellaneous
-            - Monetary Policy
-            - NASA
-            - Nutrition
-            - Other
-            - Patents
-            - Pensions
-            - Postal Issue
-            - Regulatory Reform
-            - Securities
-            - Small Business
-            - Social Issues
-            - Social Security
-            - Taxes
-            - Trade
-            - Transportation
-            - Veterans
+            Abortion: LIFE/ABORTION
+            Adoption: ADOPT
+            Agriculture: AGR
+            Animal Welfare: ANI
+            Appropriations: Appropriations
+            Banking: BANKING/FINANCE
+            Budget: BUD
+            Campaign Finance: CAM
+            Children: CHILDCARE
+            Civil Rights: Civil Rights
+            Commerce: Commerce
+            Communications: TELE
+            Congratulations: Congratulations
+            Crime: Crime
+            Defense: DEF
+            Drugs: Drugs
+            Economy: ECO
+            Education: EDU
+            Energy: ENE
+            Entitlements: Entitlements
+            Environment: ENV
+            Export-Import Bank: Export-Import Bank
+            Family: Family
+            Flood Insurance: Flood Insurance
+            Food Stamps: Food Stamps
+            Foreign Affairs: INT
+            Guns: GUNS/2ND AMENDMENT
+            Health: HEA
+            Homeland Security: HOM
+            Housing: HOU
+            Immigration: IMM
+            Intellectual Property: Intellectual Property
+            Judiciary: JUD
+            Labor: LAB
+            Medicaid: MED
+            Medicare: MED
+            Monetary Policy: Monetary Policy
+            NASA: NASA
+            Nutrition: Nutrition
+            Other: OTHER
+            Patents: Patents
+            Pensions: Pensions
+            Postal Issue: Postal Issue
+            Regulatory Reform: Regulatory Reform
+            Securities: Securities
+            Small Business: SB
+            Social Issues: Social Issues
+            Social Security: SSEC
+            Taxes: TAX
+            Trade: Trade
+            Transportation: TRA
+            Veterans: VET
     - javascript:
         - value: document.querySelector("#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0").value = document.querySelector("#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0").value.replace(/"/g, '');
     - javascript:
-      - value: "document.querySelector('#g-recaptcha-response').style.cssText = 'display: block; margin-top: 5em;';"
-    - recaptcha:
-        - value: true
-    - javascript:
-        - value: document.querySelector("input.btn.btn-primary").click();
+        - value: document.querySelector("button.btn[type='submit']").click();
   success:
     headers:
       status: 200
