@@ -5,284 +5,79 @@ contact_form:
   steps:
     - visit: "https://www.cardin.senate.gov/contact/email-ben"
     - fill_in:
-        - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
-          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
+        - name: input_19
+          selector: "#input_3_19"
           value: $NAME_FIRST
           required: true
-        - name: input_B03E04BD-4040-F985-52CD-48E090E769DA
-          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
+        - name: input_20
+          selector: "#input_3_20"
           value: $NAME_LAST
           required: true
-        - name: input_B03E05F1-4040-F985-52CD-A580E72A7D41
-          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
+        - name: input_10
+          selector: "#input_3_10"
           value: $ADDRESS_STREET
           required: true
-        - name: input_B03E0595-4040-F985-52CD-C572364023FE
-          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
+        - name: input_14
+          selector: "#input_3_14"
           value: $ADDRESS_CITY
           required: true
-        - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
-          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
+        - name: input_12
+          selector: "#input_3_12"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
-          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
-          value: $PHONE
-          required: true
-        - name: input_B03E0536-4040-F985-52CD-AFE12CDE8D31
-          selector: "#email"
+        - name: input_3
+          selector: "#input_3"
           value: $EMAIL
           required: true
-        - name: input_B03E05A4-4040-F985-52CD-730C08912F4F
-          selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
+        - name: input_3_2
+          selector: "#input_3_3_2"
           value: $EMAIL
           required: true
-        - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
-          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
-          value: $SUBJECT
-          required: true
-        - name: "input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
-          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
+        - name: "input_6"
+          selector: "#input_3_6"
           value: $MESSAGE
           required: true
     - select:
-        - name: input_B03E0527-4040-F985-52CD-C0DD6BEF325F
-          selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Professor
-            - Dr.
-            - Father
-            - Sister
-            - Rabbi
-            - Reverend
-            - Air Force - General
-            - Air Force - Lieutenant General
-            - Air Force - Major General
-            - Air Force - Brigadier General
-            - Air Force - Colonel
-            - Air Force - Lieutenant Colonel
-            - Air Force - Major
-            - Air Force - Captain
-            - Air Force - First Lieutenant
-            - Air Force - Second Lieutenant
-            - Air Force - Chief Master Sergeant of the Air Force
-            - Air Force - Command Chief Master Sergeant
-            - Air Force - First Sergeant (E-9)
-            - Air Force - Chief Master Sergeant
-            - Air Force - First Sergeant (E-8)
-            - Air Force - Senior Master Sergeant
-            - Air Force - First Sergeant (E-7)
-            - Air Force - Master Sergeant
-            - Air Force - Technical Sergeant
-            - Air Force - Staff Sergeant
-            - Air Force - Senior Airman
-            - Air Force - Airman First Class
-            - Air Force - Airman
-            - Air Force - Airman Basic
-            - Army - General
-            - Army - Lieutenant General
-            - Army - Major General
-            - Army - Brigadier General
-            - Army - Colonel
-            - Army - Lieutenant Colonel
-            - Army - Major
-            - Army - Captain
-            - Army - First Lieutenant
-            - Army - Second Lieutenant
-            - Army - Chief Warrant Officer - 5
-            - Army - Chief Warrant Officer - 4
-            - Army - Chief Warrant Officer - 3
-            - Army - Chief Warrant Officer - 2
-            - Army - Warrant Officer
-            - Army - Sergeant Major of the Army
-            - Army - Command Sergeant Major
-            - Army - Sergeant Major
-            - Army - First Sergeant
-            - Army - Master Sergeant
-            - Army - Sergeant First Class
-            - Army - Staff Sergeant
-            - Army - Sergeant
-            - Army - Corporal
-            - Army - Specialist
-            - Army - Private First Class
-            - Army - Private (E-2)
-            - Army - Private
-            - Coast Guard - Admiral
-            - Coast Guard - Vice Admiral
-            - "Coast Guard - Rear Admiral, Upper Half"
-            - "Coast Guard - Rear Admiral, Lower Half"
-            - Coast Guard - Captain
-            - Coast Guard - Commander
-            - Coast Guard - Lieutenant Commander
-            - Coast Guard - Lieutenant
-            - Coast Guard - Lieutenant Junior Grade
-            - Coast Guard - Ensign
-            - Coast Guard - Chief Warrant Officer - 4
-            - Coast Guard - Chief Warrant Officer - 3
-            - Coast Guard - Chief Warrant Officer - 2
-            - Coast Guard - Master Chief Petty Officer of the Coast Guard
-            - Coast Guard - Master Chief Petty Officer
-            - Coast Guard - Senior Chief Petty Officer
-            - Coast Guard - Chief Petty Officer
-            - Coast Guard - Petty Officer First Class
-            - Coast Guard - Petty Officer Second Class
-            - Coast Guard - Petty Officer Third Class
-            - Coast Guard - Seaman
-            - Coast Guard - Seaman Apprentice
-            - Coast Guard - Seaman Recruit
-            - Marine Corps - General
-            - Marine Corps - Lieutenant General
-            - Marine Corps - Major General
-            - Marine Corps - Brigadier General
-            - Marine Corps - Colonel
-            - Marine Corps - Lieutenant Colonel
-            - Marine Corps - Major
-            - Marine Corps - Captain
-            - Marine Corps - First Lieutenant
-            - Marine Corps - Second Lieutenant
-            - Marine Corps - Chief Warrant Officer - 5
-            - Marine Corps - Chief Warrant Officer - 4
-            - Marine Corps - Chief Warrant Officer - 3
-            - Marine Corps - Chief Warrant Officer - 2
-            - Marine Corps - Warrant Officer
-            - Marine Corps - Sergeant Major of the Marine Corps
-            - Marine Corps - Sergeant Major
-            - Marine Corps - Master Gunnery Sergeant
-            - Marine Corps - First Sergeant
-            - Marine Corps - Master Sergeant
-            - Marine Corps - Gunnery Sergeant
-            - Marine Corps - Staff Sergeant
-            - Marine Corps - Sergeant
-            - Marine Corps - Corporal
-            - Marine Corps - Lance Corporal
-            - Marine Corps - Private First Class
-            - Marine Corps - Private
-            - Navy - Admiral
-            - Navy - Vice Admiral
-            - "Navy - Rear Admiral, Upper Half"
-            - "Navy - Rear Admiral, Lower Half"
-            - Navy - Captain
-            - Navy - Commander
-            - Navy - Lieutenant Commander
-            - Navy - Lieutenant
-            - Navy - Lieutenant Junior Grade
-            - Navy - Ensign
-            - Navy - Chief Warrant Officer - 4
-            - Navy - Chief Warrant Officer - 3
-            - Navy - Chief Warrant Officer - 2
-            - Navy - Master Chief Petty Officer of the Navy
-            - Navy - Master Chief Petty Officer
-            - Navy - Senior Chief Petty Officer
-            - Navy - Chief Petty Officer
-            - Navy - Petty Officer First Class
-            - Navy - Petty Officer Second Class
-            - Navy - Petty Officer Third Class
-            - Navy - Seaman Apprentice
-            - Navy - Seaman
-            - Navy - Seaman Recruit
-        - name: input_B03E0669-4040-F985-52CD-11B231195172
-          selector: "#input-B03E0669-4040-F985-52CD-11B231195172"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-        - name: input_B03E04DB-4040-F985-52CD-18F332336F99
-          selector: "#topic"
+        - name: input_5
+          selector: "#input_3_5"
           value: $TOPIC
           required: true
           options:
-            Agriculture: mailtopicag
-            Animal Rights: mailtopican
-            Banking and Finance: mailtopicbank
-            Civil Rights: mailtopiccr
-            Crime and the Judiciary: mailtopicjud
-            Defense and the Military: mailtopicdef
-            Economy/Jobs: mailtopicjobs
-            Education: mailtopiced
-            Energy: mailtopicen
-            Environment: mailtopicenviro
-            Federal Budget: mailtopicbud
-            Federal Employees: mailtopicfedemp
-            Foreign Relations: mailtopicforeign
-            Gun Safety: mailtopicgun
-            Immigration: mailtopicimmi
-            Health Care: mailtopichealth
-            Housing: mailtopichouse
-            Labor: mailtopiclabor
-            Politics and Political Campaigns: mailtopicpol
-            Social Security and Retirement: mailtopicretire
-            "Space, Science & Technology": mailtopicsci
-            Tax Policy and Reform: mailtopictax
-            Telecommunications and Cybersecurity: mailtopictelecom
-            Transportation: mailtopictran
-            Veterans: mailtopicvet
-            Welfare and Public Assistance: mailtopicwelfare
-            Other: mailtopicother
+            Agriculture: Agriculture
+            Animal Rights: Animal Rights
+            Banking and Finance: Banking and Finance
+            Civil Rights: Civil Rights
+            Crime and the Judiciary: Crime and the Judiciary
+            Defense and the Military: Defense and the Military
+            Economy/Jobs: Economy/Jobs
+            Education: Education
+            Energy: Energy
+            Environment: Environment
+            Federal Budget: Federal Budget
+            Federal Employees: Federal Employees
+            Foreign Relations: Foreign Relations
+            Gun Safety: Gun Safety
+            Immigration: Immigration
+            Health Care: Health Care
+            Housing: Housing
+            Labor: Labor
+            Politics and Political Campaigns: Politics and Political Campaigns
+            Social Security and Retirement: Social Security and Retirement
+            "Space, Science & Technology": "Space, Science & Technology"
+            Tax Policy and Reform: Tax Policy and Reform
+            Telecommunications and Cybersecurity: Telecommunications and Cybersecurity
+            Transportation: Transportation
+            Veterans: Veterans
+            Welfare and Public Assistance: Welfare and Public Assistance
+            Other: Other
     - javascript:
-        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
+        - value: document.querySelector("#input_3_6").value = document.querySelector("#input_3_6").value.replace(/"/g, '');
     - click_on:
-        - value: Submit
-          selector: input.btn
-    - find:
-        - selector: "h1"
-          value: "Thank You"
+        - selector: "#label_3_7_1"
+    - click_on:
+        - selector: "#gform_submit_button_3"
   success:
     headers:
       status: 200
     body:
-      contains: Your message has been received by my office and will be carefully reviewed by a member of my staff.
+      contains: Thanks for contacting us
