@@ -3,96 +3,97 @@ contact_form:
   method: post
   action: /#wpcf7-f8521-p45-o1
   steps:
-    - visit: "https://www.kelly.senate.gov/"
+    - visit: "https://www.kelly.senate.gov/contact/contact-form/"
     - wait:
         - value: 3
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
     - fill_in:
-        - name: "FirstName"
-          selector: "input[name='FirstName']"
+        - name: "input_2"
+          selector: "input[name='input_2']"
           value: $NAME_FIRST
           required: true
-        - name: "LastName"
-          selector: "input[name='LastName']"
+        - name: "input_3"
+          selector: "input[name='input_3']"
           value: $NAME_LAST
           required: true
-        - name: "your-message"
-          selector: "textarea[name='your-message']"
+        - name: "input_12"
+          selector: "textarea[name='input_12']"
           value: $MESSAGE
           required: true
-        - name: "subject"
-          selector: "input[name='subject']"
+        - name: "input_11"
+          selector: "input[name='input_11']"
           value: $SUBJECT
           required: true
-        - name: "Address1"
-          selector: "input[name='Address1']"
+        - name: "input_6.1"
+          selector: "input[name='input_6.1']"
           value: $ADDRESS_STREET
           required: true
-        - name: "City"
-          selector: "input[name='City']"
+        - name: "input_6.3"
+          selector: "input[name='input_6.3']"
           value: $ADDRESS_CITY
           required: true
-        - name: "ZipCode"
-          selector: "input[name='ZipCode']"
+        - name: "input_6.5"
+          selector: "input[name='input_6.5']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "your-email"
-          selector: "input[name='your-email']"
+        - name: "input_9"
+          selector: "input[name='input_9']"
           value: $EMAIL
           required: true
+        - name: "input_9_2"
+          selector: "input[name='input_9_2']"
+          value: $EMAIL
+          required: true
+        - name: "input_7"
+          selector: "input[name='input_7']"
+          value: $PHONE
+          required: true
     - select:
-        - name: "Topic"
-          selector: "select[name='Topic']"
+        - name: "input_17"
+          selector: "select[name='input_17']"
           value: $TOPIC
           required: true
           options:
-            - Agriculture
-            - Animal Rights
-            - Appropriations
-            - Arts & Humanities
-            - Banking & Financial Services
-            - Budget
-            - Business and Commerce
-            - Campaign/Election Reform
-            - Consumer Protection
-            - Children
-            - Crime
-            - Defense and Military
-            - Economic Development
-            - Education
-            - Energy
-            - Environment
-            - Ethics Reform
-            - Foreign Relations
-            - Government Reform
-            - Health Care
-            - Homeland Security
-            - Housing and Urban Affairs
-            - Immigration
-            - Intelligence
-            - Judiciary
-            - Labor
-            - Medicare
-            - Medicaid
-            - Native American Issues
-            - Nutrition
-            - Pensions
-            - Postal Service
-            - Public Lands
-            - Science and Innovation
-            - Second Amendment
-            - Seniors
-            - Social Issues
-            - Small Business
-            - Taxes
-            - Technology and Telecom
-            - Trade
-            - Transportation and Infrastructure
-            - Veterans
-            - Women and Children
+             Agriculture: AGR
+             Animal Rights: ANIMAL RIGHTS
+             Appropriations: APP
+             Arts & Humanities: ARTS
+             Banking & Financial Services: FIN_OVSIGHT
+             Budget: NO_CODE
+             Campaign/Election Reform: CAMPR
+             Consumer Protection: CONSUMER PROTECTION
+             Children: KIDS
+             Defense and Military: DEF or MIL
+             Economic Development: ECON
+             Education: EDU
+             Energy: ENE
+             Environment: ENV
+             Ethics Reform: NO_CODE
+             Foreign Relations: INT
+             Guns: GUN_VIO
+             Health Care: HEALTH
+             Homeland Security: HOM
+             Housing and Urban Affairs: HOUSING
+             Immigration: IMM
+             Intelligence: SURVEILLANCE
+             Judiciary: JUD
+             Labor: LABOR
+             Nutrition: SNAP
+             Postal Service: POSTAL
+             Science and Innovation: SCIENCE
+             Seniors: SENIORS
+             Social Issues: SOC
+             Taxes: TAX
+             Technology and Telecom: TECH and TELECOMM
+             Trade: TRADE
+             Transportation and Infrastructure: TRANSPO
+             Veterans: VET
+             Women and Children: WOMENS ISSUES.P
+    - recaptcha:
+        - value: true
     - click_on:
-        - value: Send
+        - value: Submit
           selector: input[type='submit']
     - wait:
         - value: 10
