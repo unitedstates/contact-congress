@@ -7,43 +7,43 @@ contact_form:
     - wait:
         - value: 1
     - fill_in:
-        - name: field_5B32FE1C-2B47-4F0E-87C1-E658F39D899D
-          selector: "#field_5B32FE1C-2B47-4F0E-87C1-E658F39D899D"
+        - name: field_03FC5C00-C814-41C0-86A8-17B9312FD6C8
+          selector: "#field_03FC5C00-C814-41C0-86A8-17B9312FD6C8"
           value: $NAME_FIRST
           required: true
-        - name: field_793E9DC5-0695-46B7-904C-9EB27A761D3A
-          selector: "#field_793E9DC5-0695-46B7-904C-9EB27A761D3A"
+        - name: field_54E8996A-B73A-491D-8BF4-B7A3E97844E0
+          selector: "#field_54E8996A-B73A-491D-8BF4-B7A3E97844E0"
           value: $NAME_LAST
           required: true
-        - name: field_7A0F9104-79DC-4CCE-AEE5-328456AFDA7C
-          selector: "#field_7A0F9104-79DC-4CCE-AEE5-328456AFDA7C"
+        - name: field_A08A7E57-46D1-448D-B383-3AECDBABDA4E
+          selector: "#field_A08A7E57-46D1-448D-B383-3AECDBABDA4E"
           value: $ADDRESS_STREET
           required: true
-        - name: field_73D2B9A5-2B33-475B-8E83-F33EA7F2B6F1
-          selector: "#field_73D2B9A5-2B33-475B-8E83-F33EA7F2B6F1"
+        - name: field_1FEC8089-08AF-4A92-B2B5-786F66FB942B
+          selector: "#field_1FEC8089-08AF-4A92-B2B5-786F66FB942B"
           value: $ADDRESS_CITY
           required: true
-        - name: field_63BD55D8-F99E-4097-8F02-4B1D030EFC55
-          selector: "#field_63BD55D8-F99E-4097-8F02-4B1D030EFC55"
+        - name: field_783D9EC5-F0BF-4452-A540-BCE7E8BD3A17
+          selector: "#field_783D9EC5-F0BF-4452-A540-BCE7E8BD3A17"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_B1169F16-2DEA-4B04-B3EC-A20A18A0C18B
-          selector: "#field_B1169F16-2DEA-4B04-B3EC-A20A18A0C18B"
+        - name: field_88940079-78B1-43A4-94F3-9F1CB9DAF794
+          selector: "#field_88940079-78B1-43A4-94F3-9F1CB9DAF794"
           value: $PHONE
           required: true
-        - name: field_B0E2E8D3-6EF6-42B4-B195-97567D284026
-          selector: "#field_B0E2E8D3-6EF6-42B4-B195-97567D284026"
+        - name: field_E3532A52-00C6-4D03-BC60-028EEA9075CF
+          selector: "#field_E3532A52-00C6-4D03-BC60-028EEA9075CF"
           value: $EMAIL
           required: true
-        - name: field_B3546A94-6FC9-4491-B49E-491AB436132C
-          selector: "#field_B3546A94-6FC9-4491-B49E-491AB436132C"
+        - name: field_46098D12-DFBD-47F9-B71C-B15F0F08F55C
+          selector: "#field_46098D12-DFBD-47F9-B71C-B15F0F08F55C"
           value: $MESSAGE
           required: true
           options:
             max_length: 1500
     - select:
-        - name: field_0CB45ECA-A067-4502-A126-3BF34074A15A
-          selector: "#field_0CB45ECA-A067-4502-A126-3BF34074A15A"
+        - name: field_93B4457B-B1FD-45CF-80DE-FCAC82188E54
+          selector: "#field_93B4457B-B1FD-45CF-80DE-FCAC82188E54"
           value: $NAME_PREFIX
           required: true
           options:
@@ -57,8 +57,8 @@ contact_form:
             - Reverend
             - Pastor
             - Sister
-        - name: field_2170B182-5ED8-4BEB-AFB3-6152D226A3BB
-          selector: "#field_2170B182-5ED8-4BEB-AFB3-6152D226A3BB"
+        - name: field_8C2DC464-4C7B-4C64-B2E6-26BF491C5A11
+          selector: "#field_8C2DC464-4C7B-4C64-B2E6-26BF491C5A11"
           value: $TOPIC
           required: true
           options:
@@ -112,13 +112,11 @@ contact_form:
             - "Women's Issues"
             - Other
     - javascript:
-        - value: document.querySelector("#field_B3546A94-6FC9-4491-B49E-491AB436132C").value = document.querySelector("#field_B3546A94-6FC9-4491-B49E-491AB436132C").value.replace(/"/g, '');
+        - value: document.querySelector("#field_46098D12-DFBD-47F9-B71C-B15F0F08F55C").value = document.querySelector("#field_46098D12-DFBD-47F9-B71C-B15F0F08F55C").value.replace(/"/g, '');
+    - click_on:
+      - selector: "#field_5F5EB295-4F55-4CB4-8CE2-7D0F05617B42_1"
     - javascript:
-      - value: document.querySelector("#g-recaptcha-response").style.display = "block";        
-    - recaptcha:
-        - value: true
-    - javascript:
-        - value: document.querySelector("div.buttonHolder input").click();
+        - value: document.querySelector(".btn-primary[value='Submit']").click();
   success:
     headers:
       status: 200
