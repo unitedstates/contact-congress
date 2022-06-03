@@ -117,6 +117,8 @@ contact_form:
       - selector: "#field_5F5EB295-4F55-4CB4-8CE2-7D0F05617B42_1"
     - javascript:
         - value: document.querySelector(".btn-primary[value='Submit']").click();
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
