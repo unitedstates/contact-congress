@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "https://www.toomey.senate.gov/contact/email-senator-toomey"
     - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+        - value: "document.querySelector('.MobileHeader').remove(); Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
           selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
