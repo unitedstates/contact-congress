@@ -85,8 +85,7 @@ contact_form:
     - click_on:
         - selector: "button.elementor-button"
     - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
-try{ element.parentNode.removeChild(element) } catch(err){} });"
+        - value: 'document.querySelector(".elementor-message-success").style.display = "block";'
     - find:
         - selector: ".elementor-message-success"
   success:
