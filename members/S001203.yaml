@@ -5,41 +5,41 @@ contact_form:
   steps:
     - visit: "https://www.smith.senate.gov/share-your-opinion"
     - fill_in:
-        - name: "first_name"
-          selector: "#edit-first-name"
+        - name: "form_fields[first_name]"
+          selector: "#form-field-first_name"
           value: $NAME_FIRST
           required: true
-        - name: "last_name"
-          selector: "#edit-last-name"
+        - name: "form_fields[last_name]"
+          selector: "#form-field-last_name"
           value: $NAME_LAST
           required: true
-        - name: "address_1"
-          selector: "#edit-address-1"
+        - name: "form_fields[address_1]"
+          selector: "#form-field-address_1"
           value: $ADDRESS_STREET
           required: true
-        - name: "city"
-          selector: "#edit-city"
+        - name: "form_fields[city]"
+          selector: "#form-field-city"
           value: $ADDRESS_CITY
           required: true
-        - name: "zip"
-          selector: "#edit-zip"
+        - name: "form_fields[zipcode]"
+          selector: "#form-field-zipcode"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "email"
-          selector: "#edit-email"
+        - name: "form_fields[email]"
+          selector: "#form-field-email"
           value: $EMAIL
           required: true
-        - name: "subject"
-          selector: "#edit-subject"
+        - name: "form_fields[subject]"
+          selector: "#form-field-subject"
           value: $SUBJECT
           required: true
-        - name: "message"
-          selector: "#edit-message"
+        - name: "form_fields[message]"
+          selector: "#form-field-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: "topic"
-          selector: "#edit-topic"
+        - name: "form_fields[topic]"
+          selector: "#form-field-topic"
           value: $TOPIC
           required: true
           options:
@@ -79,13 +79,15 @@ contact_form:
             "Transportation": "Transportation"
             "Veterans": "Veterans"
     - javascript:
-        - value: document.querySelector("#edit-message").value = document.querySelector("#edit-message").value.replace(/"/g, '');
+        - value: document.querySelector("#form-field-message").value = document.querySelector("#form-field-message").value.replace(/"/g, '');
     - click_on:
-        - selector: "#edit-actions-submit"
+        - selector: "#form-field-subscribe-1"
+    - click_on:
+        - selector: "button.elementor-button"
     - find:
-        - selector: ".webform-confirmation"
+        - selector: ".elementor-message-success"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message has been sent."
+      contains: "The form was sent successfully"
