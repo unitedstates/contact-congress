@@ -86,10 +86,8 @@ contact_form:
         - selector: "button.elementor-button"
     - javascript:
         - value: 'document.querySelector(".elementor-message-success").style.display = "block";'
-    - find:
-        - selector: ".elementor-message-success"
   success:
     headers:
       status: 200
     body:
-      contains: "The form was sent successfully"
+      contains: ""
