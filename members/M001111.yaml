@@ -5,8 +5,7 @@ contact_form:
   steps:
     - visit: "https://www.murray.senate.gov/write-to-patty/"
     - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
-try{ element.parentNode.removeChild(element) } catch(err){} });"
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: form_fields[name]
           selector: ".elementor-labels-above input[name='form_fields[name]']"
@@ -35,7 +34,7 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
         - name: form_fields[field_b636f09]
           selector: "#form-field-field_b636f09"
           value: $PHONE
-          required: true   
+          required: true
         - name: form_fields[field_af46b74]
           selector: "#form-field-field_af46b74"
           value: $SUBJECT
@@ -98,8 +97,7 @@ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - selector: .elementor-labels-above button[type='submit']
     - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
-    try{ element.parentNode.removeChild(element) } catch(err){} });"    
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
   success:
     headers:
       status: 200
