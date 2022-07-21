@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.lee.senate.gov/public/index.cfm/contact"
+    - javascript:
+        - value: document.querySelector(".header-top").remove()
     - fill_in:
         - name: field_6FA377A2-2FA6-4442-822F-DEECDDF5E8BD
           selector: "#field_6FA377A2-2FA6-4442-822F-DEECDDF5E8BD"
