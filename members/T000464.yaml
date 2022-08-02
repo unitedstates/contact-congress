@@ -6,48 +6,48 @@ contact_form:
     - visit: http://www.tester.senate.gov/?p=email_senator
     - fill_in:
       - name: firstName
-        selector: "#firstName"
+        selector: "#input_1_2"
         value: "$NAME_FIRST"
         required: Yes
       - name: lastName
-        selector: "#lastName"
+        selector: "#input_1_3"
         value: "$NAME_LAST"
         required: Yes
       - name: Address1
-        selector: "#Address1"
+        selector: "#input_1_6_1"
         value: "$ADDRESS_STREET"
         required: Yes
       - name: city
-        selector: "#city"
+        selector: "#input_1_6_3"
         value: "$ADDRESS_CITY"
         required: Yes
       - name: zip
-        selector: "#zip"
+        selector: "#input_1_6_5"
         value: "$ADDRESS_ZIP5"
         required: Yes
       - name: phone
-        selector: "#phone"
+        selector: "#input_1_7"
         value: "$PHONE"
         required: true
       - name: email
-        selector: "input#email"
+        selector: "#input_1_9"
         value: "$EMAIL"
         required: Yes
       - name: vemail
-        selector: "#vemail"
+        selector: "#input_1_9_2"
         value: "$EMAIL"
         required: Yes
       - name: messageSubject
-        selector: "#messageSubject"
+        selector: "#input_1_11"
         value: "$SUBJECT"
         required: Yes
       - name: MessageBody
-        selector: ".textarea"
+        selector: "#input_1_12"
         value: "$MESSAGE"
         required: Yes
     - select:
       - name: Prefix
-        selector: "#thisForm select[name='Prefix']"
+        selector: "#input_1_1"
         value: "$NAME_PREFIX"
         required: Yes
         options:
@@ -78,7 +78,7 @@ contact_form:
           - "Sister"
           - "Technical Sergeant"
       - name: State
-        selector: "#thisForm select[name='State']"
+        selector: "#input_1_6_4"
         value: $ADDRESS_STATE_POSTAL_ABBREV
         required: Yes
         options:
@@ -139,70 +139,66 @@ contact_form:
           "Wisconsin ": WI
           "Wyoming ": WY
       - name: Subject
-        selector: "#thisForm select[name='Subject']"
+        selector: "#input_1_17"
         value: "$TOPIC"
         required: Yes
         options:
-          "\n\t\t\t\t\t\t\tAbortion\n\t\t\t\t\t\t": "Abortion"
-          "\n\t\t\t\t\t\t\tAfghanistan\n\t\t\t\t\t\t": "Afghanistan"
-          "\n\t\t\t\t\t\t\tAgriculture\n\t\t\t\t\t\t": "Agriculture"
-          "\n\t\t\t\t\t\t\tAnimals\n\t\t\t\t\t\t": "Animals"
-          "\n\t\t\t\t\t\t\tArts and Humanities\n\t\t\t\t\t\t": "Arts and Humanities"
-          "\n\t\t\t\t\t\t\tBudget\n\t\t\t\t\t\t": "Budget"
-          "\n\t\t\t\t\t\t\tBusiness\n\t\t\t\t\t\t": "Business"
-          "\n\t\t\t\t\t\t\tChildren/Family\n\t\t\t\t\t\t": "Children/Family"
-          "\n\t\t\t\t\t\t\tCivil Rights\n\t\t\t\t\t\t": "Civil Rights"
-          "\n\t\t\t\t\t\t\tCommerce\n\t\t\t\t\t\t": "Commerce"
-          "\n\t\t\t\t\t\t\tCommunication\n\t\t\t\t\t\t": "Communication"
-          "\n\t\t\t\t\t\t\tEconomy\n\t\t\t\t\t\t": "Economy"
-          "\n\t\t\t\t\t\t\tEducation\n\t\t\t\t\t\t": "Education"
-          "\n\t\t\t\t\t\t\tElections\n\t\t\t\t\t\t": "Elections"
-          "\n\t\t\t\t\t\t\tEnergy\n\t\t\t\t\t\t": "Energy"
-          "\n\t\t\t\t\t\t\tEnvironment\n\t\t\t\t\t\t": "Environment"
-          "\n\t\t\t\t\t\t\tFamily\n\t\t\t\t\t\t": "Family"
-          "\n\t\t\t\t\t\t\tFinance\n\t\t\t\t\t\t": "Finance"
-          "\n\t\t\t\t\t\t\tForeign Affairs\n\t\t\t\t\t\t": "Foreign Affairs"
-          "\n\t\t\t\t\t\t\tForest Jobs and Recreation Act\n\t\t\t\t\t\t": "Forest Jobs and Recreation Act"
-          "\n\t\t\t\t\t\t\tGuns\n\t\t\t\t\t\t": "Guns"
-          "\n\t\t\t\t\t\t\tHealth\n\t\t\t\t\t\t": "Health"
-          "\n\t\t\t\t\t\t\tHomeland Security\n\t\t\t\t\t\t": "Homeland Security"
-          "\n\t\t\t\t\t\t\tHousing\n\t\t\t\t\t\t": "Housing"
-          "\n\t\t\t\t\t\t\tIndian Affairs\n\t\t\t\t\t\t": "Indian Affairs"
-          "\n\t\t\t\t\t\t\tInternship\n\t\t\t\t\t\t": "Internship"
-          "\n\t\t\t\t\t\t\tImmigration\n\t\t\t\t\t\t": "Immigration"
-          "\n\t\t\t\t\t\t\tIraq\n\t\t\t\t\t\t": "Iraq"
-          "\n\t\t\t\t\t\t\tJudiciary\n\t\t\t\t\t\t": "Judiciary"
-          "\n\t\t\t\t\t\t\tLabor\n\t\t\t\t\t\t": "Labor"
-          "\n\t\t\t\t\t\t\tLaw and Justice\n\t\t\t\t\t\t": "Law and Justice"
-          "\n\t\t\t\t\t\t\tMedicaid\n\t\t\t\t\t\t": "Medicaid"
-          "\n\t\t\t\t\t\t\tMedicare\n\t\t\t\t\t\t": "Medicare"
-          "\n\t\t\t\t\t\t\tMeeting Request\n\t\t\t\t\t\t": "Meeting Request"
-          "\n\t\t\t\t\t\t\tMilitary Affairs\n\t\t\t\t\t\t": "Military Affairs"
-          "\n\t\t\t\t\t\t\tPage Program\n\t\t\t\t\t\t": "Page Program"
-          "\n\t\t\t\t\t\t\tReligion\n\t\t\t\t\t\t": "Religion"
-          "\n\t\t\t\t\t\t\tScience and Technology\n\t\t\t\t\t\t": "Science and Technology"
-          "\n\t\t\t\t\t\t\tSeniors\n\t\t\t\t\t\t": "Seniors"
-          "\n\t\t\t\t\t\t\tSocial Security\n\t\t\t\t\t\t": "Social Security"
-          "\n\t\t\t\t\t\t\tTANF\n\t\t\t\t\t\t": "TANF"
-          "\n\t\t\t\t\t\t\tTaxes\n\t\t\t\t\t\t": "Taxes"
-          "\n\t\t\t\t\t\t\tTrade\n\t\t\t\t\t\t": "Trade"
-          "\n\t\t\t\t\t\t\tTransportation\n\t\t\t\t\t\t": "Transportation"
-          "\n\t\t\t\t\t\t\tTour Request\n\t\t\t\t\t\t": "Tour Request"
-          "\n\t\t\t\t\t\t\tVeterans\n\t\t\t\t\t\t": "Veterans"
-          "\n\t\t\t\t\t\t\tWelfare\n\t\t\t\t\t\t": "Welfare"
-          "\n\t\t\t\t\t\t\tWolves\n\t\t\t\t\t\t": "Wolves"
-          "\n\t\t\t\t\t\t\tWomen's Issues\n\t\t\t\t\t\t": "Women's Issues"
+          "Abortion": "Abortion"
+          "Afghanistan": "Afghanistan"
+          "Agriculture": "Agriculture"
+          "Animals": "Animals"
+          "Arts and Humanities": "Arts and Humanities"
+          "Budget": "Budget"
+          "Business": "Business"
+          "Children/Family": "Children/Family"
+          "Civil Rights": "Civil Rights"
+          "Commerce": "Commerce"
+          "Communication": "Communication"
+          "Economy": "Economy"
+          "Education": "Education"
+          "Elections": "Elections"
+          "Energy": "Energy"
+          "Environment": "Environment"
+          "Family": "Family"
+          "Finance": "Finance"
+          "Foreign Affairs": "Foreign Affairs"
+          "Forest Jobs and Recreation Act": "Forest Jobs and Recreation Act"
+          "Guns": "Guns"
+          "Health": "Health"
+          "Homeland Security": "Homeland Security"
+          "Housing": "Housing"
+          "Indian Affairs": "Indian Affairs"
+          "Internship": "Internship"
+          "Immigration": "Immigration"
+          "Iraq": "Iraq"
+          "Judiciary": "Judiciary"
+          "Labor": "Labor"
+          "Law and Justice": "Law and Justice"
+          "Medicaid": "Medicaid"
+          "Medicare": "Medicare"
+          "Meeting Request": "Meeting Request"
+          "Military Affairs": "Military Affairs"
+          "Page Program": "Page Program"
+          "Religion": "Religion"
+          "Science and Technology": "Science and Technology"
+          "Seniors": "Seniors"
+          "Social Security": "Social Security"
+          "TANF": "TANF"
+          "Taxes": "Taxes"
+          "Trade": "Trade"
+          "Transportation": "Transportation"
+          "Tour Request": "Tour Request"
+          "Veterans": "Veterans"
+          "Welfare": "Welfare"
+          "Wolves": "Wolves"
+          "Women's Issues": "Women's Issues"
     - javascript:
       - value: document.querySelector(".textarea").value = document.querySelector(".textarea").value.replace(/"/g, '');
     - click_on:
       - value: Submit
-        selector: "#thisForm input[name='Submit']"
-    - wait:
-      - value: 3
-    - find:
-      - selector: ".note"
+        selector: "#gform_submit_button_1"
   success:
     headers:
       status: 200
     body:
-      contains: "Your message has been sent"
+      contains: "Thank you! Your message to Jon has been sent."
