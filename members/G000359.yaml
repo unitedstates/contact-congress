@@ -4,6 +4,8 @@ contact_form:
   action: https://www.lgraham.senate.gov/public/index.cfm?p=contact-form
   steps:
     - visit: http://www.lgraham.senate.gov/public/index.cfm?p=contact-form
+    - javascript:
+      - value: document.querySelector("nav").remove()
     - fill_in:
       - name: "field_BC705BBD-A0D1-4D9B-A1FD-0A9E63162CE8"
         selector: "#field_BC705BBD-A0D1-4D9B-A1FD-0A9E63162CE8"
