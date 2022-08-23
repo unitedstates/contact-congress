@@ -41,10 +41,6 @@ contact_form:
           selector: "#form-field-message"
           value: $MESSAGE
           required: true
-        - name: "break-this-form"
-          selector: "#break-this-form"
-          value: $MESSAGE
-          required: true  
     - select:
         - name: "form_fields[topic]"
           selector: "#form-field-topic"
@@ -105,7 +101,7 @@ contact_form:
     - click_on:
         - selector: ".elementor-button-text"
     - wait:
-        - value: 2
+        - value: 4
     - find:
         - selector: ".elementor-message-success"
   success:
