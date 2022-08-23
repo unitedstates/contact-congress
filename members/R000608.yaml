@@ -5,50 +5,45 @@ contact_form:
   steps:
     - visit: "https://www.rosen.senate.gov/contact_jacky"
     - fill_in:
-        - name: "first_name"
-          selector: "#edit-first-name"
+        - name: "form_fields[first_name]"
+          selector: "#form-field-first_name"
           value: $NAME_FIRST
           required: true
-        - name: "last_name"
-          selector: "#edit-last-name"
+        - name: "form_fields[last_name]"
+          selector: "#form-field-last_name"
           value: $NAME_LAST
           required: true
-        - name: "address_1"
-          selector: "#edit-address-1"
+        - name: "form_fields[address]"
+          selector: "#form-field-address"
           value: $ADDRESS_STREET
           required: true
-        - name: "city"
-          selector: "#edit-city"
+        - name: "form_fields[city]"
+          selector: "#form-field-city"
           value: $ADDRESS_CITY
           required: true
-        - name: "zip"
-          selector: "#edit-zip"
+        - name: "form_fields[zip]"
+          selector: "#form-field-zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "phone"
-          selector: "#edit-phone"
+        - name: "form_fields[phone]"
+          selector: "#form-field-phone"
           value: $PHONE
           required: true
-        - name: "email"
-          selector: "#edit-email"
+        - name: "form_fields[email]"
+          selector: "#form-field-email"
           value: $EMAIL
           required: true
-        - name: "subject"
-          selector: "#edit-subject"
+        - name: "form_fields[subject]"
+          selector: "#form-field-subject"
           value: $SUBJECT
           required: true
-        - name: "message"
-          selector: "#edit-message"
+        - name: "form_fields[message]"
+          selector: "#form-field-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: "state"
-          selector: "#edit-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options: US_STATES
-        - name: "topic"
-          selector: "#edit-topic"
+        - name: "form_fields[topic]"
+          selector: "#form-field-topic"
           value: $TOPIC
           required: true
           options:
@@ -104,10 +99,9 @@ contact_form:
             "Women's Empowerment": "Women's Empowerment"
             "Yucca Mountain": "Yucca Mountain"
     - click_on:
-        - value: Send message
-          selector: "#edit-actions-submit"
+        - selector: ".elementor-button-text"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you, your message"
+      contains: "The form was sent"
