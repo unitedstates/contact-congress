@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.rosen.senate.gov/contact_jacky"
+    - javascript:
+        - value: document.querySelector('.elementor-location-header').remove()
     - fill_in:
         - name: "form_fields[first_name]"
           selector: "#form-field-first_name"
@@ -108,4 +110,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "The form was sent successfully"
