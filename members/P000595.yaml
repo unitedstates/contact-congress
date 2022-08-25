@@ -4,23 +4,6 @@ contact_form:
   action: "https://www.peters.senate.gov/contact/email-gary"
   steps:
     - visit: "https://www.peters.senate.gov/contact/email-gary"
-    - find:
-        - selector: "#actions"
-    - select:
-        - name: input_AE7457DD-4040-F985-52CD-B99385041C51
-          selector: "#actions"
-          value: opinion
-          required: true
-          options:
-            Comment on an Issue: opinion
-            Help with a Federal Agency: Help with a Federal Agency
-            Meeting Requests: Meeting Requests
-            Tour Requests: Tour Requests
-            Office Locations: Office Locations
-            Student Resources: Student Resources
-            Veterans Resources: Veterans Resources
-    - wait:
-        - value: 3
     - fill_in:
         - name: input_260E577D-5056-A066-6070-226296904340
           selector: "#input-260E577D-5056-A066-6070-226296904340"
