@@ -101,7 +101,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
     - javascript:
-        - value: document.querySelector('input[value=\'Submit\']').click();
+        - value: document.querySelector('[type="submit"].btn').click();
     - wait:
         - value: 5
     - find:
