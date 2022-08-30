@@ -1,49 +1,49 @@
 bioguide: H000601
 contact_form:
   method: post
-  action: /#wpcf7-f8521-p45-o1
+  action: /email-me/#wpcf7-f8521-o1
   steps:
-    - visit: "https://www.hagerty.senate.gov/"
+    - visit: "https://www.hagerty.senate.gov/email-me/"
     - wait:
         - value: 3
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
     - fill_in:
         - name: "FirstName"
-          selector: "#wpcf7-f8521-p17-o2 input[name='FirstName']"
+          selector: "#wpcf7-f8521-o1 input[name='FirstName']"
           value: $NAME_FIRST
           required: true
         - name: "LastName"
-          selector: "#wpcf7-f8521-p17-o2 input[name='LastName']"
+          selector: "#wpcf7-f8521-o1 input[name='LastName']"
           value: $NAME_LAST
           required: true
         - name: "your-message"
-          selector: "#wpcf7-f8521-p17-o2 textarea[name='your-message']"
+          selector: "#wpcf7-f8521-o1 textarea[name='your-message']"
           value: $MESSAGE
           required: true
         - name: "subject"
-          selector: "#wpcf7-f8521-p17-o2 input[name='subject']"
+          selector: "#wpcf7-f8521-o1 input[name='subject']"
           value: $SUBJECT
           required: true
         - name: "Address1"
-          selector: "#wpcf7-f8521-p17-o2 input[name='Address1']"
+          selector: "#wpcf7-f8521-o1 input[name='Address1']"
           value: $ADDRESS_STREET
           required: true
         - name: "City"
-          selector: "#wpcf7-f8521-p17-o2 input[name='City']"
+          selector: "#wpcf7-f8521-o1 input[name='City']"
           value: $ADDRESS_CITY
           required: true
         - name: "ZipCode"
-          selector: "#wpcf7-f8521-p17-o2 input[name='ZipCode']"
+          selector: "#wpcf7-f8521-o1 input[name='ZipCode']"
           value: $ADDRESS_ZIP5
           required: true
         - name: "your-email"
-          selector: "#wpcf7-f8521-p17-o2 input[name='your-email']"
+          selector: "#wpcf7-f8521-o1 input[name='your-email']"
           value: $EMAIL
           required: true
     - select:
         - name: "Topic"
-          selector: "#wpcf7-f8521-p17-o2 select[name='Topic']"
+          selector: "#wpcf7-f8521-o1 select[name='Topic']"
           value: $TOPIC
           required: true
           options:
@@ -87,7 +87,7 @@ contact_form:
             - Women and Children
     - click_on:
         - value: Send
-          selector: "#wpcf7-f8521-p17-o2 input[type='submit']"
+          selector: "#wpcf7-f8521-o1 input[type='submit']"
     - wait:
         - value: 10
     - javascript:
