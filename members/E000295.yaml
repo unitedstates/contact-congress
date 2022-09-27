@@ -45,8 +45,6 @@ contact_form:
           required: true
           options:
             max_length: 5000
-    - javascript:
-        - value: "document.getElementById('input-5C18D021-0988-F2BB-1F6A-3665652A79E9').value = document.getElementById('input-5C18D021-0988-F2BB-1F6A-3665652A79E9').value.replace(/([0-9]{3})([0-9]{3})([0-9]{4})/, '$1-$2-$3');"
     - select:
         - name: input_80BA1E51-B62F-9243-0C13-D1C74536A208
           selector: "#title"
@@ -116,12 +114,10 @@ contact_form:
             Trade: Trade
             Transportation: TRA
             Veterans: VET
-    - javascript:
-        - value: document.querySelector("#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0").value = document.querySelector("#field_D5D7CF5F-83B7-413E-95C8-00E103AECCD0").value.replace(/"/g, '');
     - click_on:
         - selector: button.btn[type='submit']
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Your message has been received"
