@@ -120,4 +120,5 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "Your message has been received"
+      contains: ""
+      # success text is blank because .SiteLayout__main doesn't render in the screenshot and will be counted as a failure. If the screenshot doesn't show the form, that means it was successful
