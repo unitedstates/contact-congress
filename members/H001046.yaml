@@ -177,6 +177,8 @@ contact_form:
             "Airman": "Airman"
     - click_on:
         - selector: ".controls button[type='submit']"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
