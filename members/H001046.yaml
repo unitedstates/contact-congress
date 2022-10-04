@@ -3,12 +3,55 @@ contact_form:
   method: post
   action: /contact/write-martin
   steps:
-    - visit: "https://www.heinrich.senate.gov/contact/write-martin"
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - visit: "https://www.heinrich.senate.gov/contact/write-martin/form"
+    - fill_in:
+        - name: input_2AB4269B-0EFC-EB00-9186-5B08A34143C5
+          selector: "#firstName"
+          value: $NAME_FIRST
+          required: true
+        - name: input_2AB4270E-EBD3-21C4-9AD3-CA2D60AFF043
+          selector: "#input-2AB4270E-EBD3-21C4-9AD3-CA2D60AFF043"
+          value: $NAME_LAST
+          required: true
+        - name: input_2AF31262-E7B8-AC75-3CAA-EF2A847439DD
+          selector: "#input-2AF31262-E7B8-AC75-3CAA-EF2A847439DD"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_2AF312C2-B40C-D3C3-05F6-ECB0009872D9
+          selector: "#input-2AF312C2-B40C-D3C3-05F6-ECB0009872D9"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_2AF31332-B8C6-5B56-4258-713E6C23C0C4
+          selector: "#input-2AF31332-B8C6-5B56-4258-713E6C23C0C4"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_2AFF692A-04A2-EBBA-5021-824732C5E367
+          selector: "#input-2AFF692A-04A2-EBBA-5021-824732C5E367"
+          value: $PHONE
+          required: false
+        - name: input_2B043CB9-BB2D-8E4D-F720-588E0AE9526D
+          selector: "#email"
+          value: $EMAIL
+          required: true
+        - name: input_2B043CF1-FA12-237B-D8AD-54FE21726597
+          selector: "#input-2B043CF1-FA12-237B-D8AD-54FE21726597"
+          value: $EMAIL
+          required: true
+        - name: input_2B0D4D7C-FE79-F9BE-4491-935B036375CC
+          selector: "#input-2B0D4D7C-FE79-F9BE-4491-935B036375CC"
+          value: $SUBJECT
+          required: true
+        - name: input_2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0
+          selector: "#input-2B10C291-92F3-C0D2-11A5-6B0CC8EA12C0"
+          value: $MESSAGE
+          required: true
+    - click_on:
+        - selector: "#input-2B6283B8-001D-6B16-22E2-442F903E1942"
+    - click_on:
+        - selector: "#newsletteractiontoggle-0"
     - select:
-        - name: topic
-          selector: "#contactForm select[name='topic']"
+        - name: input_2B0A3D48-DA91-73B6-A07A-97A20612D288
+          selector: "#topic"
           value: $TOPIC
           required: true
           options:
@@ -52,64 +95,16 @@ contact_form:
             Welfare/Food Assistance: Welfare/Food Assistance
             Wildlife: Wildlife
             "Women's Issues": "Women's Issues"
-    - wait:
-        - value: 3
-    - find:
-        - selector: "#continue-form"
-    - fill_in:
-        - name: fname
-          selector: "#fname"
-          value: $NAME_FIRST
-          required: true
-        - name: lname
-          selector: "#lname"
-          value: $NAME_LAST
-          required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
-          value: $ADDRESS_STREET
-          required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: mailing_city
-          selector: "#mailing_city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: phone_number
-          selector: "#phone_number"
-          value: $PHONE
-          required: false
-        - name: email_address
-          selector: "#email"
-          value: $EMAIL
-          required: true
-        - name: verify_email
-          selector: "#verify_email"
-          value: $EMAIL
-          required: true
-        - name: subject
-          selector: "#contactForm input[name='subject']"
-          value: $SUBJECT
-          required: true
-        - name: message
-          selector: "#message"
-          value: $MESSAGE
-          required: true
     - select:
-        - name: salutation
-          selector: "#salutation"
+        - name: input_2AA38DC3-BC1F-9589-8FDC-7341685E655F
+          selector: "#input-2AA38DC3-BC1F-9589-8FDC-7341685E655F"
           value: $NAME_PREFIX
           required: true
           options:
             "Mr.": "Mr."
             "Ms.": "Ms."
             "Mrs.": "Mrs."
+            "Mx.": "Mx."
             "Dr.": "Dr."
             "Mr. and Mrs.": "Mr. and Mrs."
             "Dr. and Mrs.": "Dr. and Mrs."
@@ -180,20 +175,13 @@ contact_form:
             "Senior Airman": "Senior Airman"
             "Airman First Class": "Airman First Class"
             "Airman": "Airman"
-    - wait:
-        - value: 1
-    - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
-    - javascript:
-        - value: var el = document.getElementById('office-locations-row'); el.parentNode.removeChild(el);
     - click_on:
-        - value: Submit
-          selector: input.btn.pull-right
+        - selector: ".controls button[type='submit']"
     - find:
-        - selector: "h1"
+        - selector: "h3"
           value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: Thanks for taking the time to share your thoughts with me.
+      contains: Thank you for reaching out to Senator
