@@ -4,6 +4,8 @@ contact_form:
   action: "https://www.whitehouse.senate.gov/contact/email-sheldon"
   steps:
     - visit: "https://www.whitehouse.senate.gov/contact/email-sheldon"
+    - javascript:
+      - value: document.querySelector("#header").remove()
     - fill_in:
         - name: input_BA74A312-4040-F985-52CD-FBFBC7F20F79
           selector: "#input-BA74A312-4040-F985-52CD-FBFBC7F20F79"
