@@ -111,10 +111,6 @@ contact_form:
           value: 3048820B-A361-6166-70F4-2D74C1E208F4
           required: true
     - javascript:
-        - value: document.querySelector('.btn').insertAdjacentHTML('beforeend', '<textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response"></textarea>');
-    - recaptcha:
-        - value: true
-    - javascript:
         - value: document.querySelector("#input-30403D9F-9D8B-E1D8-02F8-5D7C17B516E7").value = document.querySelector("#input-30403D9F-9D8B-E1D8-02F8-5D7C17B516E7").value.replace(/"/g, '');
     - javascript:
         - value: document.querySelector('.btn').click();
