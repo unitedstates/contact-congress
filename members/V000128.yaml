@@ -4,8 +4,8 @@ contact_form:
   action: /content/contact-senator
   steps:
     - visit: "https://www.vanhollen.senate.gov/contact/email"
-    - click_on:
-        - selector: ".opinion span.noimg"
+    - javascript:
+        - value: "document.querySelector('.opinion span.noimg').click()"
     - find:
         - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
     - fill_in:
