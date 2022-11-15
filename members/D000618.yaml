@@ -6,66 +6,42 @@ contact_form:
     - visit: "http://www.daines.senate.gov/connect/email-steve"
     - wait:
         - value: 2
-    - find:
-        - selector: "#actiontog"
-    - select:
-        - name: input_AE7457DD-4040-F985-52CD-B99385041C51
-          selector: "#actiontog"
-          value: opinion
-          required: true
-          options:
-            Share your opinions or comment on legislation or issues: opinion
-            Media Inquiries: media
-            Scheduling Request: meeting
-            Help with a federal agency: federal_agency
-            Tour Request: tour
-            Request a flag to be flown over the Capitol: flag
-    - wait:
-        - value: 2
     - fill_in:
-        - name: input_AE758CDD-5056-A066-603D-1831CB9A4A9E
-          selector: "#input-AE758CDD-5056-A066-603D-1831CB9A4A9E"
+        - name: form_fields[first_name]
+          selector: "#form-field-first_name"
           value: $NAME_FIRST
           required: true
-        - name: input_AE758655-5056-A066-6057-3361795D91EB
-          selector: "#input-AE758655-5056-A066-6057-3361795D91EB"
+        - name: form_fields[last_name]
+          selector: "#form-field-last_name"
           value: $NAME_LAST
           required: true
-        - name: input_AE758DCA-5056-A066-60CC-990C7C55F1AC
-          selector: "#input-AE758DCA-5056-A066-60CC-990C7C55F1AC"
+        - name: form_fields[address]
+          selector: "#form-field-address"
           value: $ADDRESS_STREET
           required: true
-        - name: input_AE758BF2-5056-A066-607D-4D415B590447
-          selector: "#input-AE758BF2-5056-A066-607D-4D415B590447"
+        - name: form_fields[city]
+          selector: "#form-field-city"
           value: $ADDRESS_CITY
           required: true
-        - name: input_AE7586A3-5056-A066-605F-0D3C3097CA37
-          selector: "#input-AE7586A3-5056-A066-605F-0D3C3097CA37"
+        - name: form_fields[zip_code]
+          selector: "#form_fields[zip_code]"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_AE7584AA-5056-A066-6024-D288D76D0401
-          selector: "#input-AE7584AA-5056-A066-6024-D288D76D0401"
-          value: $PHONE
-          required: true
-        - name: input_AE7589AE-5056-A066-603D-12768C491EC7
-          selector: "#email"
+        - name: form_fields[email]
+          selector: "#form-field-email"
           value: $EMAIL
           required: true
-        - name: input_AE758C40-5056-A066-6013-8815A8D72C35
-          selector: "#input-AE758C40-5056-A066-6013-8815A8D72C35"
-          value: $EMAIL
-          required: true
-        - name: input_AE758BA4-5056-A066-6020-7729DD673290
-          selector: "#input-AE758BA4-5056-A066-6020-7729DD673290"
+        - name: form_fields[subject]
+          selector: "#form-field-subject"
           value: $SUBJECT
           required: true
-        - name: input_AE758C8F-5056-A066-607B-3567A5253A20
-          selector: "#input-AE758C8F-5056-A066-607B-3567A5253A20"
+        - name: form_fields[message]
+          selector: "#form-field-message"
           value: $MESSAGE
           required: true
     - select:
-        - name: input_AE7588C4-5056-A066-6063-84FF585691BB
-          selector: "#input-AE7588C4-5056-A066-6063-84FF585691BB"
+        - name: form_fields[field_5703f4a]
+          selector: "#form-field-field_5703f4a"
           value: $NAME_PREFIX
           required: true
           options:
@@ -204,65 +180,8 @@ contact_form:
             - Navy - Seaman
             - Navy - Seaman Recruit
     - select:
-        - name: input_AE758FA2-5056-A066-6027-E3B50BB716E9
-          selector: "#input-AE758FA2-5056-A066-6027-E3B50BB716E9"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-    - select:
-        - name: input_AE7586F1-5056-A066-606E-0499DE47DE96
-          selector: "#input-AE7586F1-5056-A066-606E-0499DE47DE96"
+        - name: form_fields[topic]
+          selector: "#form-field-topic"
           value: $TOPIC
           required: true
           options:
@@ -312,10 +231,9 @@ contact_form:
             - Welfare
             - "Women's Issues"
     - javascript:
-        - value: document.querySelector("#input-AE758C8F-5056-A066-607B-3567A5253A20").value = document.querySelector("#input-AE758C8F-5056-A066-607B-3567A5253A20").value.replace(/"/g, '');
+        - value: document.querySelector("#form-field-message").value = document.querySelector("#form-field-message").value.replace(/"/g, '');
     - click_on:
-        - value: Submit
-          selector: input.btn
+        - selector: button[type='submit']
     - find:
         - value: "Thank You"
           selector: "h1"
