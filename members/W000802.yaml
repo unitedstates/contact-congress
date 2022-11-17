@@ -184,6 +184,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: input.btn
+    - javascript:
+        - value: document.querySelector('input[type='submit']').click();
     - wait:
         - value: 7
     - find:
