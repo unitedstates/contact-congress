@@ -5,49 +5,50 @@ contact_form:
   steps:
     - visit: "https://www.carper.senate.gov/public/index.cfm/email-senator-carper"
     - fill_in:
-        - name: field_720EA1C4-9CA9-4A9F-8FE8-BE45DE350FAB
-          selector: "#field_720EA1C4-9CA9-4A9F-8FE8-BE45DE350FAB"
+        - name: input_2
+          selector: "#input_1_2"
           value: $NAME_FIRST
           required: true
-        - name: field_DDDC1A32-888A-4713-B1A6-AC8661C856A6
-          selector: "#field_DDDC1A32-888A-4713-B1A6-AC8661C856A6"
+        - name: input_3
+          selector: "#input_1_3"
           value: $NAME_LAST
           required: true
-        - name: field_E5BBA595-CD12-4F4B-AEE5-93B1B7A4BC80
-          selector: "#field_E5BBA595-CD12-4F4B-AEE5-93B1B7A4BC80"
+        - name: input_6.1
+          selector: "#input_1_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: field_C72971E3-4513-4297-9371-32547398C5A2
-          selector: "#field_C72971E3-4513-4297-9371-32547398C5A2"
+        - name: input_6.3
+          selector: "#input_1_6_3"
           value: $ADDRESS_CITY
           required: true
-        - name: field_57CB6741-6128-4F6B-9116-2F777AA90830
-          selector: "#field_57CB6741-6128-4F6B-9116-2F777AA90830"
+        - name: input_6.5
+          selector: "#input_1_6_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_ACFFD452-B139-413D-8E0F-72046D4635D9
-          selector: "#field_ACFFD452-B139-413D-8E0F-72046D4635D9"
+        - name: input_9
+          selector: "#input_1_9"
           value: $EMAIL
           required: true
-        - name: field_52700AB6-009C-4E83-9962-6015E086D1AC
-          selector: "#field_52700AB6-009C-4E83-9962-6015E086D1AC"
+        - name: input_9_2
+          selector: "#input_1_9_2"
+          value: $EMAIL
+          required: true  
+        - name: input_12
+          selector: "#input_1_12"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_7984AAE2-A365-4C2A-9E03-C53E3718970E
-          selector: "#field_7984AAE2-A365-4C2A-9E03-C53E3718970E"
+        - name: input_1
+          selector: "#input_1_1"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
-            - Mr. and Mr.
             - Mrs.
-            - Mrs. and Mrs.
             - Ms.
-            - Mr. and Mrs.
             - Dr.
-        - name: field_9FA2D12A-DC4D-4725-99CA-DFD388CA0806
-          selector: "#field_9FA2D12A-DC4D-4725-99CA-DFD388CA0806"
+        - name: input_17
+          selector: "#input_1_17"
           value: $TOPIC
           required: true
           options:
@@ -93,12 +94,12 @@ contact_form:
             Veterans: "Veteran's Issues"
             Welfare: Welfare
     - javascript:
-        - value: document.querySelector("#field_52700AB6-009C-4E83-9962-6015E086D1AC").value = document.querySelector("#field_52700AB6-009C-4E83-9962-6015E086D1AC").value.replace(/"/g, '');
+        - value: document.querySelector("#input_1_12").value = document.querySelector("#input_1_12").value.replace(/"/g, '');
     - click_on:
-        - value: Submit
-          selector: div.buttonHolder input
+        - value: submit
+          selector: "#gform_submit_button_1"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Thank you so much for contacting me
