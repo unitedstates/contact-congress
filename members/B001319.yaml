@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.britt.senate.gov/"
+    - visit: "https://www.britt.senate.gov/share-your-opinion/"
     - fill_in:
         - name: form_fields[name]
           selector: "#form-field-name"
@@ -98,12 +98,25 @@ contact_form:
             West Virginia: WV
             Wisconsin: WI
             Wyoming: WY
+        - name: form_fields[name]
+          selector: "#form-field-name"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Miss
+            - Mr. and Ms.
+            - Dr.
+            - Reverand
+            - Honorable    
     - javascript:
         - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
     - click_on:
-        - selector: button[type='submit']
+        - selector: .elementor-size-lg
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "The form was sent successfully"
