@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.mullin.senate.gov/"
+    - visit: "https://www.mullin.senate.gov/share-your-opinion/"
     - fill_in:
         - name: form_fields[name]
           selector: "#form-field-name"
@@ -98,12 +98,66 @@ contact_form:
             West Virginia: WV
             Wisconsin: WI
             Wyoming: WY
+        - name: form_fields[message]
+          selector: "#form-field-message"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGR
+            Animals: AN
+            Arts and Humanities: AN
+            Banking: BANK
+            Budget and Economy: BUD
+            Campaign Finance: CAMPFI
+            Help with a Federal Agency: CASEWORK
+            Campaign Finance Reform: CFR
+            Civil Rights/Humanities: CIVIL
+            Civil Service/Postal: CIVILSERV
+            Congress and Elections: CONG
+            Congressional Issues: CONGRESS
+            Child Tax Credit: CTC
+            Defense and Military: DEF
+            Economy: ECON
+            Education Higher: ED.HIGH
+            Education: EDU
+            Energy: ENE
+            Environmental: ENV
+            Family/Marriage: FAM
+            Federal Employees: FED
+            Flag Request: FLAG
+            Food Safety: FOOD
+            Foreign Relations: FR
+            Governmental Reform: GOV
+            Guns: GUNS
+            Health: HEALTH
+            Homeland Security: HOM
+            Housing: HOUSING
+            Housing & Urban Development: HUD
+            Immigration: IMM
+            Infrastructure: INFRASTRUCTURE
+            International Relations: INT
+            IRS: IRS
+            Jobs and the Economy: JOBS
+            Judiciary: JUD
+            Labor: LABOR
+            LGBT: LGBT
+            Military: MIL
+            Other Issues: OTHER
+            Passport Casework: PASSPORTS
+            Post Office: POST
+            Science and Technology: SCI
+            Security: SEC
+            Senior Citizens: SENIORS
+            Small Business: SM.BUS
+            Social Issues: SOC
+            Social Services: SOC SERVICES
+            Social Security: SSEC       
     - javascript:
         - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
     - click_on:
-        - selector: button[type='submit']
+        - selector: .elementor-size-lg
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "The form was sent successfully"
