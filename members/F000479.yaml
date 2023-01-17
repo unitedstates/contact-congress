@@ -25,6 +25,8 @@ contact_form:
         - value: document.querySelector("#form-field-message").value = document.querySelector("form-field-message").value.replace(/"/g, '');
     - click_on:
         - selector: button[type='submit']
+    - javascript:
+        - value: document.querySelector(".elementor-message-success").style.display = "block";
   success:
     headers:
       status: 200
