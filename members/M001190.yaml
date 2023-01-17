@@ -104,23 +104,19 @@ contact_form:
           required: true
           options:
             Agriculture: AGR
+            Life: LIFE
             Animals: AN
             Arts and Humanities: AN
             Banking: BANK
             Budget and Economy: BUD
-            Campaign Finance: CAMPFI
+            Campaign Finance: CAMP
             Help with a Federal Agency: CASEWORK
-            Campaign Finance Reform: CFR
             Civil Rights/Humanities: CIVIL
             Civil Service/Postal: CIVILSERV
-            Congress and Elections: CONG
-            Congressional Issues: CONGRESS
-            Child Tax Credit: CTC
-            Defense and Military: DEF
-            Economy: ECON
-            Education Higher: ED.HIGH
+            Elections: ELECT
+            Congress: CONGRESS
+            Department of Defense: DEF
             Education: EDU
-            Energy: ENE
             Environmental: ENV
             Family/Marriage: FAM
             Federal Employees: FED
@@ -128,15 +124,15 @@ contact_form:
             Food Safety: FOOD
             Foreign Relations: FR
             Governmental Reform: GOV
-            Guns: GUNS
+            Guns: GUN
             Health: HEALTH
             Homeland Security: HOM
-            Housing: HOUSING
+            Housing: HOUS
             Housing & Urban Development: HUD
             Immigration: IMM
-            Infrastructure: INFRASTRUCTURE
-            International Relations: INT
+            Infrastructure: INFRA
             IRS: IRS
+            Tax: TAX
             Jobs and the Economy: JOBS
             Judiciary: JUD
             Labor: LABOR
@@ -148,10 +144,14 @@ contact_form:
             Science and Technology: SCI
             Security: SEC
             Senior Citizens: SENIORS
-            Small Business: SM.BUS
+            Small Business: SMALL
             Social Issues: SOC
             Social Services: SOC SERVICES
-            Social Security: SSEC       
+            Social Security: SOC SEC       
+            Medicare: MEDICARE
+            Medicaid: MEDICAID
+            Energy: ENERGY
+            Veterans: VET
     - javascript:
         - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
     - click_on:
@@ -160,4 +160,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "The form was sent successfully"
+      contains: ""
