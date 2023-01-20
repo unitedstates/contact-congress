@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.budd.senate.gov/"
+    - visit: "https://www.budd.senate.gov/share-your-opinion/"
     - fill_in:
         - name: form_fields[name]
           selector: "#form-field-name"
@@ -42,6 +42,55 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: form_fields[message]
+          selector: "#form-field-message"
+          value: $TOPIC
+          required: true
+          options:
+            Abortion: ABRTN
+            Agriculture: AGR
+            Arts and Humanities: ART
+            Banking and Finance: BANK
+            Budget and Economy: BUD
+            Campaign Finance Reform: CFR
+            Child Tax Credit: CTC
+            Civil Rights: CIVIL
+            Congress and Elections: CONG
+            Defense and Military: DEF
+            Economy: ECON
+            Energy: ENE
+            Environmental: ENV
+            Family/Marriage: FAM
+            Federal Employees: FED
+            Food Safety: FOOD
+            Foreign Relations: FR
+            Governmental Reform: GOV
+            Guns: GUN
+            Health: HEA
+            Help With a Federal Agency: CASEWORK
+            Higher Education: ED.HIGH
+            Homeland Security: HOM
+            Housing & Urban Development: HUD Immigration
+            Infrastructure: INFRASTRUCTURE International Relations
+            IRS: IRS
+            Judiciary: JUD
+            K12 Education: EDU
+            Labor: LAB
+            LGBT: LGBT
+            Other Issues: OTHER
+            Post Office: POST
+            Science and Technology: SCI
+            Senior Citizens: SENIORS
+            Small Business: SM.BUS
+            Social Issues: SOC
+            Social Security: SSEC 
+            Social Services: SOC.SERVICES
+            Taxes: TAX
+            Telecommunications: TEL
+            Trade: TRADE
+            Transportation: TRA
+            Veterans: VET
+            Welfare: WEL
         - name: form_fields[field_dd4016c]
           selector: "#form-field-field_dd4016c"
           value: $ADDRESS_STATE_POSTAL_ABBREV
@@ -101,7 +150,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
     - click_on:
-        - selector: button[type='submit']
+        - selector: button.elementor-button
   success:
     headers:
       status: 200
