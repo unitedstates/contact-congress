@@ -133,11 +133,10 @@ contact_form:
             - Transportation
             - Veterans
             - Welfare
-    
-    - find:
-        - selector: "#break-this-form"
     - click_on:
         - selector: div.e-form__buttons
+    - find:
+        - selector: "#break-this-form"    
   success:
     headers:
       status: 200
