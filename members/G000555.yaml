@@ -7,43 +7,43 @@ contact_form:
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - find:
-        - selector: "#input-A5AD3024-5056-A066-60BD-27089EC367B6"
+        - selector: "#input_3_1"
     - fill_in:
-        - name: input_A5AD3024-5056-A066-60BD-27089EC367B6
-          selector: "#input-A5AD3024-5056-A066-60BD-27089EC367B6"
+        - name: input_1
+          selector: "#input_3_1"
           value: $NAME_FIRST
           required: true
-        - name: input_A5AD2D97-5056-A066-609C-2BE7421DED54
-          selector: "#input-A5AD2D97-5056-A066-609C-2BE7421DED54"
+        - name: input_3
+          selector: "#input_3_3"
           value: $NAME_LAST
           required: true
-        - name: input_A5AD3726-5056-A066-6040-8733FE9F1C74
-          selector: "#input-A5AD3726-5056-A066-6040-8733FE9F1C74"
+        - name: input_5
+          selector: "#input_3_5"
           value: $ADDRESS_STREET
           required: true
-        - name: input_A5AD3598-5056-A066-602E-1929FB800695
-          selector: "#input-A5AD3598-5056-A066-602E-1929FB800695"
+        - name: input_7
+          selector: "#input_3_7"
           value: $ADDRESS_CITY
           required: true
-        - name: input_A5AD3404-5056-A066-6010-890AB748A186
-          selector: "#input-A5AD3404-5056-A066-6010-890AB748A186"
+        - name: input_9
+          selector: "#input_3_9"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_A5AD3157-5056-A066-6044-877D1CC4A989
-          selector: "#input-A5AD3157-5056-A066-6044-877D1CC4A989"
+        - name: input_10
+          selector: "#input_3_10"
           value: $PHONE
           required: true
-        - name: input_A5AD3647-5056-A066-6062-44B01FB1AAD6
-          selector: "#email"
+        - name: input_31
+          selector: "#input_3_31"
           value: $EMAIL
           required: true
-        - name: input_A5AD3307-5056-A066-6029-D7EBFF775924
-          selector: "#input-A5AD3307-5056-A066-6029-D7EBFF775924"
+        - name: input_23
+          selector: "#input_3_23"
           value: $MESSAGE
           required: true
     - select:
-        - name: "input_A5AD3428-5056-A066-6005-7CBE3BA4A089"
-          selector: "select[name='input_A5AD3428-5056-A066-6005-7CBE3BA4A089']"
+        - name: "input_4"
+          selector: "select[name='input_4']"
           value: $NAME_PREFIX
           required: true
           options:
@@ -54,53 +54,49 @@ contact_form:
               X.: X.
               Dr.: Dr.
     - choose:    
-        - name: "input_A5AD3178-5056-A066-601C-988363C101B2"
-          selector: "input[type='radio']"
+        - name: "input_20"
+          selector: "#input_3_20"
           value: $TOPIC
           required: true
           options:
-              Agriculture/Nutrition: A1448B5F-5056-A066-60DA-C9571B807BA9
-              Animals Issues: A1448C04-5056-A066-60BD-17E7693CE911
-              Arts & Humanities: A1448CA2-5056-A066-60C5-18310BF38E4C
-              Banking/Finance: A1448D40-5056-A066-605D-5241F2299C60
-              Campaign/Election Reform: A1448DDD-5056-A066-60BA-FDEF688C6BAE
-              Children: A1448E78-5056-A066-60F7-2C9ADCD21212
-              Civil/LGBT Rights: A14490AB-5056-A066-60AB-761909C5ECC3
-              Defense/Military: A14490EB-5056-A066-606D-E11CFAC03464
-              Economy: A1449189-5056-A066-600D-33CF225E3713
-              Education: A1449226-5056-A066-6030-809C52A27EE1
-              Energy: A1449250-5056-A066-604E-3F5A251552ED
-              Environment: A1449276-5056-A066-6061-577DDABD7F68
-              Foreign Relations/International Affairs: A14492A2-5056-A066-6044-5F02D44DED37
-              Government Reform: A14492C5-5056-A066-60A8-52C155D65936
-              Gun Control: A14492EE-5056-A066-60D1-104671C9FFE8
-              Health/Healthcare: A1449312-5056-A066-60E1-88C8726C9F60
-              Homeland Security: A144933F-5056-A066-60E0-A89E4DE8954D
-              Housing: A144936C-5056-A066-6022-76D858C12541
-              Immigration: A1449392-5056-A066-605C-B185C4263EF8
-              Judiciary: A14493BF-5056-A066-6021-32D61B862BA4
-              Labor & Pensions: A14493E4-5056-A066-6041-4A68AF48AA7C
-              Medicare/Medicaid: A144940A-5056-A066-60F2-38AA9897ABB5
-              Science/Technology/Telecommunications: A1449432-5056-A066-600A-7AF383647F01
-              Social Security: A1449458-5056-A066-60AF-5D706E72236E
-              Taxes: A144947E-5056-A066-608D-23972A45DEAE
-              Trade: A14494A7-5056-A066-60BE-377A484803D3
-              Transportation: A14494CC-5056-A066-6005-530C3CE9418A
-              Veterans: A14494F5-5056-A066-603E-FA1E04EB8B65
-              Welfare: A144951B-5056-A066-6074-5C436784A7B6
-              Women's Issues: A1449544-5056-A066-608C-89EEF94813A1
+              Agriculture/Nutrition: AGRINUT
+              Animals Issues: ANI
+              Arts & Humanities: ART
+              Banking/Finance: BANKFIN
+              Campaign/Election Reform: CAMPAIGN FINANCE
+              Children: CHILDREN
+              Civil/LGBT Rights: CIVILRIGHTS
+              Defense/Military: DEF
+              Economy: ECON
+              Education: EDU
+              Energy: Energy
+              Environment: ENV
+              Foreign Relations/International Affairs: FOREIGN RELATIONS
+              Government Reform: GOV
+              Gun Control: GUN CONTROL
+              Health/Healthcare: HEA
+              Homeland Security: HOM
+              Housing: HOUSING
+              Immigration: IMM
+              Judiciary: JUD
+              Labor & Pensions: LABOR
+              Medicare/Medicaid: MEDICARE
+              Science/Technology/Telecommunications: SCITECTEL
+              Social Security: SOCIAL SECURITY
+              Taxes: TAX
+              Trade: TRADE
+              Transportation: TRANSPORTATION
+              Veterans: VETERANS
+              Welfare: WELFARE
+              Women's Issues: WOMEN
     - javascript:
-        - value: $('#contactdropdown').val($('[name=input_A0BFF530-5056-A066-60C5-A13A2A0C670B]:checked + label').text())
-    - javascript:
-        - value: document.querySelector("#input-A5AD3307-5056-A066-6029-D7EBFF775924").value = document.querySelector("#input-A5AD3307-5056-A066-6029-D7EBFF775924").value.replace(/"/g, '');
-    - javascript:
-        - value: "document.querySelector('input.btn').click()"
+        - value: document.querySelector("#input_3_23").value = document.querySelector("#input_3_23").value.replace(/"/g, '');
+    - click_on:
+        - selector: "#gform_submit_button_3"
     - wait:
         - value: 3
-    - find:
-        - selector: "#form-A5AD2BDE-5056-A066-60D8-0ADE8864FC1C.amend-form-container h1"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office
+      contains: Thank you for contacting the office 
