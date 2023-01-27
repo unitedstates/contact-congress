@@ -104,54 +104,58 @@ contact_form:
           required: true
           options:
             Agriculture: AGR
-            Animals: AN
-            Arts and Humanities: AN
+            Animals: " JUD-ANIMAL"
+            Appropriations: APPROPS
+            Arts and Humanities: ART
             Banking: BANK
             Budget and Economy: BUD
-            Campaign Finance: CAMPFI
-            Help with a Federal Agency: CASEWORK
-            Campaign Finance Reform: CFR
-            Civil Rights/Humanities: CIVIL
-            Civil Service/Postal: CIVILSERV
-            Congress and Elections: CONG
-            Congressional Issues: CONGRESS
-            Child Tax Credit: CTC
+            Business and Commerce: BUSI
+            Campaign and Election Reform: CFR
+            Help with a Federal Agency: CASE
+            Children and Families: CHILD
+            Civil Rights: FREEDOM
+            Climate Change: CLIMATE
+            Consumer Protections: CONSUME
+            Criminal Justice: CRJUST
             Defense and Military: DEF
-            Economy: ECON
-            Education Higher: ED.HIGH
+            Democracy: DEMOCRACY
+            Economic Development: ECON-DEV
             Education: EDU
             Energy: ENE
             Environmental: ENV
-            Family/Marriage: FAM
-            Federal Employees: FED
-            Flag Request: FLAG
-            Food Safety: FOOD
+            Ethics Reform: RULES=ETH
             Foreign Relations: FR
-            Governmental Reform: GOV
-            Guns: GUNS
-            Health: HEALTH
-            Homeland Security: HOM
-            Housing: HOUSING
-            Housing & Urban Development: HUD
+            Gun Control: GUNS
+            Health Care: HEA
+            Homeland Security and Intelligence: HOM
+            Housing and Urban Affairs: HUD
             Immigration: IMM
             Infrastructure: INFRASTRUCTURE
-            International Relations: INT
-            IRS: IRS
-            Jobs and the Economy: JOBS
             Judiciary: JUD
             Labor: LABOR
-            LGBT: LGBT
-            Military: MIL
-            Other Issues: OTHER
+            LGBTQ+ Issues: LGBT
+            National Parks and Public Lands: PUBLAND
+            Native Americans and Indigenous Affairs: NATAM
+            Nutrition: FOOD
+            Opioids: HEA-OPI
+            Other: OTHER
+            Outdoor Recreation: OR
+            People with Disabilities: "DISABLE "
             Passport Casework: PASSPORTS
             Post Office: POST
-            Science and Technology: SCI
-            Security: SEC
-            Senior Citizens: SENIORS
-            Small Business: SM.BUS
+            Presidential Nominations: PRESNOMS
+            Reproductive Rights: JUD-ABORT
+            Rural Broadband: TEL-BROAD
+            Science and Technology, and Innovation: SCI
+            Seniors: SENIORS
             Social Issues: SOC
-            Social Services: SOC SERVICES
-            Social Security: SSEC   
+            Taxes: TAX
+            Telecommunications: TEL
+            Trade: TRADE
+            Transportation and Infrastructure: TNI
+            Veterans and Servicemembers: VET
+            Voting Rights: VRIGHTS
+            Women’s Issues: WOM
     - javascript:
         - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
     - click_on:
