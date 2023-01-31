@@ -16,13 +16,13 @@ contact_form:
         - name: form_fields[field_78bf6d4]
           selector: "#form-field-field_78bf6d4"
           value: $PHONE
-          required: true   
+          required: true
         - name: form_fields[message]
           selector: "#form-field-message"
           value: $MESSAGE
           required: true
     - javascript:
-        - value: document.querySelector("#form-field-message").value = document.querySelector("form-field-message").value.replace(/"/g, '');
+        - value: document.querySelector("#form-field-message").value = document.querySelector("#form-field-message").value.replace(/"/g, '');
     - click_on:
         - selector: button[type='submit']
   success:
