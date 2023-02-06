@@ -5,108 +5,98 @@ contact_form:
   steps:
     - visit: "https://www.paul.senate.gov/connect/email-rand"
     - fill_in:
-        - name: first
-          selector: "#edit-first"
+        - name: FirstName
+          selector: "input[name='FirstName']"
           value: $NAME_FIRST
           required: true
-        - name: last
-          selector: "#edit-last"
+        - name: LastName
+          selector: "input[name='LastName']"
           value: $NAME_LAST
           required: true
-        - name: addr1
-          selector: "#edit-addr1"
+        - name: Address1
+          selector: "input[name='Address1']"
           value: $ADDRESS_STREET
           required: true
-        - name: city
-          selector: "#edit-city"
+        - name: City
+          selector: "input[name='City']"
           value: $ADDRESS_CITY
           required: true
-        - name: zip
-          selector: "#edit-zip"
+        - name: ZipCode
+          selector: "input[name='ZipCode']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: phone
-          selector: "#edit-phone"
-          value: $PHONE
-          required: true
-        - name: email
-          selector: "#edit-email"
+        - name: your-email
+          selector: "input[name='your-email']"
           value: $EMAIL
           required: true
         - name: subject
-          selector: "#edit-subject"
+          selector: "input[name='subject']"
           value: $SUBJECT
           required: true
-        - name: message
-          selector: "#edit-message"
+        - name: your-message
+          selector: "textarea[name='your-message']"
           value: $MESSAGE
           required: true
           options:
             max_length: 1200
     - select:
-        - name: prefix
-          selector: "#edit-prefix"
+        - name: Prefix
+          selector: "select[name='Prefix']"
           value: $NAME_PREFIX
           required: true
           options:
-            Mr.: "Mr"
-            Ms.: "Ms"
-            Mrs.: "Mrs"
+            Mr.: "Mr."
+            Ms.: "Ms."
+            Mrs.: "Mrs."
             Miss: "Miss"
-            Dr.: "Dr"
-        - name: issue
-          selector: "#edit-issue"
+            "Mr. and Mrs.": "Mr. and Mrs."
+            Dr.: "Dr."
+            Mx: "Mx"
+        - name: Topic
+          selector: "select[name='Topic']"
           value: $TOPIC
           required: true
           options:
-            Abortion and Pro-Life: "ABORTION"
-            Agriculture: "AGR"
-            Animal Welfare: "ANIMAL"
-            Appropriations: "APPROPRIATIONS"
-            Arts and Humanities: "ARTS"
-            Banking: "BANKING"
-            Judicial Nominations: "JUDICIAL NOMINATIONS"
-            Crime and Law Enforcement: "CRIME"
-            National Security, Armed Services, and Intelligence: "NAT SEC /DEF /INTELL"
-            Economic and Rural Development: "ECONOMIC AND RURAL"
-            Education: "EDU"
-            Energy and Natural Resources: "ENE"
-            Environment: "ENV"
-            Foreign Affairs: "FA"
-            FEMA: "FEMA"
-            Guns / Second Amendment: "2NDAMEND"
-            Health Care: "HEA"
-            Homeland Security and TSA: "HOM"
-            Immigration and Border Security: "IMM"
-            Labor and Pensions: "LABOR"
-            Post Offices and Postal Service: "POSTAL"
-            Science, Space, and Technology: "SCI / SPACE / TECH"
-            Small Business: "SMALLBUS"
-            Social Security: "SSEC"
-            Taxes: "TAX"
-            Internet, Radio, and Television: "INTERNET / RADIO /TV"
-            Transportation: "TRA"
-            Trade and Commerce: "TRADE"
-            Veterans Issues: "VETS"
-            Constitutional Issues: "CONSTITUTION"
+            - Abortion
+            - Agriculture
+            - Animal Welfare
+            - Appropriations and Budget
+            - Arts and Humanities
+            - Banking
+            - Judicial Nominations
+            - Crime and Law Enforcement
+            - National Security, Armed Services, and Intelligence
+            - Economic and Rural Development
+            - Education
+            - Energy and Natural Resources
+            - Environment
+            - Foreign Affairs
+            - FEMA
+            - Guns / Second Amendment
+            - Healthcare
+            - Homeland Security
+            - Immigration
+            - Labor and Pensions
+            - Postal Issues
+            - Science, Space, and Technology
+            - Small Business
+            - Social Security
+            - Taxes
+            - Internet, Radio, and Television
+            - Transportation
+            - Trade and Commerce
+            - Veterans Issues
+            - Constitutional Issues
     - javascript:
-        - value: document.querySelector("#edit-message").value = document.querySelector("#edit-message").value.replace(/"/g, '');
+        - value: document.querySelector("textarea[name='your-message']").value = document.querySelector("textarea[name='your-message']").value.replace(/"/g, '');
     - javascript:
-      - value: document.querySelector("#g-recaptcha-response").style.display = "block";
-    - recaptcha:
-        - value: true
-    - javascript:
-        - value: document.querySelector("#edit-submit--2").click();
+        - value: document.querySelector("input.wpcf7-submit").click();
     - wait:
-        - value: 3
-    - javascript:
-        - value: document.querySelector("#edit-submit--2").click();
-    - wait:
-        - value: 6
+        - value: 5
     - find:
-        - selector: ".alert-success"
+        - selector: "div.wpcf7-response-output"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for your email.
+      contains: Thank you for your message
