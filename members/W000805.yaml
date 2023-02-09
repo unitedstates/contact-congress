@@ -184,6 +184,8 @@ contact_form:
             "No": "No"
     - javascript:
         - value: document.querySelector("#field_6FA5F44F-28CA-45FD-9142-3C29C257B186").value = document.querySelector("#field_6FA5F44F-28CA-45FD-9142-3C29C257B186").value.replace(/"/g, '');
+    - javascript:
+        - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
         - value: true
     - click_on:
