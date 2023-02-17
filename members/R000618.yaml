@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.ricketts.senate.gov/"
+    - visit: "https://www.ricketts.senate.gov/share-your-opinion/"
     - fill_in:
         - name: form_fields[name]
           selector: "#form-field-name"
@@ -98,6 +98,33 @@ contact_form:
             West Virginia: WV
             Wisconsin: WI
             Wyoming: WY
+        - name: form_fields[message]
+          selector: "#form-field-message"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGR
+            Budget and Economy: BUD
+            Congress and Elections: CONG
+            Defense and Military: DEF
+            Education: EDU
+            Energy: ENE
+            Family/Marriage: FAM
+            Foreign Relations: FR
+            Governmental Reform: GOV
+            Health: HEALTH
+            Housing: HOUSING
+            Immigration: IMM
+            Infrastructure: INFRASTRUCTURE
+            Jobs and the Economy: JOBS
+            Judiciary: JUD
+            Other Issues: OTHER
+            Second Amendment: "SEC.AMEND."    
+            Social Security: SSEC
+            Taxes: TAX
+            Telecommunications: TEL
+            Veterans: VET
+            Women’s Issues: WOMEN
     - javascript:
         - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
     - click_on:
