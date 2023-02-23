@@ -99,14 +99,14 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Mrs.
-            - Ms.
-            - Miss
-            - Mr. and Ms.
-            - Dr.
-            - Reverand
-            - Honorable    
+            Mr.: "Mr."
+            Mrs.: "Mrs."
+            Ms.: "Ms."
+            Miss: "Miss"
+            Mr. and Ms.: "Mr. and Mrs."
+            Dr.: "Dr. "
+            Reverand: "Reverend" 
+            Honorable: "Honorable"
     - javascript:
         - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
     - click_on:
