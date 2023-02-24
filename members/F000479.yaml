@@ -3,26 +3,149 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.fetterman.senate.gov/contact-2/"
+    - visit: "https://www.fetterman.senate.gov/contact/"
     - fill_in:
         - name: form_fields[name]
           selector: "#form-field-name"
-          value: $NAME_FULL
+          value: $NAME_PREFIX
+          required: true
+        - name: form_fields[field_1d46919]
+          selector: "#form-field-field_1d46919"
+          value: $NAME_FIRST
+          required: true
+        - name: form_fields[field_bdcaff9]
+          selector: "#form-field-field_bdcaff9"
+          value: $NAME_LAST
+          required: true    
+        - name: form_fields[field_00c2cf4]
+          selector: "#form-field-field_00c2cf4"
+          value: $ADDRESS_STREET
+          required: true
+        - name: form_fields[field_5ce9e4e]
+          selector: "#form-field-field_5ce9e4e"
+          value: $ADDRESS_CITY
+          required: true
+        - name: form_fields[field_1037219]
+          selector: "#form-field-field_1037219"
+          value: $ADDRESS_ZIP5
           required: true
         - name: form_fields[email]
           selector: "#form-field-email"
           value: $EMAIL
           required: true
-        - name: form_fields[field_78bf6d4]
-          selector: "#form-field-field_78bf6d4"
-          value: $PHONE
-          required: true
         - name: form_fields[message]
-          selector: "#form-field-message"
+          selector: "#form-field-field_01539f0"
           value: $MESSAGE
           required: true
+    - select:
+        - name: form_fields[field_dd4016c]
+          selector: "#form-field-field_dd4016c"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            Alabama: AL
+            Alaska: AK
+            Arizona: AZ
+            Arkansas: AR
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            Delaware: DE
+            District of Columbia: DC
+            Florida: FL
+            Georgia: GA
+            Hawaii: HI
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Iowa: IA
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Maine: ME
+            Maryland: MD
+            Massachusetts: MA
+            Michigan: MI
+            Minnesota: MN
+            Mississippi: MS
+            Missouri: MO
+            Montana: MT
+            Nebraska: NE
+            Nevada: NV
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            New York: NY
+            North Carolina: NC
+            North Dakota: ND
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Pennsylvania: PA
+            Rhode Island: RI
+            South Carolina: SC
+            South Dakota: SD
+            Tennessee: TN
+            Texas: TX
+            Utah: UT
+            Vermont: VT
+            Virginia: VA
+            Washington: WA
+            West Virginia: WV
+            Wisconsin: WI
+            Wyoming: WY
+        - name: form_fields[message]
+          selector: "#form-field-message"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: "AGR"
+            Animals: AN
+            Art and Humanities: ART
+            Banking and Finance: "BANK"
+            Budget and Economy: "BUD"
+            Campaign Finance: CAMPFI
+            Campaign Finance Reform: "CFR"
+            Civil Rights/Humanities: "CIVIL"
+            Congress and Elections: "CONG"
+            Child Tax Credit: CTC
+            Defense and Military: "DEF"
+            Economy: "ECON"
+            Education: EDU
+            Energy: "ENE"
+            Environmental: "ENV"
+            Family/Marriage: "FAM"
+            Federal Employees: "FED"
+            Food Safety: "FOOD"
+            Foreign Relations: "FR"
+            Governmental Reform: "GOV"
+            Guns: "GUN"
+            Health: HEALTH
+            Homeland Security: "HOM"
+            Housing: HOUSING
+            Infrastructure: INFRASTRUCTURE
+            International Relations: INT
+            IRS: "IRS"
+            Jobs and the Economy: JOBS
+            Judiciary: JUD
+            Labor: LABOR
+            LGBT: "LGBT"
+            Other Issues: "OTHER"
+            Post Office: "POST"
+            Science and Technology: "SCI"
+            Security: SEC
+            Senior Citizens: "SENIORS"
+            Small Business: "SM.BUS"
+            Social Issues: SOC
+            Social Services: SOC.SERVICES
+            Social Security: SSEC
+            Taxes: TAX
+            Trade: TRA
+            Transportation: TRADE
+            Veterans: VET
+            Women's Issues: WOMEN
     - javascript:
-        - value: document.querySelector("#form-field-message").value = document.querySelector("#form-field-message").value.replace(/"/g, '');
+        - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
     - click_on:
         - selector: button[type='submit']
   success:
