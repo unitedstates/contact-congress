@@ -112,8 +112,8 @@ contact_form:
           required: true
     - javascript:
         - value: document.querySelector('.btn').insertAdjacentHTML('beforeend', '<textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response"></textarea>');
-    - recaptcha:
-        - value: true
+    # - recaptcha:
+    #     - value: true
     - javascript:
         - value: document.querySelector("#input-30403D9F-9D8B-E1D8-02F8-5D7C17B516E7").value = document.querySelector("#input-30403D9F-9D8B-E1D8-02F8-5D7C17B516E7").value.replace(/"/g, '');
     - javascript:
