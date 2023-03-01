@@ -8,6 +8,8 @@ contact_form:
         - value: 1
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+        - value: document.querySelector('.SiteHeader').remove()
+        - value: document.querySelector('.MobileHeader').remove()
     - fill_in:
         - name: input_3012F9F8-E1FF-15AC-780D-51E059038981
           selector: "#input-3012F9F8-E1FF-15AC-780D-51E059038981"
@@ -110,8 +112,6 @@ contact_form:
           selector: "#input-3048820B-A361-6166-70F4-2D74C1E208F4"
           value: 3048820B-A361-6166-70F4-2D74C1E208F4
           required: true
-    - javascript:
-        - value: document.querySelector('.btn').insertAdjacentHTML('beforeend', '<textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response"></textarea>');
     - recaptcha:
         - value: true
     - javascript:
