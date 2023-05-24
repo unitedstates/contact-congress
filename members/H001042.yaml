@@ -110,8 +110,7 @@ contact_form:
     - javascript:
         - value: document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value=document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value.substr(0,7)+'-'+document.querySelector("#input-B03E046E-4040-F985-52CD-A2F10450D58D").value.substr(7, 4);
     - click_on:
-        - value: Submit
-          selector: "input.btn"
+        - selector: "button[type='submit'].btn"
     - find:
         - selector: h1
           value: "Thank You"
