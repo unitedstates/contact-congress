@@ -1,23 +1,13 @@
 bioguide:  S000148
 contact_form:
   method: post
-  action: /contact/email-chuck
+  action: /contact/message-chuck
   steps:
-    - visit: "http://www.schumer.senate.gov/contact/email-chuck"
+    - visit: "https://www.schumer.senate.gov/contact/message-chuck"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-    # - select:
-    #     - name: actions
-    #       selector: "#actions"
-    #       value: opinion
-    #       required: true
-    #       options:
-    #         "--Select an Option--": select
-    #         Share your opinion or comments on bills or other issues: opinion
-    #         Request a flag to be flown over the Capitol: flag
-    #         Request help with a federal agency: federal_agency
-    # - wait:
-    #     - value: 3
+    - find:
+      - selector: ".amend-form-container.loaded"
     - fill_in:
         - name: input_B60C9D58-0D67-1F93-8771-1560AD920940
           selector: "#input-B60C9D58-0D67-1F93-8771-1560AD920940"
@@ -31,10 +21,10 @@ contact_form:
           selector: "#input-B6257626-B604-2E2A-FAA3-8FC5E95A8D81"
           value: $ADDRESS_STREET
           required: true
-        # - name: input-B625765B-FB87-436E-B3B3-768A02C27DE8
-        #   selector: "#mailing_streetAddress2"
-        #   value: $ADDRESS_STREET_2
-        #   required: false
+        - name: input_B625765B-FB87-436E-B3B3-768A02C27DE8
+          selector: "#input-B625765B-FB87-436E-B3B3-768A02C27DE8"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: input_B6257692-E43A-3EC7-EACA-B94D07428AFB
           selector: "#input-B6257692-E43A-3EC7-EACA-B94D07428AFB"
           value: $ADDRESS_CITY
@@ -58,7 +48,7 @@ contact_form:
         - name: input_B6470D8C-0E32-DD02-17CD-1C7BEB44F4CD
           selector: "#input-B6470D8C-0E32-DD02-17CD-1C7BEB44F4CD"
           value: $SUBJECT
-          required: true
+          required: false
         - name: input_B6480058-00F4-C7DE-E832-6566ECBE8684
           selector: "#input-B6480058-00F4-C7DE-E832-6566ECBE8684"
           value: $MESSAGE
