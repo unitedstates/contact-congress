@@ -103,54 +103,40 @@ contact_form:
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Life: LIFE
-            Animals: AN
-            Arts and Humanities: AN
             Banking: BANK
             Budget and Economy: BUD
-            Campaign Finance: CAMP
-            Help with a Federal Agency: CASEWORK
-            Civil Rights/Humanities: CIVIL
-            Civil Service/Postal: CIVILSERV
-            Elections: ELECT
-            Congress: CONGRESS
-            Department of Defense: DEF
+            Campaign Finance: CFR
+            Congress: CONG
+            Department of Defense: DOD
+            Elections: "ELECT "
             Education: EDU
+            Energy: ENE
             Environmental: ENV
             Family/Marriage: FAM
-            Federal Employees: FED
-            Flag Request: FLAG
+            Federal Employees: "FED "
+            Flag Request: "FLAG "
             Food Safety: FOOD
-            Foreign Relations: FR
+            Foreign Relations: "FR "
             Governmental Reform: GOV
             Guns: GUN
-            Health: HEALTH
+            Health: HEA
             Homeland Security: HOM
             Housing: HOUS
-            Housing & Urban Development: HUD
             Immigration: IMM
+            Indian Affairs: IND
             Infrastructure: INFRA
-            IRS: IRS
-            Tax: TAX
             Jobs and the Economy: JOBS
             Judiciary: JUD
-            Labor: LABOR
+            Labor: LAB
             LGBT: LGBT
-            Military: MIL
-            Other Issues: OTHER
-            Passport Casework: PASSPORTS
-            Post Office: POST
+            Life: LIFE
+            Postal: POST
             Science and Technology: SCI
-            Security: SEC
             Senior Citizens: SENIORS
             Small Business: SMALL
             Social Issues: SOC
-            Social Services: SOC SERVICES
-            Social Security: SOC SEC       
-            Medicare: MEDICARE
-            Medicaid: MEDICAID
-            Energy: ENERGY
+            Tax: TAX
+            Trade: TRADE   
             Veterans: VET
     - javascript:
         - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
