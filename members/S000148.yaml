@@ -6,66 +6,66 @@ contact_form:
     - visit: "http://www.schumer.senate.gov/contact/email-chuck"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - select:
-        - name: actions
-          selector: "#actions"
-          value: opinion
-          required: true
-          options:
-            "--Select an Option--": select
-            Share your opinion or comments on bills or other issues: opinion
-            Request a flag to be flown over the Capitol: flag
-            Request help with a federal agency: federal_agency
-    - wait:
-        - value: 3
+    # - select:
+    #     - name: actions
+    #       selector: "#actions"
+    #       value: opinion
+    #       required: true
+    #       options:
+    #         "--Select an Option--": select
+    #         Share your opinion or comments on bills or other issues: opinion
+    #         Request a flag to be flown over the Capitol: flag
+    #         Request help with a federal agency: federal_agency
+    # - wait:
+    #     - value: 3
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: input_B60C9D58-0D67-1F93-8771-1560AD920940
+          selector: "#input-B60C9D58-0D67-1F93-8771-1560AD920940"
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#lname"
+        - name: input_B60C9D8A-0B0E-E62F-FC37-5215BE7C3A71
+          selector: "#input-B60C9D8A-0B0E-E62F-FC37-5215BE7C3A71"
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+        - name: input_B6257626-B604-2E2A-FAA3-8FC5E95A8D81
+          selector: "#input-B6257626-B604-2E2A-FAA3-8FC5E95A8D81"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: mailing_city
-          selector: "#mailing_city"
+        # - name: input-B625765B-FB87-436E-B3B3-768A02C27DE8
+        #   selector: "#mailing_streetAddress2"
+        #   value: $ADDRESS_STREET_2
+        #   required: false
+        - name: input_B6257692-E43A-3EC7-EACA-B94D07428AFB
+          selector: "#input-B6257692-E43A-3EC7-EACA-B94D07428AFB"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
+        - name: input_B625774B-D2DD-A9A2-9F07-DB2FEEAF8425
+          selector: "#input-B625774B-D2DD-A9A2-9F07-DB2FEEAF8425"
           value: $ADDRESS_ZIP5
           required: true
-        - name: home_phone_number
-          selector: "#home_phone_number"
+        - name: input_B632FF7F-9C01-956F-DAB0-6E4659392878
+          selector: "#input-B632FF7F-9C01-956F-DAB0-6E4659392878"
           value: $PHONE
           required: true
-        - name: email_address
+        - name: input_B6309E0B-CDAE-2C5D-DD44-EEF5F0BE04B6
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
+        - name: input_B6309E66-CF29-D4D9-06F8-B08360A5FB88
+          selector: "#input-B6309E66-CF29-D4D9-06F8-B08360A5FB88"
           value: $EMAIL
           required: true
-        - name: subjecttext
-          selector: "#subjecttext"
+        - name: input_B6470D8C-0E32-DD02-17CD-1C7BEB44F4CD
+          selector: "#input-B6470D8C-0E32-DD02-17CD-1C7BEB44F4CD"
           value: $SUBJECT
           required: true
-        - name: message
-          selector: "#message"
+        - name: input_B6480058-00F4-C7DE-E832-6566ECBE8684
+          selector: "#input-B6480058-00F4-C7DE-E832-6566ECBE8684"
           value: $MESSAGE
           required: true
     - select:
-        - name: salutation
-          selector: "#salutation"
+        - name: input_B60C9D21-EAFE-B4C6-C6BA-2FE1779F8B1E
+          selector: "#answer-1"
           value: $NAME_PREFIX
           required: true
           options:
@@ -74,8 +74,8 @@ contact_form:
             - Ms.
             - Mx.
             - Other.
-        - name: state
-          selector: "#states_abbreviated"
+        - name: input_B625771B-F20D-F156-BFDF-A452CF9C55F7
+          selector: "#input-B625771B-F20D-F156-BFDF-A452CF9C55F7"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -130,8 +130,8 @@ contact_form:
             WI: WI
             WV: WV
             WY: WY
-        - name: subject
-          selector: "#subject"
+        - name: input_B6466C0F-DE53-EC5C-C2E8-E12ED2CD2258
+          selector: "#input-B6466C0F-DE53-EC5C-C2E8-E12ED2CD2258"
           value: $TOPIC
           required: true
           options:
@@ -164,12 +164,11 @@ contact_form:
             - Veterans
             - Other
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-B6480058-00F4-C7DE-E832-6566ECBE8684").value = document.querySelector("#input-B6480058-00F4-C7DE-E832-6566ECBE8684").value.replace(/"/g, '');
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
-        - value: Send
-          selector: "#side-search-btn"
+        - selector: "button[type='submit'].btn"
     - find:
         - selector: "p"
           value: "Thank you for contacting Senator Schumer."
