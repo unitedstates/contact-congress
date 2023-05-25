@@ -237,8 +237,9 @@ contact_form:
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){
 try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - javascript:
-         - value: document.querySelector(".elementor-message-success").style.display = "block";
+    - find:
+        - selector: ".elementor-message-success"
+          value: "The form was sent successfully."
   success:
     headers:
       status: 200
