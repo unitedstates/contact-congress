@@ -4,8 +4,6 @@ contact_form:
   action: /contact/message-chuck
   steps:
     - visit: "https://www.schumer.senate.gov/contact/message-chuck"
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - find:
       - selector: ".amend-form-container.loaded"
     - fill_in:
@@ -155,8 +153,6 @@ contact_form:
             - Other
     - javascript:
         - value: document.querySelector("#input-B6480058-00F4-C7DE-E832-6566ECBE8684").value = document.querySelector("#input-B6480058-00F4-C7DE-E832-6566ECBE8684").value.replace(/"/g, '');
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - click_on:
         - selector: "button[type='submit'].btn"
     - find:
