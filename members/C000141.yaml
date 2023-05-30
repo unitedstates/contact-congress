@@ -74,6 +74,7 @@ contact_form:
             Other: Other
     - javascript:
         - value: document.querySelector("#input_3_6").value = document.querySelector("#input_3_6").value.replace(/"/g, '');
+        - value: document.querySelector(".mysticky-welcomebar-fixed")?.remove()
     - click_on:
         - selector: "#label_3_7_1"
     - click_on:
