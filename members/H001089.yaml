@@ -108,6 +108,7 @@ contact_form:
             "Water/Rivers": "Water/Rivers"
             "Welfare": "Welfare"
     - javascript:
+        - value: "document.querySelector('[name=subject]').value = document.querySelector('[name=subject]').value.slice(0, 75)"
         - value: "document.querySelector('#edit-actions-submit').click()"
     - wait:
         - value: 10
