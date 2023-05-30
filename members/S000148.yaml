@@ -6,6 +6,8 @@ contact_form:
     - visit: "http://www.schumer.senate.gov/contact/email-chuck"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+        - value: "document.querySelector('.MobileHeader').remove()"
+        - value: "document.querySelector('.SiteHeader').remove()"
     # - select:
     #     - name: actions
     #       selector: "#actions"
