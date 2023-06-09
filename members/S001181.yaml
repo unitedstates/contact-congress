@@ -4,8 +4,6 @@ contact_form:
   action: "https://www.shaheen.senate.gov/contact/contact-jeanne"
   steps:
     - visit: "https://www.shaheen.senate.gov/contact/contact-jeanne"
-    - javascript:
-        - value: 'creativengine_forms_builder.init();'
     - fill_in:
         - name: input_9247EFE3-AE07-B24E-99DB-FC001CEF0DBE
           selector: "#input-9247EFE3-AE07-B24E-99DB-FC001CEF0DBE"
@@ -118,7 +116,7 @@ contact_form:
             Women: WOM
             NASA: NASA
             Small Business: BUS
-    - uncheck:
+    - click_on:
         - name: input_9247EF55-B6B9-E31D-C39F-7267C2C291B0
           selector: "#input-9247EF55-B6B9-E31D-C39F-7267C2C291B0"
           value: NEWSLETTER
