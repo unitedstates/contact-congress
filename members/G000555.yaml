@@ -6,6 +6,8 @@ contact_form:
     - visit: "https://www.gillibrand.senate.gov/contact/email-me"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - javascript:
+        - value: "document.querySelector('#gform_wrapper_3').style.display = 'block'"
     - find:
         - selector: "#input_3_1"
     - fill_in:
