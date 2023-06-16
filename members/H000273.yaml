@@ -124,9 +124,8 @@ contact_form:
             - Transportation
             - Veterans
             - Women and Children
-    - click_on:
-        - value: Submit
-          selector: '#gform_submit_button_17'
+    - javascript:
+        - value: 'jQuery("#gform_17").trigger("submit",[true])'
     - wait:
         - value: 10
   success:
