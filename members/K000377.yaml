@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "https://www.kelly.senate.gov/contact/contact-form/"
     - wait:
-        - value: 3
+        - value: 10
     - javascript:
         - value: "document.querySelector('.elementor-location-header').remove(); Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
