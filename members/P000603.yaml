@@ -4,6 +4,8 @@ contact_form:
   action: "/connect/email-rand"
   steps:
     - visit: "https://www.paul.senate.gov/connect/email-rand"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} })"
     - fill_in:
         - name: FirstName
           selector: "input[name='FirstName']"

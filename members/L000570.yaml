@@ -7,6 +7,10 @@ contact_form:
     - wait:
         - value: 3  
     - fill_in:
+        - name: "break"
+          selector: "#break-this-form"
+          value: $NAME_FIRST
+          required: true
         - name: "input_2"
           selector: "#input_1_2"
           value: $NAME_FIRST
