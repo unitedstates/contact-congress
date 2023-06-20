@@ -102,17 +102,15 @@ contact_form:
             - Veterans
             - Welfare
             - Women's Issues
+    - click_on:
+        - selector: "#choice_11_18_1" 
+    - click_on:
+        - selector: "#gform_submit_button_11" 
     - fill_in: 
         - name: "break"
           selector: "#break-this-form"
           value: $NAME_FIRST
-          required: true
-    - click_on:
-        - name: "input_18"
-          selector: "#choice_11_18_1" 
-    - click_on:
-        - value: Submit
-          selector: "#gform_submit_button_11"  
+          required: true     
   success:
     headers:
       status: 200
