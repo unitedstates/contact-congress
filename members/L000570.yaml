@@ -103,13 +103,13 @@ contact_form:
              Transportation: TRANSPO
              Veterans: VET
              Women and Children: WOMENS ISSUES.P
+    - click_on:
+        - selector: "#gform_submit_button_1"
     - fill_in: 
         - name: "break"
           selector: "#break-this-form"
           value: $NAME_FIRST
           required: true
-    - click_on:
-        - selector: "#gform_submit_button_1"
     - wait:
         - value: 10
   success:
