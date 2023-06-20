@@ -5,10 +5,6 @@ contact_form:
   steps:
     - visit: "https://www.marshall.senate.gov/contact/contact-form/"
     - fill_in:
-        - name: "break"
-          selector: "#break-this-form"
-          value: $NAME_FIRST
-          required: true
         - name: "input_2"
           selector: "#input_11_2"
           value: $NAME_FIRST
@@ -106,6 +102,11 @@ contact_form:
             - Veterans
             - Welfare
             - Women's Issues
+    - fill_in: 
+        - name: "break"
+          selector: "#break-this-form"
+          value: $NAME_FIRST
+          required: true
     - click_on:
         - name: "input_18"
           selector: "#choice_11_18_1" 

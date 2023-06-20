@@ -5,10 +5,6 @@ contact_form:
   steps:
     - visit: "https://www.tuberville.senate.gov/contact/contact-form/"  
     - fill_in:
-        - name: "break"
-          selector: "#break-this-form"
-          value: $NAME_FIRST
-          required: true
         - name: "input_2"
           selector: "input[name='input_2']"
           value: $NAME_FIRST
@@ -107,6 +103,11 @@ contact_form:
             - Sister
             - Rabbi
             - Reverend
+    - fill_in:
+        - name: "break"
+          selector: "#break-this-form"
+          value: $NAME_FIRST
+          required: true
     - click_on:
         - selector: "#choice_1_18_1"
     - javascript:
