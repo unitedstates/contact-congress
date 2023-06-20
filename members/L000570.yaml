@@ -7,10 +7,6 @@ contact_form:
     - wait:
         - value: 3  
     - fill_in:
-        - name: "break"
-          selector: "#break-this-form"
-          value: $NAME_FIRST
-          required: true
         - name: "input_2"
           selector: "#input_1_2"
           value: $NAME_FIRST
@@ -107,6 +103,11 @@ contact_form:
              Transportation: TRANSPO
              Veterans: VET
              Women and Children: WOMENS ISSUES.P
+    - fill_in: 
+        - name: "break"
+          selector: "#break-this-form"
+          value: $NAME_FIRST
+          required: true
     - click_on:
         - selector: "#gform_submit_button_1"
     - wait:

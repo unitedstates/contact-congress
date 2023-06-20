@@ -1,3 +1,4 @@
+
 bioguide:  H000273
 contact_form:
   method: post
@@ -125,7 +126,7 @@ contact_form:
             - Veterans
             - Women and Children
     - javascript:
-        - value: 'jQuery("#gform_17").trigger("submit",[true])'
+        - value: "document.querySelector('#gform_submit_button_11').click();"
     - wait:
         - value: 10
   success:
