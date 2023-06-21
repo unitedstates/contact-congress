@@ -4,6 +4,8 @@ contact_form:
   action: /contact-old/contact-form/
   steps:
     - visit: "https://www.tuberville.senate.gov/contact/contact-form/"  
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: "input_2"
           selector: "input[name='input_2']"
@@ -108,8 +110,7 @@ contact_form:
     - javascript:
         - value: '("#gform_1").trigger("submit",[true]);'    
     - click_on:
-        - value: Submit
-          selector: "#gform_submit_button_1"
+        - selector: "#gform_submit_button_1"
   success:
     headers:
       status: 200
