@@ -1,115 +1,104 @@
 bioguide:  L000570
 contact_form:
   method: post
-  action: "https://www.lujan.senate.gov/contact/contact-form/"
+  action: "https://outreach.senate.gov/iqextranet/EForm.aspx?__cid=SenLujan&__fid=100030"
   steps:
-    - visit: "https://www.lujan.senate.gov/contact/contact-form/"
+    - visit: "https://outreach.senate.gov/iqextranet/EForm.aspx?__cid=SenLujan&__fid=100030"
     - wait:
         - value: 3  
     - fill_in:
-        - name: "input_2"
-          selector: "#input_1_2"
+        - name: "qi_1_first_name"
+          selector: "#qi_1_first_name"
           value: $NAME_FIRST
           required: true
-        - name: "input_3"
-          selector: "#input_1_3"
+        - name: "qi_1_last_name"
+          selector: "#qi_1_last_name"
           value: $NAME_LAST
           required: true
-        - name: "input_12"
-          selector: "#input_1_12"
+        - name: "qi_4"
+          selector: "#qi_4"
           value: $MESSAGE
           required: true
-        - name: "input_11"
-          selector: "#input_1_11"
+        - name: "qi_3"
+          selector: "#qi_3"
           value: $SUBJECT
           required: true
         - name: "input_6.1"
           selector: "#input_1_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: "input_6.3"
-          selector: "#input_1_6_3"
+        - name: "qi_1_city"
+          selector: "#qi_1_city"
           value: $ADDRESS_CITY
           required: true
-        - name: "input_6.5"
-          selector: "#input_1_6_5"
+        - name: "qi_1_zip"
+          selector: "#qi_1_zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "input_9"
-          selector: "#input_1_9"
+        - name: "qi_1_email"
+          selector: "#qi_1_email"
           value: $EMAIL
           required: true
-        - name: "input_9_2"
-          selector: "#input_1_9_2"
+        - name: "qi_1_email_confirm"
+          selector: "#qi_1_email_confirm"
           value: $EMAIL
           required: true
-        - name: "input_7"
-          selector: "#input_1_7"
+        - name: "qi_1_hphone"
+          selector: "#qi_1_hphone"
           value: $PHONE
           required: true
     - select:
-        - name: "input_1"
-          selector: "#input_1_1"
+        - name: "qi_1_prefix"
+          selector: "#qi_1_prefix"
           value: $NAME_PREFIX
           required: true
           options:
-             - Mr.
-             - Ms.
-             - Mrs.
-             - Miss
-             - Mr. and Mrs.
-             - Mx
-             - Dr.
-        - name: "input_17"
-          selector: "#input_1_17"
+             Mr.: 69_Mr.
+             Ms.: 78_Ms.
+             Mrs.: 76_Mrs.
+             Miss: 67_Miss
+             Dr.: 30_Dr.
+        - name: "qi_2"
+          selector: "#qi_2"
           value: $TOPIC
           required: true
           options:
-             Agriculture: AGR
-             Animal Rights: ANIMAL RIGHTS
-             Appropriations: APP
-             Arts & Humanities: ARTS
-             Banking & Financial Services: FIN_OVSIGHT
-             Budget: BUD
-             Business and Commerce: Business and Commerce
-             Campaign/Election Reform: CAMPR
-             Consumer Protection: CONSUMER PROTECTION
-             Children: KIDS
-             Defense and Military: "DEF, MIL"
-             Economic Development: ECON
-             Education: EDU
-             Energy: ENE
-             Environment: ENV
+             Agriculture: 0_AGR
+             Animal Rights: 1_ANIMAL RIGHTS
+             Appropriations: 2_APP
+             Arts & Humanities: 3_ARTS
+             Banking & Financial Services: 4_FIN_OVSIGHT
+             Budget: 5_BUD
+             Campaign/Election Reform: 6_CAMPR
+             Consumer Protection: 7_CONSUMER PROTECTION
+             Children: 8_KIDS
+             Defense and Military: 9_MIL
+             Economic Development: 10_ECON
+             Education: 11_EDU
+             Energy: 12_ENERGY
+             Environment: 13_ENV
              Ethics Reform: GOV
              Foreign Relations: INT
-             Guns: GUN_VIO
-             Healthcare: HEALTH
-             Homeland Security: HOM
-             Housing and Urban Affairs: HOUSING
-             Immigration: IMM
-             Insurance Problems: Insurance Problems
-             Interior: NAT RES
-             Intelligence: SURVEILLANCE
-             Judiciary: JUD
-             Labor: LABOR
-             Nutrition: SNAP
-             Postal Service: POSTAL
-             Science and Innovation: SCIENCE
-             Seniors: SENIORS
-             Social Issues: SOC
-             Taxes: TAX
-             Technology and Telecom: "TECH , TELECOMM"
-             Trade: TRADE
-             Transportation: TRANSPO
-             Veterans: VET
-             Women and Children: WOMENS ISSUES.P
+             Guns: 14_GUN_VIO
+             Foreign Affairs: 15_FOREIGN AFFAIRS
+             Healthcare: 16_HCARE REFORM
+             Housing: 17_HOUSING
+             Immigration: 18_IMM
+             Judiciary: 19_JUD
+             Labor: 20_LABOR
+             Nutrition: 21_CHIP
+             Postal Service: 22_POSTAL
+             Science and Innovation: 23_SCIENCE
+             Seniors: 24_SENIORS
+             Social Issues: 25_SOC
+             Taxes: 26_TAX
+             Technology and Telecom: 27_TECH
+             Trade: 28_TRADE
+             Transportation: 29_TRANSPORTATION
+             Veterans: 30_VET
+             Women and Children: 31_WOMENS ISSUES.P
     - click_on:
-        - selector: "input.gform_button"
-    - fill_in: 
-        - name: "break"
-          selector: "#break-this-form"
-          value: $NAME_FIRST
-          required: true
+        - selector: "#btn_submit"
     - wait:
         - value: 10
   success:
