@@ -1,9 +1,11 @@
 bioguide:  M001198
 contact_form:
   method: post
-  action: /#wpcf7-f8521-p45-o1
+  action: "https://www.marshall.senate.gov/contact/contact-form/"
   steps:
     - visit: "https://www.marshall.senate.gov/contact/contact-form/"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: "input_2"
           selector: "#input_11_2"
@@ -102,15 +104,13 @@ contact_form:
             - Veterans
             - Welfare
             - Women's Issues
+    - click_on:
+        - name: "input_18"
+          selector: "#choice_11_18_1" 
     - find:
         - selector: "#gform_submit_button_11" 
     - click_on:
-        - selector: "#gform_submit_button_11" 
-    - fill_in: 
-        - name: "break"
-          selector: "#break-this-form"
-          value: $NAME_FIRST
-          required: true     
+        - selector: "#gform_submit_button_11"   
   success:
     headers:
       status: 200
