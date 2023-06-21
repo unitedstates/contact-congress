@@ -103,10 +103,10 @@ contact_form:
             - Sister
             - Rabbi
             - Reverend
-    - click_on:
-        - selector: "#choice_1_18_1"
+    - find:
+        - selector: "#gform_1"
     - javascript:
-      - value: '("#gform_1").trigger("submit",[true]);'    
+        - value: '("#gform_1").trigger("submit",[true]);'    
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_1"
