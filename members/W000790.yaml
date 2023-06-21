@@ -7,7 +7,7 @@ contact_form:
     - wait:
         - value: 3
     - javascript:
-        - value: "document.querySelector('#gform_wrapper_1').style.display = 'block'"
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: "input_2"
           selector: "#input_1_2"
@@ -97,8 +97,8 @@ contact_form:
             - Transportation
             - Veterans
             - Women and Children
-    - javascript:
-      - value: '("#gform_17").trigger("submit",[true]);'
+    - click_on:
+        - selector: "#gform_submit_button_1"
     - wait:
         - value: 10
   success:
