@@ -4,6 +4,8 @@ contact_form:
   action: "/?p=contact&clear_cache=1"
   steps:
     - visit: "https://www.booker.senate.gov/contact/write-to-cory/form"
+    - wait:
+        - value: 3
     - fill_in:
         - name: input_2AB4269B-0EFC-EB00-9186-5B08A34143C5
           selector: "#firstName"
