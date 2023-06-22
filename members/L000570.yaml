@@ -106,8 +106,10 @@ contact_form:
         - selector: "#btn_submit"
     - wait:
         - value: 10
+    - find:
+        - selector: ".page-template-default"
   success:
     headers:
       status: 200
     body:
-      contains: Services
+      contains: Newsletter Signup

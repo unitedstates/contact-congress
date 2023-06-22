@@ -2,11 +2,13 @@
 bioguide:  H000273
 contact_form:
   method: post
-  action: /#wpcf7-f8521-p45-o1
+  action: /email-john/#gf_17
   steps:
     - visit: "https://www.hickenlooper.senate.gov/email-john/#contact-form-emailJohn"
     - wait:
         - value: 3
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: "input_3.3"
           selector: "#input_17_3_3"
@@ -125,8 +127,8 @@ contact_form:
             - Transportation
             - Veterans
             - Women and Children
-    - javascript:
-        - value: "jQuery('#gform_17').trigger('submit',[true]);"
+    - click_on:
+        - selector: "#gform_submit_button_17"
     - wait:
         - value: 10
   success:

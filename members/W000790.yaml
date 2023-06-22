@@ -6,6 +6,8 @@ contact_form:
     - visit: "https://www.warnock.senate.gov/contact/contact-form/"
     - wait:
         - value: 3
+    - find:
+        - selector: "#field_1_25"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
