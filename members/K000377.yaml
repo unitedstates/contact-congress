@@ -100,15 +100,15 @@ contact_form:
         - selector: "#choice_1_18_0"
     - javascript:
         - value: "document.querySelector('#g-recaptcha-response').style.display = 'block';"
+    - javascript:
+        - "document.querySelector('#input_1_28').style.display = 'block';"
     - recaptcha:
         - value: true
     - click_on:
         - value: Submit
           selector: input[type='submit']
     - wait:
-        - value: 10
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"    
+        - value: 10   
   success:
     headers:
       status: 200
