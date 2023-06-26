@@ -4,6 +4,15 @@ contact_form:
   action: /
   steps:
     - visit: "https://www.kelly.senate.gov/contact/contact-form/"
+    - wait:
+        - value: 10
+    - click_on:
+        - selector: "#choice_1_18_0"
+    - click_on:
+        - value: Submit
+          selector: input[type='submit']
+    - wait:
+        - value: 10
   success:
     headers:
       status: 200
