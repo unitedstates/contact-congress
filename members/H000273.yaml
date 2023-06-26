@@ -7,8 +7,6 @@ contact_form:
     - wait:
         - value: 3
     - javascript:
-        - value: "document.querySelector('.et_pb_row_2').remove(); document.querySelector('.et_pb_section_0_tb_header').remove(); document.querySelector('.et_pb_section_0').remove(); document.querySelector('.et_pb_section_1').remove();"
-    - javascript:
         - value: "document.querySelector('.gform_wrapper').style.display = 'block'"
     - find:
         - selector: "#input_17_3_3"
@@ -130,8 +128,6 @@ contact_form:
         - selector: "#gform_17"
     - find:
         - selector: "#contact-form-emailJohn #gform_submit_button_17" 
-    - javascript:
-        - value: "document.querySelector('#contact-form-emailJohn #gform_submit_button_17').disabled = false;"
     - javascript:
         - value: "$('#gform_ajax_frame_17').remove(); $('#gform_17').attr('target','_self').attr('action','/email-john/').css('background-color', 'red');"
     - find:
