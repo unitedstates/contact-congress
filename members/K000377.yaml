@@ -51,6 +51,10 @@ contact_form:
              Women and Children: "WOMENS ISSUES.P"
     - click_on:
         - selector: "#choice_1_18_0"
+    - javascript:
+        - value: "document.querySelector('#g-recaptcha-response').style.display = 'block';"
+    - javascript:
+        - "document.querySelector('#input_1_28').style.display = 'block';"
     - click_on:
         - value: Submit
           selector: input[type='submit']
