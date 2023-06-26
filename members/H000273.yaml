@@ -129,9 +129,9 @@ contact_form:
     - find:
         - selector: "#contact-form-emailJohn #gform_submit_button_17" 
     - javascript:
-        - value: "$('#gform_ajax_frame_17').remove(); $('#gform_17').attr('target','_self').attr('action','/email-john/').css('background-color', 'red');"
+        - value: "$('#gform_17').css('background-color', 'red');"
     - find:
-        - selector: "#gform_17sdfdsf1"
+        - selector: "#gform_17sdfdsf2"
     - wait:
         - value: 10
   success:
