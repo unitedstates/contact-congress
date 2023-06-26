@@ -6,6 +6,12 @@ contact_form:
     - visit: "https://www.kelly.senate.gov/contact/contact-form/"
     - wait:
         - value: 10
+    - javascript:
+        - value: "document.querySelector('.elementor-location-header').remove();"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - javascript:
+        - value: "document.querySelector('#gform_wrapper_1').style.display = 'block'"
     - select:
         - name: "input_17"
           selector: "select[name='input_17']"
@@ -54,7 +60,7 @@ contact_form:
     - javascript:
         - value: "document.querySelector('#g-recaptcha-response').style.display = 'block';"
     - javascript:
-        - "document.querySelector('#input_1_28').style.display = 'block';"
+        - value: "document.querySelector('#input_1_28').style.display = 'block';"
     - click_on:
         - value: Submit
           selector: input[type='submit']
