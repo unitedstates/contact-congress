@@ -99,7 +99,7 @@ contact_form:
     - click_on:
         - selector: "#choice_1_18_0"
     - javascript:
-        - value: "document.querySelector('#g-recaptcha-response').style.display = 'block';"
+        - value: "el = document.createElement('TEXTAREA'); el.name = 'g-recaptcha-response'; el.id = 'g-recaptcha-response'; document.querySelector('#gform_1').append(el);"
     - javascript:
         - value: "document.querySelector('#input_1_28').style.display = 'block';"
     - recaptcha:
