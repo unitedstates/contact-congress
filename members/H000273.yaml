@@ -129,7 +129,7 @@ contact_form:
     - find:
         - selector: "#contact-form-emailJohn #gform_submit_button_17" 
     - javascript:
-        - value: "$('#gform_17').css('background-color', 'red');"
+        - value: "document.querySelector('#gform_17').style.backgroundColor = 'red';"
     - find:
         - selector: "#gform_17sdfdsf2"
     - wait:
