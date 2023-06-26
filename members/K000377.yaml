@@ -12,6 +12,47 @@ contact_form:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - javascript:
         - value: "document.querySelector('#gform_wrapper_1').style.display = 'block'"
+    - fill_in:
+        - name: "input_2"
+          selector: "input[name='input_2']"
+          value: $NAME_FIRST
+          required: true
+        - name: "input_3"
+          selector: "input[name='input_3']"
+          value: $NAME_LAST
+          required: true
+        - name: "input_12"
+          selector: "textarea[name='input_12']"
+          value: $MESSAGE
+          required: true
+        - name: "input_11"
+          selector: "input[name='input_11']"
+          value: $SUBJECT
+          required: true
+        - name: "input_6.1"
+          selector: "input[name='input_6.1']"
+          value: $ADDRESS_STREET
+          required: true
+        - name: "input_6.3"
+          selector: "input[name='input_6.3']"
+          value: $ADDRESS_CITY
+          required: true
+        - name: "input_6.5"
+          selector: "input[name='input_6.5']"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: "input_9"
+          selector: "input[name='input_9']"
+          value: $EMAIL
+          required: true
+        - name: "input_9_2"
+          selector: "input[name='input_9_2']"
+          value: $EMAIL
+          required: true
+        - name: "input_7"
+          selector: "input[name='input_7']"
+          value: $PHONE
+          required: true
     - select:
         - name: "input_17"
           selector: "select[name='input_17']"
