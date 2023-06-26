@@ -134,6 +134,8 @@ contact_form:
         - value: "document.querySelector('#contact-form-emailJohn #gform_submit_button_17').disabled = false;"
     - javascript:
         - value: "$('#gform_ajax_frame_17').remove(); $('#gform_17').attr('target','_self').attr('action','/email-john/').css('background-color', 'red').submit();"
+    - find:
+        - selector: "#gform_17sdfdsf"
     - wait:
         - value: 10
   success:
