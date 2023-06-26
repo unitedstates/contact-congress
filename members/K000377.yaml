@@ -107,6 +107,8 @@ contact_form:
           selector: input[type='submit']
     - wait:
         - value: 10
+    - javascript:
+        - value: "document.querySelector('#gform_wrapper_1').style.display = 'block'"
   success:
     headers:
       status: 200
