@@ -97,7 +97,13 @@ contact_form:
     - click_on:
         - selector: "#choice_1_18_0"
     - javascript:
-        - value: "el = document.createElement('TEXTAREA'); el.name = 'g-recaptcha-response'; el.id = 'g-recaptcha-response'; el.style.backgroundColor = 'red'; document.querySelector('#gform_1').append(el);"
+        - value: "el = document.createElement('TEXTAREA');"
+    - javascript:
+        - value: "el.name = 'g-recaptcha-response';"
+    - javascript:
+        - value: "el.style.backgroundColor = 'red';"
+    - javascript:
+        - value: "document.querySelector('#gform_1').append(el);"
     - javascript:
         - value: "document.querySelector('#gform_1').style.backgroundColor = 'blue';"
     - click_on:
