@@ -133,9 +133,9 @@ contact_form:
     - javascript:
         - value: "document.querySelector('#contact-form-emailJohn #gform_submit_button_17').disabled = false;"
     - javascript:
-        - value: "$('#contact-form-emailJohn #gform_submit_button_17').trigger('click');"
+        - value: "$('#gform_17').submit();"
     - wait:
-        - value: 1
+        - value: 10
   success:
     headers:
       status: 200
