@@ -129,11 +129,11 @@ contact_form:
     - find:
         - selector: "#gform_17"
     - find:
-        - selector: "#gform_submit_button_17" 
+        - selector: "#contact-form-emailJohn #gform_submit_button_17" 
     - javascript:
         - value: document.getElementById("gform_submit_button_17").disabled = false;
     - click_on:
-        - selector: "#gform_submit_button_17"
+        - selector: "#contact-form-emailJohn #gform_submit_button_17"
     - wait:
         - value: 10
   success:
