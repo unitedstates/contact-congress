@@ -130,10 +130,12 @@ contact_form:
         - selector: "#contact-form-emailJohn #gform_submit_button_17" 
     - javascript:
         - value: "document.querySelector('#gform_17').style.backgroundColor = 'red';"
-    - find:
-        - selector: "#gform_17sdfdsf3"
+    - click_on:
+        - selector: "#gform_submit_button_17"
     - wait:
         - value: 10
+    - find:
+        - selector: "#gform_17sdfdsf4"
   success:
     headers:
       status: 200
