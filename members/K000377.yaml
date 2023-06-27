@@ -97,7 +97,7 @@ contact_form:
     - click_on:
         - selector: "#choice_1_18_0"
     - javascript:
-        - value: "document.querySelector('#gform_1').insertAdjacentHTML('beforeend', '<textarea name='g-recaptcha-response' id='g-recaptcha-response'></textarea>');"
+        - value: document.querySelector('#gform_1').insertAdjacentHTML('beforeend', "<textarea name='g-recaptcha-response' id='g-recaptcha-response'></textarea>");
     - javascript:
         - value: "document.querySelector('#gform_1').style.backgroundColor = 'blue';"
     - click_on:
