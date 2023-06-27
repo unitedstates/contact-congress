@@ -13,6 +13,10 @@ contact_form:
     - find:
         - selector: "#input_17_3_3"
     - fill_in:
+        - name: "input_3.3"
+          selector: "#input_17_3_3"
+          value: $NAME_FIRST
+          required: true
         - name: "input_3.6"
           selector: "#input_17_3_6"
           value: $NAME_LAST
@@ -115,10 +119,6 @@ contact_form:
         - value: "document.querySelector('#gform_17_new').style.backgroundColor = 'red';"
     - click_on:
         - selector: "#gform_submit_button_17"
-    - wait:
-        - value: 10
-    - find:
-        - selector: "#gform_17sdfdsf5"
   success:
     headers:
       status: 200
