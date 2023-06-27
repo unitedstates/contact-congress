@@ -108,13 +108,11 @@ contact_form:
             - Veterans
             - Women and Children
     - find:
-        - selector: "#gform_17"
+        - selector: "#gform_17_new"
     - find:
         - selector: "#contact-form-emailJohn #gform_submit_button_17" 
     - javascript:
-        - value: "document.querySelector('#gform_17').style.backgroundColor = 'red';"
-    - find:
-        - selector: "#gform_17sdfdsf5sdfsdfds"
+        - value: "document.querySelector('#gform_17_new').style.backgroundColor = 'red';"
     - click_on:
         - selector: "#gform_submit_button_17"
     - wait:
