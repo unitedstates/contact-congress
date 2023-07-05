@@ -7,7 +7,9 @@ contact_form:
     - wait:
         - value: 3
     - javascript:
-        - value: "document.querySelector('.elementor-location-header').remove();"
+        - value: "document.querySelector('.elementor-location-header')?.remove();"
+    - javascript:
+        - value: "document.querySelector('.elementor-location-footer')?.remove();"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - javascript:
