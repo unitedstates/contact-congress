@@ -3,7 +3,9 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.klobuchar.senate.gov/public/email-amy"
+    - visit: "https://www.klobuchar.senate.gov/public/index.cfm/email-amy"
+    - find:
+        - selector: "#form_E13EAF9D-7466-4377-96AD-7D97BCA16A2D"
     - fill_in:
         - name: field_C52E1162-F258-4E3F-9F22-A054DA714390
           selector: "#field_C52E1162-F258-4E3F-9F22-A054DA714390"
