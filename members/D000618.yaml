@@ -6,6 +6,8 @@ contact_form:
     - visit: "https://www.daines.senate.gov/services/email-steve/"
     - wait:
         - value: 2
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
         - name: form_fields[first_name]
           selector: "#form-field-first_name"
