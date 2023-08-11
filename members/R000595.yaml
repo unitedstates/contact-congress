@@ -4,8 +4,6 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.rubio.senate.gov/contact/"
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
     # first step
         - name: input_6
