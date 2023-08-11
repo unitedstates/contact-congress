@@ -3,68 +3,80 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.rubio.senate.gov/public/index.cfm/contact"
+    - visit: "https://www.rubio.senate.gov/contact/"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
-        - name: field_F14022B2-CE41-4B48-BAAA-3EA936D0DC49
-          selector: "#field_F14022B2-CE41-4B48-BAAA-3EA936D0DC49"
+    # first step
+        - name: input_6
+          selector: "#input_3_6"
           value: $NAME_FIRST
           required: true
-        - name: field_B1CBECAF-FA94-47CE-8E08-413AF45C40A3
-          selector: "#field_B1CBECAF-FA94-47CE-8E08-413AF45C40A3"
+        - name: input_8
+          selector: "#input_3_8"
           value: $NAME_LAST
           required: true
-        - name: field_D9FC9586-2976-4549-AF04-9CB756A4CCF6
-          selector: "#field_D9FC9586-2976-4549-AF04-9CB756A4CCF6"
-          value: $ADDRESS_STREET
-          required: true
-        - name: field_40D5D76F-F7F7-4D8B-BB9D-57BC5161E745
-          selector: "#field_40D5D76F-F7F7-4D8B-BB9D-57BC5161E745"
-          value: $ADDRESS_CITY
-          required: true
-        - name: field_D612F7D3-C97E-40B4-9525-A3FB97965C23
-          selector: "#field_D612F7D3-C97E-40B4-9525-A3FB97965C23"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: field_AB8AE0E8-B62D-4418-9580-DF08D60934CD
-          selector: "#field_AB8AE0E8-B62D-4418-9580-DF08D60934CD"
+        - name: input_16
+          selector: "#input_3_16"
           value: $EMAIL
           required: true
-        - name: field_7694661F-5DE4-433E-8682-3972EBCF2E27
-          selector: "#field_7694661F-5DE4-433E-8682-3972EBCF2E27"
-          value: $SUBJECT
-          required: true
-        - name: field_5D0DF2C0-8A69-4230-AAB8-B0F872CEB818
-          selector: "#field_5D0DF2C0-8A69-4230-AAB8-B0F872CEB818"
-          value: $MESSAGE
-          required: true
-          options:
-            max_length: 2000
     - select:
-        - name: field_8CE97650-0FB4-4175-AE29-CA0848365A3E
-          selector: "#field_8CE97650-0FB4-4175-AE29-CA0848365A3E"
+        - name: input_5
+          selector: "#input_3_5"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Ms.
             - Mrs.
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mrs.
-            - Mr. and Dr.
-            - Reverend
-            - Sister
-            - Pastor
-            - The Honorable
-            - Representative
-            - Senator
-    - javascript:
-        - value: document.querySelector("#field_5D0DF2C0-8A69-4230-AAB8-B0F872CEB818").value = document.querySelector("#field_5D0DF2C0-8A69-4230-AAB8-B0F872CEB818").value.replace(/"/g, '');
     - click_on:
-        - value: Submit
-          selector: div.buttonHolder input
+        - selector: "#gform_next_button_3_3009"
+      # step 2    
+    - wait:
+        - value: 10
+    - find:
+        - selector: "#input_3_10"
+    - fill_in:
+        - name: input_10
+          selector: "#input_3_10"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_12
+          selector: "#input_3_12"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_14
+          selector: "#input_3_14"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_56
+          selector: "#input_3_56"
+          value: $PHONE
+          required: true
+    - click_on:
+        - selector: "#gform_next_button_3_3010"
+    # step 3
+    - wait:
+        - value: 10
+    - fill_in:
+        - name: input_31
+          selector: "#input_3_31"
+          value: $SUBJECT
+          required: true
+        - name: input_3008
+          selector: "#input_3_3008"
+          value: $MESSAGE
+          required: true
+          options:
+            max_length: 2000  
+    - javascript:
+        - value: document.querySelector("#input_3_3008").value = document.querySelector("#input_3_3008").value.replace(/"/g, '');
+    - click_on:
+        - selector: "#gform_submit_button_3"
+    - wait:
+        - value: 10
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Thanks for contacting us
