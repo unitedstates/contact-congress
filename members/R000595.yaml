@@ -1,7 +1,7 @@
 bioguide:  R000595
 contact_form:
   method: post
-  action: ""
+  action: "/contact/#gf_3"
   steps:
     - visit: "https://www.rubio.senate.gov/contact/"
     - fill_in:
@@ -32,6 +32,8 @@ contact_form:
       # step 2    
     - wait:
         - value: 20
+    - javascript: 
+        - value: 'document.querySelector("#gform_page_3_2").style.display = "block";'
     - find:
         - selector: "#input_3_10"
     - fill_in:
