@@ -71,6 +71,12 @@ contact_form:
         - selector: "#gform_submit_button_3"
     - wait:
         - value: 10
+    - javascript:
+        - value: 'document.querySelector("#gform_confirmation_message_3").style.display = "block";'
+    - find:
+        - selector: "#gform_confirmation_wrapper_3"
+    - find:
+        - selector: "#gform_confirmation_message_3"
   success:
     headers:
       status: 200
