@@ -1,4 +1,4 @@
-bioguide:  S001191
+bioguide: S001191
 contact_form:
   method: post
   action: ""
@@ -7,63 +7,135 @@ contact_form:
     - wait:
       - value: 3
     - find:
-      - selector: " #edit-constituent-information #edit-first-name"
+      - selector: "#input_3_4"
     - fill_in:
         - name: "first_name"
-          selector: "#edit-constituent-information #edit-first-name"
+          selector: "#input_3_4"
           value: $NAME_FIRST
           required: true
         - name: "last_name"
-          selector: "#edit-constituent-information #edit-last-name"
+          selector: "#input_3_5"
           value: $NAME_LAST
           required: true
         - name: "address_1"
-          selector: "#edit-address-1"
+          selector: "#input_3_6"
           value: $ADDRESS_STREET
           required: true
         - name: "city"
-          selector: "#edit-city"
+          selector: "#input_3_8"
           value: $ADDRESS_CITY
           required: true
         - name: "zip"
-          selector: "#edit-zip"
+          selector: "#input_3_10"
           value: $ADDRESS_ZIP5
           required: true
         - name: "phone"
-          selector: "#edit-phone"
+          selector: "#input_3_17"
           value: $PHONE
           required: true
         - name: "email"
-          selector: "#edit-constituent-information #edit-email"
+          selector: "#input_3_18"
           value: $EMAIL
           required: true
         - name: "subject"
-          selector: "#edit-subject"
+          selector: "#input_3_13"
           value: $SUBJECT
           required: true
-          options:
-            max_length: 75
         - name: "message"
-          selector: "#edit-message"
+          selector: "#input_3_14"
           value: $MESSAGE
           required: true
     - select:
+        - name: "state"
+          selector: "#input_3_9"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            Alabama: AL
+            Alaska: AK
+            American Samoa: AS
+            Arizona: AZ
+            Arkansas: AR
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            Delaware: DE
+            District of Columbia: DC
+            Florida: FL
+            Georgia: GA
+            Guam: GU
+            Hawaii: HI
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Iowa: IA
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Maine: ME
+            Marshall Islands: MH
+            Maryland: MD
+            Massachusetts: MA
+            Michigan: MI
+            Minnesota: MN
+            Mississippi: MS
+            Missouri: MO
+            Montana: MT
+            Nebraska: NE
+            Nevada: NV
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            New York: NY
+            North Carolina: NC
+            North Dakota: ND
+            Northern Marianas Islands: MP
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Palau: PW
+            Pennsylvania: PA
+            Puerto Rico: PR
+            Rhode Island: RI
+            South Carolina: SC
+            South Dakota: SD
+            Tennessee: TN
+            Texas: TX
+            Utah: UT
+            Vermont: VT
+            Virgin Islands: VI
+            Virginia: VA
+            Washington: WA
+            West Virginia: WV
+            Wisconsin: WI
+            Wyoming: WY
         - name: "prefix"
-          selector: "#edit-prefix"
+          selector: "#input_3_3"
           value: $NAME_PREFIX
           required: true
           options:
-            "Mr.": "Mr."
-            "Mrs.": "Mrs."
-            "Ms.": "Ms."
-            "Dr.": "Dr."
-        - name: "state"
-          selector: "#edit-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options: US_STATES
+            "Ms.": "Ms"
+            "Mr.": "Mr"
+            "Mrs.": "Mrs"
+            "Dr.": "Dr"
+            "Miss": "Miss"
+            "Admiral": "Admiral"
+            "Captain": "Captain"
+            "Chief Master Sergeant": "Chief Master Sergeant"
+            "Colonel": "Colonel"
+            "Commander": "Commander"
+            "Corporal": "Corporal"
+            "General": "General"
+            "Lieutenant": "Lieutenant"
+            "Lieutenant Colonel": "Lieutenant Colonel"
+            "Major": "Major"
+            "Master Sergeant": "Master Sergeant"
+            "Sergeant": "Sergeant"
+            "Second Lieutenant": "Second Lieutenant"
+            "Sergeant Major": "Sergeant Major"
+            "Technical Sergeant": "Technical Sergeant"
         - name: "issue"
-          selector: "#edit-issue"
+          selector: "#input_3_12"
           value: $TOPIC
           required: true
           options:
@@ -111,18 +183,16 @@ contact_form:
             "Veterans": "Veterans"
     - check:
       - name: "response_requested"
-        selector: "#edit-response-requested-yes"
-        value: "Yes"
-        required: Yes
+        selector: "#choice_3_15_0"
+        required: No
       - name: "sign_up_for_updates"
-        selector: "#edit-sign-up-for-updates-no"
-        value: "No"
-        required: Yes
+        selector: "#choice_3_16_1"
+        required: No
     - click_on:
         - value: Send message
-          selector: "#webform-submission-contact-kyrsten-node-877-add-form #edit-actions-submit"
+          selector: "#gform_submit_button_3"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you"
+      contains: "Thanks for contacting us! We will get in touch with you shortly"
