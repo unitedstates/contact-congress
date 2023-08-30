@@ -68,6 +68,8 @@ contact_form:
     - javascript:
         - value: document.querySelector("#input_3_3008").value = document.querySelector("#input_3_3008").value.replace(/"/g, '');
     - javascript:
+        - value: 'window["gf_submitting_3"] = false'
+    - javascript:
         - value: 'document.querySelector("#gform_submit_button_3").click();'
     - javascript:
         - value: 'document.querySelector("#gform_confirmation_message_3").style.display = "block";'
