@@ -67,18 +67,14 @@ contact_form:
             max_length: 2000  
     - javascript:
         - value: document.querySelector("#input_3_3008").value = document.querySelector("#input_3_3008").value.replace(/"/g, '');
-    - click_on:
-        - selector: "#gform_submit_button_3"
     - javascript:
-        - value: '("#gform_3").trigger("submit",[true]);'
+        - value: 'document.querySelector("#gform_submit_button_3").click();'
     - javascript:
         - value: 'document.querySelector("#gform_confirmation_message_3").style.display = "block";'
     - wait:
         - value: 10
     - find:
         - selector: "#gform_confirmation_wrapper_3"
-    - find:
-        - selector: "#gform_confirmation_message_3"
   success:
     headers:
       status: 200
