@@ -1,98 +1,93 @@
-bioguide:  B001310
+bioguide: B001310
 contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.braun.senate.gov/contact-mike"
+    - visit: "https://www.braun.senate.gov/contact/email/"
     - fill_in:
-        - name: "first_name"
-          selector: "#edit-first-name"
-          value: $NAME_FIRST
-          required: true
-        - name: "last_name"
-          selector: "#edit-last-name"
-          value: $NAME_LAST
-          required: true
-        - name: "address_1"
-          selector: "#edit-address-1"
-          value: $ADDRESS_STREET
-          required: true
-        - name: "city"
-          selector: "#edit-city"
-          value: $ADDRESS_CITY
-          required: true
-        - name: "zip"
-          selector: "#edit-zip"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: "phone"
-          selector: "#edit-phone"
-          value: $PHONE
-          required: false
-        - name: "email"
-          selector: "#edit-email"
-          value: $EMAIL
-          required: true
-        - name: "subject"
-          selector: "#edit-subject"
-          value: $SUBJECT
-          required: true
-        - name: "message"
-          selector: "#edit-message"
-          value: $MESSAGE
-          required: true
+      - name: input_2_2
+        selector: "#input_2_2"
+        value: $NAME_FIRST
+        required: true
+      - name: input_2_3
+        selector: "#input_2_3"
+        value: $NAME_LAST
+        required: true
+      - name: input_2_6_1
+        selector: "#input_2_6_1"
+        value: $ADDRESS_STREET
+        required: true
+      - name: input_2_6_3
+        selector: "#input_2_6_3"
+        value: $ADDRESS_CITY
+        required: true
+      - name: input_2_6_5
+        selector: "#input_2_6_5"
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: input_2_9
+        selector: "input[name='input_2_9']"
+        value: $EMAIL
+        required: true
+      - name: input_2_9_2
+        selector: "input[name='input_2_9_2']"
+        value: $EMAIL
+        required: true
+      - name: "input_2_11"
+        selector: "#input_2_11"
+        value: $SUBJECT
+        required: true
+      - name: "input_2_12"
+        selector: "#input_2_12"
+        value: $MESSAGE
+        required: true
     - select:
-        - name: "prefix"
-          selector: "#edit-prefix"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            "Mr.": "Mr."
-            "Mrs.": "Mrs."
-            "Ms.": "Ms."
-            "Mr. and Mrs.": "Mr. and Mrs."
-            "Dr.": "Dr."
-            "Dr. and Mrs.": "Dr. and Mrs."
-        - name: "state"
-          selector: "#edit-state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options: US_STATES
-        - name: "topic"
-          selector: "#edit-topic"
-          value: $TOPIC
-          required: true
-          options:
-            "Abortion": "Abortion"
-            "Agriculture": "Agriculture"
-            "Aid": "Aid"
-            "Appointments": "Appointments"
-            "Defense": "Defense"
-            "Drugs": "Drugs"
-            "Education": "Education"
-            "Environment": "Environment"
-            "Foreign Affairs": "Foreign Affairs"
-            "Gun Control": "Gun Control"
-            "Healthcare": "Healthcare"
-            "Immigration": "Immigration"
-            "Infrastructure": "Infrastructure"
-            "Marijuana": "Marijuana"
-            "Russian Sanctions": "Russian Sanctions"
-            "Shutdown": "Shutdown"
-            "Social Security": "Social Security"
-            "Space/Science": "Space/Science"
-            "Taxation": "Taxation"
-            "Term Limits": "Term Limits"
-            "Transportation": "Transportation "
-            "President": "President "
-            "Other": "Other"
-            "Veterans": "Veterans"
-            "Wages": "Wages"
+      - name: "input_2_39"
+        selector: "#input_2_39"
+        value: $NAME_PREFIX
+        required: true
+        options:
+          - Mr.
+          - Mrs.
+          - Ms.
+          - Mr. and Mrs.
+          - Dr.
+      - name: input_2_17
+        selector: "#input_2_17"
+        value: $TOPIC
+        required: true
+        options:
+          Agriculture: Agriculture
+          Animal Rights: Animal Rights
+          Banking and Finance: Banking and Finance
+          Civil Rights: Civil Rights
+          Crime and the Judiciary: Crime and the Judiciary
+          Defense and the Military: Defense and the Military
+          Economy/Jobs: Economy/Jobs
+          Education: Education
+          Energy: Energy
+          Environment: Environment
+          Federal Budget: Federal Budget
+          Federal Employees: Federal Employees
+          Foreign Relations: Foreign Relations
+          Gun Safety: Gun Safety
+          Immigration: Immigration
+          Health Care: Health Care
+          Housing: Housing
+          Labor: Labor
+          Politics and Political Campaigns: Politics and Political Campaigns
+          Social Security and Retirement: Social Security and Retirement
+          "Space, Science & Technology": "Space, Science & Technology"
+          Tax Policy and Reform: Tax Policy and Reform
+          Telecommunications and Cybersecurity: Telecommunications and Cybersecurity
+          Transportation: Transportation
+          Veterans: Veterans
+          Welfare and Public Assistance: Welfare and Public Assistance
+          Other: Other
     - click_on:
-        - value: Send message
-          selector: "#edit-actions-submit"
+        - selector: "#gform_submit_button_2"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you"
+      contains: Your message has been sent.
