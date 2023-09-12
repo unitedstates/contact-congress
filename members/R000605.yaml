@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "https://www.rounds.senate.gov/contact/email-mike"
     - find:
-        - selector: "#actions"
+        - selector: "#issue-dropdowns"
     - select:
         - name: input_AE7457DD-4040-F985-52CD-B99385041C51
           selector: "#issue-dropdowns"
@@ -239,7 +239,7 @@ contact_form:
         - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: input.btn
+          selector: button.btn
     - wait:
         - value: 3
   success:
