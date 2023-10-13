@@ -102,6 +102,8 @@ contact_form:
         - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
     - click_on:
         - selector: button[type='submit']
+    - wait:
+        - value: 6
   success:
     headers:
       status: 200
