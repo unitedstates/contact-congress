@@ -104,6 +104,8 @@ contact_form:
         - selector: button[type='submit']
     - javascript:
         - value: document.querySelector(".elementor-message-success").style.display = "block";
+    - find:
+        - selector: "#break"
   success:
     headers:
       status: 200
