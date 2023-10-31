@@ -1,55 +1,59 @@
-bioguide:  C001113
+bioguide: C001113
 contact_form:
   method: post
   action: /content/contact-senator
   steps:
     - visit: "https://www.cortezmasto.senate.gov/contact/connect"
-    - click_on:
-        - selector: ".opinion h1"
+    - wait:
+        - value: 2
+    - javascript:
+        - value: "document.querySelector('#elementor-tab-content-1151').removeAttribute('hidden');"
+    - javascript:
+        - value: "document.querySelector('#elementor-tab-content-1151').removeAttribute('class');"
     - fill_in:
-        - name: "input_78DF3A81-B287-CC2A-5900-56C22D85E462"
-          selector: "#input-78DF3A81-B287-CC2A-5900-56C22D85E462"
+        - name: "input_2"
+          selector: "#input_2_2"
           value: $NAME_FIRST
           required: true
-        - name: "input_78DF39C6-93C1-552A-DC26-5EE4EE82C938"
-          selector: "#input-78DF39C6-93C1-552A-DC26-5EE4EE82C938"
+        - name: "input_3"
+          selector: "#input_2_3"
           value: $NAME_LAST
           required: true
-        - name: "input_78DF3A96-A657-0521-883B-58CE5FEBC4FA"
-          selector: "#input-78DF3A96-A657-0521-883B-58CE5FEBC4FA"
+        - name: "input_6.1"
+          selector: "#input_2_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: "input_78DF3ADE-917F-8844-388A-9DA79F33248A"
-          selector: "#input-78DF3ADE-917F-8844-388A-9DA79F33248A"
+        - name: "input_6.3"
+          selector: "#input_2_6_3"
           value: $ADDRESS_CITY
           required: true
-        - name: "input_78DF39D2-E140-6A64-6C46-DFC42EC825B1"
-          selector: "#input-78DF39D2-E140-6A64-6C46-DFC42EC825B1"
+        - name: "input_6.5"
+          selector: "#input_2_6_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "input_78DF3A8C-B76A-17D9-5156-9170FE970E05"
-          selector: "#input-78DF3A8C-B76A-17D9-5156-9170FE970E05"
+        - name: "input_41"
+          selector: "#input_2_41"
           value: $PHONE
           required: true
-        - name: "input_78DF3ABD-F3F0-E142-B5C3-294CD4A4B8D2"
-          selector: "#email"
+        - name: "input_9"
+          selector: "#input_2_9"
           value: $EMAIL
           required: true
-        - name: "input_78DF39F6-0CBF-AAEB-3E6B-D606CD8AA55B"
-          selector: "#input-78DF39F6-0CBF-AAEB-3E6B-D606CD8AA55B"
+        - name: "input_9_2"
+          selector: "#input_2_9_2"
           value: $EMAIL
           required: true
-        - name: "input_78F5B663-987A-E8DA-A3D9-0CA96474A5A1"
-          selector: "#input-78F5B663-987A-E8DA-A3D9-0CA96474A5A1"
+        - name: "input_11"
+          selector: "#input_2_11"
           value: $SUBJECT
           required: true
-        - name: "input_78DF3A4F-C8ED-2264-6E6C-A51B1269E6D2"
-          selector: "#input-78DF3A4F-C8ED-2264-6E6C-A51B1269E6D2"
+        - name: "input_12"
+          selector: "#input_2_12"
           value: $MESSAGE
           required: true
     - select:
-        - name: "input_78DF3ACD-C97D-140A-A757-3725A60CEDE1"
-          selector: "#input-78DF3ACD-C97D-140A-A757-3725A60CEDE1"
+        - name: "input_39"
+          selector: "#input_2_39"
           value: $NAME_PREFIX
           required: true
           options:
@@ -60,8 +64,8 @@ contact_form:
             - Professor
             - Dean
             - Dr.
-        - name: "input_78DF39AC-9674-30FF-2AB3-2FD8BE463378"
-          selector: "#input-78DF39AC-9674-30FF-2AB3-2FD8BE463378"
+        - name: "input_17"
+          selector: "#input_2_17"
           value: $TOPIC
           required: true
           options:
@@ -86,15 +90,13 @@ contact_form:
              Transportation: TRANSPORTATION
              Veterans: VETS
              Other: OTH
-    - javascript:
-        - value: document.querySelector("#input-78DF3A4F-C8ED-2264-6E6C-A51B1269E6D2").value = document.querySelector("#input-78DF3A4F-C8ED-2264-6E6C-A51B1269E6D2").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "input.btn"
+          selector: "input#gform_submit_button_2"
     - wait:
         - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: "CONNECT WITH CATHERINE"
+      contains: "We will work to provide a response as soon as possible. If you need immediate assistance, please call my office."
