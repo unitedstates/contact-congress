@@ -1,53 +1,53 @@
-bioguide:  C001075
+bioguide: C001075
 contact_form:
   method: post
   action: /contact
   steps:
-    - visit: "http://www.cassidy.senate.gov/contact"
+    - visit: "https://www.cassidy.senate.gov/contact/get-in-touch/"
     - wait:
         - value: 2
     - find:
-        - selector: "#form-A77D3A2D-5056-A066-60F1-2E40AED5E0B6"
+        - selector: "#input_2_2"
     - fill_in:
-        - name: "input_A77D431D-5056-A066-60F2-686CE29D7A92"
-          selector: "#input-A77D431D-5056-A066-60F2-686CE29D7A92"
+        - name: "input_2"
+          selector: "#input_2_2"
           value: $NAME_FIRST
           required: true
-        - name: "input_A77D3DA3-5056-A066-6040-ABEAB658F35E"
-          selector: "#input-A77D3DA3-5056-A066-6040-ABEAB658F35E"
+        - name: "input_3"
+          selector: "#input_2_3"
           value: $NAME_LAST
           required: true
-        - name: "input_A77D4470-5056-A066-603C-DE0C9EDCC0ED"
-          selector: "#input-A77D4470-5056-A066-603C-DE0C9EDCC0ED"
+        - name: "input_6.1"
+          selector: "#input_2_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: "input_A77D4221-5056-A066-607A-A923CA72F49E"
-          selector: "#input-A77D4221-5056-A066-607A-A923CA72F49E"
+        - name: "input_6.3"
+          selector: "#input_2_6_3"
           value: $ADDRESS_CITY
           required: true
-        - name: "input_A77D3E23-5056-A066-601B-004F20B1C1AF"
-          selector: "#input-A77D3E23-5056-A066-601B-004F20B1C1AF"
+        - name: "input_6.5"
+          selector: "#input_2_6_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "input_A77D3BC8-5056-A066-6018-8F634D60D8A8"
-          selector: "#input-A77D3BC8-5056-A066-6018-8F634D60D8A8"
+        - name: "input_7"
+          selector: "#input_2_7"
           value: $PHONE
           required: true
-        - name: "input_A77D401E-5056-A066-60F9-C647EEBD22EA"
-          selector: "#email"
+        - name: "input_9"
+          selector: "#input_2_9"
           value: $EMAIL
           required: true
-        - name: "input_A77D4274-5056-A066-60F4-89DD9C91CD46"
-          selector: "#input-A77D4274-5056-A066-60F4-89DD9C91CD46"
+        - name: "input_9_2"
+          selector: "#input_2_9_2"
           value: $EMAIL
           required: true
-        - name: "input_A77D42C9-5056-A066-60C2-6DCB5E08010C"
-          selector: "#input-A77D42C9-5056-A066-60C2-6DCB5E08010C"
+        - name: "input_12"
+          selector: "#input_2_12"
           value: $MESSAGE
           required: true
     - select:
-        - name: "input_A77D3FC9-5056-A066-60BE-03237AD34984"
-          selector: "#input-A77D3FC9-5056-A066-60BE-03237AD34984"
+        - name: "input_39"
+          selector: "#input_2_39"
           value: $NAME_PREFIX
           required: true
           options:
@@ -185,8 +185,8 @@ contact_form:
             "Navy - Seaman Apprentice": "Seaman Apprentice"
             "Navy - Seaman": "Seaman"
             "Navy - Seaman Recruit": "Seaman Recruit"
-        - name: "input_A77D456E-5056-A066-6090-553AFB008C64"
-          selector: "#input-A77D456E-5056-A066-6090-553AFB008C64"
+        - name: "input_6.4"
+          selector: "#input_2_6_4"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -250,8 +250,8 @@ contact_form:
             "WV": "WV"
             "WI": "WI"
             "WY": "WY"
-        - name: "input_A77D3E77-5056-A066-6001-871256170FDD"
-          selector: "#input-A77D3E77-5056-A066-6001-871256170FDD"
+        - name: "input_17"
+          selector: "#input_2_17"
           value: $TOPIC
           required: true
           options:
@@ -311,18 +311,16 @@ contact_form:
             "Veterans": "Veterans"
             "Welfare": "Welfare"
             "Women's Issues": "Women's Issues"
-    - javascript:
-        - value: document.querySelector("#input-A77D42C9-5056-A066-60C2-6DCB5E08010C").value = document.querySelector("#input-A77D42C9-5056-A066-60C2-6DCB5E08010C").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: "input.btn"
+          selector: "#gform_submit_button_2"
     - wait:
         - value: 3
     - find:
-        - selector: "h1"
+        - selector: "#gform_confirmation_message_2"
           value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for submitting your Request to our office."
+      contains: "Thank you for submitting your request to our office."
