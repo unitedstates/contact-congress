@@ -1,57 +1,55 @@
-bioguide:  S001184
+bioguide: S001184
 contact_form:
   method: post
   action: /contact/email-me
   steps:
     - visit: "http://www.scott.senate.gov/contact/email-me"
-    - click_on:
-        - selector: ".opinion"
     - find:
-        - selector: "#input-6A3EC423-EABA-ADAE-CDDA-1F2B8C52B264"
+        - selector: "#input_14_2"
     - fill_in:
-        - name: input_6A3EC423-EABA-ADAE-CDDA-1F2B8C52B264
-          selector: "#input-6A3EC423-EABA-ADAE-CDDA-1F2B8C52B264"
+        - name: input_2
+          selector: "#input_14_2"
           value: $NAME_FIRST
           required: true
-        - name: input_6A3EC444-AE89-6483-2F04-AD630E9844A4
-          selector: "#input-6A3EC444-AE89-6483-2F04-AD630E9844A4"
+        - name: input_3
+          selector: "#input_14_3"
           value: $NAME_LAST
           required: true
-        - name: input_6A4B9BE2-D0DA-D4BA-66D4-7C553BE24DB0
-          selector: "#input-6A4B9BE2-D0DA-D4BA-66D4-7C553BE24DB0"
+        - name: input_6.1
+          selector: "#input_14_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: input_6A4B9D6C-AD8F-60B5-C4C9-1353EFEB07BB
-          selector: "#input-6A4B9D6C-AD8F-60B5-C4C9-1353EFEB07BB"
+        - name: input_6.3
+          selector: "#input_14_6_3"
           value: $ADDRESS_CITY
           required: true
-        - name: input_6A4B9ED6-DFCC-E433-5D4B-872B0F1C2146
-          selector: "#input-6A4B9ED6-DFCC-E433-5D4B-872B0F1C2146"
+        - name: input_6.5
+          selector: "#input_14_6_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_6A52B52C-B150-357C-4CF6-519EFE0FAADB
-          selector: "#input-6A52B52C-B150-357C-4CF6-519EFE0FAADB"
+        - name: input_7
+          selector: "#input_14_7"
           value: $PHONE
           required: true
-        - name: input_6A4EFE81-B88A-024D-3EF6-4B3F57EA6DF9
-          selector: "#email"
+        - name: input_9
+          selector: "#input_14_9"
           value: $EMAIL
           required: true
-        - name: input_6A4EFF85-E71D-E2A8-6A38-B86EAC444E95
-          selector: "#input-6A4EFF85-E71D-E2A8-6A38-B86EAC444E95"
+        - name: input_9_2
+          selector: "#input_14_9_2"
           value: $EMAIL
           required: true
-        - name: input_6A735A98-CBA2-6A63-E393-69E16553D654
-          selector: "#input-6A735A98-CBA2-6A63-E393-69E16553D654"
+        - name: input_12
+          selector: "#input_14_12"
           value: $MESSAGE
           required: true
-        - name: input_0DA604EC-0514-3677-9DF1-0CDF262B9D32
-          selector: "#input-0DA604EC-0514-3677-9DF1-0CDF262B9D32"
+        - name: input_11
+          selector: "#input_14_11"
           value: $SUBJECT
           required: true
     - select:
-        - name: input_6A3EC3AE-A5E3-1F99-B0C5-03BAEEF80307
-          selector: "#input-6A3EC3AE-A5E3-1F99-B0C5-03BAEEF80307"
+        - name: input_1
+          selector: "#input_14_1"
           value: $NAME_PREFIX
           required: true
           options:
@@ -59,9 +57,9 @@ contact_form:
             Ms.: Ms.
             Mrs.: Mrs.
             Professor: Professor
-            Dr.: Dr.    
-        - name: input_6A5CD05B-A346-9664-3507-6301CE991304
-          selector: "#input-6A5CD05B-A346-9664-3507-6301CE991304"
+            Dr.: Dr.
+        - name: input_17
+          selector: "#input_14_17"
           value: $TOPIC
           required: true
           options:
@@ -95,18 +93,14 @@ contact_form:
             Telecommunications: TEL
             Trade: TRADE
             Transportation: TRA
-            Veterans: VET          
-    - javascript:
-        - value: document.querySelector("#input-6A735A98-CBA2-6A63-E393-69E16553D654").value = document.querySelector("#input-6A735A98-CBA2-6A63-E393-69E16553D654").value.replace(/"/g, '');
-    - javascript:
-        - value: document.querySelector("#input-6AC98E37-0486-54F9-5AD3-8111C173B526").click();
+            Veterans: VET
     - click_on:
-        - selector: ".btn"
+        - selector: "#gform_submit_button_14"
     - find:
-        - selector: h1
+        - selector: h2
           value: Thank You
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office
+      contains: Thank you for contacting my office.
