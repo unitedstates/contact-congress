@@ -1,9 +1,9 @@
-bioguide:  B001320
+bioguide: B001320
 contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.butler.senate.gov/"
+    - visit: https://www.butler.senate.gov/share-your-opinion/
     - fill_in:
         - name: form_fields[name]
           selector: "#form-field-name"
@@ -41,6 +41,48 @@ contact_form:
           selector: "#form-field-field_01539f0"
           value: $MESSAGE
           required: true
+    - select:
+        - name: form_fields[message]
+          selector: "#form-field-message"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AGR
+            Animal Welfare: AN
+            Arts, Museums, & Libraries: ART
+            Banking & Financial Services: BANK
+            Chemical Safety: CHEM
+            Civil Rights & Discrimination (including LGBTQ+): CIVIL
+            Consumer Product Safety: CONSUMER
+            Criminal Justice: CRIMJUS
+            Defense & Military: DEF
+            Disaster Response: DISARESP
+            Education: EDU
+            Election Reform & Voting Rights: ELECT
+            Endangered Species: ENDSPEC
+            Energy & Climate: ENE
+            Environment: ENV
+            Federal Court Nominations: FEDCOURT
+            Foreign Relations: FR
+            Foreign Trade: FT
+            Foster Care & Adoption: ADOPT
+            Gun Violence Prevention: GUN
+            Health Care: HEA
+            Housing: HOUSE
+            Immigration: IMM
+            Labor, Unions, & Workers: LAB
+            Nutrition: NUT
+            Postal Service: POST
+            Public Lands & Forestry: LANDS
+            Reproductive Freedom: REPRO
+            Science & Space Policy: SCI
+            Social Security: SSEC
+            Taxes: TAX
+            Telecommunications: TEL
+            Transportation: TRA
+            Tribal Communities/Native American Affairs: NATIVE
+            Veterans: VET
+            Water: WATER
     - select:
         - name: form_fields[field_dd4016c]
           selector: "#form-field-field_dd4016c"
@@ -100,12 +142,12 @@ contact_form:
             Wyoming: WY
     - javascript:
         - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - selector: button[type='submit']
-    - javascript:
-        - value: document.querySelector(".elementor-message-success").style.display = "block";
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: Your submission was successful
