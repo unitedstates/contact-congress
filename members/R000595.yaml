@@ -71,6 +71,8 @@ contact_form:
         - value: 'window["gf_submitting_3"] = false'
     - javascript:
         - value: 'document.querySelector("#gform_submit_button_3").click();'
+    - wait:
+        - value: 5
     - javascript:
         - value: 'document.querySelector("#gform_confirmation_message_3").style.display = "block";'
     - wait:
