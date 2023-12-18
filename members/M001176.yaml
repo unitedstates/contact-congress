@@ -6,66 +6,66 @@ contact_form:
     - visit: "https://www.merkley.senate.gov/contact/"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - select:
-        - name: actions
-          selector: "#contactForm select[name='actions']"
-          value: opinion
-          required: true
-          options:
-            Share your opinion or comments on bills or other issues: opinion
-            Media Inquiries: media_inquires
-            Request help with a federal agency: federal_agency
-            Request a flag to be flown over the Capitol: flag
     - find:
-        - selector: "#fname"                
+        - selector: "#input_2_1_3"                
     - fill_in:
-        - name: fname
-          selector: "#fname"
+        - name: input_1.3
+          selector: "#input_2_1_3"
           value: $NAME_FIRST
           required: true
-        - name: lname
-          selector: "#lname"
+        - name: input_1.6
+          selector: "#input_2_1_6"
           value: $NAME_LAST
           required: true
-        - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+        - name: input_3.1
+          selector: "#input_2_3_1"
           value: $ADDRESS_STREET
           required: true
-        - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
+        - name: input_3.2
+          selector: "#input_2_3_2"
           value: $ADDRESS_STREET_2
           required: false
-        - name: mailing_city
-          selector: "#mailing_city"
+        - name: input_3.3
+          selector: "#input_2_3_3"
           value: $ADDRESS_CITY
           required: true
-        - name: mailing_zipCode
-          selector: "#mailing_zipCode"
+        - name: input_3.5
+          selector: "#input_2_3_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: home_phone_number
-          selector: "#home_phone_number"
+        - name: input_3.4
+          selector: "#input_2_3_4"
+          value: $ADDRESS_STATE_FULL
+          required: true  
+        - name: input_4
+          selector: "#input_2_4"
           value: $PHONE
           required: true
-        - name: email_address
-          selector: "#email"
+        - name: input_5
+          selector: "#input_2_5"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
+        - name: input_5_2
+          selector: "#input_2_5_2"
           value: $EMAIL
           required: true
-        - name: message
-          selector: "#message"
+        - name: input_7
+          selector: "#input_2_7"
           value: $MESSAGE
           required: true
     - select:
-        - name: subject
-          selector: "#subject"
+        - name: input_3.6
+          selector: "#input_2_3_6"
+          value: "United States"
+          required: true
+          options:
+            "United States": United States
+        - name: input_6
+          selector: "#input_2_6"
           value: $TOPIC
           required: true
           options:
-            "Abortion/Reproductive Rights": Abortion
+            "Abortion/Reproductive Rights": Abortion/Reproductive Rights
             Affordable Care Act: Affordable Care Act
             Agriculture: Agriculture
             Animal Rights: Animal Rights
@@ -111,17 +111,14 @@ contact_form:
             Veterans: Veterans
             Wildlife and Endangered Species: Wildlife and Endangered Species
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');            
+        - value: document.querySelector("#input_2_7").value = document.querySelector("#input_2_7").value.replace(/"/g, '');            
     - click_on:
-        - value: Send
-          selector: "#side-search-btn"
+        - value: Submit
+          selector: "#gform_submit_button_2"
     - javascript:
         - value: "document.querySelector('#side-search-btn') && document.querySelector('#side-search-btn').click();"
-    - find:
-        - selector: "h2"
-          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "Thank you for emailing Jeff."
+      contains: "Thanks for contacting us"
