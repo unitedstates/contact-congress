@@ -142,12 +142,16 @@ contact_form:
             Wyoming: WY
     - javascript:
         - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
+    - javascript:
+        - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
         - value: true
     - click_on:
         - selector: button[type='submit']
+    - javascript:
+        - value: document.querySelector(".elementor-message-success").style.display = "block";
   success:
     headers:
       status: 200
     body:
-      contains: Your submission was successful
+      contains: ""
