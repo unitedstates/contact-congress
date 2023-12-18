@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.braun.senate.gov/contact/email/"
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
       - name: input_2_2
         selector: "#input_2_2"

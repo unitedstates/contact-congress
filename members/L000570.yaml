@@ -1,18 +1,18 @@
 bioguide:  L000570
 contact_form:
   method: post
-  action: "https://outreach.senate.gov/iqextranet/EForm.aspx?__cid=SenLujan&__fid=100030"
+  action: "https://www.lujan.senate.gov/contact/contact-form/"
   steps:
-    - visit: "https://outreach.senate.gov/iqextranet/EForm.aspx?__cid=SenLujan&__fid=100030"
+    - visit: "https://www.lujan.senate.gov/contact/contact-form/"
     - wait:
         - value: 3  
     - fill_in:
-        - name: "qi_1_first_name"
-          selector: "#qi_1_first_name"
+        - name: "input_2"
+          selector: "#input_1_2"
           value: $NAME_FIRST
           required: true
-        - name: "qi_1_last_name"
-          selector: "#qi_1_last_name"
+        - name: "input_3"
+          selector: "#input_1_3"
           value: $NAME_LAST
           required: true
         - name: "qi_4"
@@ -23,87 +23,93 @@ contact_form:
           selector: "#qi_3"
           value: $SUBJECT
           required: true
-        - name: "qi_1_addr_1"
-          selector: "#qi_1_addr_1"
+        - name: "input_6.1"
+          selector: "#input_1_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: "qi_1_city"
-          selector: "#qi_1_city"
+        - name: "input_6.3"
+          selector: "#input_1_6_3"
           value: $ADDRESS_CITY
           required: true
-        - name: "qi_1_zip"
-          selector: "#qi_1_zip"
+        - name: "input_6.5"
+          selector: "#input_1_6_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "qi_1_email"
-          selector: "#qi_1_email"
+        - name: "input_9"
+          selector: "#input_1_9"
           value: $EMAIL
           required: true
-        - name: "qi_1_email_confirm"
-          selector: "#qi_1_email_confirm"
+        - name: "input_9_2"
+          selector: "#input_1_9_2"
           value: $EMAIL
           required: true
-        - name: "qi_1_hphone"
-          selector: "#qi_1_hphone"
+        - name: "input_7"
+          selector: "#input_1_7"
           value: $PHONE
           required: true
     - select:
-        - selector: "#qi_1_state"
+        - selector: "#input_1_6_4"
           value: "34_NM"
-          name: "qi_1_state"
+          name: "input_6.4"
           options:
-            "New Mexico": 34_NM
-        - name: "qi_1_prefix"
-          selector: "#qi_1_prefix"
+            "New Mexico": "New Mexico"
+        - name: "input_1"
+          selector: "#input_1_1"
           value: $NAME_PREFIX
           required: true
           options:
-             Mr.: 69_Mr.
-             Ms.: 78_Ms.
-             Mrs.: 76_Mrs.
-             Miss: 67_Miss
-             Dr.: 30_Dr.
-        - name: "qi_2"
-          selector: "#qi_2"
+             - Mr.
+             - Mrs.
+             - Ms.
+             - Miss
+             - Mr. and Mrs.
+             - Mx
+             - Dr.
+        - name: "input_17"
+          selector: "#input_1_17"
           value: $TOPIC
           required: true
           options:
-             Agriculture: 0_AGR
-             Animal Rights: 1_ANIMAL RIGHTS
-             Appropriations: 2_APP
-             Arts & Humanities: 3_ARTS
-             Banking & Financial Services: 4_FIN_OVSIGHT
-             Budget: 5_BUD
-             Campaign/Election Reform: 6_CAMPR
-             Consumer Protection: 7_CONSUMER PROTECTION
-             Children: 8_KIDS
-             Defense and Military: 9_MIL
-             Economic Development: 10_ECON
-             Education: 11_EDU
-             Energy: 12_ENERGY
-             Environment: 13_ENV
+             Agriculture: AGR
+             Animal Rights: ANIMAL RIGHTS
+             Appropriations: APP
+             Arts & Humanities: ARTS
+             Banking & Financial Services: FIN_OVSIGHT
+             Budget: BUD
+             Campaign/Election Reform: CAMPR
+             Business and Commerce: Business and Commerce
+             Consumer Protection: CONSUMER PROTECTION
+             Children: KIDS
+             Defense and Military: "DEF, MIL"
+             Economic Development: ECON
+             Education: EDU
+             Energy: ENE
+             Environment: ENV
              Ethics Reform: GOV
              Foreign Relations: INT
-             Guns: 14_GUN_VIO
-             Foreign Affairs: 15_FOREIGN AFFAIRS
-             Healthcare: 16_HCARE REFORM
-             Housing: 17_HOUSING
-             Immigration: 18_IMM
-             Judiciary: 19_JUD
-             Labor: 20_LABOR
-             Nutrition: 21_CHIP
-             Postal Service: 22_POSTAL
-             Science and Innovation: 23_SCIENCE
-             Seniors: 24_SENIORS
-             Social Issues: 25_SOC
-             Taxes: 26_TAX
-             Technology and Telecom: 27_TECH
-             Trade: 28_TRADE
-             Transportation: 29_TRANSPORTATION
-             Veterans: 30_VET
-             Women and Children: 31_WOMENS ISSUES.P
+             Guns: GUN_VIO
+             Healthcare: HEALTH
+             Homeland Security: HOM
+             Housing: HOUSING
+             Immigration: IMM
+             Insurance Problems: Insurance Problems
+             Intelligence: SURVEILLANCE
+             Interior: NAT RES
+             Judiciary: JUD
+             Labor: LABOR
+             Nutrition: SNAP
+             Postal Service: POSTAL
+             Science and Innovation: SCIENCE
+             Seniors: SENIORS
+             Social Issues: SOC
+             Taxes: TAX
+             Technology and Telecom: "TECH , TELECOMM"
+             Trade: TRADE
+             Transportation: TRANSPO
+             Veterans: VET
+             Women and Children: WOMENS ISSUES.P
     - click_on:
-        - selector: "#btn_submit"
+        - selector: "#gform_submit_button_1"
     - wait:
         - value: 10
     - find:
@@ -112,4 +118,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Thank You"
