@@ -149,9 +149,9 @@ contact_form:
     - click_on:
         - selector: button[type='submit']
     - javascript:
-        - value: document.querySelector(".elementor-message-success").style.display = "block";
+        - value: if (document.querySelector(".elementor-message-success")) { document.querySelector(".elementor-message-success").style.display = "block"; }
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Your submission was successful"
