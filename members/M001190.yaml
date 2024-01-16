@@ -1,149 +1,176 @@
-bioguide:  M001190
+bioguide: M001190
 contact_form:
   method: post
-  action: ""
+  action: ''
   steps:
-    - visit: "https://www.mullin.senate.gov/share-your-opinion/"
-    - fill_in:
-        - name: form_fields[name]
-          selector: "#form-field-name"
-          value: $NAME_PREFIX
-          required: true
-        - name: form_fields[field_1d46919]
-          selector: "#form-field-field_1d46919"
-          value: $NAME_FIRST
-          required: true
-        - name: form_fields[field_bdcaff9]
-          selector: "#form-field-field_bdcaff9"
-          value: $NAME_LAST
-          required: true
-        - name: form_fields[field_00c2cf4]
-          selector: "#form-field-field_00c2cf4"
-          value: $ADDRESS_STREET
-          required: true
-        - name: form_fields[field_5ce9e4e]
-          selector: "#form-field-field_5ce9e4e"
-          value: $ADDRESS_CITY
-          required: true
-        - name: form_fields[field_1037219]
-          selector: "#form-field-field_1037219"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: form_fields[email]
-          selector: "#form-field-email"
-          value: $EMAIL
-          required: true
-        - name: form_fields[field_65932fe]
-          selector: "#form-field-field_65932fe"
-          value: $SUBJECT
-          required: true   
-        - name: form_fields[field_01539f0]
-          selector: "#form-field-field_01539f0"
-          value: $MESSAGE
-          required: true
-    - select:
-        - name: form_fields[field_dd4016c]
-          selector: "#form-field-field_dd4016c"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            Alabama: AL
-            Alaska: AK
-            Arizona: AZ
-            Arkansas: AR
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            Delaware: DE
-            District of Columbia: DC
-            Florida: FL
-            Georgia: GA
-            Hawaii: HI
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Iowa: IA
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Maine: ME
-            Maryland: MD
-            Massachusetts: MA
-            Michigan: MI
-            Minnesota: MN
-            Mississippi: MS
-            Missouri: MO
-            Montana: MT
-            Nebraska: NE
-            Nevada: NV
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            New York: NY
-            North Carolina: NC
-            North Dakota: ND
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Pennsylvania: PA
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Vermont: VT
-            Virginia: VA
-            Washington: WA
-            West Virginia: WV
-            Wisconsin: WI
-            Wyoming: WY
-        - name: form_fields[message]
-          selector: "#form-field-message"
-          value: $TOPIC
-          required: true
-          options:
-            Banking: BANK
-            Budget and Economy: BUD
-            Campaign Finance: CFR
-            Congress: CONG
-            Department of Defense: DOD
-            Elections: "ELECT "
-            Education: EDU
-            Energy: ENE
-            Environmental: ENV
-            Family/Marriage: FAM
-            Federal Employees: "FED "
-            Flag Request: "FLAG "
-            Food Safety: FOOD
-            Foreign Relations: "FR "
-            Governmental Reform: GOV
-            Guns: GUN
-            Health: HEA
-            Homeland Security: HOM
-            Housing: HOUS
-            Immigration: IMM
-            Indian Affairs: IND
-            Infrastructure: INFRA
-            Jobs and the Economy: JOBS
-            Judiciary: JUD
-            Labor: LAB
-            LGBT: LGBT
-            Life: LIFE
-            Postal: POST
-            Science and Technology: SCI
-            Senior Citizens: SENIORS
-            Small Business: SMALL
-            Social Issues: SOC
-            Tax: TAX
-            Trade: TRADE   
-            Veterans: VET
-    - javascript:
-        - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
-    - click_on:
-        - selector: .elementor-size-lg
+  - visit: https://www.mullin.senate.gov/contact/contact-my-office/
+  - select:
+    - name: input_1
+      selector: '[name=input_1]'
+      value: $NAME_PREFIX
+      required: true
+      options:
+        Admiral: Admiral
+        Mr.: Mr.
+        Ms.: Ms.
+        Mrs.: Mrs.
+        Mx.: Mx.
+        Professor: Professor
+        Dr.: Dr.
+        Father: Father
+        Sister: Sister
+        Rabbi: Rabbi
+        Reverend: Reverend
+        Airman: Airman
+        Airman First Class: Airman First Class
+        Airman Basic: Airman Basic
+        Brigadier General: Brigadier General
+        Cadet: Cadet
+        Captain: Captain
+        Chaplain: Chaplain
+        Chief Master Sergeant: Chief Master Sergeant
+        Chief Petty Officer: Chief Petty Officer
+        Chief Warrant Officer: Chief Warrant Officer
+        Chief Warrant Officer Two: Chief Warrant Officer Two
+        Chief Warrant Officer Three: Chief Warrant Officer Three
+        Chief Warrant Officer Four: Chief Warrant Officer Four
+        Chief Warrant Officer Five: Chief Warrant Officer Five
+        Colonel: Colonel
+        Commander: Commander
+        Command Chief Master Sergeant: Command Chief Master Sergeant
+        Command Sergeant Major: Command Sergeant Major
+        Commodore Admiral: Commodore Admiral
+        Corporal: Corporal
+        Ensign: Ensign
+        First Lieutenant: First Lieutenant
+        First Sergeant: First Sergeant
+        Fleet Admiral: Fleet Admiral
+        General: General
+        Gunnery Sergeant: Gunnery Sergeant
+        Lance Corporal: Lance Corporal
+        Lieutenant: Lieutenant
+        Lieutenant Colonel: Lieutenant Colonel
+        Lieutenant Commander: Lieutenant Commander
+        Lieutenant General: Lieutenant General
+        Lieutenant Junior Grade: Lieutenant Junior Grade
+        Major: Major
+        Major General: Major General
+        Master Chief Petty Officer: Master Chief Petty Officer
+        Master Gunnery Sergeant: Master Gunnery Sergeant
+        Master Sergeant: Master Sergeant
+        Midshipman: Midshipman
+        Petty Officer First Class: Petty Officer First Class
+        Petty Officer Second Class: Petty Officer Second Class
+        Petty Officer Third Class: Petty Officer Third Class
+        Private: Private
+        Private First Class: Private First Class
+        Rear Admiral: Rear Admiral
+        Seaman: Seaman
+        Seaman Apprentice: Seaman Apprentice
+        Seaman Recruit: Seaman Recruit
+        Second Lieutenant: Second Lieutenant
+        Senior Airman: Senior Airman
+        Senior Chief Petty Officer: Senior Chief Petty Officer
+        Senior Master Sergeant: Senior Master Sergeant
+        Sergeant: Sergeant
+        Sergeant First Class: Sergeant First Class
+        Sergeant Major: Sergeant Major
+        Specialist: Specialist
+        Staff Sergeant: Staff Sergeant
+        Technical Sergeant: Technical Sergeant
+        Vice Admiral: Vice Admiral
+        Warrant Officer: Warrant Officer
+  - fill_in:
+    - name: input_2
+      selector: '[name=input_2]'
+      value: $NAME_FIRST
+      required: true
+    - name: input_3
+      selector: '[name=input_3]'
+      value: $NAME_LAST
+      required: true
+    - name: input_6.1
+      selector: '[name="input_6.1"]'
+      value: $ADDRESS_STREET
+      required: true
+    - name: input_6.3
+      selector: '[name="input_6.3"]'
+      value: $ADDRESS_CITY
+      required: true
+    - name: input_6.5
+      selector: '[name="input_6.5"]'
+      value: $ADDRESS_ZIP5
+      required: true
+    - name: input_7
+      selector: '[name=input_7]'
+      value: $PHONE
+      required: true
+    - name: input_9
+      selector: '[name=input_9]'
+      value: $EMAIL
+      required: true
+    - name: input_9_2
+      selector: '[name=input_9_2]'
+      value: $EMAIL
+      required: true
+    - name: input_11
+      selector: '[name=input_11]'
+      value: $SUBJECT
+      required: true
+    - name: input_12
+      selector: '[name=input_12]'
+      value: $MESSAGE
+      required: true
+  - select:
+    - name: input_17
+      selector: '[name=input_17]'
+      value: $TOPIC
+      required: true
+      options:
+        Banking: BANK
+        Budget: BUD
+        Campaign Finance: CFR
+        Congress: CONG
+        Department of Defense: DOD
+        Elections: ELECT
+        Education: EDU
+        Energy: ENE
+        E-News Subscribe: ENEWS SUBSCRIBE
+        Environmental: ENV
+        Family/Marriage: FAM
+        Federal Employees: FED
+        Flag Request: FLAG
+        Food Safety: FOOD
+        Foreign Relations: FR
+        Governmental Reform: GOV
+        Guns: GUN
+        Health: HEA
+        Homeland Security: HOM
+        Housing: HOUS
+        Immigration: IMM
+        Indian Affairs: IND
+        Infrastructure: INFRA
+        Jobs and the Economy: JOBS
+        Judiciary: JUD
+        Labor: LAB
+        LGBT: LGBT
+        Life: LIFE
+        Postal: POST
+        Science and Technology: SCI
+        Senior Citizens: SENIORS
+        Small Business: SMALL
+        Social Issues: SOC
+        Tax: TAX
+        Trade: TRADE
+        Veterans: VET
+  - click_on:
+    - selector: input[type=submit].gform_button
+  - wait:
+    - value: 10
+  - find:
+    - selector: .page-template-default
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: Thank you for contacting
