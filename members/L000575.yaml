@@ -1,272 +1,214 @@
-bioguide:  L000575
+bioguide: L000575
 contact_form:
   method: post
-  action: "https://www.lankford.senate.gov/contact/email"
+  action: https://www.lankford.senate.gov/contact/email/
   steps:
-    - visit: "https://www.lankford.senate.gov/contact/email"
-    - wait:
-        - value: 3
-    - find:
-        - selector: "#actions"
-    - select:
-        - name: input_AE7457DD-4040-F985-52CD-B99385041C51
-          selector: "#actions"
-          value: opinion
-          required: true
-          options:
-            Send an email to comment on legislation: opinion
-            Help with a federal agency: federal_agency
-            Scheduling Request: meeting
-            Office Locations: office
-    - wait:
-        - value: 3
-    - select:
-        - name: input_AB59F08A-4040-F985-52CD-7633AA11C65E
-          selector: "#input-AB59F08A-4040-F985-52CD-7633AA11C65E"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Miss
-            - Mr. and Mrs.
-            - Dr.
-            - Dr. and Mrs.
-            - Dr. and Mr.
-            - Reverend
-            - Sister
-            - Pastor
-            - Rabbi
-            - The Honorable
-            - Representative
-            - Senator
-            - Fleet Admiral
-            - Admiral
-            - Vice Admiral
-            - Rear Admiral (upper half)
-            - Rear Admiral (lower half)
-            - Captain
-            - Commander
-            - Lieutenant Commander
-            - Lieutenant
-            - "Lieutenant, Junior Grade"
-            - Ensign
-            - Chief Warrant Officer
-            - Warrant Officer
-            - Master Chief Petty Officer of the Navy
-            - Fleet Master Chief Petty Officer
-            - Force Master Chief Petty Officer
-            - Command Master Chief Petty Officer
-            - Master Chief Petty Officer
-            - Senior Chief Petty Officer
-            - Chief Petty Officer
-            - Petty Officer First Class
-            - Petty Officer Second Class
-            - Petty Officer Third Class
-            - Seaman
-            - Seaman Apprentice
-            - Seaman Recruit
-            - Sergeant Major of the Marine Corps
-            - Sergeant Major
-            - Master Gunnery Sergeant
-            - First Sergeant
-            - Master Sergeant
-            - Gunnery Sergeant
-            - Staff Sergeant
-            - Sergeant
-            - Corporal
-            - Lance Corporal
-            - Private First Class
-            - Private
-            - General of the Air Force
-            - General
-            - Lieutenant General
-            - Major General
-            - Brigadier General
-            - Colonel
-            - Lieutenant Colonel
-            - Major
-            - First Lieutenant
-            - Second Lieutenant
-            - Chief Master Sergeant of the Air Force
-            - Command Chief Master Sergeant
-            - Chief Master Sergeant
-            - Senior Master Sergeant
-            - Technical Sergeant
-            - Senior Airman
-            - Airman First Class
-            - Airman
-            - General of the Army
-            - Sergeant Major of the Army
-            - Command Sergeant Major
-            - Sergeant First Class
-        - name: input_AB5B6894-4040-F985-52CD-DFC6D3C729DF
-          selector: "#input-AB5B6894-4040-F985-52CD-DFC6D3C729DF"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-        - name: input_AB8156A0-4040-F985-52CD-49CE65770EFC
-          selector: "#input-AB8156A0-4040-F985-52CD-49CE65770EFC"
-          value: $TOPIC
-          required: true
-          options:
-            - Abortion
-            - Adoption
-            - Aerospace Technology
-            - Agriculture
-            - Animal Welfare
-            - Banking
-            - Civil Rights
-            - Commerce
-            - Criminal Justice System
-            - Debt and Deficit
-            - Drugs-Illegal
-            - Drugs-Prescription
-            - Education Higher
-            - Education K through 12
-            - Education Pre K
-            - Elections
-            - Energy
-            - Environment
-            - Federal Employees
-            - Federal Regulations
-            - Financial Services
-            - Food Stamps/SNAP
-            - Foreign Affairs
-            - Health Care
-            - Homeland Security
-            - Housing
-            - Immigration and Border Security
-            - Impeachment
-            - Indian Affairs
-            - Intelligence Agencies
-            - International Religious Liberty
-            - Judiciary
-            - Labor
-            - Medicaid
-            - Medicare
-            - Military
-            - Natural Resources
-            - Pensions
-            - Scout Commendations
-            - Second Amendment
-            - Small Business
-            - Social Security
-            - Taxes
-            - Telecommunications/Internet
-            - Trade
-            - Transportation
-            - Veterans Legislation
-    - fill_in:
-        - name: input_AB59F0AE-4040-F985-52CD-AA63153C7925
-          selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
-          value: $NAME_FIRST
-          required: true
-        - name: input_AB59F0ED-4040-F985-52CD-265D9CF13F5E
-          selector: "#input-AB59F0ED-4040-F985-52CD-265D9CF13F5E"
-          value: $NAME_LAST
-          required: true
-        - name: input_AB5B6829-4040-F985-52CD-BF81DCC1F57D
-          selector: "#input-AB5B6829-4040-F985-52CD-BF81DCC1F57D"
-          value: $ADDRESS_STREET
-          required: true
-        - name: input_AB5B6853-4040-F985-52CD-7517D971BE75
-          selector: "#input-AB5B6853-4040-F985-52CD-7517D971BE75"
-          value: $ADDRESS_STREET_2
-          required: true
-        - name: input_AB5B6875-4040-F985-52CD-909541CB4B6C
-          selector: "#input-AB5B6875-4040-F985-52CD-909541CB4B6C"
-          value: $ADDRESS_CITY
-          required: true
-        - name: input_AB5B68B4-4040-F985-52CD-269A4338D057
-          selector: "#input-AB5B68B4-4040-F985-52CD-269A4338D057"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: input_AB67BC2F-4040-F985-52CD-007A86DA4D47
-          selector: "#input-AB67BC2F-4040-F985-52CD-007A86DA4D47"
-          value: $PHONE
-          required: true
-        - name: input_AB721CC4-4040-F985-52CD-76D1474A55F4
-          selector: "#email"
-          value: $EMAIL
-          required: true
-        - name: input_AB721CE8-4040-F985-52CD-9E550E8A76AA
-          selector: "#input-AB721CE8-4040-F985-52CD-9E550E8A76AA"
-          value: $EMAIL
-          required: true
-        - name: input_3C59591F-5056-A066-6088-5D612B17F7C4
-          selector: "#input-3C59591F-5056-A066-6088-5D612B17F7C4"
-          value: $SUBJECT
-          required: true
-        - name: input_ADE64E73-4040-F985-52CD-A3AB6BCD2C51
-          selector: "#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51"
-          value: $MESSAGE
-          required: true
-    - javascript:
-        - value: document.querySelector("#g-recaptcha-response").style.display = "block";
-    - recaptcha:
-        - value: true
-    - javascript:
-        - value: document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value = document.querySelector("#input-ADE64E73-4040-F985-52CD-A3AB6BCD2C51").value.replace(/"/g, '');
-    - click_on:
-        - value: Submit
-          selector: input.btn
-    - wait:
-        - value: 7
+  - visit: https://www.lankford.senate.gov/contact/email/
+  - wait:
+    - value: 3
+  - find:
+    - selector: '[name=input_28]'
+  - select:
+    - name: input_28
+      selector: '[name=input_28]'
+      value: Email James
+      required: true
+      options:
+        Email James: Email James
+        Help With A Federal Agency: Help With A Federal Agency
+        Scheduling Request: Scheduling Request
+        Office Locations: Office Locations
+  - wait:
+    - value: 3
+  - select:
+    - name: input_1
+      selector: '[name=input_1]'
+      value: $NAME_PREFIX
+      required: true
+      options:
+        Mr.: Mr.
+        Ms.: Ms.
+        Mrs.: Mrs.
+        Miss: Miss
+        Mr. and Mrs.: Mr. and Mrs.
+        Dr.: Dr.
+        Dr. and Mrs.: Dr. and Mrs.
+        Dr. and Mr.: Dr. and Mr.
+        Reverend: Reverend
+        Sister: Sister
+        Pastor: Pastor
+        Rabbi: Rabbi
+        The Honorable: The Honorable
+        Representative: Representative
+        Senator: Senator
+        Fleet Admiral: Fleet Admiral
+        Admiral: Admiral
+        Vice Admiral: Vice Admiral
+        Rear Admiral (upper half): Rear Admiral (upper half)
+        Rear Admiral (lower half): Rear Admiral (lower half)
+        Captain: Captain
+        Commander: Commander
+        Lieutenant Commander: Lieutenant Commander
+        Lieutenant: Lieutenant
+        Lieutenant, Junior Grade: Lieutenant, Junior Grade
+        Ensign: Ensign
+        Chief Warrant Officer: Chief Warrant Officer
+        Warrant Officer: Warrant Officer
+        Master Chief Petty Officer of the Navy: Master Chief Petty Officer of the
+          Navy
+        Fleet Master Chief Petty Officer: Fleet Master Chief Petty Officer
+        Force Master Chief Petty Officer: Force Master Chief Petty Officer
+        Command Master Chief Petty Officer: Command Master Chief Petty Officer
+        Master Chief Petty Officer: Master Chief Petty Officer
+        Senior Chief Petty Officer: Senior Chief Petty Officer
+        Chief Petty Officer: Chief Petty Officer
+        Petty Officer First Class: Petty Officer First Class
+        Petty Officer Second Class: Petty Officer Second Class
+        Petty Officer Third Class: Petty Officer Third Class
+        Seaman: Seaman
+        Seaman Apprentice: Seaman Apprentice
+        Seaman Recruit: Seaman Recruit
+        Sergeant Major of the Marine Corps: Sergeant Major of the Marine Corps
+        Sergeant Major: Sergeant Major
+        Master Gunnery Sergeant: Master Gunnery Sergeant
+        First Sergeant: First Sergeant
+        Master Sergeant: Master Sergeant
+        Gunnery Sergeant: Gunnery Sergeant
+        Staff Sergeant: Staff Sergeant
+        Sergeant: Sergeant
+        Corporal: Corporal
+        Lance Corporal: Lance Corporal
+        Private First Class: Private First Class
+        Private: Private
+        General of the Air Force: General of the Air Force
+        General: General
+        Lieutenant General: Lieutenant General
+        Major General: Major General
+        Brigadier General: Brigadier General
+        Colonel: Colonel
+        Lieutenant Colonel: Lieutenant Colonel
+        Major: Major
+        First Lieutenant: First Lieutenant
+        Second Lieutenant: Second Lieutenant
+        Chief Master Sergeant of the Air Force: Chief Master Sergeant of the Air Force
+        Command Chief Master Sergeant: Command Chief Master Sergeant
+        Chief Master Sergeant: Chief Master Sergeant
+        Senior Master Sergeant: Senior Master Sergeant
+        Technical Sergeant: Technical Sergeant
+        Senior Airman: Senior Airman
+        Airman First Class: Airman First Class
+        Airman: Airman
+        General of the Army: General of the Army
+        Sergeant Major of the Army: Sergeant Major of the Army
+        Command Sergeant Major: Command Sergeant Major
+        Sergeant First Class: Sergeant First Class
+  - fill_in:
+    - name: input_2
+      selector: '[name=input_2]'
+      value: $NAME_FIRST
+      required: true
+    - name: input_3
+      selector: '[name=input_3]'
+      value: $NAME_LAST
+      required: true
+    - name: input_6.1
+      selector: '[name="input_6.1"]'
+      value: $ADDRESS_STREET
+      required: true
+    - name: input_6.3
+      selector: '[name="input_6.3"]'
+      value: $ADDRESS_CITY
+      required: true
+    - name: input_6.5
+      selector: '[name="input_6.5"]'
+      value: $ADDRESS_ZIP5
+      required: true
+    - name: input_7
+      selector: '[name=input_7]'
+      value: $PHONE
+      required: true
+    - name: input_9
+      selector: '[name=input_9]'
+      value: $EMAIL
+      required: true
+    - name: input_9_2
+      selector: '[name=input_9_2]'
+      value: $EMAIL
+      required: true
+  - select:
+    - name: input_17
+      selector: '[name=input_17]'
+      value: $TOPIC
+      required: true
+      options:
+        Abortion: Abortion
+        Adoption: Adoption
+        Aerospace Technology: Aerospace Technology
+        Agriculture: Agriculture
+        Animal Welfare: Animal Welfare
+        Banking: Banking
+        Birthday Greeting Request: Birthday Greeting Request
+        Civil Rights: Civil Rights
+        Commerce: Commerce
+        Criminal Justice System: Criminal Justice System
+        Debt and Deficit: Debt and Deficit
+        Drugs-Illegal: Drugs-Illegal
+        Drugs-Prescription: Drugs-Prescription
+        Education Higher: Education Higher
+        Education K through 12: Education K through 12
+        Education Pre K: Education Pre K
+        Elections: Elections
+        Energy: Energy
+        Environment: Environment
+        Federal Employees: Federal Employees
+        Federal Regulations: Federal Regulations
+        Financial Services: Financial Services
+        Food Stamps/SPAN: Food Stamps/SPAN
+        Foreign Affairs: Foreign Affairs
+        Health Care: Health Care
+        Homeland Security: Homeland Security
+        Housing: Housing
+        Immigration and Border Security: Immigration and Border Security
+        Impeachment: Impeachment
+        Indian Affairs: Indian Affairs
+        Intelligence Agencies: Intelligence Agencies
+        International Religious Liberty: International Religious Liberty
+        Judiciary: Judiciary
+        Labor: Labor
+        Medicaid: Medicaid
+        Medicare: Medicare
+        Military: Military
+        Natural Resources: Natural Resources
+        Pensions: Pensions
+        Religious Liberty: Religious Liberty
+        Scout Commendations: Scout Commendations
+        Second Amendment: Second Amendment
+        Small Business: Small Business
+        Social Security: Social Security
+        Taxes: Taxes
+        Telecommunications/Internet: Telecommunications/Internet
+        Trade: Trade
+        Transportation: Transportation
+        Veterans Legislation: Veterans Legislation
+  - fill_in:
+    - name: input_11
+      selector: '[name=input_11]'
+      value: $SUBJECT
+      required: true
+    - name: input_12
+      selector: '[name=input_12]'
+      value: $MESSAGE
+      required: true
+  - recaptcha:
+    - value: true
+  - click_on:
+    - selector: input[type=submit].gform_button
+  - wait:
+    - value: 10
+  - find:
+    - selector: .page-template-default
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for submitting your Request
+      contains: Thank you for submitting
