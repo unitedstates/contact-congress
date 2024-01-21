@@ -5,45 +5,45 @@ contact_form:
   steps:
     - visit: "https://www.ricketts.senate.gov/share-your-opinion/"
     - fill_in:
-        - name: form_fields[name]
-          selector: "#form-field-name"
+        - name: input_1.2
+          selector: "#input_1_1_2"
           value: $NAME_PREFIX
           required: true
-        - name: form_fields[field_1d46919]
-          selector: "#form-field-field_1d46919"
+        - name: input_1.3
+          selector: "#input_1_1_3"
           value: $NAME_FIRST
           required: true
-        - name: form_fields[field_bdcaff9]
-          selector: "#form-field-field_bdcaff9"
+        - name: input_1.6
+          selector: "#input_1_1_6"
           value: $NAME_LAST
           required: true
-        - name: form_fields[field_00c2cf4]
-          selector: "#form-field-field_00c2cf4"
+        - name: input_3.1
+          selector: "#input_1_3_1"
           value: $ADDRESS_STREET
           required: true
-        - name: form_fields[field_5ce9e4e]
-          selector: "#form-field-field_5ce9e4e"
+        - name: input_3.3
+          selector: "#input_1_3_3"
           value: $ADDRESS_CITY
           required: true
-        - name: form_fields[field_1037219]
-          selector: "#form-field-field_1037219"
+        - name: input_3.5
+          selector: "#input_1_3_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: form_fields[email]
-          selector: "#form-field-email"
+        - name: input_5
+          selector: "#input_1_5"
           value: $EMAIL
           required: true
-        - name: form_fields[field_65932fe]
-          selector: "#form-field-field_65932fe"
+        - name: input_7
+          selector: "#input_1_7"
           value: $SUBJECT
-          required: true   
-        - name: form_fields[field_01539f0]
-          selector: "#form-field-field_01539f0"
+          required: true
+        - name: input_8
+          selector: "#input_1_8"
           value: $MESSAGE
           required: true
     - select:
-        - name: form_fields[field_dd4016c]
-          selector: "#form-field-field_dd4016c"
+        - name: input_3.4
+          selector: "#input_1_3_4"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -98,8 +98,8 @@ contact_form:
             West Virginia: WV
             Wisconsin: WI
             Wyoming: WY
-        - name: form_fields[message]
-          selector: "#form-field-message"
+        - name: input_6
+          selector: "#input_1_6"
           value: $TOPIC
           required: true
           options:
@@ -119,18 +119,16 @@ contact_form:
             Jobs and the Economy: JOBS
             Judiciary: JUD
             Other Issues: OTHER
-            Second Amendment: "SEC.AMEND."    
+            Second Amendment: "SEC.AMEND."
             Social Security: SSEC
             Taxes: TAX
             Telecommunications: TEL
             Veterans: VET
             Women’s Issues: WOMEN
-    - javascript:
-        - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
     - click_on:
-        - selector: button[type='submit']
+        - selector: input#gform_submit_button_1
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Thank you. Your submission was successful."
