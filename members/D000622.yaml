@@ -18,22 +18,22 @@ contact_form:
           value: $NAME_LAST
           required: true
         - name: "input-EC0FF642-E251-9E23-21B8-8255AEB01677"
-          selector: "#input-EC0FF642-E251-9E23-21B8-8255AEB01677"
+          selector: "input#input-EC0FF642-E251-9E23-21B8-8255AEB01677"
           value: $ADDRESS_STREET
           required: true
         - name: "input_EC0FF3B8-B2A6-6339-030B-FD935CCB4D72"
-          selector: "#input_EC0FF3B8-B2A6-6339-030B-FD935CCB4D72"
+          selector: "#input-EC0FF3B8-B2A6-6339-030B-FD935CCB4D72"
           value: $ADDRESS_CITY
           required: true
         - name: "input_EC0FF4F7-E507-0840-DFC0-F3B3198FCADE"
-          selector: "#input_EC0FF4F7-E507-0840-DFC0-F3B3198FCADE"
+          selector: "#input-EC0FF4F7-E507-0840-DFC0-F3B3198FCADE"
           value: $ADDRESS_ZIP5
           required: true
         - name: "input_EC0FF53D-FF45-B6C1-C68C-21B35BDC0880"
-          selector: "#input_EC0FF53D-FF45-B6C1-C68C-21B35BDC0880"
+          selector: "#input-EC0FF53D-FF45-B6C1-C68C-21B35BDC0880"
           value: $PHONE
           required: true
-        - name: "input-EC0FF573-CF10-3E7D-25BC-B5E4EA290E1B"
+        - name: "input_EC0FF573-CF10-3E7D-25BC-B5E4EA290E1B"
           selector: "#input-EC0FF573-CF10-3E7D-25BC-B5E4EA290E1B"
           value: $EMAIL
           required: true
@@ -42,11 +42,11 @@ contact_form:
           value: $EMAIL
           required: true
         - name: "input_EC0FF60D-CC0A-9D2D-E69A-268D800B6EA7"
-          selector: "#input_EC0FF60D-CC0A-9D2D-E69A-268D800B6EA7"
+          selector: "#input-EC0FF60D-CC0A-9D2D-E69A-268D800B6EA7"
           value: $SUBJECT
           required: true
         - name: "input_EC0FF566-EE8B-6306-F448-C9DB6C6B32A1"
-          selector: "#input_EC0FF566-EE8B-6306-F448-C9DB6C6B32A1"
+          selector: "#input-EC0FF566-EE8B-6306-F448-C9DB6C6B32A1"
           value: $MESSAGE
           required: true
     - select:
@@ -175,9 +175,9 @@ contact_form:
             Veterans: Veterans
             White House: White House
     - javascript:
-        - value: document.getElementById('input_EC0FF53D-FF45-B6C1-C68C-21B35BDC0880').value = document.getElementById('input_EC0FF53D-FF45-B6C1-C68C-21B35BDC0880').value.replace(/(\d{3})(\d{3})(\d+)/, '$1-$2-$3')
+        - value: document.getElementById('input-EC0FF53D-FF45-B6C1-C68C-21B35BDC0880').value = document.getElementById('input-EC0FF53D-FF45-B6C1-C68C-21B35BDC0880').value.replace(/(\d{3})(\d{3})(\d+)/, '$1-$2-$3')
     - javascript:
-        - value: document.querySelector("#input_EC0FF566-EE8B-6306-F448-C9DB6C6B32A1").value = document.querySelector("#input_EC0FF566-EE8B-6306-F448-C9DB6C6B32A1").value.replace(/"/g, '');
+        - value: document.querySelector("#input-EC0FF566-EE8B-6306-F448-C9DB6C6B32A1").value = document.querySelector("#input-EC0FF566-EE8B-6306-F448-C9DB6C6B32A1").value.replace(/"/g, '');
     - javascript:
         - value: document.querySelector("input.btn").click();
     - wait:
