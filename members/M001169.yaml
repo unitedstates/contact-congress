@@ -8,6 +8,10 @@ contact_form:
         - value: "document.getElementsByClassName('SiteLayout__header')[0].remove()"
     - wait:
         - value: 4
+    - javascript:
+        - value: "document.querySelector('#FE378C8B-ECA5-FC96-D7EE-18EE82AE3ABD').style.display = 'block';"
+    - find:
+        - selector: "#FE378C8B-ECA5-FC96-D7EE-18EE82AE3ABD"
     - find:
         - selector: "#issue-type"
     - select:
