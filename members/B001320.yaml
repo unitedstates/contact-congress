@@ -148,6 +148,8 @@ contact_form:
         - value: true
     - click_on:
         - selector: button[type='submit']
+    - wait:
+        - value: 3
     - javascript:
         - value: if (document.querySelector(".elementor-message-success")) { document.querySelector(".elementor-message-success").style.display = "block"; }
   success:
