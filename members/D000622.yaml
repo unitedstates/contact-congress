@@ -182,6 +182,8 @@ contact_form:
         - value: document.querySelector("input.btn").click();
     - wait:
         - value: 3
+    - javascript:
+        - value: document.querySelector("#feedbackform").removeClass("hide")
     - find:
         - selector: "h1"
           value: "Thank You"
