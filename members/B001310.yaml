@@ -6,6 +6,10 @@ contact_form:
     - visit: "https://www.braun.senate.gov/contact/email/"
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - javascript:
+        - value: "document.querySelector('.elementor-location-header').style.display = 'none';"
+    - javascript:
+        - value: "document.querySelector('.elementor-location-footer').style.display = 'none';"
     - fill_in:
       - name: input_2_2
         selector: "#input_2_2"
