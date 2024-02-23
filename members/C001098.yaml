@@ -180,6 +180,8 @@ contact_form:
         - value: Submit
           selector: 'button[type="submit"].btn'
     ## The success screen has no new text on it, rather it just has an image.  Doing a find on the image alt text here to see if it is present before declaring success by the text in the body.
+    - wait:
+        - value: 2
     - find:
         - selector: 'img[alt="thank you from ted image"]'
   success:
