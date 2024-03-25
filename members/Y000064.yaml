@@ -1,61 +1,55 @@
-bioguide:  Y000064
+bioguide: Y000064
 contact_form:
   method: post
   action: /content/contact-senator
   steps:
     - visit: "https://www.young.senate.gov/contact/email-todd"
-    - click_on:
-        - selector: "#newsletterModal .close"
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
-    - click_on:
-        - selector: ".opinion"
     - find:
-        - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
+        - selector: "#input_1_1"
     - fill_in:
-        - name: "input_B03E05C4-4040-F985-52CD-9CA44623DE5E"
-          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
+        - name: "input_1"
+          selector: "#input_1_1"
           value: $NAME_FIRST
           required: true
-        - name: "input_B03E04BD-4040-F985-52CD-48E090E769DA"
-          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
+        - name: "input_4"
+          selector: "#input_1_4"
           value: $NAME_LAST
           required: true
-        - name: "input_B03E05F1-4040-F985-52CD-A580E72A7D41"
-          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
+        - name: "input_6.1"
+          selector: "#input_1_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: "input_B03E0595-4040-F985-52CD-C572364023FE"
-          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
+        - name: "input_6.3"
+          selector: "#input_1_6_3"
           value: $ADDRESS_CITY
           required: true
-        - name: "input_B03E04CC-4040-F985-52CD-4DDB58DA474A"
-          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
+        - name: "input_6.5"
+          selector: "#input_1_6_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: "input_B03E046E-4040-F985-52CD-A2F10450D58D"
-          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
+        - name: "input_7"
+          selector: "#input_1_7"
           value: $PHONE
           required: true
-        - name: "input_B03E0536-4040-F985-52CD-AFE12CDE8D31"
-          selector: "#email"
+        - name: "input_9"
+          selector: "#input_1_9"
           value: $EMAIL
           required: true
-        - name: "input_B03E05A4-4040-F985-52CD-730C08912F4F"
-          selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
+        - name: "input_9_2"
+          selector: "#input_1_9_2"
           value: $EMAIL
           required: true
-        - name: "input_78803FD6-BD54-3C62-213B-D4FBABCB2E0C"
-          selector: "#input-78803FD6-BD54-3C62-213B-D4FBABCB2E0C"
+        - name: "input_11"
+          selector: "#input_1_11"
           value: $SUBJECT
           required: true
-        - name: "input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
-          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
+        - name: "input_13"
+          selector: "#input_1_13"
           value: $MESSAGE
           required: true
     - select:
-        - name: "input_B03E0527-4040-F985-52CD-C0DD6BEF325F"
-          selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
+        - name: "input_3"
+          selector: "#input_1_3"
           value: $NAME_PREFIX
           required: true
           options:
@@ -193,8 +187,8 @@ contact_form:
             Navy - Seaman Apprentice: Seaman Apprentice
             Navy - Seaman: Seaman
             Navy - Seaman Recruit: Seaman Recruit
-        - name: "input_B03E04DB-4040-F985-52CD-18F332336F99"
-          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
+        - name: "input_12"
+          selector: "#input_1_12"
           value: $TOPIC
           required: true
           options:
@@ -239,16 +233,12 @@ contact_form:
             - Welfare
             - "Women's Issues"
     - click_on:
-        - selector: "#input-AA8CC6CA-DFB9-1D1C-F43E-F7DAD157AD93"
-    - javascript:
-        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
-    - javascript:
-        - value: document.querySelector("input.btn").click();
+        - selector: "#gform_submit_button_1"
     - wait:
         - value: 2
     - find:
         - selector: h1
-          value: "Thank You"
+          value: "Thank you for your message"
   success:
     headers:
       status: 200
