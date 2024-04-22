@@ -6,6 +6,8 @@ contact_form:
     - visit: "https://www.cassidy.senate.gov/contact/get-in-touch/"
     - wait:
         - value: 2
+    - javascript:
+        - value: "document.querySelector('#gform_wrapper_2').style.display = 'block'"
     - find:
         - selector: "#input_2_2"
     - fill_in:
