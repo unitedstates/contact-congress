@@ -6,6 +6,10 @@ contact_form:
   - visit: https://www.lankford.senate.gov/contact/email/
   - wait:
     - value: 3
+  - javascript:
+        - value: "document.querySelector('#gform_wrapper_2').style.display = 'block'"
+  - find:
+    - selector: "#gform_2"
   - find:
     - selector: '[name=input_28]'
   - select:
