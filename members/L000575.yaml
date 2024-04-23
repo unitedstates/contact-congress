@@ -203,6 +203,8 @@ contact_form:
       selector: '[name=input_12]'
       value: $MESSAGE
       required: true
+  - javascript:
+    - value: document.querySelector("#g-recaptcha-response").style.display = "block";
   - recaptcha:
     - value: true
   - click_on:

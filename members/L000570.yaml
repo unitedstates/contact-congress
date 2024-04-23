@@ -108,8 +108,8 @@ contact_form:
              Transportation: TRANSPO
              Veterans: VET
              Women and Children: WOMENS ISSUES.P
-    - click_on:
-        - selector: "#gform_submit_button_1"
+    - javascript:
+        - value: "jQuery('#gform_1').trigger('submit',[true]);"
     - wait:
         - value: 10
     - find:
