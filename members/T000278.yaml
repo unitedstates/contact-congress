@@ -6,6 +6,8 @@ contact_form:
     - visit: "https://www.tuberville.senate.gov/contact/contact-form/"  
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - javascript:
+        - value: document.querySelector('.elementor-location-header')?.remove()
     - fill_in:
         - name: "input_2"
           selector: "input[name='input_2']"
