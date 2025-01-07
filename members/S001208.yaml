@@ -1,7 +1,7 @@
 bioguide:  S001208
 contact_form:
   method: post
-  action:
+  action: ""
   steps:
   - visit: https://www.slotkin.senate.gov/
   - fill_in:
@@ -150,7 +150,7 @@ contact_form:
   - click_on:
       - selector: button.elementor-button[type='submit']
   - wait:
-      - value: 3
+      - value: 8
   - javascript:
       - value: if (document.querySelector(".elementor-message-success")) { document.querySelector(".elementor-message-success").style.display = "block"; }
     success:
