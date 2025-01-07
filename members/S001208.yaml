@@ -153,6 +153,8 @@ contact_form:
         - value: 8
     - javascript:
         - value: if (document.querySelector(".elementor-message-success")) { document.querySelector(".elementor-message-success").style.display = "block"; }
+    - find:
+        - selector: ".page-content"
       success:
         headers:
           status: 200
