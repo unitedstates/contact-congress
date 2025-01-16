@@ -6,7 +6,7 @@ contact_form:
     - visit: "http://www.durbin.senate.gov/contact/email"
     - select:
         - name: actions
-          selector: "#actions"
+          selector: "#topicissues"
           value: $TOPIC
           required: true
           options:
@@ -50,55 +50,51 @@ contact_form:
             Women's Issues: WM00
             Other: OT00
     - find:
-        - selector: "#fname"
+        - selector: "#input-9A6D9EFF-C5B9-43AE-BB7D-45AA94C0A712"
     - fill_in:
         - name: fname
-          selector: "#fname"
+          selector: "#input-9A6D9EFF-C5B9-43AE-BB7D-45AA94C0A712"
           value: $NAME_FIRST
           required: true
         - name: lname
-          selector: "#lname"
+          selector: "#input-0798EB9C-EFB8-4A76-914C-7A997B55638D"
           value: $NAME_LAST
           required: true
         - name: mailing_streetAddress1
-          selector: "#mailing_streetAddress1"
+          selector: "#input-44D88FC9-4E92-4595-83B2-6454E29B4E1E"
           value: $ADDRESS_STREET
           required: true
         - name: mailing_streetAddress2
-          selector: "#mailing_streetAddress2"
+          selector: "#input-D3B9CA9F-C832-4651-BCC5-4520ADBB72CA"
           value: $ADDRESS_STREET_2
           required: false
         - name: mailing_city
-          selector: "#mailing_city"
+          selector: "#input-FF61F49E-9758-43DD-A943-11C33EA203E1"
           value: $ADDRESS_CITY
           required: true
         - name: mailing_zipCode
-          selector: "#mailing_zipCode"
+          selector: "#input-A15F268F-D94A-4FB5-8378-8AA10C927CE0"
           value: $ADDRESS_ZIP5
           required: true
         - name: home_phone_number
-          selector: "#home_phone_number"
+          selector: "#input-D9B6481B-F956-4197-8715-8247B03BB36A"
           value: $PHONE
           required: true
         - name: email_address
           selector: "#email"
           value: $EMAIL
           required: true
-        - name: verify_email
-          selector: "#verify_email"
-          value: $EMAIL
-          required: true
         - name: subjecttext
-          selector: "#subjecttext"
+          selector: "#input-CB7E9D81-2598-47CA-B041-B1C09EBFE681"
           value: $SUBJECT
           required: true
         - name: message
-          selector: "#message"
+          selector: "#input-2ED44860-E200-4A7A-91BF-01BEF2FD8E60"
           value: $MESSAGE
           required: true
     - select:
         - name: salutation
-          selector: "#salutation"
+          selector: "#input-CF630D98-B981-406D-8C31-965FBE03BA42"
           value: $NAME_PREFIX
           required: true
           options:
@@ -237,7 +233,7 @@ contact_form:
             - Navy - Seaman
             - Navy - Seaman Recruit
         - name: state
-          selector: "#state"
+          selector: "#input-162A312B-5B50-40A5-BC01-331E52108F1D"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: false
           options:
@@ -293,14 +289,14 @@ contact_form:
             WV: WV
             WY: WY
     - javascript:
-        - value: document.querySelector("#message").value = document.querySelector("#message").value.replace(/"/g, '');
+        - value: document.querySelector("#input-2ED44860-E200-4A7A-91BF-01BEF2FD8E60").value = document.querySelector("#input-2ED44860-E200-4A7A-91BF-01BEF2FD8E60").value.replace(/"/g, '');
     - click_on:
-        - selector: "#response"
+        - selector: "#responsetoggle"
         - value: Send
-          selector: "#side-search-btn"
+          selector: "input[type=submit]"
     - find:
         - value: Thank you
-          selector: "p"
+          selector: "h2"
   success:
     headers:
       status: 200
