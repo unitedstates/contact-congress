@@ -1,45 +1,54 @@
-bioguide:  F000479
+bioguide: F000479
 contact_form:
   method: post
   action: ""
   steps:
     - visit: "https://www.fetterman.senate.gov/contact/"
     - fill_in:
-        - name: form_fields[name]
-          selector: "#form-field-name"
+        - name: input_1.2
+          selector: "#input_3_1_2"
           value: $NAME_PREFIX
           required: true
-        - name: form_fields[field_1d46919]
-          selector: "#form-field-field_1d46919"
+        - name: input_1.3
+          selector: "#input_3_1_3"
           value: $NAME_FIRST
           required: true
-        - name: form_fields[field_bdcaff9]
-          selector: "#form-field-field_bdcaff9"
+        - name: input_1.6
+          selector: "#input_3_1_6"
           value: $NAME_LAST
-          required: true    
-        - name: form_fields[field_00c2cf4]
-          selector: "#form-field-field_00c2cf4"
+          required: true
+        - name: input_2.1
+          selector: "#input_3_2_1"
           value: $ADDRESS_STREET
           required: true
-        - name: form_fields[field_5ce9e4e]
-          selector: "#form-field-field_5ce9e4e"
+        - name: input_2.2
+          selector: "#input_3_2_2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: input_2.3
+          selector: "#input_3_2_3"
           value: $ADDRESS_CITY
           required: true
-        - name: form_fields[field_1037219]
-          selector: "#form-field-field_1037219"
+        - name: input_2.5
+          selector: "#input_3_2_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: form_fields[email]
-          selector: "#form-field-email"
+        - name: input_3
+          selector: "#input_3_3"
+          value: $PHONE
+          required: false
+        - name: input_4
+          selector: "#input_3_4"
           value: $EMAIL
           required: true
-        - name: form_fields[message]
-          selector: "#form-field-field_01539f0"
+        - name: input_6
+          selector: "#input_3_6"
           value: $MESSAGE
           required: true
+          max_length: 1200
     - select:
-        - name: form_fields[field_dd4016c]
-          selector: "#form-field-field_dd4016c"
+        - name: input_2.4
+          selector: "#input_3_2_4"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -94,8 +103,8 @@ contact_form:
             West Virginia: WV
             Wisconsin: WI
             Wyoming: WY
-        - name: form_fields[message]
-          selector: "#form-field-message"
+        - name: input_9
+          selector: "#input_3_9"
           value: $TOPIC
           required: true
           options:
@@ -146,9 +155,9 @@ contact_form:
             Veterans: VET
             Women's Issues: WOMEN
     - javascript:
-        - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
+        - value: document.querySelector("#input_3_6").value = document.querySelector("#input_3_6").value.replace(/"/g, '');
     - click_on:
-        - selector: button[type='submit']
+        - selector: "#gform_submit_button_3"
   success:
     headers:
       status: 200
