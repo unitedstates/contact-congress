@@ -1,49 +1,57 @@
-bioguide:  W000800
+bioguide: W000800
 contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.welch.senate.gov/share-your-opinion/"
+    - visit: "https://www.welch.senate.gov/email-peter/"
     - fill_in:
-        - name: form_fields[name]
-          selector: "#form-field-name"
+        - name: input_21
+          selector: "#input_4_21"
           value: $NAME_PREFIX
           required: true
-        - name: form_fields[field_1d46919]
-          selector: "#form-field-field_1d46919"
+        - name: input_19
+          selector: "#input_4_19"
           value: $NAME_FIRST
           required: true
-        - name: form_fields[field_bdcaff9]
-          selector: "#form-field-field_bdcaff9"
+        - name: input_20
+          selector: "#input_4_20"
           value: $NAME_LAST
           required: true
-        - name: form_fields[field_00c2cf4]
-          selector: "#form-field-field_00c2cf4"
+        - name: input_22
+          selector: "#input_4_22"
           value: $ADDRESS_STREET
           required: true
-        - name: form_fields[field_5ce9e4e]
-          selector: "#form-field-field_5ce9e4e"
+        - name: input_23
+          selector: "#input_4_23"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: input_5
+          selector: "#input_4_5"
           value: $ADDRESS_CITY
           required: true
-        - name: form_fields[field_1037219]
-          selector: "#form-field-field_1037219"
+        - name: input_7
+          selector: "#input_4_7"
           value: $ADDRESS_ZIP5
           required: true
-        - name: form_fields[email]
-          selector: "#form-field-email"
+        - name: input_8
+          selector: "#input_4_8"
+          value: $PHONE
+          required: true
+        - name: input_9
+          selector: "#input_4_9"
           value: $EMAIL
           required: true
-        - name: form_fields[field_65932fe]
-          selector: "#form-field-field_65932fe"
+        - name: input_32
+          selector: "#input_4_32"
           value: $SUBJECT
-          required: true   
-        - name: form_fields[field_01539f0]
-          selector: "#form-field-field_01539f0"
+          required: true
+        - name: input_31
+          selector: "#input_4_31"
           value: $MESSAGE
           required: true
     - select:
-        - name: form_fields[field_dd4016c]
-          selector: "#form-field-field_dd4016c"
+        - name: input_6
+          selector: "#input_4_6"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -98,68 +106,67 @@ contact_form:
             West Virginia: WV
             Wisconsin: WI
             Wyoming: WY
-        - name: form_fields[message]
-          selector: "#form-field-message"
+        - name: input_25
+          selector: "#input_4_25"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Animals: " JUD-ANIMAL"
-            Appropriations: APPROPS
-            Arts and Humanities: ART
-            Banking: BANK
-            Budget and Economy: BUD
-            Business and Commerce: BUSI
-            Campaign and Election Reform: CFR
-            Help with a Federal Agency: CASE
-            Children and Families: CHILD
-            Civil Rights: FREEDOM
-            Climate Change: CLIMATE
-            Consumer Protections: CONSUME
-            Criminal Justice: CRJUST
-            Defense and Military: DEF
-            Democracy: DEMOCRACY
-            Economic Development: ECON-DEV
-            Education: EDU
-            Energy: ENE
-            Environmental: ENV
-            Ethics Reform: RULES=ETH
-            Foreign Relations: FR
-            Gun Control: GUNS
-            Health Care: HEA
-            Homeland Security and Intelligence: HOM
-            Housing and Urban Affairs: HUD
-            Immigration: IMM
-            Infrastructure: INFRASTRUCTURE
-            Judiciary: JUD
-            Labor: LABOR
-            LGBTQ+ Issues: LGBT
-            National Parks and Public Lands: PUBLAND
-            Native Americans and Indigenous Affairs: NATAM
-            Nutrition: FOOD
-            Opioids: HEA-OPI
-            Other: OTHER
-            Outdoor Recreation: OR
-            People with Disabilities: "DISABLE "
-            Passport Casework: PASSPORTS
-            Post Office: POST
-            Presidential Nominations: PRESNOMS
-            Reproductive Rights: JUD-ABORT
-            Rural Broadband: TEL-BROAD
-            Science and Technology, and Innovation: SCI
-            Seniors: SENIORS
-            Social Issues: SOC
-            Taxes: TAX
-            Telecommunications: TEL
-            Trade: TRADE
-            Transportation and Infrastructure: TNI
-            Veterans and Servicemembers: VET
-            Voting Rights: VRIGHTS
-            Women’s Issues: WOM
+            Agriculture: Agriculture
+            Animal Welfare: Animal Welfare
+            Antitrust and Competition: Antitrust and Competition
+            Arts and Humanities: Arts and Humanities
+            Appropriations: Appropriations
+            Banking and Finance: Banking and Finance
+            Budget and Economy: Budget and Economy
+            Civil Rights: Civil Rights
+            Commerce: Commerce
+            Congress and Elections: Congress and Elections
+            Consumer Protection: Consumer Protection
+            Defense and Military: Defense and Military
+            Democracy Reform (Elections, Lobbying, Voting): Democracy Reform (Elections, Lobbying, Voting)
+            Economic Development: Economic Development
+            Education: Education
+            Energy: Energy
+            Environment, Natural Resources, and Climate Change: Environment, Natural Resources, and Climate Change
+            Family: Family
+            Federal Employees: Federal Employees
+            Food Safety: Food Safety
+            Foreign Relations: Foreign Relations
+            Government Reform: Government Reform
+            Guns: Guns
+            Health and Healthcare: Health and Healthcare
+            Homeland Security: Homeland Security
+            Housing: Housing
+            Immigration: Immigration
+            Infrastructure: Infrastructure
+            Internal Revenue Services (IRS): Internal Revenue Services (IRS)
+            Jobs and the Economy: Jobs and the Economy
+            Judicial Branch/Courts: Judicial Branch/Courts
+            Judiciary (Criminal Justice System, Law Enforcement, Domestic Violence): Judiciary (Criminal Justice System, Law Enforcement, Domestic Violence)
+            Labor and Unions: Labor and Unions
+            LGBTQIA+: LGBTQIA+
+            Military: Military
+            Native American/Indigenous Peoples: Native American/Indigenous Peoples
+            Postal Service: Postal Service
+            Science, Space, and Oceans: Science, Space, and Oceans
+            Security: Security
+            Seniors: Seniors
+            Small Business: Small Business
+            Social Issues: Social Issues
+            Social Services: Social Services
+            Social Security and Related Programs: Social Security and Related Programs
+            Taxes: Taxes
+            Technology and Privacy: Technology and Privacy
+            Telecommunications and Broadband: Telecommunications and Broadband
+            Territories and DC: Territories and DC
+            Transportation: Transportation
+            Trade: Trade
+            Veterans: Veterans
+            Women's Issues: Women's Issues
     - javascript:
-        - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
+        - value: document.querySelector("#input_4_31").value = document.querySelector("#input_4_31").value.replace(/"/g, '');
     - click_on:
-        - selector: .elementor-size-lg
+        - selector: "#gform_submit_button_4"
   success:
     headers:
       status: 200
