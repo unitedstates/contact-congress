@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "https://www.vanhollen.senate.gov/contact/email"
     - javascript:
-        - value: "document.querySelector('.opinion span.noimg').click()"
+        - value: "setTimeout(() => document.querySelector('.Button--primary').click(), 100)"
     - find:
         - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
     - fill_in:
