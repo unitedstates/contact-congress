@@ -1,147 +1,160 @@
-bioguide:  K000394
-contact_form: 
+bioguide: K000394
+contact_form:
   method: post
   action: ""
-  steps: 
-  - visit: "https://www.kim.senate.gov/contact/#share-thoughts"
-  - fill_in:
-        - name: form_fields[firstname]
-          selector: "#form-field-firstname"
+  steps:
+    - visit: "https://outreach.senate.gov/iqextranet/EForm.aspx?__cid=SenKim&__fid=100008&iframe=Y"
+    - fill_in:
+        - name: qi_1_prefix
+          selector: "#qi_1_prefix"
+          value: $NAME_PREFIX
+          required: true
+        - name: qi_1_first_name
+          selector: "#qi_1_first_name" 
           value: $NAME_FIRST
           required: true
-        - name: form_fields[lastname]
-          selector: "#form-field-lastname"
+        - name: qi_1_last_name
+          selector: "#qi_1_last_name"
           value: $NAME_LAST
           required: true
-        - name: form_fields[field_3885f50]
-          selector: "#form-field-field_3885f50"
+        - name: qi_1_addr_1
+          selector: "#qi_1_addr_1"
           value: $ADDRESS_STREET
           required: true
-        - name: form_fields[field_9176b07]
-          selector: "#form-field-field_9176b07"
+        - name: qi_1_city
+          selector: "#qi_1_city"
           value: $ADDRESS_CITY
           required: true
-        - name: form_fields[field_9176b07]
-          selector: "#form-field-field_9176b07"
+        - name: qi_1_zip
+          selector: "#qi_1_zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: form_fields[email]
-          selector: "#form-field-email"
+        - name: qi_1_hphone
+          selector: "#qi_1_hphone"
+          value: $PHONE
+          required: true
+        - name: qi_1_email
+          selector: "#qi_1_email"
           value: $EMAIL
           required: true
-        - name: form_fields[message]
-          selector: "#form-field-message"
+        - name: qi_3
+          selector: "#qi_3"
+          value: $SUBJECT
+          required: true
+        - name: qi_4
+          selector: "#qi_4"
           value: $MESSAGE
           required: true
-  # - select:
-  #     - name: form_fields[field_348fd64]
-  #       selector: "#form-field-field_348fd64"
-  #       value: $TOPIC
-  #       required: true
-  #       options:
-  #         Agriculture: AGR
-  #         Animal Welfare: AN
-  #         Arts, Museums, & Libraries: ART
-  #         Banking & Financial Services: BANK
-  #         Chemical Safety: CHEM
-  #         Civil Rights & Discrimination (including LGBTQ+): CIVIL
-  #         Consumer Product Safety: CONSUMER
-  #         Criminal Justice: CRIMJUS
-  #         Defense & Military: DEF
-  #         Disaster Response: DISARESP
-  #         Education: EDU
-  #         Election Reform & Voting Rights: ELECT
-  #         Endangered Species: ENDSPEC
-  #         Energy & Climate: ENE
-  #         Environment: ENV
-  #         Federal Court Nominations: FEDCOURT
-  #         Foreign Relations: FR
-  #         Foreign Trade: FT
-  #         Foster Care & Adoption: ADOPT
-  #         Gun Violence Prevention: GUN
-  #         Health Care: HEA
-  #         Housing: HOUSE
-  #         Immigration: IMM
-  #         Labor, Unions, & Workers: LAB
-  #         Nutrition: NUT
-  #         Postal Service: POST
-  #         Public Lands & Forestry: LANDS
-  #         Reproductive Freedom: REPRO
-  #         Science & Space Policy: SCI
-  #         Social Security: SSEC
-  #         Taxes: TAX
-  #         Telecommunications: TEL
-  #         Transportation: TRA
-  #         Tribal Communities/Native American Affairs: NATIVE
-  #         Veterans: VET
-  #         Water: WATER
-  # - select:
-  #     - name: form_fields[field_dd4016c]
-  #       selector: "#form-field-field_dd4016c"
-  #       value: $ADDRESS_STATE_POSTAL_ABBREV
-  #       required: true
-  #       options:
-  #         Alabama: AL
-  #         Alaska: AK
-  #         Arizona: AZ
-  #         Arkansas: AR
-  #         California: CA
-  #         Colorado: CO
-  #         Connecticut: CT
-  #         Delaware: DE
-  #         District of Columbia: DC
-  #         Florida: FL
-  #         Georgia: GA
-  #         Hawaii: HI
-  #         Idaho: ID
-  #         Illinois: IL
-  #         Indiana: IN
-  #         Iowa: IA
-  #         Kansas: KS
-  #         Kentucky: KY
-  #         Louisiana: LA
-  #         Maine: ME
-  #         Maryland: MD
-  #         Massachusetts: MA
-  #         Michigan: MI
-  #         Minnesota: MN
-  #         Mississippi: MS
-  #         Missouri: MO
-  #         Montana: MT
-  #         Nebraska: NE
-  #         Nevada: NV
-  #         New Hampshire: NH
-  #         New Jersey: NJ
-  #         New Mexico: NM
-  #         New York: NY
-  #         North Carolina: NC
-  #         North Dakota: ND
-  #         Ohio: OH
-  #         Oklahoma: OK
-  #         Oregon: OR
-  #         Pennsylvania: PA
-  #         Rhode Island: RI
-  #         South Carolina: SC
-  #         South Dakota: SD
-  #         Tennessee: TN
-  #         Texas: TX
-  #         Utah: UT
-  #         Vermont: VT
-  #         Virginia: VA
-  #         Washington: WA
-  #         West Virginia: WV
-  #         Wisconsin: WI
-  #         Wyoming: WY
-  - javascript:
-      - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
-  - click_on:
-      - selector: button.elementor-button[type='submit']
-  - wait:
-      - value: 3
-  - javascript:
-      - value: if (document.querySelector(".elementor-message-success")) { document.querySelector(".elementor-message-success").style.display = "block"; }
-  success:
-    headers:
-      status: 200
-    body:
-      contains: ""
+    - select:
+        - name: qi_1_state
+          selector: "#qi_1_state"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            Alabama: "0_AL"
+            Alaska: "1_AK"
+            Arizona: "2_AZ"
+            Arkansas: "3_AR"
+            California: "4_CA"
+            Colorado: "5_CO"
+            Connecticut: "6_CT"
+            District of Columbia: "7_DC"
+            Delaware: "8_DE"
+            Florida: "9_FL"
+            Georgia: "10_GA"
+            Hawaii: "11_HI"
+            Idaho: "12_ID"
+            Illinois: "13_IL"
+            Indiana: "14_IN"
+            Iowa: "15_IA"
+            Kansas: "16_KS"
+            Kentucky: "17_KY"
+            Louisiana: "18_LA"
+            Maine: "19_ME"
+            Maryland: "20_MD"
+            Massachusetts: "21_MA"
+            Michigan: "22_MI"
+            Minnesota: "23_MN"
+            Mississippi: "24_MS"
+            Missouri: "25_MO"
+            Montana: "26_MT"
+            Nebraska: "27_NE"
+            Nevada: "28_NV"
+            New Hampshire: "29_NH"
+            New Jersey: "30_NJ"
+            New Mexico: "31_NM"
+            New York: "32_NY"
+            North Carolina: "33_NC"
+            North Dakota: "34_ND"
+            Ohio: "35_OH"
+            Oklahoma: "36_OK"
+            Oregon: "37_OR"
+            Pennsylvania: "38_PA"
+            Rhode Island: "39_RI"
+            South Carolina: "40_SC"
+            South Dakota: "41_SD"
+            Tennessee: "42_TN"
+            Texas: "43_TX"
+            Utah: "44_UT"
+            Vermont: "45_VT"
+            Virginia: "46_VA"
+            Washington: "47_WA"
+            West Virginia: "48_WV"
+            Wisconsin: "49_WI"
+            Wyoming: "50_WY"
+        - name: qi_2
+          selector: "#qi_2"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: "0_AG"
+            Animals: "1_AN"
+            Appropriations/Budget: "2_APPROPS"
+            Arts and Humanities: "3_ART"
+            Banking: "4_BANK"
+            Campaign Finance: "5_CAMPFI"
+            Child Tax Credit: "6_CTC"
+            Civil Rights: "7_CIVIL"
+            Climate Change: "8_ENV.CC"
+            Congress: "9_CONG"
+            Defense and Military: "10_DEF"
+            Economy: "11_ECON"
+            Education: "12_EDU"
+            Energy: "13_EN"
+            Family: "14_FAM"
+            Federal Employees: "15_FED"
+            Foreign Relations: "16_FR"
+            Guns: "17_GUN"
+            Health: "18_HEA"
+            Homeland Security: "19_HOM"
+            Housing: "20_HOUSING"
+            Immigration: "21_IMM"
+            Infrastructure: "22_INFRASTRUCTURE"
+            Interior: "23_INT"
+            Internal Revenue Service (IRS): "24_IRS"
+            Jobs and the Economy: "25_JOBS"
+            Judiciary: "26_JUD"
+            Labor: "27_LAB"
+            LGBT: "28_LGBT"
+            Manufacturing: "29_MANU"
+            Postal: "30_POST"
+            Science: "31_SCI"
+            Senior Citizens: "32_SENIORS"
+            Small Business: "33_SM.BUS"
+            Social Services: "34_SOC.SERVICES"
+            Social Security: "35_SSEC"
+            Tax: "36_TAX"
+            Telecommunications: "37_TEL.COMMS"
+            Technology: "38_TECH"
+            Transportation: "39_TRA"
+            Trade: "40_TRADE"
+            Veterans Affairs: "41_VA"
+    - recaptcha:
+        - value: true
+    - click_on:
+        - selector: "#btn_submit"
+    success:
+      headers:
+        status: 200
+      body:
+        contains: ""
