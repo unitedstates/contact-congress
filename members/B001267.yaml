@@ -1,118 +1,155 @@
-bioguide:  B001267
+bioguide: B001267
 contact_form:
   method: post
   action: /
   steps:
-    - visit: "https://www.bennet.senate.gov/public/index.cfm/write-to-michael"
-    - find:
-        - selector: "#field_52D32F87-EEB0-4B98-A147-18D485A91778"
+    - visit: "https://outreach.senate.gov/iqextranet/EForm.aspx?__cid=SenBennet&__fid=100024&iframe=Y"
     - fill_in:
-        - name: field_52D32F87-EEB0-4B98-A147-18D485A91778
-          selector: "#field_52D32F87-EEB0-4B98-A147-18D485A91778"
+        - name: "qi_1_first_name"
+          selector: "#qi_1_first_name"
           value: $NAME_FIRST
           required: true
-        - name: field_6E3E9E0C-4536-4943-86DC-C3EABE533E5D
-          selector: "#field_6E3E9E0C-4536-4943-86DC-C3EABE533E5D"
+        - name: "qi_1_last_name"
+          selector: "#qi_1_last_name"
           value: $NAME_LAST
           required: true
-        - name: field_1EBBDF6B-817C-4A20-883D-7DA26637C09C
-          selector: "#field_1EBBDF6B-817C-4A20-883D-7DA26637C09C"
+        - name: "qi_1_addr_1"
+          selector: "#qi_1_addr_1"
           value: $ADDRESS_STREET
           required: true
-        - name: field_92DAAF40-EA9E-473C-8A60-D879AA1A8845
-          selector: "#field_92DAAF40-EA9E-473C-8A60-D879AA1A8845"
+        - name: "qi_1_city"
+          selector: "#qi_1_city"
           value: $ADDRESS_CITY
           required: true
-        - name: field_3F76B5F8-807F-4173-8ECD-A9B5C0C5D881
-          selector: "#field_3F76B5F8-807F-4173-8ECD-A9B5C0C5D881"
+        - name: "qi_1_zip"
+          selector: "#qi_1_zip"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_5ED31C3E-6AEC-4987-9A4F-1F5641AE5075
-          selector: "#field_5ED31C3E-6AEC-4987-9A4F-1F5641AE5075"
-          value: $PHONE
-          required: true
-        - name: field_045DB8F4-2432-4E7E-B04C-ACE2C164D7A9
-          selector: "#field_045DB8F4-2432-4E7E-B04C-ACE2C164D7A9"
+        - name: "qi_1_email"
+          selector: "#qi_1_email"
           value: $EMAIL
           required: true
-        - name: field_4F515802-2FFE-4D01-A28E-326A8627C3E1
-          selector: "#field_4F515802-2FFE-4D01-A28E-326A8627C3E1"
+        - name: "qi_3"
+          selector: "#qi_3"
           value: $SUBJECT
           required: true
-        - name: field_0F40B55B-8631-4AA2-8223-08DE119CD370
-          selector: "#field_0F40B55B-8631-4AA2-8223-08DE119CD370"
+        - name: "qi_4"
+          selector: "#qi_4"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_6B982348-2EDF-496C-B4F6-2B46EC249BC2
-          selector: "#field_6B982348-2EDF-496C-B4F6-2B46EC249BC2"
-          value: $NAME_PREFIX
+        - name: "qi_1_state"
+          selector: "#qi_1_state"
+          value: "6_CO"
           required: true
           options:
-            "Mr.": "Mr."
-            "Mrs.": "Mrs."
-            "Ms.": "Ms."
-            "Mr. and Mr.": "Mr. and Mr."
-            "Mrs. and Mrs.": "Mrs. and Mrs."
-            "Mr. and Mrs.": "Mr. and Mrs."
-            "Doctor": "Doctor"
-            "Reverend": "Reverend"
-            "Pastor": "Pastor"
-            "Father": "Father"
-            "Sister": "Sister"
-            "Rabbi": "Rabbi"
-            "Imam": "Imam"
-            "Other": "Other"
-        - name: field_A06A01A2-51E9-4761-A6C2-FD52E837A6C4
-          selector: "#field_A06A01A2-51E9-4761-A6C2-FD52E837A6C4"
+            Alabama: "0_AL"
+            Alaska: "1_AK"
+            America Samoa: "2_AS"
+            Arizona: "3_AZ"
+            Arkansas: "4_AR"
+            California: "5_CA"
+            Colorado: "6_CO"
+            Connecticut: "7_CT"
+            D.C.: "9_D.C."
+            Delaware: "10_DE"
+            Federated States of Micronesia: "11_FM"
+            Florida: "12_FL"
+            Foreign Correspondence: "13_FC"
+            Georgia: "14_GA"
+            Guam: "15_GU"
+            Hawaii: "16_HI"
+            Idaho: "17_ID"
+            Illinois: "18_IL"
+            Indiana: "19_IN"
+            Iowa: "20_IA"
+            Kansas: "21_KS"
+            Kentucky: "22_KY"
+            Louisiana: "23_LA"
+            Maine: "24_ME"
+            Marshall Islands: "25_MH"
+            Maryland: "26_MD"
+            Massachusetts: "27_MA"
+            Michigan: "28_MI"
+            Minnesota: "29_MN"
+            Mississippi: "30_MS"
+            Missouri: "31_MO"
+            Montana: "32_MT"
+            Nebraska: "33_NE"
+            Nevada: "34_NV"
+            New Hampshire: "35_NH"
+            New Jersey: "36_NJ"
+            New Mexico: "37_NM"
+            New York: "38_NY"
+            North Carolina: "39_NC"
+            North Dakota: "40_ND"
+            Northern Mariana Islands: "41_MP"
+            Ohio: "42_OH"
+            Oklahoma: "43_OK"
+            Oregon: "44_OR"
+            Palau: "45_PW"
+            Pennsylvania: "46_PA"
+            Puerto Rico: "47_PR"
+            Rhode Island: "48_RI"
+            South Carolina: "49_SC"
+            South Dakota: "50_SD"
+            Tennessee: "51_TN"
+            Texas: "52_TX"
+            Trust Territory: "53_TT"
+            Utah: "54_UT"
+            Vermont: "55_VT"
+            Virgin Islands: "56_VI"
+            Virginia: "57_VA"
+            Washington: "58_WA"
+            West Virginia: "59_WV"
+            Wisconsin: "60_WI"
+            Wyoming: "61_WY"
+        - name: "qi_2"
+          selector: "#qi_2"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Animal Rights: ANIMAL.RIGHTS
-            Banking &amp; Financial Services: BANK
-            Campaign Finance Reform: FIN.REFORM
-            Climate Change: ENV.CLIMATE
-            Conservation &amp; Public Lands: CONSERVATION.LANDS
-            Fiscal Responsibility: BUDGET
-            Economy &amp; Jobs: ECON
-            Education: EDU
-            Energy: ENE
-            FEMA: FEMA
-            Foreign Policy: FORGN
-            Health Care: HEA
-            Housing: HOUSING
-            Immigration: IMM
-            Infrastructure &amp; Transportation: TRA
-            Indian Affairs: INDIAN.AFFAIRS
-            Judiciary: JUD
-            Justice &amp; Equality: EQUALITY
-            Labor: LABOR
-            Medicare &amp; Medicaid: MEDICARE
-            Rural Communities: RURAL.COMMUNITIES
-            Second Amendment: 2AM
-            Science and Space: SCI.SPACE
-            Social Security: SOCIALSEC
-            Small Business: SMALL.BUSINESS
-            Tax Reform: TAX
-            Trade: INTL.TRD
-            Military: MILL
-            Veterans: VET.AFFRS
-            National Security: NAT.SEC
-            Washington Reform: WAS.REF
+            Agriculture: "0_AGR"
+            Animal Rights: "1_ANIMAL.RIGHTS"
+            Banking and Financial Services: "2_BANK"
+            Campaign Finance Reform: "3_FIN.REFORM"
+            Climate Change: "4_CLIMATE"
+            Conservation and Public Lands: "5_CONSERVATION.LANDS"
+            Fiscal Responsibility Issue: "6_FISCAL"
+            Economy and Commerce: "7_ECON"
+            Education and Labor: "8_EDU"
+            Energy: "9_ENE"
+            Environmental: "10_ENV"
+            FEMA: "11_FEMA"
+            Foreign Policy: "12_FORGN"
+            Health Care: "13_HEA"
+            Help with a Federal Agency: "14_HELP WITH FED AGENCY"
+            Housing: "15_HOUSING"
+            Immigration: "16_IMM"
+            Indian Affairs: "17_INDIAN.AFFAIRS"
+            Infrastructure and Transportation: "18_INFRA"
+            Internet & Technology: "19_INTR"
+            Judiciary: "20_JUD"
+            Justice and Equality: "21_EQUALITY"
+            Labor: "22_LABOR"
+            Medicare and Medicaid: "23_MEDICARE"
+            Rural Communities: "24_RURAL.COMMUNITIES"
+            Second Amendment: "25_2AM"
+            Science and Space: "26_SCI.SPACE"
+            Social Security: "27_SOCIALSEC"
+            Small Business: "28_SMALL.BUSINESS"
+            Taxes and Trade: "29_TAX"
+            International Trade: "30_INTL.TRD"
+            Defense and Military: "31_MILL"
+            Veterans: "32_VET"
+            National Security: "33_NAT.SEC"
+            Washington Reform: "34_WAS.REF"
+    - recaptcha:
+        - value: true
     - click_on:
-        - selector: "#field_170B7597-532D-4D58-B551-32915A884AC1_1"
-    - click_on:
-        - selector: "#field_8BE704C6-EB27-4C1A-AC3D-F345B61214C3_2"
-    - javascript:
-        - value: document.querySelector("#field_0F40B55B-8631-4AA2-8223-08DE119CD370").value = document.querySelector("#field_0F40B55B-8631-4AA2-8223-08DE119CD370").value.replace(/"/g, '');
-    - click_on:
-        - value: Submit
-          selector: ".btn-primary"
-    - find:
-        - selector: ".form.odd.first.last > h3.title"
+        - selector: "#btn_submit"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office to express your views
+      contains: ""
