@@ -1,6 +1,6 @@
-bioguide:  S001150
+bioguide: S001150
 contact_form:
-  method: post 
+  method: post
   action: /contact/
   steps:
     - visit: "https://www.schiff.senate.gov/contact/"
@@ -17,6 +17,10 @@ contact_form:
           selector: "#input_2_6_1"
           value: $ADDRESS_STREET
           required: true
+        - name: input_6.2
+          selector: "#input_2_6_2"
+          value: $ADDRESS_STREET_2
+          required: false
         - name: input_6.3
           selector: "#input_2_6_3"
           value: $ADDRESS_CITY
@@ -29,12 +33,16 @@ contact_form:
           selector: "#input_2_41"
           value: $PHONE
           required: true
+        - name: input_42
+          selector: "#input_2_42"
+          value: $PHONE_PARENTHESES
+          required: false
         - name: input_9
           selector: "#input_2_9"
           value: $EMAIL
           required: true
-        - name: "input_42"
-          selector: "#input_2_42"
+        - name: input_9_2
+          selector: "#input_2_9_2"
           value: $EMAIL
           required: true
         - name: input_11
@@ -46,43 +54,116 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: topic
-          selector: "#topic"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: AG
-            Budget: BUD
-            Children: CHILD
-            Election Reform: CF
-            Energy/Environment: ENV
-            Health: HE
-            Housing: HOUSING
-            Immigration: IMM
-            Judiciary: JUD
-            Labor: LAB
-            Defense: DEF
-            Retirement: LAB
-            Taxes: TAX
-            Technology: TEL
-            Trade: TRD
-            Transportation: TRAN
-            Veterans: VET
         - name: input_39
           selector: "#input_2_39"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
-            - Prefer not to identify
             - Mrs.
+            - Prefer not to identify
+        - name: input_6.4
+          selector: "#input_2_6_4"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            - Alabama
+            - Alaska
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+        - name: input_17
+          selector: "#input_2_17"
+          value: $TOPIC
+          required: true
+          options:
+            Agriculture: AG
+            "Animal Welfare": AN
+            "Arts and Humanities": ART
+            "Banking and Financial Services": BANK
+            Budget: BUD
+            Casework: CASE
+            Children: CHILD
+            "Civil Rights": CIV
+            "Consumer Protections": CONSUMER
+            Defense/Military: DEF
+            Democracy: DEMOCRACY
+            Education: ED
+            "Election Reform": CF
+            Energy/Environment: ENV
+            "Foreign Policy": FP
+            "Gun Violence Prevention": GUNS
+            Health: HE
+            Housing: HOUSING
+            "Internship/Senate Page Inquiry": INTERNSHIP
+            Immigration: IMM
+            Judiciary: JUD
+            Retirement: LAB
+            "LGBITQ Rights": LGBT
+            "Meeting Request": MEETINGREQ
+            Other: OTHER
+            Taxes: TAX
+            Technology: TEL
+            "Tour Request": TOURS
+            Trade: TRD
+            Transportation: TRAN
+            "Tribal Issues": TRIBAL
+            Veterans: VET
+            Water: ENV.WATER
+            Wildfires: WILDFIRES
     - javascript:
         - value: document.querySelector("#input_2_12").value = document.querySelector("#input_2_12").value.replace(/"/g, '').replace(/\(/g,'[').replace(/\)/g,']');
-    - recaptcha:
-        - value: true
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_2"
+    # - recaptcha:
+    #     - value: true
     - find:
         - selector: "h2"
           value: "Thank You"
