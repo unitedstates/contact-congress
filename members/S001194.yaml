@@ -1,4 +1,4 @@
-bioguide:  S001194
+bioguide: S001194
 contact_form:
   method: post
   action: /contact
@@ -33,6 +33,10 @@ contact_form:
           selector: "#input-3028D2F9-A2B6-52F8-2ACC-1060ED58A2B7"
           value: $ADDRESS_ZIP5
           required: true
+        - name: input_302BB54B-04DD-6592-A3CA-950B84CBEB21
+          selector: "#input-302BB54B-04DD-6592-A3CA-950B84CBEB21"
+          value: $PHONE
+          required: false
         - name: input_303460C7-B721-12AF-15EA-2EDF7EAEA5A6
           selector: "#email"
           value: $EMAIL
@@ -51,73 +55,125 @@ contact_form:
           value: $NAME_PREFIX
           required: true
           options:
-            None: "null"
-            Mr.: Mr.
-            Ms.: Ms.
-            Mrs.: Mrs.
-            Miss: Miss
+            "None": "null"
+            "Mr.": "Mr."
+            "Ms.": "Ms."
+            "Mrs.": "Mrs."
+            "Miss": "Miss"
+        - name: input_3028D290-F31A-BE8C-EB6D-7013B1311662
+          selector: "#input-3028D290-F31A-BE8C-EB6D-7013B1311662"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            AL: AL
+            AK: AK
+            AR: AR
+            AZ: AZ
+            CA: CA
+            CO: CO
+            CT: CT
+            DC: DC
+            DE: DE
+            FL: FL
+            GA: GA
+            HI: HI
+            ID: ID
+            IL: IL
+            IN: IN
+            IA: IA
+            KS: KS
+            KY: KY
+            LA: LA
+            ME: ME
+            MD: MD
+            MA: MA
+            MI: MI
+            MN: MN
+            MS: MS
+            MO: MO
+            MT: MT
+            NE: NE
+            NV: NV
+            NH: NH
+            NJ: NJ
+            NM: NM
+            NY: NY
+            NC: NC
+            ND: ND
+            OH: OH
+            OK: OK
+            OR: OR
+            PA: PA
+            RI: RI
+            SC: SC
+            SD: SD
+            TN: TN
+            TX: TX
+            UT: UT
+            VT: VT
+            VA: VA
+            WA: WA
+            WV: WV
+            WI: WI
+            WY: WY
         - name: input_303B886D-E11C-0D7F-3CAC-DF75CA98AC0D
           selector: "#input-303B886D-E11C-0D7F-3CAC-DF75CA98AC0D"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Animal Welfare: ANIMAL
-            Antitrust: ANT
-            Arts and Humanities: ART
-            Aviation: AVIATION
-            Banking: BANKS
-            Budget: BUD
-            Census: CENSUS
-            Children/Family/Adoption: FAMILY
-            Civil Rights: CIV
-            Technology/Telecommunications: COMM
-            Defense: DEF
-            Education: EDU
-            Elections and Campaign Finance and Congress: ELECT
-            Energy: ENE
-            Environment: ENV
-            Federal Workforce: FEDWORK
-            Foreign Relations: FORAFF
-            Grants: GRANTS
-            Gun Control: GUN
-            Native Hawaiians: HAWAIIAN
-            Health: HEA
-            Help With a Federal Agency: CASEWORK
-            Homeland Security: HOM
-            Housing: HOUSING
-            Immigration: IMM
-            Native Americans and Indigenous Peoples: INDIAN
-            Intellectual Property: INT PROP
-            Intelligence: INTEL
-            Judiciary: JUD
-            Labor: LABOR
-            Maritime: MARITIME
-            Natural Resources: NATURALRES
-            Nutrition: NUTRITION
-            Oceans and Fisheries: OCEANS
-            Postal Service: POSTAL
-            Religion: RELIGION
-            Science and Space: SCIENCE
-            Seniors: AGE
-            Small Business and Economic Development: BUS
-            Social Security: SSEC
-            Tax: TAX
-            Tourism: TOURISM
+            "Aging/early development/family": FAM
+            "Agriculture": AGR
+            "Animal Welfare": ANIMAL
+            "Antitrust": ANT
+            "Arts and Humanities": ART
+            "Aviation": AVIATION
+            "Banking": BANKS
+            "Budget": BUD
+            "Census": CENSUS
+            "Civil Rights": CIV
+            "Environment": ENV
+            "Technology/Telecommunications": COMM
+            "Defense": DEF
+            "Education": EDU
+            "Elections and Campaign Finance and Congress": ELECT
+            "Energy": ENE
+            "Federal Workforce": FEDWORK
+            "Foreign Relations": FORAFF
+            "Gender": GENDER
+            "Grants": GRANTS
+            "Gun Control": GUN
+            "Native Hawaiians": HAWAIIAN
+            "Health": HEA
+            "Help With a Federal Agency": CASEWORK
+            "Homeland Security": HOM
+            "Housing": HOUSING
+            "Immigration": IMM
+            "Native Americans and Indigenous Peoples": INDIAN
+            "Intellectual Property": "INT PROP"
+            "Intelligence": INTEL
+            "Judiciary": JUD
+            "Labor": LABOR
+            "Maritime": MARITIME
+            "Natural Resources": NATURALRES
+            "Nutrition": NUTRITION
+            "Oceans and Fisheries": OCEANS
+            "Postal Service": POSTAL
+            "Religion": RELIGION
+            "Science and Space": SCIENCE
+            "Small Business and Economic Development": BUS
+            "Social Security": SSEC
+            "Sports": SPORTS
+            "Tax": TAX
+            "Tourism": TOURISM
             "Transportation & Infrastructure": TRA
-            Trade: TRADE
-            Veterans: VET
-            Welfare: WEL
-            "Women's Issues": WOMEN
+            "Trade": TRADE
+            "Veterans": VET
+            "Welfare": WEL
     - check:
         - name: input_304881BC-D73E-2C0B-0971-3FFDD099B014
           selector: "#input-3048820B-A361-6166-70F4-2D74C1E208F4"
-          value: 3048820B-A361-6166-70F4-2D74C1E208F4
+          value: "3048820B-A361-6166-70F4-2D74C1E208F4"
           required: true
-    - javascript:
-        - value: document.querySelector('.btn').insertAdjacentHTML('beforeend', '<textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response"></textarea>');
-    - recaptcha:
-        - value: true
     - javascript:
         - value: document.querySelector("#input-30403D9F-9D8B-E1D8-02F8-5D7C17B516E7").value = document.querySelector("#input-30403D9F-9D8B-E1D8-02F8-5D7C17B516E7").value.replace(/"/g, '');
     - javascript:
@@ -128,4 +184,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Your message has been received
+      contains: "Your message has been received"
