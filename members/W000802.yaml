@@ -1,198 +1,132 @@
-bioguide:  W000802
+bioguide: W000802
 contact_form:
   method: post
   action: "https://www.whitehouse.senate.gov/contact/email-sheldon"
   steps:
     - visit: "https://www.whitehouse.senate.gov/contact/email-sheldon"
-    - javascript:
-      - value: document.querySelector("#header").remove()
-    - javascript:
-      - value: "document.querySelector('#gform_wrapper_2').style.display = 'block'"
     - fill_in:
-        - name: input_BA74A312-4040-F985-52CD-FBFBC7F20F79
-          selector: "#input-BA74A312-4040-F985-52CD-FBFBC7F20F79"
+        - name: input_3
+          selector: "#input_2_3"
           value: $NAME_FIRST
           required: true
-        - name: input_BA74A346-4040-F985-52CD-483856F835FA
-          selector: "#input-BA74A346-4040-F985-52CD-483856F835FA"
+        - name: input_4
+          selector: "#input_2_4"
           value: $NAME_LAST
           required: true
-        - name: input_BA9181F5-4040-F985-52CD-D7BB0D3341A1
-          selector: "#input-BA9181F5-4040-F985-52CD-D7BB0D3341A1"
+        - name: input_8.1
+          selector: "#input_2_8_1"
           value: $ADDRESS_STREET
           required: true
-        - name: input_BA91824A-4040-F985-52CD-B89C6257E587
-          selector: "#input-BA91824A-4040-F985-52CD-B89C6257E587"
+        - name: input_8.3
+          selector: "#input_2_8_3"
           value: $ADDRESS_CITY
           required: true
-        - name: input_BA91828C-4040-F985-52CD-9A1353F3777D
-          selector: "#input-BA91828C-4040-F985-52CD-9A1353F3777D"
+        - name: input_8.5
+          selector: "#input_2_8_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_BA923622-4040-F985-52CD-5A457C563D3A
-          selector: "#email"
+        - name: input_9
+          selector: "#input_2_9"
           value: $EMAIL
           required: true
-        - name: input_BA923648-4040-F985-52CD-00040397CA33
-          selector: "#input-BA923648-4040-F985-52CD-00040397CA33"
+        - name: input_9_2
+          selector: "#input_2_9_2"
           value: $EMAIL
           required: true
-        - name: input_BA92CAF6-4040-F985-52CD-121FCA966D3A
-          selector: "#input-BA92CAF6-4040-F985-52CD-121FCA966D3A"
+        - name: input_10
+          selector: "#input_2_10"
           value: $PHONE
           required: true
-        - name: input_BA954B7C-4040-F985-52CD-CB3A0A43C0DA
-          selector: "#input-BA954B7C-4040-F985-52CD-CB3A0A43C0DA"
+        - name: input_12
+          selector: "#input_2_12"
           value: $SUBJECT
           required: true
-        - name: input_BA957EB0-4040-F985-52CD-CF349BA209E1
-          selector: "#input-BA957EB0-4040-F985-52CD-CF349BA209E1"
+        - name: input_13
+          selector: "#input_2_13"
           value: $MESSAGE
           required: true
     - select:
-        - name: input_BA74A203-4040-F985-52CD-D9912DECAEFB
-          selector: "#input-BA74A203-4040-F985-52CD-D9912DECAEFB"
+        - name: input_5
+          selector: "#input_2_5"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Ms.
             - Mrs.
-            - Miss
-            - Mr. and Mrs.
-            - Dr.
-            - Prof.
-            - Senator
-            - Gov.
-            - Congressman
-            - Hon.
-            - Fr.
-            - Sister
-            - Rabbi
-            - Reverend
-            - Fleet Admiral
-            - Admiral
-            - Vice Admiral
-            - Rear Admiral (upper half)
-            - Rear Admiral (lower half)
-            - Captain
-            - Commander
-            - Lieutenant Commander
-            - Lieutenant
-            - "Lieutenant, Junior Grade"
-            - Ensign
-            - Master Chief Petty Officer of the Navy
-            - Master Chief Petty Officer
-            - Senior Chief Petty Officer
-            - Chief Petty Officer
-            - Petty Officer First Class
-            - Petty Officer Second Class
-            - Petty Officer Third Class
-            - Seaman
-            - Seaman Apprentice
-            - Seaman Recruit
-            - Chief Warrant Officer
-            - Warrant Officer
-            - Sgt Major Of The Corps
-            - Sergeant Major
-            - Master Gunnery Sgt
-            - First Sergeant
-            - Master Sergeant
-            - Gunnery Sergeant
-            - Staff Sergeant
-            - Sergeant
-            - Corporal
-            - Lance Corporal
-            - Private First Class
-            - Private
-            - General of the Air Force
-            - General
-            - Lieutenant General
-            - Major General
-            - Brigadier General
-            - Colonel
-            - Lieutenant Colonel
-            - Major
-            - Captain
-            - First Lieutenant
-            - Second Lieutenant
-            - Chief Master Sergeant of the Air Force
-            - Command Chief Master Sergeant
-            - Chief Master Sergeant
-            - Senior Master Sergeant
-            - Technical Sergeant
-            - Senior Airman
-            - Airman First Class
-            - Airman
-            - Brother
-        - name: input_BA91826A-4040-F985-52CD-419255C3C6C3
-          selector: "#input-BA91826A-4040-F985-52CD-419255C3C6C3"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+            - Mx.
+        - name: input_8.4
+          selector: "#input_2_8_4"
+          value: $ADDRESS_STATE_FULL
           required: true
           options:
-            - AL
-            - AK
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
+            - Alabama
+            - Alaska
+            - American Samoa
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Guam
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Northern Mariana Islands
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Puerto Rico
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - U.S. Virgin Islands
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+            - Armed Forces Americas
+            - Armed Forces Europe
+            - Armed Forces Pacific
     - javascript:
-        - value: document.querySelector("#input-BA957EB0-4040-F985-52CD-CF349BA209E1").value = document.querySelector("#input-BA957EB0-4040-F985-52CD-CF349BA209E1").value.replace(/"/g, '');
+        - value: document.querySelector("#input_2_13").value = document.querySelector("#input_2_13").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: input.btn
-    - javascript:
-        - value: document.querySelector("input[type='submit']").click();
-    - wait:
-        - value: 7
+          selector: "#gform_submit_button_2"
     - find:
-      - selector: "h1"
-        value: "Thank You" 
+        - selector: "#gform_confirmation_message_2 span"
+          value: "Thank you for contacting me."
   success:
     headers:
       status: 200
