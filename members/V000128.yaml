@@ -4,10 +4,11 @@ contact_form:
   action: /content/contact-senator
   steps:
     - visit: "https://www.vanhollen.senate.gov/contact/email"
-    - javascript:
-        - value: "setTimeout(() => document.querySelector('.Button--primary').click(), 100)"
-    - find:
-        - selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
+    - click_on:
+        - value: "Submit"
+          selector: ".Button--primary"
+    - wait:
+        - value: 1
     - fill_in:
         - name: "input_B03E05C4-4040-F985-52CD-9CA44623DE5E"
           selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
