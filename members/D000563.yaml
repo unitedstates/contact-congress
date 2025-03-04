@@ -4,6 +4,8 @@ contact_form:
   action: /contact/email
   steps:
     - visit: "http://www.durbin.senate.gov/contact/email"
+    - wait:
+        - value: 2
     - select:
         - name: actions
           selector: "#topicissues"
