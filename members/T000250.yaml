@@ -101,6 +101,10 @@ contact_form:
             Water Issues: WATER
     - javascript:
         - value: document.querySelector("#field_BE592D9D-202D-4F5B-94A1-EA9989C9AAED").value = document.querySelector("#field_BE592D9D-202D-4F5B-94A1-EA9989C9AAED").value.replace(/"/g, '');
+        # this form only allow numbers in phone number
+        - value: document.querySelector("#field_18E5AEA5-37A6-4BC5-9E44-42A10D0C9816").value = document.querySelector("#field_18E5AEA5-37A6-4BC5-9E44-42A10D0C9816").value.replace(/[^0-9]/g, '');
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
