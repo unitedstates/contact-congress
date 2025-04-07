@@ -1,9 +1,9 @@
 bioguide:  M001244
-contact_form: 
+contact_form:
   method: post
   action: ""
-  steps: 
-  - visit: "https://www.moody.senate.gov/"
+  steps:
+  - visit: "https://www.moody.senate.gov/share-your-opinion/"
   - fill_in:
         - name: form_fields[name]
           selector: "#form-field-name"
@@ -179,4 +179,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Your submission was successful."
