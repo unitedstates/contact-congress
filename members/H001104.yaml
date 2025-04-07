@@ -1,8 +1,8 @@
 bioguide:  H001104
-contact_form: 
+contact_form:
   method: post
   action: ""
-  steps: 
+  steps:
   - visit: "https://www.husted.senate.gov/contact-jon/"
   - fill_in:
         - name: form_fields[name]
@@ -28,6 +28,10 @@ contact_form:
         - name: form_fields[field_1037219]
           selector: "#form-field-field_1037219"
           value: $ADDRESS_ZIP5
+          required: true
+        - name: form_fields[field_9411e2b]
+          selector: "#form-field-field_9411e2b"
+          value: $PHONE
           required: true
         - name: form_fields[email]
           selector: "#form-field-email"
@@ -81,7 +85,7 @@ contact_form:
           Health: HEALTH
           Homeland Security: HOM
           Housing: HOUSING
-          Housing &amp; Urban Development: HUD
+          Housing & Urban Development: HUD
           Immigration: IMM
           Infrastructure: INFRASTRUCTURE
           International Relations: INT
@@ -124,7 +128,7 @@ contact_form:
           Colorado: CO
           Connecticut: CT
           Delaware: DE
-          District of Columbia: DC
+          Washington DC: DC
           Florida: FL
           Georgia: GA
           Hawaii: HI
