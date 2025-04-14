@@ -4,11 +4,20 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.ricketts.senate.gov/share-your-opinion/"
-    - fill_in:
+    - select:
         - name: input_1.2
           selector: "#input_1_1_2"
           value: $NAME_PREFIX
           required: true
+          options:
+            - Dr.
+            - Miss 
+            - Mr.
+            - Mrs.
+            - Ms.
+            - Prof.
+            - Rev.
+    - fill_in:
         - name: input_1.3
           selector: "#input_1_1_3"
           value: $NAME_FIRST
@@ -44,11 +53,12 @@ contact_form:
     - select:
         - name: input_3.4
           selector: "#input_1_3_4"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+          value: $ADDRESS_STATE_FULL
           required: true
           options:
             - Alabama
             - Alaska
+            - American Samoa
             - Arizona
             - Arkansas
             - California
@@ -58,6 +68,7 @@ contact_form:
             - District of Columbia
             - Florida
             - Georgia
+            - Guam
             - Hawaii
             - Idaho
             - Illinois
@@ -82,49 +93,56 @@ contact_form:
             - New York
             - North Carolina
             - North Dakota
+            - Northern Mariana Islands
             - Ohio
             - Oklahoma
             - Oregon
             - Pennsylvania
+            - Puerto Rico
             - Rhode Island
             - South Carolina
             - South Dakota
             - Tennessee
             - Texas
             - Utah
+            - U.S. Virgin Islands
             - Vermont
             - Virginia
             - Washington
             - West Virginia
             - Wisconsin
             - Wyoming
+            - Armed Forces Americas
+            - Armed Forces Europe
+            - Armed Forces Pacific
         - name: input_6
           selector: "#input_1_6"
           value: $TOPIC
           required: true
           options:
-            Agriculture: AGR
-            Budget and Economy: BUD
-            Congress and Elections: CONG
-            Defense and Military: DEF
-            Education: EDU
-            Energy: ENE
-            Family/Marriage: FAM
-            Foreign Relations: FR
-            Governmental Reform: GOV
-            Health: HEALTH
-            Housing: HOUSING
-            Immigration: IMM
-            Infrastructure: INFRASTRUCTURE
-            Jobs and the Economy: JOBS
-            Judiciary: JUD
-            Other Issues: OTHER
-            Second Amendment: "SEC.AMEND."
-            Social Security: SSEC
-            Taxes: TAX
-            Telecommunications: TEL
-            Veterans: VET
-            Women’s Issues: WOMEN
+            - Agriculture
+            - Budget and Economy
+            - Help with a Federal Agency
+            - Congress and Elections
+            - Defense and Military
+            - Education
+            - Energy
+            - Family/Marriage
+            - Foreign Relations
+            - Governmental Reform
+            - Health
+            - Housing
+            - Immigration
+            - Jobs and the Economy
+            - Judiciary
+            - Other Issues
+            - Second Amendment
+            - Social Security
+            - Taxes
+            - Telecommunications
+            - Tour Request
+            - Veterans
+            - Women's Issues
     - click_on:
         - selector: input#gform_submit_button_1
   success:
