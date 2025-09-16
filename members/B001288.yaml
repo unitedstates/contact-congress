@@ -186,8 +186,11 @@ contact_form:
             - "No"
     - find:
         - selector: "#newsletteraction"
-    - click_on:
-        - selector: "input[value='A3B5C565-F736-F1A3-4F84-2FB5788BE10B']"
+    - choose:
+        - name: input_A3B5C389-98BC-3445-B635-A12C38ADA73D
+          selector: "#newsletteraction-1"
+          value: "A3B5C565-F736-F1A3-4F84-2FB5788BE10B"
+          required: true
     - click_on:
         - value: Submit
           selector: .btn
