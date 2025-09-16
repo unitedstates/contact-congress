@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.blackburn.senate.gov/email-me"
+    - javascript:
+        - value: Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });
     - fill_in:
         - name: "field_F0B47C9E-D573-4F47-B152-F5D3F50B35F8"
           selector: "#field_F0B47C9E-D573-4F47-B152-F5D3F50B35F8"
