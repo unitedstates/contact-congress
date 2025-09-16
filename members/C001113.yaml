@@ -91,11 +91,9 @@ contact_form:
              Trade: Trade
              Transportation: Transportation
              Veterans: Veterans
-    - find:
-        - selector: "input#gform_submit_button_2"
     - click_on:
         - value: Submit
-          selector: "input#gform_submit_button_2"
+          selector: ".gform-footer input#gform_submit_button_2
     - wait:
         - value: 3
   success:
