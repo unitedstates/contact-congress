@@ -62,8 +62,6 @@ contact_form:
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options: US_STATES
-    - click_on:
-        - selector: "div.recaptcha"
     - javascript:
         - value: document.querySelector("#g-recaptcha-response").style.display = "block";      
     - recaptcha:
