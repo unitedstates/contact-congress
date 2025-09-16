@@ -63,7 +63,11 @@ contact_form:
           required: true
           options: US_STATES
     - javascript:
+        - value: document.querySelector("#recaptcha_4F1B1AD7-A8F0-4ADB-A656-C37A74E20A3C_container").style.display = "block";
+    - javascript:
         - value: document.querySelector("#g-recaptcha-response").style.display = "block";      
+    - find:
+        - selector: "#breakthisform"
     - recaptcha:
         - value: true
     - click_on:
