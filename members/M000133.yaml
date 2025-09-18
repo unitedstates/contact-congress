@@ -184,6 +184,8 @@ contact_form:
         - value: true
     - wait:
         - value: 1
+    - javascript:
+        - value: document.querySelector('.btn[type="submit"]').disabled = false;
     - click_on:
         - value: Send
           selector: ".btn[type='submit']"
