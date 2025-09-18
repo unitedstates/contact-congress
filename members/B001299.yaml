@@ -5,151 +5,169 @@ contact_form:
   steps: 
   - visit: "https://www.banks.senate.gov/share-your-opinion/"
   - fill_in:
-        - name: form_fields[name]
-          selector: "#form-field-name"
+        - name: input_39
+          selector: "#input_2_39"
           value: $NAME_PREFIX
           required: true
-        - name: form_fields[field_1d46919]
-          selector: "#form-field-field_1d46919"
+        - name: input_2
+          selector: "#input_2_2"
           value: $NAME_FIRST
           required: true
-        - name: form_fields[field_bdcaff9]
-          selector: "#form-field-field_bdcaff9"
+        - name: input_3
+          selector: "#input_2_3"
           value: $NAME_LAST
           required: true
-        - name: form_fields[field_00c2cf4]
-          selector: "#form-field-field_00c2cf4"
+        - name: input_6.1
+          selector: "#input_2_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: form_fields[field_5ce9e4e]
-          selector: "#form-field-field_5ce9e4e"
+        - name: input_6.2
+          selector: "#input_2_6_2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: input_6.3
+          selector: "#input_2_6_3"
           value: $ADDRESS_CITY
           required: true
-        - name: form_fields[field_1037219]
-          selector: "#form-field-field_1037219"
+        - name: input_6.5
+          selector: "#input_2_6_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: form_fields[email]
-          selector: "#form-field-email"
+        - name: input_41
+          selector: "#input_2_41"
+          value: $PHONE
+          required: true
+        - name: input_42
+          selector: "#input_2_42"
           value: $EMAIL
           required: true
-        - name: form_fields[field_65932fe]
-          selector: "#form-field-field_65932fe"
+        - name: input_11
+          selector: "#input_2_11"
           value: $SUBJECT
           required: true
-        - name: form_fields[field_01539f0]
-          selector: "#form-field-field_01539f0"
+        - name: input_12
+          selector: "#input_2_12"
           value: $MESSAGE
           required: true
   - select:
-      - name: form_fields[message]
-        selector: "#form-field-message"
+      - name: input_6.4
+        selector: "#input_2_6_4"
+        value: $ADDRESS_STATE_FULL
+        required: true
+        options:
+          - Alabama
+          - Alaska
+          - American Samoa
+          - Arizona
+          - Arkansas
+          - California
+          - Colorado
+          - Connecticut
+          - Delaware
+          - District of Columbia
+          - Florida
+          - Georgia
+          - Guam
+          - Hawaii
+          - Idaho
+          - Illinois
+          - Indiana
+          - Iowa
+          - Kansas
+          - Kentucky
+          - Louisiana
+          - Maine
+          - Maryland
+          - Massachusetts
+          - Michigan
+          - Minnesota
+          - Mississippi
+          - Missouri
+          - Montana
+          - Nebraska
+          - Nevada
+          - New Hampshire
+          - New Jersey
+          - New Mexico
+          - New York
+          - North Carolina
+          - North Dakota
+          - Northern Mariana Islands
+          - Ohio
+          - Oklahoma
+          - Oregon
+          - Pennsylvania
+          - Puerto Rico
+          - Rhode Island
+          - South Carolina
+          - South Dakota
+          - Tennessee
+          - Texas
+          - Utah
+          - U.S. Virgin Islands
+          - Vermont
+          - Virginia
+          - Washington
+          - West Virginia
+          - Wisconsin
+          - Wyoming
+          - Armed Forces Americas
+          - Armed Forces Europe
+          - Armed Forces Pacific
+  - select:
+      - name: input_17
+        selector: "#input_2_17"
         value: $TOPIC
         required: true
         options:
           Agriculture: AGR
-          Animal Welfare: AN
-          Arts, Museums, & Libraries: ART
-          Banking & Financial Services: BANK
-          Chemical Safety: CHEM
-          Civil Rights & Discrimination (including LGBTQ+): CIVIL
-          Consumer Product Safety: CONSUMER
-          Criminal Justice: CRIMJUS
-          Defense & Military: DEF
-          Disaster Response: DISARESP
+          Animals: AN
+          Arts and Humanities: ART
+          Banking: BANK
+          Budget: BUD
+          Commerce: COMM
+          Defense and Military: DEF
+          Drugs: DRUG
+          Economy: ECON
           Education: EDU
-          Election Reform & Voting Rights: ELECT
-          Endangered Species: ENDSPEC
-          Energy & Climate: ENE
-          Environment: ENV
-          Federal Court Nominations: FEDCOURT
+          Election: ELEC
+          Energy: ENE
+          Environmental: ENV
+          Family Values: FAM
+          Finance: FINANCE
+          Flag Requests: FLAG
           Foreign Relations: FR
-          Foreign Trade: FT
-          Foster Care & Adoption: ADOPT
-          Gun Violence Prevention: GUN
-          Health Care: HEA
-          Housing: HOUSE
+          Governmental Reform: GOV
+          Guns: GUN
+          Health: HEA
+          Help with a Federal Agency: CASEWORK
+          Homeland Security: HOM
+          Housing and Urban Development: HUD
           Immigration: IMM
-          Labor, Unions, & Workers: LAB
-          Nutrition: NUT
-          Postal Service: POST
-          Public Lands & Forestry: LANDS
-          Reproductive Freedom: REPRO
-          Science & Space Policy: SCI
+          Infrastructure: INFRA
+          Interior: INTERIOR
+          Judiciary: JUD
+          Labor: LAB
+          Nutrition: NUTRI
+          Post Office: POST
+          Science and Technology: SCI
+          Senior Citizens: SENIORS
+          Small Business: SMB
+          Social Issues: SOC
           Social Security: SSEC
           Taxes: TAX
           Telecommunications: TEL
+          Trade: TRADE
           Transportation: TRA
-          Tribal Communities/Native American Affairs: NATIVE
           Veterans: VET
-          Water: WATER
-  - select:
-      - name: form_fields[field_dd4016c]
-        selector: "#form-field-field_dd4016c"
-        value: $ADDRESS_STATE_POSTAL_ABBREV
-        required: true
-        options:
-          Alabama: AL
-          Alaska: AK
-          Arizona: AZ
-          Arkansas: AR
-          California: CA
-          Colorado: CO
-          Connecticut: CT
-          Delaware: DE
-          District of Columbia: DC
-          Florida: FL
-          Georgia: GA
-          Hawaii: HI
-          Idaho: ID
-          Illinois: IL
-          Indiana: IN
-          Iowa: IA
-          Kansas: KS
-          Kentucky: KY
-          Louisiana: LA
-          Maine: ME
-          Maryland: MD
-          Massachusetts: MA
-          Michigan: MI
-          Minnesota: MN
-          Mississippi: MS
-          Missouri: MO
-          Montana: MT
-          Nebraska: NE
-          Nevada: NV
-          New Hampshire: NH
-          New Jersey: NJ
-          New Mexico: NM
-          New York: NY
-          North Carolina: NC
-          North Dakota: ND
-          Ohio: OH
-          Oklahoma: OK
-          Oregon: OR
-          Pennsylvania: PA
-          Rhode Island: RI
-          South Carolina: SC
-          South Dakota: SD
-          Tennessee: TN
-          Texas: TX
-          Utah: UT
-          Vermont: VT
-          Virginia: VA
-          Washington: WA
-          West Virginia: WV
-          Wisconsin: WI
-          Wyoming: WY
+          Welfare: WEL
+          Women's Issues: WOMEN
   - javascript:
-      - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
+      - value: document.querySelector("#input_2_12").value = document.querySelector("#input_2_12").value.replace(/"/g, '');
   - click_on:
-      - selector: button.elementor-button[type='submit']
-  - wait:
-      - value: 3
-  - javascript:
-      - value: if (document.querySelector(".elementor-message-success")) { document.querySelector(".elementor-message-success").style.display = "block"; }
+      - selector: '#gform_submit_button_2'
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Your submission was successful"
