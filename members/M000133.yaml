@@ -187,6 +187,8 @@ contact_form:
     - click_on:
         - value: Send
           selector: ".btn[type='submit']"
+    - wait:
+        - value: 8
   success:
     headers:
       status: 200
