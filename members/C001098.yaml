@@ -178,9 +178,8 @@ contact_form:
     ## Re-hide the recaptcha response b/c it covers the submit button.
     - javascript:
         - value: document.querySelector("#g-recaptcha-response").style.display = "none";
-    - click_on:
-        - value: Submit
-          selector: 'button[type="submit"].btn'
+    - javascript:
+        - value: document.querySelector('button[type="submit"].btn').click();
     ## The success screen has no new text on it, rather it just has an image.  Doing a find on the image alt text here to see if it is present before declaring success by the text in the body.
     - wait:
         - value: 2
