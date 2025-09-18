@@ -4,6 +4,8 @@ contact_form:
   action: "https://www.markey.senate.gov/contact/share-your-opinion"
   steps:
     - visit: "https://www.markey.senate.gov/contact/share-your-opinion"
+    - javascript:
+        - value: Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });
     - select:
       - name: topic
         selector: "#message-topic"
