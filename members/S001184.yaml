@@ -47,8 +47,6 @@ contact_form:
           selector: "#input_14_11"
           value: $SUBJECT
           required: true
-    - find:
-        - selector: "#breakthisform"
     - select:
         - name: input_1
           selector: "#input_14_1"
@@ -96,6 +94,8 @@ contact_form:
             Trade: TRADE
             Transportation: TRA
             Veterans: VET
+    - find:
+        - selector: "#breakthisform"
     - click_on:
         - selector: "#gform_submit_button_14"
     - find:
