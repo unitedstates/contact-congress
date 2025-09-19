@@ -94,10 +94,8 @@ contact_form:
             Trade: TRADE
             Transportation: TRA
             Veterans: VET
-    - find:
-        - selector: "#breakthisform"
     - click_on:
-        - selector: "#gform_submit_button_14"
+        - selector: "#.gform_button#gform_submit_button_14" 
     - find:
         - selector: h2
           value: Thank You
