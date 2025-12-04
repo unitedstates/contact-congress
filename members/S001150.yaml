@@ -4,6 +4,8 @@ contact_form:
   action: /contact/
   steps:
     - visit: "https://www.schiff.senate.gov/contact/get-in-touch/"
+    - wait:
+        - value: 3
     - fill_in:
         - name: input_2
           selector: "#input_2_2"
@@ -162,13 +164,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_2"
-    # - recaptcha:
-    #     - value: true
-    - find:
-        - selector: "h2"
-          value: "Thank You"
   success:
     headers:
       status: 200
     body:
-      contains: "your message has been sent"
+      contains: "Thank you, your message has been sent."
