@@ -5,10 +5,6 @@ contact_form:
   steps: 
   - visit: "https://www.banks.senate.gov/share-your-opinion/"
   - fill_in:
-        - name: input_39
-          selector: "#input_2_39"
-          value: $NAME_PREFIX
-          required: true
         - name: input_2
           selector: "#input_2_2"
           value: $NAME_FIRST
@@ -115,6 +111,19 @@ contact_form:
           - Armed Forces Europe
           - Armed Forces Pacific
   - select:
+      - name: input_39
+        selector: "#input_2_39"
+        value: $NAME_PREFIX
+        required: true
+        options:
+          - Mr.
+          - Mrs.
+          - Ms.
+          - Miss
+          - Professor
+          - Dean
+          - The Honorable
+          - Dr.
       - name: input_17
         selector: "#input_2_17"
         value: $TOPIC
