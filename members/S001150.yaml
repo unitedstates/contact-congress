@@ -164,8 +164,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_2"
-    - wait:
-        - value: 3
+    - javascript:
+        - value: if (document.querySelector(".elementor-message-success")) { document.querySelector(".elementor-message-success").style.display = "block"; }
   success:
     headers:
       status: 200

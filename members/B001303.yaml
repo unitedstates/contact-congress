@@ -1,163 +1,193 @@
 bioguide:  B001303
-contact_form:
+contact_form: 
   method: post
-  action: 
-  steps:
-  - visit: "https://www.bluntrochester.senate.gov/share-your-opinion/"
+  action: ""
+  steps: 
+  - visit: "https://www.bluntrochester.senate.gov/contact/write-to-lbr/"
   - fill_in:
-          - name: form_fields[name]
-            selector: "#form-field-name"
-            value: $NAME_PREFIX
-            required: true
-          - name: form_fields[field_1d46919]
-            selector: "#form-field-field_1d46919"
-            value: $NAME_FIRST
-            required: true
-          - name: form_fields[field_bdcaff9]
-            selector: "#form-field-field_bdcaff9"
-            value: $NAME_LAST
-            required: true
-          - name: form_fields[field_00c2cf4]
-            selector: "#form-field-field_00c2cf4"
-            value: $ADDRESS_STREET
-            required: true
-          - name: form_fields[field_5ce9e4e]
-            selector: "#form-field-field_5ce9e4e"
-            value: $ADDRESS_CITY
-            required: true
-          - name: form_fields[field_1037219]
-            selector: "#form-field-field_1037219"
-            value: $ADDRESS_ZIP5
-            required: true
-          - name: form_fields[email]
-            selector: "#form-field-email"
-            value: $EMAIL
-            required: true
-          - name: form_fields[field_65932fe]
-            selector: "#form-field-field_65932fe"
-            value: $SUBJECT
-            required: true
-          - name: form_fields[field_01539f0]
-            selector: "#form-field-field_01539f0"
-            value: $MESSAGE
-            required: true
+        - name: input_2
+          selector: "#input_2_2"
+          value: $NAME_FIRST
+          required: true
+        - name: input_3
+          selector: "#input_2_3"
+          value: $NAME_LAST
+          required: true
+        - name: input_6.1
+          selector: "#input_2_6_1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_6.3
+          selector: "#input_2_6_3"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_6.5
+          selector: "#input_2_6_5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_41
+          selector: "#input_2_41"
+          value: $PHONE
+          required: true
+        - name: input_9
+          selector: "#input_2_9"
+          value: $EMAIL
+          required: true
+        - name: input_9_2
+          selector: "#input_2_9_2"
+          value: $EMAIL
+          required: true
+        - name: input_11
+          selector: "#input_2_11"
+          value: $SUBJECT
+          required: true
+        - name: input_12
+          selector: "#input_2_12"
+          value: $MESSAGE
+          required: true
   - select:
-          - name: form_fields[message]
-            selector: "#form-field-message"
-            value: $TOPIC
-            required: true
-            options:
-              Agriculture: AGR
-              Animal Welfare: AN
-              Arts, Museums, & Libraries: ART
-              Banking & Financial Services: BANK
-              Budget and Economy: BUD
-              Campaign Finance Reform: CFR
-              Child Tax Credit: CTC
-              Chemical Safety: CHEM
-              Civil Rights/Humanities: CIVIL
-              Civil Service/Postal: CIVILSERV
-              Congress: CONG
-              Defense & Military: DEF
-              Economy: ECON
-              Education: EDU
-              Election Reform & Voting Rights: ELECT
-              Energy & Climate: ENE
-              Environment: ENV
-              Federal Court Nominations: FEDCOURT
-              Foreign Relations: FR
-              Foreign Trade: FT
-              Foster Care & Adoption: ADOPT
-              Governmental Reform: GOV
-              Guns: GUN
-              Health: HEA
-              Housing: HUD
-              Immigration: IMM
-              Infrastructure: INFRA
-              International Relations: INT
-              Judiciary: JUD
-              Labor: LAB
-              LGBT: LGBT
-              Life: LIFE
-              Other: OTHER
-              Postal Service: POST
-              Science & Technology: SCI
-              Social Issues: SOC
-              Small Business: SM.BUS
-              Social Security: SSEC
-              Taxes/IRS: TAX
-              Telecommunications: TEL
-              Transportation: TRA
-              Trade: TRADE
-              Women's Issues: WOMEN
-              Water: WATER
-  - select:
-          - name: form_fields[field_dd4016c]
-            selector: "#form-field-field_dd4016c"
-            value: $ADDRESS_STATE_POSTAL_ABBREV
-            required: true
-            options:
-              Alabama: AL
-              Alaska: AK
-              Arizona: AZ
-              Arkansas: AR
-              California: CA
-              Colorado: CO
-              Connecticut: CT
-              Delaware: DE
-              District of Columbia: DC
-              Florida: FL
-              Georgia: GA
-              Hawaii: HI
-              Idaho: ID
-              Illinois: IL
-              Indiana: IN
-              Iowa: IA
-              Kansas: KS
-              Kentucky: KY
-              Louisiana: LA
-              Maine: ME
-              Maryland: MD
-              Massachusetts: MA
-              Michigan: MI
-              Minnesota: MN
-              Mississippi: MS
-              Missouri: MO
-              Montana: MT
-              Nebraska: NE
-              Nevada: NV
-              New Hampshire: NH
-              New Jersey: NJ
-              New Mexico: NM
-              New York: NY
-              North Carolina: NC
-              North Dakota: ND
-              Ohio: OH
-              Oklahoma: OK
-              Oregon: OR
-              Pennsylvania: PA
-              Rhode Island: RI
-              South Carolina: SC
-              South Dakota: SD
-              Tennessee: TN
-              Texas: TX
-              Utah: UT
-              Vermont: VT
-              Virginia: VA
-              Washington: WA
-              West Virginia: WV
-              Wisconsin: WI
-              Wyoming: WY
-  - javascript:
-      - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
+      - name: input_39
+        selector: "#input_2_39"
+        value: $NAME_PREFIX
+        required: false
+        options:
+          - Mr.
+          - Mrs.
+          - Mx.
+          - Ms.
+          - Miss
+          - Professor
+          - Dean
+          - The Honorable
+          - Dr.
+      - name: input_17
+        selector: "#input_2_17"
+        value: $TOPIC
+        required: true
+        options:
+          Agriculture: Agriculture
+          Animal Rights & Wildlife: Animal Rights & Wildlife
+          Arts & Humanities: Arts & Humanities
+          Campaign Finance: Campaign Finance
+          Civil Rights & Liberties: Civil Rights & Liberties
+          Coast Guard, Fisheries, & Maritime: Coast Guard, Fisheries, & Maritime
+          Congressional Reform: Congressional Reform
+          Commerce: Commerce
+          Consumer Protection: Consumer Protection
+          Criminal Justice: Criminal Justice
+          Cybersecurity, Data Security: Cybersecurity, Data Security
+          DC Statehood: DC Statehood
+          Defense: Defense
+          Economy: Economy
+          Education: Education
+          Elections & Voting Rights: Elections & Voting Rights
+          Energy: Energy
+          Environment & EPA: Environment & EPA
+          FEMA: FEMA
+          Foreign Policy: Foreign Policy
+          Financial Services/Banking: Financial Services/Banking
+          Foreign Relations: Foreign Relations
+          Health: Health
+          Housing: Housing
+          Government Affairs: Government Affairs
+          Guns & Firearms: Guns & Firearms
+          Homeland Security: Homeland Security
+          Human Rights-Global: Human Rights-Global
+          Internship/Senate Page Inquiry: Internship/Senate Page Inquiry
+          Immigration & Border Security: Immigration & Border Security
+          Infrastructure: Infrastructure
+          Intel & Counterterrorism: Intel & Counterterrorism
+          Interior & National Parks: Interior & National Parks
+          Judiciary: Judiciary
+          Labor: Labor
+          LGBTQ: LGBTQ
+          Medicaid: Medicaid
+          Medicare: Medicare
+          Native American Affairs: Native American Affairs
+          Patents & Intellectual Property: Patents & Intellectual Property
+          Pensions: Pensions
+          Postal: Postal
+          Science, Technology, & Artificial Intelligence: Science, Technology, & Artificial Intelligence
+          Seniors & Aging: Seniors & Aging
+          Small Business: Small Business
+          Social Security: Social Security
+          Space & NASA: Space & NASA
+          Taxes: Taxes
+          Telecommunications: Telecommunications
+          Trade: Trade
+          Transportation: Transportation
+          Veterans: Veterans
+          Welfare: Welfare
+          Women's Health: Women's Health
+          Women's Rights: Women's Rights
+      - name: input_6.4
+        selector: "#input_2_6_4"
+        value: $ADDRESS_STATE_FULL
+        required: true
+        options:
+          - Alabama
+          - Alaska
+          - American Samoa
+          - Arizona
+          - Arkansas
+          - California
+          - Colorado
+          - Connecticut
+          - Delaware
+          - District of Columbia
+          - Florida
+          - Georgia
+          - Guam
+          - Hawaii
+          - Idaho
+          - Illinois
+          - Indiana
+          - Iowa
+          - Kansas
+          - Kentucky
+          - Louisiana
+          - Maine
+          - Maryland
+          - Massachusetts
+          - Michigan
+          - Minnesota
+          - Mississippi
+          - Missouri
+          - Montana
+          - Nebraska
+          - Nevada
+          - New Hampshire
+          - New Jersey
+          - New Mexico
+          - New York
+          - North Carolina
+          - North Dakota
+          - Northern Mariana Islands
+          - Ohio
+          - Oklahoma
+          - Oregon
+          - Pennsylvania
+          - Puerto Rico
+          - Rhode Island
+          - South Carolina
+          - South Dakota
+          - Tennessee
+          - Texas
+          - Utah
+          - U.S. Virgin Islands
+          - Vermont
+          - Virginia
+          - Washington
+          - West Virginia
+          - Wisconsin
+          - Wyoming
+          - Armed Forces Americas
+          - Armed Forces Europe
+          - Armed Forces Pacific
   - click_on:
-      - selector: button.elementor-button[type='submit']
-  - wait:
-      - value: 3
-  - javascript:
-      - value: if (document.querySelector(".elementor-message-success")) { document.querySelector(".elementor-message-success").style.display = "block"; }
+      - selector: '#gform_submit_button_2'
   success:
     headers:
       status: 200
     body:
-      contains: ""
+      contains: "Thank you for taking the time to write to me and my team."
