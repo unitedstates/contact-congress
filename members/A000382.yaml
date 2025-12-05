@@ -4,46 +4,44 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.alsobrooks.senate.gov/share-your-opinion/"
+    - wait:
+        - value: 3
     - fill_in:
-        - name: form_fields[name]
-          selector: "#form-field-name"
-          value: $NAME_PREFIX
-          required: true
         - name: form_fields[field_1d46919]
-          selector: "#form-field-field_1d46919"
+          selector: "#input_2_2"
           value: $NAME_FIRST
           required: true
         - name: form_fields[field_bdcaff9]
-          selector: "#form-field-field_bdcaff9"
+          selector: "#input_2_3"
           value: $NAME_LAST
           required: true
         - name: form_fields[field_00c2cf4]
-          selector: "#form-field-field_00c2cf4"
+          selector: "#input_2_6_1"
           value: $ADDRESS_STREET
           required: true
         - name: form_fields[field_5ce9e4e]
-          selector: "#form-field-field_5ce9e4e"
+          selector: "#input_2_6_3"
           value: $ADDRESS_CITY
           required: true
         - name: form_fields[field_1037219]
-          selector: "#form-field-field_1037219"
+          selector: "#input_2_6_5"
           value: $ADDRESS_ZIP5
           required: true
         - name: form_fields[email]
-          selector: "#form-field-email"
+          selector: "#input_2_42"
           value: $EMAIL
           required: true
         - name: form_fields[field_65932fe]
-          selector: "#form-field-field_65932fe"
+          selector: "#input_2_11"
           value: $SUBJECT
           required: true
         - name: form_fields[field_01539f0]
-          selector: "#form-field-field_01539f0"
+          selector: "#input_2_12"
           value: $MESSAGE
           required: true
     - select:
         - name: form_fields[message]
-          selector: "#form-field-message"
+          selector: "#input_2_17"
           value: $TOPIC
           required: true
           options:
@@ -101,7 +99,7 @@ contact_form:
             Welfare: WEL
             "Women's Issues": WOMEN
         - name: form_fields[field_dd4016c]
-          selector: "#form-field-field_dd4016c"
+          selector: "#input_2_6_4"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
@@ -159,11 +157,9 @@ contact_form:
     - javascript:
         - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
     - click_on:
-        - selector: button.elementor-button[type='submit']
+        - selector: "#gform_submit_button_2"
     - wait:
         - value: 3
-    - javascript:
-        - value: if (document.querySelector(".elementor-message-success")) { document.querySelector(".elementor-message-success").style.display = "block"; }
   success:
     headers:
       status: 200
