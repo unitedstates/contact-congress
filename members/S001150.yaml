@@ -164,6 +164,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_2"
+    - wait:
+        - value: 3
   success:
     headers:
       status: 200
