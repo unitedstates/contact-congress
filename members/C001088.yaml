@@ -1,178 +1,247 @@
 bioguide:  C001088
 contact_form:
   method: post
-  action: "https://www.coons.senate.gov/contact/share-your-opinion"
+  action: "/contact/share-your-opinion/"
   steps:
     - visit: "https://www.coons.senate.gov/contact/share-your-opinion"
     - wait:
         - value: 3
-    - javascript:
-        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
     - fill_in:
-        - name: input_FF88275E-5056-A066-608F-B6EF2D7F5129
-          selector: "#input-FF88275E-5056-A066-608F-B6EF2D7F5129"
+        - name: input_2
+          selector: "#input_2_2"
           value: $NAME_FIRST
           required: true
-        - name: input_FF8824D9-5056-A066-6042-D99D7CEAA2BC
-          selector: "#input-FF8824D9-5056-A066-6042-D99D7CEAA2BC"
+        - name: input_3
+          selector: "#input_2_3"
           value: $NAME_LAST
           required: true
-        - name: input_FF882823-5056-A066-6032-C7EC37769783
-          selector: "#email"
+        - name: input_9
+          selector: "#input_2_9"
           value: $EMAIL
           required: true
-        - name: input_FF882560-5056-A066-60DF-9C3CD4FE1ADF
-          selector: "#input-FF882560-5056-A066-60DF-9C3CD4FE1ADF"
+        - name: input_9_2
+          selector: "#input_2_9_2"
           value: $EMAIL
           required: true
-        - name: input_FF882786-5056-A066-608C-BB8B5B68A0D4
-          selector: "#input-FF882786-5056-A066-608C-BB8B5B68A0D4"
+        - name: input_41
+          selector: "#input_2_41"
           value: $PHONE
           required: true
-        - name: input_FF8827AE-5056-A066-6032-D1283B1BFC86
-          selector: "#input-FF8827AE-5056-A066-6032-D1283B1BFC86"
+        - name: input_42
+          selector: "#input_2_42"
+          value: $PHONE
+          required: false
+        - name: input_6.1
+          selector: "#input_2_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: input_FF882891-5056-A066-60BC-62384E97C895
-          selector: "#input-FF882891-5056-A066-60BC-62384E97C895"
+        - name: input_6.2
+          selector: "#input_2_6_2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: input_6.3
+          selector: "#input_2_6_3"
           value: $ADDRESS_CITY
           required: true
-        - name: input_FF8824F9-5056-A066-6083-362FD35DCACE
-          selector: "#input-FF8824F9-5056-A066-6083-362FD35DCACE"
+        - name: input_6.5
+          selector: "#input_2_6_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_FF88260A-5056-A066-6070-B369711DCB30
-          selector: "#input-FF88260A-5056-A066-6070-B369711DCB30"
-          value: $MESSAGE
-          required: true
-        - name: input_17D0611B-5056-A066-608B-2951F7B97365
-          selector: "#input-17D0611B-5056-A066-608B-2951F7B97365"
+        - name: input_11
+          selector: "#input_2_11"
           value: $SUBJECT
           required: true
+        - name: input_12
+          selector: "#input_2_12"
+          value: $MESSAGE
+          required: true
     - select:
-        - name: input_FF882848-5056-A066-60D7-1A3C4C6ADC8D
-          selector: "#input-FF882848-5056-A066-60D7-1A3C4C6ADC8D"
+        - name: input_39
+          selector: "#input_2_39"
           value: $NAME_PREFIX
           required: true
           options:
-            - Mr.
-            - Ms.
-            - Mrs.
-            - Miss
-            - Mr. and Mrs.
-            - Dr.
-            - Prof.
-            - Senator
-            - Gov.
-            - Congressman
-            - Pastor
-            - Hon.
-            - Fr.
-            - Sister
-            - Bishop
-            - Rabbi
-            - Reverend
-            - Fleet Admiral
-            - Admiral
-            - 1st Lt.
-            - Vice Admiral
-            - LCDR
-            - Rear Admiral (upper half)
-            - Rear Admiral (lower half)
-            - Captain
-            - Commander
-            - Lieutenant Commander
-            - Lieutenant
-            - "Lieutenant, Junior Grade"
-            - Ensign
-            - Master Chief Petty Officer of the Navy
-            - Master Chief Petty Officer
-            - Senior Chief Petty Officer
-            - Chief Petty Officer
-            - Petty Officer First Class
-            - Petty Officer Second Class
-            - Petty Officer Third Class
-            - Seaman
-            - Seaman Apprentice
-            - Seaman Recruit
-            - Chief Warrant Officer
-            - Warrant Officer
-            - Sgt Major Of The Corps
-            - Sergeant Major
-            - Master Gunnery Sgt
-            - First Sergeant
-            - Master Sergeant
-            - Gunnery Sergeant
-            - Staff Sergeant
-            - Sergeant
-            - Corporal
-            - Lance Corporal
-            - Private First Class
-            - Private
-            - General of the Air Force
-            - General
-            - Lieutenant General
-            - Major General
-            - Brigadier General
-            - Colonel
-            - Lieutenant Colonel
-            - Major
-            - First Lieutenant
-            - Second Lieutenant
-            - Chief Master Sergeant of the Air Force
-            - Command Chief Master Sergeant
-            - Chief Master Sergeant
-            - Senior Master Sergeant
-            - Technical Sergeant
-            - Senior Airman
-            - Airman First Class
-            - Airman
-        - name: input_FF882414-5056-A066-60CD-8CEF5C561EBD
-          selector: "#input-FF882414-5056-A066-60CD-8CEF5C561EBD"
+            Mr.: "Mr."
+            Ms.: "Ms."
+            Mrs.: "Mrs."
+            Miss: "Miss"
+            Mx.: "Mx."
+            Mr. and Mrs.: "Mr. and Mrs."
+            Dr.: "Dr."
+            Prof.: "Prof."
+            Senator: "Senator"
+            Gov.: "Gov."
+            Congressman: "Congressman"
+            Pastor: "Pastor"
+            Hon.: "Hon."
+            Fr.: "Fr."
+            Sister: "Sister"
+            Bishop: "Bishop"
+            Rabbi: "Rabbi"
+            Reverend: "Reverend"
+            Fleet Admiral: "Fleet Admiral"
+            Admiral: "Admiral"
+            1st Lt.: "1st Lt."
+            Vice Admiral: "Vice Admiral"
+            LCDR: "LCDR"
+            Rear Admiral (upper half): "Rear Admiral (upper half)"
+            Rear Admiral (lower half): "Rear Admiral (lower half)"
+            Captain: "Captain"
+            Commander: "Commander"
+            Lieutenant Commander: "Lieutenant Commander"
+            Lieutenant: "Lieutenant"
+            Lieutenant, Junior Grade: "Lieutenant, Junior Grade"
+            Ensign: "Ensign"
+            Master Chief Petty Officer of the Navy: "Master Chief Petty Officer of the Navy"
+            Master Chief Petty Officer: "Master Chief Petty Officer"
+            Senior Chief Petty Officer: "Senior Chief Petty Officer"
+            Chief Petty Officer: "Chief Petty Officer"
+            Petty Officer First Class: "Petty Officer First Class"
+            Petty Officer Second Class: "Petty Officer Second Class"
+            Petty Officer Third Class: "Petty Officer Third Class"
+            Seaman: "Seaman"
+            Seaman Apprentice: "Seaman Apprentice"
+            Seaman Recruit: "Seaman Recruit"
+            Chief Warrant Officer: "Chief Warrant Officer"
+            Warrant Officer: "Warrant Officer"
+            Sgt Major Of The Corps: "Sgt Major Of The Corps"
+            Sergeant Major: "Sergeant Major"
+            Master Gunnery Sgt: "Master Gunnery Sgt"
+            First Sergeant: "First Sergeant"
+            Master Sergeant: "Master Sergeant"
+            Gunnery Sergeant: "Gunnery Sergeant"
+            Staff Sergeant: "Staff Sergeant"
+            Sergeant: "Sergeant"
+            Corporal: "Corporal"
+            Lance Corporal: "Lance Corporal"
+            Private First Class: "Private First Class"
+            Private: "Private"
+            General of the Air Force: "General of the Air Force"
+            General: "General"
+            Lieutenant General: "Lieutenant General"
+            Major General: "Major General"
+            Brigadier Sergeant: "Brigadier Sergeant"
+            Colonel: "Colonel"
+            Major: "Major"
+            First Lieutenant: "First Lieutenant"
+            Second Lieutenant: "Second Lieutenant"
+            Chief Master Sergeant of the Air Force: "Chief Master Sergeant of the Air Force"
+            Command Chief Master Sergeant: "Command Chief Master Sergeant"
+            Chief Master Sergeant: "Chief Master Sergeant"
+            Senior Master Sergeant: "Senior Master Sergeant"
+            Technical Sergeant: "Technical Sergeant"
+            Senior Airman: "Senior Airman"
+            Airman First Class: "Airman First Class"
+            Airman: "Airman"
+        - name: input_17
+          selector: "#input_2_17"
           value: $TOPIC
           required: true
           options:
-            Abortion/Reproductive Health: ABORT
             Agriculture: AGRI
             Animal Welfare: ANIMAL
+            Appropriations/Federal Budget: APPROPS/BUDGET
             Banking and Financial Services: BANK
-            Budget and Appropriations: BUDGET
-            Climate Change: CLIMATE
+            Campaigns and Elections: CAMPAIGN/ELECTIONS
             Crime and Law Enforcement: CRIME
-            Defense: DEF
-            Deficit Reduction: DEFICIT
+            Defense and Military: DEF
+            Department of Government Efficiency: DOGE
             Domestic Violence: DOMVIO
+            Economy: ECON
             Education: EDU
             Energy: ENERGY
             Environment: ENVIRO
+            Federal Emergency Management: FEM
+            Federal Workforce: FED
             Foreign Policy: FP
             Guns: GUN
-            Health Care and Global Health: HEALTH
-            Homeland Security: HOMESEC
+            Health Care: HEALTH
             Housing: HOUSING
             Immigration: IMMIG
+            Judiciary: JUDICIARY
             Labor: LABOR
             LGBTQ Equality: LGBTQ
-            Manufacturing: MANUF
-            Military Operations: MILOPS
-            Medicaid and Medicare: CMS
-            Prescription Drugs: DRUG
-            Seniors, Social Security, and Pensions: SENIOR
+            Nutrition & SNAP/WIC: NUTRITION
+            Prescription Drugs: PRESCRIP
+            Religion: RELIGION
+            Reproductive Health: REPRODUCTIVE
+            Social Security and Pensions: SENIOR
             Taxes: TAX
+            Telecommunications: TEL
             Trade: TRADE
             Transportation and Infrastructure: TRANSPO
             Veterans: VET
             Miscellaneous: MISC
-            National Service: NATSERV
-    - javascript:
-        - value: document.querySelector("#input-FF88260A-5056-A066-6070-B369711DCB30").value = document.querySelector("#input-FF88260A-5056-A066-6070-B369711DCB30").value.replace(/"/g, '');
+        - name: input_6.4
+          selector: "#input_2_6_4"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            Alabama: Alabama
+            Alaska: Alaska
+            American Samoa: American Samoa
+            Arizona: Arizona
+            Arkansas: Arkansas
+            California: California
+            Colorado: Colorado
+            Connecticut: Connecticut
+            Delaware: Delaware
+            District of Columbia: District of Columbia
+            Florida: Florida
+            Georgia: Georgia
+            Guam: Guam
+            Hawaii: Hawaii
+            Idaho: Idaho
+            Illinois: Illinois
+            Indiana: Indiana
+            Iowa: Iowa
+            Kansas: Kansas
+            Kentucky: Kentucky
+            Louisiana: Louisiana
+            Maine: Maine
+            Maryland: Maryland
+            Massachusetts: Massachusetts
+            Michigan: Michigan
+            Minnesota: Minnesota
+            Mississippi: Mississippi
+            Missouri: Missouri
+            Montana: Montana
+            Nebraska: Nebraska
+            Nevada: Nevada
+            New Hampshire: New Hampshire
+            New Jersey: New Jersey
+            New Mexico: New Mexico
+            New York: New York
+            North Carolina: North Carolina
+            North Dakota: North Dakota
+            Northern Mariana Islands: Northern Mariana Islands
+            Ohio: Ohio
+            Oklahoma: Oklahoma
+            Oregon: Oregon
+            Pennsylvania: Pennsylvania
+            Puerto Rico: Puerto Rico
+            Rhode Island: Rhode Island
+            South Carolina: South Carolina
+            South Dakota: South Dakota
+            Tennessee: Tennessee
+            Texas: Texas
+            Utah: Utah
+            U.S. Virgin Islands: U.S. Virgin Islands
+            Vermont: Vermont
+            Virginia: Virginia
+            Washington: Washington
+            West Virginia: West Virginia
+            Wisconsin: Wisconsin
+            Wyoming: Wyoming
+            Armed Forces Americas: Armed Forces Americas
+            Armed Forces Europe: Armed Forces Europe
+            Armed Forces Pacific: Armed Forces Pacific
     - click_on:
-        - value: Submit
-          selector: input.btn
+        - selector: "#gform_submit_button_2"
     - wait:
         - value: 3
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: "Thank You"
