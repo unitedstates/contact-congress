@@ -1,192 +1,185 @@
-bioguide:  C001098
+bioguide: C001098
 contact_form:
-  method: post
-  action: "/?p=form&id=16"
-  steps:
-    - visit: "https://www.cruz.senate.gov/contact/write-ted/form"
-    - javascript:
-        - value: Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });
-    - select:
-        - name: "input_B03E04DB-4040-F985-52CD-18F332336F99"
-          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
-          value: $TOPIC
-          required: true
-          options:
-            "Agriculture": "Agriculture"
-            "Animal Welfare": "Animal Welfare"
-            "Banking/Housing": "Banking/Housing"
-            "Budget/Appropriations": "Budget/Appropriations"
-            "Campaigns/Elections": "Campaigns/Elections"
-            "Constitutional/Civil Rights": "Constitutional/Civil Rights"
-            "Crime": "Crime"
-            "Defense/National Security": "Defense/National Security"
-            "Economy/Jobs": "Economy/Jobs"
-            "Education": "Education"
-            "Energy": "Energy"
-            "Environment": "Environment"
-            "Foreign Policy": "Foreign Policy"
-            "Government Reform/Regulations": "Government Reform/Regulations"
-            "Health Care": "Health Care"
-            "Hurricane Harvey": "Hurricane Harvey"
-            "Immigration": "Immigration"
-            "Judiciary": "Judiciary"
-            "Labor": "Labor"
-            "NASA": "NASA"
-            "Science/Technology": "Science/Technology"
-            "Second Amendment": "Second Amendment"
-            "Social Issues": "Social Issues"
-            "Social Security": "Social Security"
-            "Taxes": "Taxes"
-            "Telecommunications": "Telecommunications"
-            "Trade": "Trade"
-            "Transportation": "Transportation"
-            "Veterans": "Veterans"
-            "Welfare": "Welfare"
-        - name: input_B03E0527-4040-F985-52CD-C0DD6BEF325F
-          selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
-          value: $NAME_PREFIX
-          required: true
-          options:
-            "Mr.": "Mr."
-            "Ms.": "Ms."
-            "Mrs.": "Mrs."
-            "Mr. and Mrs.": "Mr. and Mrs."
-            "Miss": "Miss"
-            "Dr.": "Dr."
-            "Dr. and Mrs.": "Dr. and Mrs."
-            "Dr. and Mr.": "Dr. and Mr."
-            "Admiral": "Admiral"
-            "Captain": "Captain"
-            "Chief Master Sergeant": "Chief Master Sergeant "
-            "Colonel": "Colonel"
-            "Commander": "Commander"
-            "Corporal": "Corporal"
-            "Father": "Father"
-            "Lieutenant": "Lieutenant"
-            "Lieutenant Colonel": "Lieutenant Colonel"
-            "Master Sergeant": "Master Sergeant "
-            "Reverend": "Reverend"
-            "Sergeant": "Sergeant"
-            "Second Lieutenant": "Second Lieutenant"
-            "Sergeant Major": "Sergeant Major"
-            "Sister": "Sister"
-            "Technical Sergeant": "Technical Sergeant"
-    - fill_in:
-        - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
-          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
-          value: $NAME_FIRST
-          required: true
-        - name: input_B03E04BD-4040-F985-52CD-48E090E769DA
-          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
-          value: $NAME_LAST
-          required: true
-        - name: input_B03E05F1-4040-F985-52CD-A580E72A7D41
-          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
-          value: $ADDRESS_STREET
-          required: true
-        - name: input_B03E0595-4040-F985-52CD-C572364023FE
-          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
-          value: $ADDRESS_CITY
-          required: true
-    - select:
-        - name: input_B03E0669-4040-F985-52CD-11B231195172
-          selector: "#input-B03E0669-4040-F985-52CD-11B231195172"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            "AL": "AL"
-            "AK": "AK"
-            "AR": "AR"
-            "AZ": "AZ"
-            "CA": "CA"
-            "CO": "CO"
-            "CT": "CT"
-            "DC": "DC"
-            "DE": "DE"
-            "FL": "FL"
-            "GA": "GA"
-            "HI": "HI"
-            "ID": "ID"
-            "IL": "IL"
-            "IN": "IN"
-            "IA": "IA"
-            "KS": "KS"
-            "KY": "KY"
-            "LA": "LA"
-            "ME": "ME"
-            "MD": "MD"
-            "MA": "MA"
-            "MI": "MI"
-            "MN": "MN"
-            "MS": "MS"
-            "MO": "MO"
-            "MT": "MT"
-            "NE": "NE"
-            "NV": "NV"
-            "NH": "NH"
-            "NJ": "NJ"
-            "NM": "NM"
-            "NY": "NY"
-            "NC": "NC"
-            "ND": "ND"
-            "OH": "OH"
-            "OK": "OK"
-            "OR": "OR"
-            "PA": "PA"
-            "RI": "RI"
-            "SC": "SC"
-            "SD": "SD"
-            "TN": "TN"
-            "TX": "TX"
-            "UT": "UT"
-            "VT": "VT"
-            "VA": "VA"
-            "WA": "WA"
-            "WV": "WV"
-            "WI": "WI"
-            "WY": "WY"
-    - fill_in:
-        - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
-          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
-          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
-          value: $PHONE
-          required: true
-        - name: input_B03E0536-4040-F985-52CD-AFE12CDE8D31
-          selector: "#email"
-          value: $EMAIL
-          required: true
-        - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
-          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
-          value: $MESSAGE
-          required: true
-        - name: input_91FE927D-5056-A066-600E-4988E56F75CA
-          selector: "#input-91FE927D-5056-A066-600E-4988E56F75CA"
-          value: $SUBJECT
-          required: true
-    - select:
-        - name: input_6AF62838-5056-A066-60CC-D012F4F72835
-          selector: "#input-6AF62838-5056-A066-60CC-D012F4F72835"
-          value: "Response Requested"
-          required: true
-    - javascript:
-        - value: document.querySelector("#g-recaptcha-response").style.display = "block";
-    - recaptcha:
-        - value: true
-    ## Re-hide the recaptcha response b/c it covers the submit button.
-    - javascript:
-        - value: document.querySelector("#g-recaptcha-response").style.display = "none";
-    - javascript:
-        - value: document.querySelector('button[type="submit"].btn').click();
-    ## The success screen has no new text on it, rather it just has an image.  Doing a find on the image alt text here to see if it is present before declaring success by the text in the body.
-    - wait:
-        - value: 2
-    - find:
-        - selector: 'img[alt="thank you from ted image"]'
-  success:
-    headers:
-      status: 200
-    body:
-      contains: ""
+    method: post
+    action: "/?p=form&id=16"
+    steps:
+        - visit: "https://www.cruz.senate.gov/contact/write-ted/form"
+        - javascript:
+              - value: Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });
+        - select:
+              - name: "input_B03E04DB-4040-F985-52CD-18F332336F99"
+                selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
+                value: $TOPIC
+                required: true
+                options:
+                    "Agriculture": "Agriculture"
+                    "Animal Welfare": "Animal Welfare"
+                    "Banking/Housing": "Banking/Housing"
+                    "Budget/Appropriations": "Budget/Appropriations"
+                    "Campaigns/Elections": "Campaigns/Elections"
+                    "Constitutional/Civil Rights": "Constitutional/Civil Rights"
+                    "Crime": "Crime"
+                    "Defense/National Security": "Defense/National Security"
+                    "Economy/Jobs": "Economy/Jobs"
+                    "Education": "Education"
+                    "Energy": "Energy"
+                    "Environment": "Environment"
+                    "Foreign Policy": "Foreign Policy"
+                    "Government Reform/Regulations": "Government Reform/Regulations"
+                    "Health Care": "Health Care"
+                    "Hurricane Harvey": "Hurricane Harvey"
+                    "Immigration": "Immigration"
+                    "Judiciary": "Judiciary"
+                    "Labor": "Labor"
+                    "NASA": "NASA"
+                    "Science/Technology": "Science/Technology"
+                    "Second Amendment": "Second Amendment"
+                    "Social Issues": "Social Issues"
+                    "Social Security": "Social Security"
+                    "Taxes": "Taxes"
+                    "Telecommunications": "Telecommunications"
+                    "Trade": "Trade"
+                    "Transportation": "Transportation"
+                    "Veterans": "Veterans"
+                    "Welfare": "Welfare"
+              - name: input_B03E0527-4040-F985-52CD-C0DD6BEF325F
+                selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
+                value: $NAME_PREFIX
+                required: true
+                options:
+                    "Mr.": "Mr."
+                    "Ms.": "Ms."
+                    "Mrs.": "Mrs."
+                    "Mr. and Mrs.": "Mr. and Mrs."
+                    "Miss": "Miss"
+                    "Dr.": "Dr."
+                    "Dr. and Mrs.": "Dr. and Mrs."
+                    "Dr. and Mr.": "Dr. and Mr."
+                    "Admiral": "Admiral"
+                    "Captain": "Captain"
+                    "Chief Master Sergeant": "Chief Master Sergeant "
+                    "Colonel": "Colonel"
+                    "Commander": "Commander"
+                    "Corporal": "Corporal"
+                    "Father": "Father"
+                    "Lieutenant": "Lieutenant"
+                    "Lieutenant Colonel": "Lieutenant Colonel"
+                    "Master Sergeant": "Master Sergeant "
+                    "Reverend": "Reverend"
+                    "Sergeant": "Sergeant"
+                    "Second Lieutenant": "Second Lieutenant"
+                    "Sergeant Major": "Sergeant Major"
+                    "Sister": "Sister"
+                    "Technical Sergeant": "Technical Sergeant"
+        - fill_in:
+              - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
+                selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
+                value: $NAME_FIRST
+                required: true
+              - name: input_B03E04BD-4040-F985-52CD-48E090E769DA
+                selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
+                value: $NAME_LAST
+                required: true
+              - name: input_B03E05F1-4040-F985-52CD-A580E72A7D41
+                selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
+                value: $ADDRESS_STREET
+                required: true
+              - name: input_B03E0595-4040-F985-52CD-C572364023FE
+                selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
+                value: $ADDRESS_CITY
+                required: true
+        - select:
+              - name: input_B03E0669-4040-F985-52CD-11B231195172
+                selector: "#input-B03E0669-4040-F985-52CD-11B231195172"
+                value: $ADDRESS_STATE_POSTAL_ABBREV
+                required: true
+                options:
+                    "AL": "AL"
+                    "AK": "AK"
+                    "AR": "AR"
+                    "AZ": "AZ"
+                    "CA": "CA"
+                    "CO": "CO"
+                    "CT": "CT"
+                    "DC": "DC"
+                    "DE": "DE"
+                    "FL": "FL"
+                    "GA": "GA"
+                    "HI": "HI"
+                    "ID": "ID"
+                    "IL": "IL"
+                    "IN": "IN"
+                    "IA": "IA"
+                    "KS": "KS"
+                    "KY": "KY"
+                    "LA": "LA"
+                    "ME": "ME"
+                    "MD": "MD"
+                    "MA": "MA"
+                    "MI": "MI"
+                    "MN": "MN"
+                    "MS": "MS"
+                    "MO": "MO"
+                    "MT": "MT"
+                    "NE": "NE"
+                    "NV": "NV"
+                    "NH": "NH"
+                    "NJ": "NJ"
+                    "NM": "NM"
+                    "NY": "NY"
+                    "NC": "NC"
+                    "ND": "ND"
+                    "OH": "OH"
+                    "OK": "OK"
+                    "OR": "OR"
+                    "PA": "PA"
+                    "RI": "RI"
+                    "SC": "SC"
+                    "SD": "SD"
+                    "TN": "TN"
+                    "TX": "TX"
+                    "UT": "UT"
+                    "VT": "VT"
+                    "VA": "VA"
+                    "WA": "WA"
+                    "WV": "WV"
+                    "WI": "WI"
+                    "WY": "WY"
+        - fill_in:
+              - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
+                selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
+                value: $ADDRESS_ZIP5
+                required: true
+              - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
+                selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
+                value: $PHONE
+                required: true
+              - name: input_B03E0536-4040-F985-52CD-AFE12CDE8D31
+                selector: "#email"
+                value: $EMAIL
+                required: true
+              - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
+                selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
+                value: $MESSAGE
+                required: true
+              - name: input_91FE927D-5056-A066-600E-4988E56F75CA
+                selector: "#input-91FE927D-5056-A066-600E-4988E56F75CA"
+                value: $SUBJECT
+                required: true
+        - select:
+              - name: input_6AF62838-5056-A066-60CC-D012F4F72835
+                selector: "#input-6AF62838-5056-A066-60CC-D012F4F72835"
+                value: "Response Requested"
+                required: true
+        - javascript:
+              - value: document.querySelector('button[type="submit"].btn').click();
+        ## The success screen has no new text on it, rather it just has an image.  Doing a find on the image alt text here to see if it is present before declaring success by the text in the body.
+        - wait:
+              - value: 2
+        - find:
+              - selector: 'img[alt="thank you from ted image"]'
+    success:
+        headers:
+            status: 200
+        body:
+            contains: ""
