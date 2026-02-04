@@ -1,144 +1,144 @@
-bioguide:  C001056
+bioguide: C001056
 contact_form:
-  method: post
-  action: ""
-  steps:
-    - visit: "https://www.cornyn.senate.gov/share-opinion/"
-    - fill_in:
-        - name: form_fields[name]
-          selector: "#form-field-name"
-          value: $NAME_FIRST
-          required: true
-        - name: form_fields[field_0b2855e]
-          selector: "#form-field-field_0b2855e"
-          value: $NAME_LAST
-          required: true
-        - name: form_fields[field_4b6fd40]
-          selector: "#form-field-field_4b6fd40"
-          value: $ADDRESS_STREET
-          required: true
-        - name: form_fields[field_64c26c8]
-          selector: "#form-field-field_64c26c8"
-          value: $ADDRESS_STREET_2
-          required: false
-        - name: form_fields[field_3c0335e]
-          selector: "#form-field-field_3c0335e"
-          value: $ADDRESS_CITY
-          required: true
-        - name: form_fields[field_bff6d4a]
-          selector: "#form-field-field_bff6d4a"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: form_fields[field_ecfbd0b]
-          selector: "#form-field-field_ecfbd0b"
-          value: $PHONE
-          required: true
-        - name: form_fields[email]
-          selector: "#form-field-email"
-          value: $EMAIL
-          required: true
-        - name: form_fields[field_e1bcf38]
-          selector: "#form-field-field_e1bcf38"
-          value: $MESSAGE
-          required: true
-    - select:
-        - name: form_fields[field_562fb59]
-          selector: "#form-field-field_562fb59"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            - AL
-            - AK
-            - AR
-            - AZ
-            - CA
-            - CO
-            - CT
-            - DC
-            - DE
-            - FL
-            - GA
-            - HI
-            - ID
-            - IL
-            - IN
-            - IA
-            - KS
-            - KY
-            - LA
-            - ME
-            - MD
-            - MA
-            - MI
-            - MN
-            - MS
-            - MO
-            - MT
-            - NE
-            - NV
-            - NH
-            - NJ
-            - NM
-            - NY
-            - NC
-            - ND
-            - OH
-            - OK
-            - OR
-            - PA
-            - RI
-            - SC
-            - SD
-            - TN
-            - TX
-            - UT
-            - VT
-            - VA
-            - WA
-            - WV
-            - WI
-            - WY
-        - name: form_fields[field_10b4eab]
-          selector: "#form-field-field_10b4eab"
-          value: $TOPIC
-          required: true
-          options:
-            - Abortion
-            - Agriculture
-            - Arts and Humanities
-            - Banking
-            - Budget
-            - Criminal Justice
-            - Defense
-            - Education
-            - Election Reform
-            - Energy
-            - Environment
-            - FEMA
-            - Finance
-            - Firearms
-            - Foreign Affairs
-            - Health Care
-            - Housing
-            - Immigration
-            - Interior
-            - Judiciary
-            - Labor
-            - Medicare
-            - Religion
-            - Small Business
-            - Social Security
-            - Taxes/Economy
-            - Trade
-            - Transportation
-            - Veterans
-            - Welfare
-    - javascript:
-        - value: document.querySelector("button.elementor-size-sm").click();
-    - wait:
-        - value: 5
-  success:
-    headers:
-      status: 200
-    body:
-      contains: "Share Your Opinion"
+    method: post
+    action: ""
+    steps:
+        - visit: "https://www.cornyn.senate.gov/share-opinion/"
+        - fill_in:
+              - name: form_fields[name]
+                selector: "#form-field-name"
+                value: $NAME_FIRST
+                required: true
+              - name: form_fields[field_0b2855e]
+                selector: "#form-field-field_0b2855e"
+                value: $NAME_LAST
+                required: true
+              - name: form_fields[field_4b6fd40]
+                selector: "#form-field-field_4b6fd40"
+                value: $ADDRESS_STREET
+                required: true
+              - name: form_fields[field_64c26c8]
+                selector: "#form-field-field_64c26c8"
+                value: $ADDRESS_STREET_2
+                required: false
+              - name: form_fields[field_3c0335e]
+                selector: "#form-field-field_3c0335e"
+                value: $ADDRESS_CITY
+                required: true
+              - name: form_fields[field_bff6d4a]
+                selector: "#form-field-field_bff6d4a"
+                value: $ADDRESS_ZIP5
+                required: true
+              - name: form_fields[field_ecfbd0b]
+                selector: "#form-field-field_ecfbd0b"
+                value: $PHONE
+                required: true
+              - name: form_fields[email]
+                selector: "#form-field-email"
+                value: $EMAIL
+                required: true
+              - name: form_fields[field_e1bcf38]
+                selector: "#form-field-field_e1bcf38"
+                value: $MESSAGE
+                required: true
+        - select:
+              - name: form_fields[field_562fb59]
+                selector: "#form-field-field_562fb59"
+                value: $ADDRESS_STATE_POSTAL_ABBREV
+                required: true
+                options:
+                    - AL
+                    - AK
+                    - AR
+                    - AZ
+                    - CA
+                    - CO
+                    - CT
+                    - DC
+                    - DE
+                    - FL
+                    - GA
+                    - HI
+                    - ID
+                    - IL
+                    - IN
+                    - IA
+                    - KS
+                    - KY
+                    - LA
+                    - ME
+                    - MD
+                    - MA
+                    - MI
+                    - MN
+                    - MS
+                    - MO
+                    - MT
+                    - NE
+                    - NV
+                    - NH
+                    - NJ
+                    - NM
+                    - NY
+                    - NC
+                    - ND
+                    - OH
+                    - OK
+                    - OR
+                    - PA
+                    - RI
+                    - SC
+                    - SD
+                    - TN
+                    - TX
+                    - UT
+                    - VT
+                    - VA
+                    - WA
+                    - WV
+                    - WI
+                    - WY
+              - name: form_fields[field_10b4eab]
+                selector: "#form-field-field_10b4eab"
+                value: $TOPIC
+                required: true
+                options:
+                    - Abortion
+                    - Agriculture
+                    - Arts and Humanities
+                    - Banking
+                    - Budget
+                    - Criminal Justice
+                    - Defense
+                    - Education
+                    - Election Reform
+                    - Energy
+                    - Environment
+                    - FEMA
+                    - Finance
+                    - Firearms
+                    - Foreign Affairs
+                    - Health Care
+                    - Housing
+                    - Immigration
+                    - Interior
+                    - Judiciary
+                    - Labor
+                    - Medicare
+                    - Religion
+                    - Small Business
+                    - Social Security
+                    - Taxes/Economy
+                    - Trade
+                    - Transportation
+                    - Veterans
+                    - Welfare
+        - javascript:
+              - value: document.querySelector("button.elementor-size-sm").click();
+        - wait:
+              - value: 5
+    success:
+        headers:
+            status: 200
+        body:
+            contains: "Your Message Has Been Received and Will be Read"
