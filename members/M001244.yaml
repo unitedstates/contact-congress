@@ -1,187 +1,194 @@
-bioguide:  M001244
+bioguide: M001244
 contact_form:
-  method: post
-  action: ""
-  steps:
-  - visit: "https://www.moody.senate.gov/contact-us/"
-  - fill_in:
-        - name: input_5
-          selector: "#input_2_5"
-          value: $NAME_PREFIX
-          required: false
-        - name: input_6
-          selector: "#input_2_6"
-          value: $NAME_FIRST
-          required: true
-        - name: input_7
-          selector: "#input_2_7"
-          value: $NAME_LAST
-          required: true
-        - name: input_8
-          selector: "#input_2_8"
-          value: $ADDRESS_STREET
-          required: true
-        - name: input_9
-          selector: "#input_2_9"
-          value: $ADDRESS_STREET2
-          required: false
-        - name: input_10
-          selector: "#input_2_10"
-          value: $ADDRESS_CITY
-          required: true
-        - name: input_12
-          selector: "#input_2_12"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: input_13
-          selector: "#input_2_13"
-          value: $PHONE
-          required: false
-        - name: input_14
-          selector: "#input_2_14"
-          value: $EMAIL
-          required: true
-        - name: input_15
-          selector: "#input_2_15"
-          value: $SUBJECT
-          required: true
-        - name: input_4
-          selector: "#input_2_4"
-          value: $MESSAGE
-          required: false
-  - select:
-      - name: input_3
-        selector: "#input_2_3"
-        value: $TOPIC
-        required: true
-        options:
-          Agriculture: AGR
-          Animals: AN
-          Arts and Humanities: ART
-          Banking: BANK
-          Budget and Economy: BUD
-          Campaign Finance: CAMPFI
-          Help with a Federal Agency: CASEWORK
-          Campaign Finance Reform: CFR
-          Civil Rights/Humanities: CIVIL
-          Civil Service/Postal: CIVILSERV
-          Congress and Elections: CONG
-          Congressional Issues: CONGRESS
-          Child Tax Credit: CTC
-          CWC-Opt-in: CWC-OPT-IN
-          Defense and Military: DEF
-          Defense: DEFENSE
-          Economy: ECON
-          Education Higher: ED.HIGH
-          Education: EDU
-          eForm Response: EFORM RESPONSE
-          Energy: ENE
-          E-News Reply: E-NEWS REPLY
-          E-News Subscribe: ENEWS SUBSCRIBE
-          Environmental: ENV
-          Family/Marriage: FAM
-          Federal Employees: FED
-          Flag Request: FLAG
-          Food Safety: FOOD
-          Foreign Relations: FR
-          Governmental Reform: GOV
-          Guns: GUN
-          Health: HEALTH
-          Homeland Security: HOM
-          Housing: HOUSING
-          Housing & Urban Development: HUD
-          Immigration: IMM
-          Infrastructure: INFRASTRUCTURE
-          International Relations: INT
-          Internship Request: INTERNSHIP REQUEST
-          IRS: IRS
-          Jobs and the Economy: JOBS
-          Judiciary: JUD
-          Labor: LABOR
-          LGBT: LGBT
-          Military: MIL
-          No Response Necessary: NRN
-          CWC-No Response Necessary: NRN-CWC
-          Website-No Response Necessary: NRN-WEBSITE
-          Office Registry Web Form: OFFICE REGISTRY
-          Other Issues: OTHER
-          Passport Casework: PASSPORTS
-          Post Office: POST
-          REGISTER to RESPOND: REGISTER TO RESPOND
-          Response Reply: RESPONSE REPLY
-          Science and Technology: SCI
-          Security: SEC
-          Senior Citizens: SENIORS
-          Services Reply: SERVICES REPLY
-          Small Business: SM.BUS
-          Social Issues: SOC
-          Social Services: SOC SERVICES
-          Spam Opt-Out: SPAM OPT-OUT
-          Social Security: SSEC
-  - select:
-      - name: input_11
-        selector: "#input_2_11"
-        value: $ADDRESS_STATE
-        required: true
-        options:
-          - Alabama
-          - Alaska
-          - Arizona
-          - Arkansas
-          - California
-          - Colorado
-          - Connecticut
-          - Delaware
-          - District of Columbia
-          - Florida
-          - Georgia
-          - Hawaii
-          - Idaho
-          - Illinois
-          - Indiana
-          - Iowa
-          - Kansas
-          - Kentucky
-          - Louisiana
-          - Maine
-          - Maryland
-          - Massachusetts
-          - Michigan
-          - Minnesota
-          - Mississippi
-          - Missouri
-          - Montana
-          - Nebraska
-          - Nevada
-          - New Hampshire
-          - New Jersey
-          - New Mexico
-          - New York
-          - North Carolina
-          - North Dakota
-          - Ohio
-          - Oklahoma
-          - Oregon
-          - Pennsylvania
-          - Rhode Island
-          - South Carolina
-          - South Dakota
-          - Tennessee
-          - Texas
-          - Utah
-          - Vermont
-          - Virginia
-          - Washington
-          - West Virginia
-          - Wisconsin
-          - Wyoming
-          - Armed Forces Americas
-          - Armed Forces Europe
-          - Armed Forces Pacific
-  - click_on:
-      - selector: '#gform_submit_button_2'
-  success:
-    headers:
-      status: 200
-    body:
-      contains: "Thanks for contacting us!"
+    method: post
+    action: ""
+    steps:
+        - visit: "https://www.moody.senate.gov/contact-us/"
+        - fill_in:
+              - name: input_5
+                selector: "#input_2_5"
+                value: $NAME_PREFIX
+                required: false
+              - name: input_6
+                selector: "#input_2_6"
+                value: $NAME_FIRST
+                required: true
+              - name: input_7
+                selector: "#input_2_7"
+                value: $NAME_LAST
+                required: true
+              - name: input_8
+                selector: "#input_2_8"
+                value: $ADDRESS_STREET
+                required: true
+              - name: input_9
+                selector: "#input_2_9"
+                value: $ADDRESS_STREET_2
+                required: false
+              - name: input_10
+                selector: "#input_2_10"
+                value: $ADDRESS_CITY
+                required: true
+        - fill_in:
+              - name: input_14
+                selector: "#input_2_14"
+                value: $EMAIL
+                required: true
+              - name: input_15
+                selector: "#input_2_15"
+                value: $SUBJECT
+                required: true
+              - name: input_4
+                selector: "#input_2_4"
+                value: $MESSAGE
+                required: false
+        - wait:
+              - value: 1
+        - fill_in:
+              - name: input_12
+                selector: "#input_2_12"
+                value: $ADDRESS_ZIP5
+                required: true
+        - wait:
+              - value: 0.5
+        - fill_in:
+              - name: input_13
+                selector: "#input_2_13"
+                value: $PHONE_PARENTHESES
+                required: false
+        - select:
+              - name: input_3
+                selector: "#input_2_3"
+                value: $TOPIC
+                required: true
+                options:
+                    Agriculture: AGR
+                    Animals: AN
+                    Arts and Humanities: ART
+                    Banking: BANK
+                    Budget and Economy: BUD
+                    Campaign Finance: CAMPFI
+                    Help with a Federal Agency: CASEWORK
+                    Campaign Finance Reform: CFR
+                    Civil Rights/Humanities: CIVIL
+                    Civil Service/Postal: CIVILSERV
+                    Congress and Elections: CONG
+                    Congressional Issues: CONGRESS
+                    Child Tax Credit: CTC
+                    CWC-Opt-in: CWC-OPT-IN
+                    Defense and Military: DEF
+                    Defense: DEFENSE
+                    Economy: ECON
+                    Education Higher: ED.HIGH
+                    Education: EDU
+                    eForm Response: EFORM RESPONSE
+                    Energy: ENE
+                    E-News Reply: E-NEWS REPLY
+                    E-News Subscribe: ENEWS SUBSCRIBE
+                    Environmental: ENV
+                    Family/Marriage: FAM
+                    Federal Employees: FED
+                    Flag Request: FLAG
+                    Food Safety: FOOD
+                    Foreign Relations: FR
+                    Governmental Reform: GOV
+                    Guns: GUN
+                    Health: HEALTH
+                    Homeland Security: HOM
+                    Housing: HOUSING
+                    Housing & Urban Development: HUD
+                    Immigration: IMM
+                    Infrastructure: INFRASTRUCTURE
+                    International Relations: INT
+                    Internship Request: INTERNSHIP REQUEST
+                    IRS: IRS
+                    Jobs and the Economy: JOBS
+                    Judiciary: JUD
+                    Labor: LABOR
+                    LGBT: LGBT
+                    Military: MIL
+                    No Response Necessary: NRN
+                    CWC-No Response Necessary: NRN-CWC
+                    Website-No Response Necessary: NRN-WEBSITE
+                    Office Registry Web Form: OFFICE REGISTRY
+                    Other Issues: OTHER
+                    Passport Casework: PASSPORTS
+                    Post Office: POST
+                    REGISTER to RESPOND: REGISTER TO RESPOND
+                    Response Reply: RESPONSE REPLY
+                    Science and Technology: SCI
+                    Security: SEC
+                    Senior Citizens: SENIORS
+                    Services Reply: SERVICES REPLY
+                    Small Business: SM.BUS
+                    Social Issues: SOC
+                    Social Services: SOC SERVICES
+                    Spam Opt-Out: SPAM OPT-OUT
+                    Social Security: SSEC
+        - select:
+              - name: input_11
+                selector: "#input_2_11"
+                value: $ADDRESS_STATE
+                required: true
+                options:
+                    - Alabama
+                    - Alaska
+                    - Arizona
+                    - Arkansas
+                    - California
+                    - Colorado
+                    - Connecticut
+                    - Delaware
+                    - District of Columbia
+                    - Florida
+                    - Georgia
+                    - Hawaii
+                    - Idaho
+                    - Illinois
+                    - Indiana
+                    - Iowa
+                    - Kansas
+                    - Kentucky
+                    - Louisiana
+                    - Maine
+                    - Maryland
+                    - Massachusetts
+                    - Michigan
+                    - Minnesota
+                    - Mississippi
+                    - Missouri
+                    - Montana
+                    - Nebraska
+                    - Nevada
+                    - New Hampshire
+                    - New Jersey
+                    - New Mexico
+                    - New York
+                    - North Carolina
+                    - North Dakota
+                    - Ohio
+                    - Oklahoma
+                    - Oregon
+                    - Pennsylvania
+                    - Rhode Island
+                    - South Carolina
+                    - South Dakota
+                    - Tennessee
+                    - Texas
+                    - Utah
+                    - Vermont
+                    - Virginia
+                    - Washington
+                    - West Virginia
+                    - Wisconsin
+                    - Wyoming
+                    - Armed Forces Americas
+                    - Armed Forces Europe
+                    - Armed Forces Pacific
+        - click_on:
+              - selector: "#gform_submit_button_2"
+    success:
+        headers:
+            status: 200
+        body:
+            contains: "Thanks for contacting us!"
