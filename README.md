@@ -50,13 +50,13 @@ At present, the only way to send electronic messages to members of Congress is t
 
 
 
-**Each file contributed to this dataset will potentially allow hundreds of US citizens to contact their representatives. Please visit our [contribution guide](http://theunitedstates.io/contact-congress/) for a full description of how to contribute, but in brief:**
+**Each file contributed to this dataset will potentially allow hundreds of US citizens to contact their representatives. Please visit our [contribution guide](http://unitedstates.github.io/contact-congress/) for a full description of how to contribute, but in brief:**
 
 
 
 1. [Reply to an open ticket](https://github.com/unitedstates/congress-contact/issues?labels=MoC&page=1&state=open) stating that you are currently working on a congress member's form.
 
-2. [Use the bookmarklet](http://theunitedstates.io/contact-congress/) to generate a new YAML file.
+2. [Use the bookmarklet](http://unitedstates.github.io/contact-congress/) to generate a new YAML file.
 
 3. Save the generated file in `/members` as `[bioguide].yaml`, where `[bioguide]` is that member's *Bioguide ID*.
 
