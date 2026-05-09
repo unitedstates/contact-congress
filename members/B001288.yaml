@@ -25,7 +25,7 @@ contact_form:
           required: true
         - name: input-A3B5C438-CBC9-4E11-BB60-7931A4433674
           selector: "#input-A3B5C438-CBC9-4E11-BB60-7931A4433674"
-          value: $ADDRESS_ZIP_PLUS_4
+          value: $ADDRESS_ZIP5
           required: true
         - name: input-A3B5C492-C1FA-436F-B863-9D497858366F
           selector: "#input-A3B5C492-C1FA-436F-B863-9D497858366F"
@@ -182,8 +182,8 @@ contact_form:
           value: "Yes"
           required: true
           options:
-            - "Yes"
-            - "No"
+            Yes: Y
+            No: N
     - find:
         - selector: "#newsletteraction"
     - javascript:
