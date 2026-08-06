@@ -180,13 +180,9 @@ contact_form:
           - Armed Forces Europe
           - Armed Forces Pacific
   - javascript:
-      - value: document.querySelector("#form-field-field_01539f0").value = document.querySelector("#form-field-field_01539f0").value.replace(/"/g, '');
+      - value: document.querySelector("#input_2_12").value = document.querySelector("#input_2_12").value.replace(/"/g, '');
   - click_on:
-      - selector: button.elementor-button[type='submit']
-  - wait:
-      - value: 3
-  - javascript:
-      - value: if (document.querySelector(".elementor-message-success")) { document.querySelector(".elementor-message-success").style.display = "block"; }
+      - selector: '#gform_submit_button_2'
   success:
     headers:
       status: 200
