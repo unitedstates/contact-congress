@@ -1,0 +1,182 @@
+bioguide:  A000383
+contact_form: 
+  method: post
+  action: ""
+  steps: 
+  - visit: "https://www.banks.senate.gov/share-your-opinion/"
+  - fill_in:
+        - name: input_2
+          selector: "#input_2_2"
+          value: $NAME_FIRST
+          required: true
+        - name: input_3
+          selector: "#input_2_3"
+          value: $NAME_LAST
+          required: true
+        - name: input_6.1
+          selector: "#input_2_6_1"
+          value: $ADDRESS_STREET
+          required: true
+        - name: input_6.2
+          selector: "#input_2_6_2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: input_6.3
+          selector: "#input_2_6_3"
+          value: $ADDRESS_CITY
+          required: true
+        - name: input_6.5
+          selector: "#input_2_6_5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_41
+          selector: "#input_2_41"
+          value: $PHONE
+          required: true
+        - name: input_42
+          selector: "#input_2_42"
+          value: $EMAIL
+          required: true
+        - name: input_11
+          selector: "#input_2_11"
+          value: $SUBJECT
+          required: true
+        - name: input_12
+          selector: "#input_2_12"
+          value: $MESSAGE
+          required: true
+  - select:
+      - name: input_6.4
+        selector: "#input_2_6_4"
+        value: $ADDRESS_STATE_FULL
+        required: true
+        options:
+          - Alabama
+          - Alaska
+          - American Samoa
+          - Arizona
+          - Arkansas
+          - California
+          - Colorado
+          - Connecticut
+          - Delaware
+          - District of Columbia
+          - Florida
+          - Georgia
+          - Guam
+          - Hawaii
+          - Idaho
+          - Illinois
+          - Indiana
+          - Iowa
+          - Kansas
+          - Kentucky
+          - Louisiana
+          - Maine
+          - Maryland
+          - Massachusetts
+          - Michigan
+          - Minnesota
+          - Mississippi
+          - Missouri
+          - Montana
+          - Nebraska
+          - Nevada
+          - New Hampshire
+          - New Jersey
+          - New Mexico
+          - New York
+          - North Carolina
+          - North Dakota
+          - Northern Mariana Islands
+          - Ohio
+          - Oklahoma
+          - Oregon
+          - Pennsylvania
+          - Puerto Rico
+          - Rhode Island
+          - South Carolina
+          - South Dakota
+          - Tennessee
+          - Texas
+          - Utah
+          - U.S. Virgin Islands
+          - Vermont
+          - Virginia
+          - Washington
+          - West Virginia
+          - Wisconsin
+          - Wyoming
+          - Armed Forces Americas
+          - Armed Forces Europe
+          - Armed Forces Pacific
+  - select:
+      - name: input_39
+        selector: "#input_2_39"
+        value: $NAME_PREFIX
+        required: true
+        options:
+          - Mr.
+          - Mrs.
+          - Ms.
+          - Miss
+          - Professor
+          - Dean
+          - The Honorable
+          - Dr.
+      - name: input_17
+        selector: "#input_2_17"
+        value: $TOPIC
+        required: true
+        options:
+          Agriculture: AGR
+          Animals: AN
+          Arts and Humanities: ART
+          Banking: BANK
+          Budget: BUD
+          Commerce: COMM
+          Defense and Military: DEF
+          Drugs: DRUG
+          Economy: ECON
+          Education: EDU
+          Election: ELEC
+          Energy: ENE
+          Environmental: ENV
+          Family Values: FAM
+          Finance: FINANCE
+          Flag Requests: FLAG
+          Foreign Relations: FR
+          Governmental Reform: GOV
+          Guns: GUN
+          Health: HEA
+          Help with a Federal Agency: CASEWORK
+          Homeland Security: HOM
+          Housing and Urban Development: HUD
+          Immigration: IMM
+          Infrastructure: INFRA
+          Interior: INTERIOR
+          Judiciary: JUD
+          Labor: LAB
+          Nutrition: NUTRI
+          Post Office: POST
+          Science and Technology: SCI
+          Senior Citizens: SENIORS
+          Small Business: SMB
+          Social Issues: SOC
+          Social Security: SSEC
+          Taxes: TAX
+          Telecommunications: TEL
+          Trade: TRADE
+          Transportation: TRA
+          Veterans: VET
+          Welfare: WEL
+          Women's Issues: WOMEN
+  - javascript:
+      - value: document.querySelector("#input_2_12").value = document.querySelector("#input_2_12").value.replace(/"/g, '');
+  - click_on:
+      - selector: '#gform_submit_button_2'
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your submission was successful"
