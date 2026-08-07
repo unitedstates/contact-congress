@@ -54,8 +54,8 @@ contact_form:
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true            
   - select:
-      - name: input_39
-        selector: "#input_2_39"
+      - name: input_1.2
+        selector: "#input_1_1_2"
         value: $NAME_PREFIX
         required: true
         options:
@@ -63,16 +63,15 @@ contact_form:
           - Mrs.
           - Ms.
           - Miss
-          - Professor
-          - Dean
-          - The Honorable
+          - Prof.
+          - Rev.
           - Dr.
-      - name: input_17
-        selector: "#input_2_17"
+      - name: input_9
+        selector: "#input_1_9"
         value: $TOPIC
         required: true
         options:
-          Agriculture: AGR
+          Agriculture: AG
           Animals: AN
           Arts and Humanities: ART
           Banking: BANK
