@@ -5,30 +5,30 @@ contact_form:
   steps:
     - visit: https://www.kaine.senate.gov/contact/share-your-opinion
     - find:
-      - selector: "#input-B388AE6D-5056-A066-6018-629F799184D7"
+      - selector: "#input-C37493FA-32C9-4AC5-8741-DBB15B656231"
     - fill_in:
       - name: first
-        selector: "#input-B388AE6D-5056-A066-6018-629F799184D7"
+        selector: "#input-C37493FA-32C9-4AC5-8741-DBB15B656231"
         value: $NAME_FIRST
         required: Yes
       - name: last
-        selector: "#input-B388B2AD-5056-A066-6058-0338F62B5B7D"
+        selector: "#input-FA29AA7F-6264-43AD-93A0-A9C8E4137B5C"
         value: $NAME_LAST
         required: Yes
       - name: addr1
-        selector: "#input-B388AC96-5056-A066-60C0-339424510C66"
+        selector: "#input-0EAD335B-9386-4CE4-BEEC-4EB7A25154B0"
         value: $ADDRESS_STREET
         required: Yes
       - name: city
-        selector: "#input-B388AFFC-5056-A066-60C0-4C8084FE94C6"
+        selector: "#input-FDAA72A6-BACD-478E-B29C-71F3517BEC76"
         value: $ADDRESS_CITY
         required: Yes
       - name: zip
-        selector: "#input-B388B27E-5056-A066-6051-28AF70687AB9"
+        selector: "#input-7C66D390-A85C-4BB2-B6D4-D4B2A84642BB"
         value: $ADDRESS_ZIP5
         required: Yes
       - name: phone
-        selector: "#input-B388ADC5-5056-A066-60D0-9122B0D07413"
+        selector: "#input-74E0EC54-C170-4BCB-96AC-0A9CDECF046D"
         value: $PHONE
         required: Yes
       - name: email
@@ -36,15 +36,15 @@ contact_form:
         value: $EMAIL
         required: Yes
       - name: subject
-        selector: "#input-B388AA60-5056-A066-602C-2DADE3D8A6F7"
+        selector: "#input-6113487C-5FF6-4D9E-BE80-52D0AF0F5877"
         value: $SUBJECT
         required: Yes
       - name: message
-        selector: "#input-B388B084-5056-A066-6090-BF0C2E9BE07B"
+        selector: "#input-B11EA673-0986-41A8-96BF-81980A38B3F6"
         value: $MESSAGE
         required: Yes
     - select:
-      - name: input_B388AD1E-5056-A066-6041-2A83C6ADF5C8
+      - name: input_EC789E2A-A8CF-4502-BEDD-21C7CB62AB70
         selector: "#prefixtoggle"
         value: $NAME_PREFIX
         required: Yes
@@ -57,7 +57,7 @@ contact_form:
           - "Mr. and Mrs."
           - "Dr."
       - name: topic
-        selector: "#input-B388ADF0-5056-A066-6033-31CCE02BC3DA"
+        selector: "#input-7B718140-BE58-48FA-AB5C-74CC385B8D07"
         value: $TOPIC
         required: Yes
         options:
@@ -118,17 +118,13 @@ contact_form:
           Womens Issues: Womens Issues
           Workforce & Labor: Workforce & Labor
       - name: response
-        selector: "#input-B388B02A-5056-A066-602B-852F0E0961D4"
-        value: "Yes"
+        selector: "#input-569786FF-5652-42DE-A5EE-A7FBD312BC39"
+        value: "Y"
         required: Yes
       - name: newsletter
         selector: "#newslettertoggle"
-        value: "Yes"
+        value: "EMAIL.OPTIN"
         required: Yes
-    - javascript:
-        - value: "document.querySelector('#issues-form-select-list-0').checked = true;"
-    - javascript:
-        - value: document.querySelector("#input-B388B084-5056-A066-6090-BF0C2E9BE07B").value = document.querySelector("#input-B388B084-5056-A066-6090-BF0C2E9BE07B").value.replace(/"/g, '');
     - wait:
       - value: 2
     - click_on:
@@ -136,9 +132,6 @@ contact_form:
         selector: ".controls button[type='submit']"
     - wait:
       - value: 2
-    - find:
-      - selector: "h2"
-        value: "Thank You"
   success:
     headers:
       status: 200
