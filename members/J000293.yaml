@@ -5,10 +5,10 @@ contact_form:
   steps:
     - visit: "https://www.ronjohnson.senate.gov/public/index.cfm/email-the-senator"
     - find:
-        - selector: '#field_AC036D04-8D06-4D4C-BCAD-4C0D66C7C34E'
+        - selector: '#input_3_3'
     - fill_in:
-        - name: field_AC036D04-8D06-4D4C-BCAD-4C0D66C7C34E
-          selector: "#field_AC036D04-8D06-4D4C-BCAD-4C0D66C7C34E"
+        - name: input_3
+          selector: "#input_3_3"
           value: $NAME_FIRST
           required: true
         - name: field_7EEF1FE1-3D81-4D19-A76F-CF33C2A30826
