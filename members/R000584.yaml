@@ -61,12 +61,8 @@ contact_form:
             - Rabbi
             - Sister
             - Father
-    - javascript:
-        - value: document.querySelector("#field_46098D12-DFBD-47F9-B71C-B15F0F08F55C").value = document.querySelector("#field_46098D12-DFBD-47F9-B71C-B15F0F08F55C").value.replace(/"/g, '');
     - click_on:
-        - selector: "#field_5F5EB295-4F55-4CB4-8CE2-7D0F05617B42_1"
-    - javascript:
-        - value: document.querySelector(".btn-primary[value='Submit']").click();
+        - selector: "#gform_submit_button_2"
     - wait:
         - value: 3
   success:
