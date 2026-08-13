@@ -37,20 +37,19 @@ contact_form:
           selector: "#input_3_3"
           value: $MESSAGE
           required: true
-    - javascript:
-        - value: document.querySelector("#field_9CBA10ED-C94F-4770-A165-38166625C0A8").options[8].selected = true
-    - javascript:
-        - value: document.querySelector("#field_5EF876CF-9476-427B-A01B-25AAFD0E013D").value = document.querySelector("#field_5EF876CF-9476-427B-A01B-25AAFD0E013D").value.replace(/"/g, '');
-    - javascript:
-        - value: "document.querySelector('#g-recaptcha-response').style.cssText = 'display: block; margin-top: 5em;';"
-    - recaptcha:
-        - value: true
-    - click_on:
-        - value: Submit
-          selector: input.btn.btn-primary
-    - find:
-        - selector: "p"
-          value: "Thank you for contacting me."
+   - select:
+        - name: input_1.2
+          selector: "#input_3_1_2"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Mrs.
+            - Miss
+            - Ms.
+            - Dr.
+            - Prof.
+            - Rev.
   success:
     headers:
       status: 200
