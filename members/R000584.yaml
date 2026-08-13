@@ -1,4 +1,4 @@
-bioguide:  R000584
+bioguide: R000584
 contact_form:
   method: post
   action: ""
@@ -7,60 +7,64 @@ contact_form:
     - wait:
         - value: 1
     - fill_in:
-        - name: field_03FC5C00-C814-41C0-86A8-17B9312FD6C8
-          selector: "#field_03FC5C00-C814-41C0-86A8-17B9312FD6C8"
+        - name: input_2
+          selector: "#input_2_2"
           value: $NAME_FIRST
           required: true
-        - name: field_54E8996A-B73A-491D-8BF4-B7A3E97844E0
-          selector: "#field_54E8996A-B73A-491D-8BF4-B7A3E97844E0"
+        - name: input_3
+          selector: "#input_2_3"
           value: $NAME_LAST
           required: true
-        - name: field_A08A7E57-46D1-448D-B383-3AECDBABDA4E
-          selector: "#field_A08A7E57-46D1-448D-B383-3AECDBABDA4E"
+        - name: input_6.1
+          selector: "#input_2_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: field_1FEC8089-08AF-4A92-B2B5-786F66FB942B
-          selector: "#field_1FEC8089-08AF-4A92-B2B5-786F66FB942B"
+        - name: input_6.3
+          selector: "#input_2_6_3"
           value: $ADDRESS_CITY
           required: true
-        - name: field_783D9EC5-F0BF-4452-A540-BCE7E8BD3A17
-          selector: "#field_783D9EC5-F0BF-4452-A540-BCE7E8BD3A17"
+        - name: input_6.5
+          selector: "#input_2_6_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_88940079-78B1-43A4-94F3-9F1CB9DAF794
-          selector: "#field_88940079-78B1-43A4-94F3-9F1CB9DAF794"
+        - name: input_49
+          selector: "#input_2_49"
           value: $PHONE
           required: true
-        - name: field_E3532A52-00C6-4D03-BC60-028EEA9075CF
-          selector: "#field_E3532A52-00C6-4D03-BC60-028EEA9075CF"
+        - name: input_9
+          selector: "#input_2_9"
           value: $EMAIL
           required: true
-        - name: field_46098D12-DFBD-47F9-B71C-B15F0F08F55C
-          selector: "#field_46098D12-DFBD-47F9-B71C-B15F0F08F55C"
+        - name: input_12
+          selector: "#input_2_12"
           value: $MESSAGE
           required: true
           options:
             max_length: 1500
     - select:
-        - name: field_93B4457B-B1FD-45CF-80DE-FCAC82188E54
-          selector: "#field_93B4457B-B1FD-45CF-80DE-FCAC82188E54"
+        - name: input_39
+          selector: "#input_2_39"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Mrs.
+            - M.
             - Ms.
-            - Mr. and Mrs.
+            - Miss
+            - Professor
+            - Dean
+            - The Honorable
             - Dr.
-            - Dr. and Mrs.
-            - Dr. and Mr.
+            - Military Rank
             - Reverend
-            - Pastor
+            - Rabbi
             - Sister
+            - Father
     - javascript:
         - value: document.querySelector("#field_46098D12-DFBD-47F9-B71C-B15F0F08F55C").value = document.querySelector("#field_46098D12-DFBD-47F9-B71C-B15F0F08F55C").value.replace(/"/g, '');
     - click_on:
-      - selector: "#field_5F5EB295-4F55-4CB4-8CE2-7D0F05617B42_1"
+        - selector: "#field_5F5EB295-4F55-4CB4-8CE2-7D0F05617B42_1"
     - javascript:
         - value: document.querySelector(".btn-primary[value='Submit']").click();
     - wait:
