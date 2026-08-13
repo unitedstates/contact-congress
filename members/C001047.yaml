@@ -9,7 +9,7 @@ contact_form:
     - find:
         - selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
     - javascript:
-        - value: 'el = document.getElementsByClassName("SiteLayout__header"); el[0].remove();'
+        - value: 'el = document.getElementsByClassName("SiteLayout__header"); el[0]?.remove();'
     - fill_in:
         - name: input-AB59F0AE-4040-F985-52CD-AA63153C7925
           selector: "#input-AB59F0AE-4040-F985-52CD-AA63153C7925"
