@@ -167,10 +167,9 @@ contact_form:
             Wisconsin: WI
             Wyoming: WY
     - click_on:
-        - value: Submit
-          selector: "button"
+        - selector: ".e-form__buttons button[type=submit]"
   success:
     headers:
       status: 200
     body:
-      contains: "Your message has been received."
+      contains: "Your submission was successful."
