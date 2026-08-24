@@ -4,8 +4,10 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.risch.senate.gov/contact/share-your-opinion/"
-    - wait:
-        - value: 1
+    - javascript:
+        - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - find:
+        - selector: "#input_2_2"
     - fill_in:
         - name: input_2
           selector: "#input_2_2"
@@ -61,6 +63,70 @@ contact_form:
             - Rabbi
             - Sister
             - Father
+        - name: input_6.4
+          selector: "#input_2_6_4"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            - Alabama
+            - Alaska
+            - American Samoa
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Guam
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Northern Mariana Islands
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Puerto Rico
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - U.S. Virgin Islands
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+            - Armed Forces Americas
+            - Armed Forces Europe
+            - Armed Forces Pacific
     - click_on:
         - selector: "#gform_submit_button_2"
     - wait:
