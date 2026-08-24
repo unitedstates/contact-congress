@@ -1,1 +1,106 @@
-
+bioguide:  G000608
+contact_form:
+  method: POST
+  action: https://www.lgraham.senate.gov/public/index.cfm?p=contact-form
+  steps:
+    - visit: https://www.dgraham.senate.gov/
+    - javascript:
+      - value: document.querySelector("nav").remove()
+    - fill_in:
+      - name: "field_BC705BBD-A0D1-4D9B-A1FD-0A9E63162CE8"
+        selector: "#field_BC705BBD-A0D1-4D9B-A1FD-0A9E63162CE8"
+        value: $NAME_FIRST
+        required: true
+      - name: "field_CC0ACC74-BDFF-4ED2-B686-08610FF1C415"
+        selector: "#field_CC0ACC74-BDFF-4ED2-B686-08610FF1C415"
+        value: $NAME_LAST
+        required: true
+      - name: "field_BC818F8E-666B-4BBE-9DD1-6C5929B10995"
+        selector: "#field_BC818F8E-666B-4BBE-9DD1-6C5929B10995"
+        value: $ADDRESS_STREET
+        required: true
+      - name: "field_1AB90849-DC9A-4868-AB51-4BAD63BA1644"
+        selector: "#field_1AB90849-DC9A-4868-AB51-4BAD63BA1644"
+        value: $ADDRESS_CITY
+        required: true
+      - name: "field_1891FB67-76B5-4874-971A-1464BF40D4AD"
+        selector: "#field_1891FB67-76B5-4874-971A-1464BF40D4AD"
+        value: $ADDRESS_ZIP5
+        required: true
+      - name: "field_3A4385B4-BCDB-41EC-896F-5E07E51142DD"
+        selector: "#field_3A4385B4-BCDB-41EC-896F-5E07E51142DD"
+        value: $EMAIL
+        required: true
+      - name: "field_F1684590-B63E-4986-8A57-1216FEFE8B9F"
+        selector: "#field_F1684590-B63E-4986-8A57-1216FEFE8B9F"
+        value: $MESSAGE
+        required: true
+      - name: "field_ABF591AC-4D97-4E60-877F-3FFA6422DBA0"
+        selector: "#field_ABF591AC-4D97-4E60-877F-3FFA6422DBA0"
+        value: $PHONE
+        required: true
+    - select:
+      - name: "field_694A4E8E-E869-4156-8A02-1D58DE8111EE"
+        selector: "#field_694A4E8E-E869-4156-8A02-1D58DE8111EE"
+        value: $NAME_PREFIX
+        required: true
+        options:
+          - "Mr."
+          - "Mrs."
+          - "Ms."
+          - "Mr. and Mrs."
+          - "Miss"
+          - "Dr."
+      - name: "field_4C82AB6E-E5FA-4362-A194-6DE9AADA20A7"
+        selector: "#field_4C82AB6E-E5FA-4362-A194-6DE9AADA20A7"
+        value: $TOPIC
+        required: true
+        options:
+          "Abortion": "Abortion"
+          "Agriculture": "AG"
+          "Aviation": "AIR"
+          "Border Security/Immigration": "IMM"
+          "Campaign Finance": "CF"
+          "Defense/Military": "DEF"
+          "Economy": "ECONOMY"
+          "Education": "ED"
+          "Energy": "EN"
+          "Environment": "ENV"
+          "Ethics": "ETHICS"
+          "Federal Budget": "BUD"
+          "Federal Emergency Management Agency": "FEMA"
+          "Financial Services": "FINANCE"
+          "Gun Control": "GUN"
+          "Health- General, Medicare, Medicaid": "HEA"
+          "Homeland Security/Terrorism": "NATL SEC"
+          "Housing": "HOUSING"
+          "Internship": "INTERN"
+          "International Relations": "IR"
+          "Judicial Nominations/Supreme Court": "JUDICIARY"
+          "Labor": "LAB"
+          "Pensions": "PENSIONS"
+          "Postal Issues": "POSTAL"
+          "Social Security and Pensions": "SSA"
+          "Taxes": "TAX"
+          "Telecommunications": "TELECOM"
+          "Trade": "TRADE"
+          "Transportation Authorization": "TRAN"
+          "Veterans Affairs": "VET"
+          "Welfare": "WELF"
+      - name: "field_2D95B7F7-4DFA-44A5-8487-E0148AB92ACA"
+        selector: "#field_2D95B7F7-4DFA-44A5-8487-E0148AB92ACA"
+        value: "Yes, I would like a written response"
+        required: true
+        options:
+          "Yes, I would like a written response": "Yes"
+          "No, I am just passing my comments along.": "No"
+    - javascript:
+      - value: document.querySelector("#field_F1684590-B63E-4986-8A57-1216FEFE8B9F").value = document.querySelector("#field_F1684590-B63E-4986-8A57-1216FEFE8B9F").value.replace(/"/g, '');
+    - click_on:
+      - value: Submit
+        selector: ".btn"
+  success:
+    headers:
+      status: 200
+    body:
+      contains: "Your message has been received."
