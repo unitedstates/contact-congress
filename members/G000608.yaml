@@ -4,41 +4,39 @@ contact_form:
   action: https://www.lgraham.senate.gov/public/index.cfm?p=contact-form
   steps:
     - visit: https://www.dgraham.senate.gov/
-    - javascript:
-      - value: document.querySelector("nav").remove()
     - fill_in:
-      - name: "field_BC705BBD-A0D1-4D9B-A1FD-0A9E63162CE8"
-        selector: "#field_BC705BBD-A0D1-4D9B-A1FD-0A9E63162CE8"
+      - name: "form_fields[field_1d46919]"
+        selector: "#form-field-field_1d46919"
         value: $NAME_FIRST
         required: true
-      - name: "field_CC0ACC74-BDFF-4ED2-B686-08610FF1C415"
-        selector: "#field_CC0ACC74-BDFF-4ED2-B686-08610FF1C415"
+      - name: "form_fields[field_bdcaff9]"
+        selector: "#form-field-field_bdcaff9"
         value: $NAME_LAST
         required: true
-      - name: "field_BC818F8E-666B-4BBE-9DD1-6C5929B10995"
-        selector: "#field_BC818F8E-666B-4BBE-9DD1-6C5929B10995"
+      - name: "form_fields[field_00c2cf4]"
+        selector: "#form-field-field_00c2cf4"
         value: $ADDRESS_STREET
         required: true
-      - name: "field_1AB90849-DC9A-4868-AB51-4BAD63BA1644"
-        selector: "#field_1AB90849-DC9A-4868-AB51-4BAD63BA1644"
+      - name: "form_fields[field_5ce9e4e]"
+        selector: "#form-field-field_5ce9e4e"
         value: $ADDRESS_CITY
         required: true
-      - name: "field_1891FB67-76B5-4874-971A-1464BF40D4AD"
-        selector: "#field_1891FB67-76B5-4874-971A-1464BF40D4AD"
+      - name: "form_fields[field_1037219]"
+        selector: "#form-field-field_1037219"
         value: $ADDRESS_ZIP5
         required: true
-      - name: "field_3A4385B4-BCDB-41EC-896F-5E07E51142DD"
-        selector: "#field_3A4385B4-BCDB-41EC-896F-5E07E51142DD"
+      - name: "form_fields[email]"
+        selector: "#form-field-email"
         value: $EMAIL
         required: true
-      - name: "field_F1684590-B63E-4986-8A57-1216FEFE8B9F"
-        selector: "#field_F1684590-B63E-4986-8A57-1216FEFE8B9F"
+      - name: "form_fields[field_01539f0]"
+        selector: "#form-field-field_01539f0"
         value: $MESSAGE
         required: true
-      - name: "field_ABF591AC-4D97-4E60-877F-3FFA6422DBA0"
-        selector: "#field_ABF591AC-4D97-4E60-877F-3FFA6422DBA0"
+      - name: "form_fields[field_9411e2b]"
+        selector: "#form-field-field_9411e2b"
         value: $PHONE
-        required: true
+        required: false
     - select:
       - name: "field_694A4E8E-E869-4156-8A02-1D58DE8111EE"
         selector: "#field_694A4E8E-E869-4156-8A02-1D58DE8111EE"
