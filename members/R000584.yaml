@@ -4,10 +4,10 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.risch.senate.gov/contact/share-your-opinion/"
-    - wait:
-        - value: 1
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - find:
+        - selector: "#input_2_2"
     - fill_in:
         - name: input_2
           selector: "#input_2_2"
