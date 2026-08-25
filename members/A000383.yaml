@@ -1,127 +1,116 @@
-bioguide: A000383
-contact_form:
+bioguide:  A000383
+contact_form: 
   method: post
   action: ""
-  steps:
-    - visit: "https://www.armstrong.senate.gov/contact/#opinion"
-    - fill_in:
-        - name: input_1.3
+  steps: 
+  - visit: "https://www.armstrong.senate.gov/contact/"
+  - fill_in:
+        - name: input_2
           selector: "#input_1_1_3"
           value: $NAME_FIRST
           required: true
-        - name: input_1.6
+        - name: input_3
           selector: "#input_1_1_6"
           value: $NAME_LAST
           required: true
-        - name: input_2.1
+        - name: input_6.1
           selector: "#input_1_2_1"
           value: $ADDRESS_STREET
           required: true
-        - name: input_2.2
-          selector: "#input_1_2_2"
+        - name: input_6.2
+          selector: "#input_2_6_2"
           value: $ADDRESS_STREET_2
           required: false
-        - name: input_2.3
+        - name: input_6.3
           selector: "#input_1_2_3"
           value: $ADDRESS_CITY
+          required: true
+        - name: input_6.5
+          selector: "#input_1_2_5"
+          value: $ADDRESS_ZIP5
+          required: true
+        - name: input_41
+          selector: "#input_1_4"
+          value: $PHONE
+          required: true
+        - name: input_42
+          selector: "#input_1_3"
+          value: $EMAIL
+          required: true
+        - name: input_11
+          selector: "#input_1_14"
+          value: $SUBJECT
+          required: true
+        - name: input_12
+          selector: "#input_1_8"
+          value: $MESSAGE
           required: true
         - name: input_2.4
           selector: "#input_1_2_4"
           value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-        - name: input_2.5
-          selector: "#input_1_2_5"
-          value: $ADDRESS_ZIP5
-          required: true
-        - name: input_4
-          selector: "#input_1_4"
-          value: $PHONE
-          required: true
-        - name: input_3
-          selector: "#input_1_3"
-          value: $EMAIL
-          required: true
-        - name: input_14
-          selector: "#input_1_14"
-          value: $SUBJECT
-          required: true
-        - name: input_8
-          selector: "#input_1_8"
-          value: $MESSAGE
-          required: true
-    - select:
-        - name: input_1.2
-          selector: "#input_1_1_2"
-          value: $NAME_PREFIX
-          required: false
-          options:
-            - Mr.
-            - Mrs.
-            - Miss
-            - Ms.
-            - Dr.
-            - Prof.
-            - Rev.
-        - name: input_9
-          selector: "#input_1_9"
-          value: $TOPIC
-          required: true
-          options:
-            Agriculture: AG
-            Animals: AN
-            Banking: BANK
-            Budget and Economy: BUD
-            Campaign Finance: CF
-            Help with a Federal Agency: CASEWORK
-            Campaign Finance Reform: CFR
-            Civil Rights/Humanities: CIVIL
-            Civil Service/Postal: CIVILSERV
-            Congress and Elections: CONG
-            Congressional Issues: CONG.ISSUES
-            Child Tax Credit: CTC
-            Defense and Military: DEF
-            Economy Business and Industry: ECN
-            Education Higher: EDU.HIGH
-            Education: EDU
-            Energy: ENG
-            Environmental: ENV
-            Family/Marriage: FAM
-            Federal Employees: FED
-            Flag Request: FLAG
-            Food Safety: FOOD
-            Foreign Relations: FR
-            Government Reform: GOV
-            Guns: GUN
-            Health: HLTH
-            Homeland Security: HMSEC
-            Housing: HOUSING
-            Housing & Urban Development: UD
-            Immigration: IMM
-            Infrastructure: INFRA
-            International Relations: IR
-            Internship Request: INTERNSHIP
-            Indian Affairs: IA
-            IRS: TAX
-            Jobs and the Economy: JOBS
-            Justice/Legal Issues, US Constitution: JUD
-            Labor: LABOR
-            LGBT: LGBT
-            Military: MIL
-            Other Issues: OTHER
-            Passport Casework: PASSPORTS
-            Postal Issues: POST
-            Science and Technology: SCI
-            Security: SECURITY
-            Senior Citizen: SENIORS
-            Small Business: SM.BUS
-            Social Issues: SOC
-            Social Services: SOCIAL.SERVICES
-            Social Security: SS
-            Telecommunications and the Internet: TELECOMM
-            Trade: TRD
-            Veterans Affairs: VET
-    - click_on:
-        - selector: "#gform_submit_button_1"
+          required: true            
+  - select:
+      - name: input_1.2
+        selector: "#input_1_1_2"
+        value: $NAME_PREFIX
+        required: true
+        options:
+          - Mr.
+          - Mrs.
+          - Ms.
+          - Miss
+          - Prof.
+          - Rev.
+          - Dr.
+      - name: input_9
+        selector: "#input_1_9"
+        value: $TOPIC
+        required: true
+        options:
+          Agriculture: AG
+          Animals: AN
+          Arts and Humanities: ART
+          Banking: BANK
+          Budget: BUD
+          Commerce: COMM
+          Defense and Military: DEF
+          Drugs: DRUG
+          Economy: ECON
+          Education: EDU
+          Election: ELEC
+          Energy: ENE
+          Environmental: ENV
+          Family Values: FAM
+          Finance: FINANCE
+          Flag Requests: FLAG
+          Foreign Relations: FR
+          Governmental Reform: GOV
+          Guns: GUN
+          Health: HEA
+          Help with a Federal Agency: CASEWORK
+          Homeland Security: HOM
+          Housing and Urban Development: HUD
+          Immigration: IMM
+          Infrastructure: INFRA
+          Interior: INTERIOR
+          Judiciary: JUD
+          Labor: LAB
+          Nutrition: NUTRI
+          Post Office: POST
+          Science and Technology: SCI
+          Senior Citizens: SENIORS
+          Small Business: SMB
+          Social Issues: SOC
+          Social Security: SSEC
+          Taxes: TAX
+          Telecommunications: TEL
+          Trade: TRADE
+          Transportation: TRA
+          Veterans: VET
+          Welfare: WEL
+          Women's Issues: WOMEN
+  - click_on:
+      - selector: '#gform_submit_button_1'
   success:
     headers:
       status: 200
