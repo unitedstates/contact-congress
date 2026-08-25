@@ -49,12 +49,77 @@ contact_form:
         - name: input_5
           selector: "#input_2_5"
           value: $NAME_PREFIX
-          required: true
+          required: false
           options:
             - Mr.
             - Ms.
             - Mrs.
             - Mx.
+            - Mr. and Mrs.
+            - Dr.
+            - Prof.
+            - Senator
+            - Gov.
+            - Congressman
+            - Hon.
+            - Fr.
+            - Sister
+            - Rabbi
+            - Reverend
+            - Fleet Admiral
+            - Admiral
+            - Vice Admiral
+            - Rear Admiral (upper half)
+            - Rear Admiral (lower half)
+            - Captain
+            - Commander
+            - Lieutenant Commander
+            - Lieutenant
+            - Lieutenant, Junior Grade
+            - Ensign
+            - Master Chief Petty Officer of the Navy
+            - Master Chief Petty Officer
+            - Senior Chief Petty Officer
+            - Chief Petty Officer
+            - Petty Officer Second Class
+            - Petty Officer Third Class
+            - Seaman
+            - Seaman Apprentice
+            - Seaman Recruit
+            - Chief Warrant Officer
+            - Warrant Officer
+            - Sgt Major Of The Corps
+            - Sergeant Major
+            - Master Gunnery Sgt
+            - First Sergeant
+            - Master Sergeant
+            - Gunnery Sergeant
+            - Staff Sergeant
+            - Sergeant
+            - Corporal
+            - Lance Corporal
+            - Private First Class
+            - Private
+            - General of the Air Force
+            - General
+            - Lieutenant General
+            - Major General
+            - Brigadier General
+            - Colonel
+            - Lieutenant Colonel
+            - Major
+            - Captain
+            - First Lieutenant
+            - Second Lieutenant
+            - Chief Master Sergeant of the Air Force
+            - Command Chief Master Sergeant
+            - Chief Master Sergeant
+            - Senior Master Sergeant
+            - Technical Sergeant
+            - Senior Airman
+            - Airman First Class
+            - Airman
+            - Brother
         - name: input_8.4
           selector: "#input_2_8_4"
           value: $ADDRESS_STATE_FULL
@@ -121,6 +186,7 @@ contact_form:
             - Armed Forces Pacific
     - javascript:
         - value: document.querySelector("#input_2_13").value = document.querySelector("#input_2_13").value.replace(/"/g, '');
+        - value: "document.querySelectorAll('.elementor-element-71a4f2e').forEach(function(el){ el.style.pointerEvents = 'none'; });"
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_2"
