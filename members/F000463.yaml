@@ -3,47 +3,106 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "http://www.fischer.senate.gov/public/?p=email-deb"
+    - visit: "https://www.fischer.senate.gov/public/?p=email-deb"
     - fill_in:
-        - name: field_2A913E5F-016D-49CA-B284-B4A1B186F01D
-          selector: "#field_2A913E5F-016D-49CA-B284-B4A1B186F01D"
+        - name: field_E947A1A8-7A71-4295-AA00-FD0FE886E40D
+          selector: "#field_E947A1A8-7A71-4295-AA00-FD0FE886E40D"
           value: $NAME_FIRST
           required: true
-        - name: field_2E235441-E702-4D0D-A75B-85D6F316586C
-          selector: "#field_2E235441-E702-4D0D-A75B-85D6F316586C"
+        - name: field_5983BF37-51BC-4E85-A4B1-29557AFF3FF4
+          selector: "#field_5983BF37-51BC-4E85-A4B1-29557AFF3FF4"
           value: $NAME_LAST
           required: true
-        - name: field_22790971-8CB2-4478-9B93-C3EC8AA88912
-          selector: "#field_22790971-8CB2-4478-9B93-C3EC8AA88912"
+        - name: field_4E708D5F-94D4-4CD4-81A3-D1D9FEA89A03
+          selector: "#field_4E708D5F-94D4-4CD4-81A3-D1D9FEA89A03"
           value: $ADDRESS_STREET
           required: true
-        - name: field_240E9B49-C4D2-44CF-830E-298C55A40443
-          selector: "#field_240E9B49-C4D2-44CF-830E-298C55A40443"
+        - name: field_C4BD9743-4A63-47F2-B92B-180E85F228BC
+          selector: "#field_C4BD9743-4A63-47F2-B92B-180E85F228BC"
           value: $ADDRESS_CITY
           required: true
-        - name: field_0C3F47BF-CEC6-4900-B077-223949219C54
-          selector: "#field_0C3F47BF-CEC6-4900-B077-223949219C54"
+        - name: field_3ADFB964-53E1-4036-9896-18F1A806B01A
+          selector: "#field_3ADFB964-53E1-4036-9896-18F1A806B01A"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_E4CDE960-384D-4AED-BA80-2E2BE81190E6
-          selector: "#field_E4CDE960-384D-4AED-BA80-2E2BE81190E6"
+        - name: field_4911ED7C-5FBC-4A64-9382-B346870CCB16
+          selector: "#field_4911ED7C-5FBC-4A64-9382-B346870CCB16"
           value: $PHONE
           required: true
-        - name: field_C3E69C90-7D25-46BB-AFD5-1F126572E8A7
-          selector: "#field_C3E69C90-7D25-46BB-AFD5-1F126572E8A7"
+        - name: field_D37EA3F0-FB86-4F3D-9F93-CC358449C2A5
+          selector: "#field_D37EA3F0-FB86-4F3D-9F93-CC358449C2A5"
           value: $EMAIL
           required: true
-        - name: field_6EB9E15B-F29D-4876-9F0F-53E314172579
-          selector: "#field_6EB9E15B-F29D-4876-9F0F-53E314172579"
+        - name: field_E3A78E09-F120-4566-85E0-B35D0ECCC988
+          selector: "#field_E3A78E09-F120-4566-85E0-B35D0ECCC988"
           value: $SUBJECT
           required: true
-        - name: field_BFF13EA3-37AD-467A-BB61-750F5CCE59E8
-          selector: "#field_BFF13EA3-37AD-467A-BB61-750F5CCE59E8"
+        - name: field_6AF13719-60D3-4199-BE64-495D74906948
+          selector: "#field_6AF13719-60D3-4199-BE64-495D74906948"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_30DA42C5-F1DD-4674-8C1D-6E047A20A190
-          selector: "#field_30DA42C5-F1DD-4674-8C1D-6E047A20A190"
+        - name: field_0EB9F380-2AF2-42DA-B8A5-9425ADFE1093
+          selector: "#field_0EB9F380-2AF2-42DA-B8A5-9425ADFE1093"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            AA: AA
+            AE: AE
+            AP: AP
+            Alabama: AL
+            Alaska: AK
+            Arizona: AZ
+            Arkansas: AR
+            California: CA
+            Colorado: CO
+            Connecticut: CT
+            Delaware: DE
+            District of Columbia: DC
+            Florida: FL
+            Georgia: GA
+            Hawaii: HI
+            Idaho: ID
+            Illinois: IL
+            Indiana: IN
+            Iowa: IA
+            Kansas: KS
+            Kentucky: KY
+            Louisiana: LA
+            Maine: ME
+            Maryland: MD
+            Massachusetts: MA
+            Michigan: MI
+            Minnesota: MN
+            Mississippi: MS
+            Missouri: MO
+            Montana: MT
+            Nebraska: NE
+            Nevada: NV
+            New Hampshire: NH
+            New Jersey: NJ
+            New Mexico: NM
+            New York: NY
+            North Carolina: NC
+            North Dakota: ND
+            Ohio: OH
+            Oklahoma: OK
+            Oregon: OR
+            Pennsylvania: PA
+            Rhode Island: RI
+            South Carolina: SC
+            South Dakota: SD
+            Tennessee: TN
+            Texas: TX
+            Utah: UT
+            Vermont: VT
+            Virginia: VA
+            Washington: WA
+            West Virginia: WV
+            Wisconsin: WI
+            Wyoming: WY
+        - name: field_97476198-7AB2-410A-A664-FA9606739644
+          selector: "#field_97476198-7AB2-410A-A664-FA9606739644"
           value: $TOPIC
           required: true
           options:
@@ -78,7 +137,7 @@ contact_form:
             Welfare: Welfare
             Other: Other
     - javascript:
-        - value: document.querySelector("#field_BFF13EA3-37AD-467A-BB61-750F5CCE59E8").value = document.querySelector("#field_BFF13EA3-37AD-467A-BB61-750F5CCE59E8").value.replace(/"/g, '');
+        - value: document.querySelector("#field_6AF13719-60D3-4199-BE64-495D74906948").value = document.querySelector("#field_6AF13719-60D3-4199-BE64-495D74906948").value.replace(/"/g, '');
     - click_on:
         - value: Submit
           selector: input.btn.btn-primary
