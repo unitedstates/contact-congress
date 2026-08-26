@@ -96,7 +96,7 @@ contact_form:
              Transportation: Transportation
              Veterans: Veterans
     - javascript:
-        - value: document.querySelector('#gform_2 .gform-footer input#gform_submit_button_2').click();
+        - value: jQuery("#gform_2").trigger("submit",[true])
     - wait:
         - value: 20
   success:

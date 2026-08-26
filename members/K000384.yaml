@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: https://www.kaine.senate.gov/contact/share-your-opinion
+    - wait:
+      - value: 10
     - find:
       - selector: "#input-C37493FA-32C9-4AC5-8741-DBB15B656231"
     - fill_in:
