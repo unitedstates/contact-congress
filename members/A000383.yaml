@@ -69,48 +69,61 @@ contact_form:
         options:
           Agriculture: AG
           Animals: AN
-          Arts and Humanities: ART
           Banking: BANK
-          Budget: BUD
-          Commerce: COMM
-          Defense and Military: DEF
-          Drugs: DRUG
-          Economy: ECON
-          Education: EDU
-          Election: ELEC
-          Energy: ENE
-          Environmental: ENV
-          Family Values: FAM
-          Finance: FINANCE
-          Flag Requests: FLAG
-          Foreign Relations: FR
-          Governmental Reform: GOV
-          Guns: GUN
-          Health: HEA
+          Budget and Economy: BUD
+          Campaign Finance: CF
           Help with a Federal Agency: CASEWORK
-          Homeland Security: HOM
-          Housing and Urban Development: HUD
+          Campaign Finance Reform: CFR
+          Civil Rights/Humanities: CIVIL
+          Civil Service/Postal: CIVILSERV
+          Congress and Elections: CONG
+          Congressional Issues: CONG.ISSUES
+          Child Tax Credit: CTC
+          Defense and Military: DEF
+          Economy Business and Industry: ECN
+          Education Higher: EDU.HIGH
+          Education: EDU
+          Energy: ENG
+          Environmental: ENV
+          Family/Marriage: FAM
+          Federal Employees: FED
+          Flag Request: FLAG
+          Food Safety: FOOD
+          Foreign Relations: FR
+          Government Reform: GOV
+          Guns: GUN
+          Health: HLTH
+          Homeland Security: HMSEC
+          Housing: HOUSING
+          Housing & Urban Development: UD
           Immigration: IMM
           Infrastructure: INFRA
-          Interior: INTERIOR
-          Judiciary: JUD
-          Labor: LAB
-          Nutrition: NUTRI
-          Post Office: POST
+          International Relations: IR
+          Internship Request: INTERNSHIP
+          Indian Affairs: IA
+          IRS: TAX
+          Jobs and the Economy: JOBS
+          Justice/Legal Issues, US Constitution: JUD
+          Labor: LABOR
+          LGBT: LGBT
+          Military: MIL
+          Other Issues: OTHER
+          Passport Casework: PASSPORTS
+          Postal Issues: POST
           Science and Technology: SCI
-          Senior Citizens: SENIORS
-          Small Business: SMB
+          Security: SECURITY
+          Senior Citizen: SENIORS
+          Small Business: SM.BUS
           Social Issues: SOC
-          Social Security: SSEC
-          Taxes: TAX
-          Telecommunications: TEL
-          Trade: TRADE
-          Transportation: TRA
-          Veterans: VET
-          Welfare: WEL
-          Women's Issues: WOMEN
+          Social Services: SOCIAL.SERVICES
+          Social Security: SS
+          Telecommunications and the Internet: TELECOMM
+          Trade: TRD
+          Veterans Affairs: VET
   - click_on:
       - selector: '#gform_submit_button_1'
+  - find:
+        - selector: "#gform_confirmation_message_1"
   success:
     headers:
       status: 200
