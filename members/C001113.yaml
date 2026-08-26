@@ -7,13 +7,9 @@ contact_form:
     - wait:
         - value: 2
     - javascript:
-        - value: "document.querySelector('#elementor-tab-content-1151').removeAttribute('hidden');"
-    - javascript:
-        - value: "document.querySelector('#elementor-tab-content-1151').removeAttribute('class');"
-    - javascript:
         - value: "document.querySelector('#gform_wrapper_2').style.display = 'block'"
-    - javascript:
-        - value: "document.querySelector('.elementor-location-header').style.display = 'none'"
+    - find:
+        - selector: "#input_2_2"
     - fill_in:
         - name: "input_2"
           selector: "#input_2_2"
@@ -56,6 +52,62 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
+        - name: "input_6.4"
+          selector: "#input_2_6_4"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            - Alabama
+            - Alaska
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
         - name: "input_39"
           selector: "#input_2_39"
           value: $NAME_PREFIX
@@ -93,10 +145,16 @@ contact_form:
              Trade: Trade
              Transportation: Transportation
              Veterans: Veterans
+    - click_on:
+        - value: Submit
+          selector: "#gform_submit_button_2"
     - javascript:
         - value: jQuery("#gform_2").trigger("submit",[true])
     - wait:
-        - value: 20
+        - value: 10
+    - find:
+        - selector: "#gform_confirmation_message_2"
+          value: "Thank You"
   success:
     headers:
       status: 200
