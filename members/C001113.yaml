@@ -4,6 +4,14 @@ contact_form:
   action: /content/contact-senator
   steps:
     - visit: "https://www.cortezmasto.senate.gov/contact/connect"
+    - javascript:
+        - value: Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });
+    - javascript:
+        - value: "document.querySelector('#elementor-tab-content-1151').removeAttribute('hidden');"
+    - javascript:
+        - value: "document.querySelector('#elementor-tab-content-1151').removeAttribute('class');"
+    - javascript:
+        - value: "document.querySelector('.elementor-location-header').style.display = 'none'"
     - wait:
         - value: 2
     - javascript:
