@@ -14,6 +14,8 @@ contact_form:
         - value: "document.querySelector('#elementor-tab-content-1151').removeAttribute('class');"
     - javascript:
         - value: "document.querySelector('#gform_wrapper_2').style.display = 'block'"
+    - javascript:
+        - value: "document.querySelector('.elementor-location-header').style.display = 'none'"
     - fill_in:
         - name: "input_2"
           selector: "#input_2_2"
@@ -97,6 +99,8 @@ contact_form:
         - value: document.querySelector('#gform_2 .gform-footer input#gform_submit_button_2').click();
     - wait:
         - value: 10
+    - find:
+        - selector: "#gform_ajax_spinner_2"
   success:
     headers:
       status: 200
