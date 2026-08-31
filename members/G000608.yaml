@@ -42,8 +42,23 @@ contact_form:
           value: $SUBJECT
           required: true
     - select:
-        - name: "form_fields[message]"
-          selector: "#form-field-message"
+        - name: input_3
+          selector: "#input_3_3"
+          value: $NAME_PREFIX
+          required: true
+          options:
+            - Mr.
+            - Ms.
+            - Mrs.
+            - Mr. and Mrs.
+            - The Honorable
+            - Miss
+            - Dr.
+            - Reverend
+            - Rabbi
+            - Honorable
+        - name: "input_10"
+          selector: "#input_3_10"
           value: $TOPIC
           required: true
           options:
@@ -110,8 +125,8 @@ contact_form:
             "Social Services": "SOC SERVICES"
             "Spam Opt-Out": "SPAM OPT-OUT"
             "Social Security": "SSEC"
-        - name: "form_fields[field_dd4016c]"
-          selector: "#form-field-field_dd4016c"
+        - name: "input_7.4"
+          selector: "#input_3_7_4"
           value: $ADDRESS_STATE_POSTAL_ABBREV
           required: true
           options:
