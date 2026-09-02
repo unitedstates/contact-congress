@@ -3,7 +3,7 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.ronjohnson.senate.gov/public/index.cfm/email-the-senator"
+    - visit: "https://www.ronjohnson.senate.gov/contact/email-the-senator/"
     - find:
         - selector: '#input_3_3'
     - fill_in:
@@ -34,7 +34,11 @@ contact_form:
         - name: input_6
           selector: "#input_3_6"
           value: $PHONE
-          required: true          
+          required: true
+        - name: input_9
+          selector: "#input_3_9"
+          value: $SUBJECT
+          required: false
         - name: input_10
           selector: "#input_3_10"
           value: $MESSAGE
@@ -48,8 +52,8 @@ contact_form:
             Agriculture: AGR
             Budget: BUD
             Defense: DEF
-            "Economy & Jobs": ECO
-            Education and Labor: EDU
+            "Economy and Jobs": ECO
+            Education: EDU
             Energy: ENE
             Environmental: ENV
             Foreign Relations: INT
@@ -59,16 +63,80 @@ contact_form:
             Judiciary: JUD
             Social Issues: SOC
             Social Security: SSEC
-            Taxes and Trade: TAX
+            Taxes: TAX
             Telecommunications: TEL
             Transportation: TRA
             Veterans: VET
             Welfare: WEL
             Other: OTH
-    - javascript:
-        - value: document.querySelector("#gform_submit_button_3").click()
+        - name: input_5.4
+          selector: "#input_3_5_4"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            Alabama: Alabama
+            Alaska: Alaska
+            American Samoa: American Samoa
+            Arizona: Arizona
+            Arkansas: Arkansas
+            California: California
+            Colorado: Colorado
+            Connecticut: Connecticut
+            Delaware: Delaware
+            District of Columbia: District of Columbia
+            Florida: Florida
+            Georgia: Georgia
+            Guam: Guam
+            Hawaii: Hawaii
+            Idaho: Idaho
+            Illinois: Illinois
+            Indiana: Indiana
+            Iowa: Iowa
+            Kansas: Kansas
+            Kentucky: Kentucky
+            Louisiana: Louisiana
+            Maine: Maine
+            Maryland: Maryland
+            Massachusetts: Massachusetts
+            Michigan: Michigan
+            Minnesota: Minnesota
+            Mississippi: Mississippi
+            Missouri: Missouri
+            Montana: Montana
+            Nebraska: Nebraska
+            Nevada: Nevada
+            New Hampshire: New Hampshire
+            New Jersey: New Jersey
+            New Mexico: New Mexico
+            New York: New York
+            North Carolina: North Carolina
+            North Dakota: North Dakota
+            Northern Mariana Islands: Northern Mariana Islands
+            Ohio: Ohio
+            Oklahoma: Oklahoma
+            Oregon: Oregon
+            Pennsylvania: Pennsylvania
+            Puerto Rico: Puerto Rico
+            Rhode Island: Rhode Island
+            South Carolina: South Carolina
+            South Dakota: South Dakota
+            Tennessee: Tennessee
+            Texas: Texas
+            Utah: Utah
+            U.S. Virgin Islands: U.S. Virgin Islands
+            Vermont: Vermont
+            Virginia: Virginia
+            Washington: Washington
+            West Virginia: West Virginia
+            Wisconsin: Wisconsin
+            Wyoming: Wyoming
+            Armed Forces Americas: Armed Forces Americas
+            Armed Forces Europe: Armed Forces Europe
+            Armed Forces Pacific: Armed Forces Pacific
+    - click_on:
+        - selector: "#gform_submit_button_3"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Thank you for contacting me

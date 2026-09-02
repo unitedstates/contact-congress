@@ -3,69 +3,131 @@ contact_form:
   method: post
   action: ""
   steps:
-    - visit: "https://www.thune.senate.gov/public/index.cfm/contact"
+    - visit: "https://www.thune.senate.gov/contact/email-senator-thune/"
     - fill_in:
-        - name: field_CAA9906A-A00C-4DB6-AD03-2DE3737B6BBE
-          selector: "#field_CAA9906A-A00C-4DB6-AD03-2DE3737B6BBE"
+        - name: input_2
+          selector: "#input_2_2"
           value: $NAME_FIRST
           required: true
-        - name: field_0BE53A08-D4BE-47C9-9937-37C63DC01A3C
-          selector: "#field_0BE53A08-D4BE-47C9-9937-37C63DC01A3C"
+        - name: input_3
+          selector: "#input_2_3"
           value: $NAME_LAST
           required: true
-        - name: field_6296C3DB-0826-4072-A517-8EC0E3545676
-          selector: "#field_6296C3DB-0826-4072-A517-8EC0E3545676"
+        - name: input_6.1
+          selector: "#input_2_6_1"
           value: $ADDRESS_STREET
           required: true
-        - name: field_71E1BF74-90E0-4D4F-8F75-03C38020E97B
-          selector: "#field_71E1BF74-90E0-4D4F-8F75-03C38020E97B"
+        - name: input_6.2
+          selector: "#input_2_6_2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: input_6.3
+          selector: "#input_2_6_3"
           value: $ADDRESS_CITY
           required: true
-        - name: field_3D11DF91-8B7B-4E98-98E5-4B4EAA7C75C6
-          selector: "#field_3D11DF91-8B7B-4E98-98E5-4B4EAA7C75C6"
+        - name: input_6.5
+          selector: "#input_2_6_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_18E5AEA5-37A6-4BC5-9E44-42A10D0C9816
-          selector: "#field_18E5AEA5-37A6-4BC5-9E44-42A10D0C9816"
+        - name: input_41
+          selector: "#input_2_41"
           value: $PHONE
           required: true
-        - name: field_A794340E-CECC-4270-963A-EFE2ACEEC6BE
-          selector: "#field_A794340E-CECC-4270-963A-EFE2ACEEC6BE"
+        - name: input_9
+          selector: "#input_2_9"
           value: $EMAIL
           required: true
-        - name: field_BE592D9D-202D-4F5B-94A1-EA9989C9AAED
-          selector: "#field_BE592D9D-202D-4F5B-94A1-EA9989C9AAED"
+        - name: input_12
+          selector: "#input_2_12"
           value: $MESSAGE
           required: true
-          options:
-            max_length: 2500
     - select:
-        - name: field_6400CFB6-17D8-424B-9778-316AE0B5AB7D
-          selector: "#field_6400CFB6-17D8-424B-9778-316AE0B5AB7D"
+        - name: input_39
+          selector: "#input_2_39"
           value: $NAME_PREFIX
           required: true
           options:
             "Mr.": "Mr."
             "Mrs.": "Mrs."
+            "Prefer not to identify": "Prefer not to identify"
             "Ms.": "Ms."
-            "Dr.": "Dr."
+            "Miss": "Miss"
             "Professor": "Professor"
-            "Pastor": "Pastor"
-            "Rabbi": "Rabbi"
-            "Reverend": "Reverend"
-            "Father": "Father"
-            "Sister": "Sister"
-            "Representative": "Representative"
-            "Senator": "Senator"
-            "No Prefix": "No Prefix"
-        - name: field_5CCE9A83-C2B2-44A0-92F4-3381922A7D60
-          selector: "#field_5CCE9A83-C2B2-44A0-92F4-3381922A7D60"
+            "Dean": "Dean"
+            "The Honorable": "The Honorable"
+            "Dr.": "Dr."
+        - name: input_6.4
+          selector: "#input_2_6_4"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            Alabama: Alabama
+            Alaska: Alaska
+            American Samoa: American Samoa
+            Arizona: Arizona
+            Arkansas: Arkansas
+            California: California
+            Colorado: Colorado
+            Connecticut: Connecticut
+            Delaware: Delaware
+            District of Columbia: District of Columbia
+            Florida: Florida
+            Georgia: Georgia
+            Guam: Guam
+            Hawaii: Hawaii
+            Idaho: Idaho
+            Illinois: Illinois
+            Indiana: Indiana
+            Iowa: Iowa
+            Kansas: Kansas
+            Kentucky: Kentucky
+            Louisiana: Louisiana
+            Maine: Maine
+            Maryland: Maryland
+            Massachusetts: Massachusetts
+            Michigan: Michigan
+            Minnesota: Minnesota
+            Mississippi: Mississippi
+            Missouri: Missouri
+            Montana: Montana
+            Nebraska: Nebraska
+            Nevada: Nevada
+            New Hampshire: New Hampshire
+            New Jersey: New Jersey
+            New Mexico: New Mexico
+            New York: New York
+            North Carolina: North Carolina
+            North Dakota: North Dakota
+            Northern Mariana Islands: Northern Mariana Islands
+            Ohio: Ohio
+            Oklahoma: Oklahoma
+            Oregon: Oregon
+            Pennsylvania: Pennsylvania
+            Puerto Rico: Puerto Rico
+            Rhode Island: Rhode Island
+            South Carolina: South Carolina
+            South Dakota: South Dakota
+            Tennessee: Tennessee
+            Texas: Texas
+            Utah: Utah
+            U.S. Virgin Islands: U.S. Virgin Islands
+            Vermont: Vermont
+            Virginia: Virginia
+            Washington: Washington
+            West Virginia: West Virginia
+            Wisconsin: Wisconsin
+            Wyoming: Wyoming
+            Armed Forces Americas: Armed Forces Americas
+            Armed Forces Europe: Armed Forces Europe
+            Armed Forces Pacific: Armed Forces Pacific
+        - name: input_17
+          selector: "#input_2_17"
           value: $TOPIC
           required: true
           options:
             Abortion: JUD.ABOR
             Agriculture: AG
-            "Aviation,Transportation": TRANS
+            "Aviation, Transportation": TRANS-AIR
             Banking and Finance: BANK
             Budget: BUDG
             Campaign and Election Reform: ELEC
@@ -74,8 +136,8 @@ contact_form:
             Defense and Military: DEF
             "Economy, Business and Industry": ECN
             Education: EDU
-            "Energy,Renewable Energy": ENG
-            "Environment,Forests,Public Lands/Parks": ENV
+            "Energy, Renewable Energy": ENG
+            "Environment, Forests, Public Lands/Parks": ENV
             Ethics and Congressional Reform: ETHICS
             Faith-Based Initiatives: FAITH
             Foreign Relations: IR
@@ -87,29 +149,23 @@ contact_form:
             Indian Affairs: IA
             "Justice/Legal Issues, US Constitution": JUD
             Labor: LABOR
-            "Nutrition,Welfare": WEL
+            "Nutrition, Welfare": WEL
             Postal Issues: POST
             Science and Technology: SCI
             Second Amendment: JUD.GUN
             Social Security: SS
-            Student Inquiry: SPECIAL
             Taxes: TAX
             Telecommunications and the Internet: TELECOMM
-            Tour Request: TOUR
             Trade: TRD
             Veterans Affairs: VET
             Water Issues: WATER
-    - javascript:
-        - value: document.querySelector("#field_BE592D9D-202D-4F5B-94A1-EA9989C9AAED").value = document.querySelector("#field_BE592D9D-202D-4F5B-94A1-EA9989C9AAED").value.replace(/"/g, '');
-        # this form only allow numbers in phone number
-        - value: document.querySelector("#field_18E5AEA5-37A6-4BC5-9E44-42A10D0C9816").value = document.querySelector("#field_18E5AEA5-37A6-4BC5-9E44-42A10D0C9816").value.replace(/[^0-9]/g, '');
-    - recaptcha:
-        - value: true
     - click_on:
         - value: Submit
-          selector: input.btn.btn-primary
+          selector: "#gform_submit_button_2"
+    - find:
+        - selector: "#gform_confirmation_message_2"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for taking the time to contact me
+      contains: "Thank you for taking the time to contact me"
