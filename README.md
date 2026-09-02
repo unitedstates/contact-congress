@@ -110,7 +110,6 @@ You can find detailed, reliable data about every current and historical member o
 
 
 
-* [Taskforce.is](https://taskforce.is) will be using the data for technology-related activism campaigns.
 
 
 
