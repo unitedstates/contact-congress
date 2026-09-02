@@ -18,7 +18,7 @@ contact_form:
           value: $ADDRESS_STREET
           required: true
         - name: input_6.2
-          selector: "#input_2_6_2"
+          selector: "#input_1_2_2"
           value: $ADDRESS_STREET_2
           required: false
         - name: input_6.3
@@ -128,4 +128,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: "for contacting my office"
+      contains: "gform_confirmation_message"
