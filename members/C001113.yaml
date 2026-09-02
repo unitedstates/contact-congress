@@ -7,7 +7,9 @@ contact_form:
     - javascript:
         - value: "document.querySelector('#elementor-tab-content-1151').removeAttribute('hidden');"
     - javascript:
-        - value: "document.querySelector('#elementor-tab-content-1151').removeAttribute('class');"
+        - value: "document.querySelector('#elementor-tab-content-1151')?.removeAttribute('hidden');"
+    - javascript:
+        - value: "document.querySelector('#elementor-tab-content-1151')?.removeAttribute('class');"
     - javascript:
         - value: "document.querySelector('.elementor-location-header').style.display = 'none'"
     - wait:
