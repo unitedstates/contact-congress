@@ -130,11 +130,14 @@ contact_form:
             - Armed Forces Europe
             - Armed Forces Pacific
     - click_on:
+        - name: "input_48"
+          selector: "#choice_2_48_1"
+    - click_on:
         - selector: "#gform_submit_button_2"
-    - wait:
-        - value: 3
+    - find:
+        - selector: "#gform_confirmation_message_2"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you for contacting my office
+      contains: "Thank you for contacting my office"
