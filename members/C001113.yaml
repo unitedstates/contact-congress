@@ -5,7 +5,7 @@ contact_form:
   steps:
     - visit: "https://www.cortezmasto.senate.gov/contact/connect"
     - javascript:
-        - value: Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });
+        - value: "document.querySelector('#elementor-tab-content-1151').removeAttribute('hidden');"
     - javascript:
         - value: "document.querySelector('#elementor-tab-content-1151')?.removeAttribute('hidden');"
     - javascript:
