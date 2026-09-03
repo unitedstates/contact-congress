@@ -4,6 +4,8 @@ contact_form:
   action: ""
   steps:
   - visit: "https://www.husted.senate.gov/contact-jon/"
+  - javascript:
+      - value: "var w = document.getElementById('gform_wrapper_2'); if (w) { w.style.display = ''; w.classList.remove('gform_hidden'); } var f = document.querySelector('#gform_wrapper_2 form'); if (f) { f.style.opacity = ''; }"
   - fill_in:
         - name: form_fields[name]
           selector: "#input_2_44"
