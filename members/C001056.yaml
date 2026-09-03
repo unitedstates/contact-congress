@@ -54,7 +54,6 @@ contact_form:
                     - CA
                     - CO
                     - CT
-                    - DC
                     - DE
                     - FL
                     - GA
@@ -105,8 +104,8 @@ contact_form:
                 options:
                     - Abortion
                     - Agriculture
-                    - Arts and Humanities
                     - Banking
+                    - Broadband/Telecom
                     - Budget
                     - Criminal Justice
                     - Defense
@@ -116,6 +115,7 @@ contact_form:
                     - Environment
                     - FEMA
                     - Finance
+                    - Fine Arts
                     - Firearms
                     - Foreign Affairs
                     - Health Care
@@ -124,6 +124,7 @@ contact_form:
                     - Interior
                     - Judiciary
                     - Labor
+                    - Law Enforcement
                     - Medicare
                     - Religion
                     - Small Business
@@ -137,6 +138,11 @@ contact_form:
               - value: document.querySelector("button.elementor-size-sm").click();
         - wait:
               - value: 10
+        - find:
+              - selector: "h2"
+                value: "Your Message Has Been Received and Will be Read"
+                options:
+                    wait: 20
     success:
         headers:
             status: 200
