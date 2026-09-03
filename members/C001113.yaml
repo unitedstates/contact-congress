@@ -4,20 +4,14 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.cortezmasto.senate.gov/contact/connect"
-    - javascript:
-        - value: "document.querySelector('#elementor-tab-content-1151').removeAttribute('hidden');"
-    - javascript:
-        - value: "document.querySelector('#elementor-tab-content-1151')?.removeAttribute('hidden');"
-    - javascript:
-        - value: "document.querySelector('#elementor-tab-content-1151')?.removeAttribute('class');"
-    - javascript:
-        - value: "document.querySelector('.elementor-location-header').style.display = 'none'"
     - wait:
-        - value: 10
+        - value: 5
     - javascript:
-        - value: "document.querySelector('#gform_wrapper_2').style.display = 'block'"
+        - value: "document.body.style.visibility = 'inherit'; var w = document.querySelector('#gform_wrapper_2'); if (w) { w.style.display = 'block'; w.style.visibility = 'visible'; w.style.opacity = '1'; } var f = document.querySelector('#gform_wrapper_2 form'); if (f) { f.style.opacity = '1'; f.style.visibility = 'visible'; }"
     - find:
         - selector: "#input_2_2"
+          options:
+            wait: 20
     - fill_in:
         - name: "input_2"
           selector: "#input_2_2"
@@ -67,6 +61,7 @@ contact_form:
           options:
             - Alabama
             - Alaska
+            - American Samoa
             - Arizona
             - Arkansas
             - California
@@ -76,6 +71,7 @@ contact_form:
             - District of Columbia
             - Florida
             - Georgia
+            - Guam
             - Hawaii
             - Idaho
             - Illinois
@@ -100,22 +96,28 @@ contact_form:
             - New York
             - North Carolina
             - North Dakota
+            - Northern Mariana Islands
             - Ohio
             - Oklahoma
             - Oregon
             - Pennsylvania
+            - Puerto Rico
             - Rhode Island
             - South Carolina
             - South Dakota
             - Tennessee
             - Texas
             - Utah
+            - U.S. Virgin Islands
             - Vermont
             - Virginia
             - Washington
             - West Virginia
             - Wisconsin
             - Wyoming
+            - Armed Forces Americas
+            - Armed Forces Europe
+            - Armed Forces Pacific
         - name: "input_39"
           selector: "#input_2_39"
           value: $NAME_PREFIX
@@ -123,10 +125,12 @@ contact_form:
           options:
             - Mr.
             - Mrs.
+            - Prefer not to identify
             - Ms.
             - Miss
             - Professor
             - Dean
+            - The Honorable
             - Dr.
         - name: "input_17"
           selector: "#input_2_17"
