@@ -4,9 +4,8 @@ contact_form:
   action: /content/contact-senator
   steps:
     - visit: "https://www.vanhollen.senate.gov/contact/email"
-    - click_on:
-        - value: "Submit"
-          selector: 'a[href="#"].Button--primary'
+    - javascript:
+        - value: document.querySelector(".js-contactForm").style.display = "block";
     - wait:
         - value: 1
     - fill_in:
