@@ -138,8 +138,14 @@ contact_form:
           selector: "#choice_2_48_1"
     - click_on:
         - selector: "#gform_submit_button_2"
+    - wait:
+        - value: 15
+    - javascript:
+        - value: "(function(){var dbg=document.createElement('pre');dbg.id='phantom-debug-overlay-2';dbg.style.cssText='position:absolute;top:0;left:0;z-index:2147483647;background:#ffffff;color:#000000;border:4px solid blue;padding:8px;font-size:12px;white-space:pre-wrap;max-width:900px;';window.phantomUpdateDebug2=function(){if(!document.body){return;}if(!document.body.contains(dbg)){document.body.insertBefore(dbg,document.body.firstChild);}var lines=[];lines.push('href='+location.href);lines.push('readyState='+document.readyState);lines.push('body.innerHTML.length='+(document.body?document.body.innerHTML.length:-1));lines.push('confirmation.present='+(!!document.getElementById('gform_confirmation_message_2')));lines.push('gform_wrapper_2.present='+(!!document.getElementById('gform_wrapper_2')));var v=document.querySelector('.gform_validation_errors, .validation_error, .gfield_validation_message');lines.push('validation_error.text='+(v?v.textContent.trim().slice(0,300):'NONE'));dbg.textContent=lines.join(String.fromCharCode(10));};window.phantomUpdateDebug2();window.__phantomDebug2Interval=setInterval(window.phantomUpdateDebug2,500);})()"
     - find:
         - selector: "#gform_confirmation_message_2"
+          options:
+            wait: 15
   success:
     headers:
       status: 200
