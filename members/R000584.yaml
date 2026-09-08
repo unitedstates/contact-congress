@@ -8,6 +8,66 @@ contact_form:
         - value: 5
     - javascript:
         - value: "Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(element){ try{ element.parentNode.removeChild(element) } catch(err){} });"
+    - javascript:
+        - value: |
+            var dbg = document.createElement('pre');
+            dbg.id = 'phantom-debug-overlay';
+            dbg.style.cssText = 'position:absolute;top:0;left:0;z-index:2147483647;background:#ffffff;color:#000000;border:4px solid red;padding:8px;font-size:12px;white-space:pre-wrap;max-width:900px;';
+            document.body.insertBefore(dbg, document.body.firstChild);
+            window.__phantomErrors = [];
+            window.onerror = function(msg, url, line, col, err) {
+              window.__phantomErrors.push(msg + ' @ ' + url + ':' + line);
+              return false;
+            };
+            function phantomUpdateDebug() {
+              var lines = [];
+              lines.push('readyState=' + document.readyState);
+              lines.push('jQuery=' + (typeof window.jQuery !== 'undefined' ? window.jQuery.fn.jquery : 'MISSING'));
+              lines.push('fetch=' + (typeof window.fetch));
+              lines.push('gform=' + (typeof window.gform));
+              lines.push('gformInitSpinner=' + (typeof window.gformInitSpinner));
+              var forms = document.querySelectorAll('form');
+              lines.push('forms.count=' + forms.length);
+              var formIds = [];
+              for (var i = 0; i < forms.length; i++) { formIds.push(forms[i].id || '(noid)'); }
+              lines.push('form.ids=' + formIds.join(','));
+              var gwrap = document.querySelectorAll('[id^="gform_wrapper"]');
+              lines.push('gform_wrapper.count=' + gwrap.length);
+              var w2 = document.getElementById('gform_wrapper_2');
+              if (w2) {
+                var w2cs = window.getComputedStyle(w2);
+                lines.push('gform_wrapper_2.inlineDisplay=' + w2.style.display + ' computedDisplay=' + w2cs.display);
+              } else {
+                lines.push('gform_wrapper_2=NOT_FOUND');
+              }
+              var target = document.getElementById('input_2_2');
+              lines.push('input_2_2.present=' + (!!target));
+              if (target) {
+                var cs = window.getComputedStyle(target);
+                lines.push('input_2_2.display=' + cs.display + ' visibility=' + cs.visibility + ' offsetParent=' + (!!target.offsetParent));
+              }
+              var scripts = document.querySelectorAll('script[src]');
+              var srcs = [];
+              for (var j = 0; j < scripts.length; j++) { srcs.push(scripts[j].src); }
+              lines.push('script.count=' + scripts.length);
+              lines.push('scripts=' + srcs.join(' | '));
+              lines.push('errors=' + window.__phantomErrors.join(' || '));
+              dbg.textContent = lines.join(String.fromCharCode(10));
+            }
+            phantomUpdateDebug();
+            setInterval(phantomUpdateDebug, 1000);
+    - javascript:
+        - value: |
+            var w2 = document.getElementById('gform_wrapper_2');
+            if (w2) {
+              w2.style.display = 'block';
+              w2.style.visibility = 'visible';
+              w2.style.opacity = '1';
+              var innerForm = w2.querySelector('form');
+              if (innerForm) {
+                innerForm.style.opacity = '1';
+              }
+            }
     - find:
         - selector: "#input_2_2"
           options:
