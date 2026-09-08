@@ -5,76 +5,125 @@ contact_form:
   steps:
     - visit: "https://www.cotton.senate.gov/contact/contact-tom"
     - fill_in:
-        - name: input_B03E05C4-4040-F985-52CD-9CA44623DE5E
-          selector: "#input-B03E05C4-4040-F985-52CD-9CA44623DE5E"
+        - name: input_3
+          selector: "#input_2_3"
           value: $NAME_FIRST
           required: true
-        - name: input_B03E04BD-4040-F985-52CD-48E090E769DA
-          selector: "#input-B03E04BD-4040-F985-52CD-48E090E769DA"
+        - name: input_4
+          selector: "#input_2_4"
           value: $NAME_LAST
           required: true
-        - name: input_B03E05F1-4040-F985-52CD-A580E72A7D41
-          selector: "#input-B03E05F1-4040-F985-52CD-A580E72A7D41"
+        - name: input_5.1
+          selector: "#input_2_5_1"
           value: $ADDRESS_STREET
           required: true
-        - name: input_B03E0595-4040-F985-52CD-C572364023FE
-          selector: "#input-B03E0595-4040-F985-52CD-C572364023FE"
+        - name: input_5.3
+          selector: "#input_2_5_3"
           value: $ADDRESS_CITY
           required: true
-        - name: input_B03E04CC-4040-F985-52CD-4DDB58DA474A
-          selector: "#input-B03E04CC-4040-F985-52CD-4DDB58DA474A"
+        - name: input_5.5
+          selector: "#input_2_5_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: input_B03E046E-4040-F985-52CD-A2F10450D58D
-          selector: "#input-B03E046E-4040-F985-52CD-A2F10450D58D"
+        - name: input_6
+          selector: "#input_2_6"
           value: $PHONE
           required: true
-        - name: input_B03E0536-4040-F985-52CD-AFE12CDE8D31
-          selector: "#email"
+        - name: input_13
+          selector: "#input_2_13"
           value: $EMAIL
           required: true
-        - name: input_B03E05A4-4040-F985-52CD-730C08912F4F
-          selector: "#input-B03E05A4-4040-F985-52CD-730C08912F4F"
+        - name: input_13_2
+          selector: "#input_2_13_2"
           value: $EMAIL
           required: true
-        - name: input_BC4D4A76-EAA0-9925-E36C-A9DD5D8581F2
-          selector: "#input-BC4D4A76-EAA0-9925-E36C-A9DD5D8581F2"
+        - name: input_11
+          selector: "#input_2_11"
           value: $SUBJECT
           required: true
-        - name: input_B03E05B4-4040-F985-52CD-8DF0BC10EEE2
-          selector: "#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2"
+        - name: input_12
+          selector: "#input_2_12"
           value: $MESSAGE
           required: true
     - select:
-        - name: input_B03E0527-4040-F985-52CD-C0DD6BEF325F
-          selector: "#input-B03E0527-4040-F985-52CD-C0DD6BEF325F"
+        - name: input_2
+          selector: "#input_2_2"
           value: $NAME_PREFIX
           required: true
           options:
             - Mr.
             - Mrs.
             - Ms.
-            - Ms.
             - Dr.
-            - Professor
-            - Admiral
-            - Captain
-            - Chief Master Sergeant
-            - Colonel
-            - Commander
-            - Corporal
-            - Father
-            - Lieutenant
-            - Lieutenant Colonel
-            - Master Sergeant 
-            - Reverend
-            - Sergeant
-            - Second Lieutenant
-            - Sergeant Major
-            - Sister
-            - Technical Sergeant
-        - name: input_B03E04DB-4040-F985-52CD-18F332336F99
-          selector: "#input-B03E04DB-4040-F985-52CD-18F332336F99"
+            - Rev.
+            - Prof.
+            - Hon.
+        - name: input_5.4
+          selector: "#input_2_5_4"
+          value: $ADDRESS_STATE_FULL
+          required: true
+          options:
+            - Alabama
+            - Alaska
+            - American Samoa
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Guam
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Northern Mariana Islands
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Puerto Rico
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - U.S. Virgin Islands
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+            - Armed Forces Americas
+            - Armed Forces Europe
+            - Armed Forces Pacific
+        - name: input_10
+          selector: "#input_2_10"
           value: $TOPIC
           required: true
           options:
@@ -87,6 +136,7 @@ contact_form:
             - Congratulations
             - Crime
             - Education
+            - Elections
             - Energy
             - Environment
             - Family
@@ -117,10 +167,10 @@ contact_form:
             - Welfare
             - Women's Issues
     - javascript:
-        - value: document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value = document.querySelector("#input-B03E05B4-4040-F985-52CD-8DF0BC10EEE2").value.replace(/"/g, '');
+        - value: document.querySelector("#input_2_12").value = document.querySelector("#input_2_12").value.replace(/"/g, '');
     - click_on:
-        - value: Send
-          selector: .btn
+        - value: Submit
+          selector: "#gform_submit_button_2"
     - wait:
         - value: 5
   success:
