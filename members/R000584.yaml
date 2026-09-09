@@ -138,8 +138,6 @@ contact_form:
         - selector: "#gform_submit_button_2"
     - javascript:
         - value: "(function(){function strip(){Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(el){ try{ el.parentNode.removeChild(el) } catch(err){} });} strip(); setInterval(strip, 300);})()"
-    - javascript:
-        - value: "(function(){var b=document.getElementById('gform_submit_button_2');if(b){b.scrollIntoView({block:'center'});}Array.prototype.forEach.call(document.querySelectorAll('.elementor-nav-menu,.elementor-location-header,.elementor-sticky--effects,header,nav'),function(el){el.style.pointerEvents='none';});})()"
     - find:
         - selector: "#gform_confirmation_message_2"
           options:
