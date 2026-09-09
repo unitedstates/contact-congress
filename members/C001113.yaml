@@ -5,8 +5,6 @@ contact_form:
   steps:
     - visit: "https://www.cortezmasto.senate.gov/contact/connect"
     - javascript:
-        - value: "(function(){function strip(){Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(el){ try{ el.parentNode.removeChild(el) } catch(err){} });} strip(); setInterval(strip, 300);})()"
-    - javascript:
         - value: "document.body.style.visibility = 'inherit'; var w = document.querySelector('#gform_wrapper_2'); if (w) { w.style.display = 'block'; w.style.visibility = 'visible'; w.style.opacity = '1'; } var f = document.querySelector('#gform_wrapper_2 form'); if (f) { f.style.opacity = '1'; f.style.visibility = 'visible'; }"
     - find:
         - selector: "#input_2_2"
@@ -157,8 +155,6 @@ contact_form:
              Trade: Trade
              Transportation: Transportation
              Veterans: Veterans
-    - javascript:
-        - value: "(function(){function clear(sel){var el=document.querySelector(sel);if(!el)return;el.scrollIntoView({block:'center'});var r=el.getBoundingClientRect();var x=r.left+r.width/2,y=r.top+r.height/2;for(var i=0;i<20;i++){var t=document.elementFromPoint(x,y);if(!t||t===el||el.contains(t)||t.contains(el))break;var s=t.closest?t.closest('svg'):null;(s||t).style.pointerEvents='none';}}clear('#gform_submit_button_2');})()"
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_2"
