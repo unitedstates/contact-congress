@@ -157,6 +157,8 @@ contact_form:
              Trade: Trade
              Transportation: Transportation
              Veterans: Veterans
+    - javascript:
+        - value: "(function(){function clear(sel){var el=document.querySelector(sel);if(!el)return;el.scrollIntoView({block:'center'});var r=el.getBoundingClientRect();var x=r.left+r.width/2,y=r.top+r.height/2;for(var i=0;i<20;i++){var t=document.elementFromPoint(x,y);if(!t||t===el||el.contains(t)||t.contains(el))break;var s=t.closest?t.closest('svg'):null;(s||t).style.pointerEvents='none';}}clear('#gform_submit_button_2');})()"
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_2"
