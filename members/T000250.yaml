@@ -4,8 +4,8 @@ contact_form:
   action: ""
   steps:
     - visit: "https://www.thune.senate.gov/contact/email-senator-thune/"
-    - wait:
-        - value: 5
+    - javascript:
+        - value: "(function(){function strip(){Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(el){ try{ el.parentNode.removeChild(el) } catch(err){} });} strip(); setInterval(strip, 300);})()"
     - javascript:
         - value: "document.body.style.visibility = 'inherit'; var w = document.querySelector('#gform_wrapper_2'); if (w) { w.style.display = 'block'; w.style.visibility = 'visible'; w.style.opacity = '1'; } var f = document.querySelector('#gform_wrapper_2 form'); if (f) { f.style.opacity = '1'; f.style.visibility = 'visible'; }"
     - find:
@@ -170,8 +170,12 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_2"
+    - javascript:
+        - value: "(function(){function strip(){Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(el){ try{ el.parentNode.removeChild(el) } catch(err){} });} strip(); setInterval(strip, 300);})()"
     - find:
         - selector: "#gform_confirmation_message_2"
+          options:
+            wait: 30
   success:
     headers:
       status: 200
