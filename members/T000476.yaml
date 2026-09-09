@@ -282,6 +282,8 @@ contact_form:
             Veterans: VET
             Welfare: WEL
     - javascript:
+        - value: document.querySelector('.recaptcha').insertAdjacentHTML('beforeend', "<textarea name='g-recaptcha-response' id='g-recaptcha-response'></textarea>");
+    - javascript:
         - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - recaptcha:
         - value: true

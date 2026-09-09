@@ -115,6 +115,12 @@ contact_form:
             Wyoming: WY
     - javascript:
         - value: document.querySelector("#field_48423449-A5CB-4B5E-8AF8-6941AB24E7BC").value = document.querySelector("#field_48423449-A5CB-4B5E-8AF8-6941AB24E7BC").value.replace(/"/g, '');
+    - javascript:
+        - value: document.querySelector('.recaptcha').insertAdjacentHTML('beforeend', "<textarea name='g-recaptcha-response' id='g-recaptcha-response'></textarea>");
+    - javascript:
+        - value: document.querySelector("#g-recaptcha-response").style.display = "block";
+    - recaptcha:
+        - value: true
     - click_on:
         - value: Submit
           selector: "input.btn.btn-primary"

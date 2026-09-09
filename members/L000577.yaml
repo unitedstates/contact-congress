@@ -87,6 +87,8 @@ contact_form:
           selector: "#field_D42B86D9-04F0-4F57-AC0C-614B7B86E8AB_0"
           value: "N"
     - javascript:
+        - value: document.querySelector('.recaptcha').insertAdjacentHTML('beforeend', "<textarea name='g-recaptcha-response' id='g-recaptcha-response'></textarea>");
+    - javascript:
         - value: document.querySelector("#g-recaptcha-response").style.display = "block";
     - javascript:
         - value: document.querySelector("#field_E1F6236D-5A16-4C23-93B1-A9DD0132AD48").value = document.querySelector("#field_E1F6236D-5A16-4C23-93B1-A9DD0132AD48").value.replace(/"/g, '');
