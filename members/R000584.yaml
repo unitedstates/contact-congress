@@ -131,6 +131,8 @@ contact_form:
             - Armed Forces Americas
             - Armed Forces Europe
             - Armed Forces Pacific
+    - javascript:
+        - value: "(function(){function clear(sel){var el=document.querySelector(sel);if(!el)return;el.scrollIntoView({block:'center'});var r=el.getBoundingClientRect();var x=r.left+r.width/2,y=r.top+r.height/2;for(var i=0;i<10;i++){var t=document.elementFromPoint(x,y);if(!t||t===el||el.contains(t)||t.contains(el))break;t.style.pointerEvents='none';}}clear('#choice_2_48_1');clear('#gform_submit_button_2');})()"
     - click_on:
         - name: "input_48"
           selector: "#choice_2_48_1"
