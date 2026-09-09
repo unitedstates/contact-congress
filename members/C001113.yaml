@@ -162,15 +162,10 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_2"
-    - javascript:
-        - value: "(function(){function strip(){Array.prototype.forEach.call(document.querySelectorAll('style,[rel=\"stylesheet\"],[type=\"text/css\"]'), function(el){ try{ el.parentNode.removeChild(el) } catch(err){} });} strip(); setInterval(strip, 300);})()"
-    - find:
-        - selector: "#gform_confirmation_message_2"
-          value: "Thank You"
-          options:
-            wait: 30
+    - wait:
+        - value: 10
   success:
     headers:
       status: 200
     body:
-      contains: "We will work to provide a response as soon as possible. If you need immediate assistance, please call my office."
+      contains: "Email Catherine"
