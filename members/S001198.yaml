@@ -313,9 +313,8 @@ contact_form:
         - value: Submit
           selector: "#gform_submit_button_10"
     - find:
-        - selector: "#gform_confirmation_message_10"
-          options:
-            wait: 30
+        - selector: "h1"
+          value: "Thank You"
   success:
     headers:
       status: 200
