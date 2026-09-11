@@ -187,6 +187,8 @@ contact_form:
         - value: document.querySelector("#input-4273AC30-BD7A-71CE-C404-6C3C23E22134").value = document.querySelector("#input-4273AC30-BD7A-71CE-C404-6C3C23E22134").value.replace(/"/g, '');
     - javascript:
         - value: "document.querySelector('#g-recaptcha-response').style.cssText = 'display: block; margin-top: 5em;';"
+    - javascript:
+        - value: document.getElementById('g-recaptcha-response') || document.querySelector('.g-recaptcha').insertAdjacentHTML('beforeend', "<textarea name='g-recaptcha-response' id='g-recaptcha-response'></textarea>");
     - recaptcha:
         - value: true
     - wait:
