@@ -6,6 +6,20 @@ contact_form:
     - visit: "https://www.schiff.senate.gov/contact/get-in-touch/"
     - wait:
         - value: 3
+    - javascript:
+        - value: |
+            (function () {
+              var w = document.querySelector('#gform_wrapper_2');
+              if (w) {
+                w.style.display = 'block';
+                w.classList.remove('gform_validation_error');
+              }
+              var f = document.querySelector('#gform_2');
+              if (f) { f.style.opacity = ''; }
+              try { if (window.gf_apply_rules) { window.gf_apply_rules(2, [0], true); } } catch (e) {}
+            })();
+    - wait:
+        - value: 2
     - fill_in:
         - name: input_2
           selector: "#input_2_2"
@@ -164,8 +178,8 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#gform_submit_button_2"
-    - javascript:
-        - value: if (document.querySelector(".elementor-message-success")) { document.querySelector(".elementor-message-success").style.display = "block"; }
+    - wait:
+        - value: 5
   success:
     headers:
       status: 200
