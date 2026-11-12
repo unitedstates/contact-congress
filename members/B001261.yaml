@@ -1,41 +1,49 @@
-bioguide:  B001261
+bioguide: B001261
 contact_form:
   method: post
-  action: ""
+  action: /contact/contact-form/
   steps:
-    - visit: "http://www.barrasso.senate.gov/public/index.cfm/contact-form"
+    - visit: "https://www.barrasso.senate.gov/contact/contact-form/"
     - fill_in:
-        - name: field_4676565C-0170-462B-9D63-700A776BF7AC
-          selector: "#field_4676565C-0170-462B-9D63-700A776BF7AC"
+        - name: first-name
+          selector: "input[name='first-name']"
           value: $NAME_FIRST
           required: true
-        - name: field_45CB27BD-28A7-432D-995C-4F9527B29E9D
-          selector: "#field_45CB27BD-28A7-432D-995C-4F9527B29E9D"
+        - name: last-name
+          selector: "input[name='last-name']"
           value: $NAME_LAST
           required: true
-        - name: field_651CA95E-DCED-412B-B6D8-27EB6EE75C74
-          selector: "#field_651CA95E-DCED-412B-B6D8-27EB6EE75C74"
+        - name: Address1
+          selector: "input[name='Address1']"
           value: $ADDRESS_STREET
           required: true
-        - name: field_BE9F26D8-9ED2-4EB1-8A5C-47A179DBF22E
-          selector: "#field_BE9F26D8-9ED2-4EB1-8A5C-47A179DBF22E"
+        - name: address2
+          selector: "input[name='address2']"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: city
+          selector: "input[name='city']"
           value: $ADDRESS_CITY
           required: true
-        - name: field_96DF0C39-34D1-4ED1-9F8B-955307BC507E
-          selector: "#field_96DF0C39-34D1-4ED1-9F8B-955307BC507E"
+        - name: zip-code
+          selector: "input[name='zip-code']"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_FF59BB0A-1685-421F-81B4-6299B34BF028
-          selector: "#field_FF59BB0A-1685-421F-81B4-6299B34BF028"
+        - name: cell-phone
+          selector: "input[name='cell-phone']"
+          value: $PHONE
+          required: false
+        - name: your-email
+          selector: "input[name='your-email']"
           value: $EMAIL
           required: true
-        - name: field_40C203DD-A384-408D-84AB-26D1471756D8
-          selector: "#field_40C203DD-A384-408D-84AB-26D1471756D8"
+        - name: your-message
+          selector: "textarea[name='your-message']"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_5A60F5CF-85BC-4C81-ACD1-76B917030069
-          selector: "#field_5A60F5CF-85BC-4C81-ACD1-76B917030069"
+        - name: Prefix
+          selector: "select[name='Prefix']"
           value: $NAME_PREFIX
           required: true
           options:
@@ -52,9 +60,9 @@ contact_form:
             - The Honorable
             - Representative
             - Senator
-        - name: field_9458AEF1-68E8-4306-B9E3-72BA1BE4AFAD
-          selector: "#field_9458AEF1-68E8-4306-B9E3-72BA1BE4AFAD"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+        - name: State
+          selector: "select[name='State']"
+          value: $ADDRESS_STATE_FULL
           required: true
           options:
             - AA
@@ -111,19 +119,22 @@ contact_form:
             - West Virginia
             - Wisconsin
             - Wyoming
-        - name: field_F4E8E3BF-A702-450E-AD14-7C7922CD28F3
-          selector: "#field_F4E8E3BF-A702-450E-AD14-7C7922CD28F3"
+        - name: topic
+          selector: "select[name='topic']"
           value: $TOPIC
           required: true
           options:
+            - Assistance with a Federal Agency
+            - Congratulations Letter Request
+            - Flag Request
+            - Internship
+            - Tour Request
             - Agriculture
             - Animals
-            - Assistance with a Federal Agency
             - Banking and Finance
             - Budget
             - Business
-            - Campaign Reform/Elections
-            - Congratulations Letter Request
+            - Campaign Reform
             - Congress
             - Constitution
             - Defense
@@ -133,16 +144,13 @@ contact_form:
             - Energy
             - Environment
             - Federal Debt
-            - Flag Request
             - Foreign Relations
             - Government
             - Healthcare
             - Human Rights
             - Immigration
-            - Inauguration Tickets
             - Indian Affairs
             - Internet/Telecommunications
-            - Internship
             - Labor
             - Medicare
             - President
@@ -150,16 +158,24 @@ contact_form:
             - Second Amendment and Gun Rights
             - Social Security
             - Taxes
-            - Tour Request
             - Trade
-            - "Veterans\t\t"
+            - Veterans
+            - Other
+    - choose:
+        - name: want-response
+          selector: "input[name='want-response']"
+          value: "Yes"
+          required: true
     - javascript:
-        - value: document.querySelector("#field_40C203DD-A384-408D-84AB-26D1471756D8").value = document.querySelector("#field_40C203DD-A384-408D-84AB-26D1471756D8").value.replace(/"/g, '');
+        - value: document.querySelector("textarea[name='your-message']").value = document.querySelector("textarea[name='your-message']").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: input.btn.btn-primary
+          selector: "input.wpcf7-submit"
+    - find:
+        - selector: ".wpcf7-response-output"
+          value: "Thank you for your message"
   success:
     headers:
       status: 200
     body:
-      contains: Thank you
+      contains: Thank you for your message
