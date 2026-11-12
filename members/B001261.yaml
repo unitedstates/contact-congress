@@ -172,8 +172,9 @@ contact_form:
         - value: Submit
           selector: "input.wpcf7-submit"
     - find:
-        - selector: ".wpcf7-response-output"
-          value: "Thank you for your message"
+        - selector: "form.wpcf7-form[data-status='sent']"
+          options:
+            wait: 30
   success:
     headers:
       status: 200
