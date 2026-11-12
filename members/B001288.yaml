@@ -6,6 +6,15 @@ contact_form:
     - visit: "https://www.booker.senate.gov/contact/write-to-cory/form"
     - wait:
         - value: 3
+    - javascript:
+        - value: "if (!document.querySelector('#firstName') && window.creativengine_forms_builder) { creativengine_forms_builder.init(); }"
+    - wait:
+        - value: 3
+    - javascript:
+        - value: "if (!document.querySelector('#firstName') && window.creativengine_forms_builder) { creativengine_forms_builder.init(); }"
+    - find:
+        - selector: "#firstName"
+          timeout: 10
     - fill_in:
         - name: input_2AB4269B-0EFC-EB00-9186-5B08A34143C5
           selector: "#firstName"
@@ -25,7 +34,7 @@ contact_form:
           required: true
         - name: input-A3B5C438-CBC9-4E11-BB60-7931A4433674
           selector: "#input-A3B5C438-CBC9-4E11-BB60-7931A4433674"
-          value: $ADDRESS_ZIP5
+          value: $ADDRESS_ZIP_PLUS_4
           required: true
         - name: input-A3B5C492-C1FA-436F-B863-9D497858366F
           selector: "#input-A3B5C492-C1FA-436F-B863-9D497858366F"
@@ -182,12 +191,10 @@ contact_form:
           value: "Yes"
           required: true
           options:
-            Yes: Y
-            No: N
-    - find:
-        - selector: "#newsletteraction"
-    - javascript:
-        - value: "document.querySelector('#newsletteraction-1').click();"
+            - "Yes"
+            - "No"
+    - click_on:
+        - selector: "#newsletteraction-1"
     - click_on:
         - value: Submit
           selector: .btn
