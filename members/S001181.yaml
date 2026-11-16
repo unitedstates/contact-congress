@@ -4,6 +4,19 @@ contact_form:
   action: "https://www.shaheen.senate.gov/contact/contact-jeanne"
   steps:
     - visit: "https://www.shaheen.senate.gov/contact/contact-jeanne"
+    - wait:
+        - value: 3
+    # Senate forms.cfc builder often fails on first load and leaves a spinner.
+    # Re-run the site's builder if the form didn't render.
+    - javascript:
+        - value: "if (!document.querySelector('#input-9247EFE3-AE07-B24E-99DB-FC001CEF0DBE') && window.creativengine_forms_builder) { creativengine_forms_builder.init(); }"
+    - wait:
+        - value: 3
+    - javascript:
+        - value: "if (!document.querySelector('#input-9247EFE3-AE07-B24E-99DB-FC001CEF0DBE') && window.creativengine_forms_builder) { creativengine_forms_builder.init(); }"
+    - find:
+        - selector: "#input-9247EFE3-AE07-B24E-99DB-FC001CEF0DBE"
+          timeout: 10
     - fill_in:
         - name: input_9247EFE3-AE07-B24E-99DB-FC001CEF0DBE
           selector: "#input-9247EFE3-AE07-B24E-99DB-FC001CEF0DBE"
@@ -48,13 +61,70 @@ contact_form:
           required: true
           options:
             - Mr.
-            - Ms.
             - Mrs.
+            - Ms.
+            - Mx.
             - Miss
             - Professor
             - Dean
             - The Honorable
             - Dr.
+        - name: input_9247EEFF-9BEE-15E4-D0DE-6088B7B2D513
+          selector: "#input-9247EEFF-9BEE-15E4-D0DE-6088B7B2D513"
+          value: $ADDRESS_STATE_POSTAL_ABBREV
+          required: true
+          options:
+            - AL
+            - AK
+            - AR
+            - AZ
+            - CA
+            - CO
+            - CT
+            - DC
+            - DE
+            - FL
+            - GA
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - WA
+            - WV
+            - WI
+            - WY
         - name: input_9247F04B-B300-2960-1735-92912EC4FED3
           selector: "#input-9247F04B-B300-2960-1735-92912EC4FED3"
           value: $TOPIC
@@ -62,62 +132,66 @@ contact_form:
           options:
             Abortion: ABOR
             Aging / Seniors: SEN
+            Agriculture: AGR
             Animal Rights: ANIM
-            Appropriations: APP
             Arts and Humanities: ARTS
             Banking: BANK
             Budget: BUD
             Campaign Finance Reform: CAMP
-            Casework: CASE
             Census: CEN
             Children: CHD
-            Consumer Protection: CON
-            Defense and Military: DEF
+            Civil Rights: CIV
             Civil Service / Postal: POST
-            Social Issues: SOC
-            Education: EDU
+            Climate Change: CLIMATE
             Commerce: COM
+            Congressional Issues: CON
+            Consumer Protection: CON
+            Criminal Justice: CRMJSTC
+            Debt / Deficit: DEBT
+            Defense and Military: DEF
+            Domestic Violence/Sexual Assault: DVSA
+            Drugs: DRUGS
+            Economy: ECON
+            Education: EDU
+            Elections / Election Reform: ELECT
             Energy: ENE
             Environment: ENV
-            Congressional Issues: CON
-            Crimes / Drugs / Guns: CRIME
             Ethics Reform: ETH
+            Firearms: FIREARMS
             Foreign Relations: FOR
-            Debt / Deficit: DEBT
             Grant Letters: GRANT
-            Economy: ECON
             Healthcare: HEA
             Homeland Security: HSC
             Housing and Urban Affairs: HOU
-            Elections / Election Reform: ELECT
             Immigration: IMM
+            Insurance - Other: INSUR-OTHER
             Intelligence: INTEL
+            Interior / Forestry: INTERI
+            Jobs: JOBS
             Judiciary: JUD
             Labor: LAB
+            LGBTQ+ Issues: LGBTQPLUS
+            LIHEAP: LIHEAP
+            Military / Retiree Health Care: MIL.HEA
+            NASA: NASA
             Native Americans: NAT
             Nutrition: NUT
             Postal Service: POS
             Science and Innovation: SCI
             Seniors: SEN
-            Indian Affairs: IND
-            Insurance - Other: INSUR-OTHER
+            Small Business: BUS
             Social Security: SSN
             Taxes: TAX
-            Interior / Forestry: INTERI
-            Jobs: JOBS
             Technology and Telecom: TEC
-            Tour Requests: TOURS
             Trade: TRD
             Transportation: TRN
-            LGBT: LGBT
             Veterans: VET
-            LIHEAP: LIHEAP
-            Military / Retiree Health Care: MIL.HEA
             Women: WOM
-            NASA: NASA
-            Small Business: BUS
-    - javascript:
-        - value: document.querySelector("#input-9247EF55-B6B9-E31D-C39F-7267C2C291B0").click()
+            Opioids: OPIOIDS
+    # Newsletter subscribe box is checked by default; opt the constituent out.
+    - uncheck:
+        - name: input_9247EF55-B6B9-E31D-C39F-7267C2C291B0
+          selector: "#input-9247EF55-B6B9-E31D-C39F-7267C2C291B0"
     - javascript:
         - value: document.querySelector("#input-9247EFB0-D80E-364B-1BEF-EF0705DF9E0F").value = document.querySelector("#input-9247EFB0-D80E-364B-1BEF-EF0705DF9E0F").value.replace(/"/g, '');
     - click_on:
