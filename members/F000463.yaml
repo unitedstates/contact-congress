@@ -1,146 +1,158 @@
 bioguide:  F000463
 contact_form:
   method: post
-  action: ""
+  action: "https://www.fischer.senate.gov/connect/email-deb/"
   steps:
-    - visit: "https://www.fischer.senate.gov/public/?p=email-deb"
+    - visit: "https://www.fischer.senate.gov/connect/email-deb/"
     - fill_in:
-        - name: field_E947A1A8-7A71-4295-AA00-FD0FE886E40D
-          selector: "#field_E947A1A8-7A71-4295-AA00-FD0FE886E40D"
+        - name: input_13
+          selector: "#input_7_13"
+          value: $NAME_PREFIX
+          required: false
+        - name: input_3
+          selector: "#input_7_3"
           value: $NAME_FIRST
           required: true
-        - name: field_5983BF37-51BC-4E85-A4B1-29557AFF3FF4
-          selector: "#field_5983BF37-51BC-4E85-A4B1-29557AFF3FF4"
+        - name: input_4
+          selector: "#input_7_4"
           value: $NAME_LAST
           required: true
-        - name: field_4E708D5F-94D4-4CD4-81A3-D1D9FEA89A03
-          selector: "#field_4E708D5F-94D4-4CD4-81A3-D1D9FEA89A03"
+        - name: input_5.1
+          selector: "#input_7_5_1"
           value: $ADDRESS_STREET
           required: true
-        - name: field_C4BD9743-4A63-47F2-B92B-180E85F228BC
-          selector: "#field_C4BD9743-4A63-47F2-B92B-180E85F228BC"
+        - name: input_5.2
+          selector: "#input_7_5_2"
+          value: $ADDRESS_STREET_2
+          required: false
+        - name: input_5.3
+          selector: "#input_7_5_3"
           value: $ADDRESS_CITY
           required: true
-        - name: field_3ADFB964-53E1-4036-9896-18F1A806B01A
-          selector: "#field_3ADFB964-53E1-4036-9896-18F1A806B01A"
+        - name: input_5.5
+          selector: "#input_7_5_5"
           value: $ADDRESS_ZIP5
           required: true
-        - name: field_4911ED7C-5FBC-4A64-9382-B346870CCB16
-          selector: "#field_4911ED7C-5FBC-4A64-9382-B346870CCB16"
+        - name: input_7
+          selector: "#input_7_7"
           value: $PHONE
           required: true
-        - name: field_D37EA3F0-FB86-4F3D-9F93-CC358449C2A5
-          selector: "#field_D37EA3F0-FB86-4F3D-9F93-CC358449C2A5"
+        - name: input_8
+          selector: "#input_7_8"
           value: $EMAIL
           required: true
-        - name: field_E3A78E09-F120-4566-85E0-B35D0ECCC988
-          selector: "#field_E3A78E09-F120-4566-85E0-B35D0ECCC988"
+        - name: input_10
+          selector: "#input_7_10"
           value: $SUBJECT
           required: true
-        - name: field_6AF13719-60D3-4199-BE64-495D74906948
-          selector: "#field_6AF13719-60D3-4199-BE64-495D74906948"
+        - name: input_11
+          selector: "#input_7_11"
           value: $MESSAGE
           required: true
     - select:
-        - name: field_0EB9F380-2AF2-42DA-B8A5-9425ADFE1093
-          selector: "#field_0EB9F380-2AF2-42DA-B8A5-9425ADFE1093"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
+        - name: input_5.4
+          selector: "#input_7_5_4"
+          value: $ADDRESS_STATE_FULL
           required: true
           options:
-            AA: AA
-            AE: AE
-            AP: AP
-            Alabama: AL
-            Alaska: AK
-            Arizona: AZ
-            Arkansas: AR
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            Delaware: DE
-            District of Columbia: DC
-            Florida: FL
-            Georgia: GA
-            Hawaii: HI
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Iowa: IA
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Maine: ME
-            Maryland: MD
-            Massachusetts: MA
-            Michigan: MI
-            Minnesota: MN
-            Mississippi: MS
-            Missouri: MO
-            Montana: MT
-            Nebraska: NE
-            Nevada: NV
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            New York: NY
-            North Carolina: NC
-            North Dakota: ND
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Pennsylvania: PA
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Vermont: VT
-            Virginia: VA
-            Washington: WA
-            West Virginia: WV
-            Wisconsin: WI
-            Wyoming: WY
-        - name: field_97476198-7AB2-410A-A664-FA9606739644
-          selector: "#field_97476198-7AB2-410A-A664-FA9606739644"
+            - Alabama
+            - Alaska
+            - American Samoa
+            - Arizona
+            - Arkansas
+            - California
+            - Colorado
+            - Connecticut
+            - Delaware
+            - District of Columbia
+            - Florida
+            - Georgia
+            - Guam
+            - Hawaii
+            - Idaho
+            - Illinois
+            - Indiana
+            - Iowa
+            - Kansas
+            - Kentucky
+            - Louisiana
+            - Maine
+            - Maryland
+            - Massachusetts
+            - Michigan
+            - Minnesota
+            - Mississippi
+            - Missouri
+            - Montana
+            - Nebraska
+            - Nevada
+            - New Hampshire
+            - New Jersey
+            - New Mexico
+            - New York
+            - North Carolina
+            - North Dakota
+            - Northern Mariana Islands
+            - Ohio
+            - Oklahoma
+            - Oregon
+            - Pennsylvania
+            - Puerto Rico
+            - Rhode Island
+            - South Carolina
+            - South Dakota
+            - Tennessee
+            - Texas
+            - Utah
+            - U.S. Virgin Islands
+            - Vermont
+            - Virginia
+            - Washington
+            - West Virginia
+            - Wisconsin
+            - Wyoming
+            - Armed Forces Americas
+            - Armed Forces Europe
+            - Armed Forces Pacific
+        - name: input_9
+          selector: "#input_7_9"
           value: $TOPIC
           required: true
           options:
-            Please select a Subject: noSelect
-            Agriculture: Agriculture
-            Banking: Banking
-            Budget: Budget
-            "Defense,Terrorism": Defense
-            Economy: Economy
-            Education: Education
-            Energy: Energy
-            Environment: Environment
-            Federal Government: Government
-            Foreign Affairs: Foreign Affairs
-            Health: Health
-            Housing: Housing
-            Immigration: Immigration
-            Intelligence/National Security: Intelligence
-            Judiciary: Judiciary
-            "Labor,Unemployment Issues": Labor
-            Medicaid/Medicare: Healthcare
-            Science and Technology: Science and Technology
-            Senior Issues: Senior Issues
-            Second Amendment Rights: Second Amendment Rights
-            Small Business: Small Business
-            Social Security: Social Security
-            Taxes: Taxes
-            Telecommunications: Communications
-            Trade: Trade
-            Transportation: Transportation
-            "Veterans' Affairs": Veterans
-            Welfare: Welfare
-            Other: Other
+            - Agriculture
+            - Banking
+            - Budget
+            - "Defense, Terrorism"
+            - Economy
+            - Education
+            - Energy
+            - Environment
+            - Federal Government
+            - Foreign Affairs
+            - Health
+            - Housing
+            - Immigration
+            - Intelligence/National Security
+            - Judiciary
+            - "Labor, Unemployment Issues"
+            - Medicaid/Medicare
+            - Science and Technology
+            - Senior Issues
+            - Second Amendment Rights
+            - Small Business
+            - Social Security
+            - Taxes
+            - Telecommunications
+            - Trade
+            - Transportation
+            - "Veterans' Affairs"
+            - Welfare
+            - Other
     - javascript:
-        - value: document.querySelector("#field_6AF13719-60D3-4199-BE64-495D74906948").value = document.querySelector("#field_6AF13719-60D3-4199-BE64-495D74906948").value.replace(/"/g, '');
+        - value: document.querySelector("#input_7_11").value = document.querySelector("#input_7_11").value.replace(/"/g, '');
     - click_on:
         - value: Submit
-          selector: input.btn.btn-primary
+          selector: "#gform_submit_button_7"
   success:
     headers:
       status: 200
